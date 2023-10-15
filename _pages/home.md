@@ -21,7 +21,7 @@ This tutorial is split into 6 sections:
 <!-- 6. **Other Topics:** Multiplayer games, other games, and decision making lessons -->
 
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlyrou0KvI8zo7tiumm-HRN496MPnxiv9BoBwnVp67up9qA/viewform?embedded=true" width="640" height="741" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlyrou0KvI8zo7tiumm-HRN496MPnxiv9BoBwnVp67up9qA/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 
 I hope to extend the tutorial with videos and more interactive content in the future. Some other ideas that I've had: 
