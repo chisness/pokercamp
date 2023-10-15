@@ -20,6 +20,8 @@ This tutorial is split into 6 sections:
 5. **Top Poker Agents:** Recent research and results with top poker agents including a number of Man vs. Machine competitions
 <!-- 6. **Other Topics:** Multiplayer games, other games, and decision making lessons -->
 
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQlyrou0KvI8zo7tiumm-HRN496MPnxiv9BoBwnVp67up9qA/viewform?embedded=true" width="640" height="741" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 I hope to extend the tutorial with videos and more interactive content in the future. Some other ideas that I've had: 
 1. Create an online course and use this website as a "textbook", while the course would be a series of ~10 concise videos covering the most important topics and with coding exercises
 2. Do deep research into how current top agents play in heads up and multiplayer games and see what humans can learn from these strategies. A book called Game Changer analyzes the background of AlphaZero and interesting moves it makes in chess games. 
