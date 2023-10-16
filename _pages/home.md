@@ -18,6 +18,7 @@ Poker Unfolded: Coming soon
 <br>Inside Poker Solvers: Coming in 2024
 <br>Poker AI Retreat (PAIR): Coming in 2024
 
-<center><img src="./assets/nrp.png" alt="No Regret Poker"></center>
+<center><img src="./assets/nrp.png" alt="No Regret Poker">
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="1024" height="1024" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="1024" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</center>
