@@ -6,10 +6,8 @@ permalink: /
 # toc: true
 # toc_label: "TOC"
 # toc_sticky: true
+layout: single
 ---
-<img src="./assets/nrp.png" alt="No Regret Poker" width="512"/>
-
-
 **No Regret Poker** is the index site for a series of educational materials that use poker to teach math, decision making, Python, and AI concepts:
 
 Poker Unfolded 1:
@@ -27,5 +25,7 @@ Deep Inside Poker Solvers:
 Poker AI Retreat (PAIR):
 
 Bet -------: 
+
+<img src="./assets/nrp.png" alt="No Regret Poker">
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="640" height="741" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
