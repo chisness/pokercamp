@@ -18,4 +18,6 @@ Poker Unfolded: Coming soon
 <br>Inside Poker Solvers: Coming in 2024
 <br>Poker AI Retreat (PAIR): Coming in 2024
 
+My personal website is <https://www.maxchiswick.com> and I can be contacted at <max@noregretpoker.com>.
+
 ![No Regret Poker](./assets/nrp.png)
