@@ -10,13 +10,13 @@ layout: single
 ---
 **No Regret Poker** is the index site for a series of educational materials that use poker to teach math, probability, decision making, Python, and AI concepts. Counterfactual Regret Minimization is the main algorithm used to find game theory optimal strategies in poker games. 
 
-Poker Unfolded
-<br>Poker Camp
-<br>Bet -------
+Poker Unfolded: Coming soon
+<br>Poker Camp: Coming in 2024
+<br>Bet -------: Coming in 2024
 
-[AI Poker Tutorial](https://aipokertutorial.com)
-<br>Inside Poker Solvers
-<br>Poker AI Retreat (PAIR)
+[AI Poker Tutorial](https://aipokertutorial.com): Updates coming soon
+<br>Inside Poker Solvers: Coming in 2024
+<br>Poker AI Retreat (PAIR): Coming in 2024
 
 <center><img src="./assets/nrp.png" alt="No Regret Poker"></center>
 
