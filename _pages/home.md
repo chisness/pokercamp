@@ -14,7 +14,7 @@ Poker Unfolded
 <br>Poker Camp
 <br>Bet -------
 
-AI Poker Tutorial
+[AI Poker Tutorial](https://aipokertutorial.com)
 <br>Inside Poker Solvers
 <br>Poker AI Retreat (PAIR)
 
