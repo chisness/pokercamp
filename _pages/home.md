@@ -7,8 +7,8 @@ permalink: /
 # toc_label: "TOC"
 # toc_sticky: true
 ---
+<img src="./assets/nrp.png" alt="No Regret Poker" width="512"/>
 
-![No Regret Poker](./assets/nrp.png)
 
 **No Regret Poker** is the index site for a series of educational materials that use poker to teach math, decision making, Python, and AI concepts:
 
