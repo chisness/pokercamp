@@ -1,5 +1,5 @@
 ---
-title: "No Regret Poker"
+# title: "No Regret Poker"
 permalink: /
 # sidebar:
 #   nav: "nav"
