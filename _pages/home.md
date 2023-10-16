@@ -20,5 +20,5 @@ Poker Unfolded: Coming soon
 
 <center><img src="./assets/nrp.png" alt="No Regret Poker">
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="1024" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="600" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </center>
