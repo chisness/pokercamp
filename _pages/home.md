@@ -18,6 +18,6 @@ AI Poker Tutorial
 <br>Inside Poker Solvers
 <br>Poker AI Retreat (PAIR)
 
-<center><img src="./assets/nrp.png" alt="No Regret Poker" width="256"></center>
+<center><img src="./assets/nrp.png" alt="No Regret Poker"></center>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform?embedded=true" width="640" height="741" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
