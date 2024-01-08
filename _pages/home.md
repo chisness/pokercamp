@@ -24,4 +24,4 @@ Run by: max.chiswick@gmail.com
 
 Form
 
-![Poker Camp](./assets/pokercamp.png)
+![Poker Camp](./assets/pc.png)
