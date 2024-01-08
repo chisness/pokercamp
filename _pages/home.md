@@ -1,5 +1,5 @@
 ---
-# title: "No Regret Poker"
+# title: "Poker Camp"
 permalink: /
 # sidebar:
 #   nav: "nav"
@@ -8,16 +8,20 @@ permalink: /
 # toc_sticky: true
 layout: single
 ---
-**No Regret Poker** is the index site for a series of educational materials that use poker to teach math, probability, decision making, Python, and AI concepts. Counterfactual Regret Minimization is the main algorithm used to find game theory optimal strategies in poker games. 
+**Poker Camp** is a program to learn about probability, game theory, and biases while 
 
-Poker Unfolded: Coming soon
-<br>Poker Camp: Coming in 2024
-<br>Bet -------: Coming in 2024
+Some topics in the full camp: 
 
-[AI Poker Tutorial](https://aipokertutorial.com): Updates coming soon
-<br>Inside Poker Solvers: Coming in 2024
-<br>Poker AI Retreat (PAIR): Coming in 2024
+We plan to launch the first edition in 2024 and want to begin with a 2-hour trial workshop in February. It will take place virtually at 3pm ET (12pm PT) on Sunday, February 11 and/or Sunday, February 18, depending on interest. The workshop is free and your feedback will be valuable in developing the full version. 
 
-My personal website is <https://www.maxchiswick.com> and I can be contacted at <max@noregretpoker.com>.
+In the trial workshop, we will go over: 
+1. 
 
-![No Regret Poker](./assets/nrp.png)
+Note that the camp and related materials/workshops are for educational purposes and will not use any real money. 
+
+
+Run by: max.chiswick@gmail.com
+
+Form
+
+![Poker Camp](./assets/pokercamp.png)
