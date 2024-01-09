@@ -5,8 +5,8 @@ main:
 #     url: /categories/
 #   - title: "Tags"
 #     url: /tags/
-    - title: "Mailing List"
-      url: /mailinglist
+    # - title: "Mailing List"
+    #   url: /mailinglist
 # nav:
 #   - title: 1. Background
 #     children:
