@@ -8,11 +8,13 @@ permalink: /
 # toc_sticky: true
 layout: single
 ---
-**Poker Camp** is a program to learn about probability, game theory, and overcoming biases, while learning poker strategy in parallel. 
+**Poker Camp** is a program to learn about probability, game theory, decision making, and biases alongside poker strategy. 
 
 ![Poker Camp](./assets/pc.png)
 
-We plan to launch the first edition in 2024 and want to begin with a 2-hour trial workshop in February. It will take place virtually from 3-5pm ET (12-2pm PT) on Sunday, February 11 and/or Sunday, February 18, depending on interest. The workshop is free and your feedback will be valuable in developing the full version. No poker knowledge is expected.
+We plan to launch the first edition in 2024 and want to begin with a 2-hour trial workshop in February. It will take place virtually from 3-5pm ET (12-2pm PT) on Sunday, February 11 and/or Sunday, February 18, depending on interest. 
+
+The workshop is free and your feedback will be valuable in developing the full version. No poker knowledge is expected.
 
 In the trial workshop, we will go over: 
 1. 1-Card poker rules and practice session
@@ -21,7 +23,7 @@ In the trial workshop, we will go over:
 5. Texas Hold'em rules
 6. Texas Hold'em basic strategy and practice session
 7. Poker math concepts
-8. Common biases that come up in poker
+8. Common biases relevant to poker
 9. Texas Hold'em practice session
 10. Final questions
 
@@ -29,4 +31,4 @@ In the trial workshop, we will go over:
 
 Note that the camp and related materials/workshops are for educational purposes and will not use any real money. 
 
-Run by: max.chiswick@gmail.com
+Run by: Max Chiswick (homepage: https://chisness.github.io, AI poker materials (under construction): https://www.aipokertutorial.com, email: max.chiswick@gmail.com)
