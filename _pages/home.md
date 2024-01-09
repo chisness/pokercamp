@@ -33,4 +33,4 @@ In the trial workshop, we will go over:
 
 Note that the camp and related materials/workshops are for educational purposes and will not use any real money. 
 
-Run by: Max Chiswick (homepage: https://chisness.github.io, AI poker materials (under construction): https://www.aipokertutorial.com, email: max.chiswick@gmail.com)
+Run by: Max Chiswick (homepage: [https://chisness.github.io](https://chisness.github.io), AI poker materials (under construction): [https://www.aipokertutorial.com](https://www.aipokertutorial.com), email: [max.chiswick@gmail.com](mailto:max.chiswick@gmail.com))
