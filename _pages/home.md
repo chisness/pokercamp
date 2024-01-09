@@ -8,7 +8,7 @@ permalink: /
 # toc_sticky: true
 layout: single
 ---
-**Poker Camp** is a program to learn about probability, game theory, decision making, and biases alongside poker strategy. 
+**Poker Camp** is a program to learn about {probability, game theory, decision making, and biases} alongside poker strategy. 
 
 ![Poker Camp](./assets/pc.png)
 
