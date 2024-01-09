@@ -14,6 +14,8 @@ layout: single
 
 We plan to launch the first edition in 2024 and want to begin with a 2-hour trial workshop in February. It will take place virtually from 3-5pm ET (12-2pm PT) on Sunday, February 11 and/or Sunday, February 18, depending on interest. 
 
+Express interest through the form at the bottom of the page. 
+
 The workshop is free and your feedback will be valuable in developing the full version. No poker knowledge is expected.
 
 In the trial workshop, we will go over: 
