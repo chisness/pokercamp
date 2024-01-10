@@ -20,14 +20,16 @@ The workshop is free and your feedback will be valuable in developing the full v
 
 In the trial workshop, we will go over: 
 1. 1-Card poker rules and practice session
-3. 1-Card poker strategy
-4. What is a game theory optimal strategy in poker?
-5. Texas Hold'em rules
-6. Texas Hold'em basic strategy and practice session
-7. Poker math concepts
-8. Common biases relevant to poker
-9. Texas Hold'em practice session
-10. Final questions
+2. 1-Card poker strategy
+3. What is a game theory optimal strategy in poker?
+4. Texas Hold'em rules
+5. Texas Hold'em basic strategy and practice session
+6. Poker math concepts
+7. Common biases relevant to poker
+8. Texas Hold'em practice session
+9. Final questions
+
+There will be an opportunity to join an advanced workshop on poker AI and algorithms in March for those who are interested and have completed this workshop. 
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHNy67Atz4ytwhbW8AsUcONtZ3F8TqWvpqlognYIWm9rmnFg/viewform?embedded=true" width="640" height="1319" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
