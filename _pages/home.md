@@ -12,28 +12,26 @@ layout: single
 
 ![Poker Camp](./assets/pc.png)
 
-We plan to launch the first edition in 2024 and want to begin with a 2-hour trial workshop in February. It will take place virtually from 3-5pm ET (12-2pm PT) on Sunday, February 11 and/or Sunday, February 18, depending on interest. Each date can take a maximum of 8 participants. 
+Our first in person camp will take place 9am-5pm Mon-Fri in NYC from July 29-Aug 2 in NYC. We expect to take a maximum of 25 participants. Express interest through the form at the bottom of the page. 
 
-Express interest through the form at the bottom of the page. 
+Cost for the week is ???
 
-The workshop is free and your feedback will be valuable in developing the full version. No poker knowledge is expected.
+What will you learn? 
+1. Expected value
+2. Optimal strategy
+3. Poker math
+4. Probability
+5. Poker strategy
 
-In the trial workshop, we will go over: 
-1. 1-Card poker rules
-2. 1-Card poker practice session
-3. 1-Card poker strategy
-4. What is a game theory optimal strategy in poker?
-5. Texas Hold'em rules
-6. Texas Hold'em basic strategy
-7. Texas Hold'em practice session #1
-8. Poker math concepts
-9. Common biases relevant to poker
-10. Texas Hold'em practice session #2
-11. Final questions
+What are the prerequisites? 
+You should know: 
+1. Poker rules
+2. Math??
 
-There will be an opportunity to join an advanced workshop on poker AI and algorithms in March for those who are interested and have completed this workshop. 
+What are the age limits? 
+We are targeting ages 11-18, but may be able to take a bit younger or older. 
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHNy67Atz4ytwhbW8AsUcONtZ3F8TqWvpqlognYIWm9rmnFg/viewform?embedded=true" width="640" height="1319" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfsH5J9v9_lwbVWuRelph75HXHYIRDkfV9brCadp9gDIpsGIQ/viewform?embedded=true" width="640" height="1276" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 Note that the camp and related materials/workshops are for educational purposes and will not use any real money. 
 
