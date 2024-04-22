@@ -2,10 +2,6 @@
 # title: "Poker Camp Application"
 sidebar:
   nav: "nav"
-#toc: true
-#toc_label: "TOC"
-#toc_sticky: true
-layout: single
 ---
 
 Poker Camp application coming soon
