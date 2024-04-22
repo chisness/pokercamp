@@ -5,14 +5,10 @@ main:
 #     url: /categories/
 #   - title: "Tags"
 #     url: /tags/
-    - title: "Poker Camp IRL"
-      url: /pokercampirl
-    - title: "Poker Camp Fellowship"
-      url: /pokercampfellowship
-    - title: "Poker AI Retreat IRL"
-      url: /pairirl
-    - title: "Poker AI Retreat Fellowship"
-      url: /pairfellowship
+    - title: "Poker Camp Apply"
+      url: /pokercampapp
+    - title: "Poker AI Retreat Apply"
+      url: /pairapp
     - title: "AI Poker Tutorial"
       url: https://aipokertutorial.com
     - title: "Mailing List"
