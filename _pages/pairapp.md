@@ -3,6 +3,7 @@
 permalink: /pairapp
 sidebar:
   nav: "nav"
+layout: single
 ---
 
 Poker AI Retreat application coming soon
