@@ -1,12 +1,7 @@
 ---
 # title: "Poker AI Retreat Application"
-permalink: /pairapp
 sidebar:
   nav: "nav"
-#toc: true
-#toc_label: "TOC"
-#toc_sticky: true
-layout: single
 ---
 
 Poker AI Retreat application coming soon
