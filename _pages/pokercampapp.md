@@ -1,7 +1,9 @@
 ---
 # title: "Poker Camp Application"
+permalink: /pokercampapp
 sidebar:
   nav: "nav"
+layout: single
 ---
 
 Poker Camp application coming soon
