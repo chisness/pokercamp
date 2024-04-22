@@ -56,7 +56,7 @@ nav:
         url: /solvers
 
   - title: 6. Advanced Poker Strategy
-      children:
+    children:
       - title: "6.1: Advanced Poker Strategy"
         url: /advanced-poker-strategy
       
