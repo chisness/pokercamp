@@ -6,7 +6,7 @@ sidebar:
 layout: single
 ---
 
-Poker AI Retreat application coming soon
+Poker AI Retreat (PAIR) application coming soon
 
 **IRL NYC:** Aug 5-9, 2024
 
