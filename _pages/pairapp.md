@@ -1,6 +1,6 @@
 ---
 # title: "Poker AI Retreat Application"
-permalink: /
+permalink: /pairapp
 sidebar:
   nav: "nav"
 toc: true
