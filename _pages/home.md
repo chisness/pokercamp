@@ -1,11 +1,11 @@
 ---
 # title: "Poker Camp"
 permalink: /
-# sidebar:
-#   nav: "nav"
-# toc: true
-# toc_label: "TOC"
-# toc_sticky: true
+sidebar:
+  nav: "nav"
+toc: true
+toc_label: "TOC"
+toc_sticky: true
 layout: single
 ---
 **Poker Camp** is a program to learn about probability, game theory, and decision making through the lens of poker. 
