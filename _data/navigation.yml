@@ -44,8 +44,10 @@ nav:
         url: /decision-making
         
   - title: 4. Part 1 Projects
-      url: /projects1
-        
+      children:
+      - title: "4.1 Part 1 Projects"
+        url: /projects1
+      
   - title: 5. Game Theory
     children:
       - title: "5.1: Intro to Game Theory"
@@ -54,7 +56,10 @@ nav:
         url: /solvers
 
   - title: 6. Advanced Poker Strategy
-      url: /advanced-poker-strategy
+      children:
+      - title: "6.1: Advanced Poker Strategy"
+        url: /advanced-poker-strategy
+      
 
   - title: 7. More Poker Math
     children:
@@ -72,10 +77,12 @@ nav:
 
   - title: 9. Rationality
     children:
-      - title: "8.1: Rationality and Biases"
+      - title: "9.1: Rationality and Biases"
         url: /rationality
-      - title: "8.2: Prediction and Forecasting"
+      - title: "9.2: Prediction and Forecasting"
         url: /prediction-forecasting
 
   - title: 10. Part 2 Projects
-      url: /projects2
+      children:
+      - title: "10.1 Part 2 Projects"
+        url: /projects2
