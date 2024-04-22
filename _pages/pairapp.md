@@ -2,6 +2,7 @@
 # title: "Poker AI Retreat Application"
 sidebar:
   nav: "nav"
+layout: single
 ---
 
 Poker AI Retreat application coming soon
