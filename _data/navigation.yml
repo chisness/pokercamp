@@ -44,7 +44,7 @@ nav:
         url: /decision-making
         
   - title: 4. Part 1 Projects
-      children:
+    children:
       - title: "4.1 Part 1 Projects"
         url: /projects1
       
@@ -83,6 +83,6 @@ nav:
         url: /prediction-forecasting
 
   - title: 10. Part 2 Projects
-      children:
+    children:
       - title: "10.1 Part 2 Projects"
         url: /projects2
