@@ -1,6 +1,6 @@
 ---
 # title: "About Poker Camp"
-permalink: /pairapp
+permalink: /about
 sidebar:
   nav: "nav"
 layout: single
