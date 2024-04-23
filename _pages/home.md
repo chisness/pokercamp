@@ -10,7 +10,7 @@ layout: single
 ---
 **Poker Camp** is a program to learn about probability, game theory, AI, and decision making through the lens of poker. 
 
-#![Poker Camp](./assets/pc.png)
+![Poker Camp](./assets/pc.png)
 
 There are two levels:
 
