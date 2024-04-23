@@ -14,13 +14,15 @@ layout: single
 
 There are two levels:
 
-**Poker Camp:** Poker strategy, math and probability, decision making, rationality, and an intro to game theory/AI
+**L1 Poker Camp:** Poker strategy, math and probability, decision making, rationality, and an intro to game theory/AI
 
 Content is available here at [pokercamp.org](https://pokercamp.org)
 
-**Poker AI Retreat:** Game theory, coding, solving small poker games, the Counterfactual Regret Minimization algorithm, machine learning, and AI
+**L2 Poker AI Retreat:** Game theory, coding, solving small poker games, the Counterfactual Regret Minimization algorithm, machine learning, and AI
 
 Content is available at [aipokertutorial.com](https://aipokertutorial.com)
+
+
 
 All content is under construction through at least August. 
 
