@@ -23,6 +23,6 @@ Content is available at [aipokertutorial.com](https://aipokertutorial.com)
 
 All content is under construction through at least August. 
 
-Interested in contributing or want to get in touch? [Send a message](https://pokercamp.org/contact).
+Interested in contributing or want to get in touch? [Send a message](mailto:max@pokercamp.org) or sign up for the [mailing list](/mailinglist).
 
 Note that the programming and related materials/workshops are for educational purposes and will not use any real money. 
