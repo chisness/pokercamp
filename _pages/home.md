@@ -14,7 +14,7 @@ layout: single
 
 There are two levels:
 
-**Poker Camp:** Poker strategy, math and probability, decision making, and rationality
+**Poker Camp:** Poker strategy, math and probability, decision making, rationality, and an intro to game theory/AI
 
 Content is available here at [pokercamp.org](https://pokercamp.org)
 
