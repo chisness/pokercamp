@@ -11,7 +11,7 @@ toc_sticky: true
 
 ![Poker Camp](./assets/pc.png)
 
-There are two main levels:
+There are two levels:
 
 **Poker Camp:** Poker strategy, math and probability, psychology and decision making, and rationality
 
