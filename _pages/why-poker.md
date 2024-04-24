@@ -9,7 +9,6 @@ toc_sticky: true
 layout: single
 ---
 
-# Intro to Poker -- Why Poker? 
 Test!
 
 
