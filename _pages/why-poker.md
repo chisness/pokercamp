@@ -1,5 +1,5 @@
 ---
-# title: "Poker Camp Section 1.1 Intro to Poker -- Why Poker?"
+title: "Poker Camp Section 1.1 Intro to Poker -- Why Poker?"
 permalink: /why-pokerpage
 sidebar:
   nav: "nav"
