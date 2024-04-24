@@ -1,5 +1,5 @@
 ---
-# title: "Poker Camp Application"
+title: "Poker Camp Application"
 permalink: /pokercampapp
 sidebar:
   nav: "nav"
