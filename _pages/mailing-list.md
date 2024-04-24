@@ -1,6 +1,6 @@
 ---
-# title: "Mailing List"
-permalink: /mailinglist
+title: "Mailing List"
+permalink: /mailing-list
 sidebar:
   nav: "nav"
 layout: single
