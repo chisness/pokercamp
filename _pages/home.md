@@ -1,5 +1,5 @@
 ---
-# title: "Poker Camp"
+title: "Poker Camp"
 permalink: /
 sidebar:
   nav: "nav"
