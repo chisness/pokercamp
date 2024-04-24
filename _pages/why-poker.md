@@ -1,6 +1,6 @@
 ---
 # title: "Poker Camp Section 1.1 Intro to Poker -- Why Poker?"
-permalink: /why-poker
+permalink: /why-pokerpage
 sidebar:
   nav: "nav"
 toc: true
@@ -9,6 +9,7 @@ toc_sticky: true
 layout: single
 ---
 
+# Intro to Poker -- Why Poker? 
 Test!
 
 
