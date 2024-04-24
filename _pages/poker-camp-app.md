@@ -1,6 +1,6 @@
 ---
 title: "Poker Camp Application"
-permalink: /pokercampapp
+permalink: /poker-camp-app
 sidebar:
   nav: "nav"
 layout: single
