@@ -8,8 +8,6 @@ toc_label: "TOC"
 toc_sticky: true
 layout: single
 ---
-
-# Intro to Poker -- Why Poker? 
 Test!
 
 
