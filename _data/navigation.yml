@@ -6,13 +6,13 @@ main:
 #   - title: "Tags"
 #     url: /tags/
     - title: "Poker Camp Apply"
-      url: /pokercampapp
+      url: /poker-camp-app
     - title: "Poker AI Retreat Apply"
-      url: /pairapp
+      url: /pair-app
     - title: "AI Poker Tutorial"
       url: https://aipokertutorial.com
     - title: "Mailing List"
-      url: /mailinglist
+      url: /mailing-list
     - title: "About"
       url: /about
 nav:
