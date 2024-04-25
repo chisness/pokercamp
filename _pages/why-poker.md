@@ -8,8 +8,7 @@ toc_label: "TOC"
 toc_sticky: true
 layout: single
 ---
-Test!
-
+# Intro to Poker -- Why Poker?
 
 ## Taking Risks
 Afraid of failure, not enough risk tolerance with EV
