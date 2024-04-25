@@ -30,7 +30,7 @@ nav:
       - title: "2.1: Probabiliity"
         url: /probability
       - title: "2.2: Expected Value"
-        url: /expectedvalue
+        url: /expected-value
       - title: "2.3: Statistics"
         url: /statistics
       - title: "2.4: Combinatorics"
