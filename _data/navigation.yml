@@ -40,7 +40,7 @@ nav:
     children:
       - title: "3.1: Psychology and Mindset"
         url: /psychology-mindset
-      - title: "3.2: Decision Making and Smart Thinking"
+      - title: "3.2: Decision Making"
         url: /decision-making
         
   - title: 4. Part 1 Projects
