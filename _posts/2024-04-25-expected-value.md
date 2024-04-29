@@ -9,6 +9,7 @@ toc_sticky: true
 ---
 
 # Poker Math -- Expected Value
+basic algebra, equations, variables
 
 ## Section 1
 
