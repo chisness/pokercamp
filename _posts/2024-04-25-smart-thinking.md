@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 10.1 Part 2 Projects"
+title: "Poker Camp Section 3.3 Smart Thinking"
 date: 2024-04-25
 sidebar:
   nav: "nav"
@@ -8,7 +8,7 @@ toc_label: "TOC"
 toc_sticky: true
 ---
 
-# Part 2 Projects
+# Meta Game -- Smart Thinking
 
 ## Section 1
 

@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 6.1 Advanced Poker Strategy"
+title: "Poker Camp Section 5.1 Advanced Poker Strategy"
 date: 2024-04-25
 sidebar:
   nav: "nav"

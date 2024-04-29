@@ -42,47 +42,44 @@ nav:
         url: /psychology-mindset
       - title: "3.2: Decision Making"
         url: /decision-making
-        
-  - title: 4. Part 1 Projects
-    children:
-      - title: "4.1 Part 1 Projects"
-        url: /projects1
+      - title: "3.3: Smart Thinking"
+        url: /smart-thinking
       
-  - title: 5. Game Theory
+  - title: 4. Game Theory
     children:
-      - title: "5.1: Intro to Game Theory"
+      - title: "4.1: Intro to Game Theory"
         url: /game-theory
-      - title: "5.2: Poker Solvers"
+      - title: "4.2: Poker Solvers"
         url: /solvers
 
-  - title: 6. Advanced Poker Strategy
+  - title: 5. Advanced Poker Strategy
     children:
-      - title: "6.1: Advanced Poker Strategy"
+      - title: "5.1: Advanced Poker Strategy"
         url: /advanced-poker-strategy
       
 
-  - title: 7. More Poker Math
+  - title: 6. More Poker Math
     children:
-      - title: "7.1: Advanced Math Concepts"
+      - title: "6.1: Advanced Math Concepts"
         url: /advanced-math
-      - title: "7.2: Advanced Statistics Concepts"
+      - title: "6.2: Advanced Statistics Concepts"
         url: /advanced-statistics
 
-  - title: 8. AI Poker
+  - title: 7. AI Poker
     children:
-      - title: "8.1: Intro to Python"
+      - title: "7.1: Intro to Python"
         url: /python
-      - title: "8.2: Intro to AI Poker"
+      - title: "7.2: Intro to AI Poker"
         url: /aipoker
 
-  - title: 9. Rationality
+  - title: 8. Rationality
     children:
-      - title: "9.1: Rationality and Biases"
+      - title: "8.1: Rationality and Biases"
         url: /rationality
-      - title: "9.2: Prediction and Forecasting"
+      - title: "8.2: Prediction and Forecasting"
         url: /prediction-forecasting
 
-  - title: 10. Part 2 Projects
+  - title: 9. Projects
     children:
-      - title: "10.1 Part 2 Projects"
-        url: /projects2
+      - title: "9.1 Projects"
+        url: /projects

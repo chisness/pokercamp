@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 5.1 Game Theory -- Intro to Game Theory"
+title: "Poker Camp Section 4.1 Game Theory -- Intro to Game Theory"
 date: 2024-04-25
 sidebar:
   nav: "nav"
