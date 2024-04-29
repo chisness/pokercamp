@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 3.3 Smart Thinking"
+title: "Poker Camp Section 3.3 Meta Game -- Smart Thinking"
 date: 2024-04-25
 sidebar:
   nav: "nav"

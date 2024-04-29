@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 6.1 More Poker Math -- Advanced Math"
+title: "Poker Camp Section 5.1 Advanced Poker and Math -- Advanced Math"
 date: 2024-04-25
 sidebar:
   nav: "nav"
@@ -8,7 +8,7 @@ toc_label: "TOC"
 toc_sticky: true
 ---
 
-# More Poker Math -- Advanced Math
+# Advanced Poker and Math -- Advanced Math
 
 ## Section 1
 

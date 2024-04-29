@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 8.1 Rationality -- Rationality and Biases"
+title: "Poker Camp Section 6.1 Rationality -- Rationality and Biases"
 date: 2024-04-25
 sidebar:
   nav: "nav"

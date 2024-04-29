@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 8.2 Rationality -- Prediction and Forecasting"
+title: "Poker Camp Section 6.2 Rationality -- Prediction and Forecasting"
 date: 2024-04-25
 sidebar:
   nav: "nav"

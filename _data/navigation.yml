@@ -52,18 +52,21 @@ nav:
       - title: "4.2: Poker Solvers"
         url: /solvers
 
-  - title: 5. Advanced Poker Strategy
+  - title: 5. Advanced Poker and Math
     children:
       - title: "5.1: Advanced Poker Strategy"
         url: /advanced-poker-strategy
-      
-
-  - title: 6. More Poker Math
-    children:
-      - title: "6.1: Advanced Math Concepts"
+      - title: "5.2: Advanced Poker Math"
         url: /advanced-math
-      - title: "6.2: Advanced Statistics Concepts"
+      - title: "5.3: Advanced Poker Statistics"
         url: /advanced-statistics
+
+  - title: 6. Rationality
+    children:
+      - title: "6.1: Rationality and Biases"
+        url: /rationality
+      - title: "6.2: Prediction and Forecasting"
+        url: /prediction-forecasting
 
   - title: 7. AI Poker
     children:
@@ -72,14 +75,7 @@ nav:
       - title: "7.2: Intro to AI Poker"
         url: /aipoker
 
-  - title: 8. Rationality
+  - title: 8. Projects
     children:
-      - title: "8.1: Rationality and Biases"
-        url: /rationality
-      - title: "8.2: Prediction and Forecasting"
-        url: /prediction-forecasting
-
-  - title: 9. Projects
-    children:
-      - title: "9.1 Projects"
+      - title: "8.1 Projects"
         url: /projects
