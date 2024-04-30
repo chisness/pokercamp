@@ -11,7 +11,10 @@ toc_sticky: true
 # Advanced Poker and Math -- Advanced Poker Math
 
 ## Section 1
+ICM https://upswingpoker.com/icm-quick-guide/
 
+MDF
+Alpha
 ## Section 2
 ### Section 2.1
 ### Section 2.2

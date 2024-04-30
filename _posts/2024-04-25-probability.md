@@ -9,6 +9,17 @@ toc_sticky: true
 ---
 
 # Poker Math -- Probability
+math and financial literac
+
+https://www.thepokerbank.com/strategy/mathematics/
+https://upswingpoker.com/the-ultimate-guide-to-poker-math/
+
+https://www.splitsuit.com/poker-strategy-math-you-need-to-know#:~:text=Poker%20math%20involves%20a%20range,fold%20in%20any%20given%20situation.
+
+https://brilliant.org/wiki/math-of-poker/
+
+
+Probability: It's essential to understand the rules of probability, expected value and standard deviation, and helpful to understand independence and the normal distribution.
 
 ## Section 1
 

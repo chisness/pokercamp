@@ -10,6 +10,9 @@ toc_sticky: true
 
 # Intro to Poker -- Poker Strategy Fundamentals
 
+https://blog.gtowizard.com/the-10-most-important-concepts-for-new-poker-players/ 
+
+
 ## Section 1
 
 ## Section 2

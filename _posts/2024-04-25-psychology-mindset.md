@@ -9,6 +9,7 @@ toc_sticky: true
 ---
 
 # Meta Game -- Psychology and Mindset
+Meta stuff like how you treat people at table? Embracing randomnes?
 
 ## Section 1
 

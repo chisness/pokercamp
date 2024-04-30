@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Section 3.3 Meta Game -- Smart Thinking"
+title: "Poker Camp Section 3.3 Meta Game -- Taking Risk"
 date: 2024-04-25
 sidebar:
   nav: "nav"
@@ -8,7 +8,10 @@ toc_label: "TOC"
 toc_sticky: true
 ---
 
-# Meta Game -- Smart Thinking
+# Meta Game -- Taking Risk
+Taking more risk 
+
+personality traits of risk-takers and what makes the difference between successful ones and failures
 
 ## Section 1
 
