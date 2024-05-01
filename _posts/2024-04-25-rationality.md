@@ -24,11 +24,24 @@ https://www.lesswrong.com/posts/xjMDAtz5T3Ssz9Y7X/verifying-rationality-via-rati
 
 rational efforts (evidence-based medicine, data-driven policing, randomista econ)
 
+gene therapy/embryo selection
+
+https://www.lesswrong.com/posts/8xLtE3BwgegJ7WBbf/is-rationalist-self-improvement-real
+
+I do have hopes that there exists a version of self-improvement and societal improvement that can enjoy runaway success and rapidly improve us as a species. Our dialectic has worked blindly so far, but if we turn it back on itself and hone it to an edge, we will quickly become capable of jumping ahead of the schedule of insights as it looks right now.
+
+So instead of trying to answer questions, I propose a short period of focusing on getting better at answering questions by intentionally designing dialectic infrastructure and technology; why bother trying to see through the fog to the dim light far away, when the fog will be gone and the light right up close as soon as we make our dialectic recursively self-improving?
+
+I think the problem with rationalism is that it does not take into account a lot of the non-rational factors that push people in the direction of making and believing bad arguments: anger and desire to win, need to signal affiliation with valued others, self-esteem benefits of loathing an outgroup, etc. There are not many people for whom the desire to keep their thinking up to a certain standard of fairness and correctness is a powerful motivation all by itself. The people it's sufficient motivation for tend to be pretty non-social, and unusually attracted to rules and systems.
+
 ## Section 1
 
 ## Section 2
 ### Section 2.1
 ### Section 2.2
+
+https://www.econlib.org/archives/2009/01/the_charge_of_c.html?utm_source=substack&utm_medium=email
+https://www.betonit.ai/p/aba_always_be_ahtml?utm_source=post-email-title&publication_id=820634&post_id=128199903&utm_campaign=email-post-title&isFreemail=true&r=a5vj&triedRedirect=true&utm_medium=email 
 
 
 ## Section 3

@@ -38,7 +38,6 @@ Deontology vs. consequentialism vs. virtue ethics
 
 https://www.bbc.com/future/article/20210517-how-a-10k-poker-win-changed-how-i-think  
 
-
 EA ideas
 
 https://wiki.lesswrong.com/wiki/Causal_Decision_Theory

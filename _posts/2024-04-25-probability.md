@@ -18,6 +18,8 @@ https://www.splitsuit.com/poker-strategy-math-you-need-to-know#:~:text=Poker%20m
 
 https://brilliant.org/wiki/math-of-poker/
 
+Betting means assigning prob like challenging to tennis match 
+
 
 Probability: It's essential to understand the rules of probability, expected value and standard deviation, and helpful to understand independence and the normal distribution.
 

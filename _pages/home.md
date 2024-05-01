@@ -16,12 +16,15 @@ There are two levels:
 
 **(L1) Poker Camp:** Poker strategy, math and probability, decision making, rationality, and an intro to game theory/AI
 
-Content is available here at [pokercamp.org](https://pokercamp.org)
+Content is available here at [pokercamp.org](https://pokercamp.org) (Coming soon)
+
+Target audience is ages 13-18 (high school)
 
 **(L2) Poker AI Retreat:** Game theory, coding, solving small poker games, the Counterfactual Regret Minimization algorithm, machine learning, and AI
 
 Content is available at [aipokertutorial.com](https://aipokertutorial.com)
 
+Target audience is ages 18-23 (college)
 
 
 All content is under construction through at least August. 
