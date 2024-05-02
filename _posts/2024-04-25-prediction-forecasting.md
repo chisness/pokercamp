@@ -17,6 +17,7 @@ https://shakeddown.wordpress.com/2022/08/04/what-i-learned-about-running-a-betti
 
 https://www.simongrimm.com/fermi-poker-instructions/ 
 Fermi estimation
+https://en.wikipedia.org/wiki/Fermi_problem
 
 https://www.clearerthinking.org/post/how-good-are-your-predictions-really 
 

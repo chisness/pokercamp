@@ -12,9 +12,21 @@ toc_sticky: true
 
 ## Section 1
 ICM https://upswingpoker.com/icm-quick-guide/
+https://blog.gtowizard.com/icm-basics/
+Learn how tournament survival pressure affects your strategy.
+ICM in tournaments ICMIZER
+Tournament math
+
 
 MDF
 Alpha
+MDF and Alpha
+https://blog.gtowizard.com/mdf-alpha/
+
+MDF = pot/(bet + pot) = reward/(risk + reward) have to call this minimum so opponent can’t bluff any 2
+Alpha = bet/(bet + pot) = risk/(risk + reward) opponent has to fold at least this % for bluff to break even
+
+Minimum Defence Frequency is the shield you use to prevent your opponents from running you over with bluffs. Learn how wide to defend in poker.
 ## Section 2
 ### Section 2.1
 ### Section 2.2

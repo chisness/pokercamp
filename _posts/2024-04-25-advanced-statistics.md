@@ -15,6 +15,10 @@ Bayes' Rule
 https://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/  
 Don’t have to be exact, but don’t’ want to use too much or too little math.
 https://www.yudkowsky.net/rational/bayes 
+https://www.facebook.com/spencer.greenberg/posts/pfbid0XBRy3QUGWof6ddzsacdNbWvP5gQASn1azrzppFdFMuhJB3zVoRWALvEGTV4Wi9sul 
+
+https://arbital.com/p/bayes_rule/?l=1zq 
+
 
 Kelly, bankroll management
 Bandits, explore vs. exploit

@@ -12,7 +12,10 @@ toc_sticky: true
 EA: Not just charity or not, but how much it helps
 Poker: Not just winning or not, but EV and pot odds considerations 
 
+https://www.khanacademy.org/math/probability/xa88397b6:probability-distributions-expected-value
 
+https://blog.gtowizard.com/what-is-expected-value-in-poker/
+Every decision you make is underpinned by one common goal – to maximize return.
 https://www.probabilitycourse.com/chapter3/3_2_2_expectation.php 
 https://openstax.org/books/statistics/pages/4-2-mean-or-expected-value-and-standard-deviation
 https://brilliant.org/wiki/expected-value/ 

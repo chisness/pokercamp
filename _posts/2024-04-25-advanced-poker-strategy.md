@@ -32,6 +32,8 @@ Card Removal/Blockers
 Bankroll Management
 Cash Games vs. Tournaments
 
+https://upswingpoker.com/overbet-flop-tips 
+
 ## Section 1
 Exploiting opponents
 ## Section 2

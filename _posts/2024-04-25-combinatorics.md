@@ -9,6 +9,12 @@ toc_sticky: true
 ---
 
 # Poker Math -- Combinatorics
+https://www.khanacademy.org/math/statistics-probability/counting-permutations-and-combinations 
+
+https://blog.gtowizard.com/a-beginners-guide-to-poker-combinatorics/ 
+https://www.888poker.com/magazine/strategy/poker-combinatorics-guide 
+Combinatorics Poker Puzzle – This simple puzzle is surprisingly tricky, but the solution is elegant!
+https://blog.gtowizard.com/combinatorics-poker-puzzle/ 
 
 ## Section 1
 

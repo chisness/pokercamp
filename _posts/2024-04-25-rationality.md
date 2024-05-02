@@ -22,6 +22,25 @@ https://www.pokervip.com/strategy-articles/texas-hold-em-no-limit-intermediate/r
 
 https://www.lesswrong.com/posts/xjMDAtz5T3Ssz9Y7X/verifying-rationality-via-rationalpoker-com 
 
+​​https://en.wikipedia.org/wiki/Region-beta_paradox 
+
+• anchoring (where an irrelevant number can influence our judgments)
+• prospect theory (a theory of how we make judgments when there is uncertainty that incorporates a number of  biases)
+• the focusing illusion (where we overemphasize the importance of whatever factor we happen to be focused on at that moment)
+• the peak-end rule (where our memories of an event tend to emphasize the peak moment of greatest intensity and how the event ended)
+• the planning fallacy (the common bias where people underestimate the time and cost of large projects)
+• the availability heuristic (where we evaluate how frequent, likely, or important an event is based on how easily we can recall examples of it to memory)
+• the representativeness heuristic (where we evaluate how likely something is to be something else based on how similar it is to a prototype or stereotype rather than incorporating all the information we have, such as base rate information)
+
+https://www.lesswrong.com/posts/xLm9mgJRPvmPGpo7Q/the-cognitive-science-of-rationality 
+
+https://www.yudkowsky.net/rational/overcoming-bias
+https://www.yudkowsky.net/rational/virtues
+https://www.yudkowsky.net/rational/technical
+https://www.yudkowsky.net/rational/cognitive-biases
+
+
+
 rational efforts (evidence-based medicine, data-driven policing, randomista econ)
 
 gene therapy/embryo selection
