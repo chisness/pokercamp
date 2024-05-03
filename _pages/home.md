@@ -18,13 +18,16 @@ There are two levels:
 
 Content is available here at [pokercamp.org](https://pokercamp.org) (Coming soon)
 
-Goal to become better thinkers and decision makers and impact the world
+<!---
+ Goal to become better thinkers and decision makers and impact the world --> 
 
 **(L2) Poker AI Retreat:** Game theory, coding, solving small poker games, the Counterfactual Regret Minimization algorithm, machine learning, and AI
 
 Content is available at [aipokertutorial.com](https://aipokertutorial.com)
 
+<!---
 Goal world changing a lot becuase of AI, understand
+ --> 
 
 All content is under construction through at least August. 
 
