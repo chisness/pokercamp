@@ -11,6 +11,7 @@ toc_sticky: true
 # Advanced Poker and Math -- Advanced Poker Strategy
 Balance and Deception
 Study Ranges, Not Hands!
+https://upswingpoker.com/hard-bubble-factors/ 
 Thresholds
 Does your range affect your strategy? – A philosophical theory article about the nature of fixed strategies and where your EV comes from.
 compare range to opponent and places hands based on that

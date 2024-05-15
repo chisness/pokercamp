@@ -11,6 +11,9 @@ toc_sticky: true
 # Poker Math -- Probability
 math and financial literacy
 
+https://en.wikipedia.org/wiki/Stopping_time
+pregnancy thing?
+
 https://openpokertools.com/range-equity.html
 
 https://gmays.com/how-im-relearning-math-as-an-adult/ 

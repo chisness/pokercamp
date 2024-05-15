@@ -15,6 +15,8 @@ Poker teaching self awareness
 
 Bluffing vs. lying, bluffing can be very calculated
 
+Self control similar to social media
+
 ## Section 1
 
 ## Section 2

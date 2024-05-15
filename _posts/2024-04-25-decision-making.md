@@ -9,8 +9,16 @@ toc_sticky: true
 ---
 ![Seinfeld](./assets/decision-making/seinfeld.png)
 
+https://www.effectivealtruism.org/articles/hard-to-reverse-decisions-destroy-option-value
+
 ![White Lotus 1](./assets/decision-making/whitelotus1.png)
 ![White Lotus 2](./assets/decision-making/whitelotus2.png)
+
+https://en.wikipedia.org/wiki/The_Market_for_Lemons 
+
+https://twitter.com/phokarlsson/status/1786665245857005775x
+
+agency incl https://twitter.com/patio11/status/1786079058322723021?s=46&t=mHdJJDBZ4V3mWYjKub71vw
 
 # Meta Game -- Decision Making
 https://www.newyorker.com/magazine/2019/01/21/the-art-of-decision-making?utm_source=substack&utm_medium=email 

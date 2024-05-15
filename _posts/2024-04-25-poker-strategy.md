@@ -53,8 +53,37 @@ Examples
 KJs on 5h2s6hKs9c, betting on river risky cause lose when opponent check raises, assume they can make us indifferent and 
 usually about 75%, bigger when draw heavy, very strong, high SPR, more vulnerable, 3bet pot smaller
 
+https://twitter.com/jonathanlittle/status/1783885191125287150
+Other Jonathan Little stuff
+
+https://upswingpoker.com/crush-limpers-tournaments 
+
+Doyle Brunson’s Super System
+“Poker is a game of people, That’s the most important less you should learn from my book.”
+“You’ll need to get inside your opponents’ head and be able to estimate with a high degree of certainty what his check, bet or raise really means…and what hand he’s likely to be playing.”
+“And that’s why there’s never going to be a computer that will play World-Class Poker. It’s a people game.”
+Everyone gets same cards
+Art 90%, science10%
+Alertness, discipline, emotions, patience, staying poker, pay attention
+TAG, willing to gamble
+“So your style will be very deceiving -- it’ll get all the other players befuddled. They won’t know whether you’ve really got a hand or not. They won't know whether you're going to set them all-in or not. Because they might have to put all their money in the pot not knowing if they have the best hand…they won’t know what to do. And anytime you get your opponents in that confused situation…you’ll have an advantage over them.”
+Pattern recall
 
 ## Section 1
+
+pot odds, stack-to-pot ratio (SPR), equity, expected value, Minimum Defense Frequency (MDF), and equity realization
+Thresholds value/continuation/fold
+Entire range
+Max EV, not necessarily winning pot
+Don’t overvalue big cards and medium-strength hands
+Lots of EV from nutted hands 
+Start with preflop, free solutions https://app.gtowizard.com/solutions 
+Variance very high, law of large numbers
+Using solvers, can learn by first starting with whether to bet or not, then how often to bet, then big or small, then which cards, etc. 
+Asymmetry want to bet as much as possible in polarized
+Increase pot geometrically?
+Medium size when more symmetric
+
 
 ## Section 2
 ### Section 2.1

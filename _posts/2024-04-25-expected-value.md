@@ -12,7 +12,20 @@ toc_sticky: true
 EA: Not just charity or not, but how much it helps
 Poker: Not just winning or not, but EV and pot odds considerations 
 
+EV of making rice quantity 
+
 https://www.khanacademy.org/math/probability/xa88397b6:probability-distributions-expected-value
+
+https://en.wikipedia.org/wiki/Expected_value
+https://en.wikipedia.org/wiki/Expected_value
+https://forum.effectivealtruism.org/posts/jo7tM4s5ApPgv2DPC/expected-value
+
+
+There’s a lot of reasons many have made this calculation mistake. We daydream about the universes where we get what we want. The math seems like it should be more “fair” aka “gambler’s fallacy” when it actually has no feelings. 
+
+Our intuition is also bad because of doubles (combinatorics). Every poker player knows we are about  35% to hit a flush draw from flop to river. But “bad math” done from scratch could erroneously show it to be ~38% (19% chance on turn and river each) 
+
+Where did the 3% disappear to? It is lost to the times we get what we want on *BOTH* streets since the sixth diamond is superfluous. 
 
 opportunity cost
 comparative advantage
@@ -36,8 +49,22 @@ https://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-l
 https://www.investopedia.com/terms/e/expected-value.asp 
 https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/a/expected-value-basic
 
+https://80000hours.org/articles/expected-value/ 
+
+https://forum.effectivealtruism.org/posts/FKnhB28EvG4og87JP/1-e-x-is-not-e-1-x
+
 https://80000hours.org/podcast/episodes/alan-hajek-probability-expected-value/   
 
+https://bayesshammai.substack.com/p/what-to-expect-when-youre-expecting 
+
+A few easy explanations
+A few exercises
+A short video
+A really short video 
+Dice EV, what if you get option for 2nd
+Expected Value Foundation?
+Expected value most upvoted answer on “what EAs should know if they know 1 concept”
+https://docs.google.com/document/d/19bRz5QtGW4HdaKhQx-VIgiRunXYLvYyuBLHjfNcORbo/edit 
 
 ## Section 1
 

@@ -26,6 +26,11 @@ Nash vs opponent modeling including HUDs and online poker
 
 Strategy
 
+talkpaperscissors and strat
+https://arxiv.org/abs/2312.10695 
+
+https://twitter.com/itseieio/status/1789338607494234149 
+
 https://www.lesswrong.com/posts/A2Qam9Bd9xpbb2wLQ/game-theory-as-a-dark-art
 
 is there optimal strategy? seems like no because luck and psychology

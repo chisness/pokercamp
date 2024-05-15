@@ -59,8 +59,39 @@ I think the problem with rationalism is that it does not take into account a lot
 ### Section 2.1
 ### Section 2.2
 
+
+This thought experiment is genius because it hacks a bug in life’s video game: Humans are terrible at self-awareness.
+
+But we are great at spotting things in other people.
+
+E.g. If your friend is in the wrong relationship, you can realize in 10 minutes what may take them 10 years.
+
+Daniel Kahneman summarised his book on cognitive biases with the following:
+
+“The premise of this book is that it is easier to recognize other people’s mistakes than our own.” - Daniel Kahneman
+
+Kahneman did his pioneering econ research in the 1970s and 1980s. At that time, economists really took individual rationality seriously; they viewed the hyper-rational “agents” in their models not merely as convenient mathematical approximations, but as descriptions of actual human behavior. So when a psychologist came along and started showing that humans didn’t actually behave like the agents in those models, it came as a giant shock to the foundations of the entire economics discipline.
+Kahneman basically did a bunch of psychology experiments to show that human beings are bad at probability. He and his longtime coauthor Amos Tversky (who died before he could share the Nobel) showed that people make strong inferences from very small samples — for example, if you meet two nice people from Australia, you might conclude that Australians are nice in general. Kahneman called this the “law of small numbers”.
+This is just one example of a more general family of fallacies called “representativeness” fallacies, which Kahneman’s experiments explored in depth. Another famous example is pattern-matching — if math professors tend to wear glasses, and you had to guess whether someone is a math professor or a waiter based on whether they wear glasses, you might guess they’re a prof. But there are a lot more waiters than profs, so your guess is a bad one — you’ve committed the statistical sin of base rate neglect.
+I could keep listing examples, but you get the point. Kahneman discovered a huge number of these common human mistakes. By the time he was done, there was no doubt that human beings don’t really resemble the homo economicus of 1970s models. There are exceptions, of course — companies bidding on Google ads in online auctions tend to act pretty rational. But after Kahneman, economists always had to accept the possibility that behavioral biases might drive a wedge between their predictions and the empirical data.
+That understanding helped drive the rise of empirical economics, which has been the big change in the econ field over the last three decades. There are many other reasons that econ theories need to be checked against data, but economists had put so much emphasis on rationality that a demonstration of persistent, general, predictable irrationality was an especially effective method of forcing them to think about empirics.
+Ideally, though, we’d want behavioral economics to give us more than just a list of anomalies. If humans are predictably irrational, we should be able to come up with a theory that describes their irrationality. Kahneman came up with psychological theories, about where irrationality comes from in the human mind — you can read about these in his book, Thinking Fast and Slow. But he also came up with an economic theory, describing how irrationality affects decision-making. This was called prospect theory.
+Prospect theory is basically a combination of two behavioral biases — loss aversion and overestimation of small probabilities. Laboratory evidence generally supports prospect theory, but applying it in the real world has proven to be very tough, for one big reason — it’s hard to know what counts as a loss in people’s minds. Do people measure gains and losses relative to what they had yesterday, what they had a year ago, or what they expected to have? It’s hard to predict.
+But even though he didn’t manage to completely replace existing econ theory, Kahneman’s towering influence over the economics field is undeniable. He was an all-too-rare example of a social science researcher who can cross disciplinary boundaries and apply insights from one field to transform another.
+that human reason left to its own devices is apt to engage in a number of fallacies and systematic errors, so if we want to make better decisions in our personal lives and as a society, we ought to be aware of these biases and seek workarounds. That’s a powerful and important discovery.
+The most important of these, the behaviorists hold, is loss-aversion: Why, for example, does the loss of $100 hurt about twice as much as the gaining of $100 brings pleasure?
+Among its myriad implications, loss-aversion theory suggests that it is foolish to check one’s stock portfolio frequently, since the predominance of pain experienced in the stock market will most likely lead to excessive and possibly self-defeating caution.
+
+Some rational thinking move some of this into an earlier "Decision Making/Smart Thinking" section
+
+https://www.spencergreenberg.com/2024/04/three-motivations-for-believing 
+
+https://en.wikipedia.org/wiki/False_consensus_effect
+
 https://www.econlib.org/archives/2009/01/the_charge_of_c.html?utm_source=substack&utm_medium=email
 https://www.betonit.ai/p/aba_always_be_ahtml?utm_source=post-email-title&publication_id=820634&post_id=128199903&utm_campaign=email-post-title&isFreemail=true&r=a5vj&triedRedirect=true&utm_medium=email 
+
+https://chanamessinger.com/blog/what-rationality-can-do-for-ea-talk-at-ea-oxford 
 
 
 ## Section 3
