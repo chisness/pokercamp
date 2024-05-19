@@ -16,19 +16,19 @@ The first EV example is often dice and we will conform. If you are rolling a six
 
 | Die Roll    | Probability |
 | -------- | ------- |
-| $1$  | $1/6$    |
-| $2$ | $1/6$     |
-| $3$    | $1/6$   |
-| $4$  | $1/6$    |
-| $5$ | $1/6$     |
-| $6$    | $1/6$    |
+| $1$  | $\frac{1}{6}$    |
+| $2$ | $\frac{1}{6}$     |
+| $3$    | $\frac{1}{6}$   |
+| $4$  | $\frac{1}{6}$    |
+| $5$ | $\frac{1}{6}$     |
+| $6$    | $\frac{1}{6}$    |
 
 Therefore the expected value of a single die roll is: 
 
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[X] &= 1*1/6 + 2*1/6 + 3*1/6 + 4*1/6 + 5*1/6 + 6*1/6 \\
+\mathbb{E}[X] &= 1*\frac{1}{6} + 2*\frac{1}{6} + 3*\frac{1}{6} + 4*\frac{1}{6} + 5*\frac{1}{6} + 6*\frac{1}{6} \\
   &= 3.5
 \end{split}
 \end{equation}
