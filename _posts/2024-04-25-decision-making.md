@@ -9,6 +9,8 @@ toc_sticky: true
 ---
 ![Seinfeld](./assets/decision-making/seinfeld.png)
 
+https://x.com/everhusk/status/1791121594221465633
+
 https://www.effectivealtruism.org/articles/hard-to-reverse-decisions-destroy-option-value
 
 ![White Lotus 1](./assets/decision-making/whitelotus1.png)

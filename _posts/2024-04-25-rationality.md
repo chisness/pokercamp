@@ -82,6 +82,8 @@ that human reason left to its own devices is apt to engage in a number of fallac
 The most important of these, the behaviorists hold, is loss-aversion: Why, for example, does the loss of $100 hurt about twice as much as the gaining of $100 brings pleasure?
 Among its myriad implications, loss-aversion theory suggests that it is foolish to check one’s stock portfolio frequently, since the predominance of pain experienced in the stock market will most likely lead to excessive and possibly self-defeating caution.
 
+https://x.com/StefanFSchubert/status/1685318182083420160
+
 Some rational thinking move some of this into an earlier "Decision Making/Smart Thinking" section
 
 https://www.spencergreenberg.com/2024/04/three-motivations-for-believing 

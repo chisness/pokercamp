@@ -15,6 +15,8 @@ https://shakeddown.wordpress.com/2022/08/04/what-i-learned-about-running-a-betti
 
 “Prediction markets are a lot better than gambling at a casino, or betting on sports,” Mr. Chen said. “The betting serves a higher purpose, of helping the world get better information.”
 
+https://www.opticforecasting.com/
+
 https://www.simongrimm.com/fermi-poker-instructions/ 
 Fermi estimation
 https://en.wikipedia.org/wiki/Fermi_problem
