@@ -7,11 +7,9 @@ toc: true
 toc_label: "TOC"
 toc_sticky: true
 ---
-
-# Poker Math -- Expected Value
 Expected value is a very useful decision making concept. It's a way of assigning an expectation to unknown outcomes. 
 
-If your uncle offered you $100$ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = \$10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
+If your uncle offered you $100$ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
 
 The expected value is the average outcome of all possibilities weighted by their probabilities. It's found by multiplying the value and probability of every possible outcome and adding them all together. 
 
@@ -23,7 +21,7 @@ The profitable part is *expected* to happen in the long run over a large enough 
 
 When we call a bet in poker, we don't just think about "are we winning?", but rather think about the expected value of the call. In poker and in many other real world cases, the expected value calculations are approximate, reflecting that there is often hidden and uncertain information.  
 
-## Dice EV
+# Dice EV
 The first EV example is often dice and we will go ahead and conform. If you are rolling a six-sided standard die, then the possibilities are: 
 
 | Die Roll Value  | Probability |
@@ -48,7 +46,7 @@ $$
 
 This means that you can expect to see a $3.5$ average.
 
-## Basketball EV
+# Basketball EV
 A very simple basketball scenario is that you can shoot a 2-pointer with $55\%$ accuracy and a 3-pointer with $35\%$ accuracy. Which should you shoot? 
 
 $\mathbb{E}[\text{2-pointer}] = 2*0.55 = 1.1$
@@ -69,7 +67,7 @@ $1.1 = 3*x \Rightarrow x = \frac{1.1}{3} = 0.37$
 
 So to be indifferent to a $55\%$ 2-point accuracy, we'd need a $37\%$ 3-point accuracy. 
 
-## Blackjack EV
+# Blackjack EV
 Let's look at a simplified blackjack scenario to calculate the EV. The goal of blackjack is to sum your cards and get as close to possible to 21 without going over, which is called busting. 
 
 Suppose that you bet $\$10$ and your current total is $16$ and the dealer, your opponent, has a total of $19$. (This is a major simplification because normally you wouldn't know the dealer's total, only 1 of their cards.)
@@ -103,12 +101,12 @@ On average, given this scenario, the player will lose $\$6.15$. $16$ is generall
 
 Note that even though the long run expectation is a loss of $\$6.15$, it's very feasible to win twice or more times in a row
 
-## Poker EV
+# Poker EV
 Now that we have a sense for how EV works, let's get back to the reason that we're here: poker. One important note is that once chips are in the pot, they are no longer ours, so calculations from any particular point do not assume that chips previously put in the pot are losses. 
 
 Equity is share of the pot that you would receive with no future betting. 
 
-### Tournament Winner
+## Tournament Winner
 Suppose that you're playing a 10-player tournament with friends where the entry fee is $\$100$. 1st place gets back $\$900$ and 2nd place gets their $\$100$ entry fee back. 
 
 Suppose that you believe that your chances of winning are 15% and 2nd place is 10%. What is your EV for entering the tournament? 
@@ -125,10 +123,10 @@ $$
 
 This means that your expected return on investment (ROI) is $\frac{20}{100} = 0.20 = 20\%$. 
 
-### Assumptions
+## Assumptions
 Expected value requires you to make estimates and assumptions and the results are dependent on them. In this last example you're making estimates about your skill level relative to other players at the table. In other cases in poker you'll be making estimates about how likely an opponent is to fold, how likely they are to be bluffing, and how likely their hand is to be of a certain strength. As a result, there is a lot of skill in modeling the scenarios well and getting accurate expected values.   
 
-### Calling a Bet on the River
+## Calling a Bet on the River
 This is a very common poker scenario: Your opponent bets on the river and you have to decide whether to call or not. For the first example, we'll keep things simple and only look at calling and folding. 
 
 Suppose that you have J♥T♣ and the board is 2♠5♥T♥9♦2♦ and the pot size is $50$ (you and this opponent have each put in $25$ so far). The opponent goes all-in for $50$. 
@@ -152,7 +150,7 @@ $$
 \end{equation}
 $$
 
-### EV Reference Points
+## EV Reference Points
 Note that from the point of the allin, the fold is always $0$. Let's consider the same example, but with overall profits on the hand rather than from that river decision point. 
 
 - Call and win: Win the $150$ pot, half is your profit, so $75$
@@ -173,15 +171,15 @@ What happened here? Note that the EV of folding went from $0$ to $(-25)*\frac{1}
 
 $\text{EV River Reference} = \text{EV Overall Reference} - \text{EV Fold at Overall Reference}
 
-### Going Allin Preflop as the Small Blind
+## Going Allin Preflop as the Small Blind
 Use bb instead of chips
 
-### Calling a Bet on the Turn with Equity
+## Calling a Bet on the Turn with Equity
 probability of flush/outs too 
 
-### Semibluffing on the Turn
+## Semibluffing on the Turn
 
-### Fold EV and Showdown EV 
+## Fold EV and Showdown EV 
 Fold deny bluffing, deny equity, make better hands fold
 
 Showdown worse hands call 
