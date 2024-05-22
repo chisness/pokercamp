@@ -9,7 +9,16 @@ toc_sticky: true
 ---
 
 # Rationality -- Prediction and Forecasting
+http://rationallyspeakingpodcast.org/145-superforecasting-the-art-and-science-of-prediction-philip-tetlock/
+
+https://worksinprogress.co/issue/why-prediction-markets-arent-popular/
+
+https://forum.effectivealtruism.org/posts/ziSEnEg4j8nFvhcni/new-open-philanthropy-grantmaking-program-forecasting
+https://www.astralcodexten.com/p/mantic-monday-51324
+
 https://shakeddown.wordpress.com/2022/08/04/what-i-learned-about-running-a-betting-market-game-night-contest/
+
+https://www.lesswrong.com/posts/goppxmpbFoTfdaTsE/what-is-calibration
 
 “Prediction market prices are the means by which a high-functioning civilization knows what it knows,” said Eliezer Yudkowsky, an A.I. safety researcher and prominent Rationalist, who attended Manifest wearing a glittering gold hat.
 

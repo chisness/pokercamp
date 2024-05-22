@@ -28,6 +28,14 @@ Turn
 River
 Play
 
+Big blinds 
+1st position terminology
+Rainbow
+Semi Bluff 
+Tanking
+Showdown 
+
+
 ## 1-Card Poker
 
 ## Poker Hand Rankings

@@ -9,6 +9,12 @@ toc_sticky: true
 ---
 ![Seinfeld](./assets/decision-making/seinfeld.png)
 
+http://rationallyspeakingpodcast.org/past-episodes/#:~:text=208%3A%20Thinking%20in%20Bets%20(Annie%20Duke)
+
+https://lynettebye.com/blog/2024/5/2/how-to-make-hard-decisions-and-have-impact 
+
+https://www.lesswrong.com/posts/8FRzErffqEW9gDCCW/against-the-linear-utility-hypothesis-and-the-leverage
+
 https://x.com/everhusk/status/1791121594221465633
 
 https://www.effectivealtruism.org/articles/hard-to-reverse-decisions-destroy-option-value
@@ -67,6 +73,11 @@ Acting under uncertainty
 If I’m deciding whether to call down a potential bluff in poker, for instance, then my intuition about my opponent’s physical demeanor will sometimes make the difference if the decision is otherwise close.
 Nate Silver 
 
+https://forum.effectivealtruism.org/posts/voDm6e6y4KHAPJeJX/act-utilitarianism-criterion-of-rightness-vs-decision
+
+https://www.charityentrepreneurship.com/post/using-a-spreadsheet-to-make-good-decisions-five-examples
+
+https://www.thedecisionblog.com/simple%20tools.html 
 
 Decision theory thing
 Savage's Theorem andfoundations of decision theory. 

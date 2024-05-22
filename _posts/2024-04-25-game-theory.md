@@ -26,6 +26,16 @@ Nash vs opponent modeling including HUDs and online poker
 
 Strategy
 
+https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem 
+
+https://x.com/GessnerJosh/status/1792578817053069766
+
+https://ncase.me/trust/ 
+
+https://x.com/PhilGalfond/status/1674526908795752448 
+
+https://en.wikipedia.org/wiki/Braess's_paradox
+
 talkpaperscissors and strat
 https://arxiv.org/abs/2312.10695 
 

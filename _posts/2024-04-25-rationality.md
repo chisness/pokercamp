@@ -39,13 +39,50 @@ https://www.yudkowsky.net/rational/virtues
 https://www.yudkowsky.net/rational/technical
 https://www.yudkowsky.net/rational/cognitive-biases
 
-
-
 rational efforts (evidence-based medicine, data-driven policing, randomista econ)
+
+https://x.com/StefanFSchubert/status/1685318182083420160 and posts 
+One of the most important, underrated, and in some ways tractable rationality techniques is to simply get into the right emotional state - not throwing angry tantrums, not being a contrarian edgelord for the lols, not saying things merely because they're paradoxically funny, etc
+
+Goodhart's Law 
+
+http://rationallyspeakingpodcast.org/178-trying-to-live-well-as-semi-rational-animals-tim-urban/
+
+http://rationallyspeakingpodcast.org/154-why-your-brain-might-be-rational-after-all-tom-griffiths/
+
+http://rationallyspeakingpodcast.org/97-being-a-utilitarian-in-the-real-world-peter-singer/
+
+http://rationallyspeakingpodcast.org/1-why-be-rational/ 
+
+http://rationallyspeakingpodcast.org/143-the-theorem-that-proves-rationalists-cant-disagree-scott-aaronson/
+
+rationality is for choosing what to do, rationalization is for figuring out how to make the most of it.
+
+http://rationallyspeakingpodcast.org/151-why-everyone-falls-for-con-artists-maria-konnikova/
+
+stefanschubert.substack.com/p/rationality-and-discipline
+
+https://stefanschubert.substack.com/p/the-most-basic-rationality-techniques
+
+https://stefanschubert.substack.com/p/good-sayings-and-good-thinking
+
+https://stefanschubert.substack.com/p/emotions-and-the-search-for-the-truth
+
+https://stefanschubert.substack.com/p/peaks-and-valleys-too-clever-by-half
+
+https://stefanschubert.substack.com/p/against-hyperbole 
+
+https://www.richardhanania.com/p/effective-altruism-thinks-youre-hitler
+
+https://forum.effectivealtruism.org/posts/iupkbiubpzDDGRpka/other-centered-ethics-and-harsanyi-s-aggregation-theorem#Harsanyi_s_Aggregation_Theorem__HAT_
+
+I strongly want to find and practice the martial art of rationality. For me, that would be some way to train against making unforced errors and predictable mistakes. The best way for me to learn that I’ve found is to drill something over and over again in different variations until the motion is weathered smooth and automatic.
 
 gene therapy/embryo selection
 
 https://www.lesswrong.com/posts/8xLtE3BwgegJ7WBbf/is-rationalist-self-improvement-real
+
+https://www.lesswrong.com/tag/goodhart-s-law 
 
 I do have hopes that there exists a version of self-improvement and societal improvement that can enjoy runaway success and rapidly improve us as a species. Our dialectic has worked blindly so far, but if we turn it back on itself and hone it to an edge, we will quickly become capable of jumping ahead of the schedule of insights as it looks right now.
 
@@ -69,6 +106,8 @@ E.g. If your friend is in the wrong relationship, you can realize in 10 minutes 
 Daniel Kahneman summarised his book on cognitive biases with the following:
 
 “The premise of this book is that it is easier to recognize other people’s mistakes than our own.” - Daniel Kahneman
+
+https://scholar.google.com/scholar?hl=en&as_sdt=0%2C47&q=caplan%20%22rational%20irrationality%22&oq=%22rational%20irrationality%22&utm_source=substack&utm_medium=email
 
 Kahneman did his pioneering econ research in the 1970s and 1980s. At that time, economists really took individual rationality seriously; they viewed the hyper-rational “agents” in their models not merely as convenient mathematical approximations, but as descriptions of actual human behavior. So when a psychologist came along and started showing that humans didn’t actually behave like the agents in those models, it came as a giant shock to the foundations of the entire economics discipline.
 Kahneman basically did a bunch of psychology experiments to show that human beings are bad at probability. He and his longtime coauthor Amos Tversky (who died before he could share the Nobel) showed that people make strong inferences from very small samples — for example, if you meet two nice people from Australia, you might conclude that Australians are nice in general. Kahneman called this the “law of small numbers”.
