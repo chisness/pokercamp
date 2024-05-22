@@ -9,7 +9,7 @@ toc_sticky: true
 ---
 Expected value is a very useful decision making concept. It's a way of assigning an expectation to unknown outcomes. 
 
-If your uncle offered you $ \\$100 $ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
+If your uncle offered you $ \\$100 $ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $\\$100*\frac{1}{10} = \\$10$ because $\\$100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
 
 The expected value is the average outcome of all possibilities weighted by their probabilities. It's found by multiplying the value and probability of every possible outcome and adding them all together. 
 
@@ -70,20 +70,20 @@ So to be indifferent to a $55\%$ 2-point accuracy, we'd need a $37\%$ 3-point ac
 # Blackjack EV
 Let's look at a simplified blackjack scenario to calculate the EV. The goal of blackjack is to sum your cards and get as close to possible to 21 without going over, which is called busting. 
 
-Suppose that you bet $\$10$ and your current total is $16$ and the dealer, your opponent, has a total of $19$. (This is a major simplification because normally you wouldn't know the dealer's total, only 1 of their cards.)
+Suppose that you bet $\\$10$ and your current total is $16$ and the dealer, your opponent, has a total of $19$. (This is a major simplification because normally you wouldn't know the dealer's total, only $1$ of their cards.)
 
 Suppose also that the deck size is infinite, so we can ignore the cards that are already out and assume that each card is equally likely. 
 
-Finally, let's assume that we will only take 1 card.
+Finally, let's assume that we will only take $1$ card.
 
 There are 4 categories of outcomes as shown below: 
 
 | Cards    | Probability | Game Outcome | 
 | -------- | ------- | ------- |
-| A,2  | $\frac{2}{13}$    | Dealer wins (-10) | 
-| 3 | $\frac{1}{13}$     | Tie (0) | 
-| 4,5   | $\frac{2}{13}$   | We win (+10) | 
-| 6,7,8,9,T,J,Q,K  | $\frac{8}{13}$    | Bust, dealer wins (-10) | 
+| A,2  | $\frac{2}{13}$    | Dealer wins (\\$-10) | 
+| 3 | $\frac{1}{13}$     | Tie (\\$0) | 
+| 4,5   | $\frac{2}{13}$   | We win (\\$) | 
+| 6,7,8,9,T,J,Q,K  | $\frac{8}{13}$    | Bust, dealer wins (\\$-10) | 
 
 What is the EV of the next card for this player? 
 
@@ -97,31 +97,41 @@ $$
 \end{equation}
 $$
 
-On average, given this scenario, the player will lose $\$6.15$. $16$ is generally a tough blackjack spot because it's not good enough to stay, but most cards result in a bust.
+On average, given this scenario, the player will lose $\\$6.15$. $16$ is generally a tough blackjack spot because it's not good enough to stay, but most cards result in a bust.
 
-Note that even though the long run expectation is a loss of $\$6.15$, it's very feasible to win twice or more times in a row
+Note that even though the long run expectation is a loss of $\\$6.15$, it's very feasible to win twice or more times in a row in the short run. 
 
 # Poker EV
 Now that we have a sense for how EV works, let's get back to the reason that we're here: poker. 
 
 Equity is share of the pot that you would receive with no future betting. 
 
+<!---
+Where are we explaining equity? 
+-->
+
 ## Tournament Winner
-Suppose that you're playing a 10-player tournament with friends where the entry fee is $\$100$. 1st place gets back $\$900$ and 2nd place gets their $\$100$ entry fee back. 
+Suppose that you're playing a 10-player tournament with friends where the entry fee is $\\$100$. 1st place gets back $\\$900$ and 2nd place gets their $\\$100$ entry fee back. 
 
 Suppose that you believe that your chances of winning are 15% and 2nd place is 10%. What is your EV for entering the tournament? 
+
+| Net Result    | Probability | Game Outcome | 
+| -------- | ------- | ------- |
+| $\\$-100$  | $0.75$    | Lose | 
+| $\\$0$ | $0.15$     | 2nd place | 
+| $\\$+800$   | $0.1$   | 1st place | 
 
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[\text{Tournament}] &= (0.1)*0 + (0.15)*800 \\
-  &= 0 + 120 \\
-  &= 120
+\mathbb{E}[\text{Tournament}] &= (0.75)*(-100) + (0.1)*0 + (0.15)*800 \\
+  &= -75 + 0 + 120 \\
+  &= 45
 \end{split}
 \end{equation}
 $$
 
-This means that your expected return on investment (ROI) is $\frac{20}{100} = 0.20 = 20\%$. 
+This means that your expected return on investment (ROI) is your expected profits divided by your investment: $\frac{45}{100} = 0.45 = 45\%$. 
 
 ## Assumptions
 Expected value requires you to make estimates and assumptions and the results are dependent on them. In this last example you're making estimates about your skill level relative to other players at the table. In other cases in poker you'll be making estimates about how likely an opponent is to fold, how likely they are to be bluffing, and how likely their hand is to be of a certain strength. As a result, there is a lot of skill in modeling the scenarios well and getting accurate expected values.   
