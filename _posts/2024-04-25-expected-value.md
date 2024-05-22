@@ -9,7 +9,7 @@ toc_sticky: true
 ---
 Expected value is a very useful decision making concept. It's a way of assigning an expectation to unknown outcomes. 
 
-If your uncle offered you $ \$100 $ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
+If your uncle offered you $ \\$100 $ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
 
 The expected value is the average outcome of all possibilities weighted by their probabilities. It's found by multiplying the value and probability of every possible outcome and adding them all together. 
 
