@@ -51,9 +51,9 @@ This means that you can expect to see a $3.5$ average.
 ## Basketball EV
 A very simple basketball scenario is that you can shoot a 2-pointer with $55\%$ accuracy and a 3-pointer with $35\%$ accuracy. Which should you shoot? 
 
-$\mathbb{E}[2-pointer] = 2*0.55 = 1.1$
+$\mathbb{E}[\text{2-pointer}] = 2*0.55 = 1.1$
 
-$\mathbb{E}[3-pointer] = 3*0.35 = 1.05$
+$\mathbb{E}[\text{3-pointer}] = 3*0.35 = 1.05$
 
 Therefore the 2-pointer has a slightly higher expected value. 
 
@@ -61,7 +61,7 @@ Suppose that the 2-pointer accuracy is definitely $55\%$. What accuracy would be
 
 We know that the 2-pointer EV is $1.1$ from above. Therefore we can set the 3-pointer to be $1.1$ as well for indifference: 
 
-$\mathbb{E}[3-pointer] = 1.1$ 
+$\mathbb{E}[\text{3-pointer}] = 1.1$ 
 
 Let $x$ be the 3-pointer accuracy: 
 
@@ -92,7 +92,7 @@ What is the EV of the next card for this player?
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[Next Card] &= (-10)*\frac{2}{13} + 0*\frac{1}{13} + (10)*\frac{2}{13} + (-10)*\frac{8}{13} \\
+\mathbb{E}[\text{Next Card}] &= (-10)*\frac{2}{13} + 0*\frac{1}{13} + (10)*\frac{2}{13} + (-10)*\frac{8}{13} \\
   &= -1.54 + 0 + 1.54 - 6.15 \\
   &= -6.15
 \end{split}
@@ -116,14 +116,14 @@ Suppose that you believe that your chances of winning are 15% and 2nd place is 1
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[Tournament] &= -100 + (0.1)*100 + (0.15)*900 \\
-  &= -100 + 10 + 135 \\
-  &= 45
+\mathbb{E}[\text{Tournament}] &= (0.1)*0 + (0.15)*800 \\
+  &= 0 + 120 \\
+  &= 120
 \end{split}
 \end{equation}
 $$
 
-This means that your expected return on investment (ROI) is $\frac{45}{100} = 0.45 = 45\%$. 
+This means that your expected return on investment (ROI) is $\frac{20}{100} = 0.20 = 20\%$. 
 
 ### Assumptions
 Expected value requires you to make estimates and assumptions and the results are dependent on them. In this last example you're making estimates about your skill level relative to other players at the table. In other cases in poker you'll be making estimates about how likely an opponent is to fold, how likely they are to be bluffing, and how likely their hand is to be of a certain strength. As a result, there is a lot of skill in modeling the scenarios well and getting accurate expected values.   
@@ -131,26 +131,57 @@ Expected value requires you to make estimates and assumptions and the results ar
 ### Calling a Bet on the River
 This is a very common poker scenario: Your opponent bets on the river and you have to decide whether to call or not. For the first example, we'll keep things simple and only look at calling and folding. 
 
-Suppose that you have J♥T♣ and the board is 2♠5♥T♥9♦2♦ and the pot size is $50$. Your opponent goes all-in for $50$. 
+Suppose that you have J♥T♣ and the board is 2♠5♥T♥9♦2♦ and the pot size is $50$ (you and this opponent have each put in $25$ so far). The opponent goes all-in for $50$. 
+
+Let's look at the outcomes *from the point of the allin*, i.e. not considering the $50$ already in the pot. 
 
 What are the possible outcomes? 
 - Call and win: Win the $50$ pot + $50$ opponent bet, total $100$
-- Call and lose: Lose the $50$ bet (note that we don't consider chips previously put into the pot)
-- Fold and lose: $0$ (note that we don't consider chips previously put into the pot)
+- Call and lose: Lose the $50$ bet
+- Fold and lose: $0$
+
+Let's assume that each of these occur $\frac{1}{3}$ of the time. 
 
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[Call Bet] &= (-10)*\frac{2}{13} + 0*\frac{1}{13} + (10)*\frac{2}{13} + (-10)*\frac{8}{13} \\
-  &= -1.54 + 0 + 1.54 - 6.15 \\
-  &= -6.15
+\mathbb{E}[\text{Facing Allin}] &= (100)*\frac{1}{3} + (-50)*\frac{1}{3} + (0)*\frac{1}{3} \\
+  &= 33.33 + (-16.67) + 0 \\
+  &= 16.67
 \end{split}
 \end{equation}
 $$
 
+### EV Reference Points
+Note that from the point of the allin, the fold is always $0$. Let's consider the same example, but with overall profits on the hand rather than from that river decision point. 
+
+- Call and win: Win the $150$ pot, half is your profit, so $75$
+- Call and lose: Lose the $150$ pot, half is your loss, so $-75$
+- Fold and lose: $-25$ already in the pot
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}[\text{Facing Allin Reference Point}] &= (75)*\frac{1}{3} + (-75)*\frac{1}{3} + (-25)*\frac{1}{3} \\
+  &= 25 - 25 - 8.33 \\
+  &= -8.33
+\end{split}
+\end{equation}
+$$
+
+What happened here? Note that the EV of folding went from $0$ to $(-25)*\frac{1}{3} = -8.33$. All other EVs were also shifted by this amount, so the relative difference between the EV of all options is the same, but the absolute numbers change.  
+
+$\text{EV River Reference} = \text{EV Overall Reference} - \text{EV Fold at Overall Reference}
+
 ### Going Allin Preflop as the Small Blind
+Use bb instead of chips
 
 ### Calling a Bet on the Turn with Equity
 probability of flush/outs too 
 
 ### Semibluffing on the Turn
+
+### Fold EV and Showdown EV 
+Fold deny bluffing, deny equity, make better hands fold
+
+Showdown worse hands call 
