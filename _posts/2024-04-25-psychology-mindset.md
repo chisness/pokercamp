@@ -11,6 +11,8 @@ toc_sticky: true
 # Meta Game -- Psychology and Mindset
 Meta stuff like how you treat people at table? Embracing randomnes?
 
+handling tilt, not chasing losses
+
 Poker teaching self awareness
 
 Bluffing vs. lying, bluffing can be very calculated

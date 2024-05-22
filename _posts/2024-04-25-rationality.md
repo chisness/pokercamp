@@ -12,6 +12,17 @@ toc_sticky: true
 Bounded rationality 
 https://conceptually.org/concepts/cognitive-biases
 
+agents are not rational, in poker and in the markets
+does rationality imply optimal?
+The effect of being perceived to be playing only really strong hands come with it a whole host of adverse selection
+
+The way to play in Poker, without boring everyone with the math, and only with heuristics, is what game-theory-optimal Poker would describe as being "balanced".
+This means you want to play hands at both ends of the power list. Not the shittiest hands, because we know those have highly negative EV, but instead the shit hands that have a high probability of improving during later rounds of poker, these hands include 67, 78, 89 with the same suit, so they have a chance to improve into a straight, flush, etc.
+
+AND you would want to play these hands on the weaker hand with the SAME betting patterns as you would play your strongest hands. This means you WILL get caught with your pants down playing these weak hands hyper-aggressively at the starting rounds before you have improved into a strong position.
+
+But this allocates you two effects, firstly, that being called with a bluff allows you to extract maximal value from your strong hands during other rounds of the game, and secondly, it make your ranges less easy to read, and you will represent either a very strong hand or a very weak hand on a relatively weak board (3, 4, 5), and the dichotomy of strength gives you outs to extract value or bluff.https://x.com/systematicls/status/1792713250171174944
+
 ​​Conversations on Rational Choice is a book of interviews by Catherine Herfeld
 
 https://rationalpoker.com/2011/07/30/23-cognitive-mistakes-that-make-people-play-bad-poker/

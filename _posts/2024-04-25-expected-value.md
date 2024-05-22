@@ -9,7 +9,7 @@ toc_sticky: true
 ---
 Expected value is a very useful decision making concept. It's a way of assigning an expectation to unknown outcomes. 
 
-If your uncle offered you $100$ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
+If your uncle offered you $ \$100 $ if you picked the number he was thinking of between $1$ and $10$, then your expected value would be $100*\frac{1}{10} = 10$ because $100$ is the payoff and $\frac{1}{10}$ is the probability that you correctly guess the number. 
 
 The expected value is the average outcome of all possibilities weighted by their probabilities. It's found by multiplying the value and probability of every possible outcome and adding them all together. 
 
@@ -38,7 +38,7 @@ Therefore the expected value of a single die roll is found by summing all outcom
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}[X] &= 1*\frac{1}{6} + 2*\frac{1}{6} + 3*\frac{1}{6} + 4*\frac{1}{6} + 5*\frac{1}{6} + 6*\frac{1}{6} \\
+\mathbb{E}[\text{Die}] &= 1*\frac{1}{6} + 2*\frac{1}{6} + 3*\frac{1}{6} + 4*\frac{1}{6} + 5*\frac{1}{6} + 6*\frac{1}{6} \\
   &= 3.5
 \end{split}
 \end{equation}
@@ -102,7 +102,7 @@ On average, given this scenario, the player will lose $\$6.15$. $16$ is generall
 Note that even though the long run expectation is a loss of $\$6.15$, it's very feasible to win twice or more times in a row
 
 # Poker EV
-Now that we have a sense for how EV works, let's get back to the reason that we're here: poker. One important note is that once chips are in the pot, they are no longer ours, so calculations from any particular point do not assume that chips previously put in the pot are losses. 
+Now that we have a sense for how EV works, let's get back to the reason that we're here: poker. 
 
 Equity is share of the pot that you would receive with no future betting. 
 
@@ -131,7 +131,7 @@ This is a very common poker scenario: Your opponent bets on the river and you ha
 
 Suppose that you have J♥T♣ and the board is 2♠5♥T♥9♦2♦ and the pot size is $50$ (you and this opponent have each put in $25$ so far). The opponent goes all-in for $50$. 
 
-Let's look at the outcomes *from the point of the allin*, i.e. not considering the $50$ already in the pot. 
+Let's look at the outcomes *from the point of the allin*, i.e. not considering chips already put into the pot as a loss, but rather as a sunk cost. 
 
 What are the possible outcomes? 
 - Call and win: Win the $50$ pot + $50$ opponent bet, total $100$
@@ -152,6 +152,8 @@ $$
 
 ## EV Reference Points
 Note that from the point of the allin, the fold is always $0$. Let's consider the same example, but with overall profits on the hand rather than from that river decision point. 
+
+One important note is that once chips are in the pot, they are no longer ours, so calculations from any particular point do not assume that chips previously put in the pot are losses. 
 
 - Call and win: Win the $150$ pot, half is your profit, so $75$
 - Call and lose: Lose the $150$ pot, half is your loss, so $-75$

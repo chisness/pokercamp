@@ -10,6 +10,7 @@ toc_sticky: true
 
 # Poker Math -- Statistics
 Variance, swings
+Ephraim Rinsky econ/stats
 Intro coding here/earlier? 
 Stochasticity
 Heavy-tailed-ness

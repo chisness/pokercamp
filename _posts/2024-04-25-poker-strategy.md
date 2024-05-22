@@ -9,7 +9,7 @@ toc_sticky: true
 ---
 
 # Intro to Poker -- Poker Strategy Fundamentals
-
+range, image, pot odds, bankroll mgmt etc 
 https://blog.gtowizard.com/the-10-most-important-concepts-for-new-poker-players/ 
 https://upswingpoker.com/quick-poker-tips-texas-holdem/ 
 

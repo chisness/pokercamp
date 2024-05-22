@@ -26,6 +26,8 @@ Nash vs opponent modeling including HUDs and online poker
 
 Strategy
 
+https://en.wikipedia.org/wiki/Socialist_millionaire_problem 
+
 https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem 
 
 https://x.com/GessnerJosh/status/1792578817053069766
