@@ -6,11 +6,10 @@ website:
   title: "Poker Camp"
   open-graph: true
   # google-analytics: 
-  # favicon: 
-  # twitter-card:
-  #   creator: "@chisness"
+  favicon: ./assets/pcicon.png
+  twitter-card:
+    creator: "@pokercamporg"
   navbar: 
-    logo: ./assets/pcicon.png
     background: primary
     left: 
       - text: "AI Poker Camp July SF Signup"
