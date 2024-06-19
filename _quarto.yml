@@ -13,15 +13,20 @@ website:
     background: primary
     left: 
       - text: "AI Poker Camp July SF Signup"
-        href: https://poker.camp/signup
+        href: /signup
       - text: "AI Poker Camp"
-        href: https://poker.camp/aicamp
+        href: /aicamp
       - text: "Poker Camp"
-        href: https://poker.camp/camp
+        href: /camp
     right: 
       - text: "About"
         href: about.qmd
+
     tools: 
+      - icon: discord
+        href: https://discord.gg/ATg5HQpZ
+      - icon: mailbox-flag
+        href: https://forms.gle/xx1tZNbwpYBLASmQ8
       - icon: twitter
         href: https://x.com/pokercamporg
       - icon: github

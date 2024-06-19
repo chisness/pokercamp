@@ -4,6 +4,72 @@ format:
   html:
     math: true
 ---
-SIGNUP TEST
+# Current Signups: AI Poker Camp Beta Jul 8-Aug 8 IRL in SF 
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfI49gLBEE7JL2Xs4a74uMaRPYqDODG46F7Xf1YSmg3ppWQlA/viewform?embedded=true" width="640" height="1979" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+The first ever AI Poker Camp (beta) will take place in person in San Francisco for 5 weeks starting Jul 8 and ending Aug 8. 
+
+Each week will have evening meetings on Mondays and Thursdays from 6:00-8:00pm. 
+
+Location is TBD in San Francisco
+
+## About the Camp
+
+In 2017, [an AI poker bot beat some of the best human players in a 1v1 match](https://en.wikipedia.org/wiki/Libratus#2017_humans_versus_AI_match). Our camp will begin by learning about the algorithm behind that bot. 
+
+The camp is centered around 6 projects that challenge you to think strategically about making decisions under uncertainty. 
+
+The projects involve a variety of game formats from poker to rock paper scissors to unusual hybrid games. We’ll learn about both game theory optimal strategies and opponent modeling to build strategies against a population of agents with varying skill. 
+
+The expected time commitment is about 10 hours per week including 4 hours per week of in-person meetings. 
+
+## Signup Form 
+
+Signup Form: [https://forms.gle/72yqxC3UpP9aa2wv7]() 
+
+*We are requesting that each participant sign up with at least 1 partner*
+
+The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7. 
+
+$100 Payment Link (1 person): https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss 
+
+$120 Payment Link (1 person + Basics workshop): https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss 
+
+$200 Payment Link (2 people): https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss 
+
+$240 Payment Link (2 people + Basics workshop): https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss 
+
+If financially prohibitive, [let us know](mailto:info@poker.camp) and we’ll try to work something out. 
+
+If you'd rather pay with Zelle or Venmo, [email for info](mailto:info@poker.camp). 
+
+## Prerequisites 
+
+- Poker: Useful for context, but ok without. We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement. 
+
+- Coding: Python
+
+- Machine learning: Something
+
+## Instructors 
+
+- Ross Rheingans-Yoo: Former Jane Street trader and instructor
+
+- Max Chiswick: Former pro online poker player, creator of [AI Poker Tutorial](https://aipokertutorial.com)
+
+## Questions? 
+
+- [Join our Discord](https://discord.gg/ATg5HQpZ)
+
+- [Email](mailto:info@poker.camp) 
+
+## Future Programs 
+
+- AI Poker Camp 5 week beta NYC starting Aug 19
+
+- Poker Camp 5 week beta virtual starting Aug 21
+
+- Poker Camp 10 week virtual starting Sep 23
+
+- AI Poker Camp 10 week virtual starting Sep 24
+
+- More to be announced 

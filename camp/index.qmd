@@ -1,0 +1,11 @@
+---
+title: "Poker Camp Course"
+format:
+  html:
+    math: true
+---
+Coming soon: 
+
+- Beta Aug 21-Sep 20 in NYC or virtual
+
+- Full Course Sep 23-Nov 25 virtually
