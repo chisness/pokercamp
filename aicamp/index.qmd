@@ -6,8 +6,8 @@ format:
 ---
 Coming soon: 
 
-- Beta Jul 8-Aug 8 in SF
+- Jul 8-Aug 8: Beta in SF
 
-- Beta v2 Aug 19-Sep 19 in NYC
+- Aug 19-Sep 19: Beta v2 in NYC
 
-- Full Course Sep 24-Nov 26 virtually
+- Sep 24-Nov 26: Full course virtual

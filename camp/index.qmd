@@ -6,6 +6,6 @@ format:
 ---
 Coming soon: 
 
-- Beta Aug 21-Sep 20 in NYC or virtual
+- Aug 21-Sep 20: Beta in NYC or virtual
 
-- Full Course Sep 23-Nov 25 virtually
+- Sep 23-Nov 25: Full course virtual
