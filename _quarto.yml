@@ -12,8 +12,7 @@ website:
   navbar: 
     background: primary
     left: 
-      - text: "AI Poker Camp July SF Signup"
-        href: /signup
+      - sidebar:signup
       - text: "AI Poker Camp"
         href: /aicamp
       - text: "Poker Camp"
@@ -31,6 +30,15 @@ website:
         href: https://x.com/pokercamporg
       - icon: github
         href: https://github.com/chisness/pokercamp
+  sidebar: 
+    - id: signup
+      title: "Signup"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - text: "AI Poker Camp July IRL in SF"
+          href: /signup
   # sidebar:
   #   style: docked
   #   background: light
