@@ -10,12 +10,16 @@ website:
   # twitter-card:
   #   creator: "@chisness"
   navbar: 
+    logo: ./assets/pcicon.png
     background: primary
-    right: 
+    left: 
+      - text: "AI Poker Camp July SF Signup"
+        href: https://poker.camp/aicampsignup
       - text: "AI Poker Camp"
         href: https://poker.camp/aicamp
       - text: "Poker Camp"
         href: https://poker.camp/camp
+    right: 
       - text: "About"
         href: about.qmd
     tools: 

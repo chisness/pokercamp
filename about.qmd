@@ -6,7 +6,7 @@ format:
 ---
 Poker Camp is a project by [Max Chiswick](mailto:max@poker.camp) and [Ross Rheingans-Yoo](mailto:ross@poker.camp).
 
-![Poker Camp](./assets/pcaces.png)
+<img src="./assets/pcaces.png" alt="Poker Camp" width="384"/>
 
 **Mission:**
 abc
