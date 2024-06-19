@@ -22,10 +22,10 @@ website:
         href: about.qmd
 
     tools: 
-      - icon: discord
-        href: https://discord.gg/ATg5HQpZ
       - icon: mailbox-flag
         href: https://forms.gle/xx1tZNbwpYBLASmQ8
+      - icon: discord
+        href: https://discord.gg/ATg5HQpZ
       - icon: twitter
         href: https://x.com/pokercamporg
       - icon: github
