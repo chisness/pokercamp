@@ -8,7 +8,7 @@ website:
   title: "Poker Camp"
   open-graph: true
   # google-analytics: 
-  # favicon: ./assets/pcicon.png
+  favicon: ./assets/favicon.png
   twitter-card:
     creator: "@pokercamporg"
   navbar: 
@@ -24,7 +24,7 @@ website:
         href: about.qmd
 
     tools: 
-      - icon: mailbox-flag
+      - icon: mailbox2-flag
         href: https://forms.gle/xx1tZNbwpYBLASmQ8
       - icon: discord
         href: https://discord.gg/ATg5HQpZ
