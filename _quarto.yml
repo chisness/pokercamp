@@ -13,7 +13,7 @@ website:
     background: primary
     left: 
       - text: "AI Poker Camp July SF Signup"
-        href: https://poker.camp/aicampsignup
+        href: https://poker.camp/signup
       - text: "AI Poker Camp"
         href: https://poker.camp/aicamp
       - text: "Poker Camp"
