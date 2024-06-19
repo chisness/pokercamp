@@ -6,9 +6,9 @@ format:
 ---
 # AI Poker Camp Beta Jul 8-Aug 8 IRL in SF 
 
-The first ever AI Poker Camp (beta) will take place in person in San Francisco for 5 weeks starting Jul 8 and ending Aug 8. 
+The first ever AI Poker Camp (beta) will take place in person in San Francisco for **5 weeks starting Jul 8 and ending Aug 8**. 
 
-Each week will have evening meetings on Mondays and Thursdays from 6:00-8:00pm. 
+Each week will have evening meetings on **Mondays and Thursdays from 6:00-8:00pm**. 
 
 Location is TBD in San Francisco
 
@@ -24,13 +24,13 @@ The expected time commitment is about 10 hours per week including 4 hours per we
 
 ## Signup Form 
 
-Signup Form: [https://forms.gle/72yqxC3UpP9aa2wv7]() 
+**[Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
 
 *We are requesting that each participant sign up with at least 1 partner*
 
 The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7. 
 
-$100 Payment Link: [https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss]()
+**[Payment Link](https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss)**
 
 After signing up and completing payment, we will be in touch with details. 
 
