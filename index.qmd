@@ -1,0 +1,14 @@
+---
+format: html
+---
+**Poker Camp** is a program to learn about probability, game theory, AI, and decision making through the lens of poker. 
+
+![Poker Camp](./assets/pc.png)
+
+Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco. [Click here for the signup form](https://docs.google.com/forms/d/e/1FAIpQLSfI49gLBEE7JL2Xs4a74uMaRPYqDODG46F7Xf1YSmg3ppWQlA/viewform).
+
+
+
+Interested in contributing or want to get in touch? [Send a message](mailto:info@poker.camp) or sign up for the [mailing list](/mailinglist).
+
+Note that the programming and related materials/workshops are for educational purposes and will not use any real money. 

@@ -1,0 +1,66 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Poker Camp"
+  open-graph: true
+  # google-analytics: 
+  # favicon: 
+  # twitter-card:
+  #   creator: "@chisness"
+  navbar: 
+    background: primary
+    right: 
+      - text: "AI Poker Camp"
+        href: https://poker.camp/aicamp
+      - text: "Poker Camp"
+        href: https://poker.camp/camp
+      - text: "About"
+        href: about.qmd
+    tools: 
+      - icon: twitter
+        href: https://x.com/pokercamporg
+      - icon: github
+        href: https://github.com/chisness/pokercamp
+  # sidebar:
+  #   style: docked
+  #   background: light
+  #   contents: 
+  #     - section: "EXPECTED VALUE"
+  #       contents: 
+  #         - href: ev-basics.qmd
+  #           text: EV Basics
+  #         - href: ev-benefits.qmd
+  #           text: EV Benefits
+  #         - href: ev-faults.qmd
+  #           text: EV Faults
+  #     - section: "EV EXAMPLES"
+  #       contents: 
+  #         - href: basketball.qmd
+  #           text: Basketball
+  #         - href: dice.qmd
+  #           text: Dice
+  #         - href: poker.qmd
+  #           text: Poker
+  #         - href: medicine.qmd
+  #           text: Medicine
+  #         - href: rice.qmd
+  #           text: Rice
+  #     - section: "CURRENT EVENTS"
+  #       contents: 
+  #         - href: gamestop.qmd
+  #           text: Roaring Kitty Gamestop
+  #         - href: huberman-pregnancy.qmd 
+  #           text: Andrew Huberman Pregnancy Probability
+
+format:
+  html:
+    theme: cerulean
+    math: true 
+    toc: true
+    toc-expand: true
+    mathjax: 
+      config: 
+        text: 
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
