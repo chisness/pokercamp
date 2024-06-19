@@ -12,7 +12,7 @@ Each week will have evening meetings on **Mondays and Thursdays from 6:00-8:00pm
 
 Location is TBD in San Francisco
 
-### About the Camp
+## About the Camp
 
 In 2017, [an AI poker bot beat some of the best human players in a 1v1 match](https://en.wikipedia.org/wiki/Libratus#2017_humans_versus_AI_match). Our camp will begin by learning about the algorithm behind that bot. 
 
@@ -22,7 +22,7 @@ The projects involve a variety of game formats from poker to rock paper scissors
 
 The expected time commitment is about 10 hours per week including 4 hours per week of in-person meetings. 
 
-### Signup Form 
+## Signup Form 
 
 **[Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
 
@@ -38,7 +38,7 @@ If financially prohibitive, [let us know](mailto:info@poker.camp) and we’ll tr
 
 If you'd rather pay with Venmo or Zelle, [email for info](mailto:info@poker.camp). 
 
-### Prerequisites 
+## Prerequisites 
 
 - Poker: Useful for context, but ok without. We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement. 
 
@@ -46,19 +46,19 @@ If you'd rather pay with Venmo or Zelle, [email for info](mailto:info@poker.camp
 
 - Machine learning: Something
 
-### Instructors 
+## Instructors 
 
 - Ross Rheingans-Yoo: Former Jane Street trader and instructor
 
 - Max Chiswick: Former pro online poker player, creator of [AI Poker Tutorial](https://aipokertutorial.com)
 
-### Questions? 
+## Questions? 
 
 - [Join our Discord](https://discord.gg/ATg5HQpZ)
 
 - [Email](mailto:info@poker.camp) 
 
-### Future Programs 
+## Future Programs 
 
 - AI Poker Camp 5 week beta NYC starting Aug 19
 
