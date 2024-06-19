@@ -1,5 +1,5 @@
 ---
-title: "Signup"
+title: "Poker Camp Signup"
 format:
   html:
     math: true
