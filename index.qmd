@@ -5,7 +5,7 @@ format: html
 
 Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco. [Click here for the signup form](https://docs.google.com/forms/d/e/1FAIpQLSfI49gLBEE7JL2Xs4a74uMaRPYqDODG46F7Xf1YSmg3ppWQlA/viewform).
 
-![Poker Camp](./assets/pc.png)
+![](./assets/pc.png)
 
 Interested in contributing or want to get in touch? [Send a message](mailto:info@poker.camp) or sign up for the [mailing list](/mailinglist).
 
