@@ -11,3 +11,5 @@ Coming soon:
 - Aug 19-Sep 19: Beta v2 in NYC
 
 - Sep 24-Nov 26: Full course virtual
+
+![](../assets/pcicon.png){width=50%}
