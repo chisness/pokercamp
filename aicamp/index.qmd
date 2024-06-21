@@ -12,4 +12,4 @@ Coming soon:
 
 - Sep 24-Nov 26: Full course virtual
 
-![](./assets/pcicon.png){width=50%}
+![](../assets/pcicon.png){width=50%}
