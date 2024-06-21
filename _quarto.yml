@@ -12,6 +12,7 @@ website:
   twitter-card:
     creator: "@pokercamporg"
   navbar: 
+    logo: ./assets/favicon32.png
     background: primary
     left: 
       - sidebar:signup
