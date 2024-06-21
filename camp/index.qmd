@@ -1,5 +1,6 @@
 ---
 title: "Poker Camp Course"
+# sidebar: id-camp
 format:
   html:
     math: true
