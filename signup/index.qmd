@@ -16,7 +16,7 @@ This is a beta test of a course we’re planning to run online in the fall, so i
 Strictly in-person in San Francisco. Location to be announced.
 
 ### Wait, really? I can’t make that!
-We’re also planning to run an online version of the course starting in late September; you can join our mailing list to learn more when it’s announced.
+We’re also planning to run an online version of the course starting in late September; you can join our [mailing list](https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform) to learn more when it’s announced.
 
 ## Who?
 You and a partner!
@@ -42,11 +42,11 @@ The course is built around six or seven practical challenges – think “kaggle
 
   - Topic: Techniques for modeling empirical opponent behavior.
 
-- Hidden-information version of Probabilistic Tic-Tac-Toe
+- Hidden-information version of [Probabilistic Tic-Tac-Toe](https://www.csun.io/2024/06/08/probabilistic-tic-tac-toe.html)
 
   - Topic: Modeling hidden information from opponent actions.
 
-- Texas Holdem with simplified betting
+- [Texas Holdem with simplified betting](https://manifoldmarkets.notion.site/Rock-Paper-Scissors-Poker-a77d63a1537941ebb15f8f81194dbabb)
   - Topic: Putting it together!
 
 We’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions.
@@ -54,7 +54,7 @@ We’re intending for the Summer Beta to have about the intensity of one (1) col
 ## Who’s teaching?
 **[Ross Rheingans-Yoo](https://twitter.com/_rossry)** wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.
 
-**Max Chiswick** is a former poker pro who has played more than 10 million hands of online poker, and created [AI Poker Tutorial(https://aipokertutorial.com).
+**Max Chiswick** is a former poker pro who has played more than 10 million hands of online poker, and created [AI Poker Tutorial](https://aipokertutorial.com).
 
 **[Ricki Heicklen](https://rickiheicklen.com/)** is a curriculum advisor (but will not be teaching in the SF Beta).
 
