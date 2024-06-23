@@ -1,73 +1,77 @@
 ---
-title: "Poker Camp Signup"
+title: "AI Poker Camp (2024 Summer Beta SF)"
 format:
   html:
     math: true
 ---
-## AI Poker Camp Beta Jul 8-Aug 8 IRL in SF 
+## When?
+6pm-8pm Mondays and Thursdays, July 8 through August 8.
 
-The first ever AI Poker Camp (beta) will take place in person in San Francisco for **5 weeks starting Jul 8 and ending Aug 8**. 
+## What?
+A five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.
 
-Each week will have evening meetings on **Mondays and Thursdays from 6:00-8:00pm**. 
+This is a beta test of a course we’re planning to run online in the fall, so it’ll be small. We’ll cap signups somewhere between 16 and 24 students.
 
-Location is TBD in San Francisco
+## Where?
+Strictly in-person in San Francisco. Location to be announced.
 
-## About the Camp
+### Wait, really? I can’t make that!
+We’re also planning to run an online version of the course starting in late September; you can join our mailing list to learn more when it’s announced.
 
-In 2017, [an AI poker bot beat some of the best human players in a 1v1 match](https://en.wikipedia.org/wiki/Libratus#2017_humans_versus_AI_match). Our camp will begin by learning about the algorithm behind that bot. 
+## Who?
+You and a partner!
 
-The camp is centered around 6 projects that challenge you to think strategically about making decisions under uncertainty. 
+- We’re requiring students for the beta to enroll with a partner (or as a trio) for accountability and support.
 
-The projects involve a variety of game formats from poker to rock paper scissors to unusual hybrid games. We’ll learn about both game theory optimal strategies and opponent modeling to build strategies against a population of agents with varying skill. 
+- We recommend students be able to program in Python and [perform a Bayesian update](https://towardsdatascience.com/bayesian-updating-simply-explained-c2ed3e563588) (though it’s fine to lean on an LLM for help on either).
 
-The expected time commitment is about 10 hours per week including 4 hours per week of in-person meetings. 
+- Knowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement.)
 
-## Signup Form 
+## What’s the curriculum?
+The course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:
 
-**[Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
+- Tutorial: One-card / Kuhn Poker
 
-*We are requesting that each participant sign up with at least 1 partner*
+  - Topic: Algorithms for solving incomplete-information games.
 
-The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7. 
+- Larger one-card poker formats and other simple games
 
-**[Payment Link](https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss)**
+  - Topic: Scaling up algorithms to larger game trees.
 
-After signing up and completing payment, we will be in touch with details. 
+- Rock-Paper-Scissors against imperfect opponents
 
-If financially prohibitive, [let us know](mailto:info@poker.camp) and we’ll try to work something out. 
+  - Topic: Techniques for modeling empirical opponent behavior.
 
-If you'd rather pay with Venmo or Zelle, [email for info](mailto:info@poker.camp). 
+- Hidden-information version of Probabilistic Tic-Tac-Toe
 
-## Prerequisites 
+  - Topic: Modeling hidden information from opponent actions.
 
-- Poker: Useful for context, but ok without. We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement. 
+- Texas Holdem with simplified betting
+  - Topic: Putting it together!
 
-- Coding: Python
+We’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions.
 
-- Machine learning: Something
+## Who’s teaching?
+**[Ross Rheingans-Yoo](https://twitter.com/_rossry)** wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.
 
-## Instructors 
+**Max Chiswick** is a former poker pro who has played more than 10 million hands of online poker, and created [AI Poker Tutorial(https://aipokertutorial.com).
 
-- Ross Rheingans-Yoo: Former Jane Street trader and instructor
+**[Ricki Heicklen](https://rickiheicklen.com/)** is a curriculum advisor (but will not be teaching in the SF Beta).
 
-- Max Chiswick: Former pro online poker player, creator of [AI Poker Tutorial](https://aipokertutorial.com)
+## How?
+**[Step 1: Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
 
-## Questions? 
+- We are requiring that each participant sign up with a partner (or as a trio).
 
-- [Join our Discord](https://discord.gg/ATg5HQpZ)
+- The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7.
 
-- [Email](mailto:info@poker.camp) 
+**[Step 2: Payment Link](https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss)**
 
-## Future Programs 
+- After signing up and completing payment, we will be in touch with details.
 
-- Aug 19: AI Poker Camp 5 week beta in NYC
+- If financially prohibitive, [let us know](info@poker.camp) and we’ll try to work something out.
 
-- Aug 21: Poker Camp 5 week beta virtual or in NYC
+- If you’d rather pay with Venmo or Zelle, [email for info](info@poker.camp).
 
-- Sep 23: Poker Camp 10 week virtual
-
-- Sep 24: AI Poker Camp 10 week virtual
-
-- More to be announced 
-
-- Join the [Mailing List](https://forms.gle/xx1tZNbwpYBLASmQ8) to stay updated
+## Something else?
+[Get in touch!](info@poker.camp) We have a [website](https://poker.camp/), though there isn’t much on it yet.

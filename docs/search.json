@@ -16,58 +16,65 @@
   {
     "objectID": "signup/index.html",
     "href": "signup/index.html",
-    "title": "Poker Camp Signup",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "",
-    "text": "The first ever AI Poker Camp (beta) will take place in person in San Francisco for 5 weeks starting Jul 8 and ending Aug 8.\nEach week will have evening meetings on Mondays and Thursdays from 6:00-8:00pm.\nLocation is TBD in San Francisco"
+    "text": "6pm-8pm Mondays and Thursdays, July 8 through August 8."
   },
   {
-    "objectID": "signup/index.html#ai-poker-camp-beta-jul-8-aug-8-irl-in-sf",
-    "href": "signup/index.html#ai-poker-camp-beta-jul-8-aug-8-irl-in-sf",
-    "title": "Poker Camp Signup",
+    "objectID": "signup/index.html#when",
+    "href": "signup/index.html#when",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "",
-    "text": "The first ever AI Poker Camp (beta) will take place in person in San Francisco for 5 weeks starting Jul 8 and ending Aug 8.\nEach week will have evening meetings on Mondays and Thursdays from 6:00-8:00pm.\nLocation is TBD in San Francisco"
+    "text": "6pm-8pm Mondays and Thursdays, July 8 through August 8."
   },
   {
-    "objectID": "signup/index.html#about-the-camp",
-    "href": "signup/index.html#about-the-camp",
-    "title": "Poker Camp Signup",
-    "section": "About the Camp",
-    "text": "About the Camp\nIn 2017, an AI poker bot beat some of the best human players in a 1v1 match. Our camp will begin by learning about the algorithm behind that bot.\nThe camp is centered around 6 projects that challenge you to think strategically about making decisions under uncertainty.\nThe projects involve a variety of game formats from poker to rock paper scissors to unusual hybrid games. We’ll learn about both game theory optimal strategies and opponent modeling to build strategies against a population of agents with varying skill.\nThe expected time commitment is about 10 hours per week including 4 hours per week of in-person meetings."
+    "objectID": "signup/index.html#what",
+    "href": "signup/index.html#what",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What?",
+    "text": "What?\nA five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.\nThis is a beta test of a course we’re planning to run online in the fall, so it’ll be small. We’ll cap signups somewhere between 16 and 24 students."
   },
   {
-    "objectID": "signup/index.html#signup-form",
-    "href": "signup/index.html#signup-form",
-    "title": "Poker Camp Signup",
-    "section": "Signup Form",
-    "text": "Signup Form\nSignup Form\nWe are requesting that each participant sign up with at least 1 partner\nThe cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7.\nPayment Link\nAfter signing up and completing payment, we will be in touch with details.\nIf financially prohibitive, let us know and we’ll try to work something out.\nIf you’d rather pay with Venmo or Zelle, email for info."
+    "objectID": "signup/index.html#where",
+    "href": "signup/index.html#where",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Where?",
+    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September; you can join our mailing list to learn more when it’s announced."
   },
   {
-    "objectID": "signup/index.html#prerequisites",
-    "href": "signup/index.html#prerequisites",
-    "title": "Poker Camp Signup",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nPoker: Useful for context, but ok without. We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement.\nCoding: Python\nMachine learning: Something"
+    "objectID": "signup/index.html#who",
+    "href": "signup/index.html#who",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who?",
+    "text": "Who?\nYou and a partner!\n\nWe’re requiring students for the beta to enroll with a partner (or as a trio) for accountability and support.\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement.)"
   },
   {
-    "objectID": "signup/index.html#instructors",
-    "href": "signup/index.html#instructors",
-    "title": "Poker Camp Signup",
-    "section": "Instructors",
-    "text": "Instructors\n\nRoss Rheingans-Yoo: Former Jane Street trader and instructor\nMax Chiswick: Former pro online poker player, creator of AI Poker Tutorial"
+    "objectID": "signup/index.html#whats-the-curriculum",
+    "href": "signup/index.html#whats-the-curriculum",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What’s the curriculum?",
+    "text": "What’s the curriculum?\nThe course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:\n\nTutorial: One-card / Kuhn Poker\n\nTopic: Algorithms for solving incomplete-information games.\n\nLarger one-card poker formats and other simple games\n\nTopic: Scaling up algorithms to larger game trees.\n\nRock-Paper-Scissors against imperfect opponents\n\nTopic: Techniques for modeling empirical opponent behavior.\n\nHidden-information version of Probabilistic Tic-Tac-Toe\n\nTopic: Modeling hidden information from opponent actions.\n\nTexas Holdem with simplified betting\n\nTopic: Putting it together!\n\n\nWe’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions."
   },
   {
-    "objectID": "signup/index.html#questions",
-    "href": "signup/index.html#questions",
-    "title": "Poker Camp Signup",
-    "section": "Questions?",
-    "text": "Questions?\n\nJoin our Discord\nEmail"
+    "objectID": "signup/index.html#whos-teaching",
+    "href": "signup/index.html#whos-teaching",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who’s teaching?",
+    "text": "Who’s teaching?\nRoss Rheingans-Yoo wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.\nMax Chiswick is a former poker pro who has played more than 10 million hands of online poker, and created [AI Poker Tutorial(https://aipokertutorial.com).\nRicki Heicklen is a curriculum advisor (but will not be teaching in the SF Beta)."
   },
   {
-    "objectID": "signup/index.html#future-programs",
-    "href": "signup/index.html#future-programs",
-    "title": "Poker Camp Signup",
-    "section": "Future Programs",
-    "text": "Future Programs\n\nAug 19: AI Poker Camp 5 week beta in NYC\nAug 21: Poker Camp 5 week beta virtual or in NYC\nSep 23: Poker Camp 10 week virtual\nSep 24: AI Poker Camp 10 week virtual\nMore to be announced\nJoin the Mailing List to stay updated"
+    "objectID": "signup/index.html#how",
+    "href": "signup/index.html#how",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "How?",
+    "text": "How?\nStep 1: Signup Form\n\nWe are requiring that each participant sign up with a partner (or as a trio).\nThe cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7.\n\nStep 2: Payment Link\n\nAfter signing up and completing payment, we will be in touch with details.\nIf financially prohibitive, let us know and we’ll try to work something out.\nIf you’d rather pay with Venmo or Zelle, email for info."
+  },
+  {
+    "objectID": "signup/index.html#something-else",
+    "href": "signup/index.html#something-else",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Something else?",
+    "text": "Something else?\nGet in touch! We have a website, though there isn’t much on it yet."
   },
   {
     "objectID": "camp/index.html",
