@@ -69,9 +69,9 @@ We’re intending for the Summer Beta to have about the intensity of one (1) col
 
 - After signing up and completing payment, we will be in touch with details.
 
-- If financially prohibitive, [let us know](info@poker.camp) and we’ll try to work something out.
+- If financially prohibitive, [let us know](mailto:info@poker.camp) and we’ll try to work something out.
 
-- If you’d rather pay with Venmo or Zelle, [email for info](info@poker.camp).
+- If you’d rather pay with Venmo or Zelle, [email for info](mailto:info@poker.camp).
 
 ## Something else?
-[Get in touch!](info@poker.camp) We have a [website](https://poker.camp/), though there isn’t much on it yet.
+[Get in touch!](mailto:info@poker.camp) We have a [website](https://poker.camp/), though there isn’t much on it yet.
