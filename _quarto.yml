@@ -35,14 +35,15 @@ website:
         href: https://github.com/chisness/pokercamp
   sidebar: 
     - id: aipcs24
-      title: "Poker Camp"
       style: "docked"
       background: light
       contents:
-        - logo: /assets/pcicon.png
+        - text: "AIPC Summer 2024"
+          href: "https://poker.camp/aipcs24"
         - section: "Challenges"
           contents:
             - text: "1: Kuhn Poker"
+              href: "challenge1kuhn.qmd"
             - text: "2: Perfect Info Games"
             - text: "3: Leduc Poker"
             - text: "4: Rock Paper Scissors"
