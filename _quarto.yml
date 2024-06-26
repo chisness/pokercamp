@@ -34,14 +34,28 @@ website:
       - icon: github
         href: https://github.com/chisness/pokercamp
   sidebar: 
-    # - id: id-camp
-    #   title: "Poker Camp"
-    #   style: "docked"
-    #   background: light
-    #   contents:
-    #     - text: "test1"
-    #     - text: "test2"
-    #     - about.qmd
+    - id: aipcs24
+      title: "Poker Camp"
+      style: "docked"
+      background: light
+      contents:
+        - logo: /assets/pcicon.png
+        - section: "Challenges"
+          contents:
+            - text: "1: Kuhn Poker"
+            - text: "2: Perfect Info Games"
+            - text: "3: Leduc Poker"
+            - text: "4: Rock Paper Scissors"
+            - text: "5: Texas Tac Toe"
+            - text: "6: Rock Poker Scissors"
+        - section: "Configuration"
+          contents:
+            - text: "General Setup"
+            - text: "Building and Running Bots"
+        - section: "About the Course"
+          contents:
+            - text: "Meetings and Challenges"
+            - text: "Instructors and TAs"
     - id: signup
       title: "Signup"
       style: "docked"

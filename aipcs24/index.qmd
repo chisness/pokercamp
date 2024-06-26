@@ -1,0 +1,16 @@
+---
+title: "AI Poker Camp Summer 2024"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
+Coming soon: 
+
+- Jul 8-Aug 8: Beta in SF
+
+- Aug 19-Sep 19: Beta v2 in NYC
+
+- Sep 24-Nov 26: Full course virtual
+
+![](../assets/pcicon.png){width=50%}
