@@ -39,24 +39,33 @@ website:
       background: light
       contents:
         - text: "AIPC Summer 2024"
-          href: "https://poker.camp/aipcs24"
+          href: "/aipcs24"
         - section: "Challenges"
           contents:
             - text: "1: Kuhn Poker"
-              href: "challenge1kuhn.qmd"
+              href: "aipcs24/challenge1kuhn.qmd"
             - text: "2: Perfect Info Games"
+              href: "aipcs24/challenge2perfectinfo.qmd"
             - text: "3: Leduc Poker"
+              href: "aipcs24/challenge3leduc.qmd"
             - text: "4: Rock Paper Scissors"
+              href: "aipcs24/challenge4rps.qmd"
             - text: "5: Texas Tac Toe"
+              href: "aipcs24/challenge5ttt.qmd"
             - text: "6: Rock Poker Scissors"
+              href: "aipcs24/challenge6rps.qmd"
         - section: "Configuration"
           contents:
             - text: "General Setup"
+              href: "aipcs24/setup.qmd"
             - text: "Building and Running Bots"
+              href: "aipcs24/bots.qmd"
         - section: "About the Course"
           contents:
             - text: "Meetings and Challenges"
+              href: "aipcs24/meetings.qmd"
             - text: "Instructors and TAs"
+              href: "aipcs24/staff.qmd"
     - id: signup
       title: "Signup"
       style: "docked"
