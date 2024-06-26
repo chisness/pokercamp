@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Building and Running Bots"
 sidebar: aipcs24
 format:
   html:

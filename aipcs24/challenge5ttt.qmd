@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Challenge 5: Texas Tac Toe"
 sidebar: aipcs24
 format:
   html:

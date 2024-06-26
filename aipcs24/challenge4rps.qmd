@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Challenge 4: Rock Paper Scissors Opponent Modeling"
 sidebar: aipcs24
 format:
   html:

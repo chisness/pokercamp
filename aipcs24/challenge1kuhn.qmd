@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Challenge 1: Kuhn Poker CFR Tutorial"
 sidebar: aipcs24
 format:
   html:

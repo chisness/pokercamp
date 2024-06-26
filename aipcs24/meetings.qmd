@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Meetings and Challenges"
 sidebar: aipcs24
 format:
   html:
