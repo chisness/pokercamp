@@ -20,8 +20,10 @@ Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco.
  **[Click here for more info](https://poker.camp/signup)**
 :::
 
+[![](./assets/signup.png){width=50%}](/signup)
 
-[![](./assets/pc.png)](/signup)
+
+![](./assets/pc.png)
 
 
 Note that the programming and related materials/workshops are for educational purposes and will not use any real money. 

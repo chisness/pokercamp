@@ -1,5 +1,5 @@
 ---
-title: "Poker Camp Course"
+title: "Poker and Applied Rationality Camp"
 # sidebar: id-camp
 format:
   html:
