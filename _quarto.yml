@@ -15,10 +15,12 @@ website:
     logo: ./assets/favicon32.png
     background: primary
     left: 
-      - sidebar:signup
-      - text: "AI Poker Camp"
+      # - sidebar:signup
+      - text: "AI Poker Camp Summer 2024 Signup"
+        href: /signup
+      - text: "AI Poker Camp Info"
         href: /aicamp
-      - text: "Poker Camp"
+      - text: "Poker and Applied Rationality Camp Info"
         href: /camp
     right: 
       - text: "About"
@@ -66,14 +68,14 @@ website:
               href: "aipcs24/meetings.qmd"
             - text: "Instructors and TAs"
               href: "aipcs24/staff.qmd"
-    - id: signup
-      title: "Signup"
-      style: "docked"
-      background: light
-      collapse-level: 2
-      contents: 
-        - text: "AI Poker Camp 2024 SF Summer Beta"
-          href: /signup
+    # - id: signup
+    #   title: "Signup"
+    #   style: "docked"
+    #   background: light
+    #   collapse-level: 2
+    #   contents: 
+    #     - text: "AI Poker Camp 2024 SF Summer Beta"
+    #       href: /signup
   # sidebar:
   #   style: docked
   #   background: light
