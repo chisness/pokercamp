@@ -18,6 +18,12 @@ format:
 - After signing up and completing payment, we will be in touch with details.
 :::
 
+<div align="center">
+![](../assets/signup.png){width=20%}
+![](../assets/signup.png){width=20%}
+![](../assets/signup.png){width=20%}
+</div>
+
 ## When?
 6pm-8pm Mondays and Thursdays, July 8 through August 8.
 
@@ -33,9 +39,6 @@ Strictly in-person in San Francisco. Location to be announced.
 We’re also planning to run an online version of the course starting in late September; you can join our [mailing list](https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform) to learn more when it’s announced.
 
 ## Who?
-You and a partner!
-
-- We’re requiring students for the beta to enroll with a partner (or as a trio) for accountability and support.
 
 - We recommend students be able to program in Python and [perform a Bayesian update](https://towardsdatascience.com/bayesian-updating-simply-explained-c2ed3e563588) (though it’s fine to lean on an LLM for help on either).
 

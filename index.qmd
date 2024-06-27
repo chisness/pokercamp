@@ -17,7 +17,7 @@ Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco.
 
 - After signing up and completing payment, we will be in touch with details.
 
- **[Click here for more info](https://poker.camp/signup)**
+ **[Click here for more info](/signup)**
 :::
 
 [![](./assets/pc.png)](./signup)
