@@ -16,12 +16,13 @@ website:
     background: primary
     left: 
       # - sidebar:signup
-      - text: "AI Poker Camp Summer 2024 Signup"
+      - text: "Signup: AI Poker Camp Summer 2024"
         href: /signup
-      - text: "AI Poker Camp Info"
-        href: /aicamp
-      - text: "Poker and Applied Rationality Camp Info"
-        href: /camp
+      - sidebar:campinfo
+      # - text: "AI Poker Camp Info"
+      #   href: /aicamp
+      # - text: "Poker and Applied Rationality Camp Info"
+      #   href: /camp
     right: 
       - text: "About"
         href: about.qmd
@@ -68,6 +69,16 @@ website:
               href: "aipcs24/meetings.qmd"
             - text: "Instructors and TAs"
               href: "aipcs24/staff.qmd"
+    - id: campinfo
+      title: "Camp Info"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - text: "Poker and Applied Rationality Camp"
+          href: /camp
+        - text: "AI Poker Camp"
+          href: /aicamp
     # - id: signup
     #   title: "Signup"
     #   style: "docked"

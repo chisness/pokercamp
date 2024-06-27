@@ -3,7 +3,23 @@ format: html
 ---
 **Poker Camp** is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker. 
 
-Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco! **[Click here to sign up](https://poker.camp/signup)**.
+Our first camp will take place from Jul 8 to Aug 8 in person in San Francisco.
+
+::: {.callout-note appearance="default"}
+
+## Sign up now! 
+
+**[Step 1: Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
+
+- The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop.
+
+**[Step 2: Payment Link](https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss)**
+
+- After signing up and completing payment, we will be in touch with details.
+
+ **[Click here for more info](https://poker.camp/signup)**
+:::
+
 
 [![](./assets/pc.png)](/signup)
 
