@@ -1,5 +1,5 @@
 ---
-title: "AI Poker Camp Course"
+title: "AI Poker Camp"
 format:
   html:
     math: true
