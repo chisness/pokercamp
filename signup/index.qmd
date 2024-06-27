@@ -90,4 +90,4 @@ We’re intending for the Summer Beta to have about the intensity of one (1) col
 ## Something else?
 [Get in touch!](mailto:info@poker.camp)
 
-![](./assets/signup.png)
+![](../assets/signup.png)
