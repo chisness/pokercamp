@@ -10,15 +10,17 @@ Poker Camp is a project by [Ross Rheingans-Yoo](mailto:ross@poker.camp) and [Max
 
 ## Mission
 
-Teaching practical decision-making and rationality through poker and other games, blending real-world skills with theoretical insights
+Teaching practical decision-making and rationality, blending real-world skills with theoretical insights
 
 ## Max bio 
 
-- 2008-2012: Online poker pro on PokerStars, playing over 10m hands including 990k in 1 month (the most ever played in a month above microstakes)
+- Former online poker pro on PokerStars, playing over 10m hands including 990k in 1 month (record for most ever played in a month above microstakes)
 
-- 2017: MSc with thesis on AI poker at Technion Israel Institute of Technology with [Nahum Shimkin](https://webee.technion.ac.il/shimkin/index.html)
+- AI poker research: 
 
-- 2019 and 2022: [Two poker research papers](https://arxiv.org/search/cs?searchtype=author&query=Chiswick,+M) with [Sam Ganzfried](http://www.ganzfriedresearch.com/)
+  - MSc with thesis on AI poker at Technion Israel Institute of Technology with [Nahum Shimkin](https://webee.technion.ac.il/shimkin/index.html)
+
+  - [Two poker research papers](https://arxiv.org/search/cs?searchtype=author&query=Chiswick,+M) with [Sam Ganzfried](http://www.ganzfriedresearch.com/)
 
 - [LinkedIn](https://www.linkedin.com/in/maxchiswick/)
 
