@@ -11,9 +11,11 @@ format:
 
 **[Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
 
-- The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop.
+- After signing up, we'll be in touch with all details. The beta program is free! 
 
-- After signing up, we'll be in touch with all details including payment options.
+<!-- - The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop.
+
+- After signing up, we'll be in touch with all details including payment options. -->
 :::
 
 ## When?
@@ -28,7 +30,7 @@ This is a beta test of a course we’re planning to run online in the fall, so i
 Strictly in-person in San Francisco. Location to be announced.
 
 ### Wait, really? I can’t make that!
-We’re also planning to run an online version of the course starting in late September; you can join our [mailing list](https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform) to learn more when it’s announced.
+We’re also planning to run an online version of the course starting in late September. You can join our [mailing list](https://docs.google.com/forms/d/e/1FAIpQLSep2wLWyYzyBt2tBxCjlhEzUmMfSu8iVRRT2Zs5C5GUf_F3gw/viewform) to learn more when it’s announced.
 
 ## Who?
 
@@ -70,9 +72,11 @@ We’re intending for the Summer Beta to have about the intensity of one (1) col
 ## How?
 **[Signup Form](https://forms.gle/72yqxC3UpP9aa2wv7)**
 
-- The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7.
+- After signing up, we'll be in touch with all details. The beta program is free! 
 
-- After signing up, we'll be in touch with all details including payment options. If financially prohibitive, you can let us know and we’ll try to work something out.
+<!-- - The cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7. -->
+
+<!-- - After signing up, we'll be in touch with all details including payment options. If financially prohibitive, you can let us know and we’ll try to work something out. -->
 
 ## Something else?
 [Get in touch!](mailto:info@poker.camp)

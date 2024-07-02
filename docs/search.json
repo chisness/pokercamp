@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Poker Camp",
     "section": "",
-    "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 8 to Aug 8 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nThe cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop.\nAfter signing up, we’ll be in touch with all details including payment options.\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
+    "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 8 to Aug 8 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details. The beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
     "objectID": "aipcs24/index.html",
@@ -25,7 +25,7 @@
     "href": "signup/index.html",
     "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "",
-    "text": "Sign up now!\n\n\n\nSignup Form\n\nThe cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop.\nAfter signing up, we’ll be in touch with all details including payment options."
+    "text": "Sign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details. The beta program is free!"
   },
   {
     "objectID": "signup/index.html#when",
@@ -46,7 +46,7 @@
     "href": "signup/index.html#where",
     "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "Where?",
-    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September; you can join our mailing list to learn more when it’s announced."
+    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September. You can join our mailing list to learn more when it’s announced."
   },
   {
     "objectID": "signup/index.html#who",
@@ -74,7 +74,7 @@
     "href": "signup/index.html#how",
     "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "How?",
-    "text": "How?\nSignup Form\n\nThe cost for the camp is $100 per person with an optional $20 pre-camp Poker Basics workshop on Sun Jul 7.\nAfter signing up, we’ll be in touch with all details including payment options. If financially prohibitive, you can let us know and we’ll try to work something out."
+    "text": "How?\nSignup Form\n\nAfter signing up, we’ll be in touch with all details. The beta program is free!"
   },
   {
     "objectID": "signup/index.html#something-else",
@@ -102,21 +102,21 @@
     "href": "about.html#mission",
     "title": "About",
     "section": "Mission",
-    "text": "Mission\nTo build the best program to teach practical reasoning under uncertainty"
+    "text": "Mission\nTeaching practical decision-making and rationality through poker and other games, blending real-world skills with theoretical insights"
   },
   {
     "objectID": "about.html#max-bio",
     "href": "about.html#max-bio",
     "title": "About",
     "section": "Max bio",
-    "text": "Max bio\n\n2008-2012: Online poker pro on PokerStars\n2017: MSc with thesis on AI poker at Technion Israel Institute of Technology with Nahum Shimkin\n2019 and 2022: Two poker research papers with Sam Ganzfried\nLinkedIn"
+    "text": "Max bio\n\n2008-2012: Online poker pro on PokerStars, playing over 10m hands including 990k in 1 month (the most ever played in a month above microstakes)\n2017: MSc with thesis on AI poker at Technion Israel Institute of Technology with Nahum Shimkin\n2019 and 2022: Two poker research papers with Sam Ganzfried\nLinkedIn"
   },
   {
     "objectID": "about.html#ross-bio",
     "href": "about.html#ross-bio",
     "title": "About",
     "section": "Ross bio",
-    "text": "Ross bio\n\nFormer Jane Street trader and instructor\nHomepage"
+    "text": "Ross bio\n\nFormer Jane Street trader\nWrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021\nHomepage\nTwitter"
   },
   {
     "objectID": "about.html#contribute",
