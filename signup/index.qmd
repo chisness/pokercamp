@@ -21,7 +21,7 @@ format:
 :::
 
 ## When?
-6pm-8pm Mondays and Thursdays, July 8 through August 8.
+6pm-8pm Mondays and Thursdays, July 15 through August 15.
 
 ## What?
 A five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.
