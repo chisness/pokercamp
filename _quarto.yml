@@ -7,7 +7,7 @@ project:
 website:
   title: "Poker Camp"
   open-graph: true
-  google-analytics: G-1R1JQVQ05N
+  google-analytics: "G-1R1JQVQ05N"
   favicon: ./assets/favicon32.png
   twitter-card:
     creator: "@pokercamporg"
