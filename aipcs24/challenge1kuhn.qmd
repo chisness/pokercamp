@@ -176,6 +176,12 @@ Find a $p$ and a $q$ such that both:
 1. Bugs never chooses an action with regret
 
 2. Fudd never chooses an action with regret
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Hint
+
+In order to have no regret, the expected value of both actions should be equal
+:::
 :::
 
 ## Kuhn Poker
@@ -201,7 +207,7 @@ Find a $p$ and a $q$ such that both:
 
 - There is one betting round that can take the following sequences: 
 
-| Result     | Player 1  | Player 2  | Player 1 | Result       |
+| Result     | Player 1  | Player 2  | Player 1 | Winner       |
 |------------|-----------|-----------|----------|--------------|
 | Sequence 1 | Down      | Up        | Down     |Player 2 (+1) |
 | Sequence 2 | Down      | Up        | Up       |High Card (+2)|
