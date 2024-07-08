@@ -138,6 +138,8 @@ Some students report that they misunderstood what we mean by “regret” the fi
 1. What are Fudd’s information set(s)? 
 
 2. What are Bugs’s information set(s)?
+
+![](assets/bugsfuddtree.png)
 :::
 
 :::{.callout-note  appearance="minimal"}
