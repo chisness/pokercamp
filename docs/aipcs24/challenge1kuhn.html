@@ -305,11 +305,11 @@ window.Quarto = {
   <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
   <ul class="collapse">
-  <li><a href="#how-kuhn-interactive-works" id="toc-how-kuhn-interactive-works" class="nav-link" data-scroll-target="#how-kuhn-interactive-works">How Kuhn Interactive Works</a></li>
+  <li><a href="#how-kuhn-interactive-works" id="toc-how-kuhn-interactive-works" class="nav-link" data-scroll-target="#how-kuhn-interactive-works">How Kuhn Interactive works</a></li>
   <li><a href="#why-cant-we-just-do-tree-search" id="toc-why-cant-we-just-do-tree-search" class="nav-link" data-scroll-target="#why-cant-we-just-do-tree-search">Why can’t we just do tree search?</a></li>
   <li><a href="#do-we-really-need-mixed-strategies" id="toc-do-we-really-need-mixed-strategies" class="nav-link" data-scroll-target="#do-we-really-need-mixed-strategies">Do we really need mixed strategies?</a></li>
   <li><a href="#actually-solving-kuhn-poker" id="toc-actually-solving-kuhn-poker" class="nav-link" data-scroll-target="#actually-solving-kuhn-poker">Actually solving Kuhn Poker</a></li>
-  <li><a href="#how-results-are-generated" id="toc-how-results-are-generated" class="nav-link" data-scroll-target="#how-results-are-generated">How Results are Generated</a></li>
+  <li><a href="#how-results-are-generated" id="toc-how-results-are-generated" class="nav-link" data-scroll-target="#how-results-are-generated">How results are generated</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -618,6 +618,7 @@ Regret
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
 <p><a href="https://en.wikipedia.org/wiki/Kuhn_poker">Kuhn Poker</a> is the most simple version of poker.</p>
+<p><img src="assets/kuhnbee.png" class="img-fluid"></p>
 <ul>
 <li><p>3 card deck: Queen, King, Ace (Ace is highest)</p></li>
 <li><p>2 players</p></li>
@@ -628,6 +629,7 @@ Regret
 <li><p>Up actions indicate a Bet or Call (putting a chip into the pot)</p></li>
 <li><p>Down actions indicate a Check or Fold (not putting a chip into the pot)</p></li>
 </ul></li>
+<li><p>Rotate who acts first each hand</p></li>
 <li><p>There is one betting round that can take the following sequences:</p></li>
 </ul>
 <table class="table">
@@ -685,7 +687,7 @@ Regret
 <p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
 <p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
 <section id="how-kuhn-interactive-works" class="level3">
-<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive Works</h3>
+<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive works</h3>
 <p>TO DO</p>
 </section>
 <section id="why-cant-we-just-do-tree-search" class="level3">
@@ -719,7 +721,7 @@ Regret
 <p>Next, enter your strategy into the daily leaderboard.</p>
 </section>
 <section id="how-results-are-generated" class="level3">
-<h3 class="anchored" data-anchor-id="how-results-are-generated">How Results are Generated</h3>
+<h3 class="anchored" data-anchor-id="how-results-are-generated">How results are generated</h3>
 <p>This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.</p>
 
 

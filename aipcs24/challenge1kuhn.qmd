@@ -177,7 +177,9 @@ Find a $p$ and a $q$ such that both:
 :::
 
 ## Kuhn Poker
-[Kuhn Poker](https://en.wikipedia.org/wiki/Kuhn_poker) is the most simple version of poker. 
+[Kuhn Poker](https://en.wikipedia.org/wiki/Kuhn_poker) is the most simple version of poker.
+
+![](assets/kuhnbee.png)
 
 - 3 card deck: Queen, King, Ace (Ace is highest)
 
@@ -192,6 +194,8 @@ Find a $p$ and a $q$ such that both:
   - Up actions indicate a Bet or Call (putting a chip into the pot)
 
   - Down actions indicate a Check or Fold (not putting a chip into the pot)
+
+- Rotate who acts first each hand
 
 - There is one betting round that can take the following sequences: 
 
@@ -210,7 +214,7 @@ After a short delay, the leaderboard should update; your score will be compared 
 
 Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.
 
-### How Kuhn Interactive Works
+### How Kuhn Interactive works
 TO DO
 
 ### Why can’t we just do tree search?
@@ -246,5 +250,5 @@ Pick a reasonable learning rate, update individual cells until they converge.
 
 Next, enter your strategy into the daily leaderboard.
 
-### How Results are Generated 
+### How results are generated 
 This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate. 
