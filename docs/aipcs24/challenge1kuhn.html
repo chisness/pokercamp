@@ -303,8 +303,14 @@ window.Quarto = {
   <li><a href="#concept-regret" id="toc-concept-regret" class="nav-link" data-scroll-target="#concept-regret">Concept: Regret</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
-  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
-  <li><a href="#submitting-agents" id="toc-submitting-agents" class="nav-link" data-scroll-target="#submitting-agents">Submitting Agents</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
+  <ul class="collapse">
+  <li><a href="#how-kuhn-interactive-works" id="toc-how-kuhn-interactive-works" class="nav-link" data-scroll-target="#how-kuhn-interactive-works">How Kuhn Interactive Works</a></li>
+  <li><a href="#why-cant-we-just-do-tree-search" id="toc-why-cant-we-just-do-tree-search" class="nav-link" data-scroll-target="#why-cant-we-just-do-tree-search">Why can’t we just do tree search?</a></li>
+  <li><a href="#do-we-really-need-mixed-strategies" id="toc-do-we-really-need-mixed-strategies" class="nav-link" data-scroll-target="#do-we-really-need-mixed-strategies">Do we really need mixed strategies?</a></li>
+  <li><a href="#actually-solving-kuhn-poker" id="toc-actually-solving-kuhn-poker" class="nav-link" data-scroll-target="#actually-solving-kuhn-poker">Actually solving Kuhn Poker</a></li>
+  <li><a href="#how-results-are-generated" id="toc-how-results-are-generated" class="nav-link" data-scroll-target="#how-results-are-generated">How Results are Generated</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -528,10 +534,13 @@ Solution
 </div>
 </div>
 </div>
-<p>There are other things that “regret” can mean in English, that are separate from this technical concept: - Based on what chance events later happened, I wish I had taken a different action instead. - I was wrong about what strategy my opponent was playing, and I wish I had taken a different action instead.</p>
+<p>There are other things that “regret” can mean in English, that are separate from this technical concept:</p>
+<ul>
+<li><p>Based on what chance events later happened, I wish I had taken a different action instead.</p></li>
+<li><p>I was wrong about what strategy my opponent was playing, and I wish I had taken a different action instead.</p></li>
+</ul>
 <p>However, we will use “regret” as a technical concept to mean only actions that are not-highest-EV given a particular P1 strategy and P2 strategy.</p>
 <p>Some students report that they misunderstood what we mean by “regret” the first time that they read this. Go back and check the two things that regret isn’t.</p>
-<p>Max: Explain differences here between the regret that wasn’t converging on the site and the one that is</p>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
@@ -608,31 +617,114 @@ Regret
 </section>
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
-<p>Game rules Up down</p>
+<p><a href="https://en.wikipedia.org/wiki/Kuhn_poker">Kuhn Poker</a> is the most simple version of poker.</p>
+<ul>
+<li><p>3 card deck: Queen, King, Ace (Ace is highest)</p></li>
+<li><p>2 players</p></li>
+<li><p>Each player starts with 2 chips and antes 1</p></li>
+<li><p>Deal 1 card to each player (discard the 3rd)</p></li>
+<li><p>Players can take Up or Down actions</p>
+<ul>
+<li><p>Up actions indicate a Bet or Call (putting a chip into the pot)</p></li>
+<li><p>Down actions indicate a Check or Fold (not putting a chip into the pot)</p></li>
+</ul></li>
+<li><p>There is one betting round that can take the following sequences:</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Result</th>
+<th>Player 1</th>
+<th>Player 2</th>
+<th>Player 1</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sequence 1</td>
+<td>Down</td>
+<td>Up</td>
+<td>Down</td>
+<td>Player 2 (+1)</td>
+</tr>
+<tr class="even">
+<td>Sequence 2</td>
+<td>Down</td>
+<td>Up</td>
+<td>Up</td>
+<td>High Card (+2)</td>
+</tr>
+<tr class="odd">
+<td>Sequence 3</td>
+<td>Down</td>
+<td>Down</td>
+<td></td>
+<td>High Card (+1)</td>
+</tr>
+<tr class="even">
+<td>Sequence 4</td>
+<td>Up</td>
+<td>Down</td>
+<td></td>
+<td>Player 1 (+1)</td>
+</tr>
+<tr class="odd">
+<td>Sequence 5</td>
+<td>Up</td>
+<td>Up</td>
+<td></td>
+<td>High Card (+2)</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
-</section>
-<section id="submitting-agents" class="level2">
-<h2 class="anchored" data-anchor-id="submitting-agents">Submitting Agents</h2>
-<p>Running agents/submitting agents</p>
-<p>Using the Kuhn Interactive site, find a strategy that you think is best. Go to the “competition” tab, and press “submit”. This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as Fudd half the time and Bugs half the time.</p>
+<p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn/">interactive site</a> and submit once you find the strategy that you think is best.</p>
 <p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
-<p>Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now</p>
 <p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
-<p>No regret for p1 vs p2 and no regret for p2 vs p1 more analogous to Bugs Fudd</p>
-<p>Interactive questions?</p>
-<p>Video for exercises? Microvideos</p>
-<p>Ross: Make sequential so only see first round then expand?</p>
-<p>Why can’t we just do tree search? Because of incomplete information.</p>
-<p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up. [Is this how Arimaa was solved?]</p>
-<p>I claim that if you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy. Reset Update the strategy weights for the X_↓↑ nodes until they converge. Update the strategy weights for the _X↓ and <em>X↑ nodes until they converge. Update the strategy weights for the X</em> nodes until they converge.</p>
-<p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? Do we really need mixed strategies? You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
-<p>Follow these steps: Reset Set the learning rate to 1.0. In any order you like, pick cells and update them. Repeat 3 while there are still suboptimal moves in your strategy.</p>
-<p>A bad thing is happening to you. Why? Actually solving Kuhn Poker Pick a reasonable learning rate, update individual cells until they converge. Next, enter your strategy into the daily leaderboard.</p>
+<section id="how-kuhn-interactive-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive Works</h3>
+<p>TO DO</p>
+</section>
+<section id="why-cant-we-just-do-tree-search" class="level3">
+<h3 class="anchored" data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h3>
+<p>Because of incomplete information.</p>
+<p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.</p>
+<p>If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy:</p>
+<ol type="1">
+<li>Reset</li>
+<li>Update the strategy weights for the X_↓↑ nodes until they converge.</li>
+<li>Update the strategy weights for the _X↓ and _X↑ nodes until they converge.</li>
+<li>Update the strategy weights for the X_ nodes until they converge.</li>
+</ol>
+<p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?</p>
+</section>
+<section id="do-we-really-need-mixed-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h3>
+<p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
+<p>Follow these steps:</p>
+<ol type="1">
+<li>Reset</li>
+<li>Set the learning rate to 1.0.</li>
+<li>In any order you like, pick cells and update them.</li>
+<li>Repeat 3 while there are still suboptimal moves in your strategy.</li>
+</ol>
+<p>A bad thing is happening to you. Why?</p>
+</section>
+<section id="actually-solving-kuhn-poker" class="level3">
+<h3 class="anchored" data-anchor-id="actually-solving-kuhn-poker">Actually solving Kuhn Poker</h3>
+<p>Pick a reasonable learning rate, update individual cells until they converge.</p>
+<p>Next, enter your strategy into the daily leaderboard.</p>
+</section>
+<section id="how-results-are-generated" class="level3">
+<h3 class="anchored" data-anchor-id="how-results-are-generated">How Results are Generated</h3>
+<p>This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.</p>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

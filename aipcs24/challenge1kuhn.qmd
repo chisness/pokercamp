@@ -122,14 +122,14 @@ What is the regret for each action?
 :::
 
 There are other things that “regret” can mean in English, that are separate from this technical concept:
+
 - Based on what chance events later happened, I wish I had taken a different action instead.
+
 - I was wrong about what strategy my opponent was playing, and I wish I had taken a different action instead.
 
 However, we will use “regret” as a technical concept to mean only actions that are not-highest-EV given a particular P1 strategy and P2 strategy.
 
 Some students report that they misunderstood what we mean by “regret” the first time that they read this. Go back and check the two things that regret isn’t.
-
-Max: Explain differences here between the regret that wasn’t converging on the site and the one that is
 
 ## Exercises
 :::{.callout-note  appearance="minimal"}
@@ -177,55 +177,74 @@ Find a $p$ and a $q$ such that both:
 :::
 
 ## Kuhn Poker
-Game rules
-Up down
+[Kuhn Poker](https://en.wikipedia.org/wiki/Kuhn_poker) is the most simple version of poker. 
 
+- 3 card deck: Queen, King, Ace (Ace is highest)
+
+- 2 players
+
+- Each player starts with 2 chips and antes 1
+
+- Deal 1 card to each player (discard the 3rd)
+
+- Players can take Up or Down actions
+
+  - Up actions indicate a Bet or Call (putting a chip into the pot)
+
+  - Down actions indicate a Check or Fold (not putting a chip into the pot)
+
+- There is one betting round that can take the following sequences: 
+
+| Result     | Player 1  | Player 2  | Player 1 | Result       |
+|------------|-----------|-----------|----------|--------------|
+| Sequence 1 | Down      | Up        | Down     |Player 2 (+1) |
+| Sequence 2 | Down      | Up        | Up       |High Card (+2)|
+| Sequence 3 | Down      | Down      |          |High Card (+1)|
+| Sequence 4 | Up        | Down      |          |Player 1 (+1) |
+| Sequence 5 | Up        | Up        |          |High Card (+2)|
 
 ## Challenge 1
-
-## Submitting Agents
-Running agents/submitting agents
-
-Using the Kuhn Interactive site, find a strategy that you think is best. Go to the “competition” tab, and press “submit”. This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as Fudd half the time and Bugs half the time.
+Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn/) and submit once you find the strategy that you think is best. 
 
 After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p>31%).
 
-Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now
-
-
 Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.
 
-No regret for p1 vs p2 and no regret for p2 vs p1 more analogous to Bugs Fudd
+### How Kuhn Interactive Works
+TO DO
 
-Interactive questions? 
+### Why can’t we just do tree search?
 
-Video for exercises? Microvideos 
-
-Ross: Make sequential so only see first round then expand?
-
-
-Why can’t we just do tree search?
 Because of incomplete information.
 
-If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up. [Is this how Arimaa was solved?]
+If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.
 
-I claim that if you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy.
-Reset
-Update the strategy weights for the X_↓↑ nodes until they converge.
-Update the strategy weights for the _X↓ and _X↑ nodes until they converge.
-Update the strategy weights for the X_ nodes until they converge.
+If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy: 
 
-Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?
-Do we really need mixed strategies?
+1. Reset
+2. Update the strategy weights for the X_↓↑ nodes until they converge.
+3. Update the strategy weights for the _X↓ and _X↑ nodes until they converge.
+4. Update the strategy weights for the X_ nodes until they converge.
+
+Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? 
+
+### Do we really need mixed strategies?
+
 You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
 
 Follow these steps:
-Reset
-Set the learning rate to 1.0.
-In any order you like, pick cells and update them.
-Repeat 3 while there are still suboptimal moves in your strategy.
+
+1. Reset
+2. Set the learning rate to 1.0.
+3. In any order you like, pick cells and update them.
+4. Repeat 3 while there are still suboptimal moves in your strategy.
 
 A bad thing is happening to you. Why?
-Actually solving Kuhn Poker
+
+### Actually solving Kuhn Poker
 Pick a reasonable learning rate, update individual cells until they converge.
+
 Next, enter your strategy into the daily leaderboard.
+
+### How Results are Generated 
+This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate. 
