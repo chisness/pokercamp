@@ -214,7 +214,7 @@ In order to have no regret, the expected value of both actions should be equal
 
 - There is one betting round that can take the following sequences: 
 
-| Result     | Player 1  | Player 2  | Player 1 | Winner       |
+| Sequence   | Player 1  | Player 2  | Player 1 | Winner       |
 |------------|-----------|-----------|----------|--------------|
 | Sequence 1 | Down      | Up        | Down     |Player 2 (+1) |
 | Sequence 2 | Down      | Up        | Up       |High Card (+2)|
