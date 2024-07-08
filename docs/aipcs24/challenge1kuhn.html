@@ -211,8 +211,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/challenge2perfectinfo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Perfect Info Games</span></a>
+  <a href="../aipcs24/challenge2othergames.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Other Games</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,10 +303,8 @@ window.Quarto = {
   <li><a href="#concept-regret" id="toc-concept-regret" class="nav-link" data-scroll-target="#concept-regret">Concept: Regret</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
-  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
-  <ul class="collapse">
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
   <li><a href="#submitting-agents" id="toc-submitting-agents" class="nav-link" data-scroll-target="#submitting-agents">Submitting Agents</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -332,8 +330,8 @@ window.Quarto = {
 </header>
 
 
-<section id="hunting-wabbits" class="level1">
-<h1>Hunting Wabbits</h1>
+<section id="hunting-wabbits" class="level2">
+<h2 class="anchored" data-anchor-id="hunting-wabbits">Hunting Wabbits</h2>
 <p>(This game is modified from <em><a href="https://mlanctot.info/files/papers/aamas15-iioos.pdf">Lisy et al.&nbsp;2015</a>)</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -380,14 +378,14 @@ window.Quarto = {
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
 <p>If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
 </section>
-<section id="concept-information-set" class="level1">
-<h1>Concept: Information Set</h1>
+<section id="concept-information-set" class="level2">
+<h2 class="anchored" data-anchor-id="concept-information-set">Concept: Information Set</h2>
 <p>In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.</p>
 <p>In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an <strong>information set</strong> or an <strong>infoset</strong>.</p>
 <p>A <strong>player strategy</strong> is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker, we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.</p>
 </section>
-<section id="concept-expected-value" class="level1">
-<h1>Concept: Expected Value</h1>
+<section id="concept-expected-value" class="level2">
+<h2 class="anchored" data-anchor-id="concept-expected-value">Concept: Expected Value</h2>
 <p>Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of the average outcome, weighted by the probability that you get to that outcome, respectively.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -419,7 +417,7 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Bugs’s left node has:</li>
+<li>Bugs’s node values are:</li>
 </ol>
 <p><span class="math inline">\(\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(\text{Right Node}) = 0.5*1 + 0.5*-2 = -0.5\)</span></p>
@@ -454,8 +452,8 @@ Solution
 <p>We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the <em>maximizing player</em> wishes to make positive and the <em>minimizing player</em> wishes to make negative.</p>
 <p>We will focus on maximizing (or minimizing) expected value as our goal for all of Course 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.</p>
 </section>
-<section id="concept-regret" class="level1">
-<h1>Concept: Regret</h1>
+<section id="concept-regret" class="level2">
+<h2 class="anchored" data-anchor-id="concept-regret">Concept: Regret</h2>
 <p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -535,8 +533,8 @@ Solution
 <p>Some students report that they misunderstood what we mean by “regret” the first time that they read this. Go back and check the two things that regret isn’t.</p>
 <p>Max: Explain differences here between the regret that wasn’t converging on the site and the one that is</p>
 </section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -608,12 +606,13 @@ Regret
 </div>
 </div>
 </section>
-<section id="kuhn-poker" class="level1">
-<h1>Kuhn Poker</h1>
+<section id="kuhn-poker" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
 <p>Game rules Up down</p>
 </section>
-<section id="challenge-1" class="level1">
-<h1>Challenge 1</h1>
+<section id="challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
+</section>
 <section id="submitting-agents" class="level2">
 <h2 class="anchored" data-anchor-id="submitting-agents">Submitting Agents</h2>
 <p>Running agents/submitting agents</p>
@@ -634,7 +633,6 @@ Regret
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

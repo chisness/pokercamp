@@ -47,8 +47,8 @@ website:
           contents:
             - text: "1: Kuhn Poker"
               href: "aipcs24/challenge1kuhn.qmd"
-            - text: "2: Perfect Info Games"
-              href: "aipcs24/challenge2perfectinfo.qmd"
+            - text: "2: Other Games"
+              href: "aipcs24/challenge2othergames.qmd"
             - text: "3: Leduc Poker"
               href: "aipcs24/challenge3leduc.qmd"
             - text: "4: Rock Paper Scissors"

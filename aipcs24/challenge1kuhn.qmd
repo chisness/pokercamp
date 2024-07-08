@@ -6,7 +6,7 @@ format:
     math: true
 ---
 
-# Hunting Wabbits
+## Hunting Wabbits
 (This game is modified from *[Lisy et al. 2015](https://mlanctot.info/files/papers/aamas15-iioos.pdf))*.
 
 ![Bugs and Fudd](assets/bugsfudd.jpeg)
@@ -33,14 +33,14 @@ If it were a complete-information game, the tree structure would be:
 
 If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
 
-# Concept: Information Set
+## Concept: Information Set
 In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
 
 In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an **information set** or an **infoset**.
 
 A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker, we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
 
-# Concept: Expected Value
+## Concept: Expected Value
 Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of the average outcome, weighted by the probability that you get to that outcome, respectively.
 
 :::{.callout-note  appearance="minimal"}
@@ -56,7 +56,7 @@ Suppose that Bugs plays uniform $0.5$ Play_Near and $0.5$ Play_Far.
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 
-1. Bugs's left node has: 
+1. Bugs's node values are: 
 
 $\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5$ 
 
@@ -92,7 +92,7 @@ We will focus on zero-sum two-player games, so the value to one player is simply
 
 We will focus on maximizing (or minimizing) expected value as our goal for all of Course 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.
 
-# Concept: Regret
+## Concept: Regret
 For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. 
 
 :::{.callout-note  appearance="minimal"}
@@ -131,7 +131,7 @@ Some students report that they misunderstood what we mean by “regret” the fi
 
 Max: Explain differences here between the regret that wasn’t converging on the site and the one that is
 
-# Exercises
+## Exercises
 :::{.callout-note  appearance="minimal"}
 ## Information Set
 
@@ -176,12 +176,12 @@ Find a $p$ and a $q$ such that both:
 2. Fudd never chooses an action with regret
 :::
 
-# Kuhn Poker
+## Kuhn Poker
 Game rules
 Up down
 
 
-# Challenge 1
+## Challenge 1
 
 ## Submitting Agents
 Running agents/submitting agents
