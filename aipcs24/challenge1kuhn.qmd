@@ -31,9 +31,7 @@ If it were a complete-information game, the tree structure would be:
 
 ![](assets/bugsfuddtree.png)
 
-Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
-
-If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. 
+If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
 
 # Concept: Information Set
 In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
@@ -48,16 +46,36 @@ Once we’ve assigned definite values to the ultimate outcomes, the expected val
 :::{.callout-note  appearance="minimal"}
 ## Exercise
 
-If Bugs plays uniform 0.5 Play_Near and 0.5 Play_Far, what is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? What is Fudd’s expected value in this case?
+Suppose that Bugs plays uniform $0.5$ Play_Near and $0.5$ Play_Far.
+
+1. What is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? 
+
+2. What is Fudd’s expected value in this case?
 :::
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 
-Solution here
-Left node: +1.5 for Fudd
-Right node: +0.5 for Fudd
-Fudd chooses Left
+1. Bugs's left node has: 
+
+$\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5$ 
+
+$\mathbb{E}(\text{Right Node}) = 0.5*1 + 0.5*-2 = -0.5$ 
+
+The values for Fudd are inverse, so Fudd prefers the Left Node with a value of $1.5$. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera. 
+
+2. Therefore Fudd will always play Hunt_Near and will have the following expected value:
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{Hunt\_Near}) &= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\ \\
+  &= 0.5*0 + 0.5*1.5 \\
+  &= 0.75
+\end{split}
+\end{equation}
+$$
+
 :::
 
 In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
@@ -117,7 +135,9 @@ Max: Explain differences here between the regret that wasn’t converging on the
 :::{.callout-note  appearance="minimal"}
 ## Information Set
 
-What are Fudd’s information set(s)? What are Bugs’s information set(s)?
+1. What are Fudd’s information set(s)? 
+
+2. What are Bugs’s information set(s)?
 :::
 
 :::{.callout-note  appearance="minimal"}
@@ -140,7 +160,6 @@ Say that Fudd chooses to Hunt_Near (at the appropriate information set) with pro
 Say that Bugs chooses to Play_Near with probability $q$. 
 
 ![](assets/bugsfuddtreepq.png)
-
 
 1. What is Fudd’s expected value of choosing Hunt_Near at his infoset? 
 

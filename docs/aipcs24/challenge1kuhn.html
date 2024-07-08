@@ -378,8 +378,7 @@ window.Quarto = {
 </table>
 <p>If it were a complete-information game, the tree structure would be:</p>
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
-<p>Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
-<p>If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account.</p>
+<p>If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
 </section>
 <section id="concept-information-set" class="level1">
 <h1>Concept: Information Set</h1>
@@ -400,7 +399,11 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If Bugs plays uniform 0.5 Play_Near and 0.5 Play_Far, what is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? What is Fudd’s expected value in this case?</p>
+<p>Suppose that Bugs plays uniform <span class="math inline">\(0.5\)</span> Play_Near and <span class="math inline">\(0.5\)</span> Play_Far.</p>
+<ol type="1">
+<li><p>What is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions?</p></li>
+<li><p>What is Fudd’s expected value in this case?</p></li>
+</ol>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -415,7 +418,24 @@ Solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Solution here Left node: +1.5 for Fudd Right node: +0.5 for Fudd Fudd chooses Left</p>
+<ol type="1">
+<li>Bugs’s left node has:</li>
+</ol>
+<p><span class="math inline">\(\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{Right Node}) = 0.5*1 + 0.5*-2 = -0.5\)</span></p>
+<p>The values for Fudd are inverse, so Fudd prefers the Left Node with a value of <span class="math inline">\(1.5\)</span>. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera.</p>
+<ol start="2" type="1">
+<li>Therefore Fudd will always play Hunt_Near and will have the following expected value:</li>
+</ol>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{Hunt\_Near}) &amp;= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\ \\
+  &amp;= 0.5*0 + 0.5*1.5 \\
+  &amp;= 0.75
+\end{split}
+\end{equation}
+\]</span></p>
 </div>
 </div>
 </div>
@@ -527,7 +547,10 @@ Information Set
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What are Fudd’s information set(s)? What are Bugs’s information set(s)?</p>
+<ol type="1">
+<li><p>What are Fudd’s information set(s)?</p></li>
+<li><p>What are Bugs’s information set(s)?</p></li>
+</ol>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
