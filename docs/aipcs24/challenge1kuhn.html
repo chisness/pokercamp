@@ -108,8 +108,10 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="Poker Camp - Challenge 1: Kuhn Poker CFR Tutorial">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
 <meta name="twitter:title" content="Poker Camp - Challenge 1: Kuhn Poker CFR Tutorial">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -291,7 +293,22 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hunting-wabbits" id="toc-hunting-wabbits" class="nav-link active" data-scroll-target="#hunting-wabbits">Hunting Wabbits</a></li>
+  <li><a href="#concept-information-set" id="toc-concept-information-set" class="nav-link" data-scroll-target="#concept-information-set">Concept: Information Set</a></li>
+  <li><a href="#concept-expected-value" id="toc-concept-expected-value" class="nav-link" data-scroll-target="#concept-expected-value">Concept: Expected Value</a></li>
+  <li><a href="#concept-regret" id="toc-concept-regret" class="nav-link" data-scroll-target="#concept-regret">Concept: Regret</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
+  <ul class="collapse">
+  <li><a href="#submitting-agents" id="toc-submitting-agents" class="nav-link" data-scroll-target="#submitting-agents">Submitting Agents</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -315,9 +332,287 @@ window.Quarto = {
 </header>
 
 
+<section id="hunting-wabbits" class="level1">
+<h1>Hunting Wabbits</h1>
+<p>(This game is modified from <em><a href="https://mlanctot.info/files/papers/aamas15-iioos.pdf">Lisy et al.&nbsp;2015</a>)</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/bugsfudd.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Bugs and Fudd</figcaption>
+</figure>
+</div>
+<p>This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.</p>
+<p>First, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.</p>
+<p>Next, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.</p>
+<p>Bugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt. If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt.</p>
+<p>Putting it all together, the payoff structure of this game is:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Author</th>
+<th>Bugs/Fudd</th>
+<th>Hunt_Near</th>
+<th>Hunt_Far</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Opera</td>
+<td></td>
+<td>0, 0</td>
+<td>+1, -1</td>
+</tr>
+<tr class="even">
+<td>Forest</td>
+<td>Play_Near</td>
+<td>-3, +3</td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td>Forest</td>
+<td>Play_Far</td>
+<td>+1, -1</td>
+<td>-2, +2</td>
+</tr>
+</tbody>
+</table>
+<p>If it were a complete-information game, the tree structure would be:</p>
+<p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
+<p>Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
+<p>If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account.</p>
+</section>
+<section id="concept-information-set" class="level1">
+<h1>Concept: Information Set</h1>
+<p>In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.</p>
+<p>In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an <strong>information set</strong> or an <strong>infoset</strong>.</p>
+<p>A <strong>player strategy</strong> is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker, we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.</p>
+</section>
+<section id="concept-expected-value" class="level1">
+<h1>Concept: Expected Value</h1>
+<p>Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of the average outcome, weighted by the probability that you get to that outcome, respectively.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If Bugs plays uniform 0.5 Play_Near and 0.5 Play_Far, what is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? What is Fudd’s expected value in this case?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Solution here Left node: +1.5 for Fudd Right node: +0.5 for Fudd Fudd chooses Left</p>
+</div>
+</div>
+</div>
+<p>In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:</p>
+<ol type="1">
+<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart.</li>
+</ol>
+<ul>
+<li>The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).</li>
+</ul>
+<ol start="2" type="1">
+<li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
+</ol>
+<p>By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).</p>
+<p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
+<p>We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the <em>maximizing player</em> wishes to make positive and the <em>minimizing player</em> wishes to make negative.</p>
+<p>We will focus on maximizing (or minimizing) expected value as our goal for all of Course 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.</p>
+</section>
+<section id="concept-regret" class="level1">
+<h1>Concept: Regret</h1>
+<p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>What is the regret for each action?</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>There are other things that “regret” can mean in English, that are separate from this technical concept: - Based on what chance events later happened, I wish I had taken a different action instead. - I was wrong about what strategy my opponent was playing, and I wish I had taken a different action instead.</p>
+<p>However, we will use “regret” as a technical concept to mean only actions that are not-highest-EV given a particular P1 strategy and P2 strategy.</p>
+<p>Some students report that they misunderstood what we mean by “regret” the first time that they read this. Go back and check the two things that regret isn’t.</p>
+<p>Max: Explain differences here between the regret that wasn’t converging on the site and the one that is</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Information Set
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What are Fudd’s information set(s)? What are Bugs’s information set(s)?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Say that Fudd chooses to Hunt_Near (at the appropriate information set) with probability <span class="math inline">\(p\)</span>.</p>
+<p><img src="assets/bugsfuddtreep.png" class="img-fluid"></p>
+<ol type="1">
+<li><p>At the Bugs infoset where Bugs knows he’s in the Forest, what is the expected value of choosing to Play_Near?</p></li>
+<li><p>What is the expected value of choosing to Play_Far?</p></li>
+</ol>
+<p>(Reminder: Bugs wants to avoid a “positive” score.)</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Say that Bugs chooses to Play_Near with probability <span class="math inline">\(q\)</span>.</p>
+<p><img src="assets/bugsfuddtreepq.png" class="img-fluid"></p>
+<ol type="1">
+<li><p>What is Fudd’s expected value of choosing Hunt_Near at his infoset?</p></li>
+<li><p>What is Fudd’s EV of choosing Hunt_Far at his infoset?</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Regret
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find a <span class="math inline">\(p\)</span> and a <span class="math inline">\(q\)</span> such that both:</p>
+<ol type="1">
+<li><p>Bugs never chooses an action with regret</p></li>
+<li><p>Fudd never chooses an action with regret</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="kuhn-poker" class="level1">
+<h1>Kuhn Poker</h1>
+<p>Game rules Up down</p>
+</section>
+<section id="challenge-1" class="level1">
+<h1>Challenge 1</h1>
+<section id="submitting-agents" class="level2">
+<h2 class="anchored" data-anchor-id="submitting-agents">Submitting Agents</h2>
+<p>Running agents/submitting agents</p>
+<p>Using the Kuhn Interactive site, find a strategy that you think is best. Go to the “competition” tab, and press “submit”. This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as Fudd half the time and Bugs half the time.</p>
+<p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
+<p>Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now</p>
+<p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
+<p>No regret for p1 vs p2 and no regret for p2 vs p1 more analogous to Bugs Fudd</p>
+<p>Interactive questions?</p>
+<p>Video for exercises? Microvideos</p>
+<p>Ross: Make sequential so only see first round then expand?</p>
+<p>Why can’t we just do tree search? Because of incomplete information.</p>
+<p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up. [Is this how Arimaa was solved?]</p>
+<p>I claim that if you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy. Reset Update the strategy weights for the X_↓↑ nodes until they converge. Update the strategy weights for the _X↓ and <em>X↑ nodes until they converge. Update the strategy weights for the X</em> nodes until they converge.</p>
+<p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? Do we really need mixed strategies? You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
+<p>Follow these steps: Reset Set the learning rate to 1.0. In any order you like, pick cells and update them. Repeat 3 while there are still suboptimal moves in your strategy.</p>
+<p>A bad thing is happening to you. Why? Actually solving Kuhn Poker Pick a reasonable learning rate, update individual cells until they converge. Next, enter your strategy into the daily leaderboard.</p>
 
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

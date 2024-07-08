@@ -84,6 +84,30 @@
     "text": "Something else?\nGet in touch!"
   },
   {
+    "objectID": "aipcs24/challenge1kuhn.html",
+    "href": "aipcs24/challenge1kuhn.html",
+    "title": "Challenge 1: Kuhn Poker CFR Tutorial",
+    "section": "",
+    "text": "(This game is modified from Lisy et al. 2015).\n\n\n\nBugs and Fudd\n\n\nThis game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.\nFirst, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.\nNext, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.\nBugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt. If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt.\nPutting it all together, the payoff structure of this game is:\n\n\n\nAuthor\nBugs/Fudd\nHunt_Near\nHunt_Far\n\n\n\n\nOpera\n\n0, 0\n+1, -1\n\n\nForest\nPlay_Near\n-3, +3\n0, 0\n\n\nForest\nPlay_Far\n+1, -1\n-2, +2\n\n\n\nIf it were a complete-information game, the tree structure would be:\n\nNote that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!\nIf Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account.",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge1kuhn.html#submitting-agents",
+    "href": "aipcs24/challenge1kuhn.html#submitting-agents",
+    "title": "Challenge 1: Kuhn Poker CFR Tutorial",
+    "section": "Submitting Agents",
+    "text": "Submitting Agents\nRunning agents/submitting agents\nUsing the Kuhn Interactive site, find a strategy that you think is best. Go to the “competition” tab, and press “submit”. This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as Fudd half the time and Bugs half the time.\nAfter a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).\nMention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now\nAdvice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.\nNo regret for p1 vs p2 and no regret for p2 vs p1 more analogous to Bugs Fudd\nInteractive questions?\nVideo for exercises? Microvideos\nRoss: Make sequential so only see first round then expand?\nWhy can’t we just do tree search? Because of incomplete information.\nIf we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up. [Is this how Arimaa was solved?]\nI claim that if you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy. Reset Update the strategy weights for the X_↓↑ nodes until they converge. Update the strategy weights for the _X↓ and X↑ nodes until they converge. Update the strategy weights for the X nodes until they converge.\nFollow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? Do we really need mixed strategies? You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.\nFollow these steps: Reset Set the learning rate to 1.0. In any order you like, pick cells and update them. Repeat 3 while there are still suboptimal moves in your strategy.\nA bad thing is happening to you. Why? Actually solving Kuhn Poker Pick a reasonable learning rate, update individual cells until they converge. Next, enter your strategy into the daily leaderboard.",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker"
+    ]
+  },
+  {
     "objectID": "camp/index.html",
     "href": "camp/index.html",
     "title": "Poker and Applied Rationality Camp",

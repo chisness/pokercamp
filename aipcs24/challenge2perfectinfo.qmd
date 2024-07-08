@@ -1,5 +1,5 @@
 ---
-title: "Challenge 2: Perfect Information Games"
+title: "Challenge 2: Other Games"
 sidebar: aipcs24
 format:
   html:
