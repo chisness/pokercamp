@@ -348,8 +348,9 @@ window.Quarto = {
 <p>This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.</p>
 <p>First, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.</p>
 <p>Next, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.</p>
-<p>Bugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt. If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt.</p>
+<p>Bugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends after Fudd’s action. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt (for a total of +2 in the Hunt_Far action due to the -1 value for the extra effort). If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt (-1 for the Hunt_Far misses).</p>
 <p>Putting it all together, the payoff structure of this game is:</p>
+<p><strong>This should probably be Fudd/Bugs to have 1st player and maximizing player first</strong></p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -370,12 +371,12 @@ window.Quarto = {
 <td>Forest</td>
 <td>Play_Near</td>
 <td>-3, +3</td>
-<td>0, 0</td>
+<td>+1, -1</td>
 </tr>
 <tr class="odd">
 <td>Forest</td>
 <td>Play_Far</td>
-<td>+1, -1</td>
+<td>0, 0</td>
 <td>-2, +2</td>
 </tr>
 </tbody>
@@ -459,6 +460,7 @@ Solution
 <ol start="2" type="1">
 <li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
 </ol>
+<p><strong>Next paragraph clarify a bit</strong></p>
 <p>By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).</p>
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
 <p>We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the <em>maximizing player</em> wishes to make positive and the <em>minimizing player</em> wishes to make negative.</p>
@@ -545,8 +547,7 @@ Solution
 <li><p>Based on what chance events later happened, I wish I had taken a different action instead.</p></li>
 <li><p>I was wrong about what strategy my opponent was playing, and I wish I had taken a different action instead.</p></li>
 </ul>
-<p>However, we will use “regret” as a technical concept to mean only actions that are not-highest-EV given a particular P1 strategy and P2 strategy.</p>
-<p>Some students report that they misunderstood what we mean by “regret” the first time that they read this. Go back and check the two things that regret isn’t.</p>
+<p>However, we will use “regret” as a technical concept to mean how much worse actions that are not-highest-EV perform compared to highest-EV actions given a particular P1 strategy and P2 strategy.</p>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
