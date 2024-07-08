@@ -7,7 +7,7 @@ format:
 ---
 
 ## Hunting Wabbits
-(This game is modified from *[Lisy et al. 2015](https://mlanctot.info/files/papers/aamas15-iioos.pdf))*.
+(This game is modified from *[Lisy et al. 2015](https://mlanctot.info/files/papers/aamas15-iioos.pdf)*.)
 
 ![Bugs and Fudd](assets/bugsfudd.jpeg)
 
