@@ -425,16 +425,22 @@ Solution
 <ol type="1">
 <li>Bugs’s node values are:</li>
 </ol>
-<p><span class="math inline">\(\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5\)</span></p>
-<p><span class="math inline">\(\mathbb{E}(\text{Right Node}) = 0.5*1 + 0.5*-2 = -0.5\)</span></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbb{E}(\text{Left Node}) &amp;= 0.5*-3 + 0.5*0 = -1.5 \\
+\mathbb{E}(\text{Right Node}) &amp;= 0.5*1 + 0.5*-2 = -0.5
+\end{align*}
+\]</span></p>
+<div style="margin-left: 2.5em;">
 <p>The values for Fudd are inverse, so Fudd prefers the Left Node with a value of <span class="math inline">\(1.5\)</span>. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera.</p>
+</div>
 <ol start="2" type="1">
 <li>Therefore Fudd will always play Hunt_Near and will have the following expected value:</li>
 </ol>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Hunt\_Near}) &amp;= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\ \\
+\mathbb{E}(\text{Hunt\_Near}) &amp;= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\
   &amp;= 0.5*0 + 0.5*1.5 \\
   &amp;= 0.75
 \end{split}

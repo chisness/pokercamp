@@ -58,18 +58,23 @@ Suppose that Bugs plays uniform $0.5$ Play_Near and $0.5$ Play_Far.
 
 1. Bugs's node values are: 
 
-$\mathbb{E}(\text{Left Node}) = 0.5*-3 + 0.5*0 = -1.5$ 
+$$
+\begin{align*}
+\mathbb{E}(\text{Left Node}) &= 0.5*-3 + 0.5*0 = -1.5 \\
+\mathbb{E}(\text{Right Node}) &= 0.5*1 + 0.5*-2 = -0.5
+\end{align*}
+$$
 
-$\mathbb{E}(\text{Right Node}) = 0.5*1 + 0.5*-2 = -0.5$ 
-
+<div style="margin-left: 2.5em;">
 The values for Fudd are inverse, so Fudd prefers the Left Node with a value of $1.5$. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera. 
+</div>
 
 2. Therefore Fudd will always play Hunt_Near and will have the following expected value:
 
 $$
 \begin{equation}
 \begin{split}
-\mathbb{E}(\text{Hunt\_Near}) &= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\ \\
+\mathbb{E}(\text{Hunt\_Near}) &= \Pr(\text{Opera})*u(\text{Hunt\_Near}) + \Pr(\text{Forest})*u(\text{Hunt\_Near}) \\
   &= 0.5*0 + 0.5*1.5 \\
   &= 0.75
 \end{split}
