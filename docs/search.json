@@ -14,11 +14,107 @@
     "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 15 to Aug 15 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html",
-    "href": "aipcs24/challenge2othergames.html",
+    "objectID": "aipcs24/challenge2othergames.html#concept-nash-equilibrium",
+    "href": "aipcs24/challenge2othergames.html#concept-nash-equilibrium",
     "title": "Challenge 2: Other Games",
-    "section": "",
-    "text": "Arm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset",
+    "section": "Concept: Nash Equilibrium",
+    "text": "Concept: Nash Equilibrium\nNash vs. opponent exploitation\n\nIndifference\n\n\nKuhn Poker",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#types-of-games",
+    "href": "aipcs24/challenge2othergames.html#types-of-games",
+    "title": "Challenge 2: Other Games",
+    "section": "Types of Games",
+    "text": "Types of Games",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#intro-to-reinforcement-learning-rl",
+    "href": "aipcs24/challenge2othergames.html#intro-to-reinforcement-learning-rl",
+    "title": "Challenge 2: Other Games",
+    "section": "Intro to Reinforcement Learning (RL)",
+    "text": "Intro to Reinforcement Learning (RL)",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#war",
+    "href": "aipcs24/challenge2othergames.html#war",
+    "title": "Challenge 2: Other Games",
+    "section": "War",
+    "text": "War",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#multi-armed-bandits",
+    "href": "aipcs24/challenge2othergames.html#multi-armed-bandits",
+    "title": "Challenge 2: Other Games",
+    "section": "Multi-Armed Bandits",
+    "text": "Multi-Armed Bandits\n\nRL: Action-Value Methods\n\n\nSimulator\n\n\n\n\n\nArm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#tictactoe",
+    "href": "aipcs24/challenge2othergames.html#tictactoe",
+    "title": "Challenge 2: Other Games",
+    "section": "Tictactoe",
+    "text": "Tictactoe\n\nRL: Planning",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#blackjack",
+    "href": "aipcs24/challenge2othergames.html#blackjack",
+    "title": "Challenge 2: Other Games",
+    "section": "Blackjack",
+    "text": "Blackjack\n\nRL: Dynamic Programming\n\n\nRL: Monte Carlo Methods",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#poker-games",
+    "href": "aipcs24/challenge2othergames.html#poker-games",
+    "title": "Challenge 2: Other Games",
+    "section": "Poker Games",
+    "text": "Poker Games",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games"
+    ]
+  },
+  {
+    "objectID": "aipcs24/challenge2othergames.html#optional-agent-submissions",
+    "href": "aipcs24/challenge2othergames.html#optional-agent-submissions",
+    "title": "Challenge 2: Other Games",
+    "section": "Optional: Agent Submissions",
+    "text": "Optional: Agent Submissions",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",

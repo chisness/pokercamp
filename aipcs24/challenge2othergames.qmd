@@ -6,6 +6,26 @@ format:
     math: true
 ---
 
+## Review of Challenge 1
+
+## Concept: Nash Equilibrium
+Nash vs. opponent exploitation
+
+### Indifference
+
+### Kuhn Poker 
+
+## Types of Games
+
+## Intro to Reinforcement Learning (RL)
+
+## War
+
+## Multi-Armed Bandits
+
+### RL: Action-Value Methods
+
+### Simulator
 <div id="bandit-container">
   <table id="bandit-table">
     <thead>
@@ -188,3 +208,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
   border: 1px solid #ccc;
 }
 </style>
+
+## Tictactoe 
+
+### RL: Planning
+
+## Blackjack
+
+### RL: Dynamic Programming
+
+### RL: Monte Carlo Methods
+
+## Poker Games
+
+## Optional: Agent Submissions

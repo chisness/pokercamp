@@ -108,8 +108,10 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="Poker Camp - Challenge 2: Other Games">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
 <meta name="twitter:title" content="Poker Camp - Challenge 2: Other Games">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -291,7 +293,37 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link active" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a></li>
+  <li><a href="#concept-nash-equilibrium" id="toc-concept-nash-equilibrium" class="nav-link" data-scroll-target="#concept-nash-equilibrium">Concept: Nash Equilibrium</a>
+  <ul class="collapse">
+  <li><a href="#indifference" id="toc-indifference" class="nav-link" data-scroll-target="#indifference">Indifference</a></li>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
+  </ul></li>
+  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link" data-scroll-target="#types-of-games">Types of Games</a></li>
+  <li><a href="#intro-to-reinforcement-learning-rl" id="toc-intro-to-reinforcement-learning-rl" class="nav-link" data-scroll-target="#intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</a></li>
+  <li><a href="#war" id="toc-war" class="nav-link" data-scroll-target="#war">War</a></li>
+  <li><a href="#multi-armed-bandits" id="toc-multi-armed-bandits" class="nav-link" data-scroll-target="#multi-armed-bandits">Multi-Armed Bandits</a>
+  <ul class="collapse">
+  <li><a href="#rl-action-value-methods" id="toc-rl-action-value-methods" class="nav-link" data-scroll-target="#rl-action-value-methods">RL: Action-Value Methods</a></li>
+  <li><a href="#simulator" id="toc-simulator" class="nav-link" data-scroll-target="#simulator">Simulator</a></li>
+  </ul></li>
+  <li><a href="#tictactoe" id="toc-tictactoe" class="nav-link" data-scroll-target="#tictactoe">Tictactoe</a>
+  <ul class="collapse">
+  <li><a href="#rl-planning" id="toc-rl-planning" class="nav-link" data-scroll-target="#rl-planning">RL: Planning</a></li>
+  </ul></li>
+  <li><a href="#blackjack" id="toc-blackjack" class="nav-link" data-scroll-target="#blackjack">Blackjack</a>
+  <ul class="collapse">
+  <li><a href="#rl-dynamic-programming" id="toc-rl-dynamic-programming" class="nav-link" data-scroll-target="#rl-dynamic-programming">RL: Dynamic Programming</a></li>
+  <li><a href="#rl-monte-carlo-methods" id="toc-rl-monte-carlo-methods" class="nav-link" data-scroll-target="#rl-monte-carlo-methods">RL: Monte Carlo Methods</a></li>
+  </ul></li>
+  <li><a href="#poker-games" id="toc-poker-games" class="nav-link" data-scroll-target="#poker-games">Poker Games</a></li>
+  <li><a href="#optional-agent-submissions" id="toc-optional-agent-submissions" class="nav-link" data-scroll-target="#optional-agent-submissions">Optional: Agent Submissions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -315,6 +347,35 @@ window.Quarto = {
 </header>
 
 
+<section id="review-of-challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="review-of-challenge-1">Review of Challenge 1</h2>
+</section>
+<section id="concept-nash-equilibrium" class="level2">
+<h2 class="anchored" data-anchor-id="concept-nash-equilibrium">Concept: Nash Equilibrium</h2>
+<p>Nash vs.&nbsp;opponent exploitation</p>
+<section id="indifference" class="level3">
+<h3 class="anchored" data-anchor-id="indifference">Indifference</h3>
+</section>
+<section id="kuhn-poker" class="level3">
+<h3 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h3>
+</section>
+</section>
+<section id="types-of-games" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
+</section>
+<section id="intro-to-reinforcement-learning-rl" class="level2">
+<h2 class="anchored" data-anchor-id="intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</h2>
+</section>
+<section id="war" class="level2">
+<h2 class="anchored" data-anchor-id="war">War</h2>
+</section>
+<section id="multi-armed-bandits" class="level2">
+<h2 class="anchored" data-anchor-id="multi-armed-bandits">Multi-Armed Bandits</h2>
+<section id="rl-action-value-methods" class="level3">
+<h3 class="anchored" data-anchor-id="rl-action-value-methods">RL: Action-Value Methods</h3>
+</section>
+<section id="simulator" class="level3">
+<h3 class="anchored" data-anchor-id="simulator">Simulator</h3>
 <div id="bandit-container">
 <table id="bandit-table">
 <thead>
@@ -507,9 +568,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
   border: 1px solid #ccc;
 }
 </style>
+</section>
+</section>
+<section id="tictactoe" class="level2">
+<h2 class="anchored" data-anchor-id="tictactoe">Tictactoe</h2>
+<section id="rl-planning" class="level3">
+<h3 class="anchored" data-anchor-id="rl-planning">RL: Planning</h3>
+</section>
+</section>
+<section id="blackjack" class="level2">
+<h2 class="anchored" data-anchor-id="blackjack">Blackjack</h2>
+<section id="rl-dynamic-programming" class="level3">
+<h3 class="anchored" data-anchor-id="rl-dynamic-programming">RL: Dynamic Programming</h3>
+</section>
+<section id="rl-monte-carlo-methods" class="level3">
+<h3 class="anchored" data-anchor-id="rl-monte-carlo-methods">RL: Monte Carlo Methods</h3>
+</section>
+</section>
+<section id="poker-games" class="level2">
+<h2 class="anchored" data-anchor-id="poker-games">Poker Games</h2>
+</section>
+<section id="optional-agent-submissions" class="level2">
+<h2 class="anchored" data-anchor-id="optional-agent-submissions">Optional: Agent Submissions</h2>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
