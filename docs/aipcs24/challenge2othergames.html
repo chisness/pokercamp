@@ -384,9 +384,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
       let totalReward = 0;
       const actualPulls = Math.min(times, 1000 - this.totalPulls);
       for (let i = 0; i < actualPulls; i++) {
-        totalReward += arm.pull();
+        const reward = arm.pull();
+        totalReward += reward;
         this.totalPulls++;
-        this.totalReward += totalReward;
+        this.totalReward += reward;
       }
       return totalReward;
     }
