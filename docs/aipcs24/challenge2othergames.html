@@ -350,6 +350,18 @@ window.Quarto = {
 
 <section id="review-of-challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-challenge-1">Review of Challenge 1</h2>
+<p>Go over results from tournament</p>
+<p>Easy/pure strategies Mixed strategies</p>
+<p>Regret Regret matching Gradient descent https://chatgpt.com/c/5925b66e-7fdb-4139-84b5-3663b3636661 How we did it in the interactive</p>
+<p>Get fully into CFR next</p>
+<p>Equilibrium stuff Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now</p>
+<p>Surprise! There are multiple Nash equilibria in Kuhn!</p>
+<p>Pruning and compare to CFR</p>
+<p>Value of the game</p>
+<p>Position thing</p>
+<p>Principle of 3 general types of hands and how it applies to regular poker</p>
+<p>What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?</p>
+<p>Node locking question</p>
 </section>
 <section id="concept-nash-equilibrium" class="level2">
 <h2 class="anchored" data-anchor-id="concept-nash-equilibrium">Concept: Nash Equilibrium</h2>
@@ -573,6 +585,81 @@ Solution
 <p><img src="assets/kickergoalieplot.png" class="img-fluid"></p>
 <p>By setting the values equal, we get <span class="math inline">\(2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}\)</span> as shown in the plot. This means that <span class="math inline">\(1-p = 1 - \frac{2}{3} = \frac{1}{3}\)</span>. Therefore the Goalie should play Lean Left <span class="math inline">\(\frac{2}{3}\)</span> and Lean Right <span class="math inline">\(\frac{1}{3}\)</span>. The value for the Kicker is <span class="math inline">\(\frac{2}{3}\)</span> for both actions.</p>
 <p>Note that the Kicker is worse off now (<span class="math inline">\(0.67\)</span> now compared to <span class="math inline">\(0.75\)</span>) than when both players played 50% each action. Why?</p>
+<p>If the Kicker plays Left with probability <span class="math inline">\(q\)</span> and Right with probability <span class="math inline">\(1-q\)</span>, then the Goalie’s values are:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{Lean Left}) = 0*q - 1*(1-q) = -1 + q\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{Lean Right}) = -2*q + 0 = -2*q\)</span></p>
+<p>Setting equal,</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+-1 + q &amp;= -2*q \\
+-1 &amp;= -3*q  \\
+\frac{1}{3} &amp;= q
+\end{split}
+\end{equation}
+\]</span></p>
+<p>Therefore the Kicker should play Left <span class="math inline">\(\frac{1}{3}\)</span> and Right <span class="math inline">\(\frac{2}{3}\)</span>, giving a value of - to the Goalie.</p>
+<p>We can see this from the game table:</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (<span class="math inline">\(\frac{2}{3}\)</span>)</th>
+<th>Lean Right (<span class="math inline">\(\frac{1}{3}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (<span class="math inline">\(\frac{1}{3}\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{9}\)</span>)</td>
+<td>+2, -2 (<span class="math inline">\(\frac{1}{9}\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Kick Right (<span class="math inline">\(\frac{2}{3}\)</span>)</td>
+<td>+1, -1 (<span class="math inline">\(\frac{4}{9}\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{9}\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore the expected payoffs in this game are <span class="math inline">\(\frac{2}{9}*0 + \frac{1}{9}*2 + \frac{4}{9}*1 + \frac{2}{9}*0 = \frac{6}{9} = 0.67\)</span> for the Kicker and <span class="math inline">\(-0.67\)</span> for the Goalie.</p>
+<p>In an equilibrium, no player should be able to unilaterally improve by changing their strategy. What if the Kicker switches to always Kick Left?</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (<span class="math inline">\(\frac{2}{3}\)</span>)</th>
+<th>Lean Right (<span class="math inline">\(\frac{1}{3}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (<span class="math inline">\(1\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{3}\)</span>)</td>
+<td>+2, -2 (<span class="math inline">\(\frac{1}{3}\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Kick Right (<span class="math inline">\(0\)</span>)</td>
+<td>+1, -1 (<span class="math inline">\(0\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(0\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Now the payoff is <span class="math inline">\(\frac{1}{3}*2 = 0.67\)</span>.</p>
+<p>When a player makes their opponent indifferent, this means that any action the opponent takes will result in the same payoff (within the set of equilibrium actions)!</p>
+<p>So if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of.</p>
+<p>The risk is that the opponent can now deviate from equilibrium and take advantage of your new strategy. For example, if the Goalie caught on and moved to always Lean Left, then expected value is reduced to <span class="math inline">\(0\)</span> for both players.</p>
+<p>To summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy.</p>
+<p>Why do players make their opponent indifferent?</p>
 </section>
 <section id="kuhn-poker" class="level3">
 <h3 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h3>
@@ -783,10 +870,14 @@ Pre-Filled Table
 </div>
 </div>
 </div>
+<p>What about solitaire? With Blackjack? What about a lottery? Mahjong?</p>
+<p>(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)</p>
+<p>What makes the bottom right of the table interesting?</p>
 </section>
 <section id="intro-to-reinforcement-learning-rl" class="level2">
 <h2 class="anchored" data-anchor-id="intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</h2>
 <p>The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.</p>
+<p>Policy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR</p>
 </section>
 <section id="war" class="level2">
 <h2 class="anchored" data-anchor-id="war">War</h2>
@@ -1029,18 +1120,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 </section>
 <section id="rl-action-value-methods" class="level3">
 <h3 class="anchored" data-anchor-id="rl-action-value-methods">RL: Action-Value Methods</h3>
+<p>Hidden imperfect info, understand in distribution over possible states of the world Depending on state will want to make decisions differently Bayesian explore exploit optimizer What is my opponent range exercise in Bayesian update Explore vs.&nbsp;exploit Bayesian updating https://aipokertutorial.com/game-theory-foundation/#regret https://www.reddit.com/r/statistics/comments/1949met/how_are_multi_armed_bandits_related_to_bayesian/ https://tor-lattimore.com/downloads/book/book.pdf https://lcalem.github.io/blog/2018/09/22/sutton-chap02-bandits#26-optimistic-initial-values</p>
+<p>But you could use the MCTS that does work by changing the game setup</p>
 </section>
 </section>
 <section id="tictactoe" class="level2">
 <h2 class="anchored" data-anchor-id="tictactoe">Tictactoe</h2>
+<p><img src="assets/backprop.png" class="img-fluid"></p>
+<p>Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.</p>
+<p>Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper</p>
+<p>Minimax</p>
 <section id="rl-planning" class="level3">
 <h3 class="anchored" data-anchor-id="rl-planning">RL: Planning</h3>
+<p>MCTS decision-time planning</p>
+<p>RL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?</p>
 </section>
 </section>
 <section id="blackjack" class="level2">
 <h2 class="anchored" data-anchor-id="blackjack">Blackjack</h2>
+<p>Setup Solving</p>
 <section id="rl-dynamic-programming" class="level3">
 <h3 class="anchored" data-anchor-id="rl-dynamic-programming">RL: Dynamic Programming</h3>
+<p>My blog post</p>
 </section>
 <section id="rl-monte-carlo-methods" class="level3">
 <h3 class="anchored" data-anchor-id="rl-monte-carlo-methods">RL: Monte Carlo Methods</h3>
@@ -1048,9 +1149,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 </section>
 <section id="poker-games" class="level2">
 <h2 class="anchored" data-anchor-id="poker-games">Poker Games</h2>
+<p>Why are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative.</p>
 </section>
 <section id="optional-agent-submissions" class="level2">
 <h2 class="anchored" data-anchor-id="optional-agent-submissions">Optional: Agent Submissions</h2>
+<p>Tictactoe</p>
+<p>Blackjack</p>
+<p>How to submit?</p>
 
 
 

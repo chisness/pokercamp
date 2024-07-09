@@ -7,6 +7,36 @@ format:
 ---
 
 ## Review of Challenge 1
+Go over results from tournament
+
+Easy/pure strategies
+Mixed strategies 
+
+Regret
+Regret matching
+Gradient descent
+https://chatgpt.com/c/5925b66e-7fdb-4139-84b5-3663b3636661 
+How we did it in the interactive
+
+Get fully into CFR next 
+
+Equilibrium stuff 
+Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now
+
+Surprise! There are multiple Nash equilibria in Kuhn!
+
+Pruning and compare to CFR 
+
+Value of the game
+
+Position thing
+
+Principle of 3 general types of hands and how it applies to regular poker
+
+What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?
+
+Node locking question 
+
 
 ## Concept: Nash Equilibrium
 Nash vs. opponent exploitation
@@ -100,6 +130,54 @@ The Kicker is going to play the best response to the Goalie’s strategy. The Go
 By setting the values equal, we get $2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}$ as shown in the plot. This means that $1-p = 1 - \frac{2}{3} = \frac{1}{3}$. Therefore the Goalie should play Lean Left $\frac{2}{3}$ and Lean Right $\frac{1}{3}$. The value for the Kicker is $\frac{2}{3}$ for both actions. 
 
 Note that the Kicker is worse off now ($0.67$ now compared to $0.75$) than when both players played 50% each action. Why?
+
+If the Kicker plays Left with probability $q$ and Right with probability $1-q$, then the Goalie’s values are: 
+
+$\mathbb{E}(\text{Lean Left}) = 0*q - 1*(1-q) = -1 + q$
+
+$\mathbb{E}(\text{Lean Right}) = -2*q + 0 = -2*q$
+
+Setting equal, 
+
+$$
+\begin{equation}
+\begin{split}
+-1 + q &= -2*q \\
+-1 &= -3*q  \\
+\frac{1}{3} &= q
+\end{split}
+\end{equation}
+$$
+
+Therefore the Kicker should play Left $\frac{1}{3}$ and Right $\frac{2}{3}$, giving a value of -\frac{2}{3} to the Goalie. 
+
+We can see this from the game table: 
+
+| Kicker/Goalie | Lean Left ($\frac{2}{3}$) | Lean Right ($\frac{1}{3}$) | 
+|------------|-----------|--------|
+| Kick Left ($\frac{1}{3}$) | 0, 0 ($\frac{2}{9}$) | +2, -2 ($\frac{1}{9}$) |
+| Kick Right ($\frac{2}{3}$) | +1, -1 ($\frac{4}{9}$) | 0, 0 ($\frac{2}{9}$)|
+
+Therefore the expected payoffs in this game are $\frac{2}{9}*0 + \frac{1}{9}*2 + \frac{4}{9}*1 + \frac{2}{9}*0 = \frac{6}{9} = 0.67$ for the Kicker and $-0.67$ for the Goalie. 
+
+In an equilibrium, no player should be able to unilaterally improve by changing their strategy. What if the Kicker switches to always Kick Left?
+
+| Kicker/Goalie | Lean Left ($\frac{2}{3}$) | Lean Right ($\frac{1}{3}$) | 
+|------------|-----------|--------|
+| Kick Left ($1$) | 0, 0 ($\frac{2}{3}$) | +2, -2 ($\frac{1}{3}$) |
+| Kick Right ($0$) | +1, -1 ($0$) | 0, 0 ($0$)|
+
+Now the payoff is $\frac{1}{3}*2 = 0.67$. 
+
+When a player makes their opponent indifferent, this means that any action the opponent takes will result in the same payoff (within the set of equilibrium actions)! 
+
+So if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of. 
+
+The risk is that the opponent can now deviate from equilibrium and take advantage of your new strategy. For example, if the Goalie caught on and moved to always Lean Left, then expected value is reduced to $0$ for both players. 
+
+To summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy. 
+
+Why do players make their opponent indifferent?
 
 ### Kuhn Poker 
 Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play. 
@@ -209,8 +287,23 @@ What’s another case we could determine? Bet Q, how often call/fold K. How to u
 
 :::
 
+What about solitaire? With Blackjack?
+What about a lottery? 
+Mahjong?
+
+(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)
+
+What makes the bottom right of the table interesting?
+
+
 ## Intro to Reinforcement Learning (RL)
-The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.  
+The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.
+
+Policy, reward signal, value function, model of environment
+Agent, environment interface RL book chapter 3 stuff
+Tabular environment stuff
+TD/SARSA/Q-LEARNING, relation to CFR
+
 
 ## War
 If you thought that Kuhn Poker was a simple card game, meet War. 
@@ -444,17 +537,57 @@ How is minimizing regret related to maximizing reward?
 
 
 ### RL: Action-Value Methods
+Hidden imperfect info, understand in distribution over possible states of the world
+Depending on state will want to make decisions differently 
+Bayesian explore exploit optimizer 
+What is my opponent range exercise in Bayesian update
+Explore vs. exploit
+Bayesian updating
+https://aipokertutorial.com/game-theory-foundation/#regret
+https://www.reddit.com/r/statistics/comments/1949met/how_are_multi_armed_bandits_related_to_bayesian/ 
+https://tor-lattimore.com/downloads/book/book.pdf 
+https://lcalem.github.io/blog/2018/09/22/sutton-chap02-bandits#26-optimistic-initial-values 
+
+But you could use the MCTS that does work by changing the game setup
+
 
 ## Tictactoe 
+![](assets/backprop.png)
+
+Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation. 
+
+Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? 
+Tree imperfect info vs perfect info issues, show trees
+Compare this to the Wabbits game and problem sfrom paper 
+
+Minimax
 
 ### RL: Planning
+MCTS decision-time planning
+
+RL pages 8-12
+MCTS 8.11
+https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf 
+What about just using imperfect info version of MCTS? 
+
 
 ## Blackjack
+Setup
+Solving
+
 
 ### RL: Dynamic Programming
+My blog post
+
 
 ### RL: Monte Carlo Methods
 
 ## Poker Games
+Why are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative. 
 
 ## Optional: Agent Submissions
+Tictactoe
+
+Blackjack
+
+How to submit?
