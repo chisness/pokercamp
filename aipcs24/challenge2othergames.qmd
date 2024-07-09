@@ -24,7 +24,6 @@ format:
 </div>
 <div id="debug-output"></div>
 
-```{=html}
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
   const debug = (message) => {
@@ -33,69 +32,55 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   debug('Script started');
 
-  class Arm {
-    constructor(id) {
-      this.id = id;
-      this.q = Math.random() * 2 - 1; // Approximation of N(0, 1)
-      this.pulls = 0;
-      this.totalReward = 0;
-    }
-
-    pull() {
-      this.pulls++;
-      const reward = this.q + (Math.random() * 2 - 1); // Approximation of N(q, 1)
-      this.totalReward += reward;
-      return reward;
-    }
-
-    get averageReward() {
-      return this.pulls === 0 ? 0 : this.totalReward / this.pulls;
-    }
-  }
-
-  class Bandit {
-    constructor(numArms) {
-      this.arms = Array.from({length: numArms}, (_, i) => new Arm(i + 1));
-      this.totalPulls = 0;
-      this.totalReward = 0;
-    }
-
-    pullArm(armId, times = 1) {
-      const arm = this.arms[armId - 1];
-      let totalReward = 0;
-      const actualPulls = Math.min(times, 1000 - this.totalPulls);
-      for (let i = 0; i < actualPulls; i++) {
-        const reward = arm.pull();
-        totalReward += reward;
-        this.totalPulls++;
-        this.totalReward += reward;
-      }
-      return totalReward;
-    }
-
-    reset() {
-      this.arms.forEach(arm => {
-        arm.q = Math.random() * 2 - 1;
-        arm.pulls = 0;
-        arm.totalReward = 0;
-      });
-      this.totalPulls = 0;
-      this.totalReward = 0;
-    }
-  }
-
-  const bandit = new Bandit(10);
   const armsContainer = document.getElementById('arms-container');
   const statsContainer = document.getElementById('stats-container');
   const resetButton = document.getElementById('reset-button');
 
-  debug('Bandit created');
+  function gaussianRandom(mean = 0, stdev = 1) {
+    let u = 0, v = 0;
+    while(u === 0) u = Math.random();
+    while(v === 0) v = Math.random();
+    let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+    return num * stdev + mean;
+  }
+
+  function createBandit(numArms) {
+    return {
+      arms: Array.from({length: numArms}, (_, i) => ({
+        id: i + 1,
+        q: gaussianRandom(0, 1),
+        pulls: 0,
+        totalReward: 0,
+        averageReward: 0
+      })),
+      totalPulls: 0,
+      totalReward: 0
+    };
+  }
+
+  let bandit = createBandit(10);
+
+  function pullArm(armId, times = 1) {
+    const arm = bandit.arms[armId - 1];
+    let totalReward = 0;
+    const actualPulls = Math.min(times, 1000 - bandit.totalPulls);
+    for (let i = 0; i < actualPulls; i++) {
+      const reward = gaussianRandom(arm.q, 1);
+      arm.pulls++;
+      arm.totalReward += reward;
+      totalReward += reward;
+      bandit.totalPulls++;
+      bandit.totalReward += reward;
+    }
+    arm.averageReward = arm.totalReward / arm.pulls;
+    return totalReward;
+  }
 
   function updateStats() {
     statsContainer.innerHTML = `
       <p>Total Pulls: ${bandit.totalPulls}</p>
       <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
-      <p>Average Reward: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
+      <p>Average Reward per Pull: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
     `;
   }
 
@@ -109,9 +94,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
       
       const avgRewardCell = document.createElement('td');
       avgRewardCell.id = `arm-avg-${arm.id}`;
+      avgRewardCell.textContent = arm.averageReward.toFixed(2);
       
       const pullsCell = document.createElement('td');
       pullsCell.id = `arm-pulls-${arm.id}`;
+      pullsCell.textContent = arm.pulls;
       
       const actionsCell = document.createElement('td');
       ['1', '10', '100', 'Max'].forEach(pullAmount => {
@@ -119,9 +106,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         button.textContent = pullAmount;
         button.onclick = () => {
           const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
-          const reward = bandit.pullArm(arm.id, pulls);
+          const reward = pullArm(arm.id, pulls);
           updateStats();
-          updateArmStats(arm);
+          createArmRows();
           debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
         };
         actionsCell.appendChild(button);
@@ -133,22 +120,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
       row.appendChild(actionsCell);
       
       armsContainer.appendChild(row);
-      updateArmStats(arm);
     });
-    debug('Arm rows created');
+    debug('Arm rows updated');
   }
 
-  function updateArmStats(arm) {
-    document.getElementById(`arm-avg-${arm.id}`).textContent = arm.averageReward.toFixed(2);
-    document.getElementById(`arm-pulls-${arm.id}`).textContent = arm.pulls;
-  }
-
-  resetButton.onclick = () => {
-    bandit.reset();
+  function resetBandit() {
+    bandit = createBandit(10);
     updateStats();
     createArmRows();
     debug('Bandit reset');
-  };
+  }
+
+  resetButton.onclick = resetBandit;
 
   createArmRows();
   updateStats();
