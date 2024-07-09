@@ -11,10 +11,100 @@ format:
   <div id="stats-container"></div>
   <button id="reset-button">Reset</button>
 </div>
+<div id="debug-output"></div>
 
 ```{=html}
 <script>
-// ... (insert the JavaScript code here)
+document.addEventListener('DOMContentLoaded', (event) => {
+  const debug = (message) => {
+    document.getElementById('debug-output').innerHTML += message + '<br>';
+  };
+
+  debug('Script started');
+
+  class Arm {
+    constructor(id) {
+      this.id = id;
+      this.q = Math.random() * 2 - 1; // Approximation of N(0, 1)
+      this.pulls = 0;
+      this.totalReward = 0;
+    }
+
+    pull() {
+      this.pulls++;
+      const reward = this.q + (Math.random() * 2 - 1); // Approximation of N(q, 1)
+      this.totalReward += reward;
+      return reward;
+    }
+  }
+
+  class Bandit {
+    constructor(numArms) {
+      this.arms = Array.from({length: numArms}, (_, i) => new Arm(i + 1));
+      this.totalPulls = 0;
+      this.totalReward = 0;
+    }
+
+    pullArm(armId) {
+      const arm = this.arms[armId - 1];
+      const reward = arm.pull();
+      this.totalPulls++;
+      this.totalReward += reward;
+      return reward;
+    }
+
+    reset() {
+      this.arms.forEach(arm => {
+        arm.q = Math.random() * 2 - 1;
+        arm.pulls = 0;
+        arm.totalReward = 0;
+      });
+      this.totalPulls = 0;
+      this.totalReward = 0;
+    }
+  }
+
+  const bandit = new Bandit(10);
+  const armsContainer = document.getElementById('arms-container');
+  const statsContainer = document.getElementById('stats-container');
+  const resetButton = document.getElementById('reset-button');
+
+  debug('Bandit created');
+
+  function updateStats() {
+    statsContainer.innerHTML = `
+      <p>Total Pulls: ${bandit.totalPulls}</p>
+      <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
+      <p>Average Reward: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
+    `;
+  }
+
+  function createArmButtons() {
+    armsContainer.innerHTML = '';
+    bandit.arms.forEach(arm => {
+      const button = document.createElement('button');
+      button.textContent = `Arm ${arm.id}`;
+      button.onclick = () => {
+        const reward = bandit.pullArm(arm.id);
+        updateStats();
+        debug(`Pulled arm ${arm.id}, reward: ${reward.toFixed(2)}`);
+      };
+      armsContainer.appendChild(button);
+    });
+    debug('Arm buttons created');
+  }
+
+  resetButton.onclick = () => {
+    bandit.reset();
+    updateStats();
+    createArmButtons();
+    debug('Bandit reset');
+  };
+
+  createArmButtons();
+  updateStats();
+  debug('Initial setup complete');
+});
 </script>
 
 <style>
@@ -42,5 +132,12 @@ button {
   background-color: #f0f0f0;
   padding: 15px;
   border-radius: 5px;
+}
+
+#debug-output {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
 }
 </style>
