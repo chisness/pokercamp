@@ -10,22 +10,250 @@ format:
 
 ## Concept: Nash Equilibrium
 Nash vs. opponent exploitation
+A set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given) is a Nash equilibrium. 
+
+Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submitted to the challenge, you submitted a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?
+
+The other paradigm for playing games is opponent exploitation, which we will address in future sections. 
 
 ### Indifference
+Consider the **Soccer Penalty Kick** problem where a Kicker is trying to score a goal and the Goalie is trying to block it. 
+
+| Kicker/Goalie | Lean Left | Lean Right | 
+|------------|-----------|--------|
+| Kick Left  | 0, 0  | +2, -2 |
+| Kick Right | +1, -1 | 0, 0|
+
+The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.
+
+:::{.callout-note  appearance="minimal"}
+## Nash Equilibrium Exercise
+
+Which of these, if any, is a Nash Equilibrium?
+
+| Kicker | Goalie | Equilibrium or Change? | 
+|------------|-----------|--------|
+| Left  | Left  |  |
+| Left | Right | |
+| Right | Left | |
+| Right | Right | |
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+
+There are no pure Nash equilibrium solutions because when the actions match, the Kicker will always want to change, and when they don’t match, the Goalie will always want to change. 
+
+| Kicker | Goalie | Equilibrium or Change? | 
+|------------|-----------|--------|
+| Left  | Left  | Kicker changes to right  |
+| Left | Right | Goalie changes to left |
+| Right | Left | Goalie changes to right |
+| Right | Right | Kicker changes to left |
+:::
+
+
+
+:::{.callout-note  appearance="minimal"}
+## Expected Value Exercise
+Assume that they both play Left 50% and Right 50% -- what is the expected value of the game? 
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+
+| Kicker/Goalie | Lean Left (0.5) | Lean Right (0.5) | 
+|------------|-----------|--------|
+| Kick Left (0.5) | 0, 0  | +2, -2 |
+| Kick Right (0.5) | +1, -1 | 0, 0|
+
+We apply these probabilities to each of the 4 outcomes: 
+
+| Kicker/Goalie | Lean Left (0.5) | Lean Right (0.5) | 
+|------------|-----------|--------|
+| Kick Left (0.5) | 0, 0 (0.25) | +2, -2 (0.25) |
+| Kick Right (0.5) | +1, -1 (0.25) | 0, 0 (0.25) |
+
+Now for the Kicker, we have $\mathbb{E} = 0.25*0 + 0.25*2 + 0.25*1 + 0.25*0 = 0.75$. 
+
+Since it's zero-sum, we have $\mathbb{E} = -0.75$ for the Goalie. 
+
+:::
+
+When the Goalie plays left with probability $p$ and right with probability $1-p$, we can find the expected value of the Kicker actions.
+
+| Kicker/Goalie | Lean Left (p) | Lean Right (1-p) | 
+|------------|-----------|--------|
+| Kick Left | 0, 0  | +2, -2 |
+| Kick Right | +1, -1 | 0, 0|
+
+$\mathbb{E}(\text{Kick Left}) = 0*p + 2*(1-p) = 2 - 2*p$
+
+$\mathbb{E}(\text{Kick Right}) = 1*p + 0*(1-p) = 1*p$
+
+The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker indifferent to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)
+
+![](assets/kickergoalieplot.png)
+
+By setting the values equal, we get $2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}$ as shown in the plot. This means that $1-p = 1 - \frac{2}{3} = \frac{1}{3}$. Therefore the Goalie should play Lean Left $\frac{2}{3}$ and Lean Right $\frac{1}{3}$. The value for the Kicker is $\frac{2}{3}$ for both actions. 
+
+Note that the Kicker is worse off now ($0.67$ now compared to $0.75$) than when both players played 50% each action. Why?
 
 ### Kuhn Poker 
+Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play. 
+
+If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation. 
+
+Let’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.
+
+![](assets/kuhnindiff.png)
+
+:::{.callout-note  appearance="minimal"}
+## Expected Value Exercise
+What indifference is Player 2 trying to induce? 
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+Making P1 indifferent between calling and folding with a K 
+:::
+
+We can work out Player 2's betting strategy by calculating the indifference. Let $b$ be the probability that P2 bets with a Q after P1 checks. 
+
+$\mathbb{E}(\text{P1 Check K then Fold to Bet}) = 0$
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{P1 Check K then Call Bet}) &= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
+  &= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
+  &= -0.5 + 1.5*b
+\end{split}
+\end{equation}
+$$
+
+Setting these equal: 
+
+$0 = -0.5 + 1.5*b$ 
+
+$b = \frac{1}{3}$
+
+Therefore in equilibrium, P2 should bet $\frac{1}{3}$ with Q after P1 checks.  
+
+:::{.callout-note  appearance="minimal"}
+## Equilibrium Mixed Strategy Change Exercise
+If P2 bet $\frac{2}{3}$ instead of $\frac{1}{3}$ with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change? 
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+It wouldn't! As long as P1 doesn't modify their strategy, then P2 can mix his strategy however he wants and have the same EV. 
+
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Bluff:Value Ratio Exercise
+Given that Player 2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?
+
+(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+P2 has Q and A each $\frac{1}{2}$ of the time. 
+
+P2 is betting Q $\frac{1}{3}$ of the time (bluffing). 
+
+P2 is betting A always (value betting). 
+
+Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. 
+
+$\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}$
+
+:::
+
+
+What if the bet size was 2 instead of 1?
+
+Can you come up with a general formula for how often to bluff given a pot and bet size? 
+
+Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  
+
+In what case could we deduce our opponent’s strategy with a large sample size? Assuming that they are playing the obvious plays. For example, if we pass with K, we can know how often they’re betting Q since we know they’ll always bet A. Formula for how often they’re betting Q. 
+
+What’s another case we could determine? Bet Q, how often call/fold K. How to use this?
 
 ## Types of Games
 
+| Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
+|------------|-----------|--------|
+| Imperfect Info, No Player Agency/Decisions      |           |
+| Perfect Info, Player Actions Always Perfect Info     |  |
+| Imperfect Info, Imperfect from Randomness     |   |
+| Imperfect Info, Imperfect from Randomness AND Game States    |   |
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Pre-Filled Table
+
+| Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
+|------------|-----------|--------|
+| Imperfect Info, No Player Agency/Decisions      | Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine          |
+| Perfect Info, Player Actions Always Perfect Info     | Puzzles  | Tictactoe, Checkers, Chess, Arimaa, Go |
+| Imperfect Info, Imperfect from Randomness     | Blackjack   | Backgammon |
+| Imperfect Info, Imperfect from Randomness AND Game States    | Partial Info Multi-armed Bandit   | Poker, Rock Paper Scissors, Liar’s Dice, Figgie |
+
+:::
+
 ## Intro to Reinforcement Learning (RL)
+The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.  
 
 ## War
+If you thought that Kuhn Poker was a simple card game, meet War. 
+
+There are two players, each gets half the deck, 26 cards. Each player turns over their top card and faces it against the opponent's top card. The better card wins, with Aces high. This repeats until one player has all the cards. 
+
+When the cards match, the players go to “War”. When this happens, put the next card face down, and then the card after that face up, and then these up-cards face off against each other. The winner takes all six cards. If there’s another tie, then repeat and the winner takes 10 cards, etc. 
+
+:::{.callout-note  appearance="minimal"}
+## Optional Coding Exercise
+Code and run 10,000 simulations of War and determine how many turns the average game takes and how many War situations occur on average in each simulation
+
+:::
+
+You can see a Dreidel game simulator written by Ben Blatt in Slate from 2014 at [this link](https://www.slate.com/articles/life/holidays/2014/12/rules_of_dreidel_the_hannukah_game_is_way_too_slow_let_s_speed_it_up.html). 
 
 ## Multi-Armed Bandits
+![](assets/10bandits.png)
+RL book 26-44, explore exploit 
+Bandits are a set of problems with repeated decisions and a fixed number of actions possible. This is related to reinforcement learning because the agent player updates its strategy based on what it learns from the feedback from the environment. Consider a 10-armed bandit setup like in the image below: 
 
-### RL: Action-Value Methods
+Each time the player pulls an arm, they get some reward, which could be positive or negative. 
+
+A basic setting initializes each of 10 arms with q*(arm) = N(0,1) so each is initialized with a center point around a Gaussian distribution. Each pull of an arm returns a reward of R = N(q*(arm), 1). 
+
+In other words, each arm is initialized with a value centered around 0 but with some variance, so each will be a bit different. Then from that point, the actual pull of an arm is centered around that new point with some variance as seen in this figure with a 10-armed bandit from the book Intro to Reinforcement Learning by Sutton and Barto:
+
+![](assets/banditdist.png)
+
+The player can sample actions and estimate their values based on experience and then use some algorithm for deciding which action to use next to maximize rewards. 
+
+:::{.callout-note  appearance="minimal"}
+## Exercise
+
+For example, a naive approach is that a player could sample each action once and then always use the action that gave the best reward going forward.  
+
+What is a problem with this strategy? Can you suggest a better one? 
+
+:::
+
 
 ### Simulator
+
 <div id="bandit-container">
   <table id="bandit-table">
     <thead>
@@ -42,15 +270,15 @@ Nash vs. opponent exploitation
   <div id="stats-container"></div>
   <button id="reset-button">Reset</button>
 </div>
-<div id="debug-output"></div>
+<!-- <div id="debug-output"></div> -->
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-  const debug = (message) => {
-    document.getElementById('debug-output').innerHTML += message + '<br>';
-  };
+  // const debug = (message) => {
+  //   document.getElementById('debug-output').innerHTML += message + '<br>';
+  // };
 
-  debug('Script started');
+  // debug('Script started');
 
   const armsContainer = document.getElementById('arms-container');
   const statsContainer = document.getElementById('stats-container');
@@ -129,7 +357,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           const reward = pullArm(arm.id, pulls);
           updateStats();
           createArmRows();
-          debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
+          // debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
         };
         actionsCell.appendChild(button);
       });
@@ -141,21 +369,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
       
       armsContainer.appendChild(row);
     });
-    debug('Arm rows updated');
+    // debug('Arm rows updated');
   }
 
   function resetBandit() {
     bandit = createBandit(10);
     updateStats();
     createArmRows();
-    debug('Bandit reset');
+    // debug('Bandit reset');
   }
 
   resetButton.onclick = resetBandit;
 
   createArmRows();
   updateStats();
-  debug('Initial setup complete');
+  // debug('Initial setup complete');
 });
 </script>
 
@@ -201,13 +429,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
   font-size: 18px;
 }
 
-#debug-output {
+/* #debug-output {
   margin-top: 20px;
   padding: 10px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-}
+} */
 </style>
+
+### Regret
+How would you define regret in this bandit setting? 
+How is minimizing regret related to maximizing reward? 
+
+
+
+### RL: Action-Value Methods
 
 ## Tictactoe 
 
