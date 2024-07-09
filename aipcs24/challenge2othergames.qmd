@@ -5,8 +5,20 @@ format:
   html:
     math: true
 ---
+
 <div id="bandit-container">
-  <div id="arms-container"></div>
+  <table id="bandit-table">
+    <thead>
+      <tr>
+        <th>Arm</th>
+        <th>Average Reward</th>
+        <th>Pulls</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="arms-container">
+    </tbody>
+  </table>
   <div id="stats-container"></div>
   <button id="reset-button">Reset</button>
 </div>
@@ -48,12 +60,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
       this.totalReward = 0;
     }
 
-    pullArm(armId) {
+    pullArm(armId, times = 1) {
       const arm = this.arms[armId - 1];
-      const reward = arm.pull();
-      this.totalPulls++;
-      this.totalReward += reward;
-      return reward;
+      let totalReward = 0;
+      const actualPulls = Math.min(times, 1000 - this.totalPulls);
+      for (let i = 0; i < actualPulls; i++) {
+        totalReward += arm.pull();
+        this.totalPulls++;
+        this.totalReward += totalReward;
+      }
+      return totalReward;
     }
 
     reset() {
@@ -82,47 +98,58 @@ document.addEventListener('DOMContentLoaded', (event) => {
     `;
   }
 
-  function createArmButtons() {
+  function createArmRows() {
     armsContainer.innerHTML = '';
     bandit.arms.forEach(arm => {
-      const armContainer = document.createElement('div');
-      armContainer.className = 'arm-container';
+      const row = document.createElement('tr');
       
-      const button = document.createElement('button');
-      button.textContent = `Arm ${arm.id}`;
-      button.onclick = () => {
-        const reward = bandit.pullArm(arm.id);
-        updateStats();
-        updateArmStats(arm);
-        debug(`Pulled arm ${arm.id}, reward: ${reward.toFixed(2)}`);
-      };
+      const armIdCell = document.createElement('td');
+      armIdCell.textContent = `Arm ${arm.id}`;
       
-      const statsDiv = document.createElement('div');
-      statsDiv.className = 'arm-stats';
-      statsDiv.id = `arm-stats-${arm.id}`;
+      const avgRewardCell = document.createElement('td');
+      avgRewardCell.id = `arm-avg-${arm.id}`;
       
-      armContainer.appendChild(button);
-      armContainer.appendChild(statsDiv);
-      armsContainer.appendChild(armContainer);
+      const pullsCell = document.createElement('td');
+      pullsCell.id = `arm-pulls-${arm.id}`;
       
+      const actionsCell = document.createElement('td');
+      ['1', '10', '100', 'Max'].forEach(pullAmount => {
+        const button = document.createElement('button');
+        button.textContent = pullAmount;
+        button.onclick = () => {
+          const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
+          const reward = bandit.pullArm(arm.id, pulls);
+          updateStats();
+          updateArmStats(arm);
+          debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
+        };
+        actionsCell.appendChild(button);
+      });
+      
+      row.appendChild(armIdCell);
+      row.appendChild(avgRewardCell);
+      row.appendChild(pullsCell);
+      row.appendChild(actionsCell);
+      
+      armsContainer.appendChild(row);
       updateArmStats(arm);
     });
-    debug('Arm buttons created');
+    debug('Arm rows created');
   }
 
   function updateArmStats(arm) {
-    const statsDiv = document.getElementById(`arm-stats-${arm.id}`);
-    statsDiv.textContent = `Avg: ${arm.averageReward.toFixed(2)}`;
+    document.getElementById(`arm-avg-${arm.id}`).textContent = arm.averageReward.toFixed(2);
+    document.getElementById(`arm-pulls-${arm.id}`).textContent = arm.pulls;
   }
 
   resetButton.onclick = () => {
     bandit.reset();
     updateStats();
-    createArmButtons();
+    createArmRows();
     debug('Bandit reset');
   };
 
-  createArmButtons();
+  createArmRows();
   updateStats();
   debug('Initial setup complete');
 });
@@ -136,32 +163,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
   box-sizing: border-box;
 }
 
-#arms-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 20px;
-  justify-content: space-between;
-}
-
-.arm-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  min-width: 80px;
-}
-
-button {
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
+#bandit-table {
   width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-.arm-stats {
-  margin-top: 5px;
-  font-size: 14px;
+#bandit-table th, #bandit-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#bandit-table th {
+  background-color: #f2f2f2;
+}
+
+#bandit-table button {
+  margin-right: 5px;
 }
 
 #stats-container {
