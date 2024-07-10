@@ -88,10 +88,12 @@ $$
 In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
 
 1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart.
+<div style="margin-left: 2.5em;">
   - The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
+</div>
 2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
 
-**Next paragraph clarify a bit** 
+**Is below paragraph clear?** 
 
 By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).
 
