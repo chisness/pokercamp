@@ -452,13 +452,11 @@ Solution
 </div>
 <p>In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:</p>
 <ol type="1">
-<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart.
-<div style="margin-left: 2.5em;"></div></li>
+<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart.</li>
 </ol>
 <ul>
 <li>The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).</li>
 </ul>
-</section></main></div>
 <ol start="2" type="1">
 <li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
 </ol>
@@ -467,9 +465,9 @@ Solution
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
 <p>We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the <em>maximizing player</em> wishes to make positive and the <em>minimizing player</em> wishes to make negative.</p>
 <p>We will focus on maximizing (or minimizing) expected value as our goal for all of Course 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.</p>
-
+</section>
 <section id="concept-regret" class="level2">
-<h2 data-anchor-id="concept-regret">Concept: Regret</h2>
+<h2 class="anchored" data-anchor-id="concept-regret">Concept: Regret</h2>
 <p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -552,7 +550,7 @@ Solution
 <p>However, we will use “regret” as a technical concept to mean how much worse actions that are not-highest-EV perform compared to highest-EV actions given a particular P1 strategy and P2 strategy.</p>
 </section>
 <section id="exercises" class="level2">
-<h2 data-anchor-id="exercises">Exercises</h2>
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -642,7 +640,7 @@ Hint
 </div>
 </section>
 <section id="kuhn-poker" class="level2">
-<h2 data-anchor-id="kuhn-poker">Kuhn Poker</h2>
+<h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
 <p><a href="https://en.wikipedia.org/wiki/Kuhn_poker">Kuhn Poker</a> is the most simple version of poker.</p>
 <p><img src="assets/kuhnbee.png" class="img-fluid"></p>
 <ul>
@@ -708,16 +706,16 @@ Hint
 </table>
 </section>
 <section id="challenge-1" class="level2">
-<h2 data-anchor-id="challenge-1">Challenge 1</h2>
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
 <p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn/">interactive site</a> and submit once you find the strategy that you think is best.</p>
 <p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
 <p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
 <section id="how-kuhn-interactive-works" class="level3">
-<h3 data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive works</h3>
+<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive works</h3>
 <p>TO DO</p>
 </section>
 <section id="why-cant-we-just-do-tree-search" class="level3">
-<h3 data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h3>
+<h3 class="anchored" data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h3>
 <p>Because of incomplete information.</p>
 <p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.</p>
 <p>If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy:</p>
@@ -730,7 +728,7 @@ Hint
 <p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?</p>
 </section>
 <section id="do-we-really-need-mixed-strategies" class="level3">
-<h3 data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h3>
+<h3 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h3>
 <p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
 <p>Follow these steps:</p>
 <ol type="1">
@@ -742,12 +740,12 @@ Hint
 <p>A bad thing is happening to you. Why?</p>
 </section>
 <section id="actually-solving-kuhn-poker" class="level3">
-<h3 data-anchor-id="actually-solving-kuhn-poker">Actually solving Kuhn Poker</h3>
+<h3 class="anchored" data-anchor-id="actually-solving-kuhn-poker">Actually solving Kuhn Poker</h3>
 <p>Pick a reasonable learning rate, update individual cells until they converge.</p>
 <p>Next, enter your strategy into the daily leaderboard.</p>
 </section>
 <section id="how-results-are-generated" class="level3">
-<h3 data-anchor-id="how-results-are-generated">How results are generated</h3>
+<h3 class="anchored" data-anchor-id="how-results-are-generated">How results are generated</h3>
 <p>This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.</p>
 
 
@@ -755,7 +753,7 @@ Hint
 </section>
 </section>
 
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1165,7 +1163,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 
