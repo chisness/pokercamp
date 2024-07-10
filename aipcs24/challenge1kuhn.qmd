@@ -192,7 +192,7 @@ In order to have no regret, the expected value of both actions should be equal
 :::
 
 ## Kuhn Poker
-[Kuhn Poker](https://en.wikipedia.org/wiki/Kuhn_poker) is the most simple version of poker.
+Kuhn Poker is the most simple version of poker.
 
 ![](assets/kuhnbee.png)
 
@@ -202,28 +202,38 @@ In order to have no regret, the expected value of both actions should be equal
 
 - Each player starts with 2 chips and antes 1
 
-- Deal 1 card to each player (discard the 3rd)
+- Deal 1 card to each player (discard the third)
 
-- Players can take Up or Down actions
+- Players can take these actions: 
+
+  - Up (putting a chip into the pot) 
+  
+  - Down (not putting a chip into the pot) actions
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Poker Terms for Actions 
 
   - Up actions indicate a Bet or Call (putting a chip into the pot)
 
   - Down actions indicate a Check or Fold (not putting a chip into the pot)
+:::
 
-- Rotate who acts first each hand
+
+
+<!-- - Rotate who acts first each hand -->
 
 - There is one betting round that can take the following sequences: 
 
-| Sequence   | Player 1  | Player 2  | Player 1 | Winner       |
-|------------|-----------|-----------|----------|--------------|
-| Sequence 1 | Down      | Up        | Down     |Player 2 (+1) |
-| Sequence 2 | Down      | Up        | Up       |High Card (+2)|
-| Sequence 3 | Down      | Down      |          |High Card (+1)|
-| Sequence 4 | Up        | Down      |          |Player 1 (+1) |
-| Sequence 5 | Up        | Up        |          |High Card (+2)|
+| Player 1  | Player 2  | Player 1 | Winner       |
+|------------|-----------|-----------|----------|
+| Down      | Up        | Down     |Player 2 (+1) |
+| Down      | Up        | Up       |High Card (+2)|
+| Down      | Down      |          |High Card (+1)|
+| Up        | Down      |          |Player 1 (+1) |
+| Up        | Up        |          |High Card (+2)|
 
 ## Challenge 1
-Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn/) and submit once you find the strategy that you think is best. 
+Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn3/) and submit once you find the strategy that you think is best. 
 
 After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p>31%).
 

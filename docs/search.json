@@ -185,7 +185,7 @@
     "href": "signup/index.html#who",
     "title": "AI Poker Camp (2024 Summer Beta SF)",
     "section": "Who?",
-    "text": "Who?\n\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement.)"
+    "text": "Who?\n\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7.)"
   },
   {
     "objectID": "signup/index.html#whats-the-curriculum",
@@ -292,7 +292,7 @@
     "href": "aipcs24/challenge1kuhn.html#kuhn-poker",
     "title": "Challenge 1: Kuhn Poker CFR Tutorial",
     "section": "Kuhn Poker",
-    "text": "Kuhn Poker\nKuhn Poker is the most simple version of poker.\n\n\n3 card deck: Queen, King, Ace (Ace is highest)\n2 players\nEach player starts with 2 chips and antes 1\nDeal 1 card to each player (discard the 3rd)\nPlayers can take Up or Down actions\n\nUp actions indicate a Bet or Call (putting a chip into the pot)\nDown actions indicate a Check or Fold (not putting a chip into the pot)\n\nRotate who acts first each hand\nThere is one betting round that can take the following sequences:\n\n\n\n\nSequence\nPlayer 1\nPlayer 2\nPlayer 1\nWinner\n\n\n\n\nSequence 1\nDown\nUp\nDown\nPlayer 2 (+1)\n\n\nSequence 2\nDown\nUp\nUp\nHigh Card (+2)\n\n\nSequence 3\nDown\nDown\n\nHigh Card (+1)\n\n\nSequence 4\nUp\nDown\n\nPlayer 1 (+1)\n\n\nSequence 5\nUp\nUp\n\nHigh Card (+2)",
+    "text": "Kuhn Poker\nKuhn Poker is the most simple version of poker.\n\n\n3 card deck: Queen, King, Ace (Ace is highest)\n2 players\nEach player starts with 2 chips and antes 1\nDeal 1 card to each player (discard the third)\nPlayers can take these actions:\n\nUp (putting a chip into the pot)\nDown (not putting a chip into the pot) actions\n\n\n\n\n\n\n\n\nPoker Terms for Actions\n\n\n\n\n\n\nUp actions indicate a Bet or Call (putting a chip into the pot)\nDown actions indicate a Check or Fold (not putting a chip into the pot)\n\n\n\n\n\n\nThere is one betting round that can take the following sequences:\n\n\n\n\nPlayer 1\nPlayer 2\nPlayer 1\nWinner\n\n\n\n\nDown\nUp\nDown\nPlayer 2 (+1)\n\n\nDown\nUp\nUp\nHigh Card (+2)\n\n\nDown\nDown\n\nHigh Card (+1)\n\n\nUp\nDown\n\nPlayer 1 (+1)\n\n\nUp\nUp\n\nHigh Card (+2)",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",

@@ -38,7 +38,7 @@ We’re also planning to run an online version of the course starting in late Se
 
 - We recommend students be able to program in Python and [perform a Bayesian update](https://towardsdatascience.com/bayesian-updating-simply-explained-c2ed3e563588) (though it’s fine to lean on an LLM for help on either).
 
-- Knowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7 for a $20 supplement.)
+- Knowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7.)
 
 ## What’s the curriculum?
 The course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:

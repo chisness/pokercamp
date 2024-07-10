@@ -641,25 +641,45 @@ Hint
 </section>
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
-<p><a href="https://en.wikipedia.org/wiki/Kuhn_poker">Kuhn Poker</a> is the most simple version of poker.</p>
+<p>Kuhn Poker is the most simple version of poker.</p>
 <p><img src="assets/kuhnbee.png" class="img-fluid"></p>
 <ul>
 <li><p>3 card deck: Queen, King, Ace (Ace is highest)</p></li>
 <li><p>2 players</p></li>
 <li><p>Each player starts with 2 chips and antes 1</p></li>
-<li><p>Deal 1 card to each player (discard the 3rd)</p></li>
-<li><p>Players can take Up or Down actions</p>
+<li><p>Deal 1 card to each player (discard the third)</p></li>
+<li><p>Players can take these actions:</p>
+<ul>
+<li><p>Up (putting a chip into the pot)</p></li>
+<li><p>Down (not putting a chip into the pot) actions</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Poker Terms for Actions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>Up actions indicate a Bet or Call (putting a chip into the pot)</p></li>
 <li><p>Down actions indicate a Check or Fold (not putting a chip into the pot)</p></li>
-</ul></li>
-<li><p>Rotate who acts first each hand</p></li>
-<li><p>There is one betting round that can take the following sequences:</p></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- - Rotate who acts first each hand -->
+<ul>
+<li>There is one betting round that can take the following sequences:</li>
 </ul>
 <table class="table">
 <thead>
 <tr class="header">
-<th>Sequence</th>
 <th>Player 1</th>
 <th>Player 2</th>
 <th>Player 1</th>
@@ -668,35 +688,30 @@ Hint
 </thead>
 <tbody>
 <tr class="odd">
-<td>Sequence 1</td>
 <td>Down</td>
 <td>Up</td>
 <td>Down</td>
 <td>Player 2 (+1)</td>
 </tr>
 <tr class="even">
-<td>Sequence 2</td>
 <td>Down</td>
 <td>Up</td>
 <td>Up</td>
 <td>High Card (+2)</td>
 </tr>
 <tr class="odd">
-<td>Sequence 3</td>
 <td>Down</td>
 <td>Down</td>
 <td></td>
 <td>High Card (+1)</td>
 </tr>
 <tr class="even">
-<td>Sequence 4</td>
 <td>Up</td>
 <td>Down</td>
 <td></td>
 <td>Player 1 (+1)</td>
 </tr>
 <tr class="odd">
-<td>Sequence 5</td>
 <td>Up</td>
 <td>Up</td>
 <td></td>
@@ -707,7 +722,7 @@ Hint
 </section>
 <section id="challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
-<p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn/">interactive site</a> and submit once you find the strategy that you think is best.</p>
+<p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn3/">interactive site</a> and submit once you find the strategy that you think is best.</p>
 <p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
 <p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
 <section id="how-kuhn-interactive-works" class="level3">
