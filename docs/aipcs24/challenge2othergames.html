@@ -297,7 +297,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link active" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a></li>
+  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link active" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a>
+  <ul class="collapse">
+  <li><a href="#tournament-results" id="toc-tournament-results" class="nav-link" data-scroll-target="#tournament-results">Tournament Results</a></li>
+  <li><a href="#how-the-interactive-works" id="toc-how-the-interactive-works" class="nav-link" data-scroll-target="#how-the-interactive-works">How the Interactive Works</a></li>
+  <li><a href="#optimal-strategies" id="toc-optimal-strategies" class="nav-link" data-scroll-target="#optimal-strategies">Optimal Strategies</a></li>
+  <li><a href="#pure-vs.-mixed-strategies" id="toc-pure-vs.-mixed-strategies" class="nav-link" data-scroll-target="#pure-vs.-mixed-strategies">Pure vs.&nbsp;Mixed Strategies</a></li>
+  </ul></li>
   <li><a href="#concept-nash-equilibrium" id="toc-concept-nash-equilibrium" class="nav-link" data-scroll-target="#concept-nash-equilibrium">Concept: Nash Equilibrium</a>
   <ul class="collapse">
   <li><a href="#indifference" id="toc-indifference" class="nav-link" data-scroll-target="#indifference">Indifference</a></li>
@@ -314,6 +320,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#tictactoe" id="toc-tictactoe" class="nav-link" data-scroll-target="#tictactoe">Tictactoe</a>
   <ul class="collapse">
+  <li><a href="#minimax" id="toc-minimax" class="nav-link" data-scroll-target="#minimax">Minimax</a></li>
+  <li><a href="#value-function" id="toc-value-function" class="nav-link" data-scroll-target="#value-function">Value Function</a></li>
   <li><a href="#rl-planning" id="toc-rl-planning" class="nav-link" data-scroll-target="#rl-planning">RL: Planning</a></li>
   </ul></li>
   <li><a href="#blackjack" id="toc-blackjack" class="nav-link" data-scroll-target="#blackjack">Blackjack</a>
@@ -350,18 +358,29 @@ window.Quarto = {
 
 <section id="review-of-challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-challenge-1">Review of Challenge 1</h2>
-<p>Go over results from tournament</p>
-<p>Easy/pure strategies Mixed strategies</p>
-<p>Regret Regret matching Gradient descent https://chatgpt.com/c/5925b66e-7fdb-4139-84b5-3663b3636661 How we did it in the interactive</p>
-<p>Get fully into CFR next</p>
-<p>Equilibrium stuff Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now</p>
+<p>Goal: Equilibrium agent, later opponent modeling</p>
+<p>What does best bot vs you look like? What is your exploitability?</p>
+<section id="tournament-results" class="level3">
+<h3 class="anchored" data-anchor-id="tournament-results">Tournament Results</h3>
+</section>
+<section id="how-the-interactive-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-interactive-works">How the Interactive Works</h3>
+<p>Odds vs.&nbsp;probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off</p>
+</section>
+<section id="optimal-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="optimal-strategies">Optimal Strategies</h3>
 <p>Surprise! There are multiple Nash equilibria in Kuhn!</p>
-<p>Pruning and compare to CFR</p>
 <p>Value of the game</p>
 <p>Position thing</p>
 <p>Principle of 3 general types of hands and how it applies to regular poker</p>
-<p>What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?</p>
-<p>Node locking question</p>
+</section>
+<section id="pure-vs.-mixed-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="pure-vs.-mixed-strategies">Pure vs.&nbsp;Mixed Strategies</h3>
+<p>Gradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.</p>
+<p>Regret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.</p>
+<p>Regret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.</p>
+<p>Pruning and compare to CFR</p>
+</section>
 </section>
 <section id="concept-nash-equilibrium" class="level2">
 <h2 class="anchored" data-anchor-id="concept-nash-equilibrium">Concept: Nash Equilibrium</h2>
@@ -392,7 +411,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.</p>
+<p>The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss and both get <span class="math inline">\(0\)</span> payoffs. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -403,7 +422,7 @@ Nash Equilibrium Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Which of these, if any, is a Nash Equilibrium?</p>
+<p>Which of these, if any, is a Nash Equilibrium? You can check by seeing if either player would benefit by changing their action.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -554,6 +573,12 @@ Solution
 </table>
 <p>Now for the Kicker, we have <span class="math inline">\(\mathbb{E} = 0.25*0 + 0.25*2 + 0.25*1 + 0.25*0 = 0.75\)</span>.</p>
 <p>Since it’s zero-sum, we have <span class="math inline">\(\mathbb{E} = -0.75\)</span> for the Goalie.</p>
+<p>Note that, for example, the Kicker playing 50% Left and 50% Right could be interpreted as a single player having these probabilities or a field of players averaging to these probabilities. Meaning out of 100 players, this could mean:</p>
+<ul>
+<li>100 players playing 50% Left and 50% Right</li>
+<li>50 players playing 100% Left and 50 players playing 100% Right</li>
+<li>50 players playing 75% Left/25% Right and 50 players playing 25% Left/50% right</li>
+</ul>
 </div>
 </div>
 </div>
@@ -581,9 +606,9 @@ Solution
 </table>
 <p><span class="math inline">\(\mathbb{E}(\text{Kick Left}) = 0*p + 2*(1-p) = 2 - 2*p\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(\text{Kick Right}) = 1*p + 0*(1-p) = 1*p\)</span></p>
-<p>The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker indifferent to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)</p>
+<p>The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker <strong>indifferent</strong> to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)</p>
 <p><img src="assets/kickergoalieplot.png" class="img-fluid"></p>
-<p>By setting the values equal, we get <span class="math inline">\(2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}\)</span> as shown in the plot. This means that <span class="math inline">\(1-p = 1 - \frac{2}{3} = \frac{1}{3}\)</span>. Therefore the Goalie should play Lean Left <span class="math inline">\(\frac{2}{3}\)</span> and Lean Right <span class="math inline">\(\frac{1}{3}\)</span>. The value for the Kicker is <span class="math inline">\(\frac{2}{3}\)</span> for both actions.</p>
+<p>By setting the values equal, we get <span class="math inline">\(2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}\)</span> as shown in the plot. This means that <span class="math inline">\(1-p = 1 - \frac{2}{3} = \frac{1}{3}\)</span>. Therefore the Goalie should play Lean Left <span class="math inline">\(\frac{2}{3}\)</span> and Lean Right <span class="math inline">\(\frac{1}{3}\)</span>. The value for the Kicker is <span class="math inline">\(\frac{2}{3}\)</span>, or <span class="math inline">\((0.67)\)</span>, for both actions, regardless of the Kicker’s mixing strategy.</p>
 <p>Note that the Kicker is worse off now (<span class="math inline">\(0.67\)</span> now compared to <span class="math inline">\(0.75\)</span>) than when both players played 50% each action. Why?</p>
 <p>If the Kicker plays Left with probability <span class="math inline">\(q\)</span> and Right with probability <span class="math inline">\(1-q\)</span>, then the Goalie’s values are:</p>
 <p><span class="math inline">\(\mathbb{E}(\text{Lean Left}) = 0*q - 1*(1-q) = -1 + q\)</span></p>
@@ -598,7 +623,7 @@ Solution
 \end{split}
 \end{equation}
 \]</span></p>
-<p>Therefore the Kicker should play Left <span class="math inline">\(\frac{1}{3}\)</span> and Right <span class="math inline">\(\frac{2}{3}\)</span>, giving a value of - to the Goalie.</p>
+<p>Therefore the Kicker should play Left <span class="math inline">\(\frac{1}{3}\)</span> and Right <span class="math inline">\(\frac{2}{3}\)</span>, giving a value of <span class="math inline">\(-\frac{2}{3}\)</span> to the Goalie.</p>
 <p>We can see this from the game table:</p>
 <table class="table">
 <colgroup>
@@ -654,12 +679,24 @@ Solution
 </tr>
 </tbody>
 </table>
-<p>Now the payoff is <span class="math inline">\(\frac{1}{3}*2 = 0.67\)</span>.</p>
-<p>When a player makes their opponent indifferent, this means that any action the opponent takes will result in the same payoff (within the set of equilibrium actions)!</p>
+<p>Now the Kicker’s payoff is still <span class="math inline">\(\frac{1}{3}*2 = 0.67\)</span>.</p>
+<p>When a player makes their opponent indifferent, this means that any action the opponent takes (within the set of equilibrium actions) will result in the same payoff!</p>
 <p>So if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of.</p>
 <p>The risk is that the opponent can now deviate from equilibrium and take advantage of your new strategy. For example, if the Goalie caught on and moved to always Lean Left, then expected value is reduced to <span class="math inline">\(0\)</span> for both players.</p>
 <p>To summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Indifference
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Why do players make their opponent indifferent?</p>
+</div>
+</div>
 </section>
 <section id="kuhn-poker" class="level3">
 <h3 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h3>
@@ -681,7 +718,7 @@ Expected Value Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -690,23 +727,23 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Making P1 indifferent between calling and folding with a K</p>
 </div>
 </div>
 </div>
 <p>We can work out Player 2’s betting strategy by calculating the indifference. Let <span class="math inline">\(b\)</span> be the probability that P2 bets with a Q after P1 checks.</p>
-<p><span class="math inline">\(\mathbb{E}(\text{P1 Check K then Fold to Bet}) = 0\)</span></p>
-<p><span class="math display">\[
-\begin{equation}
+<p>$$ <span class="math display">\[\begin{equation}
 \begin{split}
+\mathbb{E}(\text{P1 Check K then Fold to Bet}) &amp;= 0 \\
+\\
+
 \mathbb{E}(\text{P1 Check K then Call Bet}) &amp;= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
   &amp;= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
   &amp;= -0.5 + 1.5*b
 \end{split}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span> $$</p>
 <p>Setting these equal:</p>
 <p><span class="math inline">\(0 = -0.5 + 1.5*b\)</span></p>
 <p><span class="math inline">\(b = \frac{1}{3}\)</span></p>
@@ -725,7 +762,7 @@ Equilibrium Mixed Strategy Change Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -734,7 +771,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>It wouldn’t! As long as P1 doesn’t modify their strategy, then P2 can mix his strategy however he wants and have the same EV.</p>
 </div>
@@ -750,12 +787,12 @@ Bluff:Value Ratio Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Given that Player 2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?</p>
+<p>Given that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?</p>
 <p>(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -764,20 +801,27 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>P2 has Q and A each <span class="math inline">\(\frac{1}{2}\)</span> of the time.</p>
 <p>P2 is betting Q <span class="math inline">\(\frac{1}{3}\)</span> of the time (bluffing).</p>
 <p>P2 is betting A always (value betting).</p>
-<p>Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times.</p>
+<p>Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff.</p>
 <p><span class="math inline">\(\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}\)</span></p>
 </div>
 </div>
 </div>
-<p>What if the bet size was 2 instead of 1?</p>
-<p>Can you come up with a general formula for how often to bluff given a pot and bet size?</p>
-<p>Range of hands vs.&nbsp;range of hands vs.&nbsp;your hand vs.&nbsp;their strategy. Different if their strategy never changes.</p>
-<p>In what case could we deduce our opponent’s strategy with a large sample size? Assuming that they are playing the obvious plays. For example, if we pass with K, we can know how often they’re betting Q since we know they’ll always bet A. Formula for how often they’re betting Q.</p>
+<p>TO DO: - What if the bet size was 2 instead of 1?</p>
+<ul>
+<li><p>Can you come up with a general formula for how often to bluff given a pot and bet size?</p></li>
+<li><p>Range of hands vs.&nbsp;range of hands vs.&nbsp;your hand vs.&nbsp;their strategy. Different if their strategy never changes.</p></li>
+<li><p>What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?</p></li>
+<li><p>Node locking question</p></li>
+</ul>
+<p>In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly.</p>
+<p>For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A.</p>
+<p>Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage <span class="math inline">\(p\)</span> of their Q hands.</p>
+<p>Formula for how often they’re betting Q.</p>
 <p>What’s another case we could determine? Bet Q, how often call/fold K. How to use this?</p>
 </section>
 </section>
@@ -820,7 +864,7 @@ Solution
 </tbody>
 </table>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -829,7 +873,7 @@ Pre-Filled Table
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="table">
 <colgroup>
@@ -877,7 +921,7 @@ Pre-Filled Table
 <section id="intro-to-reinforcement-learning-rl" class="level2">
 <h2 class="anchored" data-anchor-id="intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</h2>
 <p>The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.</p>
-<p>Policy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR</p>
+<p>Policy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL</p>
 </section>
 <section id="war" class="level2">
 <h2 class="anchored" data-anchor-id="war">War</h2>
@@ -1127,9 +1171,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <section id="tictactoe" class="level2">
 <h2 class="anchored" data-anchor-id="tictactoe">Tictactoe</h2>
 <p><img src="assets/backprop.png" class="img-fluid"></p>
+<p>Evolutionary algorithms for poker and tic-tac-toe</p>
 <p>Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.</p>
 <p>Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper</p>
-<p>Minimax</p>
+<section id="minimax" class="level3">
+<h3 class="anchored" data-anchor-id="minimax">Minimax</h3>
+<p>w</p>
+</section>
+<section id="value-function" class="level3">
+<h3 class="anchored" data-anchor-id="value-function">Value Function</h3>
+<p>Minimax assumes opponent playing best plays too temporal-difference</p>
+</section>
 <section id="rl-planning" class="level3">
 <h3 class="anchored" data-anchor-id="rl-planning">RL: Planning</h3>
 <p>MCTS decision-time planning</p>

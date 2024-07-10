@@ -5,6 +5,6 @@ format:
   html:
     math: true
 ---
-WELCOME ETC 
+Welcome to AI Poker Camp Summer 2024 Beta in San Francisco! 
 
 ![](../assets/pcicon.png){width=50%}

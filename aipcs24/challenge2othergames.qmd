@@ -5,27 +5,22 @@ format:
   html:
     math: true
 ---
-
 ## Review of Challenge 1
-Go over results from tournament
+Goal: Equilibrium agent, later opponent modeling
 
-Easy/pure strategies
-Mixed strategies 
+What does best bot vs you look like? What is your exploitability?
 
+### Tournament Results
+
+
+### How the Interactive Works
+Odds vs. probs
 Regret
-Regret matching
-Gradient descent
-https://chatgpt.com/c/5925b66e-7fdb-4139-84b5-3663b3636661 
-How we did it in the interactive
+Full CFR details next session
+Show equations and graphs of how things correct when a single probability is thrown off
 
-Get fully into CFR next 
-
-Equilibrium stuff 
-Mention that later we’ll talk about opponent modeling, but equilibrium is easiest concept for now
-
+### Optimal Strategies
 Surprise! There are multiple Nash equilibria in Kuhn!
-
-Pruning and compare to CFR 
 
 Value of the game
 
@@ -33,9 +28,18 @@ Position thing
 
 Principle of 3 general types of hands and how it applies to regular poker
 
-What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?
+### Pure vs. Mixed Strategies
 
-Node locking question 
+Gradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.
+
+
+Regret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.
+
+Regret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.
+
+
+
+Pruning and compare to CFR 
 
 
 ## Concept: Nash Equilibrium
@@ -54,12 +58,12 @@ Consider the **Soccer Penalty Kick** problem where a Kicker is trying to score a
 | Kick Left  | 0, 0  | +2, -2 |
 | Kick Right | +1, -1 | 0, 0|
 
-The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.
+The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss and both get $0$ payoffs. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.
 
 :::{.callout-note  appearance="minimal"}
 ## Nash Equilibrium Exercise
 
-Which of these, if any, is a Nash Equilibrium?
+Which of these, if any, is a Nash Equilibrium? You can check by seeing if either player would benefit by changing their action. 
 
 | Kicker | Goalie | Equilibrium or Change? | 
 |------------|-----------|--------|
@@ -82,7 +86,6 @@ There are no pure Nash equilibrium solutions because when the actions match, the
 | Right | Left | Goalie changes to right |
 | Right | Right | Kicker changes to left |
 :::
-
 
 
 :::{.callout-note  appearance="minimal"}
@@ -108,7 +111,13 @@ We apply these probabilities to each of the 4 outcomes:
 
 Now for the Kicker, we have $\mathbb{E} = 0.25*0 + 0.25*2 + 0.25*1 + 0.25*0 = 0.75$. 
 
-Since it's zero-sum, we have $\mathbb{E} = -0.75$ for the Goalie. 
+Since it's zero-sum, we have $\mathbb{E} = -0.75$ for the Goalie.
+
+Note that, for example, the Kicker playing 50% Left and 50% Right could be interpreted as a single player having these probabilities or a field of players averaging to these probabilities. Meaning out of 100 players, this could mean: 
+
+- 100 players playing 50% Left and 50% Right
+- 50 players playing 100% Left and 50 players playing 100% Right
+- 50 players playing 75% Left/25% Right and 50 players playing 25% Left/50% right
 
 :::
 
@@ -123,11 +132,11 @@ $\mathbb{E}(\text{Kick Left}) = 0*p + 2*(1-p) = 2 - 2*p$
 
 $\mathbb{E}(\text{Kick Right}) = 1*p + 0*(1-p) = 1*p$
 
-The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker indifferent to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)
+The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker **indifferent** to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)
 
 ![](assets/kickergoalieplot.png)
 
-By setting the values equal, we get $2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}$ as shown in the plot. This means that $1-p = 1 - \frac{2}{3} = \frac{1}{3}$. Therefore the Goalie should play Lean Left $\frac{2}{3}$ and Lean Right $\frac{1}{3}$. The value for the Kicker is $\frac{2}{3}$ for both actions. 
+By setting the values equal, we get $2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}$ as shown in the plot. This means that $1-p = 1 - \frac{2}{3} = \frac{1}{3}$. Therefore the Goalie should play Lean Left $\frac{2}{3}$ and Lean Right $\frac{1}{3}$. The value for the Kicker is $\frac{2}{3}$, or $(0.67)$, for both actions, regardless of the Kicker's mixing strategy. 
 
 Note that the Kicker is worse off now ($0.67$ now compared to $0.75$) than when both players played 50% each action. Why?
 
@@ -149,7 +158,7 @@ $$
 \end{equation}
 $$
 
-Therefore the Kicker should play Left $\frac{1}{3}$ and Right $\frac{2}{3}$, giving a value of -\frac{2}{3} to the Goalie. 
+Therefore the Kicker should play Left $\frac{1}{3}$ and Right $\frac{2}{3}$, giving a value of $-\frac{2}{3}$ to the Goalie. 
 
 We can see this from the game table: 
 
@@ -167,9 +176,9 @@ In an equilibrium, no player should be able to unilaterally improve by changing 
 | Kick Left ($1$) | 0, 0 ($\frac{2}{3}$) | +2, -2 ($\frac{1}{3}$) |
 | Kick Right ($0$) | +1, -1 ($0$) | 0, 0 ($0$)|
 
-Now the payoff is $\frac{1}{3}*2 = 0.67$. 
+Now the Kicker's payoff is still $\frac{1}{3}*2 = 0.67$. 
 
-When a player makes their opponent indifferent, this means that any action the opponent takes will result in the same payoff (within the set of equilibrium actions)! 
+When a player makes their opponent indifferent, this means that any action the opponent takes (within the set of equilibrium actions) will result in the same payoff! 
 
 So if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of. 
 
@@ -177,7 +186,10 @@ The risk is that the opponent can now deviate from equilibrium and take advantag
 
 To summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy. 
 
+:::{.callout-note  appearance="minimal"}
+## Indifference
 Why do players make their opponent indifferent?
+:::
 
 ### Kuhn Poker 
 Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play. 
@@ -201,11 +213,13 @@ Making P1 indifferent between calling and folding with a K
 
 We can work out Player 2's betting strategy by calculating the indifference. Let $b$ be the probability that P2 bets with a Q after P1 checks. 
 
-$\mathbb{E}(\text{P1 Check K then Fold to Bet}) = 0$
 
 $$
 \begin{equation}
 \begin{split}
+\mathbb{E}(\text{P1 Check K then Fold to Bet}) &= 0 \\
+\\
+
 \mathbb{E}(\text{P1 Check K then Call Bet}) &= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
   &= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
   &= -0.5 + 1.5*b
@@ -235,7 +249,7 @@ It wouldn't! As long as P1 doesn't modify their strategy, then P2 can mix his st
 
 :::{.callout-note  appearance="minimal"}
 ## Bluff:Value Ratio Exercise
-Given that Player 2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?
+Given that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?
 
 (Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)
 
@@ -249,22 +263,35 @@ P2 is betting Q $\frac{1}{3}$ of the time (bluffing).
 
 P2 is betting A always (value betting). 
 
-Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. 
+Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff. 
 
 $\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}$
 
 :::
 
+TO DO: 
+- What if the bet size was 2 instead of 1?
 
-What if the bet size was 2 instead of 1?
+- Can you come up with a general formula for how often to bluff given a pot and bet size? 
 
-Can you come up with a general formula for how often to bluff given a pot and bet size? 
+- Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  
 
-Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  
+- What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?
 
-In what case could we deduce our opponent’s strategy with a large sample size? Assuming that they are playing the obvious plays. For example, if we pass with K, we can know how often they’re betting Q since we know they’ll always bet A. Formula for how often they’re betting Q. 
+- Node locking question 
+
+
+In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly. 
+
+For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A. 
+
+Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage $p$ of their Q hands. 
+
+Formula for how often they’re betting Q. 
 
 What’s another case we could determine? Bet Q, how often call/fold K. How to use this?
+
+
 
 ## Types of Games
 
@@ -303,6 +330,7 @@ Policy, reward signal, value function, model of environment
 Agent, environment interface RL book chapter 3 stuff
 Tabular environment stuff
 TD/SARSA/Q-LEARNING, relation to CFR
+https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL
 
 
 ## War
@@ -554,13 +582,20 @@ But you could use the MCTS that does work by changing the game setup
 ## Tictactoe 
 ![](assets/backprop.png)
 
+Evolutionary algorithms for poker and tic-tac-toe
+
 Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation. 
 
 Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? 
 Tree imperfect info vs perfect info issues, show trees
 Compare this to the Wabbits game and problem sfrom paper 
 
-Minimax
+### Minimax
+w
+
+### Value Function
+Minimax assumes opponent playing best plays too
+temporal-difference
 
 ### RL: Planning
 MCTS decision-time planning
