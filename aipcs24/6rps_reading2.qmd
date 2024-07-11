@@ -1,0 +1,7 @@
+---
+title: "Rock Poker Scissors (6): Reading 2"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

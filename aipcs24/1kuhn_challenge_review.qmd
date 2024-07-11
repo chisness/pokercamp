@@ -1,0 +1,7 @@
+---
+title: "Kuhn Poker (1): Challenge Review"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

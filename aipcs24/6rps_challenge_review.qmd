@@ -1,0 +1,7 @@
+---
+title: "Rock Poker Scissors (6): Challenge Review"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

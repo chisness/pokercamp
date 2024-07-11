@@ -1,0 +1,7 @@
+---
+title: "Texas Tac Toe (5): Challenge"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

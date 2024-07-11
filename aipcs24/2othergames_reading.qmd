@@ -1,0 +1,7 @@
+---
+title: "Other Games (2): Reading"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

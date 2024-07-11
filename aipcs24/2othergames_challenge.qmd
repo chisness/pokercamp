@@ -1,0 +1,7 @@
+---
+title: "Other Games (2): Challenge"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
