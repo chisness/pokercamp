@@ -109,8 +109,8 @@ website:
               href: "aipcs24/bots.qmd"
         - section: "About the Course"
           contents:
-            - text: "Meetings and Challenges"
-              href: "aipcs24/meetings.qmd"
+            - text: "Sessions and Challenges"
+              href: "aipcs24/sessions.qmd"
             - text: "Instructors and TAs"
               href: "aipcs24/staff.qmd"
     - id: campinfo
