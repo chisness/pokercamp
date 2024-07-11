@@ -58,7 +58,7 @@ website:
                 - text: "Reading"
                   href: "aipcs24/2othergames_reading.qmd"
                 - text: "Challenge"
-                  href: "aipcs24/challenge2othergames.qmd"
+                  href: "aipcs24/2othergames_challenge.qmd"
                 - text: "Challenge Review"
                   href: "aipcs24/2othergames_challenge_review.qmd"
             - section: "3: Leduc Poker"

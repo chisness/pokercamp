@@ -14,88 +14,6 @@
     "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 15 to Aug 15 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
-    "objectID": "aipcs24/index.html",
-    "href": "aipcs24/index.html",
-    "title": "AI Poker Camp Summer 2024",
-    "section": "",
-    "text": "Welcome to AI Poker Camp Summer 2024 Beta in San Francisco!"
-  },
-  {
-    "objectID": "signup/index.html",
-    "href": "signup/index.html",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "",
-    "text": "Sign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
-  },
-  {
-    "objectID": "signup/index.html#when",
-    "href": "signup/index.html#when",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "When?",
-    "text": "When?\n6pm-8pm Mondays and Thursdays, July 15 through August 15."
-  },
-  {
-    "objectID": "signup/index.html#what",
-    "href": "signup/index.html#what",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "What?",
-    "text": "What?\nA five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.\nThis is a beta test of a course we’re planning to run online in the fall, so it’ll be small. We’ll cap signups somewhere between 16 and 24 students."
-  },
-  {
-    "objectID": "signup/index.html#where",
-    "href": "signup/index.html#where",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "Where?",
-    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September. You can join our mailing list to learn more when it’s announced."
-  },
-  {
-    "objectID": "signup/index.html#who",
-    "href": "signup/index.html#who",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "Who?",
-    "text": "Who?\n\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7.)"
-  },
-  {
-    "objectID": "signup/index.html#whats-the-curriculum",
-    "href": "signup/index.html#whats-the-curriculum",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "What’s the curriculum?",
-    "text": "What’s the curriculum?\nThe course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:\n\nTutorial: One-card / Kuhn Poker\n\nTopic: Algorithms for solving incomplete-information games.\n\nLarger one-card poker formats and other simple games\n\nTopic: Scaling up algorithms to larger game trees.\n\nRock-Paper-Scissors against imperfect opponents\n\nTopic: Techniques for modeling empirical opponent behavior.\n\nHidden-information version of Probabilistic Tic-Tac-Toe\n\nTopic: Modeling hidden information from opponent actions.\n\nTexas Holdem with simplified betting\n\nTopic: Putting it together!\n\n\nWe’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions."
-  },
-  {
-    "objectID": "signup/index.html#whos-teaching",
-    "href": "signup/index.html#whos-teaching",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "Who’s teaching?",
-    "text": "Who’s teaching?\nRoss Rheingans-Yoo wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.\nMax Chiswick is a former poker pro who has played more than 10 million hands of online poker, and created AI Poker Tutorial.\nRicki Heicklen is a curriculum advisor (but will not be teaching in the SF Beta)."
-  },
-  {
-    "objectID": "signup/index.html#how",
-    "href": "signup/index.html#how",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "How?",
-    "text": "How?\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
-  },
-  {
-    "objectID": "signup/index.html#something-else",
-    "href": "signup/index.html#something-else",
-    "title": "AI Poker Camp (2024 Summer Beta SF)",
-    "section": "Something else?",
-    "text": "Something else?\nGet in touch!"
-  },
-  {
-    "objectID": "aipcs24/sessions.html",
-    "href": "aipcs24/sessions.html",
-    "title": "Sessions and Challenges",
-    "section": "",
-    "text": "This is the schedule for AI Poker Camp Summer 2024. We are using the “flipped classroom” concept, where readings are meant to be done mostly outside of the sessions and the sessions are mostly spent on games, challenges, and questions that came up from the readings.\n\n\nThe calendar below includes all dates, locations, and times. You can add all of it to your own calendar with the button in the bottom right.",
-    "crumbs": [
-      "Signup: AI Poker Camp Summer 2024",
-      "About the Course",
-      "Sessions and Challenges"
-    ]
-  },
-  {
     "objectID": "aipcs24/1kuhn_reading.html",
     "href": "aipcs24/1kuhn_reading.html",
     "title": "Kuhn Poker (1): Reading",
@@ -200,8 +118,90 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html",
-    "href": "aipcs24/challenge2othergames.html",
+    "objectID": "aipcs24/index.html",
+    "href": "aipcs24/index.html",
+    "title": "AI Poker Camp Summer 2024",
+    "section": "",
+    "text": "Welcome to AI Poker Camp Summer 2024 Beta in San Francisco!"
+  },
+  {
+    "objectID": "aipcs24/sessions.html",
+    "href": "aipcs24/sessions.html",
+    "title": "Sessions and Challenges",
+    "section": "",
+    "text": "This is the schedule for AI Poker Camp Summer 2024. We are using the “flipped classroom” concept, where readings are meant to be done in advance, mostly outside of the sessions, and the sessions are mostly spent on games, challenges, and questions that came up from the readings.\n\n\nThe calendar below includes all dates, locations, and times. You can add all of it to your own calendar with the button in the bottom right.",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "About the Course",
+      "Sessions and Challenges"
+    ]
+  },
+  {
+    "objectID": "signup/index.html",
+    "href": "signup/index.html",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "",
+    "text": "Sign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
+  },
+  {
+    "objectID": "signup/index.html#when",
+    "href": "signup/index.html#when",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "When?",
+    "text": "When?\n6pm-8pm Mondays and Thursdays, July 15 through August 15."
+  },
+  {
+    "objectID": "signup/index.html#what",
+    "href": "signup/index.html#what",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What?",
+    "text": "What?\nA five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.\nThis is a beta test of a course we’re planning to run online in the fall, so it’ll be small. We’ll cap signups somewhere between 16 and 24 students."
+  },
+  {
+    "objectID": "signup/index.html#where",
+    "href": "signup/index.html#where",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Where?",
+    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September. You can join our mailing list to learn more when it’s announced."
+  },
+  {
+    "objectID": "signup/index.html#who",
+    "href": "signup/index.html#who",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who?",
+    "text": "Who?\n\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7.)"
+  },
+  {
+    "objectID": "signup/index.html#whats-the-curriculum",
+    "href": "signup/index.html#whats-the-curriculum",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What’s the curriculum?",
+    "text": "What’s the curriculum?\nThe course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:\n\nTutorial: One-card / Kuhn Poker\n\nTopic: Algorithms for solving incomplete-information games.\n\nLarger one-card poker formats and other simple games\n\nTopic: Scaling up algorithms to larger game trees.\n\nRock-Paper-Scissors against imperfect opponents\n\nTopic: Techniques for modeling empirical opponent behavior.\n\nHidden-information version of Probabilistic Tic-Tac-Toe\n\nTopic: Modeling hidden information from opponent actions.\n\nTexas Holdem with simplified betting\n\nTopic: Putting it together!\n\n\nWe’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions."
+  },
+  {
+    "objectID": "signup/index.html#whos-teaching",
+    "href": "signup/index.html#whos-teaching",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who’s teaching?",
+    "text": "Who’s teaching?\nRoss Rheingans-Yoo wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.\nMax Chiswick is a former poker pro who has played more than 10 million hands of online poker, and created AI Poker Tutorial.\nRicki Heicklen is a curriculum advisor (but will not be teaching in the SF Beta)."
+  },
+  {
+    "objectID": "signup/index.html#how",
+    "href": "signup/index.html#how",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "How?",
+    "text": "How?\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
+  },
+  {
+    "objectID": "signup/index.html#something-else",
+    "href": "signup/index.html#something-else",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Something else?",
+    "text": "Something else?\nGet in touch!"
+  },
+  {
+    "objectID": "aipcs24/2othergames_challenge.html",
+    "href": "aipcs24/2othergames_challenge.html",
     "title": "Challenge 2: Other Games",
     "section": "",
     "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
@@ -213,8 +213,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#review-of-challenge-1",
-    "href": "aipcs24/challenge2othergames.html#review-of-challenge-1",
+    "objectID": "aipcs24/2othergames_challenge.html#review-of-challenge-1",
+    "href": "aipcs24/2othergames_challenge.html#review-of-challenge-1",
     "title": "Challenge 2: Other Games",
     "section": "",
     "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
@@ -226,8 +226,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#concept-nash-equilibrium",
-    "href": "aipcs24/challenge2othergames.html#concept-nash-equilibrium",
+    "objectID": "aipcs24/2othergames_challenge.html#concept-nash-equilibrium",
+    "href": "aipcs24/2othergames_challenge.html#concept-nash-equilibrium",
     "title": "Challenge 2: Other Games",
     "section": "Concept: Nash Equilibrium",
     "text": "Concept: Nash Equilibrium\nNash vs. opponent exploitation A set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given) is a Nash equilibrium.\nRecall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submitted to the challenge, you submitted a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?\nThe other paradigm for playing games is opponent exploitation, which we will address in future sections.\n\nIndifference\nConsider the Soccer Penalty Kick problem where a Kicker is trying to score a goal and the Goalie is trying to block it.\n\n\n\nKicker/Goalie\nLean Left\nLean Right\n\n\n\n\nKick Left\n0, 0\n+2, -2\n\n\nKick Right\n+1, -1\n0, 0\n\n\n\nThe game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss and both get \\(0\\) payoffs. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.\n\n\n\n\n\n\nNash Equilibrium Exercise\n\n\n\nWhich of these, if any, is a Nash Equilibrium? You can check by seeing if either player would benefit by changing their action.\n\n\n\nKicker\nGoalie\nEquilibrium or Change?\n\n\n\n\nLeft\nLeft\n\n\n\nLeft\nRight\n\n\n\nRight\nLeft\n\n\n\nRight\nRight\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThere are no pure Nash equilibrium solutions because when the actions match, the Kicker will always want to change, and when they don’t match, the Goalie will always want to change.\n\n\n\nKicker\nGoalie\nEquilibrium or Change?\n\n\n\n\nLeft\nLeft\nKicker changes to right\n\n\nLeft\nRight\nGoalie changes to left\n\n\nRight\nLeft\nGoalie changes to right\n\n\nRight\nRight\nKicker changes to left\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\nAssume that they both play Left 50% and Right 50% – what is the expected value of the game?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nKicker/Goalie\nLean Left (0.5)\nLean Right (0.5)\n\n\n\n\nKick Left (0.5)\n0, 0\n+2, -2\n\n\nKick Right (0.5)\n+1, -1\n0, 0\n\n\n\nWe apply these probabilities to each of the 4 outcomes:\n\n\n\nKicker/Goalie\nLean Left (0.5)\nLean Right (0.5)\n\n\n\n\nKick Left (0.5)\n0, 0 (0.25)\n+2, -2 (0.25)\n\n\nKick Right (0.5)\n+1, -1 (0.25)\n0, 0 (0.25)\n\n\n\nNow for the Kicker, we have \\(\\mathbb{E} = 0.25*0 + 0.25*2 + 0.25*1 + 0.25*0 = 0.75\\).\nSince it’s zero-sum, we have \\(\\mathbb{E} = -0.75\\) for the Goalie.\nNote that, for example, the Kicker playing 50% Left and 50% Right could be interpreted as a single player having these probabilities or a field of players averaging to these probabilities. Meaning out of 100 players, this could mean:\n\n100 players playing 50% Left and 50% Right\n50 players playing 100% Left and 50 players playing 100% Right\n50 players playing 75% Left/25% Right and 50 players playing 25% Left/50% right\n\n\n\n\nWhen the Goalie plays left with probability \\(p\\) and right with probability \\(1-p\\), we can find the expected value of the Kicker actions.\n\n\n\nKicker/Goalie\nLean Left (p)\nLean Right (1-p)\n\n\n\n\nKick Left\n0, 0\n+2, -2\n\n\nKick Right\n+1, -1\n0, 0\n\n\n\n\\(\\mathbb{E}(\\text{Kick Left}) = 0*p + 2*(1-p) = 2 - 2*p\\)\n\\(\\mathbb{E}(\\text{Kick Right}) = 1*p + 0*(1-p) = 1*p\\)\nThe Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker indifferent to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)\n\nBy setting the values equal, we get \\(2 - 2*p = 1*p \\Rightarrow p = \\frac{2}{3}\\) as shown in the plot. This means that \\(1-p = 1 - \\frac{2}{3} = \\frac{1}{3}\\). Therefore the Goalie should play Lean Left \\(\\frac{2}{3}\\) and Lean Right \\(\\frac{1}{3}\\). The value for the Kicker is \\(\\frac{2}{3}\\), or \\((0.67)\\), for both actions, regardless of the Kicker’s mixing strategy.\nNote that the Kicker is worse off now (\\(0.67\\) now compared to \\(0.75\\)) than when both players played 50% each action. Why?\nIf the Kicker plays Left with probability \\(q\\) and Right with probability \\(1-q\\), then the Goalie’s values are:\n\\(\\mathbb{E}(\\text{Lean Left}) = 0*q - 1*(1-q) = -1 + q\\)\n\\(\\mathbb{E}(\\text{Lean Right}) = -2*q + 0 = -2*q\\)\nSetting equal,\n\\[\n\\begin{equation}\n\\begin{split}\n-1 + q &= -2*q \\\\\n-1 &= -3*q  \\\\\n\\frac{1}{3} &= q\n\\end{split}\n\\end{equation}\n\\]\nTherefore the Kicker should play Left \\(\\frac{1}{3}\\) and Right \\(\\frac{2}{3}\\), giving a value of \\(-\\frac{2}{3}\\) to the Goalie.\nWe can see this from the game table:\n\n\n\n\n\n\n\n\nKicker/Goalie\nLean Left (\\(\\frac{2}{3}\\))\nLean Right (\\(\\frac{1}{3}\\))\n\n\n\n\nKick Left (\\(\\frac{1}{3}\\))\n0, 0 (\\(\\frac{2}{9}\\))\n+2, -2 (\\(\\frac{1}{9}\\))\n\n\nKick Right (\\(\\frac{2}{3}\\))\n+1, -1 (\\(\\frac{4}{9}\\))\n0, 0 (\\(\\frac{2}{9}\\))\n\n\n\nTherefore the expected payoffs in this game are \\(\\frac{2}{9}*0 + \\frac{1}{9}*2 + \\frac{4}{9}*1 + \\frac{2}{9}*0 = \\frac{6}{9} = 0.67\\) for the Kicker and \\(-0.67\\) for the Goalie.\nIn an equilibrium, no player should be able to unilaterally improve by changing their strategy. What if the Kicker switches to always Kick Left?\n\n\n\n\n\n\n\n\nKicker/Goalie\nLean Left (\\(\\frac{2}{3}\\))\nLean Right (\\(\\frac{1}{3}\\))\n\n\n\n\nKick Left (\\(1\\))\n0, 0 (\\(\\frac{2}{3}\\))\n+2, -2 (\\(\\frac{1}{3}\\))\n\n\nKick Right (\\(0\\))\n+1, -1 (\\(0\\))\n0, 0 (\\(0\\))\n\n\n\nNow the Kicker’s payoff is still \\(\\frac{1}{3}*2 = 0.67\\).\nWhen a player makes their opponent indifferent, this means that any action the opponent takes (within the set of equilibrium actions) will result in the same payoff!\nSo if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of.\nThe risk is that the opponent can now deviate from equilibrium and take advantage of your new strategy. For example, if the Goalie caught on and moved to always Lean Left, then expected value is reduced to \\(0\\) for both players.\nTo summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy.\n\n\n\n\n\n\nIndifference\n\n\n\nWhy do players make their opponent indifferent?\n\n\n\n\nKuhn Poker\nBack to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play.\nIf you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation.\nLet’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\nWhat indifference is Player 2 trying to induce?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nMaking P1 indifferent between calling and folding with a K\n\n\n\nWe can work out Player 2’s betting strategy by calculating the indifference. Let \\(b\\) be the probability that P2 bets with a Q after P1 checks.\n$$ \\[\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{P1 Check K then Fold to Bet}) &= 0 \\\\\n\\\\\n\n\\mathbb{E}(\\text{P1 Check K then Call Bet}) &= -1*\\Pr(\\text{P2 has A and Bets}) + 3*\\Pr(\\text{P2 has Q and Bets}) \\\\\n  &= -1*\\frac{1}{2} + 3*\\frac{1}{2}*b \\\\\n  &= -0.5 + 1.5*b\n\\end{split}\n\\end{equation}\\] $$\nSetting these equal:\n\\(0 = -0.5 + 1.5*b\\)\n\\(b = \\frac{1}{3}\\)\nTherefore in equilibrium, P2 should bet \\(\\frac{1}{3}\\) with Q after P1 checks.\n\n\n\n\n\n\nEquilibrium Mixed Strategy Change Exercise\n\n\n\nIf P2 bet \\(\\frac{2}{3}\\) instead of \\(\\frac{1}{3}\\) with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIt wouldn’t! As long as P1 doesn’t modify their strategy, then P2 can mix his strategy however he wants and have the same EV.\n\n\n\n\n\n\n\n\n\nBluff:Value Ratio Exercise\n\n\n\nGiven that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?\n(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nP2 has Q and A each \\(\\frac{1}{2}\\) of the time.\nP2 is betting Q \\(\\frac{1}{3}\\) of the time (bluffing).\nP2 is betting A always (value betting).\nTherefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff.\n\\(\\Pr(\\text{P2 Bluff after P1 Check}) = \\frac{1}{4}\\)\n\n\n\nTO DO: - What if the bet size was 2 instead of 1?\n\nCan you come up with a general formula for how often to bluff given a pot and bet size?\nRange of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.\nWhat is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?\nNode locking question\n\nIn what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly.\nFor example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A.\nOver a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage \\(p\\) of their Q hands.\nFormula for how often they’re betting Q.\nWhat’s another case we could determine? Bet Q, how often call/fold K. How to use this?",
@@ -239,8 +239,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#types-of-games",
-    "href": "aipcs24/challenge2othergames.html#types-of-games",
+    "objectID": "aipcs24/2othergames_challenge.html#types-of-games",
+    "href": "aipcs24/2othergames_challenge.html#types-of-games",
     "title": "Challenge 2: Other Games",
     "section": "Types of Games",
     "text": "Types of Games\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong?\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)\nWhat makes the bottom right of the table interesting?",
@@ -252,8 +252,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#intro-to-reinforcement-learning-rl",
-    "href": "aipcs24/challenge2othergames.html#intro-to-reinforcement-learning-rl",
+    "objectID": "aipcs24/2othergames_challenge.html#intro-to-reinforcement-learning-rl",
+    "href": "aipcs24/2othergames_challenge.html#intro-to-reinforcement-learning-rl",
     "title": "Challenge 2: Other Games",
     "section": "Intro to Reinforcement Learning (RL)",
     "text": "Intro to Reinforcement Learning (RL)\nThe main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.\nPolicy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL",
@@ -265,8 +265,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#war",
-    "href": "aipcs24/challenge2othergames.html#war",
+    "objectID": "aipcs24/2othergames_challenge.html#war",
+    "href": "aipcs24/2othergames_challenge.html#war",
     "title": "Challenge 2: Other Games",
     "section": "War",
     "text": "War\nIf you thought that Kuhn Poker was a simple card game, meet War.\nThere are two players, each gets half the deck, 26 cards. Each player turns over their top card and faces it against the opponent’s top card. The better card wins, with Aces high. This repeats until one player has all the cards.\nWhen the cards match, the players go to “War”. When this happens, put the next card face down, and then the card after that face up, and then these up-cards face off against each other. The winner takes all six cards. If there’s another tie, then repeat and the winner takes 10 cards, etc.\n\n\n\n\n\n\nOptional Coding Exercise\n\n\n\nCode and run 10,000 simulations of War and determine how many turns the average game takes and how many War situations occur on average in each simulation\n\n\nYou can see a Dreidel game simulator written by Ben Blatt in Slate from 2014 at this link.",
@@ -278,8 +278,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#multi-armed-bandits",
-    "href": "aipcs24/challenge2othergames.html#multi-armed-bandits",
+    "objectID": "aipcs24/2othergames_challenge.html#multi-armed-bandits",
+    "href": "aipcs24/2othergames_challenge.html#multi-armed-bandits",
     "title": "Challenge 2: Other Games",
     "section": "Multi-Armed Bandits",
     "text": "Multi-Armed Bandits\n RL book 26-44, explore exploit Bandits are a set of problems with repeated decisions and a fixed number of actions possible. This is related to reinforcement learning because the agent player updates its strategy based on what it learns from the feedback from the environment. Consider a 10-armed bandit setup like in the image below:\nEach time the player pulls an arm, they get some reward, which could be positive or negative.\nA basic setting initializes each of 10 arms with q(arm) = N(0,1) so each is initialized with a center point around a Gaussian distribution. Each pull of an arm returns a reward of R = N(q(arm), 1).\nIn other words, each arm is initialized with a value centered around 0 but with some variance, so each will be a bit different. Then from that point, the actual pull of an arm is centered around that new point with some variance as seen in this figure with a 10-armed bandit from the book Intro to Reinforcement Learning by Sutton and Barto:\n\nThe player can sample actions and estimate their values based on experience and then use some algorithm for deciding which action to use next to maximize rewards.\n\n\n\n\n\n\nExercise\n\n\n\nFor example, a naive approach is that a player could sample each action once and then always use the action that gave the best reward going forward.\nWhat is a problem with this strategy? Can you suggest a better one?\n\n\n\nSimulator\n\n\n\n\n\nArm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset\n\n\n\n\n\n\nRegret\nHow would you define regret in this bandit setting? How is minimizing regret related to maximizing reward?\n\n\nRL: Action-Value Methods\nHidden imperfect info, understand in distribution over possible states of the world Depending on state will want to make decisions differently Bayesian explore exploit optimizer What is my opponent range exercise in Bayesian update Explore vs. exploit Bayesian updating https://aipokertutorial.com/game-theory-foundation/#regret https://www.reddit.com/r/statistics/comments/1949met/how_are_multi_armed_bandits_related_to_bayesian/ https://tor-lattimore.com/downloads/book/book.pdf https://lcalem.github.io/blog/2018/09/22/sutton-chap02-bandits#26-optimistic-initial-values\nBut you could use the MCTS that does work by changing the game setup",
@@ -291,8 +291,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#tictactoe",
-    "href": "aipcs24/challenge2othergames.html#tictactoe",
+    "objectID": "aipcs24/2othergames_challenge.html#tictactoe",
+    "href": "aipcs24/2othergames_challenge.html#tictactoe",
     "title": "Challenge 2: Other Games",
     "section": "Tictactoe",
     "text": "Tictactoe\n\nEvolutionary algorithms for poker and tic-tac-toe\nExercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.\nQuestion: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper\n\nMinimax\nw\n\n\nValue Function\nMinimax assumes opponent playing best plays too temporal-difference\n\n\nRL: Planning\nMCTS decision-time planning\nRL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?",
@@ -304,8 +304,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#blackjack",
-    "href": "aipcs24/challenge2othergames.html#blackjack",
+    "objectID": "aipcs24/2othergames_challenge.html#blackjack",
+    "href": "aipcs24/2othergames_challenge.html#blackjack",
     "title": "Challenge 2: Other Games",
     "section": "Blackjack",
     "text": "Blackjack\nSetup Solving\n\nRL: Dynamic Programming\nMy blog post\n\n\nRL: Monte Carlo Methods",
@@ -317,8 +317,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#poker-games",
-    "href": "aipcs24/challenge2othergames.html#poker-games",
+    "objectID": "aipcs24/2othergames_challenge.html#poker-games",
+    "href": "aipcs24/2othergames_challenge.html#poker-games",
     "title": "Challenge 2: Other Games",
     "section": "Poker Games",
     "text": "Poker Games\nWhy are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative.",
@@ -330,8 +330,8 @@
     ]
   },
   {
-    "objectID": "aipcs24/challenge2othergames.html#optional-agent-submissions",
-    "href": "aipcs24/challenge2othergames.html#optional-agent-submissions",
+    "objectID": "aipcs24/2othergames_challenge.html#optional-agent-submissions",
+    "href": "aipcs24/2othergames_challenge.html#optional-agent-submissions",
     "title": "Challenge 2: Other Games",
     "section": "Optional: Agent Submissions",
     "text": "Optional: Agent Submissions\nTictactoe\nBlackjack\nHow to submit?",

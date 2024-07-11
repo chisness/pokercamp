@@ -1,7 +1,0 @@
----
-title: "Challenge 6: Rock Poker Scissors"
-sidebar: aipcs24
-format:
-  html:
-    math: true
----

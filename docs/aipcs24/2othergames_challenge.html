@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Poker Camp - Other Games (2): Challenge</title>
+<title>Poker Camp - Challenge 2: Other Games</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Poker Camp - Other Games (2): Challenge">
+<meta property="og:title" content="Poker Camp - Challenge 2: Other Games">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="Poker Camp - Other Games (2): Challenge">
+<meta name="twitter:title" content="Poker Camp - Challenge 2: Other Games">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -174,7 +176,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Other Games (2): Challenge</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/2othergames_reading.html">2: Other Games</a></li><li class="breadcrumb-item"><a href="../aipcs24/2othergames_challenge.html">Challenge</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -232,13 +234,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">2: Other Games</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/2othergames_reading.html" class="sidebar-item-text sidebar-link">
@@ -247,7 +249,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/challenge2othergames.html" class="sidebar-item-text sidebar-link">
+  <a href="../aipcs24/2othergames_challenge.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Challenge</span></a>
   </div>
 </li>
@@ -453,14 +455,53 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link active" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a>
+  <ul class="collapse">
+  <li><a href="#tournament-results" id="toc-tournament-results" class="nav-link" data-scroll-target="#tournament-results">Tournament Results</a></li>
+  <li><a href="#how-the-interactive-works" id="toc-how-the-interactive-works" class="nav-link" data-scroll-target="#how-the-interactive-works">How the Interactive Works</a></li>
+  <li><a href="#optimal-strategies" id="toc-optimal-strategies" class="nav-link" data-scroll-target="#optimal-strategies">Optimal Strategies</a></li>
+  <li><a href="#pure-vs.-mixed-strategies" id="toc-pure-vs.-mixed-strategies" class="nav-link" data-scroll-target="#pure-vs.-mixed-strategies">Pure vs.&nbsp;Mixed Strategies</a></li>
+  </ul></li>
+  <li><a href="#concept-nash-equilibrium" id="toc-concept-nash-equilibrium" class="nav-link" data-scroll-target="#concept-nash-equilibrium">Concept: Nash Equilibrium</a>
+  <ul class="collapse">
+  <li><a href="#indifference" id="toc-indifference" class="nav-link" data-scroll-target="#indifference">Indifference</a></li>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
+  </ul></li>
+  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link" data-scroll-target="#types-of-games">Types of Games</a></li>
+  <li><a href="#intro-to-reinforcement-learning-rl" id="toc-intro-to-reinforcement-learning-rl" class="nav-link" data-scroll-target="#intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</a></li>
+  <li><a href="#war" id="toc-war" class="nav-link" data-scroll-target="#war">War</a></li>
+  <li><a href="#multi-armed-bandits" id="toc-multi-armed-bandits" class="nav-link" data-scroll-target="#multi-armed-bandits">Multi-Armed Bandits</a>
+  <ul class="collapse">
+  <li><a href="#simulator" id="toc-simulator" class="nav-link" data-scroll-target="#simulator">Simulator</a></li>
+  <li><a href="#regret" id="toc-regret" class="nav-link" data-scroll-target="#regret">Regret</a></li>
+  <li><a href="#rl-action-value-methods" id="toc-rl-action-value-methods" class="nav-link" data-scroll-target="#rl-action-value-methods">RL: Action-Value Methods</a></li>
+  </ul></li>
+  <li><a href="#tictactoe" id="toc-tictactoe" class="nav-link" data-scroll-target="#tictactoe">Tictactoe</a>
+  <ul class="collapse">
+  <li><a href="#minimax" id="toc-minimax" class="nav-link" data-scroll-target="#minimax">Minimax</a></li>
+  <li><a href="#value-function" id="toc-value-function" class="nav-link" data-scroll-target="#value-function">Value Function</a></li>
+  <li><a href="#rl-planning" id="toc-rl-planning" class="nav-link" data-scroll-target="#rl-planning">RL: Planning</a></li>
+  </ul></li>
+  <li><a href="#blackjack" id="toc-blackjack" class="nav-link" data-scroll-target="#blackjack">Blackjack</a>
+  <ul class="collapse">
+  <li><a href="#rl-dynamic-programming" id="toc-rl-dynamic-programming" class="nav-link" data-scroll-target="#rl-dynamic-programming">RL: Dynamic Programming</a></li>
+  <li><a href="#rl-monte-carlo-methods" id="toc-rl-monte-carlo-methods" class="nav-link" data-scroll-target="#rl-monte-carlo-methods">RL: Monte Carlo Methods</a></li>
+  </ul></li>
+  <li><a href="#poker-games" id="toc-poker-games" class="nav-link" data-scroll-target="#poker-games">Poker Games</a></li>
+  <li><a href="#optional-agent-submissions" id="toc-optional-agent-submissions" class="nav-link" data-scroll-target="#optional-agent-submissions">Optional: Agent Submissions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/2othergames_reading.html">2: Other Games</a></li><li class="breadcrumb-item"><a href="../aipcs24/2othergames_challenge.html">Challenge</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Other Games (2): Challenge</h1>
+<h1 class="title">Challenge 2: Other Games</h1>
 </div>
 
 
@@ -477,9 +518,862 @@ window.Quarto = {
 </header>
 
 
+<section id="review-of-challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="review-of-challenge-1">Review of Challenge 1</h2>
+<p>Goal: Equilibrium agent, later opponent modeling</p>
+<p>What does best bot vs you look like? What is your exploitability?</p>
+<section id="tournament-results" class="level3">
+<h3 class="anchored" data-anchor-id="tournament-results">Tournament Results</h3>
+</section>
+<section id="how-the-interactive-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-interactive-works">How the Interactive Works</h3>
+<p>Odds vs.&nbsp;probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off</p>
+</section>
+<section id="optimal-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="optimal-strategies">Optimal Strategies</h3>
+<p>Surprise! There are multiple Nash equilibria in Kuhn!</p>
+<p>Value of the game</p>
+<p>Position thing</p>
+<p>Principle of 3 general types of hands and how it applies to regular poker</p>
+</section>
+<section id="pure-vs.-mixed-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="pure-vs.-mixed-strategies">Pure vs.&nbsp;Mixed Strategies</h3>
+<p>Gradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.</p>
+<p>Regret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.</p>
+<p>Regret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.</p>
+<p>Pruning and compare to CFR</p>
+</section>
+</section>
+<section id="concept-nash-equilibrium" class="level2">
+<h2 class="anchored" data-anchor-id="concept-nash-equilibrium">Concept: Nash Equilibrium</h2>
+<p>Nash vs.&nbsp;opponent exploitation A set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given) is a Nash equilibrium.</p>
+<p>Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submitted to the challenge, you submitted a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?</p>
+<p>The other paradigm for playing games is opponent exploitation, which we will address in future sections.</p>
+<section id="indifference" class="level3">
+<h3 class="anchored" data-anchor-id="indifference">Indifference</h3>
+<p>Consider the <strong>Soccer Penalty Kick</strong> problem where a Kicker is trying to score a goal and the Goalie is trying to block it.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left</th>
+<th>Lean Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left</td>
+<td>0, 0</td>
+<td>+2, -2</td>
+</tr>
+<tr class="even">
+<td>Kick Right</td>
+<td>+1, -1</td>
+<td>0, 0</td>
+</tr>
+</tbody>
+</table>
+<p>The game setup is zero-sum. If Kicker and Goalie both go in one direction, then it’s assumed that the goal will miss and both get <span class="math inline">\(0\)</span> payoffs. If the Kicker plays Kick Right when the Goalie plays Lean Left, then the Kicker is favored. If the Kicker plays Kick Left when the Goalie plays Lean Right, then the kicker is even more favored, because it’s easier to kick left than right.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nash Equilibrium Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of these, if any, is a Nash Equilibrium? You can check by seeing if either player would benefit by changing their action.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker</th>
+<th>Goalie</th>
+<th>Equilibrium or Change?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Left</td>
+<td>Left</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Left</td>
+<td>Right</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Right</td>
+<td>Left</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Right</td>
+<td>Right</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are no pure Nash equilibrium solutions because when the actions match, the Kicker will always want to change, and when they don’t match, the Goalie will always want to change.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker</th>
+<th>Goalie</th>
+<th>Equilibrium or Change?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Left</td>
+<td>Left</td>
+<td>Kicker changes to right</td>
+</tr>
+<tr class="even">
+<td>Left</td>
+<td>Right</td>
+<td>Goalie changes to left</td>
+</tr>
+<tr class="odd">
+<td>Right</td>
+<td>Left</td>
+<td>Goalie changes to right</td>
+</tr>
+<tr class="even">
+<td>Right</td>
+<td>Right</td>
+<td>Kicker changes to left</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assume that they both play Left 50% and Right 50% – what is the expected value of the game?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (0.5)</th>
+<th>Lean Right (0.5)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (0.5)</td>
+<td>0, 0</td>
+<td>+2, -2</td>
+</tr>
+<tr class="even">
+<td>Kick Right (0.5)</td>
+<td>+1, -1</td>
+<td>0, 0</td>
+</tr>
+</tbody>
+</table>
+<p>We apply these probabilities to each of the 4 outcomes:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (0.5)</th>
+<th>Lean Right (0.5)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (0.5)</td>
+<td>0, 0 (0.25)</td>
+<td>+2, -2 (0.25)</td>
+</tr>
+<tr class="even">
+<td>Kick Right (0.5)</td>
+<td>+1, -1 (0.25)</td>
+<td>0, 0 (0.25)</td>
+</tr>
+</tbody>
+</table>
+<p>Now for the Kicker, we have <span class="math inline">\(\mathbb{E} = 0.25*0 + 0.25*2 + 0.25*1 + 0.25*0 = 0.75\)</span>.</p>
+<p>Since it’s zero-sum, we have <span class="math inline">\(\mathbb{E} = -0.75\)</span> for the Goalie.</p>
+<p>Note that, for example, the Kicker playing 50% Left and 50% Right could be interpreted as a single player having these probabilities or a field of players averaging to these probabilities. Meaning out of 100 players, this could mean:</p>
+<ul>
+<li>100 players playing 50% Left and 50% Right</li>
+<li>50 players playing 100% Left and 50 players playing 100% Right</li>
+<li>50 players playing 75% Left/25% Right and 50 players playing 25% Left/50% right</li>
+</ul>
+</div>
+</div>
+</div>
+<p>When the Goalie plays left with probability <span class="math inline">\(p\)</span> and right with probability <span class="math inline">\(1-p\)</span>, we can find the expected value of the Kicker actions.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (p)</th>
+<th>Lean Right (1-p)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left</td>
+<td>0, 0</td>
+<td>+2, -2</td>
+</tr>
+<tr class="even">
+<td>Kick Right</td>
+<td>+1, -1</td>
+<td>0, 0</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mathbb{E}(\text{Kick Left}) = 0*p + 2*(1-p) = 2 - 2*p\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{Kick Right}) = 1*p + 0*(1-p) = 1*p\)</span></p>
+<p>The Kicker is going to play the best response to the Goalie’s strategy. The Goalie wants to make the Kicker <strong>indifferent</strong> to Kick Left and Kick Right because if the Kicker was not going to be indifferent, then he would prefer one of the actions, meaning that action would be superior to the other. Therefore the Kicker will play a mixed strategy in response that will result in a Nash equilibrium where neither player benefits from unilaterally changing strategies. (Note that indifferent does not mean 50% each, but means the expected value is the same for each.)</p>
+<p><img src="assets/kickergoalieplot.png" class="img-fluid"></p>
+<p>By setting the values equal, we get <span class="math inline">\(2 - 2*p = 1*p \Rightarrow p = \frac{2}{3}\)</span> as shown in the plot. This means that <span class="math inline">\(1-p = 1 - \frac{2}{3} = \frac{1}{3}\)</span>. Therefore the Goalie should play Lean Left <span class="math inline">\(\frac{2}{3}\)</span> and Lean Right <span class="math inline">\(\frac{1}{3}\)</span>. The value for the Kicker is <span class="math inline">\(\frac{2}{3}\)</span>, or <span class="math inline">\((0.67)\)</span>, for both actions, regardless of the Kicker’s mixing strategy.</p>
+<p>Note that the Kicker is worse off now (<span class="math inline">\(0.67\)</span> now compared to <span class="math inline">\(0.75\)</span>) than when both players played 50% each action. Why?</p>
+<p>If the Kicker plays Left with probability <span class="math inline">\(q\)</span> and Right with probability <span class="math inline">\(1-q\)</span>, then the Goalie’s values are:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{Lean Left}) = 0*q - 1*(1-q) = -1 + q\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{Lean Right}) = -2*q + 0 = -2*q\)</span></p>
+<p>Setting equal,</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+-1 + q &amp;= -2*q \\
+-1 &amp;= -3*q  \\
+\frac{1}{3} &amp;= q
+\end{split}
+\end{equation}
+\]</span></p>
+<p>Therefore the Kicker should play Left <span class="math inline">\(\frac{1}{3}\)</span> and Right <span class="math inline">\(\frac{2}{3}\)</span>, giving a value of <span class="math inline">\(-\frac{2}{3}\)</span> to the Goalie.</p>
+<p>We can see this from the game table:</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (<span class="math inline">\(\frac{2}{3}\)</span>)</th>
+<th>Lean Right (<span class="math inline">\(\frac{1}{3}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (<span class="math inline">\(\frac{1}{3}\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{9}\)</span>)</td>
+<td>+2, -2 (<span class="math inline">\(\frac{1}{9}\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Kick Right (<span class="math inline">\(\frac{2}{3}\)</span>)</td>
+<td>+1, -1 (<span class="math inline">\(\frac{4}{9}\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{9}\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore the expected payoffs in this game are <span class="math inline">\(\frac{2}{9}*0 + \frac{1}{9}*2 + \frac{4}{9}*1 + \frac{2}{9}*0 = \frac{6}{9} = 0.67\)</span> for the Kicker and <span class="math inline">\(-0.67\)</span> for the Goalie.</p>
+<p>In an equilibrium, no player should be able to unilaterally improve by changing their strategy. What if the Kicker switches to always Kick Left?</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kicker/Goalie</th>
+<th>Lean Left (<span class="math inline">\(\frac{2}{3}\)</span>)</th>
+<th>Lean Right (<span class="math inline">\(\frac{1}{3}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick Left (<span class="math inline">\(1\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(\frac{2}{3}\)</span>)</td>
+<td>+2, -2 (<span class="math inline">\(\frac{1}{3}\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Kick Right (<span class="math inline">\(0\)</span>)</td>
+<td>+1, -1 (<span class="math inline">\(0\)</span>)</td>
+<td>0, 0 (<span class="math inline">\(0\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Now the Kicker’s payoff is still <span class="math inline">\(\frac{1}{3}*2 = 0.67\)</span>.</p>
+<p>When a player makes their opponent indifferent, this means that any action the opponent takes (within the set of equilibrium actions) will result in the same payoff!</p>
+<p>So if you know your opponent is playing the equilibrium strategy, then you can actually do whatever you want with no penalty with the mixing actions. Sort of.</p>
+<p>The risk is that the opponent can now deviate from equilibrium and take advantage of your new strategy. For example, if the Goalie caught on and moved to always Lean Left, then expected value is reduced to <span class="math inline">\(0\)</span> for both players.</p>
+<p>To summarize, you can only be penalized for not playing the equilibrium mixing strategy if your opponent plays a non-equilibrium strategy that exploits your strategy.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Indifference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do players make their opponent indifferent?</p>
+</div>
+</div>
+</section>
+<section id="kuhn-poker" class="level3">
+<h3 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h3>
+<p>Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play.</p>
+<p>If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation.</p>
+<p>Let’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.</p>
+<p><img src="assets/kuhnindiff.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What indifference is Player 2 trying to induce?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Making P1 indifferent between calling and folding with a K</p>
+</div>
+</div>
+</div>
+<p>We can work out Player 2’s betting strategy by calculating the indifference. Let <span class="math inline">\(b\)</span> be the probability that P2 bets with a Q after P1 checks.</p>
+<p>$$ <span class="math display">\[\begin{equation}
+\begin{split}
+\mathbb{E}(\text{P1 Check K then Fold to Bet}) &amp;= 0 \\
+\\
+
+\mathbb{E}(\text{P1 Check K then Call Bet}) &amp;= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
+  &amp;= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
+  &amp;= -0.5 + 1.5*b
+\end{split}
+\end{equation}\]</span> $$</p>
+<p>Setting these equal:</p>
+<p><span class="math inline">\(0 = -0.5 + 1.5*b\)</span></p>
+<p><span class="math inline">\(b = \frac{1}{3}\)</span></p>
+<p>Therefore in equilibrium, P2 should bet <span class="math inline">\(\frac{1}{3}\)</span> with Q after P1 checks.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Equilibrium Mixed Strategy Change Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If P2 bet <span class="math inline">\(\frac{2}{3}\)</span> instead of <span class="math inline">\(\frac{1}{3}\)</span> with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It wouldn’t! As long as P1 doesn’t modify their strategy, then P2 can mix his strategy however he wants and have the same EV.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bluff:Value Ratio Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?</p>
+<p>(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>P2 has Q and A each <span class="math inline">\(\frac{1}{2}\)</span> of the time.</p>
+<p>P2 is betting Q <span class="math inline">\(\frac{1}{3}\)</span> of the time (bluffing).</p>
+<p>P2 is betting A always (value betting).</p>
+<p>Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff.</p>
+<p><span class="math inline">\(\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}\)</span></p>
+</div>
+</div>
+</div>
+<p>TO DO: - What if the bet size was 2 instead of 1?</p>
+<ul>
+<li><p>Can you come up with a general formula for how often to bluff given a pot and bet size?</p></li>
+<li><p>Range of hands vs.&nbsp;range of hands vs.&nbsp;your hand vs.&nbsp;their strategy. Different if their strategy never changes.</p></li>
+<li><p>What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?</p></li>
+<li><p>Node locking question</p></li>
+</ul>
+<p>In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly.</p>
+<p>For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A.</p>
+<p>Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage <span class="math inline">\(p\)</span> of their Q hands.</p>
+<p>Formula for how often they’re betting Q.</p>
+<p>What’s another case we could determine? Bet Q, how often call/fold K. How to use this?</p>
+</section>
+</section>
+<section id="types-of-games" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Game/Opponent</th>
+<th>Fixed/Probabilistic Opponent</th>
+<th>Adversarial Opponent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Imperfect Info, No Player Agency/Decisions</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Perfect Info, Player Actions Always Perfect Info</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Imperfect Info, Imperfect from Randomness</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Imperfect Info, Imperfect from Randomness AND Game States</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pre-Filled Table
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Game/Opponent</th>
+<th>Fixed/Probabilistic Opponent</th>
+<th>Adversarial Opponent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Imperfect Info, No Player Agency/Decisions</td>
+<td>Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Perfect Info, Player Actions Always Perfect Info</td>
+<td>Puzzles</td>
+<td>Tictactoe, Checkers, Chess, Arimaa, Go</td>
+</tr>
+<tr class="odd">
+<td>Imperfect Info, Imperfect from Randomness</td>
+<td>Blackjack</td>
+<td>Backgammon</td>
+</tr>
+<tr class="even">
+<td>Imperfect Info, Imperfect from Randomness AND Game States</td>
+<td>Partial Info Multi-armed Bandit</td>
+<td>Poker, Rock Paper Scissors, Liar’s Dice, Figgie</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>What about solitaire? With Blackjack? What about a lottery? Mahjong?</p>
+<p>(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)</p>
+<p>What makes the bottom right of the table interesting?</p>
+</section>
+<section id="intro-to-reinforcement-learning-rl" class="level2">
+<h2 class="anchored" data-anchor-id="intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</h2>
+<p>The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.</p>
+<p>Policy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL</p>
+</section>
+<section id="war" class="level2">
+<h2 class="anchored" data-anchor-id="war">War</h2>
+<p>If you thought that Kuhn Poker was a simple card game, meet War.</p>
+<p>There are two players, each gets half the deck, 26 cards. Each player turns over their top card and faces it against the opponent’s top card. The better card wins, with Aces high. This repeats until one player has all the cards.</p>
+<p>When the cards match, the players go to “War”. When this happens, put the next card face down, and then the card after that face up, and then these up-cards face off against each other. The winner takes all six cards. If there’s another tie, then repeat and the winner takes 10 cards, etc.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional Coding Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Code and run 10,000 simulations of War and determine how many turns the average game takes and how many War situations occur on average in each simulation</p>
+</div>
+</div>
+<p>You can see a Dreidel game simulator written by Ben Blatt in Slate from 2014 at <a href="https://www.slate.com/articles/life/holidays/2014/12/rules_of_dreidel_the_hannukah_game_is_way_too_slow_let_s_speed_it_up.html">this link</a>.</p>
+</section>
+<section id="multi-armed-bandits" class="level2">
+<h2 class="anchored" data-anchor-id="multi-armed-bandits">Multi-Armed Bandits</h2>
+<p><img src="assets/10bandits.png" class="img-fluid"> RL book 26-44, explore exploit Bandits are a set of problems with repeated decisions and a fixed number of actions possible. This is related to reinforcement learning because the agent player updates its strategy based on what it learns from the feedback from the environment. Consider a 10-armed bandit setup like in the image below:</p>
+<p>Each time the player pulls an arm, they get some reward, which could be positive or negative.</p>
+<p>A basic setting initializes each of 10 arms with q<em>(arm) = N(0,1) so each is initialized with a center point around a Gaussian distribution. Each pull of an arm returns a reward of R = N(q</em>(arm), 1).</p>
+<p>In other words, each arm is initialized with a value centered around 0 but with some variance, so each will be a bit different. Then from that point, the actual pull of an arm is centered around that new point with some variance as seen in this figure with a 10-armed bandit from the book Intro to Reinforcement Learning by Sutton and Barto:</p>
+<p><img src="assets/banditdist.png" class="img-fluid"></p>
+<p>The player can sample actions and estimate their values based on experience and then use some algorithm for deciding which action to use next to maximize rewards.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For example, a naive approach is that a player could sample each action once and then always use the action that gave the best reward going forward.</p>
+<p>What is a problem with this strategy? Can you suggest a better one?</p>
+</div>
+</div>
+<section id="simulator" class="level3">
+<h3 class="anchored" data-anchor-id="simulator">Simulator</h3>
+<div id="bandit-container">
+<table id="bandit-table">
+<thead>
+<tr>
+<th>
+Arm
+</th>
+<th>
+Average Reward
+</th>
+<th>
+Pulls
+</th>
+<th>
+Actions
+</th>
+</tr>
+</thead>
+<tbody id="arms-container">
+</tbody>
+</table>
+<div id="stats-container">
+
+</div>
+<p><button id="reset-button">Reset</button></p>
+</div>
+<!-- <div id="debug-output"></div> -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  // const debug = (message) => {
+  //   document.getElementById('debug-output').innerHTML += message + '<br>';
+  // };
+
+  // debug('Script started');
+
+  const armsContainer = document.getElementById('arms-container');
+  const statsContainer = document.getElementById('stats-container');
+  const resetButton = document.getElementById('reset-button');
+
+  function gaussianRandom(mean = 0, stdev = 1) {
+    let u = 0, v = 0;
+    while(u === 0) u = Math.random();
+    while(v === 0) v = Math.random();
+    let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+    return num * stdev + mean;
+  }
+
+  function createBandit(numArms) {
+    return {
+      arms: Array.from({length: numArms}, (_, i) => ({
+        id: i + 1,
+        q: gaussianRandom(0, 1),
+        pulls: 0,
+        totalReward: 0,
+        averageReward: 0
+      })),
+      totalPulls: 0,
+      totalReward: 0
+    };
+  }
+
+  let bandit = createBandit(10);
+
+  function pullArm(armId, times = 1) {
+    const arm = bandit.arms[armId - 1];
+    let totalReward = 0;
+    const actualPulls = Math.min(times, 1000 - bandit.totalPulls);
+    for (let i = 0; i < actualPulls; i++) {
+      const reward = gaussianRandom(arm.q, 1);
+      arm.pulls++;
+      arm.totalReward += reward;
+      totalReward += reward;
+      bandit.totalPulls++;
+      bandit.totalReward += reward;
+    }
+    arm.averageReward = arm.totalReward / arm.pulls;
+    return totalReward;
+  }
+
+  function updateStats() {
+    statsContainer.innerHTML = `
+      <p>Total Pulls: ${bandit.totalPulls}</p>
+      <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
+      <p>Average Reward per Pull: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
+    `;
+  }
+
+  function createArmRows() {
+    armsContainer.innerHTML = '';
+    bandit.arms.forEach(arm => {
+      const row = document.createElement('tr');
+      
+      const armIdCell = document.createElement('td');
+      armIdCell.textContent = `Arm ${arm.id}`;
+      
+      const avgRewardCell = document.createElement('td');
+      avgRewardCell.id = `arm-avg-${arm.id}`;
+      avgRewardCell.textContent = arm.averageReward.toFixed(2);
+      
+      const pullsCell = document.createElement('td');
+      pullsCell.id = `arm-pulls-${arm.id}`;
+      pullsCell.textContent = arm.pulls;
+      
+      const actionsCell = document.createElement('td');
+      ['1', '10', '100', 'Max'].forEach(pullAmount => {
+        const button = document.createElement('button');
+        button.textContent = pullAmount;
+        button.onclick = () => {
+          const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
+          const reward = pullArm(arm.id, pulls);
+          updateStats();
+          createArmRows();
+          // debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
+        };
+        actionsCell.appendChild(button);
+      });
+      
+      row.appendChild(armIdCell);
+      row.appendChild(avgRewardCell);
+      row.appendChild(pullsCell);
+      row.appendChild(actionsCell);
+      
+      armsContainer.appendChild(row);
+    });
+    // debug('Arm rows updated');
+  }
+
+  function resetBandit() {
+    bandit = createBandit(10);
+    updateStats();
+    createArmRows();
+    // debug('Bandit reset');
+  }
+
+  resetButton.onclick = resetBandit;
+
+  createArmRows();
+  updateStats();
+  // debug('Initial setup complete');
+});
+</script>
+<style>
+#bandit-container {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#bandit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#bandit-table th, #bandit-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#bandit-table th {
+  background-color: #f2f2f2;
+}
+
+#bandit-table button {
+  margin-right: 5px;
+}
+
+#stats-container {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#reset-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* #debug-output {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+} */
+</style>
+</section>
+<section id="regret" class="level3">
+<h3 class="anchored" data-anchor-id="regret">Regret</h3>
+<p>How would you define regret in this bandit setting? How is minimizing regret related to maximizing reward?</p>
+</section>
+<section id="rl-action-value-methods" class="level3">
+<h3 class="anchored" data-anchor-id="rl-action-value-methods">RL: Action-Value Methods</h3>
+<p>Hidden imperfect info, understand in distribution over possible states of the world Depending on state will want to make decisions differently Bayesian explore exploit optimizer What is my opponent range exercise in Bayesian update Explore vs.&nbsp;exploit Bayesian updating https://aipokertutorial.com/game-theory-foundation/#regret https://www.reddit.com/r/statistics/comments/1949met/how_are_multi_armed_bandits_related_to_bayesian/ https://tor-lattimore.com/downloads/book/book.pdf https://lcalem.github.io/blog/2018/09/22/sutton-chap02-bandits#26-optimistic-initial-values</p>
+<p>But you could use the MCTS that does work by changing the game setup</p>
+</section>
+</section>
+<section id="tictactoe" class="level2">
+<h2 class="anchored" data-anchor-id="tictactoe">Tictactoe</h2>
+<p><img src="assets/backprop.png" class="img-fluid"></p>
+<p>Evolutionary algorithms for poker and tic-tac-toe</p>
+<p>Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.</p>
+<p>Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper</p>
+<section id="minimax" class="level3">
+<h3 class="anchored" data-anchor-id="minimax">Minimax</h3>
+<p>w</p>
+</section>
+<section id="value-function" class="level3">
+<h3 class="anchored" data-anchor-id="value-function">Value Function</h3>
+<p>Minimax assumes opponent playing best plays too temporal-difference</p>
+</section>
+<section id="rl-planning" class="level3">
+<h3 class="anchored" data-anchor-id="rl-planning">RL: Planning</h3>
+<p>MCTS decision-time planning</p>
+<p>RL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?</p>
+</section>
+</section>
+<section id="blackjack" class="level2">
+<h2 class="anchored" data-anchor-id="blackjack">Blackjack</h2>
+<p>Setup Solving</p>
+<section id="rl-dynamic-programming" class="level3">
+<h3 class="anchored" data-anchor-id="rl-dynamic-programming">RL: Dynamic Programming</h3>
+<p>My blog post</p>
+</section>
+<section id="rl-monte-carlo-methods" class="level3">
+<h3 class="anchored" data-anchor-id="rl-monte-carlo-methods">RL: Monte Carlo Methods</h3>
+</section>
+</section>
+<section id="poker-games" class="level2">
+<h2 class="anchored" data-anchor-id="poker-games">Poker Games</h2>
+<p>Why are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative.</p>
+</section>
+<section id="optional-agent-submissions" class="level2">
+<h2 class="anchored" data-anchor-id="optional-agent-submissions">Optional: Agent Submissions</h2>
+<p>Tictactoe</p>
+<p>Blackjack</p>
+<p>How to submit?</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
