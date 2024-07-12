@@ -6,12 +6,7 @@ format:
     math: true
 ---
 ## Kuhn Poker
-Kuhn Poker is the most simple version of poker.
-
-1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
-2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
-
-![](assets/kuhn.png)
+Kuhn Poker is the most simple version of poker. Here is the setup: 
 
 - 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
 
@@ -29,54 +24,85 @@ Kuhn Poker is the most simple version of poker.
 
 - Deal 1 card to each player (discard the third)
 
-- Players can take these actions: 
+![](assets/kuhn.png)
+
+- There is one betting round in which players can take these actions: 
 
   - Up ↑ (putting a chip into the pot) 
   
-  - Down ↓ (not putting a chip into the pot) actions
+  - Down ↓ (not putting a chip into the pot)
 
 :::{.callout-tip collapse="true"  appearance="minimal"}
 ## Poker Terms for Actions 
 
-  - Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr> (putting a chip into the pot)
+  - Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr>
 
-  - Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr> (not putting a chip into the pot)
+  - Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr>
 :::
 
-- There is one betting round
+Example betting round: 
 
-- Example betting round: 
-  - ![](assets/p1l.png) Player 1: Up ↑
-  - ![](assets/p2w.png) Player 2: Up ↑
-  - High Card wins +2 (+1 from the ante, +1 from the bet)
-  - If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
+- ![](assets/p1l.png) Player 1: Up ↑ (1 chip into pot)
 
-- A list of all possible betting sequences: 
+- ![](assets/p2w.png) Player 2: Up ↑ (1 chip into pot)
+
+- High Card wins +2 (+1 from the ante, +1 from the ↑ bet)
+
+- If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
+
+List of all possible betting sequences: 
 
 | ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
 |------------|-----------|-----------|----------|
-| Down ↓      | Up ↑        | Down ↓     |![](assets/p2w.png) Player 2 (+1) |
-| Down ↓      | Up ↑        | Up ↑       |High Card (+2)|
-| Down ↓     | Down ↓      |          |High Card (+1)|
 | Up ↑        | Down ↓      |          |![](assets/p1l.png) Player 1 (+1) |
-| Up ↑        | Up ↑        |          |High Card (+2)|
+| Up ↑        | Up ↑        |          |High Card Player (+2)|
+| Down ↓     | Down ↓      |          |High Card Player (+1)|
+| Down ↓      | Up ↑        | Down ↓     |![](assets/p2w.png) Player 2 (+1) |
+| Down ↓      | Up ↑        | Up ↑       |High Card Player (+2)|
+
+### Get Started with Kuhn 
+- Play a few hands
+
+- Get used to the game setup
+
+- Think about which situations are automatic and which are not
 
 ## Interactive Site
-What the things on the page mean
-How to play with it
-How to submit a solution
+Visit the [interactive Kuhn site](https://static.rossry.net/sketches/poker/kuhn3/). The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom. 
+
+### Interactive Site Kuhn Tree
+Recall that an information set is a set of nodes that contain the same information for the corresponding player. For example, a ![](assets/p1l.png) P1 K_ node indicates that ![](assets/p1l.png) P1 has card K and no other actions have occurred (if actions had occurred they would be shown in the infoset as ↑ or ↓). 
+
+This information set represents both the node where ![](assets/p1l.png) P1 has K and ![](assets/p2w.png) P2 has A and the node where ![](assets/p1l.png) P1 has K and ![](assets/p2w.png) P2 has Q, but since ![](assets/p1l.png) P1 cannot distinguish between these, they are grouped into one information set. 
+
+TODO: Screenshots and explain
+
+### Interactive Site Node Strategies
+TODO: Screenshots and explain
+
+### Play
+Spend a few minutes playing with the strategy probabilities to see how they affect the rest of the tree.
+
+Recall the two types of uncertainty: 
+
+1. About which node we are actually in, which depends on probabilities upwards in the game tree
+
+2. About what happens after an action, which depends on the probabilities down the game tree
 
 ## Challenge 1
-Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn3/) and submit once you find the strategy that you think is best. 
+The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets. Optimal here means Nash equilibrium regret-minimizing strategies for both players. 
 
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p>31%).
+### Part 1: Submit Manual Strategies
+Set the 12 strategies to percentages that you think are best. 
 
-Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.
+Hint: There are some "automatic" infoset strategies such that it only makes sense to play 100% of one action in the game. 
 
-### How Kuhn Interactive works
-TO DO
+TODO: Time limit? Do this in session and other outside? 
 
-### Why can’t we just do tree search?
+### Part 2: Submit Automatic Strategies
+After submitting the manual strategies, you will move to the automatic page in which you can update the strategies by selecting different algorithmic methods, iterations, and speeds. 
+
+#### Why can’t we just do tree search?
 
 Because of incomplete information.
 
@@ -91,7 +117,7 @@ If you attempt to follow this strategy in Kuhn poker, it will fail. You can try 
 
 Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? 
 
-### Do we really need mixed strategies?
+#### Do we really need mixed strategies?
 
 You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
 
@@ -104,11 +130,12 @@ Follow these steps:
 
 A bad thing is happening to you. Why?
 
-### Actually solving Kuhn Poker
-Pick a reasonable learning rate, update individual cells until they converge.
+#### Find Strategies
+Update the strategies until they converge and submit the strategy. 
 
-Next, enter your strategy into the daily leaderboard.
+### Challenge 1 Results
+Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
 
-### How results are generated 
-This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate. 
+Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
 
+After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.

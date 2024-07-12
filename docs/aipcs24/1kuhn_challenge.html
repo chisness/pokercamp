@@ -459,15 +459,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link active" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
-  <li><a href="#interactive-site" id="toc-interactive-site" class="nav-link" data-scroll-target="#interactive-site">Interactive Site</a></li>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link active" data-scroll-target="#kuhn-poker">Kuhn Poker</a>
+  <ul class="collapse">
+  <li><a href="#get-started-with-kuhn" id="toc-get-started-with-kuhn" class="nav-link" data-scroll-target="#get-started-with-kuhn">Get Started with Kuhn</a></li>
+  </ul></li>
+  <li><a href="#interactive-site" id="toc-interactive-site" class="nav-link" data-scroll-target="#interactive-site">Interactive Site</a>
+  <ul class="collapse">
+  <li><a href="#interactive-site-kuhn-tree" id="toc-interactive-site-kuhn-tree" class="nav-link" data-scroll-target="#interactive-site-kuhn-tree">Interactive Site Kuhn Tree</a></li>
+  <li><a href="#interactive-site-node-strategies" id="toc-interactive-site-node-strategies" class="nav-link" data-scroll-target="#interactive-site-node-strategies">Interactive Site Node Strategies</a></li>
+  <li><a href="#play" id="toc-play" class="nav-link" data-scroll-target="#play">Play</a></li>
+  </ul></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
   <ul class="collapse">
-  <li><a href="#how-kuhn-interactive-works" id="toc-how-kuhn-interactive-works" class="nav-link" data-scroll-target="#how-kuhn-interactive-works">How Kuhn Interactive works</a></li>
-  <li><a href="#why-cant-we-just-do-tree-search" id="toc-why-cant-we-just-do-tree-search" class="nav-link" data-scroll-target="#why-cant-we-just-do-tree-search">Why can’t we just do tree search?</a></li>
-  <li><a href="#do-we-really-need-mixed-strategies" id="toc-do-we-really-need-mixed-strategies" class="nav-link" data-scroll-target="#do-we-really-need-mixed-strategies">Do we really need mixed strategies?</a></li>
-  <li><a href="#actually-solving-kuhn-poker" id="toc-actually-solving-kuhn-poker" class="nav-link" data-scroll-target="#actually-solving-kuhn-poker">Actually solving Kuhn Poker</a></li>
-  <li><a href="#how-results-are-generated" id="toc-how-results-are-generated" class="nav-link" data-scroll-target="#how-results-are-generated">How results are generated</a></li>
+  <li><a href="#part-1-submit-manual-strategies" id="toc-part-1-submit-manual-strategies" class="nav-link" data-scroll-target="#part-1-submit-manual-strategies">Part 1: Submit Manual Strategies</a></li>
+  <li><a href="#part-2-submit-automatic-strategies" id="toc-part-2-submit-automatic-strategies" class="nav-link" data-scroll-target="#part-2-submit-automatic-strategies">Part 2: Submit Automatic Strategies</a></li>
+  <li><a href="#challenge-1-results" id="toc-challenge-1-results" class="nav-link" data-scroll-target="#challenge-1-results">Challenge 1 Results</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -496,12 +502,7 @@ window.Quarto = {
 
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
-<p>Kuhn Poker is the most simple version of poker.</p>
-<ol type="1">
-<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).</li>
-<li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
-</ol>
-<p><img src="assets/kuhn.png" class="img-fluid"></p>
+<p>Kuhn Poker is the most simple version of poker. Here is the setup:</p>
 <ul>
 <li>3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)</li>
 </ul>
@@ -528,10 +529,13 @@ Alternative Decks
 <li><p>2 players</p></li>
 <li><p>Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip</p></li>
 <li><p>Deal 1 card to each player (discard the third)</p></li>
-<li><p>Players can take these actions:</p>
+</ul>
+<p><img src="assets/kuhn.png" class="img-fluid"></p>
+<ul>
+<li><p>There is one betting round in which players can take these actions:</p>
 <ul>
 <li><p>Up ↑ (putting a chip into the pot)</p></li>
-<li><p>Down ↓ (not putting a chip into the pot) actions</p></li>
+<li><p>Down ↓ (not putting a chip into the pot)</p></li>
 </ul></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
@@ -547,23 +551,20 @@ Poker Terms for Actions
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr> (putting a chip into the pot)</p></li>
-<li><p>Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr> (not putting a chip into the pot)</p></li>
+<li><p>Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr></p></li>
+<li><p>Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr></p></li>
 </ul>
 </div>
 </div>
 </div>
+<p>Example betting round:</p>
 <ul>
-<li><p>There is one betting round</p></li>
-<li><p>Example betting round:</p>
-<ul>
-<li><img src="assets/p1l.png" class="img-fluid"> Player 1: Up ↑</li>
-<li><img src="assets/p2w.png" class="img-fluid"> Player 2: Up ↑</li>
-<li>High Card wins +2 (+1 from the ante, +1 from the bet)</li>
-<li>If <img src="assets/p1l.png" class="img-fluid"> P1 has card A and <img src="assets/p2w.png" class="img-fluid">P2 has card K, <img src="assets/p1l.png" class="img-fluid"> P1 wins</li>
-</ul></li>
-<li><p>A list of all possible betting sequences:</p></li>
+<li><p><img src="assets/p1l.png" class="img-fluid"> Player 1: Up ↑ (1 chip into pot)</p></li>
+<li><p><img src="assets/p2w.png" class="img-fluid"> Player 2: Up ↑ (1 chip into pot)</p></li>
+<li><p>High Card wins +2 (+1 from the ante, +1 from the ↑ bet)</p></li>
+<li><p>If <img src="assets/p1l.png" class="img-fluid"> P1 has card A and <img src="assets/p2w.png" class="img-fluid">P2 has card K, <img src="assets/p1l.png" class="img-fluid"> P1 wins</p></li>
 </ul>
+<p>List of all possible betting sequences:</p>
 <table class="table">
 <colgroup>
 <col style="width: 27%">
@@ -581,53 +582,83 @@ Poker Terms for Actions
 </thead>
 <tbody>
 <tr class="odd">
-<td>Down ↓</td>
-<td>Up ↑</td>
-<td>Down ↓</td>
-<td><img src="assets/p2w.png" class="img-fluid"> Player 2 (+1)</td>
-</tr>
-<tr class="even">
-<td>Down ↓</td>
-<td>Up ↑</td>
-<td>Up ↑</td>
-<td>High Card (+2)</td>
-</tr>
-<tr class="odd">
-<td>Down ↓</td>
-<td>Down ↓</td>
-<td></td>
-<td>High Card (+1)</td>
-</tr>
-<tr class="even">
 <td>Up ↑</td>
 <td>Down ↓</td>
 <td></td>
 <td><img src="assets/p1l.png" class="img-fluid"> Player 1 (+1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Up ↑</td>
 <td>Up ↑</td>
 <td></td>
-<td>High Card (+2)</td>
+<td>High Card Player (+2)</td>
+</tr>
+<tr class="odd">
+<td>Down ↓</td>
+<td>Down ↓</td>
+<td></td>
+<td>High Card Player (+1)</td>
+</tr>
+<tr class="even">
+<td>Down ↓</td>
+<td>Up ↑</td>
+<td>Down ↓</td>
+<td><img src="assets/p2w.png" class="img-fluid"> Player 2 (+1)</td>
+</tr>
+<tr class="odd">
+<td>Down ↓</td>
+<td>Up ↑</td>
+<td>Up ↑</td>
+<td>High Card Player (+2)</td>
 </tr>
 </tbody>
 </table>
+<section id="get-started-with-kuhn" class="level3">
+<h3 class="anchored" data-anchor-id="get-started-with-kuhn">Get Started with Kuhn</h3>
+<ul>
+<li><p>Play a few hands</p></li>
+<li><p>Get used to the game setup</p></li>
+<li><p>Think about which situations are automatic and which are not</p></li>
+</ul>
+</section>
 </section>
 <section id="interactive-site" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-site">Interactive Site</h2>
-<p>What the things on the page mean How to play with it How to submit a solution</p>
+<p>Visit the <a href="https://static.rossry.net/sketches/poker/kuhn3/">interactive Kuhn site</a>. The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom.</p>
+<section id="interactive-site-kuhn-tree" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-site-kuhn-tree">Interactive Site Kuhn Tree</h3>
+<p>Recall that an information set is a set of nodes that contain the same information for the corresponding player. For example, a <img src="assets/p1l.png" class="img-fluid"> P1 K_ node indicates that <img src="assets/p1l.png" class="img-fluid"> P1 has card K and no other actions have occurred (if actions had occurred they would be shown in the infoset as ↑ or ↓).</p>
+<p>This information set represents both the node where <img src="assets/p1l.png" class="img-fluid"> P1 has K and <img src="assets/p2w.png" class="img-fluid"> P2 has A and the node where <img src="assets/p1l.png" class="img-fluid"> P1 has K and <img src="assets/p2w.png" class="img-fluid"> P2 has Q, but since <img src="assets/p1l.png" class="img-fluid"> P1 cannot distinguish between these, they are grouped into one information set.</p>
+<p>TODO: Screenshots and explain</p>
+</section>
+<section id="interactive-site-node-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-site-node-strategies">Interactive Site Node Strategies</h3>
+<p>TODO: Screenshots and explain</p>
+</section>
+<section id="play" class="level3">
+<h3 class="anchored" data-anchor-id="play">Play</h3>
+<p>Spend a few minutes playing with the strategy probabilities to see how they affect the rest of the tree.</p>
+<p>Recall the two types of uncertainty:</p>
+<ol type="1">
+<li><p>About which node we are actually in, which depends on probabilities upwards in the game tree</p></li>
+<li><p>About what happens after an action, which depends on the probabilities down the game tree</p></li>
+</ol>
+</section>
 </section>
 <section id="challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
-<p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn3/">interactive site</a> and submit once you find the strategy that you think is best.</p>
-<p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
-<p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
-<section id="how-kuhn-interactive-works" class="level3">
-<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive works</h3>
-<p>TO DO</p>
+<p>The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets. Optimal here means Nash equilibrium regret-minimizing strategies for both players.</p>
+<section id="part-1-submit-manual-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-submit-manual-strategies">Part 1: Submit Manual Strategies</h3>
+<p>Set the 12 strategies to percentages that you think are best.</p>
+<p>Hint: There are some “automatic” infoset strategies such that it only makes sense to play 100% of one action in the game.</p>
+<p>TODO: Time limit? Do this in session and other outside?</p>
 </section>
-<section id="why-cant-we-just-do-tree-search" class="level3">
-<h3 class="anchored" data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h3>
+<section id="part-2-submit-automatic-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-submit-automatic-strategies">Part 2: Submit Automatic Strategies</h3>
+<p>After submitting the manual strategies, you will move to the automatic page in which you can update the strategies by selecting different algorithmic methods, iterations, and speeds.</p>
+<section id="why-cant-we-just-do-tree-search" class="level4">
+<h4 class="anchored" data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h4>
 <p>Because of incomplete information.</p>
 <p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.</p>
 <p>If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy:</p>
@@ -639,8 +670,8 @@ Poker Terms for Actions
 </ol>
 <p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?</p>
 </section>
-<section id="do-we-really-need-mixed-strategies" class="level3">
-<h3 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h3>
+<section id="do-we-really-need-mixed-strategies" class="level4">
+<h4 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h4>
 <p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
 <p>Follow these steps:</p>
 <ol type="1">
@@ -651,14 +682,16 @@ Poker Terms for Actions
 </ol>
 <p>A bad thing is happening to you. Why?</p>
 </section>
-<section id="actually-solving-kuhn-poker" class="level3">
-<h3 class="anchored" data-anchor-id="actually-solving-kuhn-poker">Actually solving Kuhn Poker</h3>
-<p>Pick a reasonable learning rate, update individual cells until they converge.</p>
-<p>Next, enter your strategy into the daily leaderboard.</p>
+<section id="find-strategies" class="level4">
+<h4 class="anchored" data-anchor-id="find-strategies">Find Strategies</h4>
+<p>Update the strategies until they converge and submit the strategy.</p>
 </section>
-<section id="how-results-are-generated" class="level3">
-<h3 class="anchored" data-anchor-id="how-results-are-generated">How results are generated</h3>
-<p>This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.</p>
+</section>
+<section id="challenge-1-results" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-results">Challenge 1 Results</h3>
+<p>Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)</p>
+<p>Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.</p>
+<p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.</p>
 
 
 
