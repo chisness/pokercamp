@@ -6,7 +6,7 @@ format:
     math: true
 ---
 ## Welcome to AI Poker Camp Summer 2024
-Thanks for signing up. This is the first time we're running AI Poker Camp and it's very much in beta. Some content and the idea of some form of this course has existed for a few years, but this curriculum is very new and came about after a discussion at Manifest. 
+Thanks for signing up. This is the first time we're running AI Poker Camp and it's very much in beta. The idea to run this course has existed for a few years, but this curriculum is very new and came about from a discussion at Manifest. 
 
 We're glad to have you along for the ride and welcome any feedback about all aspects of the course. 
 
@@ -21,7 +21,7 @@ Our goal is to develop your intuitions around decision making and problem solvin
 
 ![Bugs and Fudd](assets/bugsfudd.jpeg)
 
-We developed this game to show concepts in games with **imperfect information** that are applicable to our first challenge. Imperfect information games involve hidden information, which could be cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players. 
+We developed this game to show concepts in games with **imperfect information** that are applicable to our first challenge. Imperfect information games involve hidden information, which are things like opponent cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players. 
 
 This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.
 
@@ -39,16 +39,20 @@ Putting it all together, the payoff structure of this game is:
 | Forest     | Play_Near | -3, +3    | +1, -1   |
 | Forest     | Play_Far  | 0, 0      | -2, +2   |
 
-If it were a complete-information game, the tree structure would be as follows with the payoffs written from the perspective of Fudd:
+The tree structure is as follows with the payoffs written from the perspective of Fudd:
 
 ![](assets/bugsfuddtree.png)
 
-If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
+If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account. 
+
+Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if Fudd had a +100 Opera Hunt_Near payoff, then he would always Hunt_Near even if it meant Bugs knowing this and exploiting it in the Forest scenario. 
 
 ## Concept: Information Set
-In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
+In a perfect information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
 
-In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an **information set** or an **infoset**.
+In an imperfect information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an **information set** or an **infoset**.
+
+The infosets contain information about the player and what actions have been seen so far. For example, [Fudd] is an infoset that contains the nodes [Fudd, Forest] and [Fudd, Opera]. (Just [Fudd] because no other actions/information has been revealed to Fudd at this point.)
 
 A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker (the Challenge 1 game), we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
 
@@ -95,12 +99,12 @@ $$
 
 :::
 
-In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
+In imperfect information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
 
 1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
 2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
 
-By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).
+<!-- By taking the expected value over the second type of uncertainty, we calculate the expected values of each node we might be going to (e.g., EV at the node of [Fudd, Forest] for action Hunt_Near). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at the infoset [Bugs, Forest]). -->
 
 ![](assets/bugsfuddtree.png)
 
@@ -158,16 +162,16 @@ However, we will use “regret” as a technical concept to mean how much worse 
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
-1. Both Fudd nodes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn't know whether he's in the Opera or the Forest, so his information is the same in both nodes. 
+1. Both Fudd nodes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn't know whether he's in the Opera or the Forest, so his information is the same in both nodes. We can label these simply [Fudd]. 
 
-2. Both Bugs nodes are also a single information set because although Bugs knows that he's in the Forest, he doesn't know which action Fudd has taken, so his information is the same in both nodes. 
+2. Both Bugs nodes are also a single information set because although Bugs knows that he's in the Forest, he doesn't know which action Fudd has taken, so his information is the same in both nodes. We can label these [Bugs, Forest]. 
 
 :::
 
 :::{.callout-note  appearance="minimal"}
 ## Expected Value
 
-Say that Fudd chooses to Hunt_Near (at the appropriate information set) with probability $p$. 
+Say that Fudd chooses to Hunt_Near with probability $p$. 
 
 ![](assets/bugsfuddtreep.png)
 
@@ -175,7 +179,7 @@ Say that Fudd chooses to Hunt_Near (at the appropriate information set) with pro
 
 2. What is the expected value of choosing to Play_Far? 
 
-(Reminder: Bugs wants to avoid a “positive” score.)
+(Reminder: The payoffs are from the perspective of Fudd and are the opposite for Bugs.)
 :::
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
@@ -195,7 +199,7 @@ Say that Bugs chooses to Play_Near with probability $q$.
 
 1. What is Fudd’s expected value of choosing Hunt_Near at his infoset? 
 
-2. What is Fudd’s EV of choosing Hunt_Far at his infoset?
+2. What is Fudd’s EV of choosing Hunt_Far?
 :::
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
@@ -254,6 +258,8 @@ Notice that each player is inducing the other player to have no regret (to be in
 
 ![](assets/bugsfuddtreeeq.png)
 
+We will go deeper into indifference in the next reading. 
+
 :::
 
 :::{.callout-note  appearance="minimal"}
@@ -264,7 +270,7 @@ What is the value of the game (i.e. the expected value as Fudd) at the equilibri
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
-Since the game is zero-sum, we can find Fudd's expected value:
+Since the game is zero-sum, we can find Fudd's expected value and it is equivalent to the game value:
 
 \begin{align}
 \mathbb{E} &= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
@@ -288,4 +294,5 @@ Since the game is zero-sum, we can find Fudd's expected value:
     &= 0.25 \\
 \end{align}
 
+This means that if they play repeatedly, we expect Fudd to average a payoff of $+0.25$, while Bugs has a payoff of $-0.25$. 
 :::

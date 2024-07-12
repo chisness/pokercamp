@@ -420,7 +420,7 @@ window.Quarto = {
 
 <section id="welcome-to-ai-poker-camp-summer-2024" class="level2">
 <h2 class="anchored" data-anchor-id="welcome-to-ai-poker-camp-summer-2024">Welcome to AI Poker Camp Summer 2024</h2>
-<p>Thanks for signing up. This is the first time we’re running AI Poker Camp and it’s very much in beta. Some content and the idea of some form of this course has existed for a few years, but this curriculum is very new and came about after a discussion at Manifest.</p>
+<p>Thanks for signing up. This is the first time we’re running AI Poker Camp and it’s very much in beta. The idea to run this course has existed for a few years, but this curriculum is very new and came about from a discussion at Manifest.</p>
 <p>We’re glad to have you along for the ride and welcome any feedback about all aspects of the course.</p>
 <p>We’re running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing readings and further work on the challenge problems.</p>
 <p>Readings like this one highlight concepts that are relevant to the accompanying challenge.</p>
@@ -435,7 +435,7 @@ window.Quarto = {
 <figcaption>Bugs and Fudd</figcaption>
 </figure>
 </div>
-<p>We developed this game to show concepts in games with <strong>imperfect information</strong> that are applicable to our first challenge. Imperfect information games involve hidden information, which could be cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players.</p>
+<p>We developed this game to show concepts in games with <strong>imperfect information</strong> that are applicable to our first challenge. Imperfect information games involve hidden information, which are things like opponent cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players.</p>
 <p>This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.</p>
 <p>First, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.</p>
 <p>Next, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.</p>
@@ -471,14 +471,16 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>If it were a complete-information game, the tree structure would be as follows with the payoffs written from the perspective of Fudd:</p>
+<p>The tree structure is as follows with the payoffs written from the perspective of Fudd:</p>
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
-<p>If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
+<p>If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account.</p>
+<p>Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if Fudd had a +100 Opera Hunt_Near payoff, then he would always Hunt_Near even if it meant Bugs knowing this and exploiting it in the Forest scenario.</p>
 </section>
 <section id="concept-information-set" class="level2">
 <h2 class="anchored" data-anchor-id="concept-information-set">Concept: Information Set</h2>
-<p>In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.</p>
-<p>In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an <strong>information set</strong> or an <strong>infoset</strong>.</p>
+<p>In a perfect information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.</p>
+<p>In an imperfect information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an <strong>information set</strong> or an <strong>infoset</strong>.</p>
+<p>The infosets contain information about the player and what actions have been seen so far. For example, [Fudd] is an infoset that contains the nodes [Fudd, Forest] and [Fudd, Opera]. (Just [Fudd] because no other actions/information has been revealed to Fudd at this point.)</p>
 <p>A <strong>player strategy</strong> is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker (the Challenge 1 game), we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.</p>
 </section>
 <section id="concept-expected-value" class="level2">
@@ -540,12 +542,12 @@ Solution
 </div>
 </div>
 </div>
-<p>In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:</p>
+<p>In imperfect information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:</p>
 <ol type="1">
 <li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).</li>
 <li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
 </ol>
-<p>By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).</p>
+<!-- By taking the expected value over the second type of uncertainty, we calculate the expected values of each node we might be going to (e.g., EV at the node of [Fudd, Forest] for action Hunt_Near). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at the infoset [Bugs, Forest]). -->
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
 <p>We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the <em>maximizing player</em> wishes to make positive and the <em>minimizing player</em> wishes to make negative.</p>
 <p>We will focus on maximizing (or minimizing) expected value as our goal for all of session 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.</p>
@@ -665,8 +667,8 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Both Fudd nodes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn’t know whether he’s in the Opera or the Forest, so his information is the same in both nodes.</p></li>
-<li><p>Both Bugs nodes are also a single information set because although Bugs knows that he’s in the Forest, he doesn’t know which action Fudd has taken, so his information is the same in both nodes.</p></li>
+<li><p>Both Fudd nodes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn’t know whether he’s in the Opera or the Forest, so his information is the same in both nodes. We can label these simply [Fudd].</p></li>
+<li><p>Both Bugs nodes are also a single information set because although Bugs knows that he’s in the Forest, he doesn’t know which action Fudd has taken, so his information is the same in both nodes. We can label these [Bugs, Forest].</p></li>
 </ol>
 </div>
 </div>
@@ -681,13 +683,13 @@ Expected Value
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Say that Fudd chooses to Hunt_Near (at the appropriate information set) with probability <span class="math inline">\(p\)</span>.</p>
+<p>Say that Fudd chooses to Hunt_Near with probability <span class="math inline">\(p\)</span>.</p>
 <p><img src="assets/bugsfuddtreep.png" class="img-fluid"></p>
 <ol type="1">
 <li><p>At the Bugs infoset where Bugs knows he’s in the Forest, what is the expected value of choosing to Play_Near?</p></li>
 <li><p>What is the expected value of choosing to Play_Far?</p></li>
 </ol>
-<p>(Reminder: Bugs wants to avoid a “positive” score.)</p>
+<p>(Reminder: The payoffs are from the perspective of Fudd and are the opposite for Bugs.)</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -723,7 +725,7 @@ Expected Value 2
 <p><img src="assets/bugsfuddtreeq.png" class="img-fluid"></p>
 <ol type="1">
 <li><p>What is Fudd’s expected value of choosing Hunt_Near at his infoset?</p></li>
-<li><p>What is Fudd’s EV of choosing Hunt_Far at his infoset?</p></li>
+<li><p>What is Fudd’s EV of choosing Hunt_Far?</p></li>
 </ol>
 </div>
 </div>
@@ -809,6 +811,7 @@ Solution
 <p><span class="math inline">\(\Pr(\text{Bugs Play\_Far}) = 1 - q = 0.833\)</span></p>
 <p>Notice that each player is inducing the other player to have no regret (to be indifferent to both actions) by playing actions at these probabilities, which then result in an equilibrium as shown below:</p>
 <p><img src="assets/bugsfuddtreeeq.png" class="img-fluid"></p>
+<p>We will go deeper into indifference in the next reading.</p>
 </div>
 </div>
 </div>
@@ -837,7 +840,7 @@ Solution
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Since the game is zero-sum, we can find Fudd’s expected value:</p>
+<p>Since the game is zero-sum, we can find Fudd’s expected value and it is equivalent to the game value:</p>
 <p><span class="math display">\[\begin{align}
 \mathbb{E} &amp;= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
               &amp; + \Pr(\text{Opera}) * \Pr(\text{Hunt\_Far}) * -1 \\
@@ -859,6 +862,7 @@ Solution
     &amp;+ 0.42 \\ \\
     &amp;= 0.25 \\
 \end{align}\]</span></p>
+<p>This means that if they play repeatedly, we expect Fudd to average a payoff of <span class="math inline">\(+0.25\)</span>, while Bugs has a payoff of <span class="math inline">\(-0.25\)</span>.</p>
 </div>
 </div>
 </div>
