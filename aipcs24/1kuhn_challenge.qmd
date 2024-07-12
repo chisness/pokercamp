@@ -87,10 +87,12 @@ Recall the two types of uncertainty:
 
 1. About which node we are actually in, which depends on probabilities upwards in the game tree
 
-2. About what happens after an action, which depends on the probabilities down the game tree
+2. About what happens after an action, which depends on the probabilities downwards in the game tree
 
 ## Challenge 1
-The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets. Optimal here means Nash equilibrium regret-minimizing strategies for both players. 
+The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players. 
+
+By adjusting strategies for both players, we can find an equilibrium and then 
 
 ### Part 1: Submit Manual Strategies
 Set the 12 strategies to percentages that you think are best. 
