@@ -10,7 +10,7 @@ Thanks for signing up. This is the first time we're running AI Poker Camp and it
 
 We're glad to have you along for the ride and welcome any feedback about all aspects of the course. 
 
-We're running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing readings and further work on the challenge problems. 
+We're running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and getting started on the challenge problems, and time outside the sessions doing readings and further work on the challenge problems. 
 
 Readings like this one highlight concepts that are relevant to the accompanying challenge. 
 
@@ -45,14 +45,27 @@ The tree structure is as follows with the payoffs written from the perspective o
 
 If Fudd knows he’s at the Opera, then he must prefer to Hunt_Near to get a value of $0$ instead of $-1$ for Hunt_Far, but since he doesn’t know his location, he must take both scenarios into account. 
 
-Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if we kept the same game tree except Fudd had a +100 Opera Hunt_Far payoff, then he would always Hunt_Far. Bugs would see this and it would affect how Bugs plays in the Forest scenario. 
+Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if we kept the same game tree except Fudd had a $+100$ Opera Hunt_Far payoff, then he would always Hunt_Far. Bugs would see this and it would affect how Bugs plays in the Forest scenario. 
+
+:::{.callout-note  appearance="minimal"}
+## Exercise
+
+How would Bugs play in the Forest scenario knowing that Fudd is always playing Hunt_Far?
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+
+Bugs would always Play_Near because then his payoff would be $+1$, whereas Play_Far would get him a payout of $-2$. (The payoffs are all written from the perspective of Fudd, so Bugs's are opposite.)
+
+:::
 
 ## Concept: Information Set
 In a perfect information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
 
 In an imperfect information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an **information set** or an **infoset**.
 
-The infosets contain information about the player and what actions have been seen so far. For example, [Fudd] is an infoset that contains the nodes [Fudd, Forest] and [Fudd, Opera]. (Just [Fudd] because no other actions/information has been revealed to Fudd at this point.)
+The infosets contain information about the player and what actions have been seen so far. For example, [Fudd] is an infoset that contains the nodes [Fudd, Forest] and [Fudd, Opera]. (Just [Fudd] because no other actions/information have been revealed to Fudd at this point.)
 
 A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker (the Challenge 1 game), we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
 
@@ -101,8 +114,8 @@ $$
 
 In imperfect information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
 
-1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of strategies upwards in the game tree (and the probabilites of chance events upwards in the game that have already happened).
-2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
+1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of strategies upwards in the game tree (and the probabilites of chance events upwards in the game that have already happened). For example, Fudd doesn't know if he's in the Forest or Opera at the beginning. 
+2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions. For example, after Fudd selects Hunt_Near, there is uncertainty about the outcome since it depends on Bugs's actions. 
 
 <!-- By taking the expected value over the second type of uncertainty, we calculate the expected values of each node we might be going to (e.g., EV at the node of [Fudd, Forest] for action Hunt_Near). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at the infoset [Bugs, Forest]). -->
 
