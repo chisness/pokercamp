@@ -244,9 +244,9 @@ In order to have no regret, the expected value of both actions should be equal
 
 1. For Bugs to never choose an action with regret, EV of Play_Near and EV of Play_Far should be equal.
 
-$\mathbb{E}(\text{Play\_Near}) = -4*p + 1$
+$\mathbb{E}(\text{Bugs Play\_Near}) = -4*p + 1$
 
-$\mathbb{E}(\text{Play\_Far}) = 2*p - 2$
+$\mathbb{E}(\text{Bugs Play\_Far}) = 2*p - 2$
 
 Setting equal, we have $-4*p + 1 = 2*p - 2 \Rightarrow 3 = 6*p \Rightarrow p = \frac{1}{2} = 0.5$
 
@@ -257,9 +257,9 @@ $\Pr(\text{Fudd Hunt\_Far}) = 1 - p = 0.5$
 
 2. For Fudd to never choose an action with regret, EV of Hunt_Near and EV of Hunt_Far should be equal. 
 
-$\mathbb{E}(\text{Hunt\_Near}) = 1.5*q$
+$\mathbb{E}(\text{Fudd Hunt\_Near}) = 1.5*q$
 
-$\mathbb{E}(\text{Hunt\_Far}) = 0.5 - 1.5*q$
+$\mathbb{E}(\text{Fudd Hunt\_Far}) = 0.5 - 1.5*q$
 
 Setting equal, we have $1.5*q = 0.5 - 1.5*q \Rightarrow 3*q = 0.5 \Rightarrow q = \frac{1}{6} = 0.167$
 
