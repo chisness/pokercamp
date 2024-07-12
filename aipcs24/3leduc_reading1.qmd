@@ -5,4 +5,3 @@ format:
   html:
     math: true
 ---
-Basic CFR 
