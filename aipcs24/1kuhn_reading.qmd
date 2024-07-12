@@ -12,6 +12,8 @@ We're glad to have you along for the ride and welcome any feedback about all asp
 
 We're running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing relevant readings and further work on the challenge problems. 
 
+Readings like this one highlight concepts that are relevant to the accompanying challenge. 
+
 Our goal is to develop your intuitions around decision making and problem solving by engaging with challenges in non-idealized scenarios. 
 
 ## Hunting Wabbits Game
