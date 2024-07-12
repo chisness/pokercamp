@@ -253,3 +253,40 @@ Notice that each player is inducing the other player to have no regret (to be in
 ![](assets/bugsfuddtreeeq.png)
 
 :::
+
+:::{.callout-note  appearance="minimal"}
+## Game Value
+
+What is the value of the game at the equilibrium strategies found in the previous question?
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+Since the game is zero-sum, we can find Fudd's expected value:
+
+$$
+\begin{align}
+\mathbb{E} &= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
+              & + \Pr(\text{Opera}) * \Pr(\text{Hunt\_Far}) * -1 \\
+              & + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Near}) * \Pr(\text{Play\_Near}) * 3 \\
+              & + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Near}) * \Pr(\text{Play\_Far}) * 0 \\
+              & + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Far}) * \Pr(\text{Play\_Near}) * -1 \\
+              & + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Far}) * \Pr(\text{Play\_Far}) * 2 \\ \\
+    &= 0.5 * 0.5 * 0 \\
+    &+ 0.5 * 0.5 * -1 \\
+    &+ 0.5 * 0.5 * 0.17 * 3 \\
+    &+ 0.5 * 0.5 * 0.83 * 0 \\
+    &+ 0.5 * 0.5 * 0.17 * -1 \\
+    &+ 0.5 * 0.5 * 0.83 * 2 \\ \\
+    &= 0 \\
+    &+ -0.25 \\
+    &+ 0.125 \\
+    &+ 0 \\
+    &+ -0.042 \\
+    &+ 0.42 \\ \\
+    &= 0.25 \\
+
+\end{align}
+$$
+
+:::

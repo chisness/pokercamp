@@ -883,6 +883,57 @@ Solution
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Game Value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the value of the game at the equilibrium strategies found in the previous question?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since the game is zero-sum, we can find Fudd’s expected value:</p>
+<p>$$ <span class="math display">\[\begin{align}
+\mathbb{E} &amp;= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
+              &amp; + \Pr(\text{Opera}) * \Pr(\text{Hunt\_Far}) * -1 \\
+              &amp; + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Near}) * \Pr(\text{Play\_Near}) * 3 \\
+              &amp; + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Near}) * \Pr(\text{Play\_Far}) * 0 \\
+              &amp; + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Far}) * \Pr(\text{Play\_Near}) * -1 \\
+              &amp; + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Far}) * \Pr(\text{Play\_Far}) * 2 \\ \\
+    &amp;= 0.5 * 0.5 * 0 \\
+    &amp;+ 0.5 * 0.5 * -1 \\
+    &amp;+ 0.5 * 0.5 * 0.17 * 3 \\
+    &amp;+ 0.5 * 0.5 * 0.83 * 0 \\
+    &amp;+ 0.5 * 0.5 * 0.17 * -1 \\
+    &amp;+ 0.5 * 0.5 * 0.83 * 2 \\ \\
+    &amp;= 0 \\
+    &amp;+ -0.25 \\
+    &amp;+ 0.125 \\
+    &amp;+ 0 \\
+    &amp;+ -0.042 \\
+    &amp;+ 0.42 \\ \\
+    &amp;= 0.25 \\
+
+\end{align}\]</span> $$</p>
+</div>
+</div>
+</div>
 
 
 
