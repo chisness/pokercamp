@@ -536,8 +536,8 @@ window.Quarto = {
 </table>
 <p>The tree structure is as follows with the payoffs written from the perspective of Fudd:</p>
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
-<p>If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account.</p>
-<p>Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if Fudd had a +100 Opera Hunt_Near payoff, then he would always Hunt_Near even if it meant Bugs knowing this and exploiting it in the Forest scenario.</p>
+<p>If Fudd knows he’s at the Opera, then he must prefer to Hunt_Near to get a value of <span class="math inline">\(0\)</span> instead of <span class="math inline">\(-1\)</span> for Hunt_Far, but since he doesn’t know his location, he must take both scenarios into account.</p>
+<p>Note that Bugs’s optimal actions depend on Fudd’s Opera strategy even though that outcome cannot be reached once Bugs is playing since Bugs only plays in the Forest! For example if we kept the same game tree except Fudd had a +100 Opera Hunt_Far payoff, then he would always Hunt_Far. Bugs would see this and it would affect how Bugs plays in the Forest scenario.</p>
 </section>
 <section id="concept-information-set" class="level2">
 <h2 class="anchored" data-anchor-id="concept-information-set">Concept: Information Set</h2>
@@ -588,10 +588,10 @@ Solution
 \end{align*}
 \]</span></p>
 <div style="margin-left: 2.5em;">
-<p>The values for Fudd are inverse, so Fudd prefers the Left Node, which has a value of <span class="math inline">\(1.5\)</span>. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera.</p>
+<p>The values for Fudd are inverse, so Fudd prefers the Left Node, which has a value of <span class="math inline">\(1.5\)</span>. This means that if Fudd is in the Forest, he prefers to Hunt_Near.</p>
 </div>
 <ol start="2" type="1">
-<li>Therefore Fudd will always play Hunt_Near and will have the following expected value:</li>
+<li>We computed that Fudd prefers Hunt_Near in the Forest scenario and can see on the game tree that he also prefers Hunt_Near in the Opera scenario, so can already know that he will always choose Hunt_Near. Fudd will then have the following expected values:</li>
 </ol>
 <p><span class="math display">\[
 \begin{equation}
@@ -607,7 +607,7 @@ Solution
 </div>
 <p>In imperfect information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:</p>
 <ol type="1">
-<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).</li>
+<li>Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of strategies upwards in the game tree (and the probabilites of chance events upwards in the game that have already happened).</li>
 <li>Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.</li>
 </ol>
 <!-- By taking the expected value over the second type of uncertainty, we calculate the expected values of each node we might be going to (e.g., EV at the node of [Fudd, Forest] for action Hunt_Near). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at the infoset [Bugs, Forest]). -->
@@ -888,7 +888,7 @@ Game Value
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What is the value of the game (i.e.&nbsp;the expected value as Fudd) at the equilibrium strategies found in the previous question?</p>
+<p>What is the value of the game (i.e.&nbsp;the expected value as Fudd over the entire game) at the equilibrium strategies found in the previous question?</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
