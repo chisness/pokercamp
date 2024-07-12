@@ -21,6 +21,8 @@ Our goal is to develop your intuitions around decision making and problem solvin
 
 ![Bugs and Fudd](assets/bugsfudd.jpeg)
 
+We developed this game to show concepts in games with **imperfect information** that are applicable to our first challenge. Imperfect information games involve hidden information, which could be cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players. 
+
 This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.
 
 First, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.
@@ -51,7 +53,7 @@ In an incomplete-information game, we can still draw that tree, but now a player
 A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker (the Challenge 1 game), we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
 
 ## Concept: Expected Value
-Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of each outcome weighted by the probability of that outcome.
+Once we’ve assigned definite values to the ultimate outcomes, the expected value, or EV, of a situation is the value of each outcome weighted by the probability of that outcome.
 
 :::{.callout-note  appearance="minimal"}
 ## Exercise
@@ -257,14 +259,13 @@ Notice that each player is inducing the other player to have no regret (to be in
 :::{.callout-note  appearance="minimal"}
 ## Game Value
 
-What is the value of the game at the equilibrium strategies found in the previous question?
+What is the value of the game (i.e. the expected value as Fudd) at the equilibrium strategies found in the previous question?
 :::
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
 Since the game is zero-sum, we can find Fudd's expected value:
 
-$$
 \begin{align}
 \mathbb{E} &= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
               & + \Pr(\text{Opera}) * \Pr(\text{Hunt\_Far}) * -1 \\
@@ -285,8 +286,6 @@ $$
     &+ -0.042 \\
     &+ 0.42 \\ \\
     &= 0.25 \\
-
 \end{align}
-$$
 
 :::

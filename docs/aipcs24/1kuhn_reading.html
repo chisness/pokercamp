@@ -507,6 +507,7 @@ window.Quarto = {
 <figcaption>Bugs and Fudd</figcaption>
 </figure>
 </div>
+<p>We developed this game to show concepts in games with <strong>imperfect information</strong> that are applicable to our first challenge. Imperfect information games involve hidden information, which could be cards in poker or enemy location in the Hunting Wabbits game. In perfect information games like chess, all information is available to both players.</p>
 <p>This game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.</p>
 <p>First, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.</p>
 <p>Next, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.</p>
@@ -554,7 +555,7 @@ window.Quarto = {
 </section>
 <section id="concept-expected-value" class="level2">
 <h2 class="anchored" data-anchor-id="concept-expected-value">Concept: Expected Value</h2>
-<p>Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of each outcome weighted by the probability of that outcome.</p>
+<p>Once we’ve assigned definite values to the ultimate outcomes, the expected value, or EV, of a situation is the value of each outcome weighted by the probability of that outcome.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -893,7 +894,7 @@ Game Value
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What is the value of the game at the equilibrium strategies found in the previous question?</p>
+<p>What is the value of the game (i.e.&nbsp;the expected value as Fudd) at the equilibrium strategies found in the previous question?</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -909,7 +910,7 @@ Solution
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Since the game is zero-sum, we can find Fudd’s expected value:</p>
-<p>$$ <span class="math display">\[\begin{align}
+<p><span class="math display">\[\begin{align}
 \mathbb{E} &amp;= \Pr(\text{Opera}) * \Pr(\text{Hunt\_Near}) * 0 \\
               &amp; + \Pr(\text{Opera}) * \Pr(\text{Hunt\_Far}) * -1 \\
               &amp; + \Pr(\text{Forest}) * \Pr(\text{Hunt\_Near}) * \Pr(\text{Play\_Near}) * 3 \\
@@ -929,8 +930,7 @@ Solution
     &amp;+ -0.042 \\
     &amp;+ 0.42 \\ \\
     &amp;= 0.25 \\
-
-\end{align}\]</span> $$</p>
+\end{align}\]</span></p>
 </div>
 </div>
 </div>
