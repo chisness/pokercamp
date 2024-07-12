@@ -56,7 +56,7 @@ How would Bugs play in the Forest scenario knowing that Fudd is always playing H
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 
-Bugs would always Play_Near because then his payoff would be $+1$, whereas Play_Far would get him a payout of $-2$. (The payoffs are all written from the perspective of Fudd, so Bugs's are opposite.)
+Bugs would always Play_Near because then his payoff in the only scenario he can control would be $+1$, whereas Play_Far would get him a payout of $-2$. (The payoffs are all written from the perspective of Fudd, so Bugs's are opposite.)
 
 :::
 
