@@ -5,3 +5,6 @@ format:
   html:
     math: true
 ---
+
+Setting up agent-server self-play on own machine
+Evaluating prototype agents on your own machine

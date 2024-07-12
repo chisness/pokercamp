@@ -5,6 +5,8 @@ format:
   html:
     math: true
 ---
+## Welcome to AI Poker Camp Summer 2024
+Goals, our approach
 
 ## Hunting Wabbits
 (This game is modified from *[Lisy et al. 2015](https://mlanctot.info/files/papers/aamas15-iioos.pdf)*.)
@@ -190,90 +192,3 @@ Find a $p$ and a $q$ such that both:
 In order to have no regret, the expected value of both actions should be equal
 :::
 :::
-
-## Kuhn Poker
-Kuhn Poker is the most simple version of poker.
-
-![](assets/kuhnbee.png)
-
-- 3 card deck: Queen, King, Ace (Ace is highest)
-
-- 2 players
-
-- Each player starts with 2 chips and antes 1
-
-- Deal 1 card to each player (discard the third)
-
-- Players can take these actions: 
-
-  - Up (putting a chip into the pot) 
-  
-  - Down (not putting a chip into the pot) actions
-
-:::{.callout-tip collapse="true"  appearance="minimal"}
-## Poker Terms for Actions 
-
-  - Up actions indicate a Bet or Call (putting a chip into the pot)
-
-  - Down actions indicate a Check or Fold (not putting a chip into the pot)
-:::
-
-
-
-<!-- - Rotate who acts first each hand -->
-
-- There is one betting round that can take the following sequences: 
-
-| Player 1  | Player 2  | Player 1 | Winner       |
-|------------|-----------|-----------|----------|
-| Down      | Up        | Down     |Player 2 (+1) |
-| Down      | Up        | Up       |High Card (+2)|
-| Down      | Down      |          |High Card (+1)|
-| Up        | Down      |          |Player 1 (+1) |
-| Up        | Up        |          |High Card (+2)|
-
-## Challenge 1
-Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn3/) and submit once you find the strategy that you think is best. 
-
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p>31%).
-
-Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.
-
-### How Kuhn Interactive works
-TO DO
-
-### Why can’t we just do tree search?
-
-Because of incomplete information.
-
-If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.
-
-If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy: 
-
-1. Reset
-2. Update the strategy weights for the X_↓↑ nodes until they converge.
-3. Update the strategy weights for the _X↓ and _X↑ nodes until they converge.
-4. Update the strategy weights for the X_ nodes until they converge.
-
-Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? 
-
-### Do we really need mixed strategies?
-
-You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
-
-Follow these steps:
-
-1. Reset
-2. Set the learning rate to 1.0.
-3. In any order you like, pick cells and update them.
-4. Repeat 3 while there are still suboptimal moves in your strategy.
-
-A bad thing is happening to you. Why?
-
-### Actually solving Kuhn Poker
-Pick a reasonable learning rate, update individual cells until they converge.
-
-Next, enter your strategy into the daily leaderboard.
-
-### How results are generated 
-This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate. 

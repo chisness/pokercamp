@@ -5,3 +5,107 @@ format:
   html:
     math: true
 ---
+## Kuhn Poker
+Kuhn Poker is the most simple version of poker.
+
+![](assets/kuhn.png)
+
+- 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Alternative Decks 
+
+  - Any deck of 3 ranked cards works
+
+  - This could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}
+:::
+
+- 2 players
+
+- Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip
+
+- Deal 1 card to each player (discard the third)
+
+- Players can take these actions: 
+
+  - Up ↑ (putting a chip into the pot) 
+  
+  - Down ↓ (not putting a chip into the pot) actions
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Poker Terms for Actions 
+
+  - Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr> (putting a chip into the pot)
+
+  - Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr> (not putting a chip into the pot)
+:::
+
+- There is one betting round
+
+- Example betting round: 
+  - ![](assets/p1l.png) Player 1: Up ↑
+  - ![](assets/p2w.png) Player 2: Up ↑
+  - High Card wins +2 (+1 from the ante, +1 from the bet)
+  - If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
+
+- A list of all possible betting sequences: 
+
+| ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
+|------------|-----------|-----------|----------|
+| Down ↓      | Up ↑        | Down ↓     |![](assets/p2w.png) Player 2 (+1) |
+| Down ↓      | Up ↑        | Up ↑       |High Card (+2)|
+| Down ↓     | Down ↓      |          |High Card (+1)|
+| Up ↑        | Down ↓      |          |![](assets/p1l.png) Player 1 (+1) |
+| Up ↑        | Up ↑        |          |High Card (+2)|
+
+## Interactive Site
+What the things on the page mean
+How to play with it
+How to submit a solution
+
+## Challenge 1
+Play with Kuhn Poker strategies on our [interactive site](https://static.rossry.net/sketches/poker/kuhn3/) and submit once you find the strategy that you think is best. 
+
+After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p>31%).
+
+Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.
+
+### How Kuhn Interactive works
+TO DO
+
+### Why can’t we just do tree search?
+
+Because of incomplete information.
+
+If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.
+
+If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy: 
+
+1. Reset
+2. Update the strategy weights for the X_↓↑ nodes until they converge.
+3. Update the strategy weights for the _X↓ and _X↑ nodes until they converge.
+4. Update the strategy weights for the X_ nodes until they converge.
+
+Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? 
+
+### Do we really need mixed strategies?
+
+You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
+
+Follow these steps:
+
+1. Reset
+2. Set the learning rate to 1.0.
+3. In any order you like, pick cells and update them.
+4. Repeat 3 while there are still suboptimal moves in your strategy.
+
+A bad thing is happening to you. Why?
+
+### Actually solving Kuhn Poker
+Pick a reasonable learning rate, update individual cells until they converge.
+
+Next, enter your strategy into the daily leaderboard.
+
+### How results are generated 
+This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate. 
+

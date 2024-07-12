@@ -11,6 +11,7 @@ Goal: Equilibrium agent, later opponent modeling
 What does best bot vs you look like? What is your exploitability?
 
 ### Tournament Results
+Yep, just a slight variation here where the dealer burns 26/52 cards and then you play against the house; make it something other than just off-the-shelf and make your MC solver have to do some real work.
 
 
 ### How the Interactive Works
@@ -591,7 +592,7 @@ Tree imperfect info vs perfect info issues, show trees
 Compare this to the Wabbits game and problem sfrom paper 
 
 ### Minimax
-w
+https://www.neverstopbuilding.com/blog/minimax
 
 ### Value Function
 Minimax assumes opponent playing best plays too

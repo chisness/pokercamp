@@ -5,3 +5,5 @@ format:
   html:
     math: true
 ---
+Advanced CFR 
+https://mlanctot.info/files/papers/aamas15-iioos.pdf 

@@ -14,11 +14,37 @@
     "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 15 to Aug 15 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
+    "objectID": "aipcs24/2othergames_challenge_review.html",
+    "href": "aipcs24/2othergames_challenge_review.html",
+    "title": "Other Games (2): Challenge Review",
+    "section": "",
+    "text": "Setting up agent-server self-play on own machine Evaluating prototype agents on your own machine",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games",
+      "Challenge Review"
+    ]
+  },
+  {
     "objectID": "aipcs24/1kuhn_reading.html",
     "href": "aipcs24/1kuhn_reading.html",
     "title": "Kuhn Poker (1): Reading",
     "section": "",
-    "text": "(This game is modified from Lisy et al. 2015.)\n\n\n\nBugs and Fudd\n\n\nThis game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.\nFirst, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.\nNext, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.\nBugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends after Fudd’s action. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt (for a total of +2 in the Hunt_Far action due to the -1 value for the extra effort). If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt (-1 for the Hunt_Far misses).\nPutting it all together, the payoff structure of this game is:\nThis should probably be Fudd/Bugs to have 1st player and maximizing player first\n\n\n\nAuthor\nBugs/Fudd\nHunt_Near\nHunt_Far\n\n\n\n\nOpera\n\n0, 0\n+1, -1\n\n\nForest\nPlay_Near\n-3, +3\n+1, -1\n\n\nForest\nPlay_Far\n0, 0\n-2, +2\n\n\n\nIf it were a complete-information game, the tree structure would be:\n\nIf Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!",
+    "text": "Goals, our approach",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker",
+      "Reading"
+    ]
+  },
+  {
+    "objectID": "aipcs24/1kuhn_reading.html#welcome-to-ai-poker-camp-summer-2024",
+    "href": "aipcs24/1kuhn_reading.html#welcome-to-ai-poker-camp-summer-2024",
+    "title": "Kuhn Poker (1): Reading",
+    "section": "",
+    "text": "Goals, our approach",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -30,8 +56,8 @@
     "objectID": "aipcs24/1kuhn_reading.html#hunting-wabbits",
     "href": "aipcs24/1kuhn_reading.html#hunting-wabbits",
     "title": "Kuhn Poker (1): Reading",
-    "section": "",
-    "text": "(This game is modified from Lisy et al. 2015.)\n\n\n\nBugs and Fudd\n\n\nThis game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.\nFirst, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.\nNext, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.\nBugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends after Fudd’s action. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt (for a total of +2 in the Hunt_Far action due to the -1 value for the extra effort). If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt (-1 for the Hunt_Far misses).\nPutting it all together, the payoff structure of this game is:\nThis should probably be Fudd/Bugs to have 1st player and maximizing player first\n\n\n\nAuthor\nBugs/Fudd\nHunt_Near\nHunt_Far\n\n\n\n\nOpera\n\n0, 0\n+1, -1\n\n\nForest\nPlay_Near\n-3, +3\n+1, -1\n\n\nForest\nPlay_Far\n0, 0\n-2, +2\n\n\n\nIf it were a complete-information game, the tree structure would be:\n\nIf Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!",
+    "section": "Hunting Wabbits",
+    "text": "Hunting Wabbits\n(This game is modified from Lisy et al. 2015.)\n\n\n\nBugs and Fudd\n\n\nThis game has one chance player (the Author), one maximizing player (Fudd) and one minimizing player (Bugs). Fudd and Bugs are in a long-term, all-out war, and so any energy that Fudd wastes or saves is a gain or loss for Bugs; our game is zero-sum.\nFirst, the Author will choose whether to write an episode where Bugs is at the Opera (50%) or in the Forest (50%). Fudd cannot tell what the Author has chosen.\nNext, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far, he takes -1 value for the extra effort.\nBugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd’s hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends after Fudd’s action. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt (for a total of +2 in the Hunt_Far action due to the -1 value for the extra effort). If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt (-1 for the Hunt_Far misses).\nPutting it all together, the payoff structure of this game is:\nThis should probably be Fudd/Bugs to have 1st player and maximizing player first\n\n\n\nAuthor\nBugs/Fudd\nHunt_Near\nHunt_Far\n\n\n\n\nOpera\n\n0, 0\n+1, -1\n\n\nForest\nPlay_Near\n-3, +3\n+1, -1\n\n\nForest\nPlay_Far\n0, 0\n-2, +2\n\n\n\nIf it were a complete-information game, the tree structure would be:\n\nIf Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -92,29 +118,55 @@
     ]
   },
   {
-    "objectID": "aipcs24/1kuhn_reading.html#kuhn-poker",
-    "href": "aipcs24/1kuhn_reading.html#kuhn-poker",
-    "title": "Kuhn Poker (1): Reading",
-    "section": "Kuhn Poker",
-    "text": "Kuhn Poker\nKuhn Poker is the most simple version of poker.\n\n\n3 card deck: Queen, King, Ace (Ace is highest)\n2 players\nEach player starts with 2 chips and antes 1\nDeal 1 card to each player (discard the third)\nPlayers can take these actions:\n\nUp (putting a chip into the pot)\nDown (not putting a chip into the pot) actions\n\n\n\n\n\n\n\n\nPoker Terms for Actions\n\n\n\n\n\n\nUp actions indicate a Bet or Call (putting a chip into the pot)\nDown actions indicate a Check or Fold (not putting a chip into the pot)\n\n\n\n\n\n\nThere is one betting round that can take the following sequences:\n\n\n\n\nPlayer 1\nPlayer 2\nPlayer 1\nWinner\n\n\n\n\nDown\nUp\nDown\nPlayer 2 (+1)\n\n\nDown\nUp\nUp\nHigh Card (+2)\n\n\nDown\nDown\n\nHigh Card (+1)\n\n\nUp\nDown\n\nPlayer 1 (+1)\n\n\nUp\nUp\n\nHigh Card (+2)",
+    "objectID": "aipcs24/1kuhn_challenge.html",
+    "href": "aipcs24/1kuhn_challenge.html",
+    "title": "Kuhn Poker (1): Challenge",
+    "section": "",
+    "text": "Kuhn Poker is the most simple version of poker.\n\n\n3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)\n\n\n\n\n\n\n\nAlternative Decks\n\n\n\n\n\n\nAny deck of 3 ranked cards works\nThis could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}\n\n\n\n\n\n2 players\nEach player starts with 2 chips and antes 1 chip\nDeal 1 card to each player (discard the third)\nPlayers can take these actions:\n\nUp ↑ (putting a chip into the pot)\nDown ↓ (not putting a chip into the pot) actions\n\n\n\n\n\n\n\n\nPoker Terms for Actions\n\n\n\n\n\n\nUp ↑ actions indicate a Bet or Call (putting a chip into the pot)\nDown ↓ actions indicate a Check or Fold (not putting a chip into the pot)\n\n\n\n\n\nThere is one betting round\nExample betting round:\n\n Player 1: Up ↑\n Player 2: Up ↑\nHigh Card wins +2 (+1 from the ante, +1 from the bet)\nIf  P1 has card A and P2 has card K,  P1 wins\n\nA list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n Player 1\n Player 2\n Player 1\nWinner\n\n\n\n\nDown ↓\nUp ↑\nDown ↓\n Player 2 (+1)\n\n\nDown ↓\nUp ↑\nUp ↑\nHigh Card (+2)\n\n\nDown ↓\nDown ↓\n\nHigh Card (+1)\n\n\nUp ↑\nDown ↓\n\n Player 1 (+1)\n\n\nUp ↑\nUp ↑\n\nHigh Card (+2)",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
       "1: Kuhn Poker",
-      "Reading"
+      "Challenge"
     ]
   },
   {
-    "objectID": "aipcs24/1kuhn_reading.html#challenge-1",
-    "href": "aipcs24/1kuhn_reading.html#challenge-1",
-    "title": "Kuhn Poker (1): Reading",
+    "objectID": "aipcs24/1kuhn_challenge.html#kuhn-poker",
+    "href": "aipcs24/1kuhn_challenge.html#kuhn-poker",
+    "title": "Kuhn Poker (1): Challenge",
+    "section": "",
+    "text": "Kuhn Poker is the most simple version of poker.\n\n\n3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)\n\n\n\n\n\n\n\nAlternative Decks\n\n\n\n\n\n\nAny deck of 3 ranked cards works\nThis could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}\n\n\n\n\n\n2 players\nEach player starts with 2 chips and antes 1 chip\nDeal 1 card to each player (discard the third)\nPlayers can take these actions:\n\nUp ↑ (putting a chip into the pot)\nDown ↓ (not putting a chip into the pot) actions\n\n\n\n\n\n\n\n\nPoker Terms for Actions\n\n\n\n\n\n\nUp ↑ actions indicate a Bet or Call (putting a chip into the pot)\nDown ↓ actions indicate a Check or Fold (not putting a chip into the pot)\n\n\n\n\n\nThere is one betting round\nExample betting round:\n\n Player 1: Up ↑\n Player 2: Up ↑\nHigh Card wins +2 (+1 from the ante, +1 from the bet)\nIf  P1 has card A and P2 has card K,  P1 wins\n\nA list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n Player 1\n Player 2\n Player 1\nWinner\n\n\n\n\nDown ↓\nUp ↑\nDown ↓\n Player 2 (+1)\n\n\nDown ↓\nUp ↑\nUp ↑\nHigh Card (+2)\n\n\nDown ↓\nDown ↓\n\nHigh Card (+1)\n\n\nUp ↑\nDown ↓\n\n Player 1 (+1)\n\n\nUp ↑\nUp ↑\n\nHigh Card (+2)",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/1kuhn_challenge.html#interactive-site",
+    "href": "aipcs24/1kuhn_challenge.html#interactive-site",
+    "title": "Kuhn Poker (1): Challenge",
+    "section": "Interactive Site",
+    "text": "Interactive Site\nWhat the things on the page mean How to play with it How to submit a solution",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/1kuhn_challenge.html#challenge-1",
+    "href": "aipcs24/1kuhn_challenge.html#challenge-1",
+    "title": "Kuhn Poker (1): Challenge",
     "section": "Challenge 1",
     "text": "Challenge 1\nPlay with Kuhn Poker strategies on our interactive site and submit once you find the strategy that you think is best.\nAfter a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).\nAdvice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.\n\nHow Kuhn Interactive works\nTO DO\n\n\nWhy can’t we just do tree search?\nBecause of incomplete information.\nIf we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.\nIf you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy:\n\nReset\nUpdate the strategy weights for the X_↓↑ nodes until they converge.\nUpdate the strategy weights for the _X↓ and _X↑ nodes until they converge.\nUpdate the strategy weights for the X_ nodes until they converge.\n\nFollow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?\n\n\nDo we really need mixed strategies?\nYou can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.\nFollow these steps:\n\nReset\nSet the learning rate to 1.0.\nIn any order you like, pick cells and update them.\nRepeat 3 while there are still suboptimal moves in your strategy.\n\nA bad thing is happening to you. Why?\n\n\nActually solving Kuhn Poker\nPick a reasonable learning rate, update individual cells until they converge.\nNext, enter your strategy into the daily leaderboard.\n\n\nHow results are generated\nThis will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
       "1: Kuhn Poker",
-      "Reading"
+      "Challenge"
     ]
   },
   {
@@ -200,11 +252,50 @@
     "text": "Something else?\nGet in touch!"
   },
   {
+    "objectID": "aipcs24/3leduc_reading2.html",
+    "href": "aipcs24/3leduc_reading2.html",
+    "title": "Leduc Poker (3): Reading 2",
+    "section": "",
+    "text": "Advanced CFR https://mlanctot.info/files/papers/aamas15-iioos.pdf",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "3: Leduc Poker",
+      "Reading 2"
+    ]
+  },
+  {
+    "objectID": "aipcs24/3leduc_reading1.html",
+    "href": "aipcs24/3leduc_reading1.html",
+    "title": "Leduc Poker (3): Reading 1",
+    "section": "",
+    "text": "Basic CFR",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "3: Leduc Poker",
+      "Reading 1"
+    ]
+  },
+  {
+    "objectID": "aipcs24/1kuhn_challenge_review.html",
+    "href": "aipcs24/1kuhn_challenge_review.html",
+    "title": "Kuhn Poker (1): Challenge Review",
+    "section": "",
+    "text": "a concrete, conceptual understanding of CFR + experience with the overall format",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "1: Kuhn Poker",
+      "Challenge Review"
+    ]
+  },
+  {
     "objectID": "aipcs24/2othergames_challenge.html",
     "href": "aipcs24/2othergames_challenge.html",
     "title": "Challenge 2: Other Games",
     "section": "",
-    "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
+    "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\nYep, just a slight variation here where the dealer burns 26/52 cards and then you play against the house; make it something other than just off-the-shelf and make your MC solver have to do some real work.\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -217,7 +308,7 @@
     "href": "aipcs24/2othergames_challenge.html#review-of-challenge-1",
     "title": "Challenge 2: Other Games",
     "section": "",
-    "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
+    "text": "Goal: Equilibrium agent, later opponent modeling\nWhat does best bot vs you look like? What is your exploitability?\n\n\nYep, just a slight variation here where the dealer burns 26/52 cards and then you play against the house; make it something other than just off-the-shelf and make your MC solver have to do some real work.\n\n\n\nOdds vs. probs Regret Full CFR details next session Show equations and graphs of how things correct when a single probability is thrown off\n\n\n\nSurprise! There are multiple Nash equilibria in Kuhn!\nValue of the game\nPosition thing\nPrinciple of 3 general types of hands and how it applies to regular poker\n\n\n\nGradient Descent: Involves iteratively adjusting parameters to minimize a cost function. Each step moves the parameters in the direction of the negative gradient of the cost function, gradually converging to a local or global minimum. Aims to converge to the optimal parameters that minimize the cost function. With an appropriate learning rate and sufficient iterations, it can find the minimum. Utilizes feedback from the gradient of the cost function at each iteration to update the parameters. Focuses on a static objective function (cost function) and aims to find its minimum.\nRegret Minimization: In online learning and decision-making contexts, it involves iteratively updating strategies to minimize regret, which is the difference between the actual cumulative loss and the best possible cumulative loss in hindsight. Each step adjusts the strategy based on past performance to improve future decisions. Aims to minimize regret over time, which means the strategy becomes nearly as good as the best fixed strategy in hindsight. With enough iterations, the average regret per iteration tends to zero. Utilizes feedback from past performance (losses) to update the strategy, aiming to reduce future regret. Focuses on a dynamic objective (minimizing regret over time) in potentially changing environments, where the best action may vary over time.\nRegret Matching: Involves iteratively updating the probability distribution over actions based on past regrets. Actions with higher regrets (indicating they would have performed better in the past) are chosen more frequently in the future. Uses past regrets to update the probability distribution over actions. The probability of selecting each action increases proportionally to the regret of not having taken that action.\nPruning and compare to CFR",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -295,7 +386,7 @@
     "href": "aipcs24/2othergames_challenge.html#tictactoe",
     "title": "Challenge 2: Other Games",
     "section": "Tictactoe",
-    "text": "Tictactoe\n\nEvolutionary algorithms for poker and tic-tac-toe\nExercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.\nQuestion: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper\n\nMinimax\nw\n\n\nValue Function\nMinimax assumes opponent playing best plays too temporal-difference\n\n\nRL: Planning\nMCTS decision-time planning\nRL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?",
+    "text": "Tictactoe\n\nEvolutionary algorithms for poker and tic-tac-toe\nExercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.\nQuestion: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper\n\nMinimax\nhttps://www.neverstopbuilding.com/blog/minimax\n\n\nValue Function\nMinimax assumes opponent playing best plays too temporal-difference\n\n\nRL: Planning\nMCTS decision-time planning\nRL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",

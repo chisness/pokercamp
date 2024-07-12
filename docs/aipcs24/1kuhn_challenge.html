@@ -108,8 +108,10 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="Poker Camp - Kuhn Poker (1): Challenge">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
 <meta name="twitter:title" content="Poker Camp - Kuhn Poker (1): Challenge">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -453,7 +455,22 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link active" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
+  <li><a href="#interactive-site" id="toc-interactive-site" class="nav-link" data-scroll-target="#interactive-site">Interactive Site</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
+  <ul class="collapse">
+  <li><a href="#how-kuhn-interactive-works" id="toc-how-kuhn-interactive-works" class="nav-link" data-scroll-target="#how-kuhn-interactive-works">How Kuhn Interactive works</a></li>
+  <li><a href="#why-cant-we-just-do-tree-search" id="toc-why-cant-we-just-do-tree-search" class="nav-link" data-scroll-target="#why-cant-we-just-do-tree-search">Why can’t we just do tree search?</a></li>
+  <li><a href="#do-we-really-need-mixed-strategies" id="toc-do-we-really-need-mixed-strategies" class="nav-link" data-scroll-target="#do-we-really-need-mixed-strategies">Do we really need mixed strategies?</a></li>
+  <li><a href="#actually-solving-kuhn-poker" id="toc-actually-solving-kuhn-poker" class="nav-link" data-scroll-target="#actually-solving-kuhn-poker">Actually solving Kuhn Poker</a></li>
+  <li><a href="#how-results-are-generated" id="toc-how-results-are-generated" class="nav-link" data-scroll-target="#how-results-are-generated">How results are generated</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -477,9 +494,172 @@ window.Quarto = {
 </header>
 
 
+<section id="kuhn-poker" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
+<p>Kuhn Poker is the most simple version of poker.</p>
+<p><img src="assets/kuhn.png" class="img-fluid"></p>
+<ul>
+<li>3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)</li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Alternative Decks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Any deck of 3 ranked cards works</p></li>
+<li><p>This could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>2 players</p></li>
+<li><p>Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip</p></li>
+<li><p>Deal 1 card to each player (discard the third)</p></li>
+<li><p>Players can take these actions:</p>
+<ul>
+<li><p>Up ↑ (putting a chip into the pot)</p></li>
+<li><p>Down ↓ (not putting a chip into the pot) actions</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Poker Terms for Actions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr> (putting a chip into the pot)</p></li>
+<li><p>Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr> (not putting a chip into the pot)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>There is one betting round</p></li>
+<li><p>Example betting round:</p>
+<ul>
+<li><img src="assets/p1l.png" class="img-fluid"> Player 1: Up ↑</li>
+<li><img src="assets/p2w.png" class="img-fluid"> Player 2: Up ↑</li>
+<li>High Card wins +2 (+1 from the ante, +1 from the bet)</li>
+<li>If <img src="assets/p1l.png" class="img-fluid"> P1 has card A and <img src="assets/p2w.png" class="img-fluid">P2 has card K, <img src="assets/p1l.png" class="img-fluid"> P1 wins</li>
+</ul></li>
+<li><p>A list of all possible betting sequences:</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="assets/p1l.png" class="img-fluid"> Player 1</th>
+<th><img src="assets/p2w.png" class="img-fluid"> Player 2</th>
+<th><img src="assets/p1l.png" class="img-fluid"> Player 1</th>
+<th>Winner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Down ↓</td>
+<td>Up ↑</td>
+<td>Down ↓</td>
+<td><img src="assets/p2w.png" class="img-fluid"> Player 2 (+1)</td>
+</tr>
+<tr class="even">
+<td>Down ↓</td>
+<td>Up ↑</td>
+<td>Up ↑</td>
+<td>High Card (+2)</td>
+</tr>
+<tr class="odd">
+<td>Down ↓</td>
+<td>Down ↓</td>
+<td></td>
+<td>High Card (+1)</td>
+</tr>
+<tr class="even">
+<td>Up ↑</td>
+<td>Down ↓</td>
+<td></td>
+<td><img src="assets/p1l.png" class="img-fluid"> Player 1 (+1)</td>
+</tr>
+<tr class="odd">
+<td>Up ↑</td>
+<td>Up ↑</td>
+<td></td>
+<td>High Card (+2)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interactive-site" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-site">Interactive Site</h2>
+<p>What the things on the page mean How to play with it How to submit a solution</p>
+</section>
+<section id="challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
+<p>Play with Kuhn Poker strategies on our <a href="https://static.rossry.net/sketches/poker/kuhn3/">interactive site</a> and submit once you find the strategy that you think is best.</p>
+<p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs (a statistician might say, you have a p&gt;31%).</p>
+<p>Advice: We believe you will get the most out of the course if you approach each challenge with the goal of making your bot achieve the highest score possible in each matchup. Because there is no memory between rounds, this is equivalent to maximizing your expected score in each round.</p>
+<section id="how-kuhn-interactive-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-kuhn-interactive-works">How Kuhn Interactive works</h3>
+<p>TO DO</p>
+</section>
+<section id="why-cant-we-just-do-tree-search" class="level3">
+<h3 class="anchored" data-anchor-id="why-cant-we-just-do-tree-search">Why can’t we just do tree search?</h3>
+<p>Because of incomplete information.</p>
+<p>If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.</p>
+<p>If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy:</p>
+<ol type="1">
+<li>Reset</li>
+<li>Update the strategy weights for the X_↓↑ nodes until they converge.</li>
+<li>Update the strategy weights for the _X↓ and _X↑ nodes until they converge.</li>
+<li>Update the strategy weights for the X_ nodes until they converge.</li>
+</ol>
+<p>Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong?</p>
+</section>
+<section id="do-we-really-need-mixed-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h3>
+<p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
+<p>Follow these steps:</p>
+<ol type="1">
+<li>Reset</li>
+<li>Set the learning rate to 1.0.</li>
+<li>In any order you like, pick cells and update them.</li>
+<li>Repeat 3 while there are still suboptimal moves in your strategy.</li>
+</ol>
+<p>A bad thing is happening to you. Why?</p>
+</section>
+<section id="actually-solving-kuhn-poker" class="level3">
+<h3 class="anchored" data-anchor-id="actually-solving-kuhn-poker">Actually solving Kuhn Poker</h3>
+<p>Pick a reasonable learning rate, update individual cells until they converge.</p>
+<p>Next, enter your strategy into the daily leaderboard.</p>
+</section>
+<section id="how-results-are-generated" class="level3">
+<h3 class="anchored" data-anchor-id="how-results-are-generated">How results are generated</h3>
+<p>This will generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) Your submission will play 100,000 times against all other submissions (including the 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate.</p>
 
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

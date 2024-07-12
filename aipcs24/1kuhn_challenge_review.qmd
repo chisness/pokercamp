@@ -5,3 +5,4 @@ format:
   html:
     math: true
 ---
+a concrete, conceptual understanding of CFR + experience with the overall format
