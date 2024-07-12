@@ -30,7 +30,7 @@ Kuhn Poker is the most simple version of poker. Here is the setup:
 
   - Up ↑ (putting a chip into the pot) 
   
-  - Down ↓ (not putting a chip into the pot)
+  - Down ↓ (not putting a chip into the pot) 
 
 :::{.callout-tip collapse="true"  appearance="minimal"}
 ## Poker Terms for Actions 
