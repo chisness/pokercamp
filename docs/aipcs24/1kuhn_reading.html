@@ -492,11 +492,11 @@ window.Quarto = {
 
 <section id="welcome-to-ai-poker-camp-summer-2024" class="level2">
 <h2 class="anchored" data-anchor-id="welcome-to-ai-poker-camp-summer-2024">Welcome to AI Poker Camp Summer 2024</h2>
-<p>Thanks for signing up. This is the first time we’re running AI Poker Camp and it’s very much in beta. The idea of some form of this course has existed for a few years, but we didn’t actually start planning this curriculum until about a month before launch time.</p>
+<p>Thanks for signing up. This is the first time we’re running AI Poker Camp and it’s very much in beta. Some content and the idea of some form of this course has existed for a few years, but this curriculum is very new and came about after a discussion at Manifest.</p>
 <p>We’re glad to have you along for the ride and welcome any feedback about all aspects of the course.</p>
-<p>We’re running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing relevant readings and further work on the challenge problems.</p>
+<p>We’re running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing readings and further work on the challenge problems.</p>
 <p>Readings like this one highlight concepts that are relevant to the accompanying challenge.</p>
-<p>Our goal is to develop your intuitions around decision making and problem solving by engaging with challenges in non-idealized scenarios.</p>
+<p>Our goal is to develop your intuitions around decision making and problem solving by engaging with challenges in fun and non-idealized scenarios.</p>
 </section>
 <section id="hunting-wabbits-game" class="level2">
 <h2 class="anchored" data-anchor-id="hunting-wabbits-game">Hunting Wabbits Game</h2>
@@ -542,7 +542,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>If it were a complete-information game, the tree structure would be:</p>
+<p>If it were a complete-information game, the tree structure would be as follows with the payoffs written from the perspective of Fudd:</p>
 <p><img src="assets/bugsfuddtree.png" class="img-fluid"></p>
 <p>If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing!</p>
 </section>
@@ -791,7 +791,7 @@ Expected Value 2
 </div>
 <div class="callout-body-container callout-body">
 <p>Say that Bugs chooses to Play_Near with probability <span class="math inline">\(q\)</span>.</p>
-<p><img src="assets/bugsfuddtreepq.png" class="img-fluid"></p>
+<p><img src="assets/bugsfuddtreeq.png" class="img-fluid"></p>
 <ol type="1">
 <li><p>What is Fudd’s expected value of choosing Hunt_Near at his infoset?</p></li>
 <li><p>What is Fudd’s EV of choosing Hunt_Far at his infoset?</p></li>
@@ -863,17 +863,23 @@ Solution
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>For Bugs to never choose an action with regret, EV of Hunt_Near and EV of Hunt_Far should be equal.</li>
-</ol>
-<p><span class="math inline">\(\mathbb{E}(\text{Hunt_Near}) = 1.5*q\)</span></p>
-<p><span class="math inline">\(\mathbb{E}(\text{Hunt_Far}) = 0.5 - 1.5*q\)</span></p>
-<p>Setting equal, we have <span class="math inline">\(1.5*q = 0.5 - 1.5*q \Rightarrow 3*q = 0.5 \Rightarrow q = \frac{1}{6} = 0.167\)</span></p>
-<ol start="2" type="1">
-<li>For Fudd to never choose an action with regret, EV of Play_Near and EV of Play_Far should be equal.</li>
+<li>For Bugs to never choose an action with regret, EV of Play_Near and EV of Play_Far should be equal.</li>
 </ol>
 <p><span class="math inline">\(\mathbb{E}(\text{Play_Near}) = -4*p + 1\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(\text{Play_Far}) = 2*p - 2\)</span></p>
 <p>Setting equal, we have <span class="math inline">\(-4*p + 1 = 2*p - 2 \Rightarrow 3 = 6*p \Rightarrow p = \frac{1}{2} = 0.5\)</span></p>
+<p><span class="math inline">\(\Pr(\text{Fudd Hunt_Near}) = p = 0.5\)</span></p>
+<p><span class="math inline">\(\Pr(\text{Fudd Hunt_Far}) = 1 - p = 0.5\)</span></p>
+<ol start="2" type="1">
+<li>For Fudd to never choose an action with regret, EV of Hunt_Near and EV of Hunt_Far should be equal.</li>
+</ol>
+<p><span class="math inline">\(\mathbb{E}(\text{Hunt_Near}) = 1.5*q\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{Hunt_Far}) = 0.5 - 1.5*q\)</span></p>
+<p>Setting equal, we have <span class="math inline">\(1.5*q = 0.5 - 1.5*q \Rightarrow 3*q = 0.5 \Rightarrow q = \frac{1}{6} = 0.167\)</span></p>
+<p><span class="math inline">\(\Pr(\text{Bugs Play_Near}) = q = 0.167\)</span></p>
+<p><span class="math inline">\(\Pr(\text{Bugs Play_Far}) = 1 - q = 0.833\)</span></p>
+<p>Notice that each player is inducing the other player to have no regret (to be indifferent to both actions) by playing actions at these probabilities, which then result in an equilibrium as shown below:</p>
+<p><img src="assets/bugsfuddtreeeq.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
