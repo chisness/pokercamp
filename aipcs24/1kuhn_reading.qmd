@@ -6,9 +6,15 @@ format:
     math: true
 ---
 ## Welcome to AI Poker Camp Summer 2024
-Goals, our approach
+Thanks for signing up. This is the first time we're running AI Poker Camp and it's very much in beta. The idea of some form of this course has existed for a few years, but we didn't actually start planning this curriculum until about a month before launch time. 
 
-## Hunting Wabbits
+We're glad to have you along for the ride and welcome any feedback about all aspects of the course. 
+
+We're running this under the flipped classroom model, where we spend the majority of the time in the sessions focused on thinking about and working on the challenge problems, and time outside the sessions doing relevant readings and further work on the challenge problems. 
+
+Our goal is to develop your intuitions around decision making and problem solving by engaging with challenges in non-idealized scenarios. 
+
+## Hunting Wabbits Game
 (This game is modified from *[Lisy et al. 2015](https://mlanctot.info/files/papers/aamas15-iioos.pdf)*.)
 
 ![Bugs and Fudd](assets/bugsfudd.jpeg)
@@ -22,8 +28,6 @@ Next, Fudd will decide whether to Hunt_Near or Hunt_Far. If he chooses Hunt_Far,
 Bugs knows whether the Author wrote him into the Opera or Forest, but he does not know Fudd's hunting location. If the Author gives him the Opera, Bugs has no choices to make and the game ends after Fudd's action. If Forest, Bugs will decide whether to Play_Near or Play_Far. If he plays in the same location as Fudd is hunting, Fudd gets +3 value for a successful hunt (for a total of +2 in the Hunt_Far action due to the -1 value for the extra effort). If they are in different locations (or if Bugs is at the Opera), Fudd will get 0 value for an unsuccessful hunt (-1 for the Hunt_Far misses).
 
 Putting it all together, the payoff structure of this game is:
-
-**This should probably be Fudd/Bugs to have 1st player and maximizing player first**
 
 | Author     | Bugs/Fudd | Hunt_Near | Hunt_Far |
 |------------|-----------|-----------|----------|
@@ -42,17 +46,17 @@ In a complete-information game, we can draw a tree of the possible states the ga
 
 In an incomplete-information game, we can still draw that tree, but now a player might be called to take an action without knowing what node they are actually at. Instead, there will be a set of one or more nodes that are indistinguishable to that player based on what they have seen so far, and they will have to take an action knowing only that they are in that set. Such a set of nodes is an **information set** or an **infoset**.
 
-A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker, we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
+A **player strategy** is a rule that says, for every information set that player will face, what action or (random choice of actions) that player will take. For a game like Hunting Wabbits or Kuhn Poker (the Challenge 1 game), we can list every information set and its probabilities. For a more complicated game, we might write our strategy as a computation that will output probabilities based on inputs and an algorithm.
 
 ## Concept: Expected Value
-Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of the average outcome, weighted by the probability that you get to that outcome, respectively.
+Once we’ve assigned definite values to the ultimate outcomes, the expected value of a situation is the value of each outcome weighted by the probability of that outcome.
 
 :::{.callout-note  appearance="minimal"}
 ## Exercise
 
 Suppose that Bugs plays uniform $0.5$ Play_Near and $0.5$ Play_Far.
 
-1. What is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? 
+1. What is the value of each Bugs node and what should Fudd do if he knew Bugs’s actions? (Recall that the payoff values are from the perspective of Fudd and Bugs uses opposite values.)
 
 2. What is Fudd’s expected value in this case?
 :::
@@ -70,7 +74,7 @@ $$
 $$
 
 <div style="margin-left: 2.5em;">
-The values for Fudd are inverse, so Fudd prefers the Left Node with a value of $1.5$. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera. 
+The values for Fudd are inverse, so Fudd prefers the Left Node, which has a value of $1.5$. This means that if Fudd is in the Forest, he prefers to Hunt_Near. Lucky for him, he also prefers to Hunt_Near in the Opera. 
 </div>
 
 2. Therefore Fudd will always play Hunt_Near and will have the following expected value:
@@ -89,11 +93,8 @@ $$
 
 In imperfect-information games, we consider probabilities over two different sources of uncertainty, after assuming a particular P1 strategy and P2 strategy:
 
-1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart.
-  - The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
+1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
 2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
-
-**Is below paragraph clear?** 
 
 By taking the expected value over the second type of uncertainty, we calculate the expected values of being at each node we might be going to (e.g., EV at the node [ Forest, Hunt_Near ]). Then by taking the expected value over the first type of uncertainty, we calculate the expected value of taking a given action at that information set (e.g., EV of playing Play_Near at infoset [ Forest, _ ]).
 
@@ -101,7 +102,7 @@ By taking the expected value over the second type of uncertainty, we calculate t
 
 We will focus on zero-sum two-player games, so the value to one player is simply the negative of the value to the other. Therefore, we can represent value in the game as a single number that the *maximizing player* wishes to make positive and the *minimizing player* wishes to make negative.
 
-We will focus on maximizing (or minimizing) expected value as our goal for all of Course 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.
+We will focus on maximizing (or minimizing) expected value as our goal for all of session 1. One thing that makes it natural to care about expected value is that it’s usually the best way to predict what your score will be after a very large number of games, whether they are the same game or different from each other.
 
 ## Concept: Regret
 For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. 
@@ -151,6 +152,14 @@ However, we will use “regret” as a technical concept to mean how much worse 
 ![](assets/bugsfuddtree.png)
 :::
 
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+1. Both Fudd notes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn't know whether he's in the Opera or the Forest. 
+
+2. Both Bugs nodes are also a single information set because although Bugs knows that he's in the Forest, he doesn't know which action Fudd has taken. 
+
+:::
+
 :::{.callout-note  appearance="minimal"}
 ## Expected Value
 
@@ -165,6 +174,14 @@ Say that Fudd chooses to Hunt_Near (at the appropriate information set) with pro
 (Reminder: Bugs wants to avoid a “positive” score.)
 :::
 
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+1. $\mathbb{E}(\text{Play_Near}) = -3*p + 1*(1-p) = -4*p + 1$
+
+2.  $\mathbb{E}(\text{Play_Far}) = 0*p + -2*(1-p) = 2*p - 2$ 
+
+:::
+
 :::{.callout-note  appearance="minimal"}
 ## Expected Value 2
 
@@ -175,6 +192,14 @@ Say that Bugs chooses to Play_Near with probability $q$.
 1. What is Fudd’s expected value of choosing Hunt_Near at his infoset? 
 
 2. What is Fudd’s EV of choosing Hunt_Far at his infoset?
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+1. $\mathbb{E}(\text{Hunt_Near}) = 0.5*0 +0.5*[3*q + 0*(1-q)] = 1.5*q$
+
+2.  $\mathbb{E}(\text{Hunt_Far}) = 0.5*(-1) + 0.5*[-1*q + 2*(1-q)] = -0.5 - 0.5*q + 1 - q = 0.5 - 1.5*q$
+
 :::
 
 :::{.callout-note  appearance="minimal"}
@@ -191,4 +216,27 @@ Find a $p$ and a $q$ such that both:
 
 In order to have no regret, the expected value of both actions should be equal
 :::
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+
+1. For Bugs to never choose an action with regret, EV of Hunt_Near and EV of Hunt_Far should be equal. 
+
+$\mathbb{E}(\text{Hunt_Near}) = 1.5*q$
+
+$\mathbb{E}(\text{Hunt_Far}) = 0.5 - 1.5*q$
+
+Setting equal, we have $1.5*q = 0.5 - 1.5*q \Rightarrow 3*q = 0.5 \Rightarrow q = \frac{1}{6} = 0.167$
+
+2. For Fudd to never choose an action with regret, EV of Play_Near and EV of Play_Far should be equal. 
+
+$\mathbb{E}(\text{Play_Near}) = -4*p + 1$
+
+$\mathbb{E}(\text{Play_Far}) = 2*p - 2$
+
+Setting equal, we have $-4*p + 1 = 2*p - 2 \Rightarrow 3 = 6*p \Rightarrow p = \frac{1}{2} = 0.5$
+
+
+
 :::

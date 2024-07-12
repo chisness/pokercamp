@@ -8,6 +8,9 @@ format:
 ## Kuhn Poker
 Kuhn Poker is the most simple version of poker.
 
+1. Uncertainty about which node we are actually in, given that we know that we’re in one of multiple nodes that we can’t tell apart. The probabilities of being in node 1, node 2, … of an information set can be calculated by the probabilities of decisions upwards in the game tree (and the probabilites of chance events that have already happened).
+2. Uncertainty about what will happen after we go to a node downwards in the game tree, coming from chance events or strategy probabilities in the players’ following actions.
+
 ![](assets/kuhn.png)
 
 - 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
