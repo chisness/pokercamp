@@ -41,7 +41,7 @@ If it were a complete-information game, the tree structure would be as follows w
 
 ![](assets/bugsfuddtree.png)
 
-If Fudd knows he’s at the Opera, then he prefers to Hunt Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
+If Fudd knows he’s at the Opera, then he prefers to Hunt_Near, but since he doesn’t know his location, he must take both scenarios into account. Note that Bugs’s optimal actions depend on Fudd’s Opera action even though that outcome cannot be reached once Bugs is playing! 
 
 ## Concept: Information Set
 In a complete-information game, we can draw a tree of the possible states the game can be in. Every time a player is called to take an action, they will know what node they are at, and what node they will go to with each legal action.
@@ -156,9 +156,9 @@ However, we will use “regret” as a technical concept to mean how much worse 
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
-1. Both Fudd notes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn't know whether he's in the Opera or the Forest. 
+1. Both Fudd nodes are a single information set because when Fudd is making the Hunt_Near or Hunt_Far decision, he doesn't know whether he's in the Opera or the Forest, so his information is the same in both nodes. 
 
-2. Both Bugs nodes are also a single information set because although Bugs knows that he's in the Forest, he doesn't know which action Fudd has taken. 
+2. Both Bugs nodes are also a single information set because although Bugs knows that he's in the Forest, he doesn't know which action Fudd has taken, so his information is the same in both nodes. 
 
 :::
 
@@ -178,9 +178,9 @@ Say that Fudd chooses to Hunt_Near (at the appropriate information set) with pro
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
-1. $\mathbb{E}(\text{Play_Near}) = -3*p + 1*(1-p) = -4*p + 1$
+1. $\mathbb{E}(\text{Play\_Near}) = -3*p + 1*(1-p) = -4*p + 1$
 
-2.  $\mathbb{E}(\text{Play_Far}) = 0*p + -2*(1-p) = 2*p - 2$ 
+2.  $\mathbb{E}(\text{Play\_Far}) = 0*p + -2*(1-p) = 2*p - 2$ 
 
 :::
 
@@ -198,9 +198,9 @@ Say that Bugs chooses to Play_Near with probability $q$.
 
 :::{.callout-warning collapse="true"  appearance="minimal"}
 ## Solution
-1. $\mathbb{E}(\text{Hunt_Near}) = 0.5*0 +0.5*[3*q + 0*(1-q)] = 1.5*q$
+1. $\mathbb{E}(\text{Hunt\_Near}) = 0.5*0 +0.5*[3*q + 0*(1-q)] = 1.5*q$
 
-2.  $\mathbb{E}(\text{Hunt_Far}) = 0.5*(-1) + 0.5*[-1*q + 2*(1-q)] = -0.5 - 0.5*q + 1 - q = 0.5 - 1.5*q$
+2.  $\mathbb{E}(\text{Hunt\_Far}) = 0.5*(-1) + 0.5*[-1*q + 2*(1-q)] = -0.5 - 0.5*q + 1 - q = 0.5 - 1.5*q$
 
 :::
 
@@ -225,28 +225,28 @@ In order to have no regret, the expected value of both actions should be equal
 
 1. For Bugs to never choose an action with regret, EV of Play_Near and EV of Play_Far should be equal.
 
-$\mathbb{E}(\text{Play_Near}) = -4*p + 1$
+$\mathbb{E}(\text{Play\_Near}) = -4*p + 1$
 
-$\mathbb{E}(\text{Play_Far}) = 2*p - 2$
+$\mathbb{E}(\text{Play\_Far}) = 2*p - 2$
 
 Setting equal, we have $-4*p + 1 = 2*p - 2 \Rightarrow 3 = 6*p \Rightarrow p = \frac{1}{2} = 0.5$
 
-$\Pr(\text{Fudd Hunt_Near}) = p = 0.5$
+$\Pr(\text{Fudd Hunt\_Near}) = p = 0.5$
 
-$\Pr(\text{Fudd Hunt_Far}) = 1 - p = 0.5$
+$\Pr(\text{Fudd Hunt\_Far}) = 1 - p = 0.5$
 
 
 2. For Fudd to never choose an action with regret, EV of Hunt_Near and EV of Hunt_Far should be equal. 
 
-$\mathbb{E}(\text{Hunt_Near}) = 1.5*q$
+$\mathbb{E}(\text{Hunt\_Near}) = 1.5*q$
 
-$\mathbb{E}(\text{Hunt_Far}) = 0.5 - 1.5*q$
+$\mathbb{E}(\text{Hunt\_Far}) = 0.5 - 1.5*q$
 
 Setting equal, we have $1.5*q = 0.5 - 1.5*q \Rightarrow 3*q = 0.5 \Rightarrow q = \frac{1}{6} = 0.167$
 
-$\Pr(\text{Bugs Play_Near}) = q = 0.167$
+$\Pr(\text{Bugs Play\_Near}) = q = 0.167$
 
-$\Pr(\text{Bugs Play_Far}) = 1 - q = 0.833$
+$\Pr(\text{Bugs Play\_Far}) = 1 - q = 0.833$
 
 Notice that each player is inducing the other player to have no regret (to be indifferent to both actions) by playing actions at these probabilities, which then result in an equilibrium as shown below:  
 
