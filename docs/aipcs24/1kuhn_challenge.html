@@ -855,7 +855,6 @@ add pause button to solver
 </ul>
 </em>
 <p></p>
-<script src="index.js"></script>
 <script>
   /* global create_tree */
   create_tree("tree_visualization_075", 0.75);
@@ -942,14 +941,6 @@ add pause button to solver
 <p>Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)</p>
 <p>Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.</p>
 <p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.</p>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof createSubtreeVisualization === 'function') {
-    // You'll need to pass the correct parameters here
-    createSubtreeVisualization(root, "KQ↓↑", "KA↓↑", "K_↓↑", true);
-  }
-});
-</script>
 
 
 

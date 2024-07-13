@@ -518,14 +518,14 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
         .attr("fill", "currentColor")
         .attr("class", d => d.data.name)
         .text(d => d.data.name);
-     
-     if (d.data.children.length) {
-       if (d.data.children[0].length === 0) {
+    
+    if (d.data.children.length) {
+      if (d.data.children[0].length === 0) {
           displayEV(node, d.data.name);
-       } else {
-         displayWeight(node, d.data.name, label);
-       }
-     }
+      } else {
+        displayWeight(node, d.data.name, label);
+      }
+    }
 
       // Append payoff labels with colored circles
       if (d.data.payoff !== undefined) {
@@ -598,13 +598,13 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
         .attr("class", d => d.data.name)
         .text(d => d.data.name);
 
-     if (d.data.children.length) {
-       if (d.data.children[0].length === 0) {
+    if (d.data.children.length) {
+      if (d.data.children[0].length === 0) {
           displayEV(node, d.data.name);
-       } else {
-         displayWeight(node, d.data.name, label);
-       }
-     }
+      } else {
+        displayWeight(node, d.data.name, label);
+      }
+    }
 
       // Append payoff labels with colored circles
       if (d.data.payoff !== undefined) {

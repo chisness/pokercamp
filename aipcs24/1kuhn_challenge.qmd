@@ -256,8 +256,6 @@ But in an imperfect-information game, changing an uptree strategy parameter can 
       <li><del>add pause button to solver</del></li>
     </ul></em></p>
     
-    
-<script src="index.js"></script>
 <script>
   /* global create_tree */
   create_tree("tree_visualization_075", 0.75);
@@ -272,7 +270,6 @@ But in an imperfect-information game, changing an uptree strategy parameter can 
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
 </script>
-
 
 ## OLD STUFF! 
 Visit the [interactive Kuhn site](https://static.rossry.net/sketches/poker/kuhn3/). The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom. 
@@ -348,13 +345,3 @@ Parts 1 and 2 will each generate and submit a bot that plays with your chosen pr
 Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
 
 After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof createSubtreeVisualization === 'function') {
-    // You'll need to pass the correct parameters here
-    createSubtreeVisualization(root, "KQ↓↑", "KA↓↑", "K_↓↑", true);
-  }
-});
-</script>
