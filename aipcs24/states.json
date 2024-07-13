@@ -1,0 +1,212 @@
+{
+  "AQ": {
+    "infoSet": "A_",
+    "up": "AQ↑",
+    "down": "AQ↓"
+  },
+  "AK": {
+    "infoSet": "A_",
+    "up": "AK↑",
+    "down": "AK↓"
+  },
+  "KQ": {
+    "infoSet": "K_",
+    "up": "KQ↑",
+    "down": "KQ↓"
+  },
+  "KA": {
+    "infoSet": "K_",
+    "up": "KA↑",
+    "down": "KA↓"
+  },
+  "QK": {
+    "infoSet": "Q_",
+    "up": "QK↑",
+    "down": "QK↓"
+  },
+  "QA": {
+    "infoSet": "Q_",
+    "up": "QA↑",
+    "down": "QA↓"
+  },
+  "QK↓": {
+    "infoSet": "_K↓",
+    "up": "QK↓↑",
+    "down": "QK↓↓"
+  },
+  "AK↓": {
+    "infoSet": "_K↓",
+    "up": "AK↓↑",
+    "down": "AK↓↓"
+  },
+  "QK↑": {
+    "infoSet": "_K↑",
+    "up": "QK↑↑",
+    "down": "QK↑↓"
+  },
+  "AK↑": {
+    "infoSet": "_K↑",
+    "up": "AK↑↑",
+    "down": "AK↑↓"
+  },
+  "QA↓": {
+    "infoSet": "_A↓",
+    "up": "QA↓↑",
+    "down": "QA↓↓"
+  },
+  "KA↓": {
+    "infoSet": "_A↓",
+    "up": "KA↓↑",
+    "down": "KA↓↓"
+  },
+  "QA↑": {
+    "infoSet": "_A↑",
+    "up": "QA↑↑",
+    "down": "QA↑↓"
+  },
+  "KA↑": {
+    "infoSet": "_A↑",
+    "up": "KA↑↑",
+    "down": "KA↑↓"
+  },
+  "KA↑↑": {
+    "payoff": -2
+  },
+  "QK↑↑": {
+    "payoff": -2
+  },
+  "QA↑↑": {
+    "payoff": -2
+  },
+  "AQ↑": {
+    "infoSet": "_Q↑",
+    "up": "AQ↑↑",
+    "down": "AQ↑↓"
+  },
+  "AQ↓": {
+    "infoSet": "_Q↓",
+    "up": "AQ↓↑",
+    "down": "AQ↓↓"
+  },
+  "KQ↑": {
+    "infoSet": "_Q↑",
+    "up": "KQ↑↑",
+    "down": "KQ↑↓"
+  },
+  "KQ↓": {
+    "infoSet": "_Q↓",
+    "up": "KQ↓↑",
+    "down": "KQ↓↓"
+  },
+  "KQ↓↓": {
+    "payoff": 1
+  },
+  "KQ↑↑": {
+    "payoff": 2
+  },
+  "KQ↑↓": {
+    "payoff": 1
+  },
+  "AQ↓↓": {
+    "payoff": 1
+  },
+  "AQ↑↑": {
+    "payoff": 2
+  },
+  "AQ↑↓": {
+    "payoff": 1
+  },
+  "QK↑↓": {
+    "payoff": 1
+  },
+  "AK↑↓": {
+    "payoff": 1
+  },
+  "AK↑↑": {
+    "payoff": 2
+  },
+  "QA↑↓": {
+    "payoff": 1
+  },
+  "KA↑↓": {
+    "payoff": 1
+  },
+  "QK↓↓": {
+    "payoff": -1
+  },
+  "AK↓↓": {
+    "payoff": 1
+  },
+  "QA↓↓": {
+    "payoff": -1
+  },
+  "KA↓↓": {
+    "payoff": -1
+  },
+  "AK↓↑": {
+    "infoSet": "A_↓↑",
+    "up": "AK↓↑↑",
+    "down": "AK↓↑↓"
+  },
+  "AK↓↑↓": {
+    "payoff": -1
+  },
+  "AK↓↑↑": {
+    "payoff": 2
+  },
+  "AQ↓↑": {
+    "infoSet": "A_↓↑",
+    "up": "AQ↓↑↑",
+    "down": "AQ↓↑↓"
+  },
+  "AQ↓↑↓": {
+    "payoff": -1
+  },
+  "AQ↓↑↑": {
+    "payoff": 2
+  },
+  "KQ↓↑": {
+    "infoSet": "K_↓↑",
+    "up": "KQ↓↑↑",
+    "down": "KQ↓↑↓"
+  },
+  "KQ↓↑↓": {
+    "payoff": -1
+  },
+  "KQ↓↑↑": {
+    "payoff": 2
+  },
+  "KA↓↑": {
+    "infoSet": "K_↓↑",
+    "up": "KA↓↑↑",
+    "down": "KA↓↑↓"
+  },
+  "KA↓↑↓": {
+    "payoff": -1
+  },
+  "KA↓↑↑": {
+    "payoff": -2
+  },
+  "QA↓↑": {
+    "infoSet": "Q_↓↑",
+    "up": "QA↓↑↑",
+    "down": "QA↓↑↓"
+  },
+  "QA↓↑↓": {
+    "payoff": -1
+  },
+  "QA↓↑↑": {
+    "payoff": -2
+  },
+  "QK↓↑": {
+    "infoSet": "Q_↓↑",
+    "up": "QK↓↑↑",
+    "down": "QK↓↑↓"
+  },
+  "QK↓↑↓": {
+    "payoff": -1
+  },
+  "QK↓↑↑": {
+    "payoff": -2
+  }
+}
