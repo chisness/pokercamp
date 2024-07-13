@@ -74,8 +74,8 @@ List of all possible betting sequences:
 
 - Think about which situations are automatic and which are not
 
-## Interactive Site
-We'll represent Kuhn poker in terms of a visual game tree. This will become infeasible for more-complicated games, but here it will let us visualize what is going on.
+## Kuhn Game Tree
+We'll represent Kuhn Poker in terms of a visual game tree. This will become infeasible for more-complicated games, but here it will let us visualize what is going on.
 
 First, deal a card to <span class="player p1"></span> and to <span class="player p2"></span>. Each possible deal of the cards forms a separate game node; for example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>: 
 
@@ -130,8 +130,11 @@ If <span class="player p1"></span> still has to act, he'll be in one of just thr
 
 Each player's strategy can be completely described in terms of their action probabilities at each infoset—six of them total. For example, let's consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>:
 
-::: {.duplicate_K_↓↑}
-:::
+<div id="duplicate_container">
+
+<div class="duplicate_K_↓↑"></div>
+
+</div>
 
 When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.
 If both players play randomly (50% <span class=action>↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>), for an expected value of <span class="player_label p1">0</span>. Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset.
@@ -172,10 +175,26 @@ document.addEventListener("DOMContentLoaded", function() {
   create_tree("tree_visualization_350", 3.5);
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
+  populateDuplicates();
 });
 
 function unlock_next() {
   document.getElementById("unlock_next").style.display = "";
+}
+
+function populateDuplicates() {
+  const container = document.getElementById('duplicate_container');
+  if (!container) return;
+  
+  const duplicates = container.getElementsByClassName('duplicate_K_↓↑');
+  for (let duplicate of duplicates) {
+    createSubtreeVisualization(root, 'KQ↓↑', 'KA↓↑', 'K_↓↑', true);
+  }
+  
+  const duplicatesQ = container.getElementsByClassName('duplicate__Q↓');
+  for (let duplicate of duplicatesQ) {
+    createSubtreeVisualization(root, 'KQ↓', 'AQ↓', '_Q↓', false);
+  }
 }
 </script>
 

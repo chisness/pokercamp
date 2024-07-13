@@ -456,7 +456,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#get-started-with-kuhn" id="toc-get-started-with-kuhn" class="nav-link" data-scroll-target="#get-started-with-kuhn">Get Started with Kuhn</a></li>
   </ul></li>
-  <li><a href="#interactive-site" id="toc-interactive-site" class="nav-link" data-scroll-target="#interactive-site">Interactive Site</a>
+  <li><a href="#kuhn-game-tree" id="toc-kuhn-game-tree" class="nav-link" data-scroll-target="#kuhn-game-tree">Kuhn Game Tree</a>
   <ul class="collapse">
   <li><a href="#interactive-site-kuhn-tree" id="toc-interactive-site-kuhn-tree" class="nav-link" data-scroll-target="#interactive-site-kuhn-tree">Interactive Site Kuhn Tree</a></li>
   <li><a href="#interactive-site-node-strategies" id="toc-interactive-site-node-strategies" class="nav-link" data-scroll-target="#interactive-site-node-strategies">Interactive Site Node Strategies</a></li>
@@ -620,9 +620,9 @@ Poker Terms for Actions
 </ul>
 </section>
 </section>
-<section id="interactive-site" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-site">Interactive Site</h2>
-<p>We’ll represent Kuhn poker in terms of a visual game tree. This will become infeasible for more-complicated games, but here it will let us visualize what is going on.</p>
+<section id="kuhn-game-tree" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-game-tree">Kuhn Game Tree</h2>
+<p>We’ll represent Kuhn Poker in terms of a visual game tree. This will become infeasible for more-complicated games, but here it will let us visualize what is going on.</p>
 <p>First, deal a card to <span class="player p1"></span> and to <span class="player p2"></span>. Each possible deal of the cards forms a separate game node; for example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>:</p>
 <div id="tree_visualization_075">
 
@@ -664,8 +664,10 @@ Poker Terms for Actions
 
 </div>
 <p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset—six of them total. For example, let’s consider <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>:</p>
-<div class="{.duplicate_K_↓↑}">
+<div id="duplicate_container">
+<div class="duplicate_K_↓↑">
 
+</div>
 </div>
 <p>When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA_↓↑</span> or <span class="gamenode">KQ_↓↑</span>. Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states. If both players play randomly (50% <span class="action">↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>. In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span>) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>), for an expected value of <span class="player_label p1">0</span>. Similarly, his expected payoff for <span class="action">↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class="gamenode">KA↓↑↓</span> and <span class="gamenode">KQ↓↑↓</span>, though in this case they’re both <span class="player_label p1">-1</span> and the EV doesn’t depend on the composition weights of the infoset. With these expected values, <span class="player p1"></span>’s “best response” at this infoset (holding everything else about both strategies constant) is to play <span class="action">↑Up</span> 100% of the time. Exercise: How much should <span class="player p1"></span>’s expected value from the whole game (a random deal) to increase if he moves from playing <span class="action">↑Up</span> at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you’ve figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer. But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> versus <span class="gamenode">KQ↓↑</span> aren’t equal? If the players don’t play 50-50 randomly, then we’ll have to calculate the probability of reaching <span class="gamenode">KA↓↑</span> (including the probability of the initial <span class="gamenode">KA</span> deal) and the probability of reaching <span class="gamenode">KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the reach-state probabilities. [note: in larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically] We can see this in our next example. Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span>. When <span class="player p1"></span> played <span class="infoset p1">K_↓↑</span> randomly, <span class="player p2"></span> would get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>) for playing <span class="action">↓Down</span> and <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>) for playing <span class="action">↑Up</span>. <span class="player p2"></span>’s <span class="card">Q</span> is always has the worst hand, but if <span class="player p1"></span> plays <span class="action">↓Down</span> [the poker term would be that he “folds”] often enough, then <span class="player p2"></span> will win <span class="player_label p2">+1</span>s often enough to come out ahead regardless. But if <span class="player p1"></span> always plays <span class="action">↑Up</span> at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>’s payoff for playing <span class="action">↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than playing <span class="action">↓Down</span>, and so he should play <span class="action">↓Down</span> instead of <span class="action">↑Up</span>.</p>
 <p>::: {.duplicate_K_↓↑ style=“display:inline-block”} :::</p>
@@ -690,10 +692,26 @@ document.addEventListener("DOMContentLoaded", function() {
   create_tree("tree_visualization_350", 3.5);
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
+  populateDuplicates();
 });
 
 function unlock_next() {
   document.getElementById("unlock_next").style.display = "";
+}
+
+function populateDuplicates() {
+  const container = document.getElementById('duplicate_container');
+  if (!container) return;
+  
+  const duplicates = container.getElementsByClassName('duplicate_K_↓↑');
+  for (let duplicate of duplicates) {
+    createSubtreeVisualization(root, 'KQ↓↑', 'KA↓↑', 'K_↓↑', true);
+  }
+  
+  const duplicatesQ = container.getElementsByClassName('duplicate__Q↓');
+  for (let duplicate of duplicatesQ) {
+    createSubtreeVisualization(root, 'KQ↓', 'AQ↓', '_Q↓', false);
+  }
 }
 </script>
 <hr>
