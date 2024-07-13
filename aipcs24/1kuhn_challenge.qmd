@@ -6,16 +6,78 @@ format:
     math: true
     css: styles.css
 ---
-```{=html}
+
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="index.js"></script>
-```
+
 ## UNDER CONSTRUCTION! 
 
-This is a staging / draft page for material which will ultimately live in the AIPCS24 handout for Lesson 1.
-Todo: Should there be an introductory explanation of Kuhn poker that goes here first?
+## Kuhn Poker
+Kuhn Poker is the most simple version of poker. Here is the setup: 
+
+- 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Alternative Decks 
+
+  - Any deck of 3 ranked cards works
+
+  - This could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}
+:::
+
+- 2 players
+
+- Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip
+
+- Deal 1 card to each player (discard the third)
+
+![](assets/kuhn.png)
+
+- There is one betting round in which players can take these actions: 
+
+  - Up ↑ (putting a chip into the pot) 
+  
+  - Down ↓ (not putting a chip into the pot) 
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Poker Terms for Actions 
+
+  - Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr>
+
+  - Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr>
+:::
+
+Example betting round: 
+
+- ![](assets/p1l.png) Player 1: Up ↑ (1 chip into pot)
+
+- ![](assets/p2w.png) Player 2: Up ↑ (1 chip into pot)
+
+- High Card wins +2 (+1 from the ante, +1 from the ↑ bet)
+
+- If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
+
+List of all possible betting sequences: 
+
+| ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
+|------------|-----------|-----------|----------|
+| Up ↑        | Down ↓      |          |![](assets/p1l.png) Player 1 (+1) |
+| Up ↑        | Up ↑        |          |High Card Player (+2)|
+| Down ↓     | Down ↓      |          |High Card Player (+1)|
+| Down ↓      | Up ↑        | Down ↓     |![](assets/p2w.png) Player 2 (+1) |
+| Down ↓      | Up ↑        | Up ↑       |High Card Player (+2)|
+
+### Get Started with Kuhn 
+- Play a few hands
+
+- Get used to the game setup
+
+- Think about which situations are automatic and which are not
+
+## Interactive Site
 We'll represent Kuhn poker in terms of a visual game tree. This will become infeasible for more-complicated games, but here it will let us visualize what is going on.
-First, deal a card to <span class="player p1"></span> and to <span class="player p2"></span>. Each possible deal of the cards forms a separate game node; for example, <span class=gamenode>AK</span> means that <span class="player p1"></span> has <span class=card>A</span> and <span class="player p2"></span> has <span class=card>K</span>:
+
+First, deal a card to <span class="player p1"></span> and to <span class="player p2"></span>. Each possible deal of the cards forms a separate game node; for example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>: 
 
 ::: {#tree_visualization_075}
 :::
@@ -39,6 +101,7 @@ Next, <span class="player p2"></span> will act. He can observe his card and <spa
 
 ::: {#tree_visualization_200}
 :::
+
 
 At each of these infosets, <span class="player p2"></span> can choose <span class=action>↑Up</span> or <span class=action>↓Down</span>:
 
@@ -116,69 +179,11 @@ function unlock_next() {
 }
 </script>
 
-## Kuhn Poker
-Kuhn Poker is the most simple version of poker. Here is the setup: 
 
-- 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
 
-:::{.callout-tip collapse="true"  appearance="minimal"}
-## Alternative Decks 
 
-  - Any deck of 3 ranked cards works
 
-  - This could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}
-:::
-
-- 2 players
-
-- Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip
-
-- Deal 1 card to each player (discard the third)
-
-![](assets/kuhn.png)
-
-- There is one betting round in which players can take these actions: 
-
-  - Up ↑ (putting a chip into the pot) 
-  
-  - Down ↓ (not putting a chip into the pot) 
-
-:::{.callout-tip collapse="true"  appearance="minimal"}
-## Poker Terms for Actions 
-
-  - Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr>
-
-  - Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr>
-:::
-
-Example betting round: 
-
-- ![](assets/p1l.png) Player 1: Up ↑ (1 chip into pot)
-
-- ![](assets/p2w.png) Player 2: Up ↑ (1 chip into pot)
-
-- High Card wins +2 (+1 from the ante, +1 from the ↑ bet)
-
-- If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
-
-List of all possible betting sequences: 
-
-| ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
-|------------|-----------|-----------|----------|
-| Up ↑        | Down ↓      |          |![](assets/p1l.png) Player 1 (+1) |
-| Up ↑        | Up ↑        |          |High Card Player (+2)|
-| Down ↓     | Down ↓      |          |High Card Player (+1)|
-| Down ↓      | Up ↑        | Down ↓     |![](assets/p2w.png) Player 2 (+1) |
-| Down ↓      | Up ↑        | Up ↑       |High Card Player (+2)|
-
-### Get Started with Kuhn 
-- Play a few hands
-
-- Get used to the game setup
-
-- Think about which situations are automatic and which are not
-
-## Interactive Site
+---------
 Visit the [interactive Kuhn site](https://static.rossry.net/sketches/poker/kuhn3/). The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom. 
 
 ### Interactive Site Kuhn Tree
