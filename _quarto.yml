@@ -6,8 +6,7 @@ project:
 
 website:
   title: "Poker Camp"
-  page-footer: 
-    left: "© 2024 pokercamp.org. All rights reserved."
+  page-footer: "© 2024 pokercamp.org. All rights reserved."
   open-graph: true
   google-analytics: "G-1R1JQVQ05N"
   favicon: ./assets/favicon32.png
