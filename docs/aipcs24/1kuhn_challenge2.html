@@ -453,6 +453,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#part-2-automatic-strategies" id="toc-part-2-automatic-strategies" class="nav-link active" data-scroll-target="#part-2-automatic-strategies">Part 2: Automatic Strategies</a></li>
+  <li><a href="#challenge-1-submissions" id="toc-challenge-1-submissions" class="nav-link" data-scroll-target="#challenge-1-submissions">Challenge 1 Submissions</a></li>
   </ul>
 </nav>
     </div>
@@ -482,6 +483,109 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="part-2-automatic-strategies">Part 2: Automatic Strategies</h3>
 <p><a href="../aipcs24/1kuhn_challenge.html">Back to Part 1</a></p>
 <p>Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.</p>
+<div id="tree_visualization_400b">
+
+</div>
+<div style="display:none">
+<div style="display: inline-block; margin: 1em;">
+<pre><code>  &lt;button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()"&gt;Run Solver&lt;/button&gt;</code></pre>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<pre><code>  &lt;label for="update_mode" style="margin-right: 0.5em;"&gt;Update mode:&lt;/label&gt;
+  &lt;select id="update_mode" style="padding: 0.2em;"&gt;
+      &lt;option value="1.0" selected="selected"&gt;100% CFR&lt;/option&gt;
+      &lt;option value="0.1"&gt;10% CFR&lt;/option&gt;
+      &lt;option value="0.01"&gt;1% CFR&lt;/option&gt;
+      &lt;option value="0.001"&gt;0.1% CFR&lt;/option&gt;
+      &lt;option value="0.0001"&gt;0.0001% CFR&lt;/option&gt;
+      &lt;option value="0.00001"&gt;0.00001% CFR&lt;/option&gt;
+  &lt;/select&gt;</code></pre>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<pre><code>&lt;label for="num_iterations" style="margin-right: 0.5em;"&gt;Iterations:&lt;/label&gt;
+&lt;select id="num_iterations" style="padding: 0.2em;"&gt;
+    &lt;option value="1" selected="selected"&gt;1&lt;/option&gt;
+    &lt;option value="10"&gt;10&lt;/option&gt;
+    &lt;option value="100"&gt;100&lt;/option&gt;
+    &lt;option value="1000"&gt;1,000&lt;/option&gt;
+    &lt;option value="10000"&gt;10,000&lt;/option&gt;
+    &lt;option value="100000"&gt;100,000&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<pre><code>&lt;label for="wait_per_step" style="margin-right: 0.5em;"&gt;Speed:&lt;/label&gt;
+&lt;select id="wait_per_step" style="padding: 0.2em;"&gt;
+    &lt;option value="0" selected="selected"&gt;Max&lt;/option&gt;
+    &lt;option value="10"&gt;Fast&lt;/option&gt;
+    &lt;option value="100"&gt;10/sec&lt;/option&gt;
+    &lt;option value="1000"&gt;1/sec&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<pre><code>&lt;label for="tolerance" style="margin-right: 0.5em;"&gt;Tolerance:&lt;/label&gt;
+&lt;select id="tolerance" style="padding: 0.2em;"&gt;
+    &lt;option value="0.01"&gt;0.01&lt;/option&gt;
+    &lt;option value="0.03"&gt;0.03&lt;/option&gt;
+    &lt;option value="0.1" selected="selected"&gt;0.1&lt;/option&gt;
+    &lt;option value="0.3"&gt;0.3&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+</div>
+<div id="subtree_visualization" style="max-width: 960px;">
+
+</div>
+<em><strong style="color:red">Todo (solver stage):</strong>
+<ul>
+<li>
+split off auto-solver page
+</li>
+<li>
+add update modes to auto-solver
+</li>
+<li>
+add “unlock” to auto-solver
+</li>
+<li>
+add leaderboard
+</li>
+<li>
+add “submit” button
+</li>
+<li>
+receive submissions on backend
+</li>
+<li>
+auto-run tournaments (on submission?)
+</li>
+<li>
+set up instructor bot submissions
+</li>
+<li>
+<del>
+add pause button to solver
+</del>
+</li>
+</ul>
+</em>
+<p></p>
+<section id="do-we-really-need-mixed-strategies" class="level4">
+<h4 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h4>
+<p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
+<p>Follow these steps:</p>
+<ol type="1">
+<li>Reset</li>
+<li>Set the learning rate to 1.0.</li>
+<li>In any order you like, pick cells and update them.</li>
+<li>Repeat 3 while there are still suboptimal moves in your strategy.</li>
+</ol>
+<p>A bad thing is happening to you. Why?</p>
+</section>
+</section>
+<section id="challenge-1-submissions" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1-submissions">Challenge 1 Submissions</h2>
+<p>Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)</p>
+<p>Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.</p>
+<p>After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.</p>
 <script>
   function unlock_next() {
     document.getElementById("unlock_next").style.display = "";
@@ -581,8 +685,8 @@ add pause button to solver
 </ul>
 </em>
 <p></p>
-<section id="do-we-really-need-mixed-strategies" class="level4">
-<h4 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies">Do we really need mixed strategies?</h4>
+<section id="do-we-really-need-mixed-strategies-1" class="level4">
+<h4 class="anchored" data-anchor-id="do-we-really-need-mixed-strategies-1">Do we really need mixed strategies?</h4>
 <p>You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.</p>
 <p>Follow these steps:</p>
 <ol type="1">

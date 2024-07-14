@@ -197,11 +197,6 @@ Try to find a pair of no-regret full strategies in the boxes below for <span cla
 Hint: There are some "automatic" infoset strategies such that it only makes sense to play 100% of one action in the game. 
 
 When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below. 
-
-### Part 2: Automatic Strategies
-Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
-
-[Enter Part 2](1kuhn_challenge2.qmd)
  
 <script>
   function unlock_next() {
@@ -217,7 +212,7 @@ Now you can update the strategies by selecting different algorithmic methods, it
 </div>
     
 <div id="tree_visualization_400b"></div>
-
+<!-- 
 <div style="display:none">
   <div style="display: inline-block; margin: 1em;">
       <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
@@ -234,7 +229,7 @@ Now you can update the strategies by selecting different algorithmic methods, it
       </select>
   </div>
 
-<div style="display: inline-block; margin: 1em;">
+<!-- <div style="display: inline-block; margin: 1em;">
     <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
     <select id="num_iterations" style="padding: 0.2em;">
         <option value="1" selected="selected">1</option>
@@ -266,40 +261,14 @@ Now you can update the strategies by selecting different algorithmic methods, it
     </select>
 </div>
 
-</div>
+</div> -->
     
 <div id="subtree_visualization" style="max-width: 960px;"></div>
-    
-<em><strong style="color:red">Todo (solver stage):</strong> <ul>
-      <li>split off auto-solver page</li>
-      <li>add update modes to auto-solver</li>
-      <li>add "unlock" to auto-solver</li>
-      <li>add leaderboard</li>
-      <li>add "submit" button</li>
-      <li>receive submissions on backend</li>
-      <li>auto-run tournaments (on submission?)</li>
-      <li>set up instructor bot submissions</li>
-      <li><del>add pause button to solver</del></li>
-    </ul></em></p>
 
-#### Do we really need mixed strategies?
+### Part 2: Automatic Strategies
+Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
 
-You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
-
-Follow these steps:
-
-1. Reset
-2. Set the learning rate to 1.0.
-3. In any order you like, pick cells and update them.
-4. Repeat 3 while there are still suboptimal moves in your strategy.
-
-A bad thing is happening to you. Why?
-## Challenge 1 Submissions
-Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
-
-Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
-
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
+[Enter Part 2](1kuhn_challenge2.qmd)
 
 <script src="index.js"></script>
 <script>
