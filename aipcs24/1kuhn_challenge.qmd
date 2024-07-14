@@ -86,7 +86,7 @@ First, deal a card to <span class="player p1"></span> and to <span class="player
     
 <div id="tree_visualization_100"></div>
     
-At each infoset, <span class="player p1"></span> can choose <span class=action>↑Up</span> or <span class=action>↓Down</span>. Note that for example <span class=action>↑Up</span> from a certain infoset will take the same action probability for *both nodes*, so <span class="p1 infoset">A_↑</span> will take the same probability in <span class="p1 infoset">AK↑</span> and <span class="p1 infoset">AQ↑</span>.
+At each infoset, <span class="player p1"></span> can choose <span class=action>↑Up</span> or <span class=action>↓Down</span>. Note that for example <span class=action>↑Up</span> from a certain infoset will take the same action probability for *both nodes*, so <span class="p1 infoset">A_↑</span> will take the same probability in <span class="p1 infoset">AK↑</span> and <span class="p1 infoset">AQ↑</span> since they are indistinguishable to <span class="player p1"></span>.
 
 <div id="tree_visualization_150"></div>
 
@@ -94,7 +94,7 @@ Each <span class=action>↑Up</span> or <span class=action>↓Down</span> action
 
 <div id="tree_visualization_175"></div>
 
-Next, <span class="player p2"></span> will act. He can observe his card and <span class="player p1"></span>'s first action, but not <span class="player p1"></span>'s card. <span class="player p2"></span>'s 6 infosets are identified by IDs like <span class="p2 infoset">_K↓</span> and <span class="p2 infoset">_Q↑</span> after his card and previous actions, in this case <span class="player p1"></span>'s first action:
+Next, <span class="player p2"></span> will act. He can observe his card and <span class="player p1"></span>'s first action, but not <span class="player p1"></span>'s card. <span class="player p2"></span>'s 6 infosets are identified by IDs like <span class="p2 infoset">_K↓</span> and <span class="p2 infoset">_Q↑</span> based on his card and previous actions. In this case the previous actions are <span class="player p1"></span>'s first action.
     
 <div id="tree_visualization_200"></div>
     
@@ -186,7 +186,7 @@ Now try to find a pair of no-regret full strategies for <span class="player p1">
 </script>
     
 <button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
-      
+
 <div id="unlock_next" style="display:none">
   <p><a href=https://www.youtube.com/watch?v=dQw4w9WgXcQ>Here</a> is the link to the next stage.</p>
 </div>

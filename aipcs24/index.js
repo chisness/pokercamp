@@ -3,27 +3,303 @@
 
 var infoSets, states;
 
-function loadJSON(file) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', file, false);  // false makes the request synchronous
-    xhr.send(null);
-    if (xhr.status === 200) {
-        return JSON.parse(xhr.responseText);
-    } else {
-        throw new Error('Failed to load ' + file);
-    }
+infoSets = {
+  "A_": {
+    "percentage": 50,
+    "states": ["AQ", "AK"],
+    "inverse": false
+  },
+  "K_": {
+    "percentage": 50,
+    "states": ["KQ", "KA"],
+    "inverse": false
+  },
+  "Q_": {
+    "percentage": 50,
+    "states": ["QK", "QA"],
+    "inverse": false
+  },
+  "_K↓": {
+    "percentage": 50,
+    "states": ["QK↓", "AK↓"],
+    "inverse": true
+  },
+  "_K↑": {
+    "percentage": 50,
+    "states": ["QK↑", "AK↑"],
+    "inverse": true
+  },
+  "_Q↓": {
+    "percentage": 50,
+    "states": ["KQ↓", "AQ↓"],
+    "inverse": true
+  },
+  "_Q↑": {
+    "percentage": 50,
+    "states": ["KQ↑", "AQ↑"],
+    "inverse": true
+  },
+  "_A↓": {
+    "percentage": 50,
+    "states": ["QA↓", "KA↓"],
+    "inverse": true
+  },
+  "_A↑": {
+    "percentage": 50,
+    "states": ["QA↑", "KA↑"],
+    "inverse": true
+  },
+  "Q_↓↑": {
+    "percentage": 50,
+    "states": ["QK↓↑", "QA↓↑"],
+    "inverse": false
+  },
+  "A_↓↑": {
+    "percentage": 50,
+    "states": ["AQ↓↑", "AK↓↑"],
+    "inverse": false
+  },
+  "K_↓↑": {
+    "percentage": 50,
+    "states": ["KQ↓↑", "KA↓↑"],
+    "inverse": false
+  }
 }
 
-try {
-    infoSets = loadJSON('infosets.json');
-    states = loadJSON('states.json');
-    
-    // Your main code that uses infoSets and states can now follow here
-    console.log(infoSets);
-    console.log(states);
-} catch (error) {
-    console.error('Error loading JSON:', error);
+states = {
+  "AQ": {
+    "infoSet": "A_",
+    "up": "AQ↑",
+    "down": "AQ↓"
+  },
+  "AK": {
+    "infoSet": "A_",
+    "up": "AK↑",
+    "down": "AK↓"
+  },
+  "KQ": {
+    "infoSet": "K_",
+    "up": "KQ↑",
+    "down": "KQ↓"
+  },
+  "KA": {
+    "infoSet": "K_",
+    "up": "KA↑",
+    "down": "KA↓"
+  },
+  "QK": {
+    "infoSet": "Q_",
+    "up": "QK↑",
+    "down": "QK↓"
+  },
+  "QA": {
+    "infoSet": "Q_",
+    "up": "QA↑",
+    "down": "QA↓"
+  },
+  "QK↓": {
+    "infoSet": "_K↓",
+    "up": "QK↓↑",
+    "down": "QK↓↓"
+  },
+  "AK↓": {
+    "infoSet": "_K↓",
+    "up": "AK↓↑",
+    "down": "AK↓↓"
+  },
+  "QK↑": {
+    "infoSet": "_K↑",
+    "up": "QK↑↑",
+    "down": "QK↑↓"
+  },
+  "AK↑": {
+    "infoSet": "_K↑",
+    "up": "AK↑↑",
+    "down": "AK↑↓"
+  },
+  "QA↓": {
+    "infoSet": "_A↓",
+    "up": "QA↓↑",
+    "down": "QA↓↓"
+  },
+  "KA↓": {
+    "infoSet": "_A↓",
+    "up": "KA↓↑",
+    "down": "KA↓↓"
+  },
+  "QA↑": {
+    "infoSet": "_A↑",
+    "up": "QA↑↑",
+    "down": "QA↑↓"
+  },
+  "KA↑": {
+    "infoSet": "_A↑",
+    "up": "KA↑↑",
+    "down": "KA↑↓"
+  },
+  "KA↑↑": {
+    "payoff": -2
+  },
+  "QK↑↑": {
+    "payoff": -2
+  },
+  "QA↑↑": {
+    "payoff": -2
+  },
+  "AQ↑": {
+    "infoSet": "_Q↑",
+    "up": "AQ↑↑",
+    "down": "AQ↑↓"
+  },
+  "AQ↓": {
+    "infoSet": "_Q↓",
+    "up": "AQ↓↑",
+    "down": "AQ↓↓"
+  },
+  "KQ↑": {
+    "infoSet": "_Q↑",
+    "up": "KQ↑↑",
+    "down": "KQ↑↓"
+  },
+  "KQ↓": {
+    "infoSet": "_Q↓",
+    "up": "KQ↓↑",
+    "down": "KQ↓↓"
+  },
+  "KQ↓↓": {
+    "payoff": 1
+  },
+  "KQ↑↑": {
+    "payoff": 2
+  },
+  "KQ↑↓": {
+    "payoff": 1
+  },
+  "AQ↓↓": {
+    "payoff": 1
+  },
+  "AQ↑↑": {
+    "payoff": 2
+  },
+  "AQ↑↓": {
+    "payoff": 1
+  },
+  "QK↑↓": {
+    "payoff": 1
+  },
+  "AK↑↓": {
+    "payoff": 1
+  },
+  "AK↑↑": {
+    "payoff": 2
+  },
+  "QA↑↓": {
+    "payoff": 1
+  },
+  "KA↑↓": {
+    "payoff": 1
+  },
+  "QK↓↓": {
+    "payoff": -1
+  },
+  "AK↓↓": {
+    "payoff": 1
+  },
+  "QA↓↓": {
+    "payoff": -1
+  },
+  "KA↓↓": {
+    "payoff": -1
+  },
+  "AK↓↑": {
+    "infoSet": "A_↓↑",
+    "up": "AK↓↑↑",
+    "down": "AK↓↑↓"
+  },
+  "AK↓↑↓": {
+    "payoff": -1
+  },
+  "AK↓↑↑": {
+    "payoff": 2
+  },
+  "AQ↓↑": {
+    "infoSet": "A_↓↑",
+    "up": "AQ↓↑↑",
+    "down": "AQ↓↑↓"
+  },
+  "AQ↓↑↓": {
+    "payoff": -1
+  },
+  "AQ↓↑↑": {
+    "payoff": 2
+  },
+  "KQ↓↑": {
+    "infoSet": "K_↓↑",
+    "up": "KQ↓↑↑",
+    "down": "KQ↓↑↓"
+  },
+  "KQ↓↑↓": {
+    "payoff": -1
+  },
+  "KQ↓↑↑": {
+    "payoff": 2
+  },
+  "KA↓↑": {
+    "infoSet": "K_↓↑",
+    "up": "KA↓↑↑",
+    "down": "KA↓↑↓"
+  },
+  "KA↓↑↓": {
+    "payoff": -1
+  },
+  "KA↓↑↑": {
+    "payoff": -2
+  },
+  "QA↓↑": {
+    "infoSet": "Q_↓↑",
+    "up": "QA↓↑↑",
+    "down": "QA↓↑↓"
+  },
+  "QA↓↑↓": {
+    "payoff": -1
+  },
+  "QA↓↑↑": {
+    "payoff": -2
+  },
+  "QK↓↑": {
+    "infoSet": "Q_↓↑",
+    "up": "QK↓↑↑",
+    "down": "QK↓↑↓"
+  },
+  "QK↓↑↓": {
+    "payoff": -1
+  },
+  "QK↓↑↑": {
+    "payoff": -2
+  }
 }
+
+// function loadJSON(file) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', file, false);  // false makes the request synchronous
+//     xhr.send(null);
+//     if (xhr.status === 200) {
+//         return JSON.parse(xhr.responseText);
+//     } else {
+//         throw new Error('Failed to load ' + file);
+//     }
+// }
+
+// try {
+//     infoSets = loadJSON('infosets.json');
+//     states = loadJSON('states.json');
+    
+//     // Your main code that uses infoSets and states can now follow here
+//     console.log(infoSets);
+//     console.log(states);
+// } catch (error) {
+//     console.error('Error loading JSON:', error);
+// }
 
 const evLabel = (ev) => {
   return ev ? (ev<0?"":"+") + Number(ev.toFixed(2)) : "0";
