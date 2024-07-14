@@ -13,23 +13,26 @@ format:
 
 Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
 
+```{html}
 <div id="tree_visualization_400b"></div>
 
 <div style="display:none">
-  <div style="display: inline-block; margin: 1em;">
-      <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
-  </div>
-  <div style="display: inline-block; margin: 1em;">
-      <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
-      <select id="update_mode" style="padding: 0.2em;">
-          <option value="1.0" selected="selected">100% CFR</option>
-          <option value="0.1">10% CFR</option>
-          <option value="0.01">1% CFR</option>
-          <option value="0.001">0.1% CFR</option>
-          <option value="0.0001">0.0001% CFR</option>
-          <option value="0.00001">0.00001% CFR</option>
-      </select>
-  </div>
+
+<div style="display: inline-block; margin: 1em;">
+    <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
+</div>
+
+<div style="display: inline-block; margin: 1em;">
+    <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
+    <select id="update_mode" style="padding: 0.2em;">
+        <option value="1.0" selected="selected">100% CFR</option>
+        <option value="0.1">10% CFR</option>
+        <option value="0.01">1% CFR</option>
+        <option value="0.001">0.1% CFR</option>
+        <option value="0.0001">0.0001% CFR</option>
+        <option value="0.00001">0.00001% CFR</option>
+    </select>
+</div>
 
 <div style="display: inline-block; margin: 1em;">
     <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
@@ -54,13 +57,13 @@ Now you can update the strategies by selecting different algorithmic methods, it
 </div>
       
 <div style="display: inline-block; margin: 1em;">
-    <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
-    <select id="tolerance" style="padding: 0.2em;">
-        <option value="0.01">0.01</option>
-        <option value="0.03">0.03</option>
-        <option value="0.1" selected="selected">0.1</option>
-        <option value="0.3">0.3</option>
-    </select>
+  <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
+  <select id="tolerance" style="padding: 0.2em;">
+      <option value="0.01">0.01</option>
+      <option value="0.03">0.03</option>
+      <option value="0.1" selected="selected">0.1</option>
+      <option value="0.3">0.3</option>
+  </select>
 </div>
 
 </div>
