@@ -461,8 +461,6 @@ window.Quarto = {
   <li><a href="#kuhn-strategies" id="toc-kuhn-strategies" class="nav-link" data-scroll-target="#kuhn-strategies">Kuhn Strategies</a></li>
   <li><a href="#old-stuff" id="toc-old-stuff" class="nav-link" data-scroll-target="#old-stuff">OLD STUFF!</a>
   <ul class="collapse">
-  <li><a href="#interactive-site-kuhn-tree" id="toc-interactive-site-kuhn-tree" class="nav-link" data-scroll-target="#interactive-site-kuhn-tree">Interactive Site Kuhn Tree</a></li>
-  <li><a href="#interactive-site-node-strategies" id="toc-interactive-site-node-strategies" class="nav-link" data-scroll-target="#interactive-site-node-strategies">Interactive Site Node Strategies</a></li>
   <li><a href="#play" id="toc-play" class="nav-link" data-scroll-target="#play">Play</a></li>
   </ul></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
@@ -656,7 +654,7 @@ Poker Terms for Actions
 </div>
 <p>If the actions were <span class="action">↓↑</span>, then <span class="player p1"></span> will have to act again (equivalent to acting after a Check and Bet). Otherwise, the game is now over (with a payoff determined by the cards and the action sequence).</p>
 <p>We write the payoffs from <span class="player p1"></span>’s perspective, and remember that <span class="player p2"></span>’s payoffs will be the inverse.</p>
-<p>You can refer to the sequence table above to recall the 5 sequences of betting, which end either in one player folding (after <span class="action">↑</span> and <span class="action">↓</span> actions) or two <span class="action">↑</span> (Bet and Call) or <span class="action">↓</span> (Check and Check) actions, meaning the high card wins at the <em>showdown</em>.</p>
+<p>You can refer to the sequence table above to recall the 5 sequences of betting, which end either in one player folding (after <span class="action">↑</span> and <span class="action">↓</span> actions) or high card winning at <em>showdown</em>, which results from either two <span class="action">↑</span> (Bet and Call) or <span class="action">↓</span> (Check and Check) actions.</p>
 <div id="tree_visualization_275">
 
 </div>
@@ -668,24 +666,24 @@ Poker Terms for Actions
 <div id="tree_visualization_350">
 
 </div>
-<p>…but whatever he chooses, the game will end after that move:</p>
+<p>…but whatever he chooses, the game will end after that move. We now have the entire game tree for Kuhn Poker:</p>
 <div id="tree_visualization_400a">
 
 </div>
 </section>
 <section id="kuhn-strategies" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-strategies">Kuhn Strategies</h2>
-<p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset—6 of them total per player.</p>
+<p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset—6 of them per player.</p>
 For example, let’s consider <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>:
 <p></p>
 <p>When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA_↓↑</span> or <span class="gamenode">KQ_↓↑</span>. This is what that setting looks like in the game from <span class="player p1"></span>’s perspective:</p>
 <p><img src="assets/k_down_up.png" class="img-fluid"></p>
 <p>Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.</p>
+<p>If both players play randomly (50% <span class="action">↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>.</p>
 <div class="duplicate_K_↓↑">
 
 </div>
-<p>If both players play randomly (50% <span class="action">↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>.</p>
-<p>In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class="gamenode">K</span>when opponent has <span class="gamenode">A</span>) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span>when opponent has <span class="gamenode">Q</span>), for an expected value of <span class="player_label p1">0</span>.</p>
+<p>In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">A</span>) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">Q</span>), for an expected value of <span class="player_label p1">0</span>.</p>
 <p>Similarly, his expected payoff for <span class="action">↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class="gamenode">KA↓↑↓</span> and <span class="gamenode">KQ↓↑↓</span>, though in this case they’re both <span class="player_label p1">-1</span> and the EV doesn’t depend on the composition weights of the infoset (since this is equivalent to always folding).</p>
 <p>With these expected values, <span class="player p1"></span>’s “best response” at this infoset (holding everything else about both strategies constant) is to play <span class="action">↑Up</span> 100% of the time.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -698,7 +696,7 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How much should <span class="player p1"></span>’s expected value from the whole game (a random deal) increase if he moves from playing <span class="action">↑Up</span> (i.e.&nbsp;always calling the bet) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you’ve figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.</p>
+<p>How much should <span class="player p1"></span>’s expected value from the whole game (a random deal) increase if he moves from playing <span class="action">↑Up</span> (i.e.&nbsp;always calling the Bet) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you’ve figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.</p>
 </div>
 </div>
 <p>But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> versus <span class="gamenode">KQ↓↑</span> aren’t equal? If the players don’t play 50-50 randomly, then we’ll have to calculate the probability of reaching <span class="gamenode">KA↓↑</span> (including the probability of the initial <span class="gamenode">KA</span> deal) and the probability of reaching <span class="gamenode">KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the the probabilities of reaching these states. We can see this in our next example. <em>(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)</em></p>
@@ -859,20 +857,8 @@ add pause button to solver
 </section>
 <section id="old-stuff" class="level2">
 <h2 class="anchored" data-anchor-id="old-stuff">OLD STUFF!</h2>
-<p>Visit the <a href="https://static.rossry.net/sketches/poker/kuhn3/">interactive Kuhn site</a>. The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom.</p>
-<section id="interactive-site-kuhn-tree" class="level3">
-<h3 class="anchored" data-anchor-id="interactive-site-kuhn-tree">Interactive Site Kuhn Tree</h3>
-<p>Recall that an information set is a set of nodes that contain the same information for the corresponding player. For example, a <img src="assets/p1l.png" class="img-fluid"> P1 K_ node indicates that <img src="assets/p1l.png" class="img-fluid"> P1 has card K and no other actions have occurred (if actions had occurred they would be shown in the infoset as ↑ or ↓).</p>
-<p>This information set represents both the node where <img src="assets/p1l.png" class="img-fluid"> P1 has K and <img src="assets/p2w.png" class="img-fluid"> P2 has A and the node where <img src="assets/p1l.png" class="img-fluid"> P1 has K and <img src="assets/p2w.png" class="img-fluid"> P2 has Q, but since <img src="assets/p1l.png" class="img-fluid"> P1 cannot distinguish between these, they are grouped into one information set.</p>
-<p>TODO: Screenshots and explain</p>
-</section>
-<section id="interactive-site-node-strategies" class="level3">
-<h3 class="anchored" data-anchor-id="interactive-site-node-strategies">Interactive Site Node Strategies</h3>
-<p>TODO: Screenshots and explain</p>
-</section>
 <section id="play" class="level3">
 <h3 class="anchored" data-anchor-id="play">Play</h3>
-<p>Spend a few minutes playing with the strategy probabilities to see how they affect the rest of the tree.</p>
 <p>Recall the two types of uncertainty:</p>
 <ol type="1">
 <li><p>About which node we are actually in, which depends on probabilities upwards in the game tree</p></li>

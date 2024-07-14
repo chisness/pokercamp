@@ -112,7 +112,7 @@ If the actions were <span class=action>↓↑</span>, then <span class="player p
 
 We write the payoffs from <span class="player p1"></span>'s perspective, and remember that <span class="player p2"></span>'s payoffs will be the inverse. 
 
-You can refer to the sequence table above to recall the 5 sequences of betting, which end either in one player folding (after <span class=action>↑</span> and <span class=action>↓</span> actions) or two <span class=action>↑</span> (Bet and Call) or <span class=action>↓</span> (Check and Check) actions, meaning the high card wins at the *showdown*. 
+You can refer to the sequence table above to recall the 5 sequences of betting, which end either in one player folding (after <span class=action>↑</span> and <span class=action>↓</span> actions) or high card winning at *showdown*, which results from either two <span class=action>↑</span> (Bet and Call) or <span class=action>↓</span> (Check and Check) actions. 
 
 <div id="tree_visualization_275"></div>
 
@@ -124,13 +124,13 @@ You can refer to the sequence table above to recall the 5 sequences of betting, 
     
 <div id="tree_visualization_350"></div>
     
-...but whatever he chooses, the game will end after that move:
+...but whatever he chooses, the game will end after that move. We now have the entire game tree for Kuhn Poker: 
     
 <div id="tree_visualization_400a"></div>
 
 ## Kuhn Strategies
     
-Each player's strategy can be completely described in terms of their action probabilities at each infoset&mdash;6 of them total per player.
+Each player's strategy can be completely described in terms of their action probabilities at each infoset&mdash;6 of them per player.
 
 For example, let's consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>:</p>
 
@@ -140,11 +140,11 @@ When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</sp
 
 Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.
 
-<div class="duplicate_K_↓↑"></div>
-
 If both players play randomly (50% <span class=action>↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. 
 
-In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class=gamenode>K</span>when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span>when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
+<div class="duplicate_K_↓↑"></div>
+
+In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since this is equivalent to always folding).
 
@@ -153,7 +153,7 @@ With these expected values, <span class="player p1"></span>'s "best response" at
 :::{.callout-note  appearance="minimal"}
 ## Exercise
 
-How much should <span class="player p1"></span>'s expected value from the whole game (a random deal) increase if he moves from playing <span class=action>↑Up</span> (i.e. always calling the bet) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you've figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.
+How much should <span class="player p1"></span>'s expected value from the whole game (a random deal) increase if he moves from playing <span class=action>↑Up</span> (i.e. always calling the Bet) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you've figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.
 :::
       
 But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players don't play 50-50 randomly, then we'll have to calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the the probabilities of reaching these states. We can see this in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
@@ -288,21 +288,8 @@ Now try to find a pair of no-regret full strategies for <span class="player p1">
 ```
 
 ## OLD STUFF! 
-Visit the [interactive Kuhn site](https://static.rossry.net/sketches/poker/kuhn3/). The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom. 
-
-### Interactive Site Kuhn Tree
-Recall that an information set is a set of nodes that contain the same information for the corresponding player. For example, a ![](assets/p1l.png) P1 K_ node indicates that ![](assets/p1l.png) P1 has card K and no other actions have occurred (if actions had occurred they would be shown in the infoset as ↑ or ↓). 
-
-This information set represents both the node where ![](assets/p1l.png) P1 has K and ![](assets/p2w.png) P2 has A and the node where ![](assets/p1l.png) P1 has K and ![](assets/p2w.png) P2 has Q, but since ![](assets/p1l.png) P1 cannot distinguish between these, they are grouped into one information set. 
-
-TODO: Screenshots and explain
-
-### Interactive Site Node Strategies
-TODO: Screenshots and explain
 
 ### Play
-Spend a few minutes playing with the strategy probabilities to see how they affect the rest of the tree.
-
 Recall the two types of uncertainty: 
 
 1. About which node we are actually in, which depends on probabilities upwards in the game tree
