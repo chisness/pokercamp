@@ -5,3 +5,188 @@ format:
   html:
     math: true
 ---
+
+### Simulator
+
+<div id="bandit-container">
+  <table id="bandit-table">
+    <thead>
+      <tr>
+        <th>Arm</th>
+        <th>Average Reward</th>
+        <th>Pulls</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="arms-container">
+    </tbody>
+  </table>
+  <div id="stats-container"></div>
+  <button id="reset-button">Reset</button>
+</div>
+<!-- <div id="debug-output"></div> -->
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  // const debug = (message) => {
+  //   document.getElementById('debug-output').innerHTML += message + '<br>';
+  // };
+
+  // debug('Script started');
+
+  const armsContainer = document.getElementById('arms-container');
+  const statsContainer = document.getElementById('stats-container');
+  const resetButton = document.getElementById('reset-button');
+
+  function gaussianRandom(mean = 0, stdev = 1) {
+    let u = 0, v = 0;
+    while(u === 0) u = Math.random();
+    while(v === 0) v = Math.random();
+    let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+    return num * stdev + mean;
+  }
+
+  function createBandit(numArms) {
+    return {
+      arms: Array.from({length: numArms}, (_, i) => ({
+        id: i + 1,
+        q: gaussianRandom(0, 1),
+        pulls: 0,
+        totalReward: 0,
+        averageReward: 0
+      })),
+      totalPulls: 0,
+      totalReward: 0
+    };
+  }
+
+  let bandit = createBandit(10);
+
+  function pullArm(armId, times = 1) {
+    const arm = bandit.arms[armId - 1];
+    let totalReward = 0;
+    const actualPulls = Math.min(times, 1000 - bandit.totalPulls);
+    for (let i = 0; i < actualPulls; i++) {
+      const reward = gaussianRandom(arm.q, 1);
+      arm.pulls++;
+      arm.totalReward += reward;
+      totalReward += reward;
+      bandit.totalPulls++;
+      bandit.totalReward += reward;
+    }
+    arm.averageReward = arm.totalReward / arm.pulls;
+    return totalReward;
+  }
+
+  function updateStats() {
+    statsContainer.innerHTML = `
+      <p>Total Pulls: ${bandit.totalPulls}</p>
+      <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
+      <p>Average Reward per Pull: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
+    `;
+  }
+
+  function createArmRows() {
+    armsContainer.innerHTML = '';
+    bandit.arms.forEach(arm => {
+      const row = document.createElement('tr');
+      
+      const armIdCell = document.createElement('td');
+      armIdCell.textContent = `Arm ${arm.id}`;
+      
+      const avgRewardCell = document.createElement('td');
+      avgRewardCell.id = `arm-avg-${arm.id}`;
+      avgRewardCell.textContent = arm.averageReward.toFixed(2);
+      
+      const pullsCell = document.createElement('td');
+      pullsCell.id = `arm-pulls-${arm.id}`;
+      pullsCell.textContent = arm.pulls;
+      
+      const actionsCell = document.createElement('td');
+      ['1', '10', '100', 'Max'].forEach(pullAmount => {
+        const button = document.createElement('button');
+        button.textContent = pullAmount;
+        button.onclick = () => {
+          const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
+          const reward = pullArm(arm.id, pulls);
+          updateStats();
+          createArmRows();
+          // debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
+        };
+        actionsCell.appendChild(button);
+      });
+      
+      row.appendChild(armIdCell);
+      row.appendChild(avgRewardCell);
+      row.appendChild(pullsCell);
+      row.appendChild(actionsCell);
+      
+      armsContainer.appendChild(row);
+    });
+    // debug('Arm rows updated');
+  }
+
+  function resetBandit() {
+    bandit = createBandit(10);
+    updateStats();
+    createArmRows();
+    // debug('Bandit reset');
+  }
+
+  resetButton.onclick = resetBandit;
+
+  createArmRows();
+  updateStats();
+  // debug('Initial setup complete');
+});
+</script>
+
+<style>
+#bandit-container {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#bandit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#bandit-table th, #bandit-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#bandit-table th {
+  background-color: #f2f2f2;
+}
+
+#bandit-table button {
+  margin-right: 5px;
+}
+
+#stats-container {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#reset-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* #debug-output {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+} */
+</style>

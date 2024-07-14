@@ -8,9 +8,6 @@ format:
     header-includes: |
       <script src="https://d3js.org/d3.v7.min.js"></script>
 ---
-
-## UNDER CONSTRUCTION! 
-
 ## Kuhn Poker
 Kuhn Poker is the most simple version of poker. Here is the setup: 
 
@@ -199,7 +196,7 @@ Try to find a pair of no-regret full strategies in the boxes below for <span cla
 
 Hint: There are some "automatic" infoset strategies such that it only makes sense to play 100% of one action in the game. 
 
-When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear next. 
+When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below. 
 
 ### Part 2: Automatic Strategies
 Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
