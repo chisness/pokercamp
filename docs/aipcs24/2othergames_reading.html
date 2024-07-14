@@ -450,9 +450,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#under-construction" id="toc-under-construction" class="nav-link active" data-scroll-target="#under-construction">UNDER CONSTRUCTION!</a></li>
-  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link" data-scroll-target="#types-of-games">Types of Games</a></li>
-  <li><a href="#intro-to-reinforcement-learning-rl" id="toc-intro-to-reinforcement-learning-rl" class="nav-link" data-scroll-target="#intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</a></li>
+  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link active" data-scroll-target="#types-of-games">Types of Games</a></li>
+  <li><a href="#reinforcement-learning-rl" id="toc-reinforcement-learning-rl" class="nav-link" data-scroll-target="#reinforcement-learning-rl">Reinforcement Learning (RL)</a></li>
   <li><a href="#war" id="toc-war" class="nav-link" data-scroll-target="#war">War</a></li>
   <li><a href="#tictactoe" id="toc-tictactoe" class="nav-link" data-scroll-target="#tictactoe">Tictactoe</a>
   <ul class="collapse">
@@ -471,7 +470,6 @@ window.Quarto = {
   <li><a href="#rl-monte-carlo-methods" id="toc-rl-monte-carlo-methods" class="nav-link" data-scroll-target="#rl-monte-carlo-methods">RL: Monte Carlo Methods</a></li>
   </ul></li>
   <li><a href="#poker-games" id="toc-poker-games" class="nav-link" data-scroll-target="#poker-games">Poker Games</a></li>
-  <li><a href="#optional-agent-submissions" id="toc-optional-agent-submissions" class="nav-link" data-scroll-target="#optional-agent-submissions">Optional: Agent Submissions</a></li>
   </ul>
 </nav>
     </div>
@@ -497,11 +495,22 @@ window.Quarto = {
 </header>
 
 
-<section id="under-construction" class="level2">
-<h2 class="anchored" data-anchor-id="under-construction">UNDER CONSTRUCTION!</h2>
-</section>
 <section id="types-of-games" class="level2">
 <h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
+<p>This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits into this table.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fill in the table below with games you know about:</p>
+</div>
+</div>
 <table class="table">
 <colgroup>
 <col style="width: 38%">
@@ -539,7 +548,7 @@ window.Quarto = {
 </tbody>
 </table>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -548,7 +557,7 @@ Pre-Filled Table
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="table">
 <colgroup>
@@ -589,14 +598,26 @@ Pre-Filled Table
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What makes poker and other games in the bottom right of the table interesting?</p>
+</div>
+</div>
 <p>What about solitaire? With Blackjack? What about a lottery? Mahjong?</p>
 <p>(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)</p>
-<p>What makes the bottom right of the table interesting?</p>
 </section>
-<section id="intro-to-reinforcement-learning-rl" class="level2">
-<h2 class="anchored" data-anchor-id="intro-to-reinforcement-learning-rl">Intro to Reinforcement Learning (RL)</h2>
+<section id="reinforcement-learning-rl" class="level2">
+<h2 class="anchored" data-anchor-id="reinforcement-learning-rl">Reinforcement Learning (RL)</h2>
 <p>The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.</p>
-<p>Policy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL</p>
+<p>Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL</p>
 </section>
 <section id="war" class="level2">
 <h2 class="anchored" data-anchor-id="war">War</h2>
@@ -623,7 +644,7 @@ Optional Coding Exercise
 <p><img src="assets/backprop.png" class="img-fluid"></p>
 <p>Evolutionary algorithms for poker and tic-tac-toe</p>
 <p>Exercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.</p>
-<p>Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper</p>
+<p>Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem from paper</p>
 <section id="minimax" class="level3">
 <h3 class="anchored" data-anchor-id="minimax">Minimax</h3>
 <p>https://www.neverstopbuilding.com/blog/minimax</p>
@@ -683,13 +704,8 @@ Exercise
 </section>
 <section id="poker-games" class="level2">
 <h2 class="anchored" data-anchor-id="poker-games">Poker Games</h2>
-<p>Why are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative.</p>
-</section>
-<section id="optional-agent-submissions" class="level2">
-<h2 class="anchored" data-anchor-id="optional-agent-submissions">Optional: Agent Submissions</h2>
-<p>Tictactoe</p>
-<p>Blackjack</p>
-<p>How to submit?</p>
+<p>Why are we mostly interested in poker games? We think that</p>
+<p>imperfect adversarial widely played well researched, but only nash equilibrium</p>
 
 
 

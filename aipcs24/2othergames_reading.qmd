@@ -5,9 +5,14 @@ format:
   html:
     math: true
 ---
-## UNDER CONSTRUCTION! 
-
 ## Types of Games
+This course is primarily about poker and poker-adjacent games, but let's take a step back and look at different classes of games and where poker fits into this table. 
+
+:::{.callout-note  appearance="minimal"}
+## Exercise
+Fill in the table below with games you know about: 
+
+:::
 
 | Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
 |------------|-----------|--------|
@@ -28,19 +33,24 @@ format:
 
 :::
 
+:::{.callout-note  appearance="minimal"}
+## Exercise
+What makes poker and other games in the bottom right of the table interesting? 
+
+:::
+
+
 What about solitaire? With Blackjack?
 What about a lottery? 
 Mahjong?
 
 (Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)
 
-What makes the bottom right of the table interesting?
 
-
-## Intro to Reinforcement Learning (RL)
+## Reinforcement Learning (RL)
 The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.
 
-Policy, reward signal, value function, model of environment
+
 Agent, environment interface RL book chapter 3 stuff
 Tabular environment stuff
 TD/SARSA/Q-LEARNING, relation to CFR
@@ -71,7 +81,7 @@ Exercise: Look at this game tree with payouts at the bottom written in terms of 
 
 Question: Why can’t we use this procedure in Kuhn Poker and imperfect info games? 
 Tree imperfect info vs perfect info issues, show trees
-Compare this to the Wabbits game and problem sfrom paper 
+Compare this to the Wabbits game and problem from paper 
 
 ### Minimax
 https://www.neverstopbuilding.com/blog/minimax
@@ -147,11 +157,9 @@ My blog post
 ### RL: Monte Carlo Methods
 
 ## Poker Games
-Why are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative. 
+Why are we mostly interested in poker games? We think that 
 
-## Optional: Agent Submissions
-Tictactoe
-
-Blackjack
-
-How to submit?
+imperfect
+adversarial
+widely played
+well researched, but only nash equilibrium

@@ -5,8 +5,16 @@ format:
   html:
     math: true
 ---
+## Types of Games
 
-### Simulator
+| Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
+|------------|-----------|--------|
+| Imperfect Info, No Player Agency/Decisions      |           |
+| Perfect Info, Player Actions Always Perfect Info     |  |
+| Imperfect Info, Imperfect from Randomness     |   |
+| Imperfect Info, Imperfect from Randomness AND Game States    |   |
+
+## Simulator
 
 <div id="bandit-container">
   <table id="bandit-table">

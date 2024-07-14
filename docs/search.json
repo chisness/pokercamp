@@ -14,11 +14,11 @@
     "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 15 to Aug 15 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
-    "objectID": "aipcs24/2othergames_reading.html#types-of-games",
-    "href": "aipcs24/2othergames_reading.html#types-of-games",
+    "objectID": "aipcs24/2othergames_reading.html",
+    "href": "aipcs24/2othergames_reading.html",
     "title": "Other Games (2): Reading",
-    "section": "Types of Games",
-    "text": "Types of Games\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong?\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)\nWhat makes the bottom right of the table interesting?",
+    "section": "",
+    "text": "This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits into this table.\n\n\n\n\n\n\nExercise\n\n\n\nFill in the table below with games you know about:\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nWhat makes poker and other games in the bottom right of the table interesting?\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong?\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -27,11 +27,24 @@
     ]
   },
   {
-    "objectID": "aipcs24/2othergames_reading.html#intro-to-reinforcement-learning-rl",
-    "href": "aipcs24/2othergames_reading.html#intro-to-reinforcement-learning-rl",
+    "objectID": "aipcs24/2othergames_reading.html#types-of-games",
+    "href": "aipcs24/2othergames_reading.html#types-of-games",
     "title": "Other Games (2): Reading",
-    "section": "Intro to Reinforcement Learning (RL)",
-    "text": "Intro to Reinforcement Learning (RL)\nThe main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.\nPolicy, reward signal, value function, model of environment Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL",
+    "section": "",
+    "text": "This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits into this table.\n\n\n\n\n\n\nExercise\n\n\n\nFill in the table below with games you know about:\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nWhat makes poker and other games in the bottom right of the table interesting?\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong?\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games",
+      "Reading"
+    ]
+  },
+  {
+    "objectID": "aipcs24/2othergames_reading.html#reinforcement-learning-rl",
+    "href": "aipcs24/2othergames_reading.html#reinforcement-learning-rl",
+    "title": "Other Games (2): Reading",
+    "section": "Reinforcement Learning (RL)",
+    "text": "Reinforcement Learning (RL)\nThe main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.\nAgent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -57,7 +70,7 @@
     "href": "aipcs24/2othergames_reading.html#tictactoe",
     "title": "Other Games (2): Reading",
     "section": "Tictactoe",
-    "text": "Tictactoe\n\nEvolutionary algorithms for poker and tic-tac-toe\nExercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.\nQuestion: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem sfrom paper\n\nMinimax\nhttps://www.neverstopbuilding.com/blog/minimax\n\n\nValue Function\nMinimax assumes opponent playing best plays too temporal-difference\n\n\nRL: Planning\nMCTS decision-time planning\nRL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?",
+    "text": "Tictactoe\n\nEvolutionary algorithms for poker and tic-tac-toe\nExercise: Look at this game tree with payouts at the bottom written in terms of Player 1. Start from the bottom of the tree and figure out the actions of each player at each node. Then figure out the value of the game for Player 1 and for Player 2. This procedure is called backpropagation.\nQuestion: Why can’t we use this procedure in Kuhn Poker and imperfect info games? Tree imperfect info vs perfect info issues, show trees Compare this to the Wabbits game and problem from paper\n\nMinimax\nhttps://www.neverstopbuilding.com/blog/minimax\n\n\nValue Function\nMinimax assumes opponent playing best plays too temporal-difference\n\n\nRL: Planning\nMCTS decision-time planning\nRL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -96,20 +109,7 @@
     "href": "aipcs24/2othergames_reading.html#poker-games",
     "title": "Other Games (2): Reading",
     "section": "Poker Games",
-    "text": "Poker Games\nWhy are these the most interesting games? We will mostly focus on these going forward, sometimes GTO and sometimes exploitative.",
-    "crumbs": [
-      "Signup: AI Poker Camp Summer 2024",
-      "Challenges",
-      "2: Other Games",
-      "Reading"
-    ]
-  },
-  {
-    "objectID": "aipcs24/2othergames_reading.html#optional-agent-submissions",
-    "href": "aipcs24/2othergames_reading.html#optional-agent-submissions",
-    "title": "Other Games (2): Reading",
-    "section": "Optional: Agent Submissions",
-    "text": "Optional: Agent Submissions\nTictactoe\nBlackjack\nHow to submit?",
+    "text": "Poker Games\nWhy are we mostly interested in poker games? We think that\nimperfect adversarial widely played well researched, but only nash equilibrium",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -265,7 +265,7 @@
     "href": "aipcs24/1kuhn_challenge.html#challenge-1",
     "title": "Kuhn Poker (1): Challenge",
     "section": "Challenge 1",
-    "text": "Challenge 1\nThe goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players.\nBy adjusting strategies for both players, we can find an equilibrium and then\n\nPart 1: Manual Strategies\nTry to find a pair of no-regret full strategies in the boxes below for  and .\nHint: There are some “automatic” infoset strategies such that it only makes sense to play 100% of one action in the game.\nWhen you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below.\n\n\nPart 2: Automatic Strategies\nNow you can update the strategies by selecting different algorithmic methods, iterations, and speeds.\n\n\nCheat\n\n\n\nHere is the link to the next stage.\n\n\n\n\n\n\n\n  &lt;button id=\"start_simulator\" style=\"padding: 0.5em 1em;\" onclick=\"startSimulator()\"&gt;Run Solver&lt;/button&gt;\n\n\n  &lt;label for=\"update_mode\" style=\"margin-right: 0.5em;\"&gt;Update mode:&lt;/label&gt;\n  &lt;select id=\"update_mode\" style=\"padding: 0.2em;\"&gt;\n      &lt;option value=\"1.0\" selected=\"selected\"&gt;100% CFR&lt;/option&gt;\n      &lt;option value=\"0.1\"&gt;10% CFR&lt;/option&gt;\n      &lt;option value=\"0.01\"&gt;1% CFR&lt;/option&gt;\n      &lt;option value=\"0.001\"&gt;0.1% CFR&lt;/option&gt;\n      &lt;option value=\"0.0001\"&gt;0.0001% CFR&lt;/option&gt;\n      &lt;option value=\"0.00001\"&gt;0.00001% CFR&lt;/option&gt;\n  &lt;/select&gt;\n\n\n&lt;label for=\"num_iterations\" style=\"margin-right: 0.5em;\"&gt;Iterations:&lt;/label&gt;\n&lt;select id=\"num_iterations\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"1\" selected=\"selected\"&gt;1&lt;/option&gt;\n    &lt;option value=\"10\"&gt;10&lt;/option&gt;\n    &lt;option value=\"100\"&gt;100&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1,000&lt;/option&gt;\n    &lt;option value=\"10000\"&gt;10,000&lt;/option&gt;\n    &lt;option value=\"100000\"&gt;100,000&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"wait_per_step\" style=\"margin-right: 0.5em;\"&gt;Speed:&lt;/label&gt;\n&lt;select id=\"wait_per_step\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0\" selected=\"selected\"&gt;Max&lt;/option&gt;\n    &lt;option value=\"10\"&gt;Fast&lt;/option&gt;\n    &lt;option value=\"100\"&gt;10/sec&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1/sec&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"tolerance\" style=\"margin-right: 0.5em;\"&gt;Tolerance:&lt;/label&gt;\n&lt;select id=\"tolerance\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0.01\"&gt;0.01&lt;/option&gt;\n    &lt;option value=\"0.03\"&gt;0.03&lt;/option&gt;\n    &lt;option value=\"0.1\" selected=\"selected\"&gt;0.1&lt;/option&gt;\n    &lt;option value=\"0.3\"&gt;0.3&lt;/option&gt;\n&lt;/select&gt;\n\n\n\n\n\nTodo (solver stage):\n\n\nsplit off auto-solver page\n\n\nadd update modes to auto-solver\n\n\nadd “unlock” to auto-solver\n\n\nadd leaderboard\n\n\nadd “submit” button\n\n\nreceive submissions on backend\n\n\nauto-run tournaments (on submission?)\n\n\nset up instructor bot submissions\n\n\n\nadd pause button to solver\n\n\n\n\n\n\nDo we really need mixed strategies?\nYou can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.\nFollow these steps:\n\nReset\nSet the learning rate to 1.0.\nIn any order you like, pick cells and update them.\nRepeat 3 while there are still suboptimal moves in your strategy.\n\nA bad thing is happening to you. Why? ## Challenge 1 Submissions Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)\nYour submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.\nAfter a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.",
+    "text": "Challenge 1\nThe goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players.\nBy adjusting strategies for both players, we can find an equilibrium and then\n\nPart 1: Manual Strategies\nTry to find a pair of no-regret full strategies in the boxes below for  and .\nHint: There are some “automatic” infoset strategies such that it only makes sense to play 100% of one action in the game.\nWhen you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below.\n\n\nPart 2: Automatic Strategies\nNow you can update the strategies by selecting different algorithmic methods, iterations, and speeds.\nEnter Part 2\n\n\nCheat\n\n\n\nHere is the link to the next stage.\n\n\n\n\n\n\n\n  &lt;button id=\"start_simulator\" style=\"padding: 0.5em 1em;\" onclick=\"startSimulator()\"&gt;Run Solver&lt;/button&gt;\n\n\n  &lt;label for=\"update_mode\" style=\"margin-right: 0.5em;\"&gt;Update mode:&lt;/label&gt;\n  &lt;select id=\"update_mode\" style=\"padding: 0.2em;\"&gt;\n      &lt;option value=\"1.0\" selected=\"selected\"&gt;100% CFR&lt;/option&gt;\n      &lt;option value=\"0.1\"&gt;10% CFR&lt;/option&gt;\n      &lt;option value=\"0.01\"&gt;1% CFR&lt;/option&gt;\n      &lt;option value=\"0.001\"&gt;0.1% CFR&lt;/option&gt;\n      &lt;option value=\"0.0001\"&gt;0.0001% CFR&lt;/option&gt;\n      &lt;option value=\"0.00001\"&gt;0.00001% CFR&lt;/option&gt;\n  &lt;/select&gt;\n\n\n&lt;label for=\"num_iterations\" style=\"margin-right: 0.5em;\"&gt;Iterations:&lt;/label&gt;\n&lt;select id=\"num_iterations\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"1\" selected=\"selected\"&gt;1&lt;/option&gt;\n    &lt;option value=\"10\"&gt;10&lt;/option&gt;\n    &lt;option value=\"100\"&gt;100&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1,000&lt;/option&gt;\n    &lt;option value=\"10000\"&gt;10,000&lt;/option&gt;\n    &lt;option value=\"100000\"&gt;100,000&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"wait_per_step\" style=\"margin-right: 0.5em;\"&gt;Speed:&lt;/label&gt;\n&lt;select id=\"wait_per_step\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0\" selected=\"selected\"&gt;Max&lt;/option&gt;\n    &lt;option value=\"10\"&gt;Fast&lt;/option&gt;\n    &lt;option value=\"100\"&gt;10/sec&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1/sec&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"tolerance\" style=\"margin-right: 0.5em;\"&gt;Tolerance:&lt;/label&gt;\n&lt;select id=\"tolerance\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0.01\"&gt;0.01&lt;/option&gt;\n    &lt;option value=\"0.03\"&gt;0.03&lt;/option&gt;\n    &lt;option value=\"0.1\" selected=\"selected\"&gt;0.1&lt;/option&gt;\n    &lt;option value=\"0.3\"&gt;0.3&lt;/option&gt;\n&lt;/select&gt;\n\n\n\n\n\nTodo (solver stage):\n\n\nsplit off auto-solver page\n\n\nadd update modes to auto-solver\n\n\nadd “unlock” to auto-solver\n\n\nadd leaderboard\n\n\nadd “submit” button\n\n\nreceive submissions on backend\n\n\nauto-run tournaments (on submission?)\n\n\nset up instructor bot submissions\n\n\n\nadd pause button to solver\n\n\n\n\n\n\nDo we really need mixed strategies?\nYou can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.\nFollow these steps:\n\nReset\nSet the learning rate to 1.0.\nIn any order you like, pick cells and update them.\nRepeat 3 while there are still suboptimal moves in your strategy.\n\nA bad thing is happening to you. Why? ## Challenge 1 Submissions Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)\nYour submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.\nAfter a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",
       "Challenges",
@@ -356,6 +356,13 @@
     "text": "Something else?\nGet in touch!"
   },
   {
+    "objectID": "aipcs24/1kuhn_challenge2.html",
+    "href": "aipcs24/1kuhn_challenge2.html",
+    "title": "Kuhn Poker (1): Challenge",
+    "section": "",
+    "text": "Part 2: Automatic Strategies\nBack to Part 1\nNow you can update the strategies by selecting different algorithmic methods, iterations, and speeds.\n\n\nCheat\n\n\n\nHere is the link to the next stage.\n\n\n\n\n\n\n\n  &lt;button id=\"start_simulator\" style=\"padding: 0.5em 1em;\" onclick=\"startSimulator()\"&gt;Run Solver&lt;/button&gt;\n\n\n  &lt;label for=\"update_mode\" style=\"margin-right: 0.5em;\"&gt;Update mode:&lt;/label&gt;\n  &lt;select id=\"update_mode\" style=\"padding: 0.2em;\"&gt;\n      &lt;option value=\"1.0\" selected=\"selected\"&gt;100% CFR&lt;/option&gt;\n      &lt;option value=\"0.1\"&gt;10% CFR&lt;/option&gt;\n      &lt;option value=\"0.01\"&gt;1% CFR&lt;/option&gt;\n      &lt;option value=\"0.001\"&gt;0.1% CFR&lt;/option&gt;\n      &lt;option value=\"0.0001\"&gt;0.0001% CFR&lt;/option&gt;\n      &lt;option value=\"0.00001\"&gt;0.00001% CFR&lt;/option&gt;\n  &lt;/select&gt;\n\n\n&lt;label for=\"num_iterations\" style=\"margin-right: 0.5em;\"&gt;Iterations:&lt;/label&gt;\n&lt;select id=\"num_iterations\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"1\" selected=\"selected\"&gt;1&lt;/option&gt;\n    &lt;option value=\"10\"&gt;10&lt;/option&gt;\n    &lt;option value=\"100\"&gt;100&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1,000&lt;/option&gt;\n    &lt;option value=\"10000\"&gt;10,000&lt;/option&gt;\n    &lt;option value=\"100000\"&gt;100,000&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"wait_per_step\" style=\"margin-right: 0.5em;\"&gt;Speed:&lt;/label&gt;\n&lt;select id=\"wait_per_step\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0\" selected=\"selected\"&gt;Max&lt;/option&gt;\n    &lt;option value=\"10\"&gt;Fast&lt;/option&gt;\n    &lt;option value=\"100\"&gt;10/sec&lt;/option&gt;\n    &lt;option value=\"1000\"&gt;1/sec&lt;/option&gt;\n&lt;/select&gt;\n\n\n&lt;label for=\"tolerance\" style=\"margin-right: 0.5em;\"&gt;Tolerance:&lt;/label&gt;\n&lt;select id=\"tolerance\" style=\"padding: 0.2em;\"&gt;\n    &lt;option value=\"0.01\"&gt;0.01&lt;/option&gt;\n    &lt;option value=\"0.03\"&gt;0.03&lt;/option&gt;\n    &lt;option value=\"0.1\" selected=\"selected\"&gt;0.1&lt;/option&gt;\n    &lt;option value=\"0.3\"&gt;0.3&lt;/option&gt;\n&lt;/select&gt;\n\n\n\n\n\nTodo (solver stage):\n\n\nsplit off auto-solver page\n\n\nadd update modes to auto-solver\n\n\nadd “unlock” to auto-solver\n\n\nadd leaderboard\n\n\nadd “submit” button\n\n\nreceive submissions on backend\n\n\nauto-run tournaments (on submission?)\n\n\nset up instructor bot submissions\n\n\n\nadd pause button to solver\n\n\n\n\n\n\nDo we really need mixed strategies?\nYou can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.\nFollow these steps:\n\nReset\nSet the learning rate to 1.0.\nIn any order you like, pick cells and update them.\nRepeat 3 while there are still suboptimal moves in your strategy.\n\nA bad thing is happening to you. Why? ## Challenge 1 Submissions Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.)\nYour submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance.\nAfter a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs."
+  },
+  {
     "objectID": "aipcs24/1kuhn_challenge_review.html",
     "href": "aipcs24/1kuhn_challenge_review.html",
     "title": "Kuhn Poker (1): Challenge Review",
@@ -412,6 +419,32 @@
     "href": "aipcs24/2othergames_challenge.html",
     "title": "Challenge 2: Other Games",
     "section": "",
+    "text": "Game/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/2othergames_challenge.html#types-of-games",
+    "href": "aipcs24/2othergames_challenge.html#types-of-games",
+    "title": "Challenge 2: Other Games",
+    "section": "",
+    "text": "Game/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "2: Other Games",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/2othergames_challenge.html#simulator",
+    "href": "aipcs24/2othergames_challenge.html#simulator",
+    "title": "Challenge 2: Other Games",
+    "section": "Simulator",
     "text": "Simulator\n\n\n\n\n\nArm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset",
     "crumbs": [
       "Signup: AI Poker Camp Summer 2024",

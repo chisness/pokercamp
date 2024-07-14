@@ -200,6 +200,8 @@ When you get each infoset to at most 0.1 chips of EV away from regret-free, a li
 
 ### Part 2: Automatic Strategies
 Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
+
+[Enter Part 2](1kuhn_challenge2.qmd)
  
 <script>
   function unlock_next() {
