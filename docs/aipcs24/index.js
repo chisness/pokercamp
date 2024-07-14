@@ -15,8 +15,8 @@ function loadJSON(file) {
 }
 
 try {
-    infoSets = loadJSON('infosets.json');
-    states = loadJSON('states.json');
+    infoSets = loadJSON('https://static.rossry.net/sketches/poker/kuhn3/infosets.json');
+    states = loadJSON('https://static.rossry.net/sketches/poker/kuhn3/states.json');
     
     // Your main code that uses infoSets and states can now follow here
     console.log(infoSets);

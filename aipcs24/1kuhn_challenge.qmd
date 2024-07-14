@@ -7,7 +7,6 @@ format:
     css: styles.css
     header-includes: |
       <script src="https://d3js.org/d3.v7.min.js"></script>
-      <script src="index.js"></script>
 ---
 
 ## UNDER CONSTRUCTION! 
@@ -255,7 +254,9 @@ But in an imperfect-information game, changing an uptree strategy parameter can 
       <li>set up instructor bot submissions</li>
       <li><del>add pause button to solver</del></li>
     </ul></em></p>
-    
+
+```{=html}
+<script src="index.js"></script>
 <script>
   /* global create_tree */
   create_tree("tree_visualization_075", 0.75);
@@ -270,6 +271,7 @@ But in an imperfect-information game, changing an uptree strategy parameter can 
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
 </script>
+```
 
 ## OLD STUFF! 
 Visit the [interactive Kuhn site](https://static.rossry.net/sketches/poker/kuhn3/). The site shows the game tree for Kuhn Poker at the top and the 12 information sets of the game at the bottom. 
