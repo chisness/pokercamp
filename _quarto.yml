@@ -139,7 +139,7 @@ website:
 format:
   html:
     theme: cerulean
-    page-footer: "© 2024 pokercamp.org. All rights reserved."
+    body-footer: "© 2024 pokercamp.org. All rights reserved."
     math: true 
     toc: true
     toc-expand: true
