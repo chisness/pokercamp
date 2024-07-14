@@ -132,9 +132,7 @@ You can refer to the sequence table above to recall the 5 sequences of betting, 
     
 Each player's strategy can be completely described in terms of their action probabilities at each infoset&mdash;6 of them per player.
 
-For example, let's consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>:</p>
-
-When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what that setting looks like in the game from <span class="player p1"></span>'s perspective: 
+For example, let's consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what that setting looks like in the game from <span class="player p1"></span>'s perspective: 
 
 ![](assets/k_down_up.png)
 
@@ -144,7 +142,7 @@ If both players play randomly (50% <span class=action>↑Up</span> on each actio
 
 <div class="duplicate_K_↓↑"></div>
 
-In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
+In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since this is equivalent to always folding).
 
@@ -176,7 +174,7 @@ But if <span class="player p1"></span> always plays <span class=action>↑Up</sp
 Set the <span class="infoset p1">K_↓↑</span> strategy prob to <span class="player p1"></span>'s local best response. Set the <span class="infoset p2">_Q↓</span> strategy prob to <span class="player p2"></span>'s local best response. Observe that <span class="player p1"></span>'s best-response has changed again. Try to set the strategies to a pair of values such that neither player has regret.
 :::
 
-Now we get to the core difference between solving perfect information games and imperfect information games. In our game of Kuhn poker, when <span class="player p2"></span> switches to only playing <span class=action>↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>'s payoff EVs at <span class="infoset p1">K_↓↑</span> change&mdash;because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>. 
+Now we get to the core difference between solving perfect information games and imperfect information games. In our game of Kuhn Poker, when <span class="player p2"></span> switches to only playing <span class=action>↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>'s payoff EVs at <span class="infoset p1">K_↓↑</span> change&mdash;because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>. 
 
 With the resulting EVs, <span class="player p1"></span> has a payoff of <span class="player_label p1">-2</span> for playing <span class=action>↑Up</span>, and should play <span class=action>↓Down</span> instead. 
 
@@ -184,12 +182,28 @@ In a perfect information game, we can solve the game inductively by passing up t
 
 But in an imperfect information game, changing an uptree strategy parameter can change the "right solution" is at downtree infosets, so we can't solve a game in a single pass from the endgames to the beginning. Nearly every game-solving technique for imperfect information games, then, is based on iteratively improving on a pair of strategies (one for each player) based on local improvements until it hopefully resolves into something good.
 
-:::{.callout-note  appearance="minimal"}
-## Exercise
+Recall the two types of uncertainty: 
 
-Now try to find a pair of no-regret full strategies for <span class="player p1"></span> and <span class="player p2"></span>. When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear here:
-:::
-      
+1. About which node we are actually in, which depends on probabilities upwards in the game tree
+
+2. About what happens after an action, which depends on the probabilities downwards in the game tree
+
+## Challenge 1
+The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players. 
+
+By adjusting strategies for both players, we can find an equilibrium and then 
+
+
+### Part 1: Manual Strategies
+Try to find a pair of no-regret full strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.
+
+Hint: There are some "automatic" infoset strategies such that it only makes sense to play 100% of one action in the game. 
+
+When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear next. 
+
+### Part 2: Automatic Strategies
+Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
+ 
 <script>
   function unlock_next() {
     document.getElementById("unlock_next").style.display = "";
@@ -269,7 +283,25 @@ Now try to find a pair of no-regret full strategies for <span class="player p1">
       <li><del>add pause button to solver</del></li>
     </ul></em></p>
 
-```{=html}
+#### Do we really need mixed strategies?
+
+You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
+
+Follow these steps:
+
+1. Reset
+2. Set the learning rate to 1.0.
+3. In any order you like, pick cells and update them.
+4. Repeat 3 while there are still suboptimal moves in your strategy.
+
+A bad thing is happening to you. Why?
+## Challenge 1 Submissions
+Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
+
+Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
+
+After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
+
 <script src="index.js"></script>
 <script>
   /* global create_tree */
@@ -285,66 +317,3 @@ Now try to find a pair of no-regret full strategies for <span class="player p1">
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
 </script>
-```
-
-## OLD STUFF! 
-
-### Play
-Recall the two types of uncertainty: 
-
-1. About which node we are actually in, which depends on probabilities upwards in the game tree
-
-2. About what happens after an action, which depends on the probabilities downwards in the game tree
-
-## Challenge 1
-The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players. 
-
-By adjusting strategies for both players, we can find an equilibrium and then 
-
-### Part 1: Submit Manual Strategies
-Set the 12 strategies to percentages that you think are best. 
-
-Hint: There are some "automatic" infoset strategies such that it only makes sense to play 100% of one action in the game. 
-
-TODO: Time limit? Do this in session and other outside? 
-
-### Part 2: Submit Automatic Strategies
-After submitting the manual strategies, you will move to the automatic page in which you can update the strategies by selecting different algorithmic methods, iterations, and speeds. 
-
-#### Why can’t we just do tree search?
-
-Because of incomplete information.
-
-If we had complete information, then the regret-minimizing strategy downstream of a node would depend only on stuff downtree of that node, and we could – in theory – compute the strategy recursively from the bottom up.
-
-If you attempt to follow this strategy in Kuhn poker, it will fail. You can try this for yourself – if it was valid to “solve from the bottom up”, then the following steps should get to a regret-minimal strategy: 
-
-1. Reset
-2. Update the strategy weights for the X_↓↑ nodes until they converge.
-3. Update the strategy weights for the _X↓ and _X↑ nodes until they converge.
-4. Update the strategy weights for the X_ nodes until they converge.
-
-Follow these steps. You do not have a regret-minimal strategy. Why not? What went wrong? 
-
-#### Do we really need mixed strategies?
-
-You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
-
-Follow these steps:
-
-1. Reset
-2. Set the learning rate to 1.0.
-3. In any order you like, pick cells and update them.
-4. Repeat 3 while there are still suboptimal moves in your strategy.
-
-A bad thing is happening to you. Why?
-
-#### Find Strategies
-Update the strategies until they converge and submit the strategy. 
-
-### Challenge 1 Results
-Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
-
-Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
-
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
