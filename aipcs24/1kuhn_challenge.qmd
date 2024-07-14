@@ -56,11 +56,13 @@ Example betting round:
 
 - If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
 
-List of all possible betting sequences. Sequences can end in two ways: 
+Hands can end in two ways: 
 
 1. A <abbr title="Both players show cards and the highest wins">showdown</abbr> resulting from two ↑ (Bet and Call) or two ↓ actions (Check and Check). Then the player with the highest card wins the pot. 
 
 2. A fold resulting from ↑ and ↓ actions (Bet and Fold). Then the ↑ (betting) player automatically wins the pot.
+
+Here is a list of all possible betting sequences:  
 
 | ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
 |------------|-----------|-----------|----------|
@@ -125,12 +127,12 @@ You can refer to the sequence table above to recall the 5 sequences of betting, 
 ...but whatever he chooses, the game will end after that move:
     
 <div id="tree_visualization_400a"></div>
+
+## Kuhn Strategies
     
 Each player's strategy can be completely described in terms of their action probabilities at each infoset&mdash;6 of them total per player.
 
 For example, let's consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>:</p>
-
-<div class="duplicate_K_↓↑"></div>
 
 When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what that setting looks like in the game from <span class="player p1"></span>'s perspective: 
 
@@ -138,9 +140,11 @@ When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</sp
 
 Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.
 
+<div class="duplicate_K_↓↑"></div>
+
 If both players play randomly (50% <span class=action>↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. 
 
-In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>), for an expected value of <span class="player_label p1">0</span>. 
+In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span> calling with <span class=gamenode>K</span>when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span>when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since this is equivalent to always folding).
 
@@ -154,9 +158,11 @@ How much should <span class="player p1"></span>'s expected value from the whole 
       
 But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players don't play 50-50 randomly, then we'll have to calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the the probabilities of reaching these states. We can see this in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
 
-Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> (the poker situation of having a <span class=gamenode>Q</span> facing a Check). When <span class="player p1"></span> played <span class="infoset p1">K_↓↑</span> (the poker situation of having a <span class=gamenode>K</span> and Checking and then facing a Bet) randomly, <span class="player p2"></span> would get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>) for playing <span class=action>↓Down</span>(always Folding) and <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>) for playing <span class=action>↑Up</span> (always Calling). 
+Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> (the poker situation of having a <span class=gamenode>Q</span> facing a Check). <span class="player p2"></span> will always get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>) if he plays <span class=action>↓Down</span> (Folding). 
 
-<span class="player p2"></span>'s <span class=gamenode>Q</span> is always has the worst hand, but if <span class="player p1"></span> plays <span class=action>↓Down</span> (Folds) often enough, then <span class="player p2"></span> will win <span class="player_label p2">+1</span>s often enough to come out ahead regardless.
+When <span class="player p1"></span> plays randomly at <span class="infoset p1">K_↓↑</span> (the poker situation of having a <span class=gamenode>K</span> and Checking and then facing a Bet), then <span class="player p2"></span> will get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>) if he played <span class=action>↑Up</span> (always Betting) since half the time <span class="player p1"></span> will play <span class=action>↓Down</span> (Fold, <span class="player_label p2">+1</span>) and half the time he will <span class=action>↑Up</span> (Call, <span class="player_label p2">-2</span>). 
+
+Note that <span class="player p2"></span>'s <span class=gamenode>Q</span> is always has the worst hand and an <span class=action>↑Up</span> action is a <abbr title ="Betting with a weak hand with the goal of making the opponent fold">*bluff*</abbr>, but if <span class="player p1"></span> plays <span class=action>↓Down</span> (Folds) often enough, then <span class="player p2"></span> will win <span class="player_label p2">+1</span>s often enough to come out ahead regardless.
 
 But if <span class="player p1"></span> always plays <span class=action>↑Up</span> at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>'s payoff for playing <span class=action>↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than playing <span class=action>↓Down</span>, and so he should play <span class=action>↓Down</span> instead of <span class=action>↑Up</span>.
 
@@ -196,20 +202,6 @@ Now try to find a pair of no-regret full strategies for <span class="player p1">
 <div id="unlock_next" style="display:none">
   <p><a href=https://www.youtube.com/watch?v=dQw4w9WgXcQ>Here</a> is the link to the next stage.</p>
 </div>
-      
-<em><strong style="color:red">Todo:</strong> <ul>
-      <li><del>Add a strategy box for <span class="infoset p1">K_↓↑</span> and make the updaters work fine with a duplicate on the page</del></li>
-      <li><del>add tutorial text about changing the action probabilities</del></li>
-      <li><del>fix action-percent formatting</del></li>
-      <li><del>add player icons to strategy boxes</del></li>
-      <li><del>swap P2 strategy boxes</del></li>
-      <li><del>get the action circles out of the middle of the P2 down infosets</del></li>
-      <li><del>break javascript into separate file (finally!)</del></li>
-      <li><del>add "unlock" to auto-solver</del></li>
-      <li><del>add tutorial text about manual solving</del></li>
-      <li>add an overall-EV note (each player)</li>
-      <li>migrate to the quarto site</li>
-</ul></em></p>
     
 <div id="tree_visualization_400b"></div>
 
