@@ -56,7 +56,11 @@ Example betting round:
 
 - If ![](assets/p1l.png) P1 has card A and ![](assets/p2w.png)P2 has card K, ![](assets/p1l.png) P1 wins
 
-List of all possible betting sequences. Sequences can either end with a <abbr title="Both players show cards and the highest wins">showdown</abbr> resulting from two ↑ (Bet and Call) or two ↓ actions (Check and Check), or ↑ and ↓ actions (Bet and Fold) such that the ↑ (betting) player automatically wins the pot. 
+List of all possible betting sequences. Sequences can end in two ways: 
+
+1. A <abbr title="Both players show cards and the highest wins">showdown</abbr> resulting from two ↑ (Bet and Call) or two ↓ actions (Check and Check). Then the player with the highest card wins the pot. 
+
+2. A fold resulting from ↑ and ↓ actions (Bet and Fold). Then the ↑ (betting) player automatically wins the pot.
 
 | ![](assets/p1l.png) Player 1  | ![](assets/p2w.png) Player 2  | ![](assets/p1l.png) Player 1 | Winner       |
 |------------|-----------|-----------|----------|
