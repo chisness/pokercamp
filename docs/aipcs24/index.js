@@ -766,7 +766,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
       .classed("p", true)
       .classed("p" + stateName, true)
       .attr("x", xMod)
-      .attr("y", yMod - 30) // Adjust the y position to be above the state
+      .attr("y", yMod - 31) // Adjust the y position to be above the state
       .attr("dy", "0.31em")
       .attr("text-anchor", "middle")
       .attr("paint-order", "stroke")
@@ -796,7 +796,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
       .classed("regret", true)
       .classed("regret" + infoSetName, true)
       .attr("x", xMod)
-      .attr("y", yMod - 18) // Adjust the y position to be above the state
+      .attr("y", yMod - 31) // Adjust the y position to be above the state
       .attr("dy", "0.31em")
       .attr("text-anchor", "middle")
       .attr("fill", color)
@@ -989,7 +989,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const midY = (pos1.y + pos2.y) / 2;
   
   // Add label at midpoint
-  var infosetLabel = subtreeSvg.append("text")
+  subtreeSvg.append("text")
     .attr("x", midX)
     .attr("y", midY)
     .attr("dy", "0.31em")
@@ -998,8 +998,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
     .attr("font-weight", "bold")
     .attr("opacity", 1) // Darker color with full opacity
     .text(label);
-  displayRegret(subtreeSvg, label, midX, midY);
-  displayP(subtreeSvg, label, midX, midY);
+  displayP(subtreeSvg, label, midX-40, midY);
+  displayRegret(subtreeSvg, label, midX+40, midY);
   displayEV(subtreeSvg, label, midX, midY-5, color);
   
     
