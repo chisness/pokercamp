@@ -457,7 +457,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#minimax" id="toc-minimax" class="nav-link" data-scroll-target="#minimax">Minimax</a></li>
   <li><a href="#value-function" id="toc-value-function" class="nav-link" data-scroll-target="#value-function">Value Function</a></li>
-  <li><a href="#rl-planning" id="toc-rl-planning" class="nav-link" data-scroll-target="#rl-planning">RL: Planning</a></li>
+  <li><a href="#rl-planning-and-learning" id="toc-rl-planning-and-learning" class="nav-link" data-scroll-target="#rl-planning-and-learning">RL: Planning and Learning</a></li>
+  <li><a href="#rl-monte-carlo-tree-search" id="toc-rl-monte-carlo-tree-search" class="nav-link" data-scroll-target="#rl-monte-carlo-tree-search">RL: Monte Carlo Tree Search</a></li>
   </ul></li>
   <li><a href="#multi-armed-bandits" id="toc-multi-armed-bandits" class="nav-link" data-scroll-target="#multi-armed-bandits">Multi-Armed Bandits</a>
   <ul class="collapse">
@@ -468,6 +469,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#rl-dynamic-programming" id="toc-rl-dynamic-programming" class="nav-link" data-scroll-target="#rl-dynamic-programming">RL: Dynamic Programming</a></li>
   <li><a href="#rl-monte-carlo-methods" id="toc-rl-monte-carlo-methods" class="nav-link" data-scroll-target="#rl-monte-carlo-methods">RL: Monte Carlo Methods</a></li>
+  </ul></li>
+  <li><a href="#gridworld" id="toc-gridworld" class="nav-link" data-scroll-target="#gridworld">Gridworld</a>
+  <ul class="collapse">
+  <li><a href="#rl-q-learning" id="toc-rl-q-learning" class="nav-link" data-scroll-target="#rl-q-learning">RL: Q-Learning</a></li>
   </ul></li>
   <li><a href="#poker-games" id="toc-poker-games" class="nav-link" data-scroll-target="#poker-games">Poker Games</a></li>
   </ul>
@@ -498,6 +503,7 @@ window.Quarto = {
 <section id="types-of-games" class="level2">
 <h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
 <p>This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits into this table.</p>
+<p>The goal of this reading is to introduce various concepts that will be useful when building agents for future challenges.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -616,8 +622,31 @@ Exercise
 </section>
 <section id="reinforcement-learning-rl" class="level2">
 <h2 class="anchored" data-anchor-id="reinforcement-learning-rl">Reinforcement Learning (RL)</h2>
-<p>The main idea of reinforcement learning is that an agent learns by interacting with its environment. The main elements of a learning system are: a policy, a reward, a value function, and sometimes a model of the environment.</p>
-<p>Agent, environment interface RL book chapter 3 stuff Tabular environment stuff TD/SARSA/Q-LEARNING, relation to CFR https://arena3-chapter2-rl.streamlit.app/[2.1]_Intro_to_RL</p>
+<p><em>Many ideas in this section on RL come from Sutton and Barto’s Reinforcement Learning book.</em></p>
+<p>The main idea of reinforcement learning is that an <em>agent</em> learns by taking <em>actions</em> in its <em>environment</em>. The environment then gives feedback in the form of <em>rewards</em> and a new <em>state</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/agentactionenv.png" class="img-fluid figure-img"></p>
+<figcaption>Diagram from Sutton Barton Reinforcement Learning</figcaption>
+</figure>
+</div>
+<p>We have for each time <span class="math inline">\(t\)</span>: - State: <span class="math inline">\(S_t\)</span> - Action: <span class="math inline">\(A_t\)</span> - Reward: <span class="math inline">\(R_t\)</span></p>
+<p>The goal of an agent is generally to maximize the expected value of the rewards received.</p>
+<p>Reward values can be designed in a way to optimally train the agent. In chess for example, we could give a reward of <span class="math inline">\(+1\)</span> for winning a game, <span class="math inline">\(-1\)</span> for losing, and <span class="math inline">\(0\)</span> for all other states including draws. Defining intermediate rewards for actions like taking an opponent piece risks the agent prioritizing that goal over winning the game.</p>
+<p>Reward hacking is when agents find a way to obtain rewards in a way that isn’t aligned with the intended goal. (The agents will take the reward structure very literally and this is all they have to go on!)</p>
+<p>A Markov Decision Process (MDP) is a simplified model of the reinforcement learning problem in that the probability of future states and rewards depends only on the previous state and actions.</p>
+<p>This can be written as:</p>
+<p><span class="math display">\[
+p(s', r \mid s, a) = \Pr\{S_t=s', R_t=r \mid S_{t-1}=s, A_{t-1}=a\}
+\]</span></p>
+<p>Value functions estimate the value of being in a certain state in terms of expected future rewards (which can be discounted).</p>
+<ul>
+<li><p>If you’re about to flip a coin and want it to be heads (<span class="math inline">\(+1\)</span>) and not tails (<span class="math inline">\(-1\)</span>), then the value of that state is <span class="math inline">\(0\)</span>.</p></li>
+<li><p>If you’re in a chess game where winning is <span class="math inline">\(+1\)</span> and losing is <span class="math inline">\(-1\)</span> and everything else is <span class="math inline">\(0\)</span> and you’re in a state where it’s your turn and you can checkmate, then that state has a value of <span class="math inline">\(+1\)</span>.</p></li>
+</ul>
+<p>A policy is a mapping from states to probabilties of selecting each action and is written as <span class="math inline">\(\pi(a\mid s)\)</span>.</p>
+<p>Simple MDP example, like buy carrots not anything else</p>
+<p>Policy, value function, optimal policy, optimal value function</p>
 </section>
 <section id="war" class="level2">
 <h2 class="anchored" data-anchor-id="war">War</h2>
@@ -653,20 +682,37 @@ Optional Coding Exercise
 <h3 class="anchored" data-anchor-id="value-function">Value Function</h3>
 <p>Minimax assumes opponent playing best plays too temporal-difference</p>
 </section>
-<section id="rl-planning" class="level3">
-<h3 class="anchored" data-anchor-id="rl-planning">RL: Planning</h3>
-<p>MCTS decision-time planning</p>
-<p>RL pages 8-12 MCTS 8.11 https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?</p>
+<section id="rl-planning-and-learning" class="level3">
+<h3 class="anchored" data-anchor-id="rl-planning-and-learning">RL: Planning and Learning</h3>
+</section>
+<section id="rl-monte-carlo-tree-search" class="level3">
+<h3 class="anchored" data-anchor-id="rl-monte-carlo-tree-search">RL: Monte Carlo Tree Search</h3>
+<p>https://starai.cs.ucla.edu/papers/VdBBNAIC09.pdf What about just using imperfect info version of MCTS?</p>
 </section>
 </section>
 <section id="multi-armed-bandits" class="level2">
 <h2 class="anchored" data-anchor-id="multi-armed-bandits">Multi-Armed Bandits</h2>
-<p><img src="assets/10bandits.png" class="img-fluid"> RL book 26-44, explore exploit Bandits are a set of problems with repeated decisions and a fixed number of actions possible. This is related to reinforcement learning because the agent player updates its strategy based on what it learns from the feedback from the environment. Consider a 10-armed bandit setup like in the image below:</p>
+<p><img src="assets/10bandits.png" class="img-fluid"></p>
+<p>Bandits are a set of problems with repeated decisions and a fixed number of actions possible coming from a single state.</p>
+<p>The agent updates its strategy based on what it learns from the feedback from the environment. You could think of this in real-world settings like picking which dish to eat at a restaurant.</p>
+<p>Consider a 10-armed bandit setup like in the image below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/banditdist.png" class="img-fluid figure-img"></p>
+<figcaption>Sutton Barto Bandits</figcaption>
+</figure>
+</div>
 <p>Each time the player pulls an arm, they get some reward, which could be positive or negative.</p>
-<p>A basic setting initializes each of 10 arms with q<em>(arm) = N(0,1) so each is initialized with a center point around a Gaussian distribution. Each pull of an arm returns a reward of R = N(q</em>(arm), 1).</p>
-<p>In other words, each arm is initialized with a value centered around 0 but with some variance, so each will be a bit different. Then from that point, the actual pull of an arm is centered around that new point with some variance as seen in this figure with a 10-armed bandit from the book Intro to Reinforcement Learning by Sutton and Barto:</p>
-<p><img src="assets/banditdist.png" class="img-fluid"></p>
-<p>The player can sample actions and estimate their values based on experience and then use some algorithm for deciding which action to use next to maximize rewards.</p>
+<p>A basic setting initializes each of 10 arms with <span class="math inline">\(q*(\text{arm}) = \mathcal{N}(0,1)\)</span> so each is initialized with a center point around a Gaussian distribution. Each pull of an arm returns a reward of <span class="math inline">\(R = \mathcal{N}(q*(\text{arm}_i), 1)\)</span>.</p>
+<p>In other words, each arm is initialized with a value centered around <span class="math inline">\(0\)</span> but with some variance, so each will be a bit different. Then from that point, the actual pull of an arm is centered around that new point with some variance as seen in this figure above.</p>
+<p>The agent can sample actions and estimate their values based on experience and then use some algorithm for deciding which action to use next to maximize rewards. The estimated value of action <span class="math inline">\(a\)</span> at timestep <span class="math inline">\(t\)</span> is defined as <span class="math inline">\(Q_t(a)\)</span>.</p>
+<p>The agent is then faced with two competing goals:</p>
+<ol type="1">
+<li>Get as accurate an estimate <span class="math inline">\(Q_t(a)\)</span> as possible</li>
+<li>Select actions with the highest rewards as much as possible</li>
+</ol>
+<p>Exploring refers to figuring out the values of the arms, or in the case of a restaurant, figuring out how good each dish is.</p>
+<p>Exploiting refers to using current knowledge to choose the highest value estimated action.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -677,13 +723,14 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For example, a naive approach is that a player could sample each action once and then always use the action that gave the best reward going forward.</p>
+<p>A naive approach is that a player could sample each action once and then always use the action that gave the best reward going forward.</p>
 <p>What is a problem with this strategy? Can you suggest a better one?</p>
 </div>
 </div>
+<p><span class="math inline">\(Q_t(a)\)</span> can simply be estimated by averaging the rewards received each time a specific arm has been tried. The so-called <em>greedy</em> action rule is to then take the largest <span class="math inline">\(Q_t(a)\)</span> action, <span class="math inline">\(A_t = \argmax_{a} Q_t(a)\)</span></p>
 <section id="regret" class="level3">
 <h3 class="anchored" data-anchor-id="regret">Regret</h3>
-<p>How would you define regret in this bandit setting? How is minimizing regret related to maximizing reward?</p>
+<p>How would you define regret in this bandit setting? How is minimizing regret related to maximizing reward? explore exploit</p>
 </section>
 <section id="rl-action-value-methods" class="level3">
 <h3 class="anchored" data-anchor-id="rl-action-value-methods">RL: Action-Value Methods</h3>
@@ -700,6 +747,13 @@ Exercise
 </section>
 <section id="rl-monte-carlo-methods" class="level3">
 <h3 class="anchored" data-anchor-id="rl-monte-carlo-methods">RL: Monte Carlo Methods</h3>
+</section>
+</section>
+<section id="gridworld" class="level2">
+<h2 class="anchored" data-anchor-id="gridworld">Gridworld</h2>
+<p>pg 60</p>
+<section id="rl-q-learning" class="level3">
+<h3 class="anchored" data-anchor-id="rl-q-learning">RL: Q-Learning</h3>
 </section>
 </section>
 <section id="poker-games" class="level2">

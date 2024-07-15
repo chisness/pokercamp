@@ -16,6 +16,22 @@ format:
 
 ## Simulator
 
+Random, reward avg, etc. 
+
+Describe the exploration vs. exploitation dilemma.
+Introduce basic strategies: epsilon-greedy, UCB (Upper Confidence Bound), and Thompson Sampling.
+
+Record the results and display them in real-time (either through the program or manually on a board).
+Strategy Discussion:
+
+After a few rounds, pause and discuss the strategies teams are using.
+Introduce the different algorithms and how they would approach the problem.
+
+Algorithm Implementation:
+
+Allow teams to adopt one of the introduced algorithms for the next rounds.
+Compare the performance of different algorithms in terms of accumulated rewards.
+
 <div id="bandit-container">
   <table id="bandit-table">
     <thead>
