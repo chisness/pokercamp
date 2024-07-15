@@ -9,9 +9,24 @@ format:
       <script src="https://d3js.org/d3.v7.min.js"></script>
 ---
 ## Challenge Part 2: Automatic Solver
+<div id="locked_message">
+  This section is locked until you complete <a href=1kuhn_challenge.html#part-1-manual-solutions>part 1</a>.
+</div>
+
+<div id="lock_this" style="display:none;">
+:::{.callout-note  appearance="minimal"}
+## Challenge part 2: submission and leaderboard
+
+The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class=submission_id>[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the "Submit" button below.
+
+Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player's infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).
+
+Once you have a strategy that you believe improves on your current submission, you can re-submit and wait for the results to be re-run (which may take some minutes). TODO: further leaderboard instructions go here.
+:::
+
 <div id="tree_visualization_400b" class="tree_visualization"></div>
 
-<div style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;">
+<div id="simulation_controls" style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;e">
 <div style="display: inline-block; margin-right: 1em;">
   <label for="update_mode" style="margin-right: 0.1em;">Update:</label>
   <select id="update_factor" style="padding: 0.2em; width: 6.6em;">
@@ -69,10 +84,10 @@ format:
 <div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
   <label for="tolerance" style="margin-right: 0.1em;">Tolerance:</label>
   <select id="tolerance" style="padding: 0.2em;">
-    <option value="0.3" selected="selected">0.30 chip</option>
+    <option value="0.3">0.30 chip</option>
     <option value="0.1">0.10 chip</option>
     <option value="0.03">0.03 chip</option>
-    <option value="0.01">0.01 chip</option>
+    <option value="0.01" selected="selected">0.01 chip</option>
     <option value="0.003">0.003 chip</option>
 </select>
 </div>
@@ -81,8 +96,17 @@ format:
 
 <div id="subtree_visualizations" style="max-width: 750px;"></div>
 
+<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitStrategy()">Submit Strategy to Leaderboard</button>
+
+<div id="leaderboard">
+  TODO: leaderboard goes here.
+</div>
+</div>
+
 <script>
   function unlock_next() {
+      document.getElementById("locked_message").style.display = "none";
+      document.getElementById("lock_this").style.display = "";
   };
 </script>
 <div id="unlock_next" style="display:none"></div>

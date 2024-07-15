@@ -142,7 +142,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge2.html">Challenge</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">#1: Kuhn Poker | Challenge (Part 2)</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -171,13 +171,13 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">#1: Kuhn Poker</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/1kuhn_reading.html" class="sidebar-item-text sidebar-link">
@@ -186,7 +186,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/1kuhn_challenge2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../aipcs24/1kuhn_challenge.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenge</span></a>
   </div>
 </li>
@@ -442,10 +442,29 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 
 <section id="challenge-part-2-automatic-solver" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-part-2-automatic-solver">Challenge Part 2: Automatic Solver</h2>
+<div id="locked_message">
+<p>This section is locked until you complete <a href="1kuhn_challenge.html#part-1-manual-solutions">part 1</a>.</p>
+</div>
+<div id="lock_this" style="display:none;">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge part 2: submission and leaderboard
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class="submission_id">[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the “Submit” button below.</p>
+<p>Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player’s infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).</p>
+<p>Once you have a strategy that you believe improves on your current submission, you can re-submit and wait for the results to be re-run (which may take some minutes). TODO: further leaderboard instructions go here.</p>
+</div>
+</div>
 <div id="tree_visualization_400b" class="tree_visualization">
 
 </div>
-<div style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;">
+<div id="simulation_controls" style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;e">
 <div style="display: inline-block; margin-right: 1em;">
 <p><label for="update_mode" style="margin-right: 0.1em;">Update:</label> <select id="update_factor" style="padding: 0.2em; width: 6.6em;"> <option value="1.0" selected="selected">100%</option> <option value="0.1">10%</option> <option value="0.01">1%</option> <option value="0.001">0.1%</option> <option value="0.0001">0.01%</option> <option value="0.00001">0.001%</option> </select> <select id="scale_by_ev" style="padding: 0.2em; width: 6.6em;"> <option value="false" selected="selected">×1</option> <option value="true">×EVdiff</option> </select> <select id="scale_by_visit_prob" style="padding: 0.2em; width: 6.6em;"> <option value="false" selected="selected">×1</option> <option value="true">×p(visit)</option> </select> <select id="scale_by_total_updates" style="padding: 0.2em; width: 6.6em;"> <option value="false" selected="selected">×1</option> <option value="true">/Σupdates</option> </select> <select id="use_odds" style="padding: 0.2em; width: 6.6em;"> <option value="false" selected="selected">probability</option> <option value="true">odds</option> </select></p>
 </div>
@@ -460,15 +479,24 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 <p><label for="wait_per_step" style="margin-right: 0.1em;">Speed:</label> <select id="wait_per_step" style="padding: 0.2em;"> <option value="0" selected="selected">Max</option> <option value="10">Fast</option> <option value="100">10/sec</option> <option value="333">3/sec</option> <option value="1000">1/sec</option> </select></p>
 </div>
 <div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
-<p><label for="tolerance" style="margin-right: 0.1em;">Tolerance:</label> <select id="tolerance" style="padding: 0.2em;"> <option value="0.3" selected="selected">0.30 chip</option> <option value="0.1">0.10 chip</option> <option value="0.03">0.03 chip</option> <option value="0.01">0.01 chip</option> <option value="0.003">0.003 chip</option> </select></p>
+<p><label for="tolerance" style="margin-right: 0.1em;">Tolerance:</label> <select id="tolerance" style="padding: 0.2em;"> <option value="0.3">0.30 chip</option> <option value="0.1">0.10 chip</option> <option value="0.03">0.03 chip</option> <option value="0.01" selected="selected">0.01 chip</option> <option value="0.003">0.003 chip</option> </select></p>
 </div>
 </div>
 </div>
 <div id="subtree_visualizations" style="max-width: 750px;">
 
 </div>
+<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitStrategy()">
+Submit Strategy to Leaderboard
+</button>
+<div id="leaderboard">
+<p>TODO: leaderboard goes here.</p>
+</div>
+</div>
 <script>
   function unlock_next() {
+      document.getElementById("locked_message").style.display = "none";
+      document.getElementById("lock_this").style.display = "";
   };
 </script>
 <div id="unlock_next" style="display:none">

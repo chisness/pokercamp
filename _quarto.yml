@@ -51,7 +51,7 @@ website:
                 - text: "Reading"
                   href: "aipcs24/1kuhn_reading.qmd"
                 - text: "Challenge"
-                  href: "aipcs24/1kuhn_challenge2.qmd"
+                  href: "aipcs24/1kuhn_challenge.qmd"
                 - text: "Challenge Review"
                   href: "aipcs24/1kuhn_challenge_review.qmd"
             - section: "#2: Other Games"

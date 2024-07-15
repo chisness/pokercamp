@@ -1,69 +1,91 @@
 /* global d3 */
+/* global localStorage */
 /* global unlock_next */
 
 var infoSets, states;
 
-infoSets = {
-  "A_": {
-    "percentage": 50,
-    "states": ["AQ", "AK"],
-    "inverse": false
-  },
-  "K_": {
-    "percentage": 50,
-    "states": ["KQ", "KA"],
-    "inverse": false
-  },
-  "Q_": {
-    "percentage": 50,
-    "states": ["QK", "QA"],
-    "inverse": false
-  },
-  "_K↓": {
-    "percentage": 50,
-    "states": ["QK↓", "AK↓"],
-    "inverse": true
-  },
-  "_K↑": {
-    "percentage": 50,
-    "states": ["QK↑", "AK↑"],
-    "inverse": true
-  },
-  "_Q↓": {
-    "percentage": 50,
-    "states": ["KQ↓", "AQ↓"],
-    "inverse": true
-  },
-  "_Q↑": {
-    "percentage": 50,
-    "states": ["KQ↑", "AQ↑"],
-    "inverse": true
-  },
-  "_A↓": {
-    "percentage": 50,
-    "states": ["QA↓", "KA↓"],
-    "inverse": true
-  },
-  "_A↑": {
-    "percentage": 50,
-    "states": ["QA↑", "KA↑"],
-    "inverse": true
-  },
-  "Q_↓↑": {
-    "percentage": 50,
-    "states": ["QK↓↑", "QA↓↑"],
-    "inverse": false
-  },
-  "A_↓↑": {
-    "percentage": 50,
-    "states": ["AQ↓↑", "AK↓↑"],
-    "inverse": false
-  },
-  "K_↓↑": {
-    "percentage": 50,
-    "states": ["KQ↓↑", "KA↓↑"],
-    "inverse": false
-  }
+function setLocalStorage(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+        console.error('Error saving to localStorage:', e);
+    }
+}
+
+function getLocalStorage(key) {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : null;
+    } catch (e) {
+        console.error('Error reading from localStorage:', e);
+        return null;
+    }
+}
+
+infoSets = getLocalStorage('poker.camp/1kuhn_challenge/infoSets');
+if (!infoSets || !("A_" in infoSets) || !("inverse" in infoSets["A_"]) || infoSets["A_"].inverse) {
+  infoSets = {
+    "A_": {
+      "percentage": 50,
+      "states": ["AQ", "AK"],
+      "inverse": false
+    },
+    "K_": {
+      "percentage": 50,
+      "states": ["KQ", "KA"],
+      "inverse": false
+    },
+    "Q_": {
+      "percentage": 50,
+      "states": ["QK", "QA"],
+      "inverse": false
+    },
+    "_K↓": {
+      "percentage": 50,
+      "states": ["QK↓", "AK↓"],
+      "inverse": true
+    },
+    "_K↑": {
+      "percentage": 50,
+      "states": ["QK↑", "AK↑"],
+      "inverse": true
+    },
+    "_Q↓": {
+      "percentage": 50,
+      "states": ["KQ↓", "AQ↓"],
+      "inverse": true
+    },
+    "_Q↑": {
+      "percentage": 50,
+      "states": ["KQ↑", "AQ↑"],
+      "inverse": true
+    },
+    "_A↓": {
+      "percentage": 50,
+      "states": ["QA↓", "KA↓"],
+      "inverse": true
+    },
+    "_A↑": {
+      "percentage": 50,
+      "states": ["QA↑", "KA↑"],
+      "inverse": true
+    },
+    "Q_↓↑": {
+      "percentage": 50,
+      "states": ["QK↓↑", "QA↓↑"],
+      "inverse": false
+    },
+    "A_↓↑": {
+      "percentage": 50,
+      "states": ["AQ↓↑", "AK↓↑"],
+      "inverse": false
+    },
+    "K_↓↑": {
+      "percentage": 50,
+      "states": ["KQ↓↑", "KA↓↑"],
+      "inverse": false
+    }
+  };
 }
 
 states = {
@@ -277,7 +299,16 @@ states = {
   "QK↓↑↑": {
     "payoff": -2
   }
-}
+};
+
+var infoSetsUnlock = getLocalStorage('poker.camp/1kuhn_challenge/infoSets.unlock');
+  console.log(infoSetsUnlock);
+  if (!infoSetsUnlock || !("A_" in infoSetsUnlock) || !("inverse" in infoSetsUnlock["A_"]) || infoSetsUnlock["A_"].inverse) {
+      /* pass */
+  } else {
+      infoSets = infoSetsUnlock;
+      unlock_next();
+  }
 
 // function loadJSON(file) {
 //     var xhr = new XMLHttpRequest();
@@ -541,18 +572,27 @@ function showFavoredActions() {
     for(const infoSetKey in infoSets) {
         const favoredAction = getFavoredAction(infoSetKey);
         if(favoredAction) {
-          all_clear = false;
           document.querySelectorAll(
             ".strategy_" + infoSetKey + "_" + favoredAction
           ).forEach(element => {
             element.style.backgroundColor = "#FFFFBB";
           });
         }
+        if (getFavoredActionMagnitude(infoSetKey) > 0.1) {
+          all_clear = false;
+        }
     }
     
     if (all_clear) {
+      setLocalStorage("poker.camp/1kuhn_challenge/infoSets.unlock", infoSets);
       unlock_next();
     }
+}
+
+function updateAll() {
+  recalculateEvs();
+  showFavoredActions();
+  setLocalStorage("poker.camp/1kuhn_challenge/infoSets", infoSets);
 }
 
 var stop_running;
@@ -588,7 +628,8 @@ function startSimulator() {
             
             if (!favoredAction) return;
             
-            const curValue = parseFloat(input.value.replace("%", "").trim());
+            // const curValue = parseFloat(input.value.replace("%", "").trim());
+            const curValue = infoSets[label].percentage;
             infoSets[label].total_regret += getFavoredActionMagnitude(label) * infoSets[label].p;
             
             let update =
@@ -620,8 +661,7 @@ function startSimulator() {
             });
         });
 
-        recalculateEvs();
-        showFavoredActions();
+        updateAll();
 
         setTimeout(() => runIteration(i + 1, onComplete), waitPerStep);
     }
@@ -644,6 +684,7 @@ function startSimulator() {
 }
 
 const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
+  
   const infoSet = infoSets[label];
   infoSet.total_regret = 0;
 
@@ -1036,8 +1077,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
           element.value = (100 - newValue) + "%";
       });
       infoSet.percentage = newValue;
-      recalculateEvs();
-      showFavoredActions();
+      updateAll();
     };
   });
   downSelector.forEach(element => {
@@ -1055,8 +1095,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
           element.value = otherValue + "%";
       });
       infoSet.percentage = otherValue;
-      recalculateEvs();
-      showFavoredActions();
+      updateAll();
     };
   });
 };
@@ -1345,7 +1384,6 @@ function create_tree(id_target, level = 10, with_strategy = false) {
       element.style.display = "none";
     });
     
-    recalculateEvs();
-    showFavoredActions();
+    updateAll();
   }
 }

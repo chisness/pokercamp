@@ -1,5 +1,5 @@
 ---
-title: "#1: Kuhn Poker | Challenge (Part )"
+title: "#1: Kuhn Poker | Challenge (Part 1)"
 sidebar: aipcs24
 format:
   html:
@@ -8,6 +8,10 @@ format:
     header-includes: |
       <script src="https://d3js.org/d3.v7.min.js"></script>
 ---
+<div class="lock_this" style="display:none">
+  <p><a href=1kuhn_challenge2.html>Enter Part 2 (unlocked) &rarr;</a></p>
+</div>
+
 ## Kuhn Poker
 Kuhn Poker is the simplest nontrivial version of poker. Here is the setup: 
 
@@ -204,7 +208,7 @@ Recall the two types of uncertainty in an imperfect-information game:
 
 ## Challenge
 
-The goal of this challenge is to find Nash, or regret-free, strategies for Kuhn Poker in terms of the action probabilities at each player's 6 infosets. You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself). For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.
+The goal of this challenge is to find optimal strategies for Kuhn Poker in terms of the fixed action probabilities at each player's 6 infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret). You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself); your average score across all matchups will be the basis of your leaderboard rank. For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.
 
 ### Part 1: Manual Solutions
 :::{.callout-note  appearance="minimal"}
@@ -213,7 +217,7 @@ The goal of this challenge is to find Nash, or regret-free, strategies for Kuhn 
 Use the boxes below to find a pair of no-regret strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.
 :::
 
-When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page.
+When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page. You will be able to fine-tune your strategy in the next stage before submitting it to the leaderboard.
     
 <div id="tree_visualization_400b" class="tree_visualization"></div>
 
@@ -272,16 +276,21 @@ When you get a pair of strategies such that each infoset is at most 0.1 chips of
 <div id="subtree_visualizations" style="max-width: 750px;"></div>
 
 ### Part 2: Automatic Solver
-<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
+
 
 <script>
   function unlock_next() {
-    document.getElementById("unlock_next").style.display = "";
-    document.getElementById("cheat_unlock_next").style.display = "none";
+    document.querySelectorAll(".lock_this").forEach(element => {element.style.display = ""});
+    document.querySelectorAll(".locked_message").forEach(element => {element.style.display = "none"});
   };
 </script>
-<div id="unlock_next" style="display:none">
-  <p><a href=1kuhn_challenge2.html>Enter Part 2</a></p>
+<div class="locked_message">
+  &lt;This section is locked until you complete part 1.&gt;
+  
+  <button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
+</div>
+<div class="lock_this" style="display:none">
+  <p><a href=1kuhn_challenge2.html>Enter Part 2 (unlocked) &rarr;</a></p>
 </div>
 
 <script src="index.js"></script>

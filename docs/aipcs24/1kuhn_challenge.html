@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Poker Camp - #1: Kuhn Poker | Challenge (Part )</title>
+<title>Poker Camp - #1: Kuhn Poker | Challenge (Part 1)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,11 +72,11 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <meta property="og:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part )">
+  <meta property="og:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part 1)">
 <meta property="og:description" content="">
 <meta property="og:image" content="assets/kuhn.png">
 <meta property="og:site-name" content="Poker Camp">
-<meta name="twitter:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part )">
+<meta name="twitter:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part 1)">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/kuhn.png">
 <meta name="twitter:creator" content="@pokercamporg">
@@ -146,7 +146,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge.html">Challenge (Part 1)</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge.html">Challenge</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -191,13 +191,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/1kuhn_challenge.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Challenge (Part 1)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../aipcs24/1kuhn_challenge2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenge (Part 2)</span></a>
+ <span class="menu-text">Challenge</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -446,7 +440,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">#1: Kuhn Poker | Challenge (Part )</h1>
+<h1 class="title">#1: Kuhn Poker | Challenge (Part 1)</h1>
 </div>
 
 
@@ -461,6 +455,11 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 
 </header>
 
+<div class="lock_this" style="display:none">
+<p>
+<a href="1kuhn_challenge2.html">Enter Part 2 (unlocked) →</a>
+</p>
+</div>
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
 <p>Kuhn Poker is the simplest nontrivial version of poker. Here is the setup:</p>
@@ -741,7 +740,7 @@ Exercise: Regret-free mixed strategies
 </section>
 <section id="challenge" class="level2">
 <h2 class="anchored" data-anchor-id="challenge">Challenge</h2>
-<p>The goal of this challenge is to find Nash, or regret-free, strategies for Kuhn Poker in terms of the action probabilities at each player’s 6 infosets. You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself). For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.</p>
+<p>The goal of this challenge is to find optimal strategies for Kuhn Poker in terms of the fixed action probabilities at each player’s 6 infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret). You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself); your average score across all matchups will be the basis of your leaderboard rank. For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.</p>
 <section id="part-1-manual-solutions" class="level3">
 <h3 class="anchored" data-anchor-id="part-1-manual-solutions">Part 1: Manual Solutions</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -757,7 +756,7 @@ Challenge part 1: Kuhn Poker (manual solutions)
 <p>Use the boxes below to find a pair of no-regret strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.</p>
 </div>
 </div>
-<p>When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page.</p>
+<p>When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page. You will be able to fine-tune your strategy in the next stage before submitting it to the leaderboard.</p>
 <div id="tree_visualization_400b" class="tree_visualization">
 
 </div>
@@ -787,18 +786,19 @@ Challenge part 1: Kuhn Poker (manual solutions)
 </section>
 <section id="part-2-automatic-solver" class="level3">
 <h3 class="anchored" data-anchor-id="part-2-automatic-solver">Part 2: Automatic Solver</h3>
-<button id="cheat_unlock_next" onclick="unlock_next()">
-Cheat
-</button>
 <script>
   function unlock_next() {
-    document.getElementById("unlock_next").style.display = "";
-    document.getElementById("cheat_unlock_next").style.display = "none";
+    document.querySelectorAll(".lock_this").forEach(element => {element.style.display = ""});
+    document.querySelectorAll(".locked_message").forEach(element => {element.style.display = "none"});
   };
 </script>
-<div id="unlock_next" style="display:none">
+<div class="locked_message">
+<p>&lt;This section is locked until you complete part 1.&gt;</p>
+<p><button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button></p>
+</div>
+<div class="lock_this" style="display:none">
 <p>
-<a href="1kuhn_challenge2.html">Enter Part 2</a>
+<a href="1kuhn_challenge2.html">Enter Part 2 (unlocked) →</a>
 </p>
 </div>
 <script src="index.js"></script>
