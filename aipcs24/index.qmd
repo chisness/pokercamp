@@ -11,7 +11,7 @@ Welcome to AI Poker Camp Summer 2024 Beta in San Francisco!
 
 Thanks for signing up. This is the first time we're running AI Poker Camp and it's very much in beta. The idea to run this course has existed for a few years, but this curriculum is very new and came about from a discussion at Manifest. 
 
-We're glad to have you along for the ride and welcome any feedback about all aspects of the course including things like whether the pace is too fast or too slow, too easy or too hard, too repetitive, etc. 
+We're glad to have you along for the ride and welcome any feedback about all aspects of the course including things like whether the pace is too fast or too slow, too easy or too hard, etc. 
 
 We plan to spend Mondays reviewing previous challenges and thinking about new challenges/adjacent problems and Thursdays working on the challenges, which will be due every Sunday. 
 
