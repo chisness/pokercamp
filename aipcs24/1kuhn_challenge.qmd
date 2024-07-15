@@ -44,8 +44,8 @@ Any deck of 3 ranked cards works. For example:
   
   - <span class=action>↓Down</span> (not putting a chip into the pot) 
 
-:::{.callout-tip collapse="true"  appearance="minimal"}
-## <span class=action>↑Up</span> and <span class=action>↓Down</span> vs traditional poker terms
+:::{.callout-tip  appearance="minimal"}
+## <span class=action>↑Up</span> and <span class=action>↓Down</span> in traditional poker terms
 
   - <span class=action>↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to the pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force them to match your higher amount (or fold). In Kuhn Poker there are no raises because each player only has 1 chip to bet with.">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.
 
@@ -93,7 +93,7 @@ If you have a partner handy, try the following:
 - Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn't a trick&mdash;there are such situations in this game.)
 :::
 
-## Visualizing a game tree
+## Pre-Challenge: Visualizing a game tree
 To analyze Kuhn Poker further, we'll represent the game in terms of a visual game tree. This would be infeasible for a game that was much more complicated, but here it will hopefully let us visualize what is going on.
 
 First, deal one card to <span class="player p1"></span> and one card to <span class="player p2"></span>. Each possible deal of the cards forms a separate "game node". For example, <span class=gamenode>AK</span> means that <span class="player p1"></span> has <span class=gamenode>A</span> and <span class="player p2"></span> has <span class=gamenode>K</span>:
