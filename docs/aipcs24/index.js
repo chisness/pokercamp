@@ -302,13 +302,12 @@ states = {
 };
 
 var infoSetsUnlock = getLocalStorage('poker.camp/1kuhn_challenge/infoSets.unlock');
-  console.log(infoSetsUnlock);
-  if (!infoSetsUnlock || !("A_" in infoSetsUnlock) || !("inverse" in infoSetsUnlock["A_"]) || infoSetsUnlock["A_"].inverse) {
-      /* pass */
-  } else {
-      infoSets = infoSetsUnlock;
-      unlock_next();
-  }
+if (!infoSetsUnlock || !("A_" in infoSetsUnlock) || !("inverse" in infoSetsUnlock["A_"]) || infoSetsUnlock["A_"].inverse) {
+    /* pass */
+} else {
+    infoSets = infoSetsUnlock;
+    unlock_next();
+}
 
 // function loadJSON(file) {
 //     var xhr = new XMLHttpRequest();
@@ -503,6 +502,7 @@ function recalculateEvs() {
       });
       
       document.querySelectorAll(".ev" + infoSetKey).forEach(element => {
+        console.log(`${infoSetKey} ${evLabel(infoSets[infoSetKey].ev)}`);
         element.textContent = `EV: ${evLabel(infoSets[infoSetKey].ev)}`;
       });
       const evUp = calculateDirectionEV(infoSets[infoSetKey], "up");
@@ -599,13 +599,14 @@ var stop_running;
 
 function startSimulator() {
     const iterations = Number(document.getElementById("num_iterations").value);
-    const waitPerStep = Number(document.getElementById("wait_per_step").value);
 
     function runIteration(i, onComplete) {
         if (i >= iterations || stop_running) {
           onComplete();
           return;
         }
+        
+        const waitPerStep = Number(document.getElementById("wait_per_step").value);
 
         const updateFactor = Number(document.getElementById("update_factor").value);
         const scale_by_ev = document.getElementById("scale_by_ev").value === "true";
@@ -639,8 +640,6 @@ function startSimulator() {
               * (scale_by_visit_prob ? infoSets[label].p : 1)
               / (scale_by_total_updates ? infoSets[label].total_regret : 1)
             ;
-            
-            console.log(`${label} ${update}`)
             
             infoSets[label].percentage =
                 curValue
@@ -720,7 +719,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const svgHeight = subtreeHeight + subtreeMargin.top + subtreeMargin.bottom;
 
   const subtreeDiv = d3.select("#subtree_visualizations")
-    .append("div").attr("style", "width: 280px; max-width: 31%; height: auto; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 2%; padding: 0.5em;");
+    .append("div").attr("style", "width: 280px; min-width:210px; max-width: 31%; height: auto; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 2%; padding: 0.5em;");
   const subtreeSvg = subtreeDiv
     .append("svg")
     .attr("width", svgWidth + 40)
@@ -744,9 +743,10 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const root2 = d3.hierarchy(subtree2);
   treeLayout(root2);
 
-  const displayEV = (node, stateName, xMod = 0, yMod = 0) => {
+  const displayEV = (node, stateName, xMod = 0, yMod = 0, color = "black") => {
+    console.log(stateName);
     const state = stateName in states ? states[stateName] : infoSets[stateName];
-    const displayEv = evLabel(state.ev);
+    const displayEv = stateName in states ? evLabel(state.ev) : NaN;
     node.append("text")
       .attr("class", "ev" + stateName + " " + stateName)
       .attr("x", xMod)
@@ -755,7 +755,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
       .attr("text-anchor", "middle")
       .attr("paint-order", "stroke")
       .attr("stroke", "white")
-      .attr("fill", "black")
+      .attr("fill", color)
       .attr("font-weight", "bold")
       .attr("opacity", 1)
       .attr("font-size", "10px") // Make the text smaller
@@ -989,7 +989,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const midY = (pos1.y + pos2.y) / 2;
   
   // Add label at midpoint
-  subtreeSvg.append("text")
+  var infosetLabel = subtreeSvg.append("text")
     .attr("x", midX)
     .attr("y", midY)
     .attr("dy", "0.31em")
@@ -1000,6 +1000,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
     .text(label);
   displayRegret(subtreeSvg, label, midX, midY);
   displayP(subtreeSvg, label, midX, midY);
+  displayEV(subtreeSvg, label, midX, midY-5, color);
   
     
   const evDown = calculateDirectionEV(infoSet, "down");

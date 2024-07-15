@@ -409,7 +409,7 @@ window.Quarto = {
 </div>
 <section id="pre-challenge-visualizing-a-game-tree" class="level2">
 <h2 class="anchored" data-anchor-id="pre-challenge-visualizing-a-game-tree">Pre-Challenge: Visualizing a game tree</h2>
-<p>To analyze Kuhn Poker further, we’ll represent the game in terms of a visual game tree. This would be infeasible for a game that was much more complicated, but here it will hopefully let us visualize what is going on.</p>
+<p>To analyze Kuhn Poker further, we’ll represent the game in terms of a visual game tree.</p>
 <p>First, deal one card to <span class="player p1"></span> and one card to <span class="player p2"></span>. Each possible deal of the cards forms a separate “game node”. For example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>:</p>
 <div id="tree_visualization_075" class="tree_visualization">
 
@@ -457,9 +457,9 @@ window.Quarto = {
 <p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset (6 of them per player).</p>
 <section id="example-1-determining-a-local-best-response" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-determining-a-local-best-response">Example 1: Determining a local best response</h3>
-<p>Let’s start by considering <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA_↓↑</span> or <span class="gamenode">KQ_↓↑</span>. This is what the game looks like from <span class="player p1"></span>’s perspective:</p>
+<p>Let’s start by considering <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA↓↑</span> or <span class="gamenode">KQ↓↑</span>. This is what the game looks like from <span class="player p1"></span>’s perspective:</p>
 <p><img src="assets/k_down_up.png" class="img-fluid"></p>
-<p>As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>’s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class="gamenode">KA_↓↑</span> vs <span class="gamenode">KQ_↓↑</span>.</p>
+<p>As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>’s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class="gamenode">KA↓↑</span> vs <span class="gamenode">KQ↓↑</span>.</p>
 <div class="duplicate_K_↓↑">
 
 </div>

@@ -13,7 +13,7 @@ format:
 </div>
 
 ## Pre-Challenge: Visualizing a game tree
-To analyze Kuhn Poker further, we'll represent the game in terms of a visual game tree. This would be infeasible for a game that was much more complicated, but here it will hopefully let us visualize what is going on.
+To analyze Kuhn Poker further, we'll represent the game in terms of a visual game tree.
 
 First, deal one card to <span class="player p1"></span> and one card to <span class="player p2"></span>. Each possible deal of the cards forms a separate "game node". For example, <span class=gamenode>AK</span> means that <span class="player p1"></span> has <span class=gamenode>A</span> and <span class="player p2"></span> has <span class=gamenode>K</span>:
     
@@ -63,11 +63,11 @@ Each player's strategy can be completely described in terms of their action prob
 
 ### Example 1: Determining a local best response
 
-Let's start by considering <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what the game looks like from <span class="player p1"></span>'s perspective: 
+Let's start by considering <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA↓↑</span> or <span class=gamenode>KQ↓↑</span>. This is what the game looks like from <span class="player p1"></span>'s perspective: 
 
 ![](assets/k_down_up.png)
 
-As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>'s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class=gamenode>KA_↓↑</span> vs <span class=gamenode>KQ_↓↑</span>.
+As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>'s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class=gamenode>KA↓↑</span> vs <span class=gamenode>KQ↓↑</span>.
 
 <div class="duplicate_K_↓↑"></div>
 
