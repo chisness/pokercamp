@@ -852,8 +852,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
         .attr("class", d => d.data.name)
         .text(d => d.data.name);
     
-    if (d.data.children.length) {
-      if (d.data.children[0].length === 0) {
+    if (d.data.children.length != 0) {
+      if (d.data.children[0].children.length === 0) {
           displayEV(node, d.data.name);
       } else {
         displayWeight(node, d.data.name, label);
@@ -931,8 +931,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
         .attr("class", d => d.data.name)
         .text(d => d.data.name);
 
-    if (d.data.children.length) {
-      if (d.data.children[0].length === 0) {
+    if (d.data.children.length != 0) {
+      if (d.data.children[0].children.length === 0) {
           displayEV(node, d.data.name);
       } else {
         displayWeight(node, d.data.name, label);
@@ -1042,7 +1042,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   ;
   
   document.querySelectorAll(".duplicate_" + label).forEach(element => {
-    element.innerHTML = subtreeDiv.node().outerHTML;
+    element.outerHTML = subtreeDiv.node().outerHTML;
     element.querySelectorAll('[id]').forEach(el => {
       el.removeAttribute('id');
     });
