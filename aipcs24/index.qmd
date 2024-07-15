@@ -13,7 +13,7 @@ Thanks for signing up. This is the first time we're running AI Poker Camp and it
 
 We're glad to have you along for the ride and welcome any feedback about all aspects of the course including things like whether the pace is too fast or too slow, too easy or too hard, too repetitive, etc. 
 
-We plan to spend Mondays reviewing previous challenges and thinking about new challenges/adjacent problems and Thursdays working on new challenges, which will be due every Sunday. 
+We plan to spend Mondays reviewing previous challenges and thinking about new challenges/adjacent problems and Thursdays working on the challenges, which will be due every Sunday. 
 
 Our goal is to develop your intuitions around decision making and problem solving by engaging with challenges in fun and non-idealized scenarios. 
 

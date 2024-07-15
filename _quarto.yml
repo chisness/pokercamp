@@ -48,7 +48,7 @@ website:
           contents:
             - section: "#1: Kuhn Poker"
               contents: 
-                - text: "Reading"
+                - text: "Optional Reading"
                   href: "aipcs24/1kuhn_reading.qmd"
                 - text: "Rules"
                   href: "aipcs24/1kuhn_rules.qmd"
