@@ -599,13 +599,14 @@ var stop_running;
 
 function startSimulator() {
     const iterations = Number(document.getElementById("num_iterations").value);
-    const waitPerStep = Number(document.getElementById("wait_per_step").value);
 
     function runIteration(i, onComplete) {
         if (i >= iterations || stop_running) {
           onComplete();
           return;
         }
+        
+        const waitPerStep = Number(document.getElementById("wait_per_step").value);
 
         const updateFactor = Number(document.getElementById("update_factor").value);
         const scale_by_ev = document.getElementById("scale_by_ev").value === "true";
@@ -639,8 +640,6 @@ function startSimulator() {
               * (scale_by_visit_prob ? infoSets[label].p : 1)
               / (scale_by_total_updates ? infoSets[label].total_regret : 1)
             ;
-            
-            console.log(`${label} ${update}`)
             
             infoSets[label].percentage =
                 curValue

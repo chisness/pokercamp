@@ -17,14 +17,30 @@ format:
 :::{.callout-note  appearance="minimal"}
 ## Challenge part 2: submission and leaderboard
 
-The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class=submission_id>[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the "Submit" button below.
+<p><del>The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class=submission_id>[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the "Submit" button below.</del> The preceding sentences will be true when the challenge goes live, expect Tuesday or Wednesday.</p>
 
 Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player's infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).
 
-Once you have a strategy that you believe improves on your current submission, you can re-submit and wait for the results to be re-run (which may take some minutes). TODO: further leaderboard instructions go here.
+Once you have a strategy that you believe improves on your current submission, you <del>can re-submit and wait for the results to be re-run (which may take some minutes)</del> will later be able to submit it and see the results against other entries.
 :::
 
 <div id="tree_visualization_400b" class="tree_visualization"></div>
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Solver controls
+
+- The site should save your progress if you navigate away or refresh, though might lose the last few edits, depending.
+- It doesn't have any help for sharing solutions between teammates, sorry.
+- At each iteration, the solver will update all 12 nodes (in some arbitrary order), using a rule modified by the update parameters:
+  - a magnitude multiplier
+  - how to scale the update based on EV (currently supports: no effect or linearly)
+  - how to scale the update based on the infoset's visit probability (currently supports: no effect or linearly)
+  - whether to use a learning rate to decay the magnitude over time (currently supports: no decay, or linear in the sum of updates made to this infoset since reset)
+  - whether to update probability or odds
+- You can set it to run for a number of iterations. (If you accidentally set it to too many, you can stop the solver by pressing "Stop" or by reloading the page.)
+- Speed is hopefully self-explanatory.
+- Tolerance controls the difference between action EVs that is too small to update on.
+:::
 
 <div id="simulation_controls" style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;e">
 <div style="display: inline-block; margin-right: 1em;">
@@ -96,10 +112,16 @@ Once you have a strategy that you believe improves on your current submission, y
 
 <div id="subtree_visualizations" style="max-width: 750px;"></div>
 
+### Submit to leaderboard
+
+&lt;Nothing here yet; check back later.&gt;
+
+<div style="display:none">
 <button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitStrategy()">Submit Strategy to Leaderboard</button>
 
 <div id="leaderboard">
   TODO: leaderboard goes here.
+</div>
 </div>
 </div>
 
