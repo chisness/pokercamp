@@ -406,9 +406,14 @@ Challenge part 2: submission and leaderboard
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class="submission_id">[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the “Submit” button below.</p>
+<p>
+<del>
+The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class="submission_id">[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the “Submit” button below.
+</del>
+The preceding sentences will be true when the challenge goes live, expect Tuesday or Wednesday.
+</p>
 <p>Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player’s infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).</p>
-<p>Once you have a strategy that you believe improves on your current submission, you can re-submit and wait for the results to be re-run (which may take some minutes). TODO: further leaderboard instructions go here.</p>
+<p>Once you have a strategy that you believe improves on your current submission, you <del>can re-submit and wait for the results to be re-run (which may take some minutes)</del> will later be able to submit it and see the results against other entries.</p>
 </div>
 </div>
 <div id="tree_visualization_400b" class="tree_visualization">
@@ -466,12 +471,18 @@ Solver controls
 <div id="subtree_visualizations" style="max-width: 750px;">
 
 </div>
+<section id="submit-to-leaderboard" class="level3">
+<h3 class="anchored" data-anchor-id="submit-to-leaderboard">Submit to leaderboard</h3>
+<p>&lt;Nothing here yet; check back later.&gt;</p>
+<div style="display:none">
 <button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitStrategy()">
 Submit Strategy to Leaderboard
 </button>
 <div id="leaderboard">
 <p>TODO: leaderboard goes here.</p>
 </div>
+</div>
+</section>
 </div>
 <script>
   function unlock_next() {
