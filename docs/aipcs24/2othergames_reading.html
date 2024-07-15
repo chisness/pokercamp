@@ -453,7 +453,7 @@ window.Quarto = {
   <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link active" data-scroll-target="#types-of-games">Types of Games</a></li>
   <li><a href="#concept-nash-equilibrium" id="toc-concept-nash-equilibrium" class="nav-link" data-scroll-target="#concept-nash-equilibrium">Concept: Nash Equilibrium</a>
   <ul class="collapse">
-  <li><a href="#indifference" id="toc-indifference" class="nav-link" data-scroll-target="#indifference">Indifference</a></li>
+  <li><a href="#indifference-and-penalty-kicks" id="toc-indifference-and-penalty-kicks" class="nav-link" data-scroll-target="#indifference-and-penalty-kicks">Indifference and Penalty Kicks</a></li>
   </ul></li>
   <li><a href="#reinforcement-learning-rl" id="toc-reinforcement-learning-rl" class="nav-link" data-scroll-target="#reinforcement-learning-rl">Reinforcement Learning (RL)</a></li>
   <li><a href="#war" id="toc-war" class="nav-link" data-scroll-target="#war">War</a></li>
@@ -506,9 +506,8 @@ window.Quarto = {
 
 <section id="types-of-games" class="level2">
 <h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
-<p>This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits into this table.</p>
+<p>This course is primarily about poker and poker-adjacent games, but let’s take a step back and look at different classes of games and where poker fits.</p>
 <p>The goal of this reading is to introduce various concepts that will be useful when building agents for future challenges.</p>
-<p>Tennis value of states in RL</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -622,16 +621,19 @@ Exercise
 <p>What makes poker and other games in the bottom right of the table interesting?</p>
 </div>
 </div>
-<p>What about solitaire? With Blackjack? What about a lottery? Mahjong?</p>
+<p>What about solitaire? With Blackjack? What about a lottery? Mahjong? Tennis value of states in RL</p>
+<p>Pure strategies in perfect info games vs.&nbsp;mixed in imperfect info</p>
+<p>Deterministic Nature: Because all players can see the entire game state and know all possible moves, strategies can be deterministic. Players can calculate and choose the optimal move based on this complete information. Pure Strategies: A pure strategy is a complete plan of action for every possible situation in a game. In perfect information games, players can follow a pure strategy because they know exactly what will happen as a result of each possible move.</p>
+<p>Uncertainty and Hidden Information: Because players cannot see the entire game state, they must account for uncertainty and the hidden information of their opponents. This makes the game more about probabilities and expectations rather than certainties. Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.</p>
+<p>Strategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.</p>
 <p>(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)</p>
 </section>
 <section id="concept-nash-equilibrium" class="level2">
 <h2 class="anchored" data-anchor-id="concept-nash-equilibrium">Concept: Nash Equilibrium</h2>
-<p>A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given).</p>
-<p>Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submitted to Challenge 1, you submitted a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?</p>
-<p>The other paradigm for game strategies is opponent exploitation, which we will address in future sections.</p>
-<section id="indifference" class="level3">
-<h3 class="anchored" data-anchor-id="indifference">Indifference</h3>
+<p>A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given). The other paradigm for game strategies is opponent exploitation, which we will address in future sections.</p>
+<p>Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submit a strategy to Challenge 1, you submit a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?</p>
+<section id="indifference-and-penalty-kicks" class="level3">
+<h3 class="anchored" data-anchor-id="indifference-and-penalty-kicks">Indifference and Penalty Kicks</h3>
 <p>Consider the <strong>Soccer Penalty Kick</strong> game where a Kicker is trying to score a goal and the Goalie is trying to block it.</p>
 <table class="table">
 <thead>

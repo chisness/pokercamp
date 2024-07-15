@@ -6,11 +6,9 @@ format:
     math: true
 ---
 ## Types of Games
-This course is primarily about poker and poker-adjacent games, but let's take a step back and look at different classes of games and where poker fits into this table. 
+This course is primarily about poker and poker-adjacent games, but let's take a step back and look at different classes of games and where poker fits.  
 
 The goal of this reading is to introduce various concepts that will be useful when building agents for future challenges. 
-
-Tennis value of states in RL 
 
 :::{.callout-note  appearance="minimal"}
 ## Exercise
@@ -47,17 +45,27 @@ What makes poker and other games in the bottom right of the table interesting?
 What about solitaire? With Blackjack?
 What about a lottery? 
 Mahjong?
+Tennis value of states in RL 
+
+Pure strategies in perfect info games vs. mixed in imperfect info
+
+Deterministic Nature: Because all players can see the entire game state and know all possible moves, strategies can be deterministic. Players can calculate and choose the optimal move based on this complete information.
+Pure Strategies: A pure strategy is a complete plan of action for every possible situation in a game. In perfect information games, players can follow a pure strategy because they know exactly what will happen as a result of each possible move.
+
+Uncertainty and Hidden Information: Because players cannot see the entire game state, they must account for uncertainty and the hidden information of their opponents. This makes the game more about probabilities and expectations rather than certainties.
+Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.
+
+Strategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.
+
 
 (Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)
 
 ## Concept: Nash Equilibrium
-A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given).
+A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given). The other paradigm for game strategies is opponent exploitation, which we will address in future sections. 
 
-Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submitted to Challenge 1, you submitted a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?
+Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submit a strategy to Challenge 1, you submit a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?
 
-The other paradigm for game strategies is opponent exploitation, which we will address in future sections. 
-
-### Indifference
+### Indifference and Penalty Kicks
 Consider the **Soccer Penalty Kick** game where a Kicker is trying to score a goal and the Goalie is trying to block it. 
 
 | Kicker/Goalie | Lean Left | Lean Right | 
