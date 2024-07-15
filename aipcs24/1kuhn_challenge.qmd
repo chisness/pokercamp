@@ -27,6 +27,9 @@ Any deck of 3 ranked cards works. For example:
   - Wikipedia's description uses {Jack, Queen, King}.
 :::
 
+<img style="display:none" src="assets/p1l.png" />
+<img style="display:none" src="assets/p2w.png" />
+
 - Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they'll be <span class="player p1"></span> and <span class="player p2"></span>.
 
 - Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.
