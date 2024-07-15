@@ -206,6 +206,142 @@
     "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nOur first camp will take place from Jul 15 to Aug 15 in person in San Francisco.\n\n\n\n\n\n\nSign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!\n\n\n\nClick here for more info\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Poker Camp is a project by Ross Rheingans-Yoo and Max Chiswick."
+  },
+  {
+    "objectID": "about.html#mission",
+    "href": "about.html#mission",
+    "title": "About",
+    "section": "Mission",
+    "text": "Mission\nTeaching practical decision-making and rationality through poker and other games, blending real-world skills with theoretical insights"
+  },
+  {
+    "objectID": "about.html#max-bio",
+    "href": "about.html#max-bio",
+    "title": "About",
+    "section": "Max bio",
+    "text": "Max bio\n\nFormer online poker pro on PokerStars, playing over 10m hands including 990k in 1 month (record for most ever played in a month above microstakes)\nAI poker work:\n\nMSc with thesis on AI poker at Technion Israel Institute of Technology with Nahum Shimkin\nAI Poker Tutorial website (needs updating!)\nTwo poker research papers with Sam Ganzfried\n\nSubstack"
+  },
+  {
+    "objectID": "about.html#ross-bio",
+    "href": "about.html#ross-bio",
+    "title": "About",
+    "section": "Ross bio",
+    "text": "Ross bio\n\nFormer Jane Street trader\nWrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021\nHomepage\nTwitter"
+  },
+  {
+    "objectID": "about.html#contribute",
+    "href": "about.html#contribute",
+    "title": "About",
+    "section": "Contribute",
+    "text": "Contribute\n\nWe are in the process of becoming a 501(c)(3) nonprofit. If you are interested in contributing monetarily, please see our .org site: https://pokercamp.org.\nIf you are interested in contributing to materials or working with us, be in touch"
+  },
+  {
+    "objectID": "signup/index.html",
+    "href": "signup/index.html",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "",
+    "text": "Sign up now!\n\n\n\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
+  },
+  {
+    "objectID": "signup/index.html#when",
+    "href": "signup/index.html#when",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "When?",
+    "text": "When?\n6pm-8pm Mondays and Thursdays, July 15 through August 15."
+  },
+  {
+    "objectID": "signup/index.html#what",
+    "href": "signup/index.html#what",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What?",
+    "text": "What?\nA five-week, twice-weekly course on applied game theory through you writing AIs to play games. By the end, you should be able to write an AI to play poker.\nThis is a beta test of a course we’re planning to run online in the fall, so it’ll be small. We’ll cap signups somewhere between 16 and 24 students."
+  },
+  {
+    "objectID": "signup/index.html#where",
+    "href": "signup/index.html#where",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Where?",
+    "text": "Where?\nStrictly in-person in San Francisco. Location to be announced.\n\nWait, really? I can’t make that!\nWe’re also planning to run an online version of the course starting in late September. You can join our mailing list to learn more when it’s announced."
+  },
+  {
+    "objectID": "signup/index.html#who",
+    "href": "signup/index.html#who",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who?",
+    "text": "Who?\n\nWe recommend students be able to program in Python and perform a Bayesian update (though it’s fine to lean on an LLM for help on either).\nKnowledge of the game of poker is not necessary. (We are offering a 2 hour Poker Basics workshop on Sun Jul 7.)"
+  },
+  {
+    "objectID": "signup/index.html#whats-the-curriculum",
+    "href": "signup/index.html#whats-the-curriculum",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "What’s the curriculum?",
+    "text": "What’s the curriculum?\nThe course is built around six or seven practical challenges – think “kaggle competition for game-playing programs”. These will cover:\n\nTutorial: One-card / Kuhn Poker\n\nTopic: Algorithms for solving incomplete-information games.\n\nLarger one-card poker formats and other simple games\n\nTopic: Scaling up algorithms to larger game trees.\n\nRock-Paper-Scissors against imperfect opponents\n\nTopic: Techniques for modeling empirical opponent behavior.\n\nHidden-information version of Probabilistic Tic-Tac-Toe\n\nTopic: Modeling hidden information from opponent actions.\n\nTexas Holdem with simplified betting\n\nTopic: Putting it together!\n\n\nWe’re intending for the Summer Beta to have about the intensity of one (1) college course in applied CS. You should expect to make at least 9 out of 10 class sessions."
+  },
+  {
+    "objectID": "signup/index.html#whos-teaching",
+    "href": "signup/index.html#whos-teaching",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Who’s teaching?",
+    "text": "Who’s teaching?\nRoss Rheingans-Yoo wrote the advanced trading simulations for the Jane Street trading internship program from 2018 to 2021.\nMax Chiswick is a former poker pro who has played more than 10 million hands of online poker, and created AI Poker Tutorial.\nRicki Heicklen is a curriculum advisor (but will not be teaching in the SF Beta)."
+  },
+  {
+    "objectID": "signup/index.html#how",
+    "href": "signup/index.html#how",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "How?",
+    "text": "How?\nSignup Form\n\nAfter signing up, we’ll be in touch with all details\nThe beta program is free!"
+  },
+  {
+    "objectID": "signup/index.html#something-else",
+    "href": "signup/index.html#something-else",
+    "title": "AI Poker Camp (2024 Summer Beta SF)",
+    "section": "Something else?",
+    "text": "Something else?\nGet in touch!"
+  },
+  {
+    "objectID": "aipcs24/1kuhn_rules.html",
+    "href": "aipcs24/1kuhn_rules.html",
+    "title": "#1: Kuhn Poker | Rules",
+    "section": "",
+    "text": "Kuhn Poker is the simplest nontrivial version of poker. Here is the setup:\n\n3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)\n\n\n\n\n\n\n\nAlternative (but equivalent) decks\n\n\n\n\n\nAny deck of 3 ranked cards works. For example:\n\nThe python game engine that we’ll use in later challenges uses {0, 1, 2}.\nWikipedia’s description uses {Jack, Queen, King}.\n\n\n\n\n \n\nKuhn Poker is played with 2 players. For this exercise, they’ll be  and .\nEach player starts with 2 chips and both players ante 1 chip.\nDeal 1 card to each player (discard the third).\n\n\n\nThere is one street of betting in which players can take these actions:\n\n↑Up (putting a chip into the pot)\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can end in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is ↑Up, ↓Down or if the action is ↓Down, ↑Up, ↓Down.\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is ↑Up, ↑Up or if the action is ↓Down, ↑Up, ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "#1: Kuhn Poker",
+      "Rules"
+    ]
+  },
+  {
+    "objectID": "aipcs24/1kuhn_rules.html#kuhn-poker-rules",
+    "href": "aipcs24/1kuhn_rules.html#kuhn-poker-rules",
+    "title": "#1: Kuhn Poker | Rules",
+    "section": "",
+    "text": "Kuhn Poker is the simplest nontrivial version of poker. Here is the setup:\n\n3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)\n\n\n\n\n\n\n\nAlternative (but equivalent) decks\n\n\n\n\n\nAny deck of 3 ranked cards works. For example:\n\nThe python game engine that we’ll use in later challenges uses {0, 1, 2}.\nWikipedia’s description uses {Jack, Queen, King}.\n\n\n\n\n \n\nKuhn Poker is played with 2 players. For this exercise, they’ll be  and .\nEach player starts with 2 chips and both players ante 1 chip.\nDeal 1 card to each player (discard the third).\n\n\n\nThere is one street of betting in which players can take these actions:\n\n↑Up (putting a chip into the pot)\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can end in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is ↑Up, ↓Down or if the action is ↓Down, ↑Up, ↓Down.\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is ↑Up, ↑Up or if the action is ↓Down, ↑Up, ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Challenges",
+      "#1: Kuhn Poker",
+      "Rules"
+    ]
+  },
+  {
+    "objectID": "aipcs24/sessions.html",
+    "href": "aipcs24/sessions.html",
+    "title": "Sessions and Challenges",
+    "section": "",
+    "text": "This is the schedule for AI Poker Camp Summer 2024. We plan to spend Mondays reviewing previous challenges and thinking about new challenges/adjacent problems and Thursdays working on the challenges, which will be due every Sunday.\n\n\nThe calendar below includes all dates, locations, and times. You can add the whole thing to your own calendar with the button in the bottom right.",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "About the Course",
+      "Sessions and Challenges"
+    ]
+  },
+  {
     "objectID": "aipcs24/1kuhn_reading.html",
     "href": "aipcs24/1kuhn_reading.html",
     "title": "#1: Kuhn Poker | Reading",
@@ -282,6 +418,5 @@
       "#1: Kuhn Poker",
       "Optional Reading"
     ]
-
   }
 ]
