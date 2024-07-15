@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Poker Camp - #5 Texas Tac Toe: Challenge</title>
+<title>Poker Camp - #1 Kuhn Poker: Rules</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,12 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Poker Camp - #5 Texas Tac Toe: Challenge">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Poker Camp - #1 Kuhn Poker: Rules">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="Poker Camp - #5 Texas Tac Toe: Challenge">
+<meta name="twitter:title" content="Poker Camp - #1 Kuhn Poker: Rules">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -174,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/5ttt_reading1.html">#5: Texas Tac Toe</a></li><li class="breadcrumb-item"><a href="../aipcs24/5ttt_challenge.html">Challenge</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_rules.html">Rules</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -203,13 +206,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">#1: Kuhn Poker</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/1kuhn_reading.html" class="sidebar-item-text sidebar-link">
@@ -218,7 +221,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/1kuhn_rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../aipcs24/1kuhn_rules.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Rules</span></a>
   </div>
 </li>
@@ -337,13 +340,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">#5: Texas Tac Toe</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/5ttt_reading1.html" class="sidebar-item-text sidebar-link">
@@ -358,7 +361,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/5ttt_challenge.html" class="sidebar-item-text sidebar-link active">
+  <a href="../aipcs24/5ttt_challenge.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenge</span></a>
   </div>
 </li>
@@ -450,14 +453,20 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#kuhn-poker-rules" id="toc-kuhn-poker-rules" class="nav-link active" data-scroll-target="#kuhn-poker-rules">Kuhn Poker Rules</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/5ttt_reading1.html">#5: Texas Tac Toe</a></li><li class="breadcrumb-item"><a href="../aipcs24/5ttt_challenge.html">Challenge</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_rules.html">Rules</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">#5 Texas Tac Toe: Challenge</h1>
+<h1 class="title">#1 Kuhn Poker: Rules</h1>
 </div>
 
 
@@ -474,9 +483,157 @@ window.Quarto = {
 </header>
 
 
+<section id="kuhn-poker-rules" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-poker-rules">Kuhn Poker Rules</h2>
+<p>Kuhn Poker is the simplest nontrivial version of poker. Here is the setup:</p>
+<ul>
+<li>3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)</li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Alternative (but equivalent) decks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Any deck of 3 ranked cards works. For example:</p>
+<ul>
+<li><p>The python game engine that we’ll use in later challenges uses {0, 1, 2}.</p></li>
+<li><p>Wikipedia’s description uses {Jack, Queen, King}.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p><img style="display:none" src="assets/p1l.png"> <img style="display:none" src="assets/p2w.png"></p>
+<ul>
+<li><p>Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they’ll be <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
+<li><p>Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.</p></li>
+<li><p>Deal 1 card to each player (discard the third).</p></li>
+</ul>
+<p><img src="assets/kuhn.png" class="img-fluid"></p>
+<ul>
+<li><p>There is one <abbr title="In poker-like games, a street is a round of betting that begins with one turn for each player and continues until either: all players but one quit, or some number of remaining players have added equal amounts to the pot. (The conditions for ending the betting in a street will differ game-to-game.) Then some cards will typically be dealt or revealed and there may be another street.">street</abbr> of betting in which players can take these actions:</p>
+<ul>
+<li><p><span class="action">↑Up</span> (putting a chip into the pot)</p></li>
+<li><p><span class="action">↓Down</span> (not putting a chip into the pot)</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="action">↑Up</span> and <span class="action">↓Down</span> in traditional poker terms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><span class="action">↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to the pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force them to match your higher amount (or fold). In Kuhn Poker there are no raises because each player only has 1 chip to bet with.">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.</p></li>
+<li><p><span class="action">↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>.</p></li>
+</ul>
+</div>
+</div>
+<p>The betting (and the game) can end in three ways:</p>
+<ol type="1">
+<li><p>One player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↓Down</span>. The player who played <span class="action">↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is <span class="action">↑Up</span>, <span class="action">↓Down</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↓Down</span>.</p></li>
+<li><p>Both players play <span class="action">↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).</p></li>
+<li><p>A player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class="action">↑Up</span>, <span class="action">↑Up</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↑Up</span>.</p></li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example game
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Players ante and cards are dealt.</p></li>
+<li><p><span class="player p1"></span> sees a <span class="gamenode">A</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
+<li><p><span class="player p2"></span> sees a <span class="gamenode">K</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
+<li><p>Both cards are revealed in a 2-chip showdown. <span class="player p1"></span> has an <span class="gamenode">A</span> and <span class="player p2"></span> has a <span class="gamenode">K</span>.</p></li>
+<li><p><span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>’s <span class="action">↑Up</span>).</p></li>
+</ul>
+</div>
+</div>
+<p>Here is a list of all possible betting sequences:</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="player p1"></span></th>
+<th><span class="player p2"></span></th>
+<th><span class="player p1"></span></th>
+<th>Winner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↓Down</span></td>
+<td></td>
+<td><span class="player p1"></span> (+1)</td>
+</tr>
+<tr class="even">
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↑Up</span></td>
+<td></td>
+<td>Higher Card (+2)</td>
+</tr>
+<tr class="odd">
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↓Down</span></td>
+<td></td>
+<td>Higher Card (+1)</td>
+</tr>
+<tr class="even">
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↓Down</span></td>
+<td><span class="player p2"></span> (+1)</td>
+</tr>
+<tr class="odd">
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↑Up</span></td>
+<td>Higher Card (+2)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Partner Exercise: Get started with Kuhn Poker
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have a partner handy, try the following:</p>
+<ul>
+<li><p>Play a few hands of Kuhn Poker, get used to the order of events in the game.</p></li>
+<li><p>Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn’t a trick—there are such situations in this game.)</p></li>
+</ul>
+</div>
+</div>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

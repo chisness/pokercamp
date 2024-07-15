@@ -50,6 +50,8 @@ website:
               contents: 
                 - text: "Reading"
                   href: "aipcs24/1kuhn_reading.qmd"
+                - text: "Rules"
+                  href: "aipcs24/1kuhn_rules.qmd"
                 - text: "Challenge"
                   href: "aipcs24/1kuhn_challenge.qmd"
                 - text: "Challenge Review"

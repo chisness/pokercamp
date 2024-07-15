@@ -1,0 +1,89 @@
+---
+title: "#1 Kuhn Poker: Rules"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+    css: styles.css
+---
+
+## Kuhn Poker Rules
+Kuhn Poker is the simplest nontrivial version of poker. Here is the setup: 
+
+- 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Alternative (but equivalent) decks 
+
+Any deck of 3 ranked cards works. For example:
+
+  - The python game engine that we'll use in later challenges uses {0, 1, 2}.
+  
+  - Wikipedia's description uses {Jack, Queen, King}.
+:::
+
+<img style="display:none" src="assets/p1l.png" />
+<img style="display:none" src="assets/p2w.png" />
+
+- Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they'll be <span class="player p1"></span> and <span class="player p2"></span>.
+
+- Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.
+
+- Deal 1 card to each player (discard the third).
+
+![](assets/kuhn.png)
+
+- There is one <abbr title="In poker-like games, a street is a round of betting that begins with one turn for each player and continues until either: all players but one quit, or some number of remaining players have added equal amounts to the pot. (The conditions for ending the betting in a street will differ game-to-game.) Then some cards will typically be dealt or revealed and there may be another street.">street</abbr> of betting in which players can take these actions: 
+
+  - <span class=action>↑Up</span> (putting a chip into the pot) 
+  
+  - <span class=action>↓Down</span> (not putting a chip into the pot) 
+
+:::{.callout-tip  appearance="minimal"}
+## <span class=action>↑Up</span> and <span class=action>↓Down</span> in traditional poker terms
+
+  - <span class=action>↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to the pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force them to match your higher amount (or fold). In Kuhn Poker there are no raises because each player only has 1 chip to bet with.">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.
+
+  - <span class=action>↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>.
+:::
+
+The betting (and the game) can end in three ways: 
+
+1. One player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↓Down</span>. The player who played <span class=action>↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser's ante (and gets their own chip back). The players' cards are not revealed. Note that this happens if the action is <span class=action>↑Up</span>, <span class=action>↓Down</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↓Down</span>.
+
+2. Both players play <span class=action>↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).
+
+3. A player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class=action>↑Up</span>, <span class=action>↑Up</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↑Up</span>.
+
+:::{.callout-note  appearance="minimal"}
+## Example game
+- Players ante and cards are dealt.
+
+- <span class="player p1"></span> sees a <span class="gamenode">A</span> and plays <span class=action>↑Up</span> (1 more chip into pot).
+
+- <span class="player p2"></span> sees a <span class="gamenode">K</span> and plays <span class=action>↑Up</span> (1 more chip into pot).
+
+- Both cards are revealed in a 2-chip showdown. <span class="player p1"></span> has an <span class="gamenode">A</span> and <span class="player p2"></span> has a <span class="gamenode">K</span>.
+
+- <span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>'s <span class=action>↑Up</span>).
+:::
+
+Here is a list of all possible betting sequences:  
+
+| <span class="player p1"></span>  | <span class="player p2"></span>  | <span class="player p1"></span> | Winner       |
+|------------|-----------|-----------|----------|
+| <span class=action>↑Up</span>        | <span class=action>↓Down</span>      |          |<span class="player p1"></span> (+1) |
+| <span class=action>↑Up</span>        | <span class=action>↑Up</span>        |          |Higher Card (+2)|
+| <span class=action>↓Down</span>     | <span class=action>↓Down</span>      |          |Higher Card (+1)|
+| <span class=action>↓Down</span>      | <span class=action>↑Up</span>        | <span class=action>↓Down</span>     |<span class="player p2"></span> (+1) |
+| <span class=action>↓Down</span>      | <span class=action>↑Up</span>        | <span class=action>↑Up</span>       |Higher Card (+2)|
+
+:::{.callout-note  appearance="minimal"}
+## Partner Exercise: Get started with Kuhn Poker
+
+If you have a partner handy, try the following:
+
+- Play a few hands of Kuhn Poker, get used to the order of events in the game.
+
+- Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn't a trick&mdash;there are such situations in this game.)
+:::
