@@ -1,3 +1,5 @@
+/* general */
+
 details {
     cursor: pointer;
     padding: 0.5em 1em;
@@ -6,94 +8,6 @@ details {
     text-align: left;
     background-color: rgba(255, 255, 255, 0.8);
     max-width: 40em;
-  }
-  
-  p {
-    max-width: 44em;
-  }
-        
-  span.player,
-  span.player_label {
-    position: relative;
-    overflow: visible;
-    font-style: normal;
-    align-items: baseline;
-    vertical-align: baseline;
-    white-space: nowrap;
-  }
-  
-  span.player::before,
-  span.player_label::before{
-    content: "";
-    display: block;
-    width: 2em; /* Increase this value to make the image larger horizontally */
-    height: 2em; /* Increase this value to make the image larger vertically */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center bottom; /* Align to bottom to sit on baseline */
-    
-    position: absolute;
-    bottom: -0.5em;
-  }
-  
-  span.player::before {
-    left: 0;
-  }
-  
-  span.player_label::before {
-    right: 0;
-  }
-  
-  span.player::after {
-    padding-left: 2.0em;
-  }
-  
-  span.player_label {
-    padding-right: 2.0em;
-  }
-  
-  span.p1::before {
-    background-image: url('https://raw.githubusercontent.com/chisness/pokercamp/master/aipcs24/assets/p1l.png');
-  }
-  
-  span.player.p1::after {
-    content: "Luigi";
-  }
-  
-  span.p2::before {
-    background-image: url('https://raw.githubusercontent.com/chisness/pokercamp/master/aipcs24/assets/p2w.png');
-  }
-  
-  span.player.p2::after {
-    content: "Waluigi";
-    padding-left: 1.8em;
-  }
-  
-  span.player_label.p2 {
-    padding-right: 2.2em;
-  }
-  
-  span.card,
-  span.gamenode,
-  span.infoset,
-  span.action {
-    font-family: sans-serif;
-  }
-  
-  
-  span.infoset {
-    font-weight: bold;
-    color: red;
-  }
-  
-  span.infoset.p1,
-  span.player_label.p1 {
-    color: green;
-  }
-  
-  span.infoset.p2,
-  span.player_label.p2 {
-    color: purple;
   }
 
   abbr[title] {
@@ -113,4 +27,94 @@ details {
     border-radius: 3px;
     white-space: nowrap;
     z-index: 1000;
+  }
+  
+/* for Kuhn poker */
+  
+  .tree_visualization {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+        
+  .player,
+  .player_label {
+    position: relative;
+    overflow: visible;
+    font-style: normal;
+    align-items: baseline;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .player::before,
+  .player_label::before{
+    content: "";
+    display: block;
+    width: 2em; /* Increase this value to make the image larger horizontally */
+    height: 2em; /* Increase this value to make the image larger vertically */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom; /* Align to bottom to sit on baseline */
+    
+    position: absolute;
+    bottom: -0.5em;
+  }
+  
+  .player::before {
+    left: 0;
+  }
+  
+  .player_label::before {
+    right: 0;
+  }
+  
+  .player::after {
+    padding-left: 2.0em;
+  }
+  
+  .player_label {
+    padding-right: 2.0em;
+  }
+  
+  .p1::before {
+    background-image: url('https://raw.githubusercontent.com/chisness/pokercamp/master/aipcs24/assets/p1l.png');
+  }
+  
+  .player.p1::after {
+    content: "Luigi";
+  }
+  
+  .p2::before {
+    background-image: url('https://raw.githubusercontent.com/chisness/pokercamp/master/aipcs24/assets/p2w.png');
+  }
+  
+  .player.p2::after {
+    content: "Waluigi";
+    padding-left: 1.8em;
+  }
+  
+  .player_label.p2 {
+    padding-right: 2.2em;
+  }
+  
+  .gamenode,
+  .infoset,
+  .action {
+    font-family: sans-serif;
+  }
+  
+  
+  .infoset {
+    font-weight: bold;
+    color: red;
+  }
+  
+  .infoset.p1,
+  .player_label.p1 {
+    color: green;
+  }
+  
+  .infoset.p2,
+  .player_label.p2 {
+    color: purple;
   }

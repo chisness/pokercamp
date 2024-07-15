@@ -31,8 +31,7 @@ details {
   
 /* for Kuhn poker */
   
-  .tree_visualization,
-  #subtree_visualizations {
+  .tree_visualization {
     margin-bottom: 1em;
     text-align: center;
   }
@@ -98,7 +97,6 @@ details {
     padding-right: 2.2em;
   }
   
-  .card,
   .gamenode,
   .infoset,
   .action {

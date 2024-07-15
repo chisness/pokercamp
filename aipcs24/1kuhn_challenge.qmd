@@ -1,5 +1,5 @@
 ---
-title: "Kuhn Poker (1): Challenge (part 1)"
+title: "#1: Kuhn Poker | Challenge (Part )"
 sidebar: aipcs24
 format:
   html:
@@ -9,7 +9,7 @@ format:
       <script src="https://d3js.org/d3.v7.min.js"></script>
 ---
 ## Kuhn Poker
-Kuhn Poker is the most simple version of poker. Here is the setup: 
+Kuhn Poker is the simplest nontrivial version of poker. Here is the setup: 
 
 - 3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)
 
@@ -20,7 +20,7 @@ Any deck of 3 ranked cards works. For example:
 
   - The python game engine that we'll use in later challenges uses {0, 1, 2}.
   
-  - Wikipedia uses {Jack, Queen, King}.
+  - Wikipedia's description uses {Jack, Queen, King}.
 :::
 
 - Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they'll be <span class="player p1"></span> and <span class="player p2"></span>.
@@ -40,9 +40,9 @@ Any deck of 3 ranked cards works. For example:
 :::{.callout-tip collapse="true"  appearance="minimal"}
 ## <span class=action>↑Up</span> and <span class=action>↓Down</span> vs traditional poker terms
 
-  - <span class=action>↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force then to match your higher amount (or fold).">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>
+  - <span class=action>↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force then to match your higher amount (or fold).">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.
 
-  - <span class=action>↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>
+  - <span class=action>↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>.
 :::
 
 The betting (and the game) can end in three ways: 
@@ -53,15 +53,18 @@ The betting (and the game) can end in three ways:
 
 3. A player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class=action>↑Up</span>, <span class=action>↑Up</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↑Up</span>.
 
-An example game might go as follows:
+:::{.callout-note  appearance="minimal"}
+## Example game
+- Players ante and cards are dealt.
 
-- <span class="player p1"></span>: <span class=action>↑Up</span> (1 more chip into pot)
+- <span class="player p1"></span> sees a <span class="gamenode">A</span> and plays <span class=action>↑Up</span> (1 more chip into pot).
 
-- <span class="player p2"></span>: <span class=action>↑Up</span> (1 more chip into pot)
+- <span class="player p2"></span> sees a <span class="gamenode">K</span> and plays <span class=action>↑Up</span> (1 more chip into pot).
 
-- Both cards are revealed. <span class="player p1"></span> has an <span class=card>A</span> and <span class="player p2"></span> has a <span class=card>K</span>.
+- Both cards are revealed in a 2-chip showdown. <span class="player p1"></span> has an <span class="gamenode">A</span> and <span class="player p2"></span> has a <span class="gamenode">K</span>.
 
 - <span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>'s <span class=action>↑Up</span>).
+:::
 
 Here is a list of all possible betting sequences:  
 
@@ -74,7 +77,7 @@ Here is a list of all possible betting sequences:
 | <span class=action>↓Down</span>      | <span class=action>↑Up</span>        | <span class=action>↑Up</span>       |Higher Card (+2)|
 
 :::{.callout-note  appearance="minimal"}
-## Exercise: Get Started with Kuhn
+## Partner Exercise: Get started with Kuhn Poker
 
 If you have a partner handy, try the following:
 
@@ -83,7 +86,7 @@ If you have a partner handy, try the following:
 - Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn't a trick&mdash;there are such situations in this game.)
 :::
 
-## Kuhn Game Tree
+## Visualizing a game tree
 To analyze Kuhn Poker further, we'll represent the game in terms of a visual game tree. This would be infeasible for a game that was much more complicated, but here it will hopefully let us visualize what is going on.
 
 First, deal one card to <span class="player p1"></span> and one card to <span class="player p2"></span>. Each possible deal of the cards forms a separate "game node". For example, <span class=gamenode>AK</span> means that <span class="player p1"></span> has <span class=gamenode>A</span> and <span class="player p2"></span> has <span class=gamenode>K</span>:
@@ -128,21 +131,23 @@ We'll write the payoffs from <span class="player p1"></span>'s perspective, and 
     
 <div id="tree_visualization_400a" class="tree_visualization"></div>
 
-## Kuhn Strategies
+## Kuhn Poker strategies
     
-Each player's strategy can be completely described in terms of their action probabilities at each infoset&mdash;6 of them per player.
+Each player's strategy can be completely described in terms of their action probabilities at each infoset (6 of them per player).
 
-For example, consider <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what the game looks like from <span class="player p1"></span>'s perspective: 
+### Example 1: Determining a local best response
+
+Let's start by considering <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA_↓↑</span> or <span class=gamenode>KQ_↓↑</span>. This is what the game looks like from <span class="player p1"></span>'s perspective: 
 
 ![](assets/k_down_up.png)
 
-As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>'s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.
+As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>'s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class=gamenode>KA_↓↑</span> vs <span class=gamenode>KQ_↓↑</span>.
 
 <div class="duplicate_K_↓↑"></div>
 
 <div class="duplicate_player_evs"></div>
 
-If we start by assuming that both players play randomly (50% <span class=action>↑Up</span> on each action), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span>) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span>), for an expected value of <span class="player_label p1">0</span>. 
+If we start by assuming that both players play 50-50 randomly (50% <span class=action>↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span> and losing at showdown) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>. 
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since he folds and loses exactly one chip either way).
 
@@ -154,15 +159,17 @@ With these expected values, <span class="player p1"></span>'s "local best respon
 How much should <span class="player p1"></span>'s expected value from the whole game (a random deal) increase if he moves from playing <span class=action>↑Up</span> ("calling the bet") at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you've figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.
 :::
       
-But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players don't play 50-50 randomly, then we'll have to separately calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the the probabilities of reaching these states. We can see this in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
+But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players <em>don't</em> play 50-50 randomly, then we'll have to separately calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise); the composition of the infoset will be proportional to the the probabilities of reaching these states&mdash;as we'll see in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
 
-Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> ("having a <span class=gamenode>Q</span> facing a check"). If <span class="player p2"></span> plays <span class=action>↓Down</span> (action sequence: "check&ndash;check"), he will go to a 1-chip showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class=action>↑Up</span> ("calls"), then it will be <span class="player p1"></span>'s turn to act.
+### Example 2: Changing local best responses
 
-If <span class="player p1"></span> plays randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span> playing <span class=action>↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class=action>↓Down</span> ("fold", <span class="player_label p2">+1</span>) and half the time he will <span class=action>↑Up</span> ("call", showdown, <span class="player_label p2">-2</span>). 
+Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> ("having a <span class=gamenode>Q</span> facing a check"). If <span class="player p2"></span> plays <span class=action>↓Down</span> (action sequence: "check&ndash;check"), he will go to a 1-chip showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class=action>↑Up</span> ("bets"), then it will be <span class="player p1"></span>'s turn to act.
 
-Note that <span class="player p2"></span>'s <span class=gamenode>Q</span> is always the worse hand and an <span class=action>↑Up</span> action is a <abbr title ="Betting with a weak hand with the goal of making the opponent fold">*bluff*</abbr>, but if <span class="player p1"></span> plays <span class=action>↓Down</span> ("folds") often enough, then <span class="player p2"></span> could win enough <span class="player_label p2">+1</span>s to do better than always taking a 1-chip showdown.
+If <span class="player p1"></span> were to play randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>'s <span class=action>↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class=action>↓Down</span> ("fold", <span class="player_label p2">+1</span>) and half the time he will <span class=action>↑Up</span> ("call", showdown, <span class="player_label p2">-2</span>). 
 
-But in the previous section, we thought <span class="player p1"></span> should <em>always</em> play <span class=action>↑Up</span> at <span class="infoset p1">K_↓↑</span>. In that case, <span class="player p2"></span>'s payoff for playing <span class=action>↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than <span class="player_label p2">-1</span> for playing <span class=action>↓Down</span>, and so he should play <span class=action>↓Down</span> instead of <span class=action>↑Up</span>.
+Note that <span class="player p2"></span>'s <span class=gamenode>Q</span> is always the worse hand and an <span class=action>↑Up</span> action is a <abbr title ="Betting with a weak hand with the goal of making the opponent fold">*bluff*</abbr>, but if <span class="player p1"></span> plays <span class=action>↓Down</span> ("folds") often enough, then <span class="player p2"></span> can win enough <span class="player_label p2">+1</span>s to do better than always taking a 1-chip showdown.
+
+But recall that in the previous section, we thought <span class="player p1"></span> should <em>always</em> play <span class=action>↑Up</span> at <span class="infoset p1">K_↓↑</span>. In that case, <span class="player p2"></span>'s payoff for playing <span class=action>↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than <span class="player_label p2">-1</span> for playing <span class=action>↓Down</span>, and so he should play <span class=action>↓Down</span> instead of <span class=action>↑Up</span>.
 
 <div class="duplicate_K_↓↑" style="display:inline-block"></div>
 
@@ -199,88 +206,83 @@ Recall the two types of uncertainty in an imperfect-information game:
 
 The goal of this challenge is to find Nash, or regret-free, strategies for Kuhn Poker in terms of the action probabilities at each player's 6 infosets. You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself). For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.
 
-### Part 1: Manual Strategies
+### Part 1: Manual Solutions
 :::{.callout-note  appearance="minimal"}
 ## Challenge part 1: Kuhn Poker (manual solutions)
 
 Use the boxes below to find a pair of no-regret strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.
 :::
 
-When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below.
- 
+When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page.
+    
+<div id="tree_visualization_400b" class="tree_visualization"></div>
+
+<div style="display:none">
+<div style="display: inline-block; margin: 1em;">
+  <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
+</div>
+<div style="display: inline-block; margin: 1em;">
+  <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
+  <select id="update_mode" style="padding: 0.2em;">
+    <option value="1.0" selected="selected">100% CFR</option>
+    <option value="0.1">10% CFR</option>
+    <option value="0.01">1% CFR</option>
+    <option value="0.001">0.1% CFR</option>
+    <option value="0.0001">0.0001% CFR</option>
+    <option value="0.00001">0.00001% CFR</option>
+  </select>
+</div>
+
+<div style="display: inline-block; margin: 1em;">
+  <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
+  <select id="num_iterations" style="padding: 0.2em;">
+    <option value="1" selected="selected">1</option>
+    <option value="10">10</option>
+    <option value="100">100</option>
+    <option value="1000">1,000</option>
+    <option value="10000">10,000</option>
+    <option value="100000">100,000</option>
+  </select>
+</div>
+      
+<div style="display: inline-block; margin: 1em;">
+  <label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label>
+  <select id="wait_per_step" style="padding: 0.2em;">
+    <option value="0" selected="selected">Max</option>
+    <option value="10">Fast</option>
+    <option value="100">10/sec</option>
+    <option value="1000">1/sec</option>
+  </select>
+</div>
+      
+<div style="display: inline-block; margin: 1em;">
+  <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
+  <select id="tolerance" style="padding: 0.2em;">
+    <option value="0.01">0.01</option>
+    <option value="0.03">0.03</option>
+    <option value="0.1" selected="selected">0.1</option>
+    <option value="0.3">0.3</option>
+</select>
+</div>
+</div>
+
+<style>
+  .p, .regret { display: none; }
+</style>
+<div id="subtree_visualizations" style="max-width: 750px;"></div>
+
+### Part 2: Automatic Solver
+<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
+
 <script>
   function unlock_next() {
     document.getElementById("unlock_next").style.display = "";
     document.getElementById("cheat_unlock_next").style.display = "none";
   };
 </script>
-    
-<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
-
 <div id="unlock_next" style="display:none">
-  <p><a href=https://www.youtube.com/watch?v=dQw4w9WgXcQ>Here</a> is the link to the next stage.</p>
+  <p><a href=1kuhn_challenge2.html>Enter Part 2</a></p>
 </div>
-    
-<div id="tree_visualization_400b" class="tree_visualization"></div>
-
-<!-- 
-<div style="display:none">
-  <div style="display: inline-block; margin: 1em;">
-      <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
-  </div>
-  <div style="display: inline-block; margin: 1em;">
-      <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
-      <select id="update_mode" style="padding: 0.2em;">
-          <option value="1.0" selected="selected">100% CFR</option>
-          <option value="0.1">10% CFR</option>
-          <option value="0.01">1% CFR</option>
-          <option value="0.001">0.1% CFR</option>
-          <option value="0.0001">0.0001% CFR</option>
-          <option value="0.00001">0.00001% CFR</option>
-      </select>
-  </div>
-
-<!-- <div style="display: inline-block; margin: 1em;">
-    <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
-    <select id="num_iterations" style="padding: 0.2em;">
-        <option value="1" selected="selected">1</option>
-        <option value="10">10</option>
-        <option value="100">100</option>
-        <option value="1000">1,000</option>
-        <option value="10000">10,000</option>
-        <option value="100000">100,000</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label>
-    <select id="wait_per_step" style="padding: 0.2em;">
-        <option value="0" selected="selected">Max</option>
-        <option value="10">Fast</option>
-        <option value="100">10/sec</option>
-        <option value="1000">1/sec</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
-    <select id="tolerance" style="padding: 0.2em;">
-        <option value="0.01">0.01</option>
-        <option value="0.03">0.03</option>
-        <option value="0.1" selected="selected">0.1</option>
-        <option value="0.3">0.3</option>
-    </select>
-</div>
-
-</div>
--->
-    
-<div id="subtree_visualizations" style="max-width: 750px;"></div>
-
-### Part 2: Automatic Strategies
-Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
-
-[Enter Part 2](1kuhn_challenge2.qmd)
 
 <script src="index.js"></script>
 <script>

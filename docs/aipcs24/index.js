@@ -482,7 +482,7 @@ function recalculateEvs() {
       document.querySelectorAll(".ev_inverse_↓_" + infoSetKey).forEach(element => {element.textContent = -evLabel(evDown); });
       
       document.querySelectorAll(".regret" + infoSetKey).forEach(element => {
-        element.textContent = `ΣCFR: ${ctrLabel(infoSets[infoSetKey].total_regret)}`;
+        element.textContent = `Σupdates: ${ctrLabel(infoSets[infoSetKey].total_regret)}`;
       });
       
       document.querySelectorAll(".weight" + infoSets[infoSetKey].states[0]).forEach(element => {
@@ -507,13 +507,13 @@ function getFavoredAction(infoSetKey) {
     const evDown = calculateDirectionEV(infoSet, "down");
 
     if (evUp > evDown + Number(document.getElementById("tolerance").value)) {
-        if (infoSet.percentage === (infoSet.inverse ? 0 : 100)) {
+        if (+infoSet.percentage.toFixed(3) === (infoSet.inverse ? 0 : 100)) {
             return null;
         } else {
             return infoSet.inverse ? "↓" : "↑";
         }
     } else if (evUp < evDown - Number(document.getElementById("tolerance").value)) {
-        if (infoSet.percentage === (infoSet.inverse ? 100 : 0)) {
+        if (+infoSet.percentage.toFixed(3) === (infoSet.inverse ? 100 : 0)) {
             return null;
         } else {
             return infoSet.inverse ? "↑" : "↓";
@@ -567,7 +567,18 @@ function startSimulator() {
           return;
         }
 
-        const updateFactor = Number(document.getElementById("update_mode").value);
+        const updateFactor = Number(document.getElementById("update_factor").value);
+        const scale_by_ev = document.getElementById("scale_by_ev").value === "true";
+        const scale_by_visit_prob = document.getElementById("scale_by_visit_prob").value === "true";
+        const scale_by_total_updates = document.getElementById("scale_by_total_updates").value === "true";
+        const use_odds = document.getElementById("use_odds").value === "true";
+        
+        document.querySelectorAll(".p").forEach(element => {
+          element.style.display = scale_by_visit_prob ? "block" : "none";
+        });
+        document.querySelectorAll(".regret").forEach(element => {
+          element.style.display = scale_by_total_updates ? "block" : "none";
+        });
 
         Array.from(document.getElementsByClassName("strategy_input")).forEach(input => {
             if (!input.id) return;
@@ -579,18 +590,21 @@ function startSimulator() {
             
             const curValue = parseFloat(input.value.replace("%", "").trim());
             infoSets[label].total_regret += getFavoredActionMagnitude(label) * infoSets[label].p;
+            
+            let update =
+              (use_odds ? (favoredAction === "↑" ? 100 - curValue : - curValue) : 100)
+              * (scale_by_ev ? getFavoredActionMagnitude(label) : 1)
+              * (getFavoredAction(label) === "↑" ? 1 : -1)
+              * (scale_by_visit_prob ? infoSets[label].p : 1)
+              / (scale_by_total_updates ? infoSets[label].total_regret : 1)
+            ;
+            
+            console.log(`${label} ${update}`)
+            
             infoSets[label].percentage =
                 curValue
-                +
-                (
-                    (favoredAction === "↑" ? 100 - curValue : - curValue)
-                    * getFavoredActionMagnitude(label)
-                    * infoSets[label].p
-                    / infoSets[label].total_regret
-                    * updateFactor
-                )
-                +
-                (Math.random() - 0.5) * 0.001
+                + update * updateFactor
+                + (Math.random() - 0.5) * 0.001
             ;
             // findme
             infoSets[label].percentage = Math.max(0, Math.min(100, infoSets[label].percentage));
@@ -658,23 +672,23 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
     })).sort((a, b) => d3.descending(a.name, b.name)) : []
   };
 
-  const subtreeWidth = 140;
+  const subtreeWidth = 130;
   const subtreeHeight = 70;
-  const subtreeMargin = { top: 15, right: 11, bottom: -13, left: -10 };
-  const svgWidth = subtreeWidth * 1.7 + subtreeMargin.left + subtreeMargin.right;
+  const subtreeMargin = { top: 15, right: 0, bottom: -13, left: 0 };
+  const svgWidth = 190 + subtreeMargin.left + subtreeMargin.right;
   const svgHeight = subtreeHeight + subtreeMargin.top + subtreeMargin.bottom;
 
-  const subtreeDiv = d3.select("#subtree_visualization")
-    .append("div").attr("style", "width: 280px; max-width: 35vh; height: auto; max-height:25vh; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 1em; padding: 0.5em;");
+  const subtreeDiv = d3.select("#subtree_visualizations")
+    .append("div").attr("style", "width: 280px; max-width: 31%; height: auto; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 2%; padding: 0.5em;");
   const subtreeSvg = subtreeDiv
     .append("svg")
     .attr("width", svgWidth + 40)
     .attr("height", svgHeight + 40)
-    .attr("style", "margin-bottom: 0.6em")
+    .attr("style", "margin-bottom: 0.6em; display: block; position: relative; top: 0; left: 50%; transform: translateX(-50%);")
     .append("g")
-    .attr("transform", `translate(${subtreeMargin.left + 15},${subtreeMargin.top + 20})`)
+    .attr("transform", `translate(${subtreeMargin.left-6},${subtreeMargin.top + 20})`)
     .attr("viewBox", [0, 0, subtreeWidth, subtreeHeight])
-    .attr("style", "width: 190px; max-width: 33vh; height: auto; max-height:25vh; font: 13px sans-serif; overflow: hidden; display: block");
+    .attr("style", "width: 190px; max-width: 100%; height: auto; font: 13px sans-serif; overflow: hidden; display: block;");
   
   
   // Create tree layouts
@@ -708,7 +722,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   };
   const displayP = (node, stateName, xMod = 0, yMod = 0) => {
     node.append("text")
-      .attr("class", "p" + stateName)
+      .classed("p", true)
+      .classed("p" + stateName, true)
       .attr("x", xMod)
       .attr("y", yMod - 30) // Adjust the y position to be above the state
       .attr("dy", "0.31em")
@@ -737,7 +752,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   };
   const displayRegret = (node, infoSetName, xMod = 0, yMod = 0) => {
     node.append("text")
-      .attr("class", "regret" + infoSetName)
+      .classed("regret", true)
+      .classed("regret" + infoSetName, true)
       .attr("x", xMod)
       .attr("y", yMod - 18) // Adjust the y position to be above the state
       .attr("dy", "0.31em")
@@ -948,8 +964,9 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const evDown = calculateDirectionEV(infoSet, "down");
   const evUp = calculateDirectionEV(infoSet, "up");
 
-  subtreeDiv.append("span").text("↓Down: ").classed("action", true);
-  const downDiv = subtreeDiv.append("div").attr("style", "position: relative; display: inline-block; white-space: nowrap; margin-right: 1em");
+  var strategyDiv = subtreeDiv.append("div").attr("width", "100%").attr("style", "text-align: left;");
+  strategyDiv.append("span").text("↓Down: ").classed("action", true);
+  const downDiv = strategyDiv.append("div").attr("style", "position: relative; display: inline-block; white-space: nowrap; margin-right: 1em");
   if (is_p1) {
     downDiv.append("span").html(`EV: <span class="ev_↓_${label} player_label p1">${evDown}</span>`).attr("style", "position: absolute; top: -1em; left: 0; font-size: 12px; font-weight: bold; margin-left: -3.9em;");
   } else {
@@ -963,8 +980,8 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
     .attr("style", "width: 4em;")
   ;
   
-  subtreeDiv.append("span").text("↑Up: ").classed("action", true);
-  const upDiv = subtreeDiv.append("div").attr("style", "position: relative; display: inline-block; white-space: nowrap;");
+  strategyDiv.append("span").text("↑Up: ").classed("action", true);
+  const upDiv = strategyDiv.append("div").attr("style", "position: relative; display: inline-block; white-space: nowrap;");
   if (is_p1) {
     upDiv.append("span")
       .html(`EV: <span class="ev_↑_${label} player_label p1">${evUp}</span>`)
@@ -1321,6 +1338,13 @@ function create_tree(id_target, level = 10, with_strategy = false) {
   }
 
   if (with_strategy) {
+    document.querySelectorAll(".p").forEach(element => {
+      element.style.display = "none";
+    });
+    document.querySelectorAll(".regret").forEach(element => {
+      element.style.display = "none";
+    });
+    
     recalculateEvs();
     showFavoredActions();
   }

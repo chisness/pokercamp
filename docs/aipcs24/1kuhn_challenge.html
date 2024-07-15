@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Poker Camp - Kuhn Poker (1): Challenge</title>
+<title>Poker Camp - #1: Kuhn Poker | Challenge (Part )</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,13 +46,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,7 +55,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -79,52 +72,27 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+  <meta property="og:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part )">
+<meta property="og:description" content="">
+<meta property="og:image" content="assets/kuhn.png">
+<meta property="og:site-name" content="Poker Camp">
+<meta name="twitter:title" content="Poker Camp - #1: Kuhn Poker | Challenge (Part )">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="assets/kuhn.png">
+<meta name="twitter:creator" content="@pokercamporg">
+<meta name="twitter:card" content="summary_large_image">
+</head><body class="nav-sidebar docked nav-fixed">true
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Poker Camp - Kuhn Poker (1): Challenge">
-<meta property="og:description" content="">
-<meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="Poker Camp - Kuhn Poker (1): Challenge">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@pokercamporg">
-<meta name="twitter:card" content="summary">
-</head>
 
-<body class="nav-sidebar docked nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src=".././assets/favicon32.png" alt="" class="navbar-logo">
     </a>
@@ -139,20 +107,20 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../signup"> 
-<span class="menu-text">Signup: AI Poker Camp Summer 2024</span></a>
+    <a class="nav-link" href="../signup" rel="" target="">
+ <span class="menu-text">Signup: AI Poker Camp Summer 2024</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-camp-info" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-camp-info" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Camp Info</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-camp-info">    
         <li>
-    <a class="dropdown-item" href="../camp">
+    <a class="dropdown-item" href="../camp" rel="" target="">
  <span class="dropdown-text">Poker and Applied Rationality Camp</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../aicamp">
+    <a class="dropdown-item" href="../aicamp" rel="" target="">
  <span class="dropdown-text">AI Poker Camp</span></a>
   </li>  
     </ul>
@@ -160,34 +128,34 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://forms.gle/xx1tZNbwpYBLASmQ8" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mailbox2-flag"></i></a>
-    <a href="https://discord.gg/ATg5HQpZ" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-discord"></i></a>
-    <a href="https://x.com/pokercamporg" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/pokercamp" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://forms.gle/xx1tZNbwpYBLASmQ8" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mailbox2-flag"></i></a>
+    <a href="https://discord.gg/ATg5HQpZ" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-discord"></i></a>
+    <a href="https://x.com/pokercamporg" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/chisness/pokercamp" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge.html">Challenge</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">#1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge.html">Challenge (Part 1)</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -208,7 +176,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">1: Kuhn Poker</span></a>
+ <span class="menu-text">#1: Kuhn Poker</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -223,7 +191,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/1kuhn_challenge.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Challenge</span></a>
+ <span class="menu-text">Challenge (Part 1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/1kuhn_challenge2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenge (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -237,7 +211,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">2: Other Games</span></a>
+ <span class="menu-text">#2: Other Games</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -266,7 +240,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">3: Leduc Poker</span></a>
+ <span class="menu-text">#3: Leduc Poker</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -301,7 +275,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">4: Rock Paper Scissors</span></a>
+ <span class="menu-text">#4: Rock Paper Scissors</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -336,7 +310,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">5: Texas Tac Toe</span></a>
+ <span class="menu-text">#5: Texas Tac Toe</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -371,7 +345,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
- <span class="menu-text">6: Rock Poker Scissors</span></a>
+ <span class="menu-text">#6: Rock Poker Scissors</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -445,23 +419,24 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link active" data-scroll-target="#kuhn-poker">Kuhn Poker</a>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link active" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
+  <li><a href="#visualizing-a-game-tree" id="toc-visualizing-a-game-tree" class="nav-link" data-scroll-target="#visualizing-a-game-tree">Visualizing a game tree</a></li>
+  <li><a href="#kuhn-poker-strategies" id="toc-kuhn-poker-strategies" class="nav-link" data-scroll-target="#kuhn-poker-strategies">Kuhn Poker strategies</a>
   <ul class="collapse">
-  <li><a href="#get-started-with-kuhn" id="toc-get-started-with-kuhn" class="nav-link" data-scroll-target="#get-started-with-kuhn">Get Started with Kuhn</a></li>
+  <li><a href="#example-1-determining-a-local-best-response" id="toc-example-1-determining-a-local-best-response" class="nav-link" data-scroll-target="#example-1-determining-a-local-best-response">Example 1: Determining a local best response</a></li>
+  <li><a href="#example-2-changing-local-best-responses" id="toc-example-2-changing-local-best-responses" class="nav-link" data-scroll-target="#example-2-changing-local-best-responses">Example 2: Changing local best responses</a></li>
   </ul></li>
-  <li><a href="#kuhn-game-tree" id="toc-kuhn-game-tree" class="nav-link" data-scroll-target="#kuhn-game-tree">Kuhn Game Tree</a></li>
-  <li><a href="#kuhn-strategies" id="toc-kuhn-strategies" class="nav-link" data-scroll-target="#kuhn-strategies">Kuhn Strategies</a></li>
-  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a>
+  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a>
   <ul class="collapse">
-  <li><a href="#part-1-manual-strategies" id="toc-part-1-manual-strategies" class="nav-link" data-scroll-target="#part-1-manual-strategies">Part 1: Manual Strategies</a></li>
-  <li><a href="#part-2-automatic-strategies" id="toc-part-2-automatic-strategies" class="nav-link" data-scroll-target="#part-2-automatic-strategies">Part 2: Automatic Strategies</a></li>
+  <li><a href="#part-1-manual-solutions" id="toc-part-1-manual-solutions" class="nav-link" data-scroll-target="#part-1-manual-solutions">Part 1: Manual Solutions</a></li>
+  <li><a href="#part-2-automatic-solver" id="toc-part-2-automatic-solver" class="nav-link" data-scroll-target="#part-2-automatic-solver">Part 2: Automatic Solver</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -469,9 +444,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_reading.html">1: Kuhn Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/1kuhn_challenge.html">Challenge</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Kuhn Poker (1): Challenge</h1>
+<h1 class="title">#1: Kuhn Poker | Challenge (Part )</h1>
 </div>
 
 
@@ -484,13 +459,11 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <section id="kuhn-poker" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h2>
-<p>Kuhn Poker is the most simple version of poker. Here is the setup:</p>
+<p>Kuhn Poker is the simplest nontrivial version of poker. Here is the setup:</p>
 <ul>
 <li>3 card deck: Queen, King, Ace (in ascending order, so Ace is highest)</li>
 </ul>
@@ -500,30 +473,31 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Alternative Decks
+Alternative (but equivalent) decks
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Any deck of 3 ranked cards works. For example:</p>
 <ul>
-<li><p>Any deck of 3 ranked cards works</p></li>
-<li><p>This could be numbers like {0, 1, 2} or other cards like {Jack, Queen, King}</p></li>
+<li><p>The python game engine that we’ll use in later challenges uses {0, 1, 2}.</p></li>
+<li><p>Wikipedia’s description uses {Jack, Queen, King}.</p></li>
 </ul>
 </div>
 </div>
 </div>
 <ul>
-<li><p>2 players</p></li>
-<li><p>Each player starts with 2 <abbr title="Betting currency -- the goal is to win these">chips</abbr> and <abbr title="An ante is a forced bet">antes</abbr> 1 chip</p></li>
-<li><p>Deal 1 card to each player (discard the third)</p></li>
+<li><p>Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they’ll be <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
+<li><p>Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.</p></li>
+<li><p>Deal 1 card to each player (discard the third).</p></li>
 </ul>
 <p><img src="assets/kuhn.png" class="img-fluid"></p>
 <ul>
-<li><p>There is one betting round in which players can take these actions:</p>
+<li><p>There is one <abbr title="In poker-like games, a street is a round of betting that begins with one turn for each player and continues until either: all players but one quit, or some number of remaining players have added equal amounts to the pot. (The conditions for ending the betting in a street will differ game-to-game.) Then some cards will typically be dealt or revealed and there may be another street.">street</abbr> of betting in which players can take these actions:</p>
 <ul>
-<li><p>Up ↑ (putting a chip into the pot)</p></li>
-<li><p>Down ↓ (not putting a chip into the pot)</p></li>
+<li><p><span class="action">↑Up</span> (putting a chip into the pot)</p></li>
+<li><p><span class="action">↓Down</span> (not putting a chip into the pot)</p></li>
 </ul></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
@@ -532,31 +506,44 @@ Alternative Decks
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Poker Terms for Actions
+<span class="action">↑Up</span> and <span class="action">↓Down</span> vs traditional poker terms
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Up ↑ actions indicate a <abbr title="Add chips to pot that others have to match">Bet</abbr> or <abbr title="Match an opponent bet">Call</abbr></p></li>
-<li><p>Down ↓ actions indicate a <abbr title="Pass, only possible when no one has made a bet">Check</abbr> or <abbr title="Surrender when facing a bet">Fold</abbr></p></li>
+<li><p><span class="action">↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force then to match your higher amount (or fold).">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.</p></li>
+<li><p><span class="action">↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<p>Example betting round:</p>
-<ul>
-<li><p><img src="assets/p1l.png" class="img-fluid"> Player 1: Up ↑ (1 chip into pot)</p></li>
-<li><p><img src="assets/p2w.png" class="img-fluid"> Player 2: Up ↑ (1 chip into pot)</p></li>
-<li><p>High Card wins +2 (+1 from the ante, +1 from the ↑ bet)</p></li>
-<li><p>If <img src="assets/p1l.png" class="img-fluid"> P1 has card A and <img src="assets/p2w.png" class="img-fluid">P2 has card K, <img src="assets/p1l.png" class="img-fluid"> P1 wins</p></li>
-</ul>
-<p>Hands can end in two ways:</p>
+<p>The betting (and the game) can end in three ways:</p>
 <ol type="1">
-<li><p>A <abbr title="Both players show cards and the highest wins">showdown</abbr> resulting from two ↑ (Bet and Call) or two ↓ actions (Check and Check). Then the player with the highest card wins the pot.</p></li>
-<li><p>A fold resulting from ↑ and ↓ actions (Bet and Fold). Then the ↑ (betting) player automatically wins the pot.</p></li>
+<li><p>One player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↓Down</span>. The player who played <span class="action">↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr> and loses the one chip they anted (and their own back). The players’ cards are not revealed.</p></li>
+<li><p>Both players play <span class="action">↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).</p></li>
+<li><p>A player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class="action">↑Up</span>, <span class="action">↑Up</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↑Up</span>.</p></li>
 </ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example game
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Players ante and cards are dealt.</p></li>
+<li><p><span class="player p1"></span> sees a <span class="gamenode">A</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
+<li><p><span class="player p2"></span> sees a <span class="gamenode">K</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
+<li><p>Both cards are revealed in a 2-chip showdown. <span class="player p1"></span> has an <span class="gamenode">A</span> and <span class="player p2"></span> has a <span class="gamenode">K</span>.</p></li>
+<li><p><span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>’s <span class="action">↑Up</span>).</p></li>
+</ul>
+</div>
+</div>
 <p>Here is a list of all possible betting sequences:</p>
 <table class="table">
 <colgroup>
@@ -567,114 +554,125 @@ Poker Terms for Actions
 </colgroup>
 <thead>
 <tr class="header">
-<th><img src="assets/p1l.png" class="img-fluid"> Player 1</th>
-<th><img src="assets/p2w.png" class="img-fluid"> Player 2</th>
-<th><img src="assets/p1l.png" class="img-fluid"> Player 1</th>
+<th><span class="player p1"></span></th>
+<th><span class="player p2"></span></th>
+<th><span class="player p1"></span></th>
 <th>Winner</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Up ↑</td>
-<td>Down ↓</td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↓Down</span></td>
 <td></td>
-<td><img src="assets/p1l.png" class="img-fluid"> Player 1 (+1)</td>
+<td><span class="player p1"></span> (+1)</td>
 </tr>
 <tr class="even">
-<td>Up ↑</td>
-<td>Up ↑</td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↑Up</span></td>
 <td></td>
-<td>High Card Player (+2)</td>
+<td>Higher Card (+2)</td>
 </tr>
 <tr class="odd">
-<td>Down ↓</td>
-<td>Down ↓</td>
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↓Down</span></td>
 <td></td>
-<td>High Card Player (+1)</td>
+<td>Higher Card (+1)</td>
 </tr>
 <tr class="even">
-<td>Down ↓</td>
-<td>Up ↑</td>
-<td>Down ↓</td>
-<td><img src="assets/p2w.png" class="img-fluid"> Player 2 (+1)</td>
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↓Down</span></td>
+<td><span class="player p2"></span> (+1)</td>
 </tr>
 <tr class="odd">
-<td>Down ↓</td>
-<td>Up ↑</td>
-<td>Up ↑</td>
-<td>High Card Player (+2)</td>
+<td><span class="action">↓Down</span></td>
+<td><span class="action">↑Up</span></td>
+<td><span class="action">↑Up</span></td>
+<td>Higher Card (+2)</td>
 </tr>
 </tbody>
 </table>
-<section id="get-started-with-kuhn" class="level3">
-<h3 class="anchored" data-anchor-id="get-started-with-kuhn">Get Started with Kuhn</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Partner Exercise: Get started with Kuhn Poker
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have a partner handy, try the following:</p>
 <ul>
-<li><p>Play a few hands</p></li>
-<li><p>Get used to the game setup</p></li>
-<li><p>Think about which situations are automatic and which are not</p></li>
+<li><p>Play a few hands of Kuhn Poker, get used to the order of events in the game.</p></li>
+<li><p>Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn’t a trick—there are such situations in this game.)</p></li>
 </ul>
+</div>
+</div>
 </section>
-</section>
-<section id="kuhn-game-tree" class="level2">
-<h2 class="anchored" data-anchor-id="kuhn-game-tree">Kuhn Game Tree</h2>
-<p>We’ll represent Kuhn poker in terms of a visual game tree. This will become infeasible for more complicated games, but here it will let us visualize what is going on.</p>
-<p>Going forward, we will refer to Player 1 as <span class="player p1"></span> and Player 2 as <span class="player p2"></span>.</p>
-<p>First, deal a card to <span class="player p1"></span> and to <span class="player p2"></span>. Each possible deal of the cards forms a separate game node. For example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>:</p>
-<div id="tree_visualization_075">
+<section id="visualizing-a-game-tree" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-a-game-tree">Visualizing a game tree</h2>
+<p>To analyze Kuhn Poker further, we’ll represent the game in terms of a visual game tree. This would be infeasible for a game that was much more complicated, but here it will hopefully let us visualize what is going on.</p>
+<p>First, deal one card to <span class="player p1"></span> and one card to <span class="player p2"></span>. Each possible deal of the cards forms a separate “game node”. For example, <span class="gamenode">AK</span> means that <span class="player p1"></span> has <span class="gamenode">A</span> and <span class="player p2"></span> has <span class="gamenode">K</span>:</p>
+<div id="tree_visualization_075" class="tree_visualization">
 
 </div>
 <p><span class="player p1"></span> will act first. He knows what his card is, but not what card <span class="player p2"></span> has, so he can be in one of 3 infosets. We’ll name them <span class="p1 infoset">A_</span>, <span class="p1 infoset">K_</span>, and <span class="p1 infoset">Q_</span> based on what card he holds:</p>
-<div id="tree_visualization_100">
+<div id="tree_visualization_100" class="tree_visualization">
 
 </div>
-<p>At each infoset, <span class="player p1"></span> can choose <span class="action">↑Up</span> or <span class="action">↓Down</span>. Note that for example <span class="action">↑Up</span> from a certain infoset will take the same action probability for <em>both nodes</em>, so <span class="p1 infoset">A_↑</span> will take the same probability in <span class="p1 infoset">AK↑</span> and <span class="p1 infoset">AQ↑</span> since they are indistinguishable to <span class="player p1"></span>.</p>
-<div id="tree_visualization_150">
+<p>At each infoset, <span class="player p1"></span> can choose <span class="action">↑Up</span> or <span class="action">↓Down</span>. Note that the probaility with which he chooses <span class="action">↑Up</span> (versus <span class="action">↓Down</span>) from a given infoset will have to be the same for <em>both nodes</em>, since they are indistinguishable to <span class="player p1"></span>.</p>
+<div id="tree_visualization_150" class="tree_visualization">
 
 </div>
 <p>Each <span class="action">↑Up</span> or <span class="action">↓Down</span> action will each take us to a distinct game node, based on a unique set of cards and action history:</p>
-<div id="tree_visualization_175">
+<div id="tree_visualization_175" class="tree_visualization">
 
 </div>
-<p>Next, <span class="player p2"></span> will act. He can observe his card and <span class="player p1"></span>’s first action, but not <span class="player p1"></span>’s card. <span class="player p2"></span>’s 6 infosets are identified by IDs like <span class="p2 infoset">_K↓</span> and <span class="p2 infoset">_Q↑</span> based on his card and previous actions. In this case the previous actions are <span class="player p1"></span>’s first action.</p>
-<div id="tree_visualization_200">
+<p>Next, <span class="player p2"></span> will act. He can observe his card and <span class="player p1"></span>’s first action, but not <span class="player p1"></span>’s card, so those pieces of information characterize his infoset. We’ll give <span class="player p2"></span>’s 6 infosets names like <span class="p2 infoset">_K↓</span> and <span class="p2 infoset">_Q↑</span> based on his card and the action:</p>
+<div id="tree_visualization_200" class="tree_visualization">
 
 </div>
 <p>At each of these infosets, <span class="player p2"></span> can choose <span class="action">↑Up</span> or <span class="action">↓Down</span>:</p>
-<div id="tree_visualization_250">
+<div id="tree_visualization_250" class="tree_visualization">
 
 </div>
-<p>If the actions were <span class="action">↓↑</span>, then <span class="player p1"></span> will have to act again (equivalent to acting after a Check and Bet). Otherwise, the game is now over (with a payoff determined by the cards and the action sequence).</p>
-<p>We write the payoffs from <span class="player p1"></span>’s perspective, and remember that <span class="player p2"></span>’s payoffs will be the inverse.</p>
-<p>You can refer to the sequence table above to recall the 5 sequences of betting, which end either in one player folding (after <span class="action">↑</span> and <span class="action">↓</span> actions) or high card winning at <em>showdown</em>, which results from either two <span class="action">↑</span> (Bet and Call) or <span class="action">↓</span> (Check and Check) actions.</p>
-<div id="tree_visualization_275">
+<p>If the actions were <span class="action">↓Down</span>, <span class="action">↑Up</span> (“check–bet”), then <span class="player p1"></span> will have to act again. Otherwise, the game is now over (with a payoff determined by the cards and the action sequence). Recall the 5 sequences of betting, which end either in one player folding (after an <span class="action">↑Up</span> then <span class="action">↓Down</span>, a “bet–fold”) or the higher card winning at <em>showdown</em>, which results from either two <span class="action">↓Down</span>s (“check–check”) or two <span class="action">↑Up</span>s (“bet–call”).</p>
+<p>We’ll write the payoffs from <span class="player p1"></span>’s perspective, and remember that <span class="player p2"></span>’s payoffs will be the inverse:</p>
+<div id="tree_visualization_275" class="tree_visualization">
 
 </div>
 <p>If <span class="player p1"></span> still has to act, he’ll be in one of just three infosets, <span class="p1 infoset">A_↓↑</span>, <span class="p1 infoset">K_↓↑</span>, or <span class="p1 infoset">Q_↓↑</span>:</p>
-<div id="tree_visualization_300">
+<div id="tree_visualization_300" class="tree_visualization">
 
 </div>
 <p>…and can choose <span class="action">↑Up</span> or <span class="action">↓Down</span>…</p>
-<div id="tree_visualization_350">
+<div id="tree_visualization_350" class="tree_visualization">
 
 </div>
 <p>…but whatever he chooses, the game will end after that move. We now have the entire game tree for Kuhn Poker:</p>
-<div id="tree_visualization_400a">
+<div id="tree_visualization_400a" class="tree_visualization">
 
 </div>
 </section>
-<section id="kuhn-strategies" class="level2">
-<h2 class="anchored" data-anchor-id="kuhn-strategies">Kuhn Strategies</h2>
-<p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset—6 of them per player.</p>
-<p>For example, let’s consider <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA_↓↑</span> or <span class="gamenode">KQ_↓↑</span>. This is what that setting looks like in the game from <span class="player p1"></span>’s perspective:</p>
+<section id="kuhn-poker-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-poker-strategies">Kuhn Poker strategies</h2>
+<p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset (6 of them per player).</p>
+<section id="example-1-determining-a-local-best-response" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-determining-a-local-best-response">Example 1: Determining a local best response</h3>
+<p>Let’s start by considering <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA_↓↑</span> or <span class="gamenode">KQ_↓↑</span>. This is what the game looks like from <span class="player p1"></span>’s perspective:</p>
 <p><img src="assets/k_down_up.png" class="img-fluid"></p>
-<p>Whatever action (or randomized mix of actions) his strategy says to make, he will be doing so in all of situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things for the different underlying states.</p>
-<p>If both players play randomly (50% <span class="action">↑Up</span> on each action), then <span class="player p1"></span> will arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>.</p>
+<p>As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>’s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class="gamenode">KA_↓↑</span> vs <span class="gamenode">KQ_↓↑</span>.</p>
 <div class="duplicate_K_↓↑">
 
 </div>
-<p>In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">A</span>) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">Q</span>), for an expected value of <span class="player_label p1">0</span>.</p>
-<p>Similarly, his expected payoff for <span class="action">↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class="gamenode">KA↓↑↓</span> and <span class="gamenode">KQ↓↑↓</span>, though in this case they’re both <span class="player_label p1">-1</span> and the EV doesn’t depend on the composition weights of the infoset (since this is equivalent to always folding).</p>
-<p>With these expected values, <span class="player p1"></span>’s “best response” at this infoset (holding everything else about both strategies constant) is to play <span class="action">↑Up</span> 100% of the time.</p>
+<div class="duplicate_player_evs">
+
+</div>
+<p>If we start by assuming that both players play 50-50 randomly (50% <span class="action">↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>. In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">A</span> and losing at showdown) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>.</p>
+<p>Similarly, his expected payoff for <span class="action">↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class="gamenode">KA↓↑↓</span> and <span class="gamenode">KQ↓↑↓</span>, though in this case they’re both <span class="player_label p1">-1</span> and the EV doesn’t depend on the composition weights of the infoset (since he folds and loses exactly one chip either way).</p>
+<p>With these expected values, <span class="player p1"></span>’s “local best response” at this infoset (holding everything else about both strategies constant) is to play <span class="action">↑Up</span> 100% of the time.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -685,127 +683,124 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How much should <span class="player p1"></span>’s expected value from the whole game (a random deal) increase if he moves from playing <span class="action">↑Up</span> (i.e.&nbsp;always calling the Bet) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you’ve figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.</p>
+<p>How much should <span class="player p1"></span>’s expected value from the whole game (a random deal) increase if he moves from playing <span class="action">↑Up</span> (“calling the bet”) at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you’ve figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.</p>
 </div>
 </div>
-<p>But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> versus <span class="gamenode">KQ↓↑</span> aren’t equal? If the players don’t play 50-50 randomly, then we’ll have to calculate the probability of reaching <span class="gamenode">KA↓↑</span> (including the probability of the initial <span class="gamenode">KA</span> deal) and the probability of reaching <span class="gamenode">KQ↓↑</span> (likewise), and let the composition of the infoset be proportional to the the probabilities of reaching these states. We can see this in our next example. <em>(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)</em></p>
-<p>Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span> (the poker situation of having a <span class="gamenode">Q</span> facing a Check). <span class="player p2"></span> will always get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>) if he plays <span class="action">↓Down</span> (Folding).</p>
-<p>When <span class="player p1"></span> plays randomly at <span class="infoset p1">K_↓↑</span> (the poker situation of having a <span class="gamenode">K</span> and Checking and then facing a Bet), then <span class="player p2"></span> will get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>) if he played <span class="action">↑Up</span> (always Betting) since half the time <span class="player p1"></span> will play <span class="action">↓Down</span> (Fold, <span class="player_label p2">+1</span>) and half the time he will <span class="action">↑Up</span> (Call, <span class="player_label p2">-2</span>).</p>
-<p>Note that <span class="player p2"></span>’s <span class="gamenode">Q</span> is always has the worst hand and an <span class="action">↑Up</span> action is a <abbr title="Betting with a weak hand with the goal of making the opponent fold"><em>bluff</em></abbr>, but if <span class="player p1"></span> plays <span class="action">↓Down</span> (Folds) often enough, then <span class="player p2"></span> will win <span class="player_label p2">+1</span>s often enough to come out ahead regardless.</p>
-<p>But if <span class="player p1"></span> always plays <span class="action">↑Up</span> at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>’s payoff for playing <span class="action">↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than playing <span class="action">↓Down</span>, and so he should play <span class="action">↓Down</span> instead of <span class="action">↑Up</span>.</p>
+<p>But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> versus <span class="gamenode">KQ↓↑</span> aren’t equal? If the players <em>don’t</em> play 50-50 randomly, then we’ll have to separately calculate the probability of reaching <span class="gamenode">KA↓↑</span> (including the probability of the initial <span class="gamenode">KA</span> deal) and the probability of reaching <span class="gamenode">KQ↓↑</span> (likewise); the composition of the infoset will be proportional to the the probabilities of reaching these states—as we’ll see in our next example. <em>(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)</em></p>
+</section>
+<section id="example-2-changing-local-best-responses" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-changing-local-best-responses">Example 2: Changing local best responses</h3>
+<p>Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span> (“having a <span class="gamenode">Q</span> facing a check”). If <span class="player p2"></span> plays <span class="action">↓Down</span> (action sequence: “check–check”), he will go to a 1-chip showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class="action">↑Up</span> (“bets”), then it will be <span class="player p1"></span>’s turn to act.</p>
+<p>If <span class="player p1"></span> were to play randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>’s <span class="action">↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class="action">↓Down</span> (“fold”, <span class="player_label p2">+1</span>) and half the time he will <span class="action">↑Up</span> (“call”, showdown, <span class="player_label p2">-2</span>).</p>
+<p>Note that <span class="player p2"></span>’s <span class="gamenode">Q</span> is always the worse hand and an <span class="action">↑Up</span> action is a <abbr title="Betting with a weak hand with the goal of making the opponent fold"><em>bluff</em></abbr>, but if <span class="player p1"></span> plays <span class="action">↓Down</span> (“folds”) often enough, then <span class="player p2"></span> can win enough <span class="player_label p2">+1</span>s to do better than always taking a 1-chip showdown.</p>
+<p>But recall that in the previous section, we thought <span class="player p1"></span> should <em>always</em> play <span class="action">↑Up</span> at <span class="infoset p1">K_↓↑</span>. In that case, <span class="player p2"></span>’s payoff for playing <span class="action">↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than <span class="player_label p2">-1</span> for playing <span class="action">↓Down</span>, and so he should play <span class="action">↓Down</span> instead of <span class="action">↑Up</span>.</p>
 <div class="duplicate_K_↓↑" style="display:inline-block">
 
 </div>
 <div class="duplicate__Q↓" style="display:inline-block">
 
 </div>
+<div class="duplicate_player_evs">
+
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+Exercise: Entangled strategies
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Set the <span class="infoset p1">K_↓↑</span> strategy prob to <span class="player p1"></span>’s local best response. Set the <span class="infoset p2">_Q↓</span> strategy prob to <span class="player p2"></span>’s local best response. Observe that <span class="player p1"></span>’s best-response has changed again. Try to set the strategies to a pair of values such that neither player has regret.</p>
+<p>Reset the probabilities, then set the <span class="infoset p1">K_↓↑</span> strategy probability to <span class="player p1"></span>’s local best response. Then set the <span class="infoset p2">_Q↓</span> strategy prob to <span class="player p2"></span>’s local best response. What has happened to <span class="player p1"></span>’s local best response?</p>
 </div>
 </div>
-<p>Now we get to the core difference between solving perfect information games and imperfect information games. In our game of Kuhn Poker, when <span class="player p2"></span> switches to only playing <span class="action">↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>’s payoff EVs at <span class="infoset p1">K_↓↑</span> change—because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>.</p>
-<p>With the resulting EVs, <span class="player p1"></span> has a payoff of <span class="player_label p1">-2</span> for playing <span class="action">↑Up</span>, and should play <span class="action">↓Down</span> instead.</p>
-<p>In a perfect information game, we can solve the game inductively by passing up the tree from the end-states and solving each situation in terms of known solutions to its successor nodes. Whatever the best thing to do at the downtree node was, it’s still the best thing to do, no matter how you get there.</p>
-<p>But in an imperfect information game, changing an uptree strategy parameter can change the “right solution” is at downtree infosets, so we can’t solve a game in a single pass from the endgames to the beginning. Nearly every game-solving technique for imperfect information games, then, is based on iteratively improving on a pair of strategies (one for each player) based on local improvements until it hopefully resolves into something good.</p>
-<p>Recall the two types of uncertainty:</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Regret-free mixed strategies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Set the <span class="infoset p1">K_↓↑</span> and <span class="infoset p2">_Q↓</span> strategy probabilities to a pair of values such that neither player has <abbr title="Recall that a player has regret if they take an action with lower EV than an alternative. So a player will have no regret if they always take the higher-EV action, or if they mix between actions with equally-highest EV.">regret</abbr>.</p>
+</div>
+</div>
+<p>This example shows the core difference between solving perfect-information games and imperfect-information games. In Kuhn Poker, when a random <span class="player p2"></span> switches to only playing <span class="action">↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>’s payoff EVs at <span class="infoset p1">K_↓↑</span> change (because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>). With the resulting EVs, <span class="player p1"></span> has a payoff of <span class="player_label p1">-2</span> for playing <span class="action">↑Up</span>, and should play <span class="action">↓Down</span> to get <span class="player_label p1">-1</span> instead. (But now <span class="player p2"></span> should…)</p>
+<p>In a perfect information game, we can find each player’s best action in each game situation inductively, by passing up the tree from the end-states and determining each situation in terms of known solutions to its successor nodes. And whatever the best thing to do at the downtree node was, it’ll still be the best thing to do, regardless of how we get there.</p>
+<p>But in an imperfect information game, changing an uptree strategy parameter can change what the best response is at downtree infosets, so we can’t solve a game in a single pass from the endgames to the beginning. Nearly every game-solving technique for imperfect information games, then, is based on taking a strategy for each player and iteratively improving on both based on local improvements until they resolve on something like a Nash equilibrium.</p>
+<p>Recall the two types of uncertainty in an imperfect-information game:</p>
 <ol type="1">
-<li><p>About which node we are actually in, which depends on probabilities upwards in the game tree</p></li>
-<li><p>About what happens after an action, which depends on the probabilities downwards in the game tree</p></li>
+<li><p>Uncertainty about which node we are actually in (depending on strategy and chance probabilities upwards in the game tree).</p></li>
+<li><p>Uncertainty about what happens after an action (depending on the strategy and chance probabilites downwards in the game tree).</p></li>
 </ol>
 </section>
-<section id="challenge-1" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
-<p>The goal of this challenge is to find optimal strategies for Kuhn Poker by adjusting the individual strategies at each of the 12 infosets (6 for each player). Optimal here means Nash equilibrium regret-minimizing strategies for both players.</p>
-<p>By adjusting strategies for both players, we can find an equilibrium and then</p>
-<section id="part-1-manual-strategies" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-manual-strategies">Part 1: Manual Strategies</h3>
-<p>Try to find a pair of no-regret full strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.</p>
-<p>Hint: There are some “automatic” infoset strategies such that it only makes sense to play 100% of one action in the game.</p>
-<p>When you get each infoset to at most 0.1 chips of EV away from regret-free, a link to the next stage will appear below.</p>
+</section>
+<section id="challenge" class="level2">
+<h2 class="anchored" data-anchor-id="challenge">Challenge</h2>
+<p>The goal of this challenge is to find Nash, or regret-free, strategies for Kuhn Poker in terms of the action probabilities at each player’s 6 infosets. You will submit strategies for both players (12 probabilities total) and be matched against many opponents (but not yourself). For each opponent, you will play an equal number of times as <span class="player p1"></span> and as <span class="player p2"></span>.</p>
+<section id="part-1-manual-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-manual-solutions">Part 1: Manual Solutions</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge part 1: Kuhn Poker (manual solutions)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the boxes below to find a pair of no-regret strategies in the boxes below for <span class="player p1"></span> and <span class="player p2"></span>.</p>
+</div>
+</div>
+<p>When you get a pair of strategies such that each infoset is at most 0.1 chips of EV away from regret-free, a link to the next stage will appear at the bottom of the page.</p>
+<div id="tree_visualization_400b" class="tree_visualization">
+
+</div>
+<div style="display:none">
+<div style="display: inline-block; margin: 1em;">
+<p><button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button></p>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<p><label for="update_mode" style="margin-right: 0.5em;">Update mode:</label> <select id="update_mode" style="padding: 0.2em;"> <option value="1.0" selected="selected">100% CFR</option> <option value="0.1">10% CFR</option> <option value="0.01">1% CFR</option> <option value="0.001">0.1% CFR</option> <option value="0.0001">0.0001% CFR</option> <option value="0.00001">0.00001% CFR</option> </select></p>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<p><label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label> <select id="num_iterations" style="padding: 0.2em;"> <option value="1" selected="selected">1</option> <option value="10">10</option> <option value="100">100</option> <option value="1000">1,000</option> <option value="10000">10,000</option> <option value="100000">100,000</option> </select></p>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<p><label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label> <select id="wait_per_step" style="padding: 0.2em;"> <option value="0" selected="selected">Max</option> <option value="10">Fast</option> <option value="100">10/sec</option> <option value="1000">1/sec</option> </select></p>
+</div>
+<div style="display: inline-block; margin: 1em;">
+<p><label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label> <select id="tolerance" style="padding: 0.2em;"> <option value="0.01">0.01</option> <option value="0.03">0.03</option> <option value="0.1" selected="selected">0.1</option> <option value="0.3">0.3</option> </select></p>
+</div>
+</div>
+<style>
+  .p, .regret { display: none; }
+</style>
+<div id="subtree_visualizations" style="max-width: 750px;">
+
+</div>
+</section>
+<section id="part-2-automatic-solver" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-automatic-solver">Part 2: Automatic Solver</h3>
+<button id="cheat_unlock_next" onclick="unlock_next()">
+Cheat
+</button>
 <script>
   function unlock_next() {
     document.getElementById("unlock_next").style.display = "";
     document.getElementById("cheat_unlock_next").style.display = "none";
   };
 </script>
-<button id="cheat_unlock_next" onclick="unlock_next()">
-Cheat
-</button>
 <div id="unlock_next" style="display:none">
 <p>
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Here</a> is the link to the next stage.
+<a href="1kuhn_challenge2.html">Enter Part 2</a>
 </p>
 </div>
-<div id="tree_visualization_400b">
-
-</div>
-<!-- 
-<div style="display:none">
-  <div style="display: inline-block; margin: 1em;">
-      <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
-  </div>
-  <div style="display: inline-block; margin: 1em;">
-      <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
-      <select id="update_mode" style="padding: 0.2em;">
-          <option value="1.0" selected="selected">100% CFR</option>
-          <option value="0.1">10% CFR</option>
-          <option value="0.01">1% CFR</option>
-          <option value="0.001">0.1% CFR</option>
-          <option value="0.0001">0.0001% CFR</option>
-          <option value="0.00001">0.00001% CFR</option>
-      </select>
-  </div>
-
-<!-- <div style="display: inline-block; margin: 1em;">
-    <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
-    <select id="num_iterations" style="padding: 0.2em;">
-        <option value="1" selected="selected">1</option>
-        <option value="10">10</option>
-        <option value="100">100</option>
-        <option value="1000">1,000</option>
-        <option value="10000">10,000</option>
-        <option value="100000">100,000</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label>
-    <select id="wait_per_step" style="padding: 0.2em;">
-        <option value="0" selected="selected">Max</option>
-        <option value="10">Fast</option>
-        <option value="100">10/sec</option>
-        <option value="1000">1/sec</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
-    <select id="tolerance" style="padding: 0.2em;">
-        <option value="0.01">0.01</option>
-        <option value="0.03">0.03</option>
-        <option value="0.1" selected="selected">0.1</option>
-        <option value="0.3">0.3</option>
-    </select>
-</div>
-
-</div> -->
-<div id="subtree_visualization" style="max-width: 960px;">
-
-</div>
-</section>
-<section id="part-2-automatic-strategies" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-automatic-strategies">Part 2: Automatic Strategies</h3>
-<p>Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.</p>
-<p><a href="../aipcs24/1kuhn_challenge2.html">Enter Part 2</a></p>
 <script src="index.js"></script>
 <script>
   /* global create_tree */
@@ -821,7 +816,6 @@ Cheat
   create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
 </script>
-
 
 
 </section>
@@ -907,27 +901,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -937,17 +914,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -959,130 +927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1126,7 +971,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1152,32 +996,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1243,15 +1061,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>© 2024 pokercamp.org. All rights reserved.</p>
-</div>
+    <div class="nav-footer-center">© 2024 pokercamp.org. All rights reserved.</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Kuhn Poker (1): Challenge"
+title: "#1: Kuhn Poker | Challenge (Part 2)"
 sidebar: aipcs24
 format:
   html:
@@ -8,211 +8,87 @@ format:
     header-includes: |
       <script src="https://d3js.org/d3.v7.min.js"></script>
 ---
-### Part 2: Automatic Strategies
-[Back to Part 1](1kuhn_challenge.qmd)
+## Challenge Part 2: Automatic Solver
+<div id="tree_visualization_400b" class="tree_visualization"></div>
 
-Now you can update the strategies by selecting different algorithmic methods, iterations, and speeds.
-
-```{html}
-<div id="tree_visualization_400b"></div>
-
-<div style="display:none">
-
-<div style="display: inline-block; margin: 1em;">
-    <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
-</div>
-
-<div style="display: inline-block; margin: 1em;">
-    <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
-    <select id="update_mode" style="padding: 0.2em;">
-        <option value="1.0" selected="selected">100% CFR</option>
-        <option value="0.1">10% CFR</option>
-        <option value="0.01">1% CFR</option>
-        <option value="0.001">0.1% CFR</option>
-        <option value="0.0001">0.0001% CFR</option>
-        <option value="0.00001">0.00001% CFR</option>
-    </select>
-</div>
-
-<div style="display: inline-block; margin: 1em;">
-    <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
-    <select id="num_iterations" style="padding: 0.2em;">
-        <option value="1" selected="selected">1</option>
-        <option value="10">10</option>
-        <option value="100">100</option>
-        <option value="1000">1,000</option>
-        <option value="10000">10,000</option>
-        <option value="100000">100,000</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label>
-    <select id="wait_per_step" style="padding: 0.2em;">
-        <option value="0" selected="selected">Max</option>
-        <option value="10">Fast</option>
-        <option value="100">10/sec</option>
-        <option value="1000">1/sec</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-  <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
-  <select id="tolerance" style="padding: 0.2em;">
-      <option value="0.01">0.01</option>
-      <option value="0.03">0.03</option>
-      <option value="0.1" selected="selected">0.1</option>
-      <option value="0.3">0.3</option>
+<div style="border: 1px solid black; padding-top: 0.5em; padding-left: 0.5em; margin-bottom: 1em; width: 42.9em;">
+<div style="display: inline-block; margin-right: 1em;">
+  <label for="update_mode" style="margin-right: 0.1em;">Update:</label>
+  <select id="update_factor" style="padding: 0.2em; width: 6.6em;">
+    <option value="1.0" selected="selected">100%</option>
+    <option value="0.1">10%</option>
+    <option value="0.01">1%</option>
+    <option value="0.001">0.1%</option>
+    <option value="0.0001">0.01%</option>
+    <option value="0.00001">0.001%</option>
+  </select>
+  <select id="scale_by_ev" style="padding: 0.2em; width: 6.6em;">
+    <option value="false" selected="selected">×1</option>
+    <option value="true">×EVdiff</option>
+  </select>
+  <select id="scale_by_visit_prob" style="padding: 0.2em; width: 6.6em;">
+    <option value="false" selected="selected">×1</option>
+    <option value="true">×p(visit)</option>
+  </select>
+  <select id="scale_by_total_updates" style="padding: 0.2em; width: 6.6em;">
+    <option value="false" selected="selected">×1</option>
+    <option value="true">/Σupdates</option>
+  </select>
+  <select id="use_odds" style="padding: 0.2em; width: 6.6em;">
+    <option value="false" selected="selected">probability</option>
+    <option value="true">odds</option>
   </select>
 </div>
-
+<div>
+<div style="display: inline-block; margin-right: 0.8em;">
+  <button id="start_simulator" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="startSimulator()">Run Solver</button>
 </div>
-    
-<div id="subtree_visualization" style="max-width: 960px;"></div>
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+  <label for="num_iterations" style="margin-right: 0.1em;">Iterations:</label>
+  <select id="num_iterations" style="padding: 0.2em;">
+    <option value="1" selected="selected">1</option>
+    <option value="10">10</option>
+    <option value="100">100</option>
+    <option value="1000">1,000</option>
+    <option value="10000">10,000</option>
+    <option value="100000">100,000</option>
+  </select>
+</div>
+      
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+  <label for="wait_per_step" style="margin-right: 0.1em;">Speed:</label>
+  <select id="wait_per_step" style="padding: 0.2em;">
+    <option value="0" selected="selected">Max</option>
+    <option value="10">Fast</option>
+    <option value="100">10/sec</option>
+    <option value="333">3/sec</option>
+    <option value="1000">1/sec</option>
+  </select>
+</div>
+      
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+  <label for="tolerance" style="margin-right: 0.1em;">Tolerance:</label>
+  <select id="tolerance" style="padding: 0.2em;">
+    <option value="0.3" selected="selected">0.30 chip</option>
+    <option value="0.1">0.10 chip</option>
+    <option value="0.03">0.03 chip</option>
+    <option value="0.01">0.01 chip</option>
+    <option value="0.003">0.003 chip</option>
+</select>
+</div>
+</div>
+</div>
 
-<em><strong style="color:red">Todo (solver stage):</strong> <ul>
-      <li>split off auto-solver page</li>
-      <li>add update modes to auto-solver</li>
-      <li>add "unlock" to auto-solver</li>
-      <li>add leaderboard</li>
-      <li>add "submit" button</li>
-      <li>receive submissions on backend</li>
-      <li>auto-run tournaments (on submission?)</li>
-      <li>set up instructor bot submissions</li>
-      <li><del>add pause button to solver</del></li>
-    </ul></em></p>
+<div id="subtree_visualizations" style="max-width: 750px;"></div>
 
-#### Do we really need mixed strategies?
-
-You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
-
-Follow these steps:
-
-1. Reset
-2. Set the learning rate to 1.0.
-3. In any order you like, pick cells and update them.
-4. Repeat 3 while there are still suboptimal moves in your strategy.
-
-A bad thing is happening to you. Why?
-
-## Challenge 1 Submissions
-Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
-
-Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
-
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
-
- 
 <script>
   function unlock_next() {
-    document.getElementById("unlock_next").style.display = "";
-    document.getElementById("cheat_unlock_next").style.display = "none";
   };
 </script>
-    
-<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
-
-<div id="unlock_next" style="display:none">
-  <p><a href=https://www.youtube.com/watch?v=dQw4w9WgXcQ>Here</a> is the link to the next stage.</p>
-</div>
-    
-<div id="tree_visualization_400b"></div>
-
-<div style="display:none">
-  <div style="display: inline-block; margin: 1em;">
-      <button id="start_simulator" style="padding: 0.5em 1em;" onclick="startSimulator()">Run Solver</button>
-  </div>
-  <div style="display: inline-block; margin: 1em;">
-      <label for="update_mode" style="margin-right: 0.5em;">Update mode:</label>
-      <select id="update_mode" style="padding: 0.2em;">
-          <option value="1.0" selected="selected">100% CFR</option>
-          <option value="0.1">10% CFR</option>
-          <option value="0.01">1% CFR</option>
-          <option value="0.001">0.1% CFR</option>
-          <option value="0.0001">0.0001% CFR</option>
-          <option value="0.00001">0.00001% CFR</option>
-      </select>
-  </div>
-
-<div style="display: inline-block; margin: 1em;">
-    <label for="num_iterations" style="margin-right: 0.5em;">Iterations:</label>
-    <select id="num_iterations" style="padding: 0.2em;">
-        <option value="1" selected="selected">1</option>
-        <option value="10">10</option>
-        <option value="100">100</option>
-        <option value="1000">1,000</option>
-        <option value="10000">10,000</option>
-        <option value="100000">100,000</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="wait_per_step" style="margin-right: 0.5em;">Speed:</label>
-    <select id="wait_per_step" style="padding: 0.2em;">
-        <option value="0" selected="selected">Max</option>
-        <option value="10">Fast</option>
-        <option value="100">10/sec</option>
-        <option value="1000">1/sec</option>
-    </select>
-</div>
-      
-<div style="display: inline-block; margin: 1em;">
-    <label for="tolerance" style="margin-right: 0.5em;">Tolerance:</label>
-    <select id="tolerance" style="padding: 0.2em;">
-        <option value="0.01">0.01</option>
-        <option value="0.03">0.03</option>
-        <option value="0.1" selected="selected">0.1</option>
-        <option value="0.3">0.3</option>
-    </select>
-</div>
-
-</div>
-    
-<div id="subtree_visualization" style="max-width: 960px;"></div>
-    
-<em><strong style="color:red">Todo (solver stage):</strong> <ul>
-      <li>split off auto-solver page</li>
-      <li>add update modes to auto-solver</li>
-      <li>add "unlock" to auto-solver</li>
-      <li>add leaderboard</li>
-      <li>add "submit" button</li>
-      <li>receive submissions on backend</li>
-      <li>auto-run tournaments (on submission?)</li>
-      <li>set up instructor bot submissions</li>
-      <li><del>add pause button to solver</del></li>
-    </ul></em></p>
-
-#### Do we really need mixed strategies?
-
-You can test this for yourself. If you set the learning rate to 1.0, updating a cell will move it all the way to playing the locally better action 100% of the time.
-
-Follow these steps:
-
-1. Reset
-2. Set the learning rate to 1.0.
-3. In any order you like, pick cells and update them.
-4. Repeat 3 while there are still suboptimal moves in your strategy.
-
-A bad thing is happening to you. Why?
-## Challenge 1 Submissions
-Parts 1 and 2 will each generate and submit a bot that plays with your chosen probabilities. (It has no memory of other rounds, and plays each round based on the probabilities.) 
-
-Your submission will play 100,000 times against all other submissions (including 10 bots that we added to start the challenge). It will play as P1 half the time and P2 half the time. Each 1v1 will be played in duplicate so that the card dealings are reversed to reduce variance. 
-
-After a short delay, the leaderboard should update; your score will be compared to other players and selected bots. You will be listed as “tied” with another entry if your total score against all opponents is within one standard error of theirs.
+<div id="unlock_next" style="display:none"></div>
 
 <script src="index.js"></script>
 <script>
   /* global create_tree */
-  create_tree("tree_visualization_075", 0.75);
-  create_tree("tree_visualization_100", 1.0);
-  create_tree("tree_visualization_150", 1.50);
-  create_tree("tree_visualization_175", 1.75);
-  create_tree("tree_visualization_200", 2.0);
-  create_tree("tree_visualization_250", 2.5);
-  create_tree("tree_visualization_275", 2.75);
-  create_tree("tree_visualization_300", 3.0);
-  create_tree("tree_visualization_350", 3.5);
-  create_tree("tree_visualization_400a", 4.0);
   create_tree("tree_visualization_400b", 4.0, true);
 </script>
