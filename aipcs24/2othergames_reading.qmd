@@ -1,5 +1,5 @@
 ---
-title: "Other Games (2): Reading"
+title: "#2 Other Games: Reading"
 sidebar: aipcs24
 format:
   html:

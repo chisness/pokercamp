@@ -1,5 +1,5 @@
 ---
-title: "Kuhn Poker (1): Challenge Review"
+title: "#1 Kuhn Poker: Challenge Review"
 sidebar: aipcs24
 format:
   html:

@@ -1,5 +1,5 @@
 ---
-title: "Texas Tac Toe (5): Challenge"
+title: "#5 Texas Tac Toe: Challenge"
 sidebar: aipcs24
 format:
   html:

@@ -1,5 +1,5 @@
 ---
-title: "Challenge 2: Other Games"
+title: "#2 Challenge: Other Games"
 sidebar: aipcs24
 format:
   html:

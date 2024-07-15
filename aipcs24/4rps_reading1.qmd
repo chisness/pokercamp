@@ -1,5 +1,5 @@
 ---
-title: "Rock Paper Scissors (4): Reading 1"
+title: "#4 Rock Paper Scissors: Reading 1"
 sidebar: aipcs24
 format:
   html:

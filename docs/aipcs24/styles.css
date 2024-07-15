@@ -10,7 +10,7 @@ details {
     max-width: 40em;
   }
 
-  abbr[title] {
+  /* abbr[title] {
     position: relative;
     cursor: help;
     border-bottom: 1px dotted;
@@ -27,7 +27,7 @@ details {
     border-radius: 3px;
     white-space: nowrap;
     z-index: 1000;
-  }
+  } */
   
 /* for Kuhn poker */
   

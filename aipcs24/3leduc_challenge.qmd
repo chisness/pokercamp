@@ -1,5 +1,5 @@
 ---
-title: "Leduc Poker (3): Challenge"
+title: "#3 Leduc Poker: Challenge"
 sidebar: aipcs24
 format:
   html:

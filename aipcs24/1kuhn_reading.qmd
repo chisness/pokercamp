@@ -1,5 +1,5 @@
 ---
-title: "Kuhn Poker (1): Reading"
+title: "#1 Kuhn Poker: Reading"
 sidebar: aipcs24
 format:
   html:
