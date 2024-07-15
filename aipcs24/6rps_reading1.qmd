@@ -1,5 +1,5 @@
 ---
-title: "#6 Rock Poker Scissors: Reading 1"
+title: "#6: Rock Poker Scissors | Reading 1"
 sidebar: aipcs24
 format:
   html:

@@ -1,5 +1,5 @@
 ---
-title: "#6 Rock Poker Scissors: Challenge Review"
+title: "#6: Rock Poker Scissors | Challenge Review"
 sidebar: aipcs24
 format:
   html:

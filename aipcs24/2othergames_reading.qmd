@@ -1,5 +1,5 @@
 ---
-title: "#2 Other Games: Reading"
+title: "#2: Other Games | Reading"
 sidebar: aipcs24
 format:
   html:
@@ -56,7 +56,6 @@ Uncertainty and Hidden Information: Because players cannot see the entire game s
 Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.
 
 Strategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.
-
 
 (Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)
 

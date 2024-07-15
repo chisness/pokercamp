@@ -1,5 +1,5 @@
 ---
-title: "#5 Texas Tac Toe: Reading 1"
+title: "#5: Texas Tac Toe | Reading 1"
 sidebar: aipcs24
 format:
   html:
