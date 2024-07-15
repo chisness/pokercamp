@@ -665,7 +665,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   const svgHeight = subtreeHeight + subtreeMargin.top + subtreeMargin.bottom;
 
   const subtreeDiv = d3.select("#subtree_visualization")
-    .append("div").attr("style", "width: 280px; max-width: 35vh; height: auto; max-height:25vh; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 1em; padding: 0.5em;");
+    .append("div").attr("style", "width: 280px; max-width: 32%; height: auto; margin-bottom: 1em; font: 13px sans-serif; overflow: hidden; display: inline-block; border:1px solid black; margin-right: 1em; padding: 0.5em;");
   const subtreeSvg = subtreeDiv
     .append("svg")
     .attr("width", svgWidth + 40)
@@ -674,7 +674,7 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
     .append("g")
     .attr("transform", `translate(${subtreeMargin.left + 15},${subtreeMargin.top + 20})`)
     .attr("viewBox", [0, 0, subtreeWidth, subtreeHeight])
-    .attr("style", "width: 190px; max-width: 33vh; height: auto; max-height:25vh; font: 13px sans-serif; overflow: hidden; display: block");
+    .attr("style", "width: 190px; max-width: 100%; height: auto; font: 13px sans-serif; overflow: hidden; display: block");
   
   
   // Create tree layouts
