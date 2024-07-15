@@ -7,7 +7,7 @@ format:
 ---
 Welcome to AI Poker Camp Summer 2024 Beta in San Francisco! 
 
-![](assets/welcome.png)
+![](assets/welcome.png){width=50%}
 
 Thanks for signing up. This is the first time we're running AI Poker Camp and it's very much in beta. The idea to run this course has existed for a few years, but this curriculum is very new and came about from a discussion at Manifest. 
 
