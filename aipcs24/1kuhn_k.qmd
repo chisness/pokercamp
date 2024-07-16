@@ -26,10 +26,10 @@ We came up with a list of 5 of these:
 3. <span class="infoset p2">_A↓</span>: <span class="gamenode">A</span> as Player 2 facing a check
  - Should always play <span class="gamenode">↑</span> bet
 
-4. <span class="infoset p2">Q_↓↑</span>: <span class="gamenode">Q</span> as Player 1 checking and then facing a bet
+4. <span class="infoset p1">Q_↓↑</span>: <span class="gamenode">Q</span> as Player 1 checking and then facing a bet
  - Should always play <span class="gamenode">↓</span> fold
 
-5. <span class="infoset p2">A_↓↑</span>: <span class="gamenode">A</span> as Player 2 checking and then facing a bet
+5. <span class="infoset p1">A_↓↑</span>: <span class="gamenode">A</span> as Player 2 checking and then facing a bet
  - Should always play <span class="gamenode">↑</span> bet
 
 The game tree is then reduced to: 
