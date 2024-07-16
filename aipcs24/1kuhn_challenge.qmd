@@ -97,12 +97,42 @@ If we start by assuming that both players play 50-50 randomly (50% <span class=a
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since he folds and loses exactly one chip either way).
 
-With these expected values, <span class="player p1"></span>'s "local best response" at this infoset (holding everything else about both strategies constant) is to play <span class=action>↑Up</span> 100% of the time.
+With these expected values, <span class="player p1"></span>'s  at this infoset (holding everything else about both strategies constant) is to play <span class=action>↑Up</span> 100% of the time.
 
 :::{.callout-note  appearance="minimal"}
-## Exercise
+## Question
 
-How much should <span class="player p1"></span>'s expected value from the whole game (a random deal) increase if he moves from playing <span class=action>↑Up</span> ("calling the bet") at <span class="infoset p1">K_↓↑</span> 50% of the time to 100% instead? Once you've figured out what you expect the answer to be, set the strategy probability to 100% in the text box above and check your answer.
+If we hold everything else about both strategies constant at 50-50, what should <span class="player p1"></span> do at <span class="infoset p1">K_↓↑</span>? (We'll call this his <em>local best response</em>.)
+:::
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Answer
+
+Holding the rest of both strategies constant, <span class="player p1"></span> should always play <span class=action>↑Up</span> ("call").
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Question
+
+How much does <span class="player p1"></span>'s local best response improve his expected value from the scenario <span class="infoset p1">K_↓↑</span>, versus playing 50-50?
+:::
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Answer
+
+Switching from 50% <span class=action>↑Up</span> to 100% <span class=action>↑Up</span> improves <span class="player p1"></span>'s expected value at <span class="infoset p1">K_↓↑</span> by +0.5 (from -0.5 to 0).
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Question
+
+Holding both strategies at 50-50 everywhere else, how much does <span class="player p1"></span>'s local best response improve his expected value of playing the game (versus playing 50-50)?
+:::
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Answer
+
+Switching from 50% <span class=action>↑Up</span> to 100% <span class=action>↑Up</span> improves <span class="player p1"></span>'s expected value of the whole game by +1/24, or about +0.0417. This combines the previous answer (+0.5) with the probability that any game ends up at <span class="infoset p1">K_↓↑</span> (which is 1/12).
 :::
       
 But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players <em>don't</em> play 50-50 randomly, then we'll have to separately calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise); the composition of the infoset will be proportional to the the probabilities of reaching these states&mdash;as we'll see in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
