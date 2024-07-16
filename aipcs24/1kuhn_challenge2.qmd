@@ -70,7 +70,7 @@ Once you have a strategy that you believe improves on your current submission, y
     <option value="true">odds</option>
   </select>
 </div>
-<div>
+<div> 
 <div style="display: inline-block; margin-right: 0.8em;">
   <button id="start_simulator" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="startSimulator()">Run Solver</button>
 </div>

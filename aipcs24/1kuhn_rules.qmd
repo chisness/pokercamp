@@ -63,11 +63,14 @@ Any deck of 3 ranked cards works. For example:
 
 The betting (and the game) can go in three ways: 
 
-1. One player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↓Down</span>. The player who played <span class=action>↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser's ante (and gets their own chip back). The players' cards are not revealed. Note that this happens if the action is <span class=action>↑Up</span>, <span class=action>↓Down</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↓Down</span>.
+1. One player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↓Down</span>. The player who played <span class=action>↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser's ante (and gets their own chip back). The players' cards are not revealed. Note that this happens if the action is : 
+  - <span class=action>↑Up</span>, <span class=action>↓Down</span>, or 
+  - <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↓Down</span>.
 
 2. Both players play <span class=action>↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).
 
-3. A player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class=action>↑Up</span>, <span class=action>↑Up</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↑Up</span>.
+3. A player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:
+  - <span class=action>↑Up</span>, <span class=action>↑Up</span> or - <span class=action>↓Down</span>, <span class=action>↑Up</span> , <span class=action>↑Up</span>.
 
 Here is a list of all possible betting sequences:  
 

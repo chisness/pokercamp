@@ -19,7 +19,9 @@ First, deal one card to <span class="player p1"></span> and one card to <span cl
     
 <div id="tree_visualization_075" class="tree_visualization"></div>
     
-<span class="player p1"></span> will act first. He knows what his card is, but not what card <span class="player p2"></span> has, so he can be in one of 3 infosets. We'll name them <span class="p1 infoset">A_</span>, <span class="p1 infoset">K_</span>, and <span class="p1 infoset">Q_</span> based on what card he holds:
+<span class="player p1"></span> will act first. He knows what his card is, but not what card <span class="player p2"></span> has, so he can be in one of 3 information sets, or infosets. An infoset is a set of nodes that are indistinguishable to the player, meaning that they don’t know which of the states they are in and will act with the same strategy at all of them. They are identified by the player card and the previous actions and are the labels in bold in the game tree. 
+
+We'll name <span class="player p1"></span>'s infosets <span class="p1 infoset">A_</span>, <span class="p1 infoset">K_</span>, and <span class="p1 infoset">Q_</span> based on what card he holds:
     
 <div id="tree_visualization_100" class="tree_visualization"></div>
     
@@ -57,6 +59,24 @@ We'll write the payoffs from <span class="player p1"></span>'s perspective, and 
     
 <div id="tree_visualization_400a" class="tree_visualization"></div>
 
+:::{.callout-note  appearance="minimal"}
+## Exercise: Deterministic Places on Tree
+
+- Earlier you found situations where a player should take one action 100% of the time. Find these places on the tree. 
+
+- Put a light X on parts of the tree that are blocked off (never played) because of these. 
+
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Exercise: Following the Tree
+
+- Play a hand of Kuhn Poker with the cards up and follow along with the tree. Point out where you are with your partner. 
+
+- Play a hand of Kuhn Poker with the cards down. Each individual should track where they *could* be in the tree. Notice where these possibilities overlap. 
+
+:::
+
 ## Kuhn Poker strategies
     
 Each player's strategy can be completely described in terms of their action probabilities at each infoset (6 of them per player).
@@ -73,7 +93,7 @@ As we said earlier, whatever action (or randomized mix of actions) <span class="
 
 <div class="duplicate_player_evs"></div>
 
-If we start by assuming that both players play 50-50 randomly (50% <span class=action>↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span> and losing at showdown) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>. 
+If we start by assuming that both players play 50-50 randomly (50% <span class=action>↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> equally often as via <span class=gamenode>KQ↓↑</span>. In this case, his expected payoff for playing <span class=action>↑Up</span> is a 50%-50% weighted sum of the payoffs <span class=gamenode>KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>A</span> and losing at showdown) and <span class=gamenode>KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class=gamenode>K</span> when opponent has <span class=gamenode>Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>. The expected value, or EV, of a situation is the value of each outcome weighted by the probability of that outcome.
 
 Similarly, his expected payoff for <span class=action>↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class=gamenode>KA↓↑↓</span> and <span class=gamenode>KQ↓↑↓</span>, though in this case they're both <span class="player_label p1">-1</span> and the EV doesn't depend on the composition weights of the infoset (since he folds and loses exactly one chip either way).
 
@@ -89,7 +109,7 @@ But what if the probabilities of reaching <span class="infoset p1">K_↓↑</spa
 
 ### Example 2: Changing local best responses
 
-Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> ("having a <span class=gamenode>Q</span> facing a check"). If <span class="player p2"></span> plays <span class=action>↓Down</span> (action sequence: "check&ndash;check"), he will go to a 1-chip showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class=action>↑Up</span> ("bets"), then it will be <span class="player p1"></span>'s turn to act.
+Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> ("having a <span class=gamenode>Q</span> facing a check"). If <span class="player p2"></span> plays <span class=action>↓Down</span> (action sequence: "check&ndash;check"), he will go to showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class=action>↑Up</span> ("bets"), then it will be <span class="player p1"></span>'s turn to act.
 
 If <span class="player p1"></span> were to play randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>'s <span class=action>↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class=action>↓Down</span> ("fold", <span class="player_label p2">+1</span>) and half the time he will <span class=action>↑Up</span> ("call", showdown, <span class="player_label p2">-2</span>). 
 
@@ -111,9 +131,9 @@ Reset the probabilities, then set the <span class="infoset p1">K_↓↑</span> s
 
 
 :::{.callout-note  appearance="minimal"}
-## Exercise: Regret-free mixed strategies
+## Exercise: No-regret mixed strategies
 
-Set the <span class="infoset p1">K_↓↑</span> and <span class="infoset p2">_Q↓</span> strategy probabilities to a pair of values such that neither player has <abbr title="Recall that a player has regret if they take an action with lower EV than an alternative. So a player will have no regret if they always take the higher-EV action, or if they mix between actions with equally-highest EV.">regret</abbr>.
+Set the <span class="infoset p1">K_↓↑</span> and <span class="infoset p2">_Q↓</span> strategy probabilities to a pair of values such that neither player has *regret*. A player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. So a player will have no regret if they always take the higher-EV action, or if they mix between actions with equally-highest EV.
 :::
 
 This example shows the core difference between solving perfect-information games and imperfect-information games. In Kuhn Poker, when a random <span class="player p2"></span> switches to only playing <span class=action>↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>'s payoff EVs at <span class="infoset p1">K_↓↑</span> change (because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>). With the resulting EVs, <span class="player p1"></span> has a payoff of <span class="player_label p1">-2</span> for playing <span class=action>↑Up</span>, and should play <span class=action>↓Down</span> to get <span class="player_label p1">-1</span> instead. (But now <span class="player p2"></span> should...)
@@ -122,7 +142,7 @@ In a perfect information game, we can find each player's best action in each gam
 
 But in an imperfect information game, changing an uptree strategy parameter can change what the best response is at downtree infosets, so we can't solve a game in a single pass from the endgames to the beginning. Nearly every game-solving technique for imperfect information games, then, is based on taking a strategy for each player and iteratively improving on both based on local improvements until they resolve on something like a Nash equilibrium.
 
-Recall the two types of uncertainty in an imperfect-information game:
+There are two types of uncertainty in an imperfect-information game:
 
 1. Uncertainty about which node we are actually in (depending on strategy and chance probabilities upwards in the game tree).
 
