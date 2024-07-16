@@ -1,0 +1,138 @@
+---
+title: "#1: Kuhn Poker | WTK"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+    css: styles.css
+    # header-includes: |
+    #   <script src="https://d3js.org/d3.v7.min.js"></script>
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+execute:
+  echo: true
+---
+## What the K?
+On this page we are assuming that players play their obviously free money +EV decisions correctly. 
+
+### <span class="infoset p1">K_</span>
+
+At infoset <span class="infoset p1">K_</span>, when the <span class="gamenode">K</span> opening action plays <span class="gamenode">↑</span>, we have known EV: 
+
+$$
+\begin{align}
+\mathbb{E} &= -2*\Pr(\text{P2 has A}) + 1*\Pr(\text{P2 has Q}) \\
+&= -2*0.5 + 1*0.5 \\
+&= -0.5
+\end{align}
+$$
+
+When the <span class="gamenode">K</span> opening action plays <span class="gamenode">↓</span>, we can compute the EV: 
+
+1. Assume that <span class="player p1"></span> plays <span class="gamenode">↑</span> at <span class="infoset p1">K↓↑</span> with probability $k$. 
+
+2. Assume that <span class="player p2"></span> plays <span class="gamenode">↑</span> at <span class="infoset p2">_Q↓</span> with probability $q$. 
+
+There are 3 cases of what can happen now after <span class="player p1"></span> plays <span class="gamenode">↓</span> at <span class="infoset p1">K_</span>: 
+
+1. <span class="player p2"></span> has <span class="gamenode">A</span> and plays <span class="gamenode">↑</span>. 
+
+$$
+\begin{align}
+\mathbb{E} &= -2*\Pr(\text{P1 Calls K}) - 1*\Pr(\text{P1 Folds K}) \\
+&= -2*k - 1*(1-k) \\
+&= -k - 1
+\end{align}
+$$
+
+2. <span class="player p2"></span> has <span class="gamenode">Q</span> and plays <span class="gamenode">↓</span>.
+
+$$
+\mathbb{E} = 1
+$$
+
+3. <span class="player p2"></span> has <span class="gamenode">Q</span> and plays <span class="gamenode">↑</span>.
+
+$$
+\begin{align}
+\mathbb{E} &= 2*\Pr(\text{P1 Calls K}) - 1*\Pr(\text{P1 Folds K}) \\
+&= 2*k - 1*(1-k) \\
+&= 3*k - 1
+\end{align}
+$$
+
+Putting these together, we have:
+
+$$
+\begin{align}
+\mathbb{E} &= [-k - 1]*\Pr(\text{P2 has A}) + [1]*\Pr(\text{P2 has Q and Checks}) + [3*k - 1]*\Pr(\text{P2 Has Q and Bets}) \\
+&= [-k - 1]*0.5 + [1]*0.5*(1-q) + [3*k - 1]*0.5*(q) \\
+&= -0.5*k - 0.5 + 0.5 - 0.5*q + 1.5*k*q - 0.5*q \\
+&= -0.5*k - q + 1.5*k*q
+\end{align}
+$$
+
+```{ojs}
+//| echo: false
+import {Plot} from '@observablehq/plot'
+
+// Create sliders for k and q, constrained between 0 and 1
+viewof k = Inputs.range([0, 1], {step: 0.01, label: "k"})
+viewof q = Inputs.range([0, 1], {step: 0.01, label: "q"})
+
+// Calculate z based on the function
+z = -0.5 * k - q + 1.5 * k * q
+
+// Display the current value of z
+md`The current value of z is: ${z.toFixed(4)}`
+
+// Create the contour plot
+function createPlot(k, q) {
+  const points = [];
+  for (let x = 0; x <= 1; x += 0.02) {
+    for (let y = 0; y <= 1; y += 0.02) {
+      points.push({x, y, z: -0.5 * x - y + 1.5 * x * y});
+    }
+  }
+
+  return Plot.plot({
+    width: 600,
+    height: 400,
+    x: {label: "k", domain: [0, 1]},
+    y: {label: "q", domain: [0, 1]},
+    color: {
+      type: "linear",
+      domain: [-1, 1],
+      scheme: "RdBu"
+    },
+    marks: [
+      Plot.contour(points, {x: "x", y: "y", z: "z", stroke: "currentColor", interval: 0.05}),
+      Plot.image(points, {x: "x", y: "y", z: "z", interpolate: "nearest"}),
+      Plot.dot([{x: k, y: q}], {x: "x", y: "y", stroke: "red", fill: "red"})
+    ]
+  })
+}
+
+createPlot(k, q)
+```
+
+![](assets/k.png)
+
+### <span class="infoset p2">_K↓</span>
+
+Claim that <span class="player p2"></span> should always play <span class="gamenode">↓</span>. 
+
+Logical reason: Playing <span class="gamenode">↑</span> lets opponent play perfectly and has 
+$$
+\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+$$
+
+Playing ↓ has: 
+$$
+\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+$$
+
+When would <span class="gamenode">↑</span> do better?
+
+Only when <span class="player p1"></span> plays <span class="gamenode">↑</span> with <span class="gamenode">Q</span> or <span class="gamenode">↓</span> with <span class="gamenode">A</span>. 
