@@ -40,9 +40,9 @@ There are 2 others that we knew were slightly different, but we still believed t
 
 6. <span class="infoset p2">K_↓</span>: <span class="gamenode">K</span> as Player 2 facing a check
 
-7. <span class="infoset p2">K_</span>: <span class="gamenode">K</span> as Player 1 acting first
+7. <span class="infoset p1">K_</span>: <span class="gamenode">K</span> as Player 1 acting first
 
-My assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at <span class="infoset p2">K_</span> it is not always clearly best to play <span class="gamenode">↓</span>! 
+My assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at <span class="infoset p1">K_</span> it is not always clearly best to play <span class="gamenode">↓</span>! 
 
 Betting with a <span class="gamenode">K</span> knowing that your opponent will always play perfectly (fold with <span class="gamenode">Q</span> and call with <span class="gamenode">A</span>) does not seem intuitively very profitable, but this exercise is asking for *deterministic* situations where it is definitely best to play one action. 
 
