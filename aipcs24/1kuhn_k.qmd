@@ -182,6 +182,9 @@ createPlot(k, q)
 
 ![](assets/k.png)
 
+### How do the K situations differ?
+
+
 ### Mathematical Conclusions
 We can set $-0.5 = -0.5*k - q + 1.5*k*q$ to compare the EV of betting to checking. 
 
@@ -197,4 +200,4 @@ Suppose that the pot is 100 and you have 100 in chips against one opponent who a
 
 
 
-real poker situation where you go allin and don't give opponent chance to bluff, but make it easier on yourself
+<!-- real poker situation where you go allin and don't give opponent chance to bluff, but make it easier on yourself -->
