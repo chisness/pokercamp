@@ -578,7 +578,7 @@ function showFavoredActions() {
             element.style.backgroundColor = "#FFFFBB";
           });
         }
-        if (getFavoredActionMagnitude(infoSetKey) > 0.1) {
+        if (getFavoredActionMagnitude(infoSetKey) < 0.15) {
           all_clear = false;
         }
     }
