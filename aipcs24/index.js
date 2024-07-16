@@ -578,12 +578,13 @@ function showFavoredActions() {
             element.style.backgroundColor = "#FFFFBB";
           });
         }
-        if (getFavoredActionMagnitude(infoSetKey) < 0.15) {
+        if (getFavoredActionMagnitude(infoSetKey) > 0.15) {
           all_clear = false;
         }
     }
     
     if (all_clear) {
+      console.log('submission passes; unlocked');
       setLocalStorage("poker.camp/1kuhn_challenge/infoSets.unlock", infoSets);
       unlock_next();
     }
