@@ -419,7 +419,7 @@ Alternative (but equivalent) decks
 </div>
 <p><img style="display:none" src="assets/p1l.png"> <img style="display:none" src="assets/p2w.png"></p>
 <ul>
-<li><p>Kuhn Poker is played with 2 players. (Nearly every game we will play in the first 10 classes of this course will be exactly 2 players.) For this exercise, they’ll be <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
+<li><p>Kuhn Poker is played with 2 players. For this exercise, they’ll be <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
 <li><p>Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.</p></li>
 <li><p>Deal 1 card to each player (discard the third).</p></li>
 </ul>
@@ -447,12 +447,6 @@ Alternative (but equivalent) decks
 </ul>
 </div>
 </div>
-<p>The betting (and the game) can end in three ways:</p>
-<ol type="1">
-<li><p>One player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↓Down</span>. The player who played <span class="action">↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is <span class="action">↑Up</span>, <span class="action">↓Down</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↓Down</span>.</p></li>
-<li><p>Both players play <span class="action">↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).</p></li>
-<li><p>A player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class="action">↑Up</span>, <span class="action">↑Up</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↑Up</span>.</p></li>
-</ol>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -472,6 +466,12 @@ Example game
 </ul>
 </div>
 </div>
+<p>The betting (and the game) can end in three ways:</p>
+<ol type="1">
+<li><p>One player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↓Down</span>. The player who played <span class="action">↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is <span class="action">↑Up</span>, <span class="action">↓Down</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↓Down</span>.</p></li>
+<li><p>Both players play <span class="action">↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).</p></li>
+<li><p>A player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is <span class="action">↑Up</span>, <span class="action">↑Up</span> or if the action is <span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↑Up</span>.</p></li>
+</ol>
 <p>Here is a list of all possible betting sequences:</p>
 <table class="caption-top table">
 <colgroup>
@@ -531,10 +531,12 @@ Partner Exercise: Get started with Kuhn Poker
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you have a partner handy, try the following:</p>
 <ul>
-<li><p>Play a few hands of Kuhn Poker, get used to the order of events in the game.</p></li>
-<li><p>Think about whether there are any situations where there is a clearly correct move that you should take 100% of the time. (This isn’t a trick—there are such situations in this game.)</p></li>
+<li><p>Get cards, chips, paper, pen</p></li>
+<li><p>Play 3 hands of Kuhn Poker and get used to how the game runs</p></li>
+<li><p>Use the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)</p></li>
+<li><p>Play more hands as you think helpful</p></li>
+<li><p>Once you have what you think is a full list of the deterministic states, you can stop and review the <a href="1kuhn_reading.html">optional reading</a></p></li>
 </ul>
 </div>
 </div>
