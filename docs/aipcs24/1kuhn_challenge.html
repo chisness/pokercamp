@@ -414,8 +414,7 @@ window.Quarto = {
 <div id="tree_visualization_075" class="tree_visualization">
 
 </div>
-<p><span class="player p1"></span> will act first. He knows what his card is, but not what card <span class="player p2"></span> has, so he can be in one of 3 information sets, or infosets. An infoset is a set of nodes that are indistinguishable to the player, meaning that they don’t know which of the states they are in and will act with the same strategy at all of them. They are identified by the player card and the previous actions and are the labels in bold in the game tree.</p>
-<p>We’ll name <span class="player p1"></span>’s infosets <span class="p1 infoset">A_</span>, <span class="p1 infoset">K_</span>, and <span class="p1 infoset">Q_</span> based on what card he holds:</p>
+<p><span class="player p1"></span> will act first. He knows what his card is, but not what card <span class="player p2"></span> has, so he can be in one of 3 infosets. We’ll name them <span class="p1 infoset">A_</span>, <span class="p1 infoset">K_</span>, and <span class="p1 infoset">Q_</span> based on what card he holds:</p>
 <div id="tree_visualization_100" class="tree_visualization">
 
 </div>
@@ -452,38 +451,6 @@ window.Quarto = {
 <div id="tree_visualization_400a" class="tree_visualization">
 
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise: Deterministic Places on Tree
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Earlier you found situations where a player should take one action 100% of the time. Find these places on the tree.</p></li>
-<li><p>Put a light X on parts of the tree that are blocked off (never played) because of these.</p></li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise: Following the Tree
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Play a hand of Kuhn Poker with the cards up and follow along with the tree. Point out where you are with your partner.</p></li>
-<li><p>Play a hand of Kuhn Poker with the cards down. Each individual should track where they <em>could</em> be in the tree. Notice where these possibilities overlap.</p></li>
-</ul>
-</div>
-</div>
 </section>
 <section id="kuhn-poker-strategies" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker-strategies">Kuhn Poker strategies</h2>
@@ -499,7 +466,7 @@ Exercise: Following the Tree
 <div class="duplicate_player_evs">
 
 </div>
-<p>If we start by assuming that both players play 50-50 randomly (50% <span class="action">↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>. In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">A</span> and losing at showdown) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>. The expected value, or EV, of a situation is the value of each outcome weighted by the probability of that outcome.</p>
+<p>If we start by assuming that both players play 50-50 randomly (50% <span class="action">↑Up</span> at each infoset), then <span class="player p1"></span> would arrive at <span class="infoset p1">K_↓↑</span> via <span class="gamenode">KA↓↑</span> equally often as via <span class="gamenode">KQ↓↑</span>. In this case, his expected payoff for playing <span class="action">↑Up</span> is a 50%-50% weighted sum of the payoffs <span class="gamenode">KA↓↑↑</span> (<span class="player_label p1">-2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">A</span> and losing at showdown) and <span class="gamenode">KQ↓↑↑</span> (<span class="player_label p1">+2</span>, calling with <span class="gamenode">K</span> when opponent has <span class="gamenode">Q</span> and winning at showdown), for an expected value of <span class="player_label p1">0</span>.</p>
 <p>Similarly, his expected payoff for <span class="action">↓Down</span> is a 50%-50% weighted sum of the payoffs for <span class="gamenode">KA↓↑↓</span> and <span class="gamenode">KQ↓↑↓</span>, though in this case they’re both <span class="player_label p1">-1</span> and the EV doesn’t depend on the composition weights of the infoset (since he folds and loses exactly one chip either way).</p>
 <p>With these expected values, <span class="player p1"></span>’s “local best response” at this infoset (holding everything else about both strategies constant) is to play <span class="action">↑Up</span> 100% of the time.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -519,7 +486,7 @@ Exercise
 </section>
 <section id="example-2-changing-local-best-responses" class="level3">
 <h3 class="anchored" data-anchor-id="example-2-changing-local-best-responses">Example 2: Changing local best responses</h3>
-<p>Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span> (“having a <span class="gamenode">Q</span> facing a check”). If <span class="player p2"></span> plays <span class="action">↓Down</span> (action sequence: “check–check”), he will go to showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class="action">↑Up</span> (“bets”), then it will be <span class="player p1"></span>’s turn to act.</p>
+<p>Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span> (“having a <span class="gamenode">Q</span> facing a check”). If <span class="player p2"></span> plays <span class="action">↓Down</span> (action sequence: “check–check”), he will go to a 1-chip showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class="action">↑Up</span> (“bets”), then it will be <span class="player p1"></span>’s turn to act.</p>
 <p>If <span class="player p1"></span> were to play randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>’s <span class="action">↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class="action">↓Down</span> (“fold”, <span class="player_label p2">+1</span>) and half the time he will <span class="action">↑Up</span> (“call”, showdown, <span class="player_label p2">-2</span>).</p>
 <p>Note that <span class="player p2"></span>’s <span class="gamenode">Q</span> is always the worse hand and an <span class="action">↑Up</span> action is a <abbr title="Betting with a weak hand with the goal of making the opponent fold"><em>bluff</em></abbr>, but if <span class="player p1"></span> plays <span class="action">↓Down</span> (“folds”) often enough, then <span class="player p2"></span> can win enough <span class="player_label p2">+1</span>s to do better than always taking a 1-chip showdown.</p>
 <p>But recall that in the previous section, we thought <span class="player p1"></span> should <em>always</em> play <span class="action">↑Up</span> at <span class="infoset p1">K_↓↑</span>. In that case, <span class="player p2"></span>’s payoff for playing <span class="action">↑Up</span> at <span class="infoset p2">_Q↓</span> becomes <span class="player_label p2">-1.25</span> (<span class="player_label p1">+1.25</span>), worse than <span class="player_label p2">-1</span> for playing <span class="action">↓Down</span>, and so he should play <span class="action">↓Down</span> instead of <span class="action">↑Up</span>.</p>
@@ -561,17 +528,17 @@ Exercise: Entangled strategies
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: No-regret mixed strategies
+Exercise: Regret-free mixed strategies
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Set the <span class="infoset p1">K_↓↑</span> and <span class="infoset p2">_Q↓</span> strategy probabilities to a pair of values such that neither player has <em>regret</em>. A player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. So a player will have no regret if they always take the higher-EV action, or if they mix between actions with equally-highest EV.</p>
+<p>Set the <span class="infoset p1">K_↓↑</span> and <span class="infoset p2">_Q↓</span> strategy probabilities to a pair of values such that neither player has <abbr title="Recall that a player has regret if they take an action with lower EV than an alternative. So a player will have no regret if they always take the higher-EV action, or if they mix between actions with equally-highest EV.">regret</abbr>.</p>
 </div>
 </div>
 <p>This example shows the core difference between solving perfect-information games and imperfect-information games. In Kuhn Poker, when a random <span class="player p2"></span> switches to only playing <span class="action">↓Down</span> at <span class="infoset p2">_Q↓</span>, <span class="player p1"></span>’s payoff EVs at <span class="infoset p1">K_↓↑</span> change (because now that infoset is only composed of <span class="gamenode">KA↓↑</span> and no <span class="gamenode">KQ↓↑</span>). With the resulting EVs, <span class="player p1"></span> has a payoff of <span class="player_label p1">-2</span> for playing <span class="action">↑Up</span>, and should play <span class="action">↓Down</span> to get <span class="player_label p1">-1</span> instead. (But now <span class="player p2"></span> should…)</p>
 <p>In a perfect information game, we can find each player’s best action in each game situation inductively, by passing up the tree from the end-states and determining each situation in terms of known solutions to its successor nodes. And whatever the best thing to do at the downtree node was, it’ll still be the best thing to do, regardless of how we get there.</p>
 <p>But in an imperfect information game, changing an uptree strategy parameter can change what the best response is at downtree infosets, so we can’t solve a game in a single pass from the endgames to the beginning. Nearly every game-solving technique for imperfect information games, then, is based on taking a strategy for each player and iteratively improving on both based on local improvements until they resolve on something like a Nash equilibrium.</p>
-<p>There are two types of uncertainty in an imperfect-information game:</p>
+<p>Recall the two types of uncertainty in an imperfect-information game:</p>
 <ol type="1">
 <li><p>Uncertainty about which node we are actually in (depending on strategy and chance probabilities upwards in the game tree).</p></li>
 <li><p>Uncertainty about what happens after an action (depending on the strategy and chance probabilites downwards in the game tree).</p></li>
