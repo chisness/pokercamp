@@ -401,10 +401,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-the-k" id="toc-what-the-k" class="nav-link active" data-scroll-target="#what-the-k">What the K?</a>
-  <ul class="collapse">
-  <li><a href="#k_" id="toc-k_" class="nav-link" data-scroll-target="#k_"><span class="infoset p1">K_</span></a></li>
+  <li><a href="#what-the-k" id="toc-what-the-k" class="nav-link active" data-scroll-target="#what-the-k">What the K?</a></li>
   <li><a href="#k" id="toc-k" class="nav-link" data-scroll-target="#k"><span class="infoset p2">_K↓</span></a></li>
+  <li><a href="#k_" id="toc-k_" class="nav-link" data-scroll-target="#k_"><span class="infoset p1">K_</span></a>
+  <ul class="collapse">
+  <li><a href="#mathematical-conclusions" id="toc-mathematical-conclusions" class="nav-link" data-scroll-target="#mathematical-conclusions">Mathematical Conclusions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -414,7 +415,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">#1: Kuhn Poker | WTK</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<h1 class="title">#1: Kuhn Poker | WTK</h1>
 </div>
 
 
@@ -433,10 +434,74 @@ window.Quarto = {
 
 <section id="what-the-k" class="level2">
 <h2 class="anchored" data-anchor-id="what-the-k">What the K?</h2>
-<p>On this page we are assuming that players play their obviously free money +EV decisions correctly.</p>
-<section id="k_" class="level3">
-<h3 class="anchored" data-anchor-id="k_"><span class="infoset p1">K_</span></h3>
-<p>At infoset <span class="infoset p1">K_</span>, when the <span class="gamenode">K</span> opening action plays <span class="gamenode">↑</span>, we have known EV:</p>
+<p>During the first AI Poker Camp session on Monday 7/15/24, we asked participants to list the deterministic situations in the Kuhn Poker game. In other words, points of the game where it is strictly best to play a certain action.</p>
+<p>We started with the full game tree:</p>
+<p><img src="assets/kuhn_tree.png" class="img-fluid"></p>
+<p>We came up with a list of 5 of these:</p>
+<ol type="1">
+<li><span class="infoset p2">_Q↑</span>: <span class="gamenode">Q</span> as Player 2 facing a bet</li>
+</ol>
+<ul>
+<li>Should always play <span class="gamenode">↓</span> fold</li>
+</ul>
+<ol start="2" type="1">
+<li><span class="infoset p2">_A↑</span>: <span class="gamenode">A</span> as Player 2 facing a bet</li>
+</ol>
+<ul>
+<li>Should always play <span class="gamenode">↑</span> call</li>
+</ul>
+<ol start="3" type="1">
+<li><span class="infoset p2">_A↓</span>: <span class="gamenode">A</span> as Player 2 facing a check</li>
+</ol>
+<ul>
+<li>Should always play <span class="gamenode">↑</span> bet</li>
+</ul>
+<ol start="4" type="1">
+<li><span class="infoset p2">Q_↓↑</span>: <span class="gamenode">Q</span> as Player 1 checking and then facing a bet</li>
+</ol>
+<ul>
+<li>Should always play <span class="gamenode">↓</span> fold</li>
+</ul>
+<ol start="5" type="1">
+<li><span class="infoset p2">A_↓↑</span>: <span class="gamenode">A</span> as Player 2 checking and then facing a bet</li>
+</ol>
+<ul>
+<li>Should always play <span class="gamenode">↑</span> bet</li>
+</ul>
+<p>The game tree is then reduced to:</p>
+<p><img src="assets/kuhn_tree_prune.png" class="img-fluid"></p>
+<p>There are 2 others that we knew were slightly different, but we still believed that they belonged in this category:</p>
+<ol start="6" type="1">
+<li><p><span class="infoset p2">K_↓</span>: <span class="gamenode">K</span> as Player 2 facing a check</p></li>
+<li><p><span class="infoset p2">K_</span>: <span class="gamenode">K</span> as Player 1 acting first</p></li>
+</ol>
+<p>My assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at <span class="infoset p2">K_</span> it is not always clearly best to play <span class="gamenode">↓</span>!</p>
+<p>Betting with a <span class="gamenode">K</span> knowing that your opponent will always play perfectly (fold with <span class="gamenode">Q</span> and call with <span class="gamenode">A</span>) does not seem intuitively very profitable, but this exercise is asking for <em>deterministic</em> situations where it is definitely best to play one action.</p>
+<p>Going forward on this page, we are assuming that players play their mandatory +EV decisions correctly (i.e., numbers 1-5 above).</p>
+</section>
+<section id="k" class="level2">
+<h2 class="anchored" data-anchor-id="k"><span class="infoset p2">_K↓</span></h2>
+<!-- There is a claim that <span class="player p2"></span> should always play <span class="gamenode">↓</span>.  -->
+<p>We are looking at TPOT (this part of the tree) when <span class="player p2"></span> has a <span class="gamenode">K</span> and is facing a <span class="gamenode">↓</span> (check):</p>
+<p><img src="assets/kuhn_tree_kp2d.png" class="img-fluid"></p>
+<p>If playing <span class="gamenode">↑</span>, we have: <span class="math display">\[
+\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+\]</span></p>
+<p>Playing <span class="gamenode">↓</span> has: <span class="math display">\[
+\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+\]</span></p>
+<p>Therefore in this case <span class="gamenode">↓</span> <em>is</em> strictly best and we can include this case on our list of deterministic situations.</p>
+<p>The updated tree:</p>
+<p><img src="assets/kuhn_tree_prune_2.png" class="img-fluid"></p>
+<!-- When would <span class="gamenode">↑</span> do better?
+
+Only when <span class="player p1"></span> plays <span class="gamenode">↑</span> with <span class="gamenode">Q</span> or <span class="gamenode">↓</span> with <span class="gamenode">A</span>.  -->
+</section>
+<section id="k_" class="level2">
+<h2 class="anchored" data-anchor-id="k_"><span class="infoset p1">K_</span></h2>
+<p>We are now looking at TPOT (this part of the tree) and can end up on one of these 7 nodes:</p>
+<p><img src="assets/kuhn_tree_kp1.png" class="img-fluid"></p>
+<p>At infoset <span class="infoset p1">K_</span>, when the <span class="gamenode">K</span> opening action plays <span class="gamenode">↑</span>, we end up in 2 possible nodes and have known EV:</p>
 <p><span class="math display">\[
 \begin{align}
 \mathbb{E} &amp;= -2*\Pr(\text{P2 has A}) + 1*\Pr(\text{P2 has Q}) \\
@@ -444,12 +509,13 @@ window.Quarto = {
 &amp;= -0.5
 \end{align}
 \]</span></p>
+<p>Now things get interesting.</p>
 <p>When the <span class="gamenode">K</span> opening action plays <span class="gamenode">↓</span>, we can compute the EV:</p>
 <ol type="1">
 <li><p>Assume that <span class="player p1"></span> plays <span class="gamenode">↑</span> at <span class="infoset p1">K↓↑</span> with probability <span class="math inline">\(k\)</span>.</p></li>
 <li><p>Assume that <span class="player p2"></span> plays <span class="gamenode">↑</span> at <span class="infoset p2">_Q↓</span> with probability <span class="math inline">\(q\)</span>.</p></li>
 </ol>
-<p>There are 3 cases of what can happen now after <span class="player p1"></span> plays <span class="gamenode">↓</span> at <span class="infoset p1">K_</span>:</p>
+<p>There are 3 cases of what can happen now after <span class="player p1"></span> plays <span class="gamenode">↓</span> at <span class="infoset p1">K_</span> and we can end up in 5 possible nodes:</p>
 <ol type="1">
 <li><span class="player p2"></span> has <span class="gamenode">A</span> and plays <span class="gamenode">↑</span>.</li>
 </ol>
@@ -486,20 +552,17 @@ window.Quarto = {
 \end{align}
 \]</span></p>
 <div class="cell">
-<details class="code-fold hidden">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="78" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 77;"><span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {Plot} <span class="im">from</span> <span class="st">'@observablehq/plot'</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co">// Create sliders for k and q, constrained between 0 and 1</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>viewof k <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"k"</span>})</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>viewof q <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"q"</span>})</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co">// Calculate z based on the function</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> k <span class="op">-</span> q <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> k <span class="op">*</span> q</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the current value of z</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`The current value of z is: </span><span class="sc">${</span>z<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="141" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {Plot} <span class="im">from</span> <span class="st">'@observablehq/plot'</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="co">// Create sliders for k and q, constrained between 0 and 1</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>viewof k <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"k"</span>})</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>viewof q <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"q"</span>})</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="co">// Calculate z based on the function</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> k <span class="op">-</span> q <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> k <span class="op">*</span> q</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the current value of z</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`The current value of z is: </span><span class="sc">${</span>z<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -535,36 +598,33 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<details class="code-fold hidden">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="91" data-source-offset="-395"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 90;"><span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createPlot</span>(k<span class="op">,</span> q) {</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> points <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.02</span>) {</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">+=</span> <span class="fl">0.02</span>) {</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>      points<span class="op">.</span><span class="fu">push</span>({x<span class="op">,</span> y<span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> x <span class="op">-</span> y <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> x <span class="op">*</span> y})<span class="op">;</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"q"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"linear"</span><span class="op">,</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>      <span class="dt">scheme</span><span class="op">:</span> <span class="st">"RdBu"</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">contour</span>(points<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"z"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> <span class="fl">0.05</span>})<span class="op">,</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">image</span>(points<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"z"</span><span class="op">,</span> <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"nearest"</span>})<span class="op">,</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">x</span><span class="op">:</span> k<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> q}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span>})</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="fu">createPlot</span>(k<span class="op">,</span> q)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="154" data-source-offset="-395"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 153;"><span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createPlot</span>(k<span class="op">,</span> q) {</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> points <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.02</span>) {</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">+=</span> <span class="fl">0.02</span>) {</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>      points<span class="op">.</span><span class="fu">push</span>({x<span class="op">,</span> y<span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> x <span class="op">-</span> y <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> x <span class="op">*</span> y})<span class="op">;</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"k"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"q"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"linear"</span><span class="op">,</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>      <span class="dt">scheme</span><span class="op">:</span> <span class="st">"RdBu"</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">contour</span>(points<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"z"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> <span class="fl">0.05</span>})<span class="op">,</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">image</span>(points<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">z</span><span class="op">:</span> <span class="st">"z"</span><span class="op">,</span> <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"nearest"</span>})<span class="op">,</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">x</span><span class="op">:</span> k<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> q}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span>})</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="fu">createPlot</span>(k<span class="op">,</span> q)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-6" data-nodetype="declaration">
@@ -581,22 +641,20 @@ window.Quarto = {
 </div>
 </div>
 <p><img src="assets/k.png" class="img-fluid"></p>
-</section>
-<section id="k" class="level3">
-<h3 class="anchored" data-anchor-id="k"><span class="infoset p2">_K↓</span></h3>
-<p>Claim that <span class="player p2"></span> should always play <span class="gamenode">↓</span>.</p>
-<p>Logical reason: Playing <span class="gamenode">↑</span> lets opponent play perfectly and has <span class="math display">\[
-\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
-\]</span></p>
-<p>Playing ↓ has: <span class="math display">\[
-\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
-\]</span></p>
-<p>When would <span class="gamenode">↑</span> do better?</p>
-<p>Only when <span class="player p1"></span> plays <span class="gamenode">↑</span> with <span class="gamenode">Q</span> or <span class="gamenode">↓</span> with <span class="gamenode">A</span>.</p>
+<section id="mathematical-conclusions" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-conclusions">Mathematical Conclusions</h3>
+<p>We can set <span class="math inline">\(-0.5 = -0.5*k - q + 1.5*k*q\)</span> to compare the EV of betting to checking.</p>
+<p>We see that if you have check and then call with at least <span class="math inline">\(k \geq 0.5\)</span> then you do at least as good as betting. You do strictly better if <span class="math inline">\(0.5 &lt; k &lt; 1\)</span>.</p>
+<!-- ## Poker
+
+How does this apply to a real poker situation? 
+
+Suppose that you get to the river with QhJs on a board of Jh8h6d3s2s. 
+
+Suppose that the pot is 100 and you have 100 in chips against one opponent who also has 100 chips.  -->
+<p>real poker situation where you go allin and don’t give opponent chance to bluff, but make it easier on yourself</p>
 
 
-
-<!-- -->
 
 </section>
 </section>
@@ -702,57 +760,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1083,147 +1090,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "#1: Kuhn Poker | WTK"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">sidebar:</span><span class="co"> aipcs24</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    math: true</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    # header-includes: |</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    #   &lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-summary: "Show the code"</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## What the K?</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>On this page we are assuming that players play their obviously free money +EV decisions correctly. </span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### &lt;span class="infoset p1"&gt;K_&lt;/span&gt;</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>At infoset &lt;span class="infoset p1"&gt;K_&lt;/span&gt;, when the &lt;span class="gamenode"&gt;K&lt;/span&gt; opening action plays &lt;span class="gamenode"&gt;↑&lt;/span&gt;, we have known EV: </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>\mathbb{E} &amp;= -2*\Pr(\text{P2 has A}) + 1*\Pr(\text{P2 has Q}) <span class="sc">\\</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>&amp;= -2*0.5 + 1*0.5 <span class="sc">\\</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>&amp;= -0.5</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>When the &lt;span class="gamenode"&gt;K&lt;/span&gt; opening action plays &lt;span class="gamenode"&gt;↓&lt;/span&gt;, we can compute the EV: </span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Assume that &lt;span class="player p1"&gt;&lt;/span&gt; plays &lt;span class="gamenode"&gt;↑&lt;/span&gt; at &lt;span class="infoset p1"&gt;K↓↑&lt;/span&gt; with probability $k$. </span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Assume that &lt;span class="player p2"&gt;&lt;/span&gt; plays &lt;span class="gamenode"&gt;↑&lt;/span&gt; at &lt;span class="infoset p2"&gt;_Q↓&lt;/span&gt; with probability $q$. </span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>There are 3 cases of what can happen now after &lt;span class="player p1"&gt;&lt;/span&gt; plays &lt;span class="gamenode"&gt;↓&lt;/span&gt; at &lt;span class="infoset p1"&gt;K_&lt;/span&gt;: </span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>&lt;span class="player p2"&gt;&lt;/span&gt; has &lt;span class="gamenode"&gt;A&lt;/span&gt; and plays &lt;span class="gamenode"&gt;↑&lt;/span&gt;. </span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>\mathbb{E} &amp;= -2*\Pr(\text{P1 Calls K}) - 1*\Pr(\text{P1 Folds K}) <span class="sc">\\</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>&amp;= -2*k - 1*(1-k) <span class="sc">\\</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>&amp;= -k - 1</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>&lt;span class="player p2"&gt;&lt;/span&gt; has &lt;span class="gamenode"&gt;Q&lt;/span&gt; and plays &lt;span class="gamenode"&gt;↓&lt;/span&gt;.</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>\mathbb{E} = 1</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>&lt;span class="player p2"&gt;&lt;/span&gt; has &lt;span class="gamenode"&gt;Q&lt;/span&gt; and plays &lt;span class="gamenode"&gt;↑&lt;/span&gt;.</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>\mathbb{E} &amp;= 2*\Pr(\text{P1 Calls K}) - 1*\Pr(\text{P1 Folds K}) <span class="sc">\\</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>&amp;= 2*k - 1*(1-k) <span class="sc">\\</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>&amp;= 3*k - 1</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>Putting these together, we have:</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>\mathbb{E} &amp;= <span class="co">[</span><span class="ot">-k - 1</span><span class="co">]</span>*\Pr(\text{P2 has A}) + [1]*\Pr(\text{P2 has Q and Checks}) + [3*k - 1]*\Pr(\text{P2 Has Q and Bets}) <span class="sc">\\</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>&amp;= <span class="co">[</span><span class="ot">-k - 1</span><span class="co">]</span>*0.5 + [1]*0.5*(1-q) + [3*k - 1]*0.5*(q) <span class="sc">\\</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>&amp;= -0.5*k - 0.5 + 0.5 - 0.5*q + 1.5*k*q - 0.5*q <span class="sc">\\</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>&amp;= -0.5*k - q + 1.5*k*q</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="in">//| echo: false</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="in">import {Plot} from '@observablehq/plot'</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="in">// Create sliders for k and q, constrained between 0 and 1</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="in">viewof k = Inputs.range([0, 1], {step: 0.01, label: "k"})</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="in">viewof q = Inputs.range([0, 1], {step: 0.01, label: "q"})</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="in">// Calculate z based on the function</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="in">z = -0.5 * k - q + 1.5 * k * q</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="in">// Display the current value of z</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="in">md`The current value of z is: ${z.toFixed(4)}`</span></span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="in">// Create the contour plot</span></span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="in">function createPlot(k, q) {</span></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="in">  const points = [];</span></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="in">  for (let x = 0; x &lt;= 1; x += 0.02) {</span></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="in">    for (let y = 0; y &lt;= 1; y += 0.02) {</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="in">      points.push({x, y, z: -0.5 * x - y + 1.5 * x * y});</span></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="in">  return Plot.plot({</span></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="in">    width: 600,</span></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="in">    height: 400,</span></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="in">    x: {label: "k", domain: [0, 1]},</span></span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="in">    y: {label: "q", domain: [0, 1]},</span></span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="in">    color: {</span></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="in">      type: "linear",</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="in">      domain: [-1, 1],</span></span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="in">      scheme: "RdBu"</span></span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="in">    },</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="in">    marks: [</span></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="in">      Plot.contour(points, {x: "x", y: "y", z: "z", stroke: "currentColor", interval: 0.05}),</span></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="in">      Plot.image(points, {x: "x", y: "y", z: "z", interpolate: "nearest"}),</span></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a><span class="in">      Plot.dot([{x: k, y: q}], {x: "x", y: "y", stroke: "red", fill: "red"})</span></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a><span class="in">    ]</span></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="in">  })</span></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="in">createPlot(k, q)</span></span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="al">![](assets/k.png)</span></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### &lt;span class="infoset p2"&gt;_K↓&lt;/span&gt;</span></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>Claim that &lt;span class="player p2"&gt;&lt;/span&gt; should always play &lt;span class="gamenode"&gt;↓&lt;/span&gt;. </span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>Logical reason: Playing &lt;span class="gamenode"&gt;↑&lt;/span&gt; lets opponent play perfectly and has </span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})</span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>Playing ↓ has: </span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>When would &lt;span class="gamenode"&gt;↑&lt;/span&gt; do better?</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>Only when &lt;span class="player p1"&gt;&lt;/span&gt; plays &lt;span class="gamenode"&gt;↑&lt;/span&gt; with &lt;span class="gamenode"&gt;Q&lt;/span&gt; or &lt;span class="gamenode"&gt;↓&lt;/span&gt; with &lt;span class="gamenode"&gt;A&lt;/span&gt;. </span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

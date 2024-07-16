@@ -5,20 +5,81 @@ format:
   html:
     math: true
     css: styles.css
-    # header-includes: |
-    #   <script src="https://d3js.org/d3.v7.min.js"></script>
-    code-fold: true
-    code-summary: "Show the code"
-    code-tools: true
 execute:
   echo: true
 ---
 ## What the K?
-On this page we are assuming that players play their obviously free money +EV decisions correctly. 
+During the first AI Poker Camp session on Monday 7/15/24, we asked participants to list the deterministic situations in the Kuhn Poker game. In other words, points of the game where it is strictly best to play a certain action. 
 
-### <span class="infoset p1">K_</span>
+We started with the full game tree:
 
-At infoset <span class="infoset p1">K_</span>, when the <span class="gamenode">K</span> opening action plays <span class="gamenode">↑</span>, we have known EV: 
+![](assets/kuhn_tree.png)
+
+We came up with a list of 5 of these: 
+
+1. <span class="infoset p2">_Q↑</span>: <span class="gamenode">Q</span> as Player 2 facing a bet
+ - Should always play <span class="gamenode">↓</span> fold
+
+2. <span class="infoset p2">_A↑</span>: <span class="gamenode">A</span> as Player 2 facing a bet
+ - Should always play <span class="gamenode">↑</span> call
+
+3. <span class="infoset p2">_A↓</span>: <span class="gamenode">A</span> as Player 2 facing a check
+ - Should always play <span class="gamenode">↑</span> bet
+
+4. <span class="infoset p2">Q_↓↑</span>: <span class="gamenode">Q</span> as Player 1 checking and then facing a bet
+ - Should always play <span class="gamenode">↓</span> fold
+
+5. <span class="infoset p2">A_↓↑</span>: <span class="gamenode">A</span> as Player 2 checking and then facing a bet
+ - Should always play <span class="gamenode">↑</span> bet
+
+The game tree is then reduced to: 
+
+![](assets/kuhn_tree_prune.png)
+
+There are 2 others that we knew were slightly different, but we still believed that they belonged in this category: 
+
+6. <span class="infoset p2">K_↓</span>: <span class="gamenode">K</span> as Player 2 facing a check
+
+7. <span class="infoset p2">K_</span>: <span class="gamenode">K</span> as Player 1 acting first
+
+My assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at <span class="infoset p2">K_</span> it is not always clearly best to play <span class="gamenode">↓</span>! 
+
+Betting with a <span class="gamenode">K</span> knowing that your opponent will always play perfectly (fold with <span class="gamenode">Q</span> and call with <span class="gamenode">A</span>) does not seem intuitively very profitable, but this exercise is asking for *deterministic* situations where it is definitely best to play one action. 
+
+Going forward on this page, we are assuming that players play their mandatory +EV decisions correctly (i.e., numbers 1-5 above). 
+
+## <span class="infoset p2">_K↓</span>
+<!-- There is a claim that <span class="player p2"></span> should always play <span class="gamenode">↓</span>.  -->
+We are looking at TPOT (this part of the tree) when <span class="player p2"></span> has a <span class="gamenode">K</span> and is facing a <span class="gamenode">↓</span> (check):
+
+![](assets/kuhn_tree_kp2d.png)
+
+If playing <span class="gamenode">↑</span>, we have: 
+$$
+\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+$$
+
+Playing <span class="gamenode">↓</span> has: 
+$$
+\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
+$$
+
+Therefore in this case <span class="gamenode">↓</span> *is* strictly best and we can include this case on our list of deterministic situations. 
+
+The updated tree: 
+
+![](assets/kuhn_tree_prune_2.png)
+
+<!-- When would <span class="gamenode">↑</span> do better?
+
+Only when <span class="player p1"></span> plays <span class="gamenode">↑</span> with <span class="gamenode">Q</span> or <span class="gamenode">↓</span> with <span class="gamenode">A</span>.  -->
+
+## <span class="infoset p1">K_</span>
+We are now looking at TPOT (this part of the tree) and can end up on one of these 7 nodes:
+
+![](assets/kuhn_tree_kp1.png)
+
+At infoset <span class="infoset p1">K_</span>, when the <span class="gamenode">K</span> opening action plays <span class="gamenode">↑</span>, we end up in 2 possible nodes and have known EV: 
 
 $$
 \begin{align}
@@ -28,13 +89,15 @@ $$
 \end{align}
 $$
 
+Now things get interesting. 
+
 When the <span class="gamenode">K</span> opening action plays <span class="gamenode">↓</span>, we can compute the EV: 
 
 1. Assume that <span class="player p1"></span> plays <span class="gamenode">↑</span> at <span class="infoset p1">K↓↑</span> with probability $k$. 
 
 2. Assume that <span class="player p2"></span> plays <span class="gamenode">↑</span> at <span class="infoset p2">_Q↓</span> with probability $q$. 
 
-There are 3 cases of what can happen now after <span class="player p1"></span> plays <span class="gamenode">↓</span> at <span class="infoset p1">K_</span>: 
+There are 3 cases of what can happen now after <span class="player p1"></span> plays <span class="gamenode">↓</span> at <span class="infoset p1">K_</span> and we can end up in 5 possible nodes: 
 
 1. <span class="player p2"></span> has <span class="gamenode">A</span> and plays <span class="gamenode">↑</span>. 
 
@@ -119,20 +182,19 @@ createPlot(k, q)
 
 ![](assets/k.png)
 
-### <span class="infoset p2">_K↓</span>
+### Mathematical Conclusions
+We can set $-0.5 = -0.5*k - q + 1.5*k*q$ to compare the EV of betting to checking. 
 
-Claim that <span class="player p2"></span> should always play <span class="gamenode">↓</span>. 
+We see that if you have check and then call with at least $k \geq 0.5$ then you do at least as good as betting. You do strictly better if $0.5 < k < 1$. 
 
-Logical reason: Playing <span class="gamenode">↑</span> lets opponent play perfectly and has 
-$$
-\mathbb{E} = -2*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
-$$
+<!-- ## Poker
 
-Playing ↓ has: 
-$$
-\mathbb{E} = -1*\Pr(\text{P1 A Plays \downarrow}) + 1*\Pr(\text{P1 Q Plays \downarrow})
-$$
+How does this apply to a real poker situation? 
 
-When would <span class="gamenode">↑</span> do better?
+Suppose that you get to the river with QhJs on a board of Jh8h6d3s2s. 
 
-Only when <span class="player p1"></span> plays <span class="gamenode">↑</span> with <span class="gamenode">Q</span> or <span class="gamenode">↓</span> with <span class="gamenode">A</span>. 
+Suppose that the pot is 100 and you have 100 in chips against one opponent who also has 100 chips.  -->
+
+
+
+real poker situation where you go allin and don't give opponent chance to bluff, but make it easier on yourself
