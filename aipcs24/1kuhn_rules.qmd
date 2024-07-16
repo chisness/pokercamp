@@ -61,7 +61,7 @@ Any deck of 3 ranked cards works. For example:
 - <span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>'s <span class=action>↑Up</span>).
 :::
 
-The betting (and the game) can end in three ways: 
+The betting (and the game) can go in three ways: 
 
 1. One player plays <span class=action>↑Up</span>, then the other player plays <span class=action>↓Down</span>. The player who played <span class=action>↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser's ante (and gets their own chip back). The players' cards are not revealed. Note that this happens if the action is <span class=action>↑Up</span>, <span class=action>↓Down</span> or if the action is <span class=action>↓Down</span>, <span class=action>↑Up</span>, <span class=action>↓Down</span>.
 
