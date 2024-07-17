@@ -112,6 +112,14 @@ Once you have a strategy that you believe improves on your current submission, y
 
 <div id="subtree_visualizations" style="max-width: 750px;"></div>
 
+:::{.callout-note  appearance="minimal"}
+## Ponder...
+
+Which solver settings seem to help? Which don't? Which work best? What settings or logic do you wish you had that you don't have yet? We'll discuss in class and/or during challenge review and/or during office hours and/or on the discord.
+
+In later weeks, you'll implement your own solver to do similar things on larger games, and while we'll try to give you bare-bones handout code, you'll be able to add what you want to make it solve better. Or not. ¯\_(ツ)_/¯
+:::
+
 ### Submit to leaderboard
 
 &lt;Nothing here yet; check back later.&gt;
