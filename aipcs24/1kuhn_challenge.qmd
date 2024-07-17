@@ -263,7 +263,7 @@ When you get a pair of strategies such that each infoset is at most 0.1 chips of
 <div class="locked_message">
   &lt;This section is locked until you complete part 1.&gt;
   
-  <button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
+  <!--<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>-->
 </div>
 <div class="lock_this" style="display:none">
   <p><a href=1kuhn_challenge2.html>Enter Part 2 (unlocked) &rarr;</a></p>

@@ -502,7 +502,6 @@ function recalculateEvs() {
       });
       
       document.querySelectorAll(".ev" + infoSetKey).forEach(element => {
-        console.log(`${infoSetKey} ${evLabel(infoSets[infoSetKey].ev)}`);
         element.textContent = `EV: ${evLabel(infoSets[infoSetKey].ev)}`;
       });
       const evUp = calculateDirectionEV(infoSets[infoSetKey], "up");
@@ -578,12 +577,14 @@ function showFavoredActions() {
             element.style.backgroundColor = "#FFFFBB";
           });
         }
-        if (getFavoredActionMagnitude(infoSetKey) < 0.15) {
+        if (favoredAction && getFavoredActionMagnitude(infoSetKey) > 0.15) {
+          console.log (`${infoSetKey} EVdiff=${getFavoredActionMagnitude(infoSetKey)}`);
           all_clear = false;
         }
     }
     
     if (all_clear) {
+      console.log('submission passes; unlocked');
       setLocalStorage("poker.camp/1kuhn_challenge/infoSets.unlock", infoSets);
       unlock_next();
     }
@@ -744,7 +745,6 @@ const createSubtreeVisualization = (root, name1, name2, label, is_p1) => {
   treeLayout(root2);
 
   const displayEV = (node, stateName, xMod = 0, yMod = 0, color = "black") => {
-    console.log(stateName);
     const state = stateName in states ? states[stateName] : infoSets[stateName];
     const displayEv = stateName in states ? evLabel(state.ev) : NaN;
     node.append("text")
