@@ -177,7 +177,7 @@ In later weeks, you'll implement your own solver to do similar things on larger 
 
 <script>
   function fetchLeaderboard() {
-    fetch('http://pokercamp-staff-dev1.rossry.net:5000/leaderboard')
+    fetch('https://pokercamp-staff-dev1.rossry.net:1443/leaderboard')
       .then(response => response.json())
       .then(data => {
         const leaderboardDiv = document.getElementById('leaderboard');

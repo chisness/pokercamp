@@ -1440,7 +1440,7 @@ function submit_probabilities() {
         probabilities: probabilities
     };
 
-    fetch('http://pokercamp-staff-dev1.rossry.net:5000/submit_probabilities', {
+    fetch('https://pokercamp-staff-dev1.rossry.net:1443/submit_probabilities', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
