@@ -413,7 +413,7 @@ The strategy that you used to unlock this stage has been submitted to the leader
 The preceding sentences will be true when the challenge goes live, expect Tuesday or Wednesday.
 </p>
 <p>Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player’s infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).</p>
-<p>Once you have a strategy that you believe improves on your current submission, you <del>can re-submit and wait for the results to be re-run (which may take some minutes)</del> will later be able to submit it and see the results against other entries.</p>
+<p>Once you have a strategy that you believe improves on your current submission, you can re-submit and wait for the results to be re-run (which may take some minutes).</p>
 </div>
 </div>
 <div id="tree_visualization_400b" class="tree_visualization">
@@ -542,7 +542,7 @@ Update Strategy Submission
 <div id="leaderboard">
 <script>
   function fetchLeaderboard() {
-    fetch('http://pokercamp-staff-dev1.rossry.net:5000/leaderboard')
+    fetch('https://pokercamp-staff-dev1.rossry.net:1443/leaderboard')
       .then(response => response.json())
       .then(data => {
         const leaderboardDiv = document.getElementById('leaderboard');
