@@ -151,3 +151,107 @@ To summarize, you can only be penalized for not playing the equilibrium mixing s
 ## Indifference
 Why do players make their opponent indifferent?
 :::
+
+## Indifference in Poker 
+Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play. 
+
+If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation. 
+
+Let’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.
+
+![](assets/kuhnindiff.png)
+
+:::{.callout-note  appearance="minimal"}
+## Expected Value Exercise
+What indifference is Player 2 trying to induce? 
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+Making P1 indifferent between calling and folding with a K 
+:::
+
+We can work out Player 2's betting strategy by calculating the indifference. Let $b$ be the probability that P2 bets with a Q after P1 checks. 
+
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{P1 Check K then Fold to Bet}) &= 0 \\
+\\
+
+\mathbb{E}(\text{P1 Check K then Call Bet}) &= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
+  &= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
+  &= -0.5 + 1.5*b
+\end{split}
+\end{equation}
+$$
+
+Setting these equal: 
+
+$0 = -0.5 + 1.5*b$ 
+
+$b = \frac{1}{3}$
+
+Therefore in equilibrium, P2 should bet $\frac{1}{3}$ with Q after P1 checks.  
+
+:::{.callout-note  appearance="minimal"}
+## Equilibrium Mixed Strategy Change Exercise
+If P2 bet $\frac{2}{3}$ instead of $\frac{1}{3}$ with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change? 
+
+NOTE: Put the strategy boxes here? 
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+It wouldn't! As long as P1 doesn't modify their strategy, then P2 can mix his strategy however he wants and have the same EV. 
+
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Bluff:Value Ratio Exercise
+Given that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?
+
+(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)
+
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+P2 has Q and A each $\frac{1}{2}$ of the time. 
+
+P2 is betting Q $\frac{1}{3}$ of the time (bluffing). 
+
+P2 is betting A always (value betting). 
+
+Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff. 
+
+$\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}$
+
+:::
+
+## TO DO BELOW 
+
+TO DO: 
+- What if the bet size was 2 instead of 1?
+
+- Can you come up with a general formula for how often to bluff given a pot and bet size? 
+
+- Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  
+
+- What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?
+
+- Node locking question 
+
+
+In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly. 
+
+For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A. 
+
+Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage $p$ of their Q hands. 
+
+Formula for how often they’re betting Q. 
+
+What’s another case we could determine? Bet Q, how often call/fold K. How to use this?

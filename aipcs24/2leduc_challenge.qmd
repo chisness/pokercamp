@@ -12,15 +12,15 @@ Slightly more advanced than Kuhn
 
 :::{.callout-note  appearance="minimal"}
 ## Exercise
-Fill in the table below with games you know about: 
+Fill in the table below with games you know about. Thanks to Eliezer for getting us started. 
 :::
 
 | Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
 |------------|-----------|--------|
-| Imperfect Info, No Player Agency/Decisions      | ![](assets/eliezer_snakes.jpg)          |
-| Perfect Info, Player Actions Always Perfect Info     |  |
-| Imperfect Info, Imperfect from Randomness     |   |
-| Imperfect Info, Imperfect from Randomness AND Game States    |   |
+| **Imperfect Info, No Player Agency/Decisions**      | ![](assets/eliezer_snakes.jpg)          |
+| **Perfect Info, Player Actions Always Perfect Info**     |  |
+| **Imperfect Info, Imperfect from Randomness**     |   |
+| **Imperfect Info, Imperfect from Randomness AND Game States**    |   |
 
 :::{.callout-tip collapse="true"  appearance="minimal"}
 ## Pre-Filled Table
@@ -264,9 +264,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 - Kuhn Game Tree
 
-## CFR 
-
-- Can show how 
+## CFR  
 
 [Slides, what to include?](https://docs.google.com/presentation/d/11S85i83OVb8SbPRAs9i3ygyXrv7e4SsUXxBloc04iHM/edit)
 

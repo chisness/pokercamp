@@ -364,9 +364,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#indifference-in-poker" id="toc-indifference-in-poker" class="nav-link active" data-scroll-target="#indifference-in-poker">Indifference in Poker</a></li>
-  <li><a href="#to-do-below" id="toc-to-do-below" class="nav-link" data-scroll-target="#to-do-below">TO DO BELOW</a></li>
-  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a>
+  <li><a href="#review-of-challenge-1" id="toc-review-of-challenge-1" class="nav-link active" data-scroll-target="#review-of-challenge-1">Review of Challenge 1</a>
   <ul class="collapse">
   <li><a href="#tournament-results" id="toc-tournament-results" class="nav-link" data-scroll-target="#tournament-results">Tournament Results</a></li>
   <li><a href="#how-the-interactive-works" id="toc-how-the-interactive-works" class="nav-link" data-scroll-target="#how-the-interactive-works">How the Interactive Works</a></li>
@@ -400,135 +398,6 @@ window.Quarto = {
 
 <p>Explain differences here between the regret that wasn’t converging on the site and the one that is</p>
 <p>Average strategy thing Regret min thing from cfr.pdf Failure mode spinning around the right solution, want to spin inwards/converge</p>
-<section id="indifference-in-poker" class="level3">
-<h3 class="anchored" data-anchor-id="indifference-in-poker">Indifference in Poker</h3>
-<p>Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play.</p>
-<p>If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation.</p>
-<p>Let’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.</p>
-<p><img src="assets/kuhnindiff.png" class="img-fluid"></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expected Value Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What indifference is Player 2 trying to induce?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Making P1 indifferent between calling and folding with a K</p>
-</div>
-</div>
-</div>
-<p>We can work out Player 2’s betting strategy by calculating the indifference. Let <span class="math inline">\(b\)</span> be the probability that P2 bets with a Q after P1 checks.</p>
-<p>$$ <span class="math display">\[\begin{equation}
-\begin{split}
-\mathbb{E}(\text{P1 Check K then Fold to Bet}) &amp;= 0 \\
-\\
-
-\mathbb{E}(\text{P1 Check K then Call Bet}) &amp;= -1*\Pr(\text{P2 has A and Bets}) + 3*\Pr(\text{P2 has Q and Bets}) \\
-  &amp;= -1*\frac{1}{2} + 3*\frac{1}{2}*b \\
-  &amp;= -0.5 + 1.5*b
-\end{split}
-\end{equation}\]</span> $$</p>
-<p>Setting these equal:</p>
-<p><span class="math inline">\(0 = -0.5 + 1.5*b\)</span></p>
-<p><span class="math inline">\(b = \frac{1}{3}\)</span></p>
-<p>Therefore in equilibrium, P2 should bet <span class="math inline">\(\frac{1}{3}\)</span> with Q after P1 checks.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Equilibrium Mixed Strategy Change Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If P2 bet <span class="math inline">\(\frac{2}{3}\)</span> instead of <span class="math inline">\(\frac{1}{3}\)</span> with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>It wouldn’t! As long as P1 doesn’t modify their strategy, then P2 can mix his strategy however he wants and have the same EV.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Bluff:Value Ratio Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Given that P2 has bet after P1 checks and is playing the equilibrium strategy, what is the probability that they are bluffing?</p>
-<p>(Note: Including cases where you have an A, so Q bets are bluffs and A bets are value bets.)</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>P2 has Q and A each <span class="math inline">\(\frac{1}{2}\)</span> of the time.</p>
-<p>P2 is betting Q <span class="math inline">\(\frac{1}{3}\)</span> of the time (bluffing).</p>
-<p>P2 is betting A always (value betting).</p>
-<p>Therefore for every 3 times you have Q you will bet once and for every 3 times you have A you will bet 3 times. Out of the 4 bets, 1 of them is a bluff.</p>
-<p><span class="math inline">\(\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}\)</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="to-do-below" class="level2">
-<h2 class="anchored" data-anchor-id="to-do-below">TO DO BELOW</h2>
-<p>TO DO: - What if the bet size was 2 instead of 1?</p>
-<ul>
-<li><p>Can you come up with a general formula for how often to bluff given a pot and bet size?</p></li>
-<li><p>Range of hands vs.&nbsp;range of hands vs.&nbsp;your hand vs.&nbsp;their strategy. Different if their strategy never changes.</p></li>
-<li><p>What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?</p></li>
-<li><p>Node locking question</p></li>
-</ul>
-<p>In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly.</p>
-<p>For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A.</p>
-<p>Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage <span class="math inline">\(p\)</span> of their Q hands.</p>
-<p>Formula for how often they’re betting Q.</p>
-<p>What’s another case we could determine? Bet Q, how often call/fold K. How to use this?</p>
-</section>
 <section id="review-of-challenge-1" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-challenge-1">Review of Challenge 1</h2>
 <p>Goal: Equilibrium agent, later opponent modeling</p>
