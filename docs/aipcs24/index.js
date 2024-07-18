@@ -22,6 +22,7 @@ function getLocalStorage(key) {
     }
 }
 
+const infoSetOrder = ['A_', 'K_', 'Q_', '_A↑', '_A↓', '_K↑', '_K↓', '_Q↑', '_Q↓', 'A_↓↑', 'K_↓↑', 'Q_↓↑'];
 infoSets = getLocalStorage('poker.camp/1kuhn_challenge/infoSets');
 if (!infoSets || !("A_" in infoSets) || !("inverse" in infoSets["A_"]) || infoSets["A_"].inverse) {
   infoSets = {
@@ -590,10 +591,37 @@ function showFavoredActions() {
     }
 }
 
+let iterationNumber = 0;
+
 function updateAll() {
   recalculateEvs();
   showFavoredActions();
   setLocalStorage("poker.camp/1kuhn_challenge/infoSets", infoSets);
+
+  // Create a new row for the table
+  let table = document.getElementById('strategy-history-table');
+  
+  if (table) {
+    let row = table.insertRow(1); // Insert at the top of the tbody
+  
+    // Add the iteration number
+    let cell = row.insertCell(0);
+    cell.textContent = iterationNumber;
+  
+    // Add the probabilities for each infoset in the defined order
+    for (let label of infoSetOrder) {
+      cell = row.insertCell(-1);
+      cell.textContent = (infoSets[label].percentage / 100.0).toFixed(4);
+    }
+  
+    // Limit the number of rows to 10000
+    if (table.rows.length > 10001) {
+      table.deleteRow(10001);
+    }
+  
+    // Increment the iteration number regardless
+    iterationNumber++;
+  }
 }
 
 var stop_running;
@@ -1385,9 +1413,76 @@ function create_tree(id_target, level = 10, with_strategy = false) {
       element.style.display = "none";
     });
     
+    iterationNumber = 0;
     updateAll();
   }
 }
+
+function copyStrategyHistoryTableToClipboard() {
+    const table = document.getElementById('strategy-history-table');
+    if (!table) {
+        alert('Table not found');
+        return;
+    }
+
+    let copyText = '';
+
+    // Add headers (tab-separated)
+    for (let cell of table.rows[0].cells) {
+        copyText += cell.textContent.trim() + '\t';
+    }
+    copyText = copyText + '\n';  // Only one newline after headers
+
+    // Add data rows
+    for (let i = 1; i < table.rows.length; i++) {
+        for (let cell of table.rows[i].cells) {
+            copyText += cell.textContent.trim() + '\t';
+        }
+        copyText = copyText + '\n';
+    }
+
+    // Remove the last newline
+    copyText = copyText.trim();
+
+    // Try to use the Clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyText).then(function() {
+            alert('Table copied to clipboard');
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+            fallbackCopyTextToClipboard(copyText);
+        });
+    } else {
+        fallbackCopyTextToClipboard(copyText);
+    }
+}
+
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        const msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+    }
+
+    document.body.removeChild(textArea);
+}
+
+// Add event listener to the button
+document.getElementById('copy-table-button').addEventListener('click', copyStrategyHistoryTableToClipboard);
 
 /* global fetch */
 
@@ -1456,7 +1551,7 @@ function submit_probabilities() {
           element.style.backgroundColor = "#FFFFBB";
         });
         document.querySelectorAll(".showUserName").forEach(element => {
-          element.style.innerHTML = `ID: ${userNameDisplay}`;
+          element.innerHTML = `${userNameDisplay}`;
         });
     })
     .catch((error) => {
@@ -1465,8 +1560,12 @@ function submit_probabilities() {
     });
 }
 
-console.log("." + localStorage.getItem('userNameDisplay'));
-console.log(document.querySelectorAll("." + localStorage.getItem('userNameDisplay')));
-document.querySelectorAll("." + localStorage.getItem('userNameDisplay')).forEach(element => {
-  element.style.backgroundColor = "#FFFFBB";
-});
+var userNameDisplay = localStorage.getItem('userNameDisplay');
+if (userNameDisplay) {
+  document.querySelectorAll("." + userNameDisplay).forEach(element => {
+    element.style.backgroundColor = "#FFFFBB";
+  });
+  document.querySelectorAll(".showUserName").forEach(element => {
+    element.innerHTML = `${userNameDisplay}`;
+  });
+}

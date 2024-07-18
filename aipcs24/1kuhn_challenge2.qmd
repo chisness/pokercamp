@@ -17,7 +17,7 @@ format:
 :::{.callout-note  appearance="minimal"}
 ## Challenge part 2: submission and leaderboard
 
-<p><del>The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class=submission_id>[submission id]</span> below. You can resubmit to replace it with another strategy as many times as you like using the "Submit" button below.</del> The preceding sentences will be true when the challenge goes live, expect Tuesday or Wednesday.</p>
+<p>The strategy that you used to unlock this stage has been submitted to the leaderboard; you can see it as name <span class=showUserName style="font-weight: bold">[undefined]</span> below. You can resubmit to replace it with another strategy as many times as you like using the "Submit" button below. The preceding sentences will be true when the challenge goes live, expect Tuesday or Wednesday.</p>
 
 Next, use the automatic solver tool below to refine your strategies for each player in terms of the fixed action probabilities at each player's infosets. For this challenge, we recommend that you submit strategies that form a Nash equilibrium (or equivalently, a pair of strategies such that neither player has regret).
 
@@ -112,17 +112,122 @@ Once you have a strategy that you believe improves on your current submission, y
 
 <div id="subtree_visualizations" style="max-width: 750px;"></div>
 
+<style>
+.history-table {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+.history-table th, .history-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: right;
+}
+
+.history-table th {
+  text-align: center;
+}
+
+.history-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.history-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.history-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.copy-button {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  z-index: 1000;
+  background-color: rgba(240, 240, 240, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #666;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 1px;
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  background-color: rgba(224, 224, 224, 0.9);
+  color: #333;
+}
+
+.copy-button:active {
+  background-color: rgba(208, 208, 208, 1);
+}
+
+.history-table {
+  margin-top: 0px;
+}
+</style>
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Solver history
+
+### Strategy probabilities
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>
+  <table id="strategy-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Strategy</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+:::
+
 :::{.callout-note  appearance="minimal"}
 ## Ponder...
 
-Which solver settings seem to help? Which don't? Which work best? What settings or logic do you wish you had that you don't have yet? We'll discuss in class and/or during challenge review and/or during office hours and/or on the discord.
+The solver's algorithm is a reinforcement-learning approach that you will use some version of for the rest of the course. Unfortunately, the vanilla version that this page defaults to doesn't converge.
 
-In later weeks, you'll implement your own solver to do similar things on larger games, and while we'll try to give you bare-bones handout code, you'll be able to add what you want to make it solve better. Or not. ¯\\\_(ツ)\_/¯
+The solver controls will let you tweak how the algorithm determines the size of the updates, which is critical to having the convergence behavior you want. Try to find a setting of the controls that converges to a good solution.
+
+For this task you will almost certainly want to look at the history of updates represented in the "Solver history" box above.
+
+While Kuhn Poker is small enough to solve by hand or by manual trial-and-error, having an efficient and effective (and converging!) algorithm for learning better strategies is going to be key in later weeks.
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Beta Note
+
+This week's challenge (submit a strategy) has drifted apart somewhat from the lesson we tried to build up to (exploring the nuances of reinforcement-update algorithms). Our current thinking is that this would be better if the challenge were actually to submit 100-card Kuhn Poker, which would do a better job of applying the answer to "how does a good solver update?"
+
+Unfortunately, we ran out of time to implement the 100-card Kuhn Poker train / test tournament.
 :::
 
 ### Submit to leaderboard
 
-<!--&lt;Nothing here yet; check back later.&gt;-->
+:::{.callout-note  appearance="minimal"}
+## Beta Note
+
+You'll have to refresh the page to see the leaderboard change. Re-running the tournament currently takes between one and three minutes (but could be longer, since it's quadratic in entries), and there's no indication that it's done except the board changing. Working on improvements.
+:::
  
 <button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submit_probabilities()">Update Strategy Submission</button>
 
@@ -237,10 +342,26 @@ In later weeks, you'll implement your own solver to do similar things on larger 
       document.getElementById("lock_this").style.display = "";
   };
 </script>
-<div id="unlock_next" style="display:none"></div>
 
 <script src="index.js"></script>
 <script>
   /* global create_tree */
   create_tree("tree_visualization_400b", 4.0, true);
+  
+  let has_autosubmit = localStorage.getItem('has_autosubmit');
+  
+  if (!has_autosubmit) {
+    submit_probabilities();
+    localStorage.setItem('has_autosubmit', true);
+  }
 </script>
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## More &rarr;
+
+If you've finished all of the above, we'd like to hear about it (and any questions you still have&mdash;which we expect you do. Then you can do any of:
+
+- Wait for next week's material next week.
+- Help other students with their confusions and stuck points (and let us know how we could have improved!).
+- Get a start on the next segment of the course by writing a bot that can learn from your opponent's moves and do better than Nash against them. (For this, see the instructors for info on setting up the games environment on your own computer.)
+:::
