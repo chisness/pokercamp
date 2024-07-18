@@ -83,6 +83,12 @@ Each player's strategy can be completely described in terms of their action prob
 
 ### Example 1: Determining a local best response
 
+:::{.callout-note  appearance="minimal"}
+## Beta Note
+
+All of the strategy boxes on the whole page are linked together, which is a bad design on our part. This means that if you go to the next example or the final section and change things, the values in this section will no longer make sense. You can get back to a good state by setting all strategy probs to 50%, or opening this page in an incognito window, or by clearing cache including local storage (which will also clear your unlock progress).
+:::
+
 Let's start by considering <span class="player p1"></span>'s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn't know whether the true state of the world is <span class=gamenode>KA↓↑</span> or <span class=gamenode>KQ↓↑</span>. This is what the game looks like from <span class="player p1"></span>'s perspective: 
 
 ![](assets/k_down_up.png)
@@ -138,6 +144,12 @@ Switching from 50% <span class=action>↑Up</span> to 100% <span class=action>�
 But what if the probabilities of reaching <span class="infoset p1">K_↓↑</span> via <span class=gamenode>KA↓↑</span> versus <span class=gamenode>KQ↓↑</span> aren't equal? If the players <em>don't</em> play 50-50 randomly, then we'll have to separately calculate the probability of reaching <span class=gamenode>KA↓↑</span> (including the probability of the initial <span class=gamenode>KA</span> deal) and the probability of reaching <span class=gamenode>KQ↓↑</span> (likewise); the composition of the infoset will be proportional to the the probabilities of reaching these states&mdash;as we'll see in our next example. *(In larger games, we might approximate these reach-state probabilities by sampling games with simulated play instead of calculating them analytically.)*
 
 ### Example 2: Changing local best responses
+
+:::{.callout-note  appearance="minimal"}
+## Beta Note
+
+This section also assumes that all other strategy probabilities are set to 50%, including <span class="infoset p2">_A↓</span>, though this isn't clear in the text. Like in the previous section, you may need to reset the probabilities for the other strategy probs if you changed them in the final section.
+:::
 
 Consider <span class="player p2"></span>'s actions at <span class="infoset p2">_Q↓</span> ("having a <span class=gamenode>Q</span> facing a check"). If <span class="player p2"></span> plays <span class=action>↓Down</span> (action sequence: "check&ndash;check"), he will go to showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class=action>↑Up</span> ("bets"), then it will be <span class="player p1"></span>'s turn to act.
 
@@ -263,7 +275,7 @@ When you get a pair of strategies such that each infoset is at most 0.1 chips of
 <div class="locked_message">
   &lt;This section is locked until you complete part 1.&gt;
   
-  <button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>
+  <!--<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>-->
 </div>
 <div class="lock_this" style="display:none">
   <p><a href=1kuhn_challenge2.html>Enter Part 2 (unlocked) &rarr;</a></p>

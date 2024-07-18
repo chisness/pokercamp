@@ -490,6 +490,19 @@ Exercise: Following the Tree
 <p>Each player’s strategy can be completely described in terms of their action probabilities at each infoset (6 of them per player).</p>
 <section id="example-1-determining-a-local-best-response" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-determining-a-local-best-response">Example 1: Determining a local best response</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beta Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All of the strategy boxes on the whole page are linked together, which is a bad design on our part. This means that if you go to the next example or the final section and change things, the values in this section will no longer make sense. You can get back to a good state by setting all strategy probs to 50%, or opening this page in an incognito window, or by clearing cache including local storage (which will also clear your unlock progress).</p>
+</div>
+</div>
 <p>Let’s start by considering <span class="player p1"></span>’s decision at the infoset <span class="infoset p1">K_↓↑</span>. When <span class="player p1"></span> is at <span class="infoset p1">K_↓↑</span>, he doesn’t know whether the true state of the world is <span class="gamenode">KA↓↑</span> or <span class="gamenode">KQ↓↑</span>. This is what the game looks like from <span class="player p1"></span>’s perspective:</p>
 <p><img src="assets/k_down_up.png" class="img-fluid"></p>
 <p>As we said earlier, whatever action (or randomized mix of actions) <span class="player p1"></span>’s strategy says to make, he will be doing so in all of the situations where he arrives at <span class="infoset p1">K_↓↑</span>, without the ability to do different things at <span class="gamenode">KA↓↑</span> vs <span class="gamenode">KQ↓↑</span>.</p>
@@ -516,7 +529,7 @@ Question
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -525,7 +538,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Holding the rest of both strategies constant, <span class="player p1"></span> should always play <span class="action">↑Up</span> (“call”).</p>
 </div>
@@ -545,7 +558,7 @@ Question
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -554,7 +567,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Switching from 50% <span class="action">↑Up</span> to 100% <span class="action">↑Up</span> improves <span class="player p1"></span>’s expected value at <span class="infoset p1">K_↓↑</span> by +0.5 (from -0.5 to 0).</p>
 </div>
@@ -574,7 +587,7 @@ Question
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -583,7 +596,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Switching from 50% <span class="action">↑Up</span> to 100% <span class="action">↑Up</span> improves <span class="player p1"></span>’s expected value of the whole game by +1/24, or about +0.0417. This combines the previous answer (+0.5) with the probability that any game ends up at <span class="infoset p1">K_↓↑</span> (which is 1/12).</p>
 </div>
@@ -593,6 +606,19 @@ Answer
 </section>
 <section id="example-2-changing-local-best-responses" class="level3">
 <h3 class="anchored" data-anchor-id="example-2-changing-local-best-responses">Example 2: Changing local best responses</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beta Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section also assumes that all other strategy probabilities are set to 50%, including <span class="infoset p2">_A↓</span>, though this isn’t clear in the text. Like in the previous section, you may need to reset the probabilities for the other strategy probs if you changed them in the final section.</p>
+</div>
+</div>
 <p>Consider <span class="player p2"></span>’s actions at <span class="infoset p2">_Q↓</span> (“having a <span class="gamenode">Q</span> facing a check”). If <span class="player p2"></span> plays <span class="action">↓Down</span> (action sequence: “check–check”), he will go to showdown, always have the worse card, and get a payoff of <span class="player_label p2">-1.0</span> (<span class="player_label p1">+1.0</span>). If he plays <span class="action">↑Up</span> (“bets”), then it will be <span class="player p1"></span>’s turn to act.</p>
 <p>If <span class="player p1"></span> were to play randomly at <span class="infoset p1">K_↓↑</span>, then <span class="player p2"></span>’s <span class="action">↑Up</span> would get a payoff of <span class="player_label p2">-0.5</span> (<span class="player_label p1">+0.5</span>), since half the time <span class="player p1"></span> will play <span class="action">↓Down</span> (“fold”, <span class="player_label p2">+1</span>) and half the time he will <span class="action">↑Up</span> (“call”, showdown, <span class="player_label p2">-2</span>).</p>
 <p>Note that <span class="player p2"></span>’s <span class="gamenode">Q</span> is always the worse hand and an <span class="action">↑Up</span> action is a <abbr title="Betting with a weak hand with the goal of making the opponent fold"><em>bluff</em></abbr>, but if <span class="player p1"></span> plays <span class="action">↓Down</span> (“folds”) often enough, then <span class="player p2"></span> can win enough <span class="player_label p2">+1</span>s to do better than always taking a 1-chip showdown.</p>
@@ -708,7 +734,7 @@ Challenge part 1: Kuhn Poker (manual solutions)
 </script>
 <div class="locked_message">
 <p>&lt;This section is locked until you complete part 1.&gt;</p>
-<p><button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button></p>
+<p><!--<button id="cheat_unlock_next" onclick="unlock_next()">Cheat</button>--></p>
 </div>
 <div class="lock_this" style="display:none">
 <p>
