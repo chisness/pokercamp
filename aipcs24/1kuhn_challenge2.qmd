@@ -28,7 +28,7 @@ Once you have a strategy that you believe improves on your current submission, y
  
 :::{.callout-tip collapse="true" appearance="minimal"}
 ## Solver controls
-
+ 
 - The site should save your progress if you navigate away or refresh, though might lose the last few edits, depending.
 - It doesn't have any help for sharing solutions between teammates, sorry.
 - At each iteration, the solver will update all 12 nodes (in some arbitrary order), using a rule modified by the update parameters:
@@ -117,19 +117,117 @@ Once you have a strategy that you believe improves on your current submission, y
 
 Which solver settings seem to help? Which don't? Which work best? What settings or logic do you wish you had that you don't have yet? We'll discuss in class and/or during challenge review and/or during office hours and/or on the discord.
 
-In later weeks, you'll implement your own solver to do similar things on larger games, and while we'll try to give you bare-bones handout code, you'll be able to add what you want to make it solve better. Or not. ¯\_(ツ)_/¯
+In later weeks, you'll implement your own solver to do similar things on larger games, and while we'll try to give you bare-bones handout code, you'll be able to add what you want to make it solve better. Or not. ¯\\\_(ツ)\_/¯
 :::
 
 ### Submit to leaderboard
 
-&lt;Nothing here yet; check back later.&gt;
+<!--&lt;Nothing here yet; check back later.&gt;-->
+ 
+<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submit_probabilities()">Update Strategy Submission</button>
 
-<div style="display:none">
-<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitStrategy()">Submit Strategy to Leaderboard</button>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    .group {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .group-header {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 
+<div id="showUserName"></div>
 <div id="leaderboard">
-  TODO: leaderboard goes here.
-</div>
+
+<script>
+  function fetchLeaderboard() {
+    fetch('http://pokercamp-staff-dev1.rossry.net:5000/leaderboard')
+      .then(response => response.json())
+      .then(data => {
+        const leaderboardDiv = document.getElementById('leaderboard');
+        leaderboardDiv.innerHTML = '';
+
+        data.forEach(group => {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'group';
+
+          const groupHeader = document.createElement('div');
+          groupHeader.className = 'group-header';
+          groupHeader.innerHTML = `Places ${group.from_place}-${group.to_place} (Scores: ${group.from_score.toFixed(1)} to ${group.to_score.toFixed(1)})`;
+          groupDiv.appendChild(groupHeader);
+
+          const table = document.createElement('table');
+          table.innerHTML = `
+              <tr>
+                  <th>Place</th>
+                  <th>Name</th>
+                  <th>Score (per 100 hands)</th>
+              </tr>
+          `;
+
+          group.players.forEach((player, index) => {
+              const row = table.insertRow();
+              row.className = player.name.toLowerCase();
+              row.innerHTML = `
+                  <td>${group.from_place}</td>
+                  <td>${player.name}</td>
+                  <td>${player.mean>0?"+":""}${player.mean.toFixed(1)} (&pm;${player.stderr.toFixed(2)})</td>
+              `;
+          });
+
+          groupDiv.appendChild(table);
+          leaderboardDiv.appendChild(groupDiv);
+        });
+        
+        document.querySelectorAll("." + localStorage.getItem('userNameDisplay')).forEach(element => {
+          element.style.backgroundColor = "#FFFFBB";
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching leaderboard:', error);
+        document.getElementById('leaderboard').innerHTML = 'Error loading leaderboard data.';
+      });
+  }
+
+  fetchLeaderboard();
+</script>
+
 </div>
 </div>
 

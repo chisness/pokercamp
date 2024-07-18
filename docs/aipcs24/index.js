@@ -1388,3 +1388,85 @@ function create_tree(id_target, level = 10, with_strategy = false) {
     updateAll();
   }
 }
+
+/* global fetch */
+
+// function getUserName() {
+//     let userName = localStorage.getItem('userName');
+//     if (!userName) {
+//         return fetch('https://api.ipify.org?format=json')
+//             .then(response => response.json())
+//             .then(data => {
+//                 userName = `A-${data.ip}`;
+//                 localStorage.setItem('userName', userName);
+//                 return userName;
+//             });
+//     }
+//     return Promise.resolve(userName);
+// }
+
+function generateUUID() {
+    var d = new Date().getTime();
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+        d += performance.now(); //use high-precision timer if available
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+function getUserName() {
+  let userName = localStorage.getItem('userName');
+  if (!userName || userName.slice(0,1) != 'B') {
+    userName = `B-${generateUUID()}`;
+    localStorage.setItem('userName', userName);
+  }
+  return userName;
+}
+
+function submit_probabilities() {
+    const probabilities = {};
+    for (const infoSetKey in infoSets) {
+      const newKey = infoSetKey.replace('↓', 'D').replace('↑', 'U');
+      probabilities[newKey] = infoSets[infoSetKey].percentage / 100;
+    }
+
+    const userName = getUserName();
+
+    const data = {
+        userName: userName,
+        probabilities: probabilities
+    };
+
+    fetch('http://pokercamp-staff-dev1.rossry.net:5000/submit_probabilities', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        const userNameDisplay = data.userName;
+        localStorage.setItem('userNameDisplay', userNameDisplay);
+        document.querySelectorAll("." + userNameDisplay).forEach(element => {
+          element.style.backgroundColor = "#FFFFBB";
+        });
+        document.querySelectorAll(".showUserName").forEach(element => {
+          element.style.innerHTML = `ID: ${userNameDisplay}`;
+        });
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error submitting probabilities. Please try again.');
+    });
+}
+
+console.log("." + localStorage.getItem('userNameDisplay'));
+console.log(document.querySelectorAll("." + localStorage.getItem('userNameDisplay')));
+document.querySelectorAll("." + localStorage.getItem('userNameDisplay')).forEach(element => {
+  element.style.backgroundColor = "#FFFFBB";
+});
