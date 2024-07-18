@@ -1,0 +1,7 @@
+---
+title: "#3: Leduc Poker | Reading 1"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---

@@ -4,6 +4,8 @@ format:
   html:
     math: true
 ---
+Build reinforcement learning AI agents to play games! 
+
 Coming soon: 
 
 - Jul 15-Aug 15: Beta in SF
