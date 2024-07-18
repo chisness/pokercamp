@@ -1,0 +1,53 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Building and Running Bots\"\n",
+        "sidebar: aipcs24\n",
+        "format:\n",
+        "  html:\n",
+        "    math: true\n",
+        "---\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Python Setup\n",
+        "Our game engine is run in Python 3. \n",
+        "\n",
+        "1. Check that you have at least Python 3.12 installed with: \n"
+      ],
+      "id": "d3db90aa"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "python3 --version"
+      ],
+      "id": "a973f26d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "fsd"
+      ],
+      "id": "69b16cab"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/maxchiswick/Library/Python/3.9/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

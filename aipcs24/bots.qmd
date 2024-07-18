@@ -3,5 +3,67 @@ title: "Building and Running Bots"
 sidebar: aipcs24
 format:
   html:
+    css: styles.css
     math: true
 ---
+## Python Setup
+Our game engine is run in Python 3. 
+
+1. Check that you have at least Python 3.12 installed with: 
+
+```python
+python3 -- version
+```
+
+2. The game engine uses the `eval7` package, which is a Python Texas Hold’em hand evaluation library: 
+
+```python
+pip3 install eval7
+```
+
+## Poker Camp Game Engine
+
+### Engine
+The engine is in `engine.py`. You can use `python 3 engine.py` to test two agents playing against each other. 
+
+The following code will run `n_hands` between agent `p1` and agent `p2` and output the result to the specified `output_dir`. 
+
+The generic usage is: 
+```
+python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}"
+```
+
+For example, to run a 100 hand match with two random bots that are named `p1` and `p2` with files in the `players/random/` folder and outputted to the `p1p2test` folder, do this: 
+
+```python
+python3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test -n 100
+```
+
+The output files are: 
+1. `scores.p1.p2.txt` contains the raw scores (i.e. profits) of each player
+2. The `p1.p2` folder contains: 
+  - `gamelog.txt`: A log of all hands played
+  - Other log files for each player 
+
+### Config
+The `config.py` file contains various parameters to control the game engine. 
+
+## Build a Bot 
+The `player.py` file is where you write your poker bot. 
+
+There are three preconfigured bots that you can see to get a sense of how they work: 
+1. `random`: Every action is random, in Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions. 
+2. `linear`: Every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>. 
+3. `from-weights`: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities. 
+
+Other files include: 
+1. `actions.py`: The actions a player can take
+2. `bot.py`: Defines the interface of the `player.py` functions
+3. `runner.py`: The infrastructure for interacting with the engine
+4. `states.py`: Encapsulates game and round state information for the player
+
+handle_new_round(): Gets called with info of 
+, handle_round_over(): Called once when round is over
+, get_action()
+Function called every time the runner sees another action 
+GameState, RoundState classes

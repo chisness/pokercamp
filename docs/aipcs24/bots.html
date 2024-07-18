@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -107,9 +141,12 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Building and Running Bots – Poker Camp">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
 <meta name="twitter:title" content="Building and Running Bots – Poker Camp">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -357,8 +394,20 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python-setup" id="toc-python-setup" class="nav-link active" data-scroll-target="#python-setup">Python Setup</a></li>
+  <li><a href="#poker-camp-game-engine" id="toc-poker-camp-game-engine" class="nav-link" data-scroll-target="#poker-camp-game-engine">Poker Camp Game Engine</a>
+  <ul class="collapse">
+  <li><a href="#engine" id="toc-engine" class="nav-link" data-scroll-target="#engine">Engine</a></li>
+  <li><a href="#config" id="toc-config" class="nav-link" data-scroll-target="#config">Config</a></li>
+  </ul></li>
+  <li><a href="#build-a-bot" id="toc-build-a-bot" class="nav-link" data-scroll-target="#build-a-bot">Build a Bot</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -382,9 +431,45 @@ window.Quarto = {
 </header>
 
 
+<section id="python-setup" class="level2">
+<h2 class="anchored" data-anchor-id="python-setup">Python Setup</h2>
+<p>Our game engine is run in Python 3.</p>
+<ol type="1">
+<li>Check that you have at least Python 3.12 installed with:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python3 <span class="op">--</span> version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>The game engine uses the <code>eval7</code> package, which is a Python Texas Hold’em hand evaluation library:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pip3 install eval7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="poker-camp-game-engine" class="level2">
+<h2 class="anchored" data-anchor-id="poker-camp-game-engine">Poker Camp Game Engine</h2>
+<section id="engine" class="level3">
+<h3 class="anchored" data-anchor-id="engine">Engine</h3>
+<p>The engine is in <code>engine.py</code>. You can use <code>python 3 engine.py</code> to test two agents playing against each other.</p>
+<p>The following code will run <code>n_hands</code> between agent <code>p1</code> and agent <code>p2</code> and output the result to the specified <code>output_dir</code>.</p>
+<p>The generic usage is:</p>
+<pre><code>python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}"</code></pre>
+<p>For example, to run a 100 hand match with two random bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/random/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output files are: 1. <code>scores.p1.p2.txt</code> contains the raw scores (i.e.&nbsp;profits) of each player 2. The <code>p1.p2</code> folder contains: - <code>gamelog.txt</code>: A log of all hands played - Other log files for each player</p>
+</section>
+<section id="config" class="level3">
+<h3 class="anchored" data-anchor-id="config">Config</h3>
+<p>The <code>config.py</code> file contains various parameters to control the game engine.</p>
+</section>
+</section>
+<section id="build-a-bot" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-bot">Build a Bot</h2>
+<p>The <code>player.py</code> file is where you write your poker bot.</p>
+<p>There are three preconfigured bots that you can see to get a sense of how they work: 1. <code>random</code>: Every action is random, in Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions. 2. <code>linear</code>: Every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>. 3. <code>from-weights</code>: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.</p>
+<p>Other files include: 1. <code>actions.py</code>: The actions a player can take 2. <code>bot.py</code>: Defines the interface of the <code>player.py</code> functions 3. <code>runner.py</code>: The infrastructure for interacting with the engine 4. <code>states.py</code>: Encapsulates game and round state information for the player</p>
+<p>handle_new_round(): Gets called with info of , handle_round_over(): Called once when round is over , get_action() Function called every time the runner sees another action GameState, RoundState classes</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
