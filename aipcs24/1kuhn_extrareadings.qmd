@@ -162,18 +162,16 @@ Let’s look at one particular situation in Kuhn Poker and work it out by hand. 
 
 :::{.callout-note  appearance="minimal"}
 ## Expected Value Exercise
-What indifference is Player 2 trying to induce? 
+What indifference is Player 2 trying to induce? Compute it.
 
 :::
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 Making P1 indifferent between calling and folding with a K 
-:::
 
 We can work out Player 2's betting strategy by calculating the indifference. Let $b$ be the probability that P2 bets with a Q after P1 checks. 
 
-$$
 \begin{equation}
 \begin{split}
 \mathbb{E}(\text{P1 Check K then Fold to Bet}) &= 0 \\
@@ -184,7 +182,6 @@ $$
   &= -0.5 + 1.5*b
 \end{split}
 \end{equation}
-$$
 
 Setting these equal: 
 
@@ -193,12 +190,11 @@ $0 = -0.5 + 1.5*b$
 $b = \frac{1}{3}$
 
 Therefore in equilibrium, P2 should bet $\frac{1}{3}$ with Q after P1 checks.  
+:::
 
 :::{.callout-note  appearance="minimal"}
 ## Equilibrium Mixed Strategy Change Exercise
 If P2 bet $\frac{2}{3}$ instead of $\frac{1}{3}$ with Q after P1 checks and P1 is playing an equilibrium strategy, how would P2’s expected value change? 
-
-NOTE: Put the strategy boxes here? 
 
 :::
 
@@ -240,7 +236,7 @@ $\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}$
 
 3. Select a set of infosets in Kuhn Poker and formula a system of equations for how they affect each other
 
-4. At equilibrium, Player 1 should bet A 3 times the amount that they bet Q. Against a Nash opponent, a mixing mistake will not result in any EV loss at those infosets. But are there any effects down the game tree? 
+4. At equilibrium in Kuhn Poker, Player 1 should bet A 3 times the amount that they bet Q. Against a Nash opponent, a mixing mistake will not result in any EV loss at those infosets. But are there any effects down the game tree? 
 
 5. If we as P1 Check with K, with a large sample size, we can estimate how often our opponent will bluff with a Q. Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage $q$ of their Q hands. Write an equation for how often we should call in terms of $q$. In what other cases could we write equations for how to optimally play against our opponent?
 

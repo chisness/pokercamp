@@ -401,17 +401,33 @@ window.Quarto = {
 <p>Here is the setup:</p>
 <ul>
 <li><p>6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)</p></li>
-<li><p>Leduc Poker is played with 2 players. For this exercise, they’ll be <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
-<li><p>Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.</p></li>
-<li><p>Deal 1 card to each player (discard the third).</p></li>
-</ul>
-<p><img src="assets/kuhn.png" class="img-fluid"></p>
+<li><p>Leduc Poker is played with 2 players. We’ll again use <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
+<li><p>Each player antes 1 chip</p></li>
+<li><p>Deal 1 card to each player</p></li>
+<li><p>Betting round 1:</p>
 <ul>
-<li><p>There is one <abbr title="In poker-like games, a street is a round of betting that begins with one turn for each player and continues until either: all players but one quit, or some number of remaining players have added equal amounts to the pot. (The conditions for ending the betting in a street will differ game-to-game.) Then some cards will typically be dealt or revealed and there may be another street.">street</abbr> of betting in which players can take these actions:</p>
-<ul>
-<li><p><span class="action">↑Up</span> (putting a chip into the pot)</p></li>
-<li><p><span class="action">↓Down</span> (not putting a chip into the pot)</p></li>
+<li>There is a fixed bet size of 2 chips</li>
+<li>There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
 </ul></li>
+<li><p>Deal a face up community card</p>
+<ul>
+<li>Players make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand</li>
+</ul></li>
+<li><p>Betting round 2:</p>
+<ul>
+<li>There is a fixed bet size of 4 chips</li>
+<li>There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
+</ul></li>
+<li><p>Notes:</p>
+<ul>
+<li>Player 1 acts first, rotate who is Player 1 each hand</li>
+<li>Players can win/lose a maximum of 13 chips per hand</li>
+</ul></li>
+<li><p>Infosets and payoffs</p></li>
+</ul>
+<p><img src="assets/kuhn.png" class="img-fluid"> - <span class="action">↑Up</span> (putting a chip into the pot)</p>
+<ul>
+<li><span class="action">↓Down</span> (not putting a chip into the pot)</li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">

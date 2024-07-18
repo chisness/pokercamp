@@ -14,16 +14,30 @@ Here is the setup:
 
 - 6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)
 
-- Leduc Poker is played with 2 players. For this exercise, they'll be <span class="player p1"></span> and <span class="player p2"></span>.
+- Leduc Poker is played with 2 players. We'll again use <span class="player p1"></span> and <span class="player p2"></span>.
 
-- Each player starts with 2 <abbr title="By convention, poker-like games are played for points represented by ceramic disks, or chips.">chips</abbr> and both players <abbr title="An ante is a forced bet, usually equal for all players.">ante</abbr> 1 chip.
+- Each player antes 1 chip
 
-- Deal 1 card to each player (discard the third).
+- Deal 1 card to each player
+
+- Betting round 1: 
+  - There is a fixed bet size of 2 chips
+  - There is a maximum of 2 bets per round (i.e. a bet and a raise)
+
+- Deal a face up community card
+  - Players make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand
+
+- Betting round 2: 
+  - There is a fixed bet size of 4 chips
+  - There is a maximum of 2 bets per round (i.e. a bet and a raise)
+
+- Notes: 
+  - Player 1 acts first, rotate who is Player 1 each hand
+  - Players can win/lose a maximum of 13 chips per hand
+
+- Infosets and payoffs 
 
 ![](assets/kuhn.png)
-
-- There is one <abbr title="In poker-like games, a street is a round of betting that begins with one turn for each player and continues until either: all players but one quit, or some number of remaining players have added equal amounts to the pot. (The conditions for ending the betting in a street will differ game-to-game.) Then some cards will typically be dealt or revealed and there may be another street.">street</abbr> of betting in which players can take these actions: 
-
   - <span class=action>↑Up</span> (putting a chip into the pot) 
   
   - <span class=action>↓Down</span> (not putting a chip into the pot) 
