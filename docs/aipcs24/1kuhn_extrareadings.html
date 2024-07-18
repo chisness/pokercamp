@@ -837,20 +837,14 @@ Solution
 <li><p>Analytically solve for an additional Kuhn infoset</p></li>
 <li><p>Select a set of infosets in Kuhn Poker and formula a system of equations for how they affect each other</p></li>
 <li><p>At equilibrium, Player 1 should bet A 3 times the amount that they bet Q. Against a Nash opponent, a mixing mistake will not result in any EV loss at those infosets. But are there any effects down the game tree?</p></li>
-<li><p>If we as P1 Check with K, with a large sample size, we can estimate how often our opponent will bluff with a Q.</p></li>
+<li><p>If we as P1 Check with K, with a large sample size, we can estimate how often our opponent will bluff with a Q. Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage <span class="math inline">\(q\)</span> of their Q hands. Write an equation for how often we should call in terms of <span class="math inline">\(q\)</span>. In what other cases could we write equations for how to optimally play against our opponent?</p></li>
 </ol>
-<p>Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage <span class="math inline">\(q\)</span> of their Q hands.</p>
-<p>Write an equation for how often we should call in terms of <span class="math inline">\(q\)</span>.</p>
-<p>In what other cases could we write equations for how to optimally play against our opponent?</p>
 </section>
 <section id="coding-a-kuhn-solver" class="level3">
 <h3 class="anchored" data-anchor-id="coding-a-kuhn-solver">Coding a Kuhn Solver</h3>
 <ol type="1">
 <li><p>Code a Kuhn solver</p></li>
 <li><p>Code a Kuhn solver for the 100-card version</p></li>
-<li><ul>
-<li>Range of hands vs.&nbsp;range of hands vs.&nbsp;your hand vs.&nbsp;their strategy. Different if their strategy never changes.</li>
-</ul></li>
 </ol>
 
 
