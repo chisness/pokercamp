@@ -5,13 +5,12 @@ format:
   html:
     math: true
 ---
-
 ## Concept: Nash Equilibrium
-A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret (when they take those strategies as given). The other paradigm for game strategies is opponent exploitation, which we will address in future sections. 
+A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret. Under Nash equilibrium, no player can gain by unilaterally deviating from their strategy. The other paradigm for game strategies is opponent exploitation, which we will address in future sections. 
 
 Recall that regret only makes sense in the context of a particular strategy and assumed opponent’s strategy. When you submit a strategy to Challenge 1, you submit a strategy for being P1, and a strategy for being P2, but you won’t ever play against yourself – so why is it helpful to find a pair that plays against itself without regret?
 
-### Indifference and Penalty Kicks
+## Indifference and Penalty Kicks
 Consider the **Soccer Penalty Kick** game where a Kicker is trying to score a goal and the Goalie is trying to block it. 
 
 | Kicker/Goalie | Lean Left | Lean Right | 
@@ -24,7 +23,7 @@ The game setup is zero-sum. If Kicker and Goalie both go in one direction, then 
 :::{.callout-note  appearance="minimal"}
 ## Nash Equilibrium Exercise
 
-Which of these, if any, is a Nash Equilibrium? You can check by seeing if either player would benefit by changing their action. 
+Which of these, if any, is a Nash equilibrium? You can check by seeing if either player would benefit by changing their action. 
 
 | Kicker | Goalie | Equilibrium or Change? | 
 |------------|-----------|--------|
@@ -155,7 +154,7 @@ Why do players make their opponent indifferent?
 ## Indifference in Poker 
 Back to poker. We can apply this indifference principle in computing equilibrium strategies in poker. When you make your opponent indifferent, then you don’t give them any best play. 
 
-If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation. 
+Important note: If you play an equilibrium strategy, opponents will only get penalized for playing hands outside of the set of hands in the mixed strategy equilibrium (also known as the support, or the set of pure strategies that are played with non-zero probability under the mixed strategy). If opponents are not playing equilibrium, though, then they open themselves up to exploitation. 
 
 Let’s look at one particular situation in Kuhn Poker and work it out by hand. Suppose that you are Player 2 with card Q after a Check from Player 1.
 
@@ -173,7 +172,6 @@ Making P1 indifferent between calling and folding with a K
 :::
 
 We can work out Player 2's betting strategy by calculating the indifference. Let $b$ be the probability that P2 bets with a Q after P1 checks. 
-
 
 $$
 \begin{equation}
@@ -206,7 +204,7 @@ NOTE: Put the strategy boxes here?
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-It wouldn't! As long as P1 doesn't modify their strategy, then P2 can mix his strategy however he wants and have the same EV. 
+It wouldn't! As long as P1 doesn't modify their equilibrium strategy, then P2 can mix his strategy (at mixing infosets) however he wants and have the same EV. 
 
 :::
 
@@ -232,26 +230,34 @@ $\Pr(\text{P2 Bluff after P1 Check}) = \frac{1}{4}$
 
 :::
 
-## TO DO BELOW 
+## Extremely Optional Exercises
 
-TO DO: 
-- What if the bet size was 2 instead of 1?
+### Deeper into Kuhn Math
 
-- Can you come up with a general formula for how often to bluff given a pot and bet size? 
+1. Solve the above indifference exercise (Player 2 with card Q after Player 1 checks) if the bet size was 2 instead of 1. Can you come up with a general equation for how often to bluff given a pot size and bet size? What about how often to call?
 
-- Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  
+2. Analytically solve for an additional Kuhn infoset
 
-- What is a creative strategy to try against a player who studies poker and is trying to play an equilibrium strategy, but might be open to changing their strategy? Bet sizes they haven’t studied, do something crazy and then counterexploit?
+3. Select a set of infosets in Kuhn Poker and formula a system of equations for how they affect each other
 
-- Node locking question 
+4. At equilibrium, Player 1 should bet A 3 times the amount that they bet Q. Against a Nash opponent, a mixing mistake will not result in any EV loss at those infosets. But are there any effects down the game tree? 
+
+5. If we as P1 Check with K, with a large sample size, we can estimate how often our opponent will bluff with a Q. 
+
+Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage $q$ of their Q hands. 
+
+Write an equation for how often we should call in terms of $q$. 
+
+In what other cases could we write equations for how to optimally play against our opponent?
+
+### Coding a Kuhn Solver
+
+1. Code a Kuhn solver
+
+2. Code a Kuhn solver for the 100-card version
 
 
-In what case could we deduce our opponent’s strategy with a large sample size? Note: We can assume that they are playing the pure strategy decisions correctly. 
 
-For example, if we as P1 Check with K, we can know how often they’re betting Q since we know they’ll always bet A. 
 
-Over a sample of 1000 hands that we Check with K, we expect that 500 times they would have Q and 500 times they would have A. We expect that they would always bet with A and bet some percentage $p$ of their Q hands. 
 
-Formula for how often they’re betting Q. 
-
-What’s another case we could determine? Bet Q, how often call/fold K. How to use this?
+3. - Range of hands vs. range of hands vs. your hand vs. their strategy. Different if their strategy never changes.  

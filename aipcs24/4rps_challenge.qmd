@@ -1,12 +1,7 @@
 ---
-title: "#3: Leduc Poker | Reading 1"
+title: "#4: Rock Paper Scissors | Challenge"
 sidebar: aipcs24
 format:
   html:
     math: true
 ---
-
-
-
-
-
