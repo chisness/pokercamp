@@ -598,8 +598,13 @@ function updateAll() {
   showFavoredActions();
   setLocalStorage("poker.camp/1kuhn_challenge/infoSets", infoSets);
 
-  // Create a new row for the table
-  let table = document.getElementById('strategy-history-table');
+  const log_basic_checkbox = document.getElementById('log_basic');
+  if (log_basic_checkbox && log_basic_checkbox.checked) {
+    
+  let table;
+
+  // strategy probs table
+  table = document.getElementById('strategy-history-table');
   
   if (table) {
     let row = table.insertRow(1); // Insert at the top of the tbody
@@ -618,10 +623,113 @@ function updateAll() {
     if (table.rows.length > 10001) {
       table.deleteRow(10001);
     }
-  
-    // Increment the iteration number regardless
-    iterationNumber++;
   }
+
+  // ev table
+  table = document.getElementById('ev-history-table');
+  
+  if (table) {
+    let row = table.insertRow(1);
+  
+    let cell = row.insertCell(0);
+    cell.textContent = iterationNumber;
+  
+    for (let label of infoSetOrder) {
+      cell = row.insertCell(-1);
+      cell.textContent = (infoSets[label].ev).toFixed(4);
+    }
+  
+    if (table.rows.length > 10001) {
+      table.deleteRow(10001);
+    }
+  }
+
+  const log_all_checkbox = document.getElementById('log_all');
+    if (log_all_checkbox && log_all_checkbox.checked) {
+    
+      // ev(action=Up) table
+      table = document.getElementById('ev-action-up-history-table');
+      
+      if (table) {
+        let row = table.insertRow(1);
+      
+        let cell = row.insertCell(0);
+        cell.textContent = iterationNumber;
+      
+        for (let label of infoSetOrder) {
+          cell = row.insertCell(-1);
+          cell.textContent = (calculateDirectionEV(infoSets[label], "up")).toFixed(4);
+        }
+      
+        if (table.rows.length > 10001) {
+          table.deleteRow(10001);
+        }
+      }
+    
+      // ev(action=Down) table
+      table = document.getElementById('ev-action-down-history-table');
+      
+      if (table) {
+        let row = table.insertRow(1);
+      
+        let cell = row.insertCell(0);
+        cell.textContent = iterationNumber;
+      
+        for (let label of infoSetOrder) {
+          cell = row.insertCell(-1);
+          cell.textContent = (calculateDirectionEV(infoSets[label], "down")).toFixed(4);
+        }
+      
+        if (table.rows.length > 10001) {
+          table.deleteRow(10001);
+        }
+      }
+      
+      // visit probs table
+      table = document.getElementById('visit-probability-history-table');
+      
+      if (table) {
+        let row = table.insertRow(1); // Insert at the top of the tbody
+      
+        // Add the iteration number
+        let cell = row.insertCell(0);
+        cell.textContent = iterationNumber;
+      
+        // Add the probabilities for each infoset in the defined order
+        for (let label of infoSetOrder) {
+          cell = row.insertCell(-1);
+          cell.textContent = (infoSets[label].p).toFixed(4);
+        }
+      
+        // Limit the number of rows to 10000
+        if (table.rows.length > 10001) {
+          table.deleteRow(10001);
+        }
+      }
+    
+      // total_updates table
+      table = document.getElementById('total-updates-history-table');
+      
+      if (table) {
+        let row = table.insertRow(1);
+      
+        let cell = row.insertCell(0);
+        cell.textContent = iterationNumber;
+      
+        for (let label of infoSetOrder) {
+          cell = row.insertCell(-1);
+          cell.textContent = (infoSets[label].total_regret).toFixed(4);
+        }
+      
+        if (table.rows.length > 10001) {
+          table.deleteRow(10001);
+        }
+      }
+    }
+  }
+  
+  // Increment the iteration number regardless
+  iterationNumber++;
 }
 
 var stop_running;

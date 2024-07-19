@@ -173,6 +173,12 @@ Once you have a strategy that you believe improves on your current submission, y
 :::{.callout-tip collapse="true"  appearance="minimal"}
 ## Solver history
 
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+  <label for="log_basic" style="margin-right: 0.1em;">Log:</label>
+  <input type="checkbox" id="log_basic" style="padding: 0.2em;"></input>
+  <span>(this slows the solver down somewhat)</span>
+</div>
+
 ### Strategy probabilities
 
 <div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
@@ -199,6 +205,154 @@ Once you have a strategy that you believe improves on your current submission, y
     </tbody>
   </table>
 </div>
+
+### EV
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+  <table id="ev-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>EV</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+### Other
+
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+  <label for="log_all" style="margin-right: 0.1em;">Log all:</label>
+  <input type="checkbox" id="log_all" style="padding: 0.2em;"></input>
+  <span>(this slows the solver down significantly)</span>
+</div>
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Other logs
+
+#### EV(action=<span class=action>↑Up</span>)
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+  <table id="ev-action-up-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>EV(action=<span class=action>↑Up</span>)</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+#### EV(action=<span class=action>↓Down</span>)
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+  <table id="ev-action-down-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>EV(action=<span class=action>↓Down</span>)</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+#### Visit probabilities
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+  <table id="visit-probability-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Visit Prob</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+#### Total Updates
+
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+  <!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+  <table id="total-updates-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Total Updates</th>
+        <th>A_</th>
+        <th>K_</th>
+        <th>Q_</th>
+        <th>_A↑</th>
+        <th>_A↓</th>
+        <th>_K↑</th>
+        <th>_K↓</th>
+        <th>_Q↑</th>
+        <th>_Q↓</th>
+        <th>A_↓↑</th>
+        <th>K_↓↑</th>
+        <th>Q_↓↑</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+:::
+
 :::
 
 :::{.callout-note  appearance="minimal"}
@@ -226,10 +380,19 @@ Unfortunately, we ran out of time to implement the 100-card Kuhn Poker train / t
 :::{.callout-note  appearance="minimal"}
 ## Beta Note
 
-You'll have to refresh the page to see the leaderboard change. Re-running the tournament currently takes between one and three minutes (but could be longer, since it's quadratic in entries), and there's no indication that it's done except the board changing. Working on improvements.
+Re-running the tournament currently takes between one and three minutes, and there's no indication that it's done except the board changing. In some cases, you may have to refresh the page to see changes. Working on improvements.
 :::
- 
-<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submit_probabilities()">Update Strategy Submission</button>
+
+<script>
+function submitAndScheduleFetches() {
+    submit_probabilities();
+
+    setTimeout(fetchLeaderboard, 60000);  // 60000 ms = 1 minute
+    setTimeout(fetchLeaderboard, 120000); // 120000 ms = 2 minutes
+}
+</script>
+
+<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitAndScheduleFetches()">Update Strategy Submission</button>
 
 <style>
     body {
@@ -277,8 +440,7 @@ You'll have to refresh the page to see the leaderboard change. Re-running the to
     }
 </style>
 
-<div id="showUserName"></div>
-<div id="leaderboard">
+<div id="leaderboard"></div>
 
 <script>
   function fetchLeaderboard() {
@@ -294,7 +456,10 @@ You'll have to refresh the page to see the leaderboard change. Re-running the to
 
           const groupHeader = document.createElement('div');
           groupHeader.className = 'group-header';
-          groupHeader.innerHTML = `Places ${group.from_place}-${group.to_place} (Scores: ${group.from_score.toFixed(1)} to ${group.to_score.toFixed(1)})`;
+          groupHeader.innerHTML =
+            (group.to_place == group.from_place) ?
+            `Place ${group.from_place} (Score: ${group.from_score.toFixed(1)})`
+            : `Places ${group.from_place}-${group.to_place} (Scores: ${group.to_score.toFixed(1)} to ${group.from_score.toFixed(1)})`;
           groupDiv.appendChild(groupHeader);
 
           const table = document.createElement('table');
@@ -302,15 +467,17 @@ You'll have to refresh the page to see the leaderboard change. Re-running the to
               <tr>
                   <th>Place</th>
                   <th>Name</th>
-                  <th>Score (per 100 hands)</th>
+                  <th>Score per 100 hands</th>
               </tr>
           `;
+
+          group.players.sort((a, b) => b.mean - a.mean);
 
           group.players.forEach((player, index) => {
               const row = table.insertRow();
               row.className = player.name.toLowerCase();
               row.innerHTML = `
-                  <td>${group.from_place}</td>
+                  <td>${group.to_place==group.from_place ? "" : "Tie-"}${group.from_place}</td>
                   <td>${player.name}</td>
                   <td>${player.mean>0?"+":""}${player.mean.toFixed(1)} (&pm;${player.stderr.toFixed(2)})</td>
               `;
@@ -333,7 +500,15 @@ You'll have to refresh the page to see the leaderboard change. Re-running the to
   fetchLeaderboard();
 </script>
 
-</div>
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## More &rarr;
+
+If you've finished all of the above, we'd like to hear about it (and any questions you still have&mdash;which we expect you do. Then you can do any of:
+
+- Wait for next week's material next week.
+- Help other students with their confusions and stuck points (and let us know how we could have improved!).
+- Get a start on the next segment of the course by writing a bot that can learn from your opponent's moves and do better than Nash against them. (For this, see the instructors for info on setting up the games environment on your own computer.)
+:::
 </div>
 
 <script>
@@ -355,13 +530,3 @@ You'll have to refresh the page to see the leaderboard change. Re-running the to
     localStorage.setItem('has_autosubmit', true);
   }
 </script>
-
-:::{.callout-tip collapse="true"  appearance="minimal"}
-## More &rarr;
-
-If you've finished all of the above, we'd like to hear about it (and any questions you still have&mdash;which we expect you do. Then you can do any of:
-
-- Wait for next week's material next week.
-- Help other students with their confusions and stuck points (and let us know how we could have improved!).
-- Get a start on the next segment of the course by writing a bot that can learn from your opponent's moves and do better than Nash against them. (For this, see the instructors for info on setting up the games environment on your own computer.)
-:::

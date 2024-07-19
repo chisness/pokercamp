@@ -529,7 +529,7 @@ Solver controls
 }
 </style>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -538,8 +538,12 @@ Solver history
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<section id="strategy-probabilities" class="level3 callout-body-container callout-body">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+<p><label for="log_basic" style="margin-right: 0.1em;">Log:</label> <input type="checkbox" id="log_basic" style="padding: 0.2em;"> <span>(this slows the solver down somewhat)</span></p>
+</div>
+<section id="strategy-probabilities" class="level3">
 <h3 class="anchored" data-anchor-id="strategy-probabilities">Strategy probabilities</h3>
 <div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
 <button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">📋</button>
@@ -592,6 +596,293 @@ Q_↓↑
 </table>
 </div>
 </section>
+<section id="ev" class="level3">
+<h3 class="anchored" data-anchor-id="ev">EV</h3>
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+<!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+<table id="ev-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th>
+EV
+</th>
+<th>
+A_
+</th>
+<th>
+K_
+</th>
+<th>
+Q_
+</th>
+<th>
+_A↑
+</th>
+<th>
+_A↓
+</th>
+<th>
+_K↑
+</th>
+<th>
+_K↓
+</th>
+<th>
+_Q↑
+</th>
+<th>
+_Q↓
+</th>
+<th>
+A_↓↑
+</th>
+<th>
+K_↓↑
+</th>
+<th>
+Q_↓↑
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other" class="level3">
+<h3 class="anchored" data-anchor-id="other">Other</h3>
+<div style="display: inline-block; margin-right: 1em; font-size: 0.8em;">
+<p><label for="log_all" style="margin-right: 0.1em;">Log all:</label> <input type="checkbox" id="log_all" style="padding: 0.2em;"> <span>(this slows the solver down significantly)</span></p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Other logs
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="evactionup" class="level4">
+<h4 class="anchored" data-anchor-id="evactionup">EV(action=<span class="action">↑Up</span>)</h4>
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+<!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+<table id="ev-action-up-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th>
+EV(action=<span class="action">↑Up</span>)
+</th>
+<th>
+A_
+</th>
+<th>
+K_
+</th>
+<th>
+Q_
+</th>
+<th>
+_A↑
+</th>
+<th>
+_A↓
+</th>
+<th>
+_K↑
+</th>
+<th>
+_K↓
+</th>
+<th>
+_Q↑
+</th>
+<th>
+_Q↓
+</th>
+<th>
+A_↓↑
+</th>
+<th>
+K_↓↑
+</th>
+<th>
+Q_↓↑
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</section>
+<section id="evactiondown" class="level4">
+<h4 class="anchored" data-anchor-id="evactiondown">EV(action=<span class="action">↓Down</span>)</h4>
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+<!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+<table id="ev-action-down-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th>
+EV(action=<span class="action">↓Down</span>)
+</th>
+<th>
+A_
+</th>
+<th>
+K_
+</th>
+<th>
+Q_
+</th>
+<th>
+_A↑
+</th>
+<th>
+_A↓
+</th>
+<th>
+_K↑
+</th>
+<th>
+_K↓
+</th>
+<th>
+_Q↑
+</th>
+<th>
+_Q↓
+</th>
+<th>
+A_↓↑
+</th>
+<th>
+K_↓↑
+</th>
+<th>
+Q_↓↑
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</section>
+<section id="visit-probabilities" class="level4">
+<h4 class="anchored" data-anchor-id="visit-probabilities">Visit probabilities</h4>
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+<!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+<table id="visit-probability-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th>
+Visit Prob
+</th>
+<th>
+A_
+</th>
+<th>
+K_
+</th>
+<th>
+Q_
+</th>
+<th>
+_A↑
+</th>
+<th>
+_A↓
+</th>
+<th>
+_K↑
+</th>
+<th>
+_K↓
+</th>
+<th>
+_Q↑
+</th>
+<th>
+_Q↓
+</th>
+<th>
+A_↓↑
+</th>
+<th>
+K_↓↑
+</th>
+<th>
+Q_↓↑
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</section>
+<section id="total-updates" class="level4">
+<h4 class="anchored" data-anchor-id="total-updates">Total Updates</h4>
+<div style="position: relative; max-height: 25vh; overflow-y: auto; margin-top: 20px;">
+<!--<button id="copy-table-button" class="copy-button" aria-label="Copy table to clipboard" title="Copy table to clipboard">&#128203;</button>-->
+<table id="total-updates-history-table" class="history-table" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th>
+Total Updates
+</th>
+<th>
+A_
+</th>
+<th>
+K_
+</th>
+<th>
+Q_
+</th>
+<th>
+_A↑
+</th>
+<th>
+_A↓
+</th>
+<th>
+_K↑
+</th>
+<th>
+_K↓
+</th>
+<th>
+_Q↑
+</th>
+<th>
+_Q↓
+</th>
+<th>
+A_↓↑
+</th>
+<th>
+K_↓↑
+</th>
+<th>
+Q_↓↑
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+</div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -636,10 +927,18 @@ Beta Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You’ll have to refresh the page to see the leaderboard change. Re-running the tournament currently takes between one and three minutes (but could be longer, since it’s quadratic in entries), and there’s no indication that it’s done except the board changing. Working on improvements.</p>
+<p>Re-running the tournament currently takes between one and three minutes, and there’s no indication that it’s done except the board changing. In some cases, you may have to refresh the page to see changes. Working on improvements.</p>
 </div>
 </div>
-<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submit_probabilities()">
+<script>
+function submitAndScheduleFetches() {
+    submit_probabilities();
+
+    setTimeout(fetchLeaderboard, 60000);  // 60000 ms = 1 minute
+    setTimeout(fetchLeaderboard, 120000); // 120000 ms = 2 minutes
+}
+</script>
+<button id="submit_strategy" style="padding: 0.5em 1em; color: white; background-color: #2fa4e7" onclick="submitAndScheduleFetches()">
 Update Strategy Submission
 </button>
 <style>
@@ -687,10 +986,9 @@ Update Strategy Submission
         background-color: #f2f2f2;
     }
 </style>
-<div id="showUserName">
+<div id="leaderboard">
 
 </div>
-<div id="leaderboard">
 <script>
   function fetchLeaderboard() {
     fetch('https://pokercamp-staff-dev1.rossry.net:1443/leaderboard')
@@ -705,7 +1003,10 @@ Update Strategy Submission
 
           const groupHeader = document.createElement('div');
           groupHeader.className = 'group-header';
-          groupHeader.innerHTML = `Places ${group.from_place}-${group.to_place} (Scores: ${group.from_score.toFixed(1)} to ${group.to_score.toFixed(1)})`;
+          groupHeader.innerHTML =
+            (group.to_place == group.from_place) ?
+            `Place ${group.from_place} (Score: ${group.from_score.toFixed(1)})`
+            : `Places ${group.from_place}-${group.to_place} (Scores: ${group.to_score.toFixed(1)} to ${group.from_score.toFixed(1)})`;
           groupDiv.appendChild(groupHeader);
 
           const table = document.createElement('table');
@@ -713,15 +1014,17 @@ Update Strategy Submission
               <tr>
                   <th>Place</th>
                   <th>Name</th>
-                  <th>Score (per 100 hands)</th>
+                  <th>Score per 100 hands</th>
               </tr>
           `;
+
+          group.players.sort((a, b) => b.mean - a.mean);
 
           group.players.forEach((player, index) => {
               const row = table.insertRow();
               row.className = player.name.toLowerCase();
               row.innerHTML = `
-                  <td>${group.from_place}</td>
+                  <td>${group.to_place==group.from_place ? "" : "Tie-"}${group.from_place}</td>
                   <td>${player.name}</td>
                   <td>${player.mean>0?"+":""}${player.mean.toFixed(1)} (&pm;${player.stderr.toFixed(2)})</td>
               `;
@@ -743,6 +1046,26 @@ Update Strategy Submission
 
   fetchLeaderboard();
 </script>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+More →
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’ve finished all of the above, we’d like to hear about it (and any questions you still have—which we expect you do. Then you can do any of:</p>
+<ul>
+<li>Wait for next week’s material next week.</li>
+<li>Help other students with their confusions and stuck points (and let us know how we could have improved!).</li>
+<li>Get a start on the next segment of the course by writing a bot that can learn from your opponent’s moves and do better than Nash against them. (For this, see the instructors for info on setting up the games environment on your own computer.)</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 </div>
@@ -764,27 +1087,6 @@ Update Strategy Submission
     localStorage.setItem('has_autosubmit', true);
   }
 </script>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-More →
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you’ve finished all of the above, we’d like to hear about it (and any questions you still have—which we expect you do. Then you can do any of:</p>
-<ul>
-<li>Wait for next week’s material next week.</li>
-<li>Help other students with their confusions and stuck points (and let us know how we could have improved!).</li>
-<li>Get a start on the next segment of the course by writing a bot that can learn from your opponent’s moves and do better than Nash against them. (For this, see the instructors for info on setting up the games environment on your own computer.)</li>
-</ul>
-</div>
-</div>
-</div>
 
 
 
