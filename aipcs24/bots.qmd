@@ -97,13 +97,41 @@ Other files include:
 
 The arguments coming in to `get_action()` are: 
 
-1. `game_state`: the GameState object, which is the state of the entire *match* of hands. This was 100 in the above example. The game state gives the `bankroll` (profits over the match), `game_clock` (your time remaining to use during the match), `round_num` (the round of betting, always 1 in Kuhn Poker). Here's an example `GameState`: 
+1. `game_state`: the GameState object, which is the state of the entire *match* of hands. This was 100 in the above example. The game state gives: 
+
+1. `bankroll`: Profits over the match
+
+2.  `game_clock`: Your time remaining to use during the match
+
+3. `round_num`: The round of betting, always 1 in Kuhn Poker
+
+Here's an example `GameState`: 
 
 ```python
 game state GameState(bankroll=0, game_clock=29.991, round_num=1)
 ```
 
 2. `round_state`: the RoundState object, which contains all information about the current hand. 
+
+This includes : 
+
+1. `turn`: Which player is acting
+
+2. `street`: Current betting round
+
+3. `pips`: How much each player has contributed to the pot on the current hand 
+
+4. `stacks`: 
+
+5. `hands`: List of known hands to you
+
+6. `deck`: 
+
+7. `action_history`: History of actions
+
+8. `previous_state`: The previous state of the hand
+
+Here's an example `RoundState`: 
 
 ```python
 RoundState(turn=1, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[DownAction()], previous_state=RoundState(turn=0, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[], previous_state=None))
@@ -113,7 +141,7 @@ RoundState(turn=1, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=N
 
 The return is: 
 
-1. Your action
+1. Your `action`
 
 ## Sample Bots
 
@@ -127,9 +155,7 @@ return random.choice([UpAction(), DownAction()])
 
 ### Linear Agent
 
-The `linear` agent also doesn't use `GameState` or `RoundState`, but does change its actions depending on its own hand. 
-
-It uses this code to match `my_hand` to the appropriate linear case. 
+The `linear` agent also doesn't use `GameState` or `RoundState`, but does change its actions depending on its own hand. It uses this code to match `my_hand` to the appropriate linear case. 
 
 ```python
 match my_hand:

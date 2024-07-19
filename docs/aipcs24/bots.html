@@ -532,19 +532,35 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="the-get_action-function">The <code>get_action()</code> function</h4>
 <p>The arguments coming in to <code>get_action()</code> are:</p>
 <ol type="1">
-<li><code>game_state</code>: the GameState object, which is the state of the entire <em>match</em> of hands. This was 100 in the above example. The game state gives the <code>bankroll</code> (profits over the match), <code>game_clock</code> (your time remaining to use during the match), <code>round_num</code> (the round of betting, always 1 in Kuhn Poker). Here’s an example <code>GameState</code>:</li>
+<li><p><code>game_state</code>: the GameState object, which is the state of the entire <em>match</em> of hands. This was 100 in the above example. The game state gives:</p></li>
+<li><p><code>bankroll</code>: Profits over the match</p></li>
+<li><p><code>game_clock</code>: Your time remaining to use during the match</p></li>
+<li><p><code>round_num</code>: The round of betting, always 1 in Kuhn Poker</p></li>
 </ol>
+<p>Here’s an example <code>GameState</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>game state GameState(bankroll<span class="op">=</span><span class="dv">0</span>, game_clock<span class="op">=</span><span class="fl">29.991</span>, round_num<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><code>round_state</code>: the RoundState object, which contains all information about the current hand.</li>
 </ol>
+<p>This includes :</p>
+<ol type="1">
+<li><p><code>turn</code>: Which player is acting</p></li>
+<li><p><code>street</code>: Current betting round</p></li>
+<li><p><code>pips</code>: How much each player has contributed to the pot on the current hand</p></li>
+<li><p><code>stacks</code>:</p></li>
+<li><p><code>hands</code>: List of known hands to you</p></li>
+<li><p><code>deck</code>:</p></li>
+<li><p><code>action_history</code>: History of actions</p></li>
+<li><p><code>previous_state</code>: The previous state of the hand</p></li>
+</ol>
+<p>Here’s an example <code>RoundState</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RoundState(turn<span class="op">=</span><span class="dv">1</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[DownAction()], previous_state<span class="op">=</span>RoundState(turn<span class="op">=</span><span class="dv">0</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[], previous_state<span class="op">=</span><span class="va">None</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><code>active</code>: your player’s index</li>
 </ol>
 <p>The return is:</p>
 <ol type="1">
-<li>Your action</li>
+<li>Your <code>action</code></li>
 </ol>
 </section>
 </section>
@@ -558,8 +574,7 @@ window.Quarto = {
 </section>
 <section id="linear-agent" class="level3">
 <h3 class="anchored" data-anchor-id="linear-agent">Linear Agent</h3>
-<p>The <code>linear</code> agent also doesn’t use <code>GameState</code> or <code>RoundState</code>, but does change its actions depending on its own hand.</p>
-<p>It uses this code to match <code>my_hand</code> to the appropriate linear case.</p>
+<p>The <code>linear</code> agent also doesn’t use <code>GameState</code> or <code>RoundState</code>, but does change its actions depending on its own hand. It uses this code to match <code>my_hand</code> to the appropriate linear case.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> my_hand:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DownAction()</span>
