@@ -123,28 +123,60 @@
     "href": "aipcs24/bots.html",
     "title": "Building and Running Bots",
     "section": "",
-    "text": "Our game engine is run in Python 3.\n\nCheck that you have at least Python 3.12 installed with:\n\npython3 -- version\n\nThe game engine uses the eval7 package, which is a Python Texas Hold’em hand evaluation library:\n\npip3 install eval7"
+    "text": "Our game engine is run in Python 3.\n\nCheck that you have at least Python 3.12 installed with:\n\npython3 --version\n\nThe game engine uses the eval7 package, which is a Python Texas Hold’em hand evaluation library:\n\npip3 install eval7",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Configuration",
+      "Building and Running Bots"
+    ]
   },
   {
     "objectID": "aipcs24/bots.html#python-setup",
     "href": "aipcs24/bots.html#python-setup",
     "title": "Building and Running Bots",
     "section": "",
-    "text": "Our game engine is run in Python 3.\n\nCheck that you have at least Python 3.12 installed with:\n\npython3 -- version\n\nThe game engine uses the eval7 package, which is a Python Texas Hold’em hand evaluation library:\n\npip3 install eval7"
+    "text": "Our game engine is run in Python 3.\n\nCheck that you have at least Python 3.12 installed with:\n\npython3 --version\n\nThe game engine uses the eval7 package, which is a Python Texas Hold’em hand evaluation library:\n\npip3 install eval7",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Configuration",
+      "Building and Running Bots"
+    ]
   },
   {
     "objectID": "aipcs24/bots.html#poker-camp-game-engine",
     "href": "aipcs24/bots.html#poker-camp-game-engine",
     "title": "Building and Running Bots",
     "section": "Poker Camp Game Engine",
-    "text": "Poker Camp Game Engine\n\nEngine\nThe engine is in engine.py. You can use python 3 engine.py to test two agents playing against each other.\nThe following code will run n_hands between agent p1 and agent p2 and output the result to the specified output_dir.\nThe generic usage is:\npython3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}\"\nFor example, to run a 100 hand match with two random bots that are named p1 and p2 with files in the players/random/ folder and outputted to the p1p2test folder, do this:\npython3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test -n 100\nThe output files are: 1. scores.p1.p2.txt contains the raw scores (i.e. profits) of each player 2. The p1.p2 folder contains: - gamelog.txt: A log of all hands played - Other log files for each player\n\n\nConfig\nThe config.py file contains various parameters to control the game engine."
+    "text": "Poker Camp Game Engine\n7/18 Note: The game engine is under development and you might see changes, especially over the first couple of weeks of the AIPCS24.\n\nEngine\nThe engine is in engine.py. You can use python 3 engine.py to test two agents playing against each other.\nThe following code will run n_hands between agent p1 and agent p2 and output the result to the specified output_dir.\nThe generic usage is:\npython3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}\"\nFor example, to run a 100 hand match with two random bots that are named p1 and p2 with files in the players/random/ folder and outputted to the p1p2test folder, do this:\npython3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test -n 100\nThe output files are:\n\nscores.p1.p2.txt contains the raw scores (i.e. profits) of each player\nThe p1.p2 folder contains:\n\n\ngamelog.txt: A log of all hands played\nOther log files for each player\n\n\n\nConfig\nThe config.py file contains various parameters to control the game engine.",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Configuration",
+      "Building and Running Bots"
+    ]
   },
   {
     "objectID": "aipcs24/bots.html#build-a-bot",
     "href": "aipcs24/bots.html#build-a-bot",
     "title": "Building and Running Bots",
     "section": "Build a Bot",
-    "text": "Build a Bot\nThe player.py file is where you write your poker bot.\nThere are three preconfigured bots that you can see to get a sense of how they work: 1. random: Every action is random, in Kuhn this means 50% ↑ actions and 50% ↓ actions. 2. linear: Every Q action is ↓, every K action is 50% ↑ and 50% ↓, and every A action is 100% ↑. 3. from-weights: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.\nOther files include: 1. actions.py: The actions a player can take 2. bot.py: Defines the interface of the player.py functions 3. runner.py: The infrastructure for interacting with the engine 4. states.py: Encapsulates game and round state information for the player\nhandle_new_round(): Gets called with info of , handle_round_over(): Called once when round is over , get_action() Function called every time the runner sees another action GameState, RoundState classes"
+    "text": "Build a Bot\nThe player.py file is where you write your poker bot.\nNote that for Kuhn Poker, the cards are assigned as follows:\n\n\n\nCard\nEngine\n\n\n\n\nQ\n0\n\n\nK\n1\n\n\nA\n2\n\n\n\nThere are three preconfigured bots that you can see to get a sense of how they work:\n\nrandom: Every action is random. In Kuhn this means 50% ↑ actions and 50% ↓ actions.\nlinear: For Kuhn, every Q action is ↓, every K action is 50% ↑ and 50% ↓, and every A action is 100% ↑.\nfrom-weights: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.\n\nOther files include:\n\nactions.py: The actions a player can take\nbot.py: Defines the interface of the player.py functions\nrunner.py: The infrastructure for interacting with the engine\nstates.py: Encapsulates game and round state information for the player\n\n\nUsing player.py to Build a Bot\nplayer.py contains 3 functions:\n\nhandle_new_round(): Gets called when a new round (i.e. hand) starts\nhandle_round_over(): Gets called when a new round (i.e. hand) ends\nget_action(): The main function to implement, which is called any time the engine needs an action from your bot.\n\n\nThe get_action() function\nThe arguments coming in to get_action() are:\n\ngame_state: the GameState object, which is the state of the entire match of hands. This was 100 in the above example. The game state gives the bankroll (profits over the match), game_clock (your time remaining to use during the match), round_num (the round of betting, always 1 in Kuhn Poker). Here’s an example GameState:\n\ngame state GameState(bankroll=0, game_clock=29.991, round_num=1)\n\nround_state: the RoundState object, which contains all information about the current hand.\n\nRoundState(turn=1, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[DownAction()], previous_state=RoundState(turn=0, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[], previous_state=None))\n\nactive: your player’s index\n\nThe return is:\n\nYour action",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Configuration",
+      "Building and Running Bots"
+    ]
+  },
+  {
+    "objectID": "aipcs24/bots.html#sample-bots",
+    "href": "aipcs24/bots.html#sample-bots",
+    "title": "Building and Running Bots",
+    "section": "Sample Bots",
+    "text": "Sample Bots\n\nRandom\nThe most simple random agent doesn’t care about the GameState or RoundState and implements the simple action:\nreturn random.choice([UpAction(), DownAction()])\n\n\nLinear Agent\nThe linear agent also doesn’t use GameState or RoundState, but does change its actions depending on its own hand.\nIt uses this code to match my_hand to the appropriate linear case.\nmatch my_hand:\n    case 0:\n        return DownAction()\n    case 1:\n        return random.choice([UpAction(), DownAction()])\n    case 2:\n        return UpAction()\n\n\nWeights (Probabilities) Agent\nThe from-weights agent does need to use the round_state to first see whose turn it is to act (round_state.turn) and then to match the hand to the appropriate infoset using match my_hand. From there, the strategy can be defined according to the strategy probabilities (weights) for that infoset.\nmatch round_state.turn:\n    case 0:\n        match my_hand:\n            case 0: # Q_\n                up_prob = self.strategy[\"Q_\"]\n            case 1: # K_\n                up_prob = self.strategy[\"K_\"]\n            case 2: # A_\n                up_prob = self.strategy[\"A_\"]",
+    "crumbs": [
+      "Signup: AI Poker Camp Summer 2024",
+      "Configuration",
+      "Building and Running Bots"
+    ]
   },
   {
     "objectID": "aipcs24/sessions.html",

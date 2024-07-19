@@ -109,7 +109,7 @@ website:
             - text: "General Setup"
               # href: "aipcs24/setup.qmd"
             - text: "Building and Running Bots"
-              # href: "aipcs24/bots.qmd"
+              href: "aipcs24/bots.qmd"
         - section: "About the Course"
           contents:
             - text: "Sessions and Challenges"

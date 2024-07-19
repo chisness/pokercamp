@@ -211,7 +211,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Building and Running Bots</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Configuration</li><li class="breadcrumb-item"><a href="../aipcs24/bots.html">Building and Running Bots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -365,8 +365,11 @@ window.Quarto = {
  <span class="menu-text">General Setup</span>
   </li>
           <li class="sidebar-item">
- <span class="menu-text">Building and Running Bots</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/bots.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Building and Running Bots</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -405,14 +408,23 @@ window.Quarto = {
   <li><a href="#engine" id="toc-engine" class="nav-link" data-scroll-target="#engine">Engine</a></li>
   <li><a href="#config" id="toc-config" class="nav-link" data-scroll-target="#config">Config</a></li>
   </ul></li>
-  <li><a href="#build-a-bot" id="toc-build-a-bot" class="nav-link" data-scroll-target="#build-a-bot">Build a Bot</a></li>
+  <li><a href="#build-a-bot" id="toc-build-a-bot" class="nav-link" data-scroll-target="#build-a-bot">Build a Bot</a>
+  <ul class="collapse">
+  <li><a href="#using-player.py-to-build-a-bot" id="toc-using-player.py-to-build-a-bot" class="nav-link" data-scroll-target="#using-player.py-to-build-a-bot">Using <code>player.py</code> to Build a Bot</a></li>
+  </ul></li>
+  <li><a href="#sample-bots" id="toc-sample-bots" class="nav-link" data-scroll-target="#sample-bots">Sample Bots</a>
+  <ul class="collapse">
+  <li><a href="#random" id="toc-random" class="nav-link" data-scroll-target="#random">Random</a></li>
+  <li><a href="#linear-agent" id="toc-linear-agent" class="nav-link" data-scroll-target="#linear-agent">Linear Agent</a></li>
+  <li><a href="#weights-probabilities-agent" id="toc-weights-probabilities-agent" class="nav-link" data-scroll-target="#weights-probabilities-agent">Weights (Probabilities) Agent</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Configuration</li><li class="breadcrumb-item"><a href="../aipcs24/bots.html">Building and Running Bots</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Building and Running Bots</h1>
 </div>
@@ -437,7 +449,7 @@ window.Quarto = {
 <ol type="1">
 <li>Check that you have at least Python 3.12 installed with:</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python3 <span class="op">--</span> version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python3 <span class="op">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>The game engine uses the <code>eval7</code> package, which is a Python Texas Hold’em hand evaluation library:</li>
 </ol>
@@ -445,15 +457,24 @@ window.Quarto = {
 </section>
 <section id="poker-camp-game-engine" class="level2">
 <h2 class="anchored" data-anchor-id="poker-camp-game-engine">Poker Camp Game Engine</h2>
+<p>7/18 Note: The game engine is under development and you might see changes, especially over the first couple of weeks of the AIPCS24.</p>
 <section id="engine" class="level3">
 <h3 class="anchored" data-anchor-id="engine">Engine</h3>
 <p>The engine is in <code>engine.py</code>. You can use <code>python 3 engine.py</code> to test two agents playing against each other.</p>
 <p>The following code will run <code>n_hands</code> between agent <code>p1</code> and agent <code>p2</code> and output the result to the specified <code>output_dir</code>.</p>
 <p>The generic usage is:</p>
-<pre><code>python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}"</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 {p1_name} {p1_file_path} <span class="op">-</span>p2 {p2_name} {p2_file_path} <span class="op">-</span>o {output_dir} <span class="op">-</span>n {n_hands}<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For example, to run a 100 hand match with two random bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/random/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The output files are: 1. <code>scores.p1.p2.txt</code> contains the raw scores (i.e.&nbsp;profits) of each player 2. The <code>p1.p2</code> folder contains: - <code>gamelog.txt</code>: A log of all hands played - Other log files for each player</p>
+<p>The output files are:</p>
+<ol type="1">
+<li><p><code>scores.p1.p2.txt</code> contains the raw scores (i.e.&nbsp;profits) of each player</p></li>
+<li><p>The <code>p1.p2</code> folder contains:</p></li>
+</ol>
+<ul>
+<li><p><code>gamelog.txt</code>: A log of all hands played</p></li>
+<li><p>Other log files for each player</p></li>
+</ul>
 </section>
 <section id="config" class="level3">
 <h3 class="anchored" data-anchor-id="config">Config</h3>
@@ -463,12 +484,106 @@ window.Quarto = {
 <section id="build-a-bot" class="level2">
 <h2 class="anchored" data-anchor-id="build-a-bot">Build a Bot</h2>
 <p>The <code>player.py</code> file is where you write your poker bot.</p>
-<p>There are three preconfigured bots that you can see to get a sense of how they work: 1. <code>random</code>: Every action is random, in Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions. 2. <code>linear</code>: Every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>. 3. <code>from-weights</code>: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.</p>
-<p>Other files include: 1. <code>actions.py</code>: The actions a player can take 2. <code>bot.py</code>: Defines the interface of the <code>player.py</code> functions 3. <code>runner.py</code>: The infrastructure for interacting with the engine 4. <code>states.py</code>: Encapsulates game and round state information for the player</p>
-<p>handle_new_round(): Gets called with info of , handle_round_over(): Called once when round is over , get_action() Function called every time the runner sees another action GameState, RoundState classes</p>
+<p>Note that for Kuhn Poker, the cards are assigned as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Card</th>
+<th>Engine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>K</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>There are three preconfigured bots that you can see to get a sense of how they work:</p>
+<ol type="1">
+<li><p><code>random</code>: Every action is random. In Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions.</p></li>
+<li><p><code>linear</code>: For Kuhn, every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>.</p></li>
+<li><p><code>from-weights</code>: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.</p></li>
+</ol>
+<p>Other files include:</p>
+<ol type="1">
+<li><p><code>actions.py</code>: The actions a player can take</p></li>
+<li><p><code>bot.py</code>: Defines the interface of the <code>player.py</code> functions</p></li>
+<li><p><code>runner.py</code>: The infrastructure for interacting with the engine</p></li>
+<li><p><code>states.py</code>: Encapsulates game and round state information for the player</p></li>
+</ol>
+<section id="using-player.py-to-build-a-bot" class="level3">
+<h3 class="anchored" data-anchor-id="using-player.py-to-build-a-bot">Using <code>player.py</code> to Build a Bot</h3>
+<p><code>player.py</code> contains 3 functions:</p>
+<ol type="1">
+<li><p><code>handle_new_round()</code>: Gets called when a new round (i.e.&nbsp;hand) starts</p></li>
+<li><p><code>handle_round_over()</code>: Gets called when a new round (i.e.&nbsp;hand) ends</p></li>
+<li><p><code>get_action()</code>: The main function to implement, which is called any time the engine needs an action from your bot.</p></li>
+</ol>
+<section id="the-get_action-function" class="level4">
+<h4 class="anchored" data-anchor-id="the-get_action-function">The <code>get_action()</code> function</h4>
+<p>The arguments coming in to <code>get_action()</code> are:</p>
+<ol type="1">
+<li><code>game_state</code>: the GameState object, which is the state of the entire <em>match</em> of hands. This was 100 in the above example. The game state gives the <code>bankroll</code> (profits over the match), <code>game_clock</code> (your time remaining to use during the match), <code>round_num</code> (the round of betting, always 1 in Kuhn Poker). Here’s an example <code>GameState</code>:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>game state GameState(bankroll<span class="op">=</span><span class="dv">0</span>, game_clock<span class="op">=</span><span class="fl">29.991</span>, round_num<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><code>round_state</code>: the RoundState object, which contains all information about the current hand.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RoundState(turn<span class="op">=</span><span class="dv">1</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[DownAction()], previous_state<span class="op">=</span>RoundState(turn<span class="op">=</span><span class="dv">0</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[], previous_state<span class="op">=</span><span class="va">None</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><code>active</code>: your player’s index</li>
+</ol>
+<p>The return is:</p>
+<ol type="1">
+<li>Your action</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="sample-bots" class="level2">
+<h2 class="anchored" data-anchor-id="sample-bots">Sample Bots</h2>
+<section id="random" class="level3">
+<h3 class="anchored" data-anchor-id="random">Random</h3>
+<p>The most simple <code>random</code> agent doesn’t care about the <code>GameState</code> or <code>RoundState</code> and implements the simple action:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> random.choice([UpAction(), DownAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="linear-agent" class="level3">
+<h3 class="anchored" data-anchor-id="linear-agent">Linear Agent</h3>
+<p>The <code>linear</code> agent also doesn’t use <code>GameState</code> or <code>RoundState</code>, but does change its actions depending on its own hand.</p>
+<p>It uses this code to match <code>my_hand</code> to the appropriate linear case.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> my_hand:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DownAction()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.choice([UpAction(), DownAction()])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> UpAction()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="weights-probabilities-agent" class="level3">
+<h3 class="anchored" data-anchor-id="weights-probabilities-agent">Weights (Probabilities) Agent</h3>
+<p>The <code>from-weights</code> agent does need to use the <code>round_state</code> to first see whose turn it is to act (<code>round_state.turn</code>) and then to match the hand to the appropriate infoset using <code>match my_hand</code>. From there, the strategy can be defined according to the strategy probabilities (weights) for that infoset.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> round_state.turn:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>: <span class="co"># Q_</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"Q_"</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">1</span>: <span class="co"># K_</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"K_"</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">2</span>: <span class="co"># A_</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"A_"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

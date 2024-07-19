@@ -3,6 +3,7 @@ title: "Building and Running Bots"
 sidebar: aipcs24
 format:
   html:
+    code-overflow: wrap
     css: styles.css
     math: true
 ---
@@ -12,7 +13,7 @@ Our game engine is run in Python 3.
 1. Check that you have at least Python 3.12 installed with: 
 
 ```python
-python3 -- version
+python3 --version
 ```
 
 2. The game engine uses the `eval7` package, which is a Python Texas Hold’em hand evaluation library: 
@@ -22,6 +23,7 @@ pip3 install eval7
 ```
 
 ## Poker Camp Game Engine
+7/18 Note: The game engine is under development and you might see changes, especially over the first couple of weeks of the AIPCS24. 
 
 ### Engine
 The engine is in `engine.py`. You can use `python 3 engine.py` to test two agents playing against each other. 
@@ -29,7 +31,7 @@ The engine is in `engine.py`. You can use `python 3 engine.py` to test two agent
 The following code will run `n_hands` between agent `p1` and agent `p2` and output the result to the specified `output_dir`. 
 
 The generic usage is: 
-```
+```python
 python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}"
 ```
 
@@ -40,9 +42,13 @@ python3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test 
 ```
 
 The output files are: 
+
 1. `scores.p1.p2.txt` contains the raw scores (i.e. profits) of each player
+
 2. The `p1.p2` folder contains: 
+
   - `gamelog.txt`: A log of all hands played
+
   - Other log files for each player 
 
 ### Config
@@ -51,19 +57,101 @@ The `config.py` file contains various parameters to control the game engine.
 ## Build a Bot 
 The `player.py` file is where you write your poker bot. 
 
+Note that for Kuhn Poker, the cards are assigned as follows:
+
+| Card | Engine |
+|------|--------|
+| Q    | 0      |
+| K    | 1      |
+| A    | 2      |
+
 There are three preconfigured bots that you can see to get a sense of how they work: 
-1. `random`: Every action is random, in Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions. 
-2. `linear`: Every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>. 
+
+1. `random`: Every action is random. In Kuhn this means 50% <span class="gamenode">↑</span> actions and 50% <span class="gamenode">↓</span> actions. 
+
+2. `linear`: For Kuhn, every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>. 
+
 3. `from-weights`: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities. 
 
 Other files include: 
+
 1. `actions.py`: The actions a player can take
+
 2. `bot.py`: Defines the interface of the `player.py` functions
+
 3. `runner.py`: The infrastructure for interacting with the engine
+
 4. `states.py`: Encapsulates game and round state information for the player
 
-handle_new_round(): Gets called with info of 
-, handle_round_over(): Called once when round is over
-, get_action()
-Function called every time the runner sees another action 
-GameState, RoundState classes
+### Using `player.py` to Build a Bot 
+
+`player.py` contains 3 functions: 
+
+1. `handle_new_round()`: Gets called when a new round (i.e. hand) starts
+
+2. `handle_round_over()`: Gets called when a new round (i.e. hand) ends
+
+3. `get_action()`: The main function to implement, which is called any time the engine needs an action from your bot. 
+
+#### The `get_action()` function
+
+The arguments coming in to `get_action()` are: 
+
+1. `game_state`: the GameState object, which is the state of the entire *match* of hands. This was 100 in the above example. The game state gives the `bankroll` (profits over the match), `game_clock` (your time remaining to use during the match), `round_num` (the round of betting, always 1 in Kuhn Poker). Here's an example `GameState`: 
+
+```python
+game state GameState(bankroll=0, game_clock=29.991, round_num=1)
+```
+
+2. `round_state`: the RoundState object, which contains all information about the current hand. 
+
+```python
+RoundState(turn=1, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[DownAction()], previous_state=RoundState(turn=0, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[], previous_state=None))
+```
+
+3. `active`: your player's index
+
+The return is: 
+
+1. Your action
+
+## Sample Bots
+
+### Random
+
+The most simple `random` agent doesn't care about the `GameState` or `RoundState` and implements the simple action: 
+
+```python
+return random.choice([UpAction(), DownAction()])
+```
+
+### Linear Agent
+
+The `linear` agent also doesn't use `GameState` or `RoundState`, but does change its actions depending on its own hand. 
+
+It uses this code to match `my_hand` to the appropriate linear case. 
+
+```python
+match my_hand:
+    case 0:
+        return DownAction()
+    case 1:
+        return random.choice([UpAction(), DownAction()])
+    case 2:
+        return UpAction()
+```
+
+### Weights (Probabilities) Agent
+The `from-weights` agent does need to use the `round_state` to first see whose turn it is to act (`round_state.turn`) and then to match the hand to the appropriate infoset using `match my_hand`. From there, the strategy can be defined according to the strategy probabilities (weights) for that infoset. 
+
+```python
+match round_state.turn:
+    case 0:
+        match my_hand:
+            case 0: # Q_
+                up_prob = self.strategy["Q_"]
+            case 1: # K_
+                up_prob = self.strategy["K_"]
+            case 2: # A_
+                up_prob = self.strategy["A_"]
+```
