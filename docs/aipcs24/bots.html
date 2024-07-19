@@ -417,6 +417,7 @@ window.Quarto = {
   <li><a href="#random" id="toc-random" class="nav-link" data-scroll-target="#random">Random</a></li>
   <li><a href="#linear-agent" id="toc-linear-agent" class="nav-link" data-scroll-target="#linear-agent">Linear Agent</a></li>
   <li><a href="#weights-probabilities-agent" id="toc-weights-probabilities-agent" class="nav-link" data-scroll-target="#weights-probabilities-agent">Weights (Probabilities) Agent</a></li>
+  <li><a href="#and-beyond" id="toc-and-beyond" class="nav-link" data-scroll-target="#and-beyond">…and beyond?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -460,12 +461,11 @@ window.Quarto = {
 <p>7/18 Note: The game engine is under development and you might see changes, especially over the first couple of weeks of the AIPCS24.</p>
 <section id="engine" class="level3">
 <h3 class="anchored" data-anchor-id="engine">Engine</h3>
-<p>The engine is in <code>engine.py</code>. You can use <code>python 3 engine.py</code> to test two agents playing against each other.</p>
-<p>The following code will run <code>n_hands</code> between agent <code>p1</code> and agent <code>p2</code> and output the result to the specified <code>output_dir</code>.</p>
+<p>The engine is in <code>engine.py</code>. You can use <code>python3 engine.py</code> to test two agents playing against each other.</p>
+<p>To run a <code>100</code> hand match with two bots that are named <code>p1</code> and <code>p2</code> and run the logic from <code>players/random/</code> folder and output results to the <code>p1p2test</code> folder, do this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The generic usage is:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 {p1_name} {p1_file_path} <span class="op">-</span>p2 {p2_name} {p2_file_path} <span class="op">-</span>o {output_dir} <span class="op">-</span>n {n_hands}<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example, to run a 100 hand match with two random bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/random/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>random<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 {p1_name} {p1_file_path} <span class="op">-</span>p2 {p2_name} {p2_file_path} <span class="op">-</span>o {output_dir} <span class="op">-</span>n {n_hands}<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The output files are:</p>
 <ol type="1">
 <li><p><code>scores.p1.p2.txt</code> contains the raw scores (i.e.&nbsp;profits) of each player</p></li>
@@ -478,7 +478,7 @@ window.Quarto = {
 </section>
 <section id="config" class="level3">
 <h3 class="anchored" data-anchor-id="config">Config</h3>
-<p>The <code>config.py</code> file contains various parameters to control the game engine.</p>
+<p>The <code>config.py</code> file contains various parameters to control the game engine. You should not need to modify this in normal use.</p>
 </section>
 </section>
 <section id="build-a-bot" class="level2">
@@ -513,13 +513,27 @@ window.Quarto = {
 <li><p><code>linear</code>: For Kuhn, every <span class="gamenode">Q</span> action is <span class="gamenode">↓</span>, every K action is 50% <span class="gamenode">↑</span> and 50% <span class="gamenode">↓</span>, and every <span class="gamenode">A</span> action is 100% <span class="gamenode">↑</span>.</p></li>
 <li><p><code>from-weights</code>: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities.</p></li>
 </ol>
-<p>Other files include:</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Other files include that you should not need to modify
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p><code>actions.py</code>: The actions a player can take</p></li>
 <li><p><code>bot.py</code>: Defines the interface of the <code>player.py</code> functions</p></li>
 <li><p><code>runner.py</code>: The infrastructure for interacting with the engine</p></li>
 <li><p><code>states.py</code>: Encapsulates game and round state information for the player</p></li>
 </ol>
+</div>
+</div>
+</div>
 <section id="using-player.py-to-build-a-bot" class="level3">
 <h3 class="anchored" data-anchor-id="using-player.py-to-build-a-bot">Using <code>player.py</code> to Build a Bot</h3>
 <p><code>player.py</code> contains 3 functions:</p>
@@ -528,6 +542,7 @@ window.Quarto = {
 <li><p><code>handle_round_over()</code>: Gets called when a new round (i.e.&nbsp;hand) ends</p></li>
 <li><p><code>get_action()</code>: The main function to implement, which is called any time the engine needs an action from your bot.</p></li>
 </ol>
+<p>You should write these functions so that <code>get_action()</code> returns the actions that you want in the situations it faces.</p>
 <section id="the-get_action-function" class="level4">
 <h4 class="anchored" data-anchor-id="the-get_action-function">The <code>get_action()</code> function</h4>
 <p>The arguments coming in to <code>get_action()</code> are:</p>
@@ -544,17 +559,36 @@ window.Quarto = {
 </ol>
 <p>This includes :</p>
 <ol type="1">
-<li><p><code>turn</code>: Which player is acting</p></li>
-<li><p><code>street</code>: Current betting round</p></li>
-<li><p><code>pips</code>: How much each player has contributed to the pot on the current hand</p></li>
-<li><p><code>stacks</code>:</p></li>
-<li><p><code>hands</code>: List of known hands to you</p></li>
-<li><p><code>deck</code>:</p></li>
-<li><p><code>action_history</code>: History of actions</p></li>
-<li><p><code>previous_state</code>: The previous state of the hand</p></li>
+<li><p><code>turn</code>: The number of actions that have taken place this game. (<code>turn % 2</code> gives the player who will act next.)</p></li>
+<li><p><code>street</code>: Current betting round (in Kuhn Poker, this will always be 0).</p></li>
+<li><p><code>pips</code>: How many chips each player has contributed to the pot on the current hand.</p></li>
+<li><p><code>stacks</code>: How many chips each player has left (not contributed to the pot).</p></li>
+<li><p><code>hands</code>: List of known hands to you, with <code>None</code> for unknown hands.</p></li>
+<li><p><code>deck</code>: This won’t be known to you, so it will probably always be <code>None</code>.</p></li>
+<li><p><code>action_history</code>: History of actions, a list of <code>UpAction()</code> or <code>DownAction()</code>. (The type of this will definitely change as we work on it.)</p></li>
+<li><p><code>previous_state</code>: The previous state of the hand, as a <code>RoundState</code>.</p></li>
 </ol>
 <p>Here’s an example <code>RoundState</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RoundState(turn<span class="op">=</span><span class="dv">1</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[DownAction()], previous_state<span class="op">=</span>RoundState(turn<span class="op">=</span><span class="dv">0</span>, street<span class="op">=</span><span class="dv">0</span>, pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>], hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>], deck<span class="op">=</span><span class="va">None</span>, action_history<span class="op">=</span>[], previous_state<span class="op">=</span><span class="va">None</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RoundState(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    turn<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    street<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>],</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    deck<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    action_history<span class="op">=</span>[DownAction()],</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    previous_state<span class="op">=</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        RoundState(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            turn<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            street<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            pips<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            stacks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            hands<span class="op">=</span>[<span class="va">None</span>, <span class="dv">1</span>],</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            deck<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            action_history<span class="op">=</span>[],</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            previous_state<span class="op">=</span><span class="va">None</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><code>active</code>: your player’s index</li>
 </ol>
@@ -594,7 +628,29 @@ window.Quarto = {
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">1</span>: <span class="co"># K_</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"K_"</span>]</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">2</span>: <span class="co"># A_</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"A_"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"A_"</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand, round_state.action_history[<span class="dv">0</span>]:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>, DownAction(): <span class="co">#_Q↓</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"_QD"</span>]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="and-beyond" class="level3">
+<h3 class="anchored" data-anchor-id="and-beyond">…and beyond?</h3>
+<p>The <code>from-weights</code> agent gives you the tools to implement any fixed strategy that you want. If you want to do better than Nash, though, you’ll have to do something that remembers what your opponent has played in previous rounds, and use it to do something differently in the future…</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beta Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We expect to add a <code>handle_observed_action()</code> function in the bot/runner framework, to make certain kinds of tracking easier. For now, you can do this by adding logging logic to the <code>get_action()</code> and/or <code>handle_round_over()</code>.</p>
+</div>
+</div>
 
 
 

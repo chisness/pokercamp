@@ -579,7 +579,7 @@ function showFavoredActions() {
           });
         }
         if (favoredAction && getFavoredActionMagnitude(infoSetKey) > 0.15) {
-          console.log (`${infoSetKey} EVdiff=${getFavoredActionMagnitude(infoSetKey)}`);
+          console.log (`${infoSetKey} ${favoredAction} EVdiff=${getFavoredActionMagnitude(infoSetKey)}`);
           all_clear = false;
         }
     }
@@ -771,7 +771,7 @@ function startSimulator() {
             infoSets[label].total_regret += getFavoredActionMagnitude(label) * infoSets[label].p;
             
             let update =
-              (use_odds ? (favoredAction === "↑" ? 100 - curValue : - curValue) : 100)
+              (use_odds ? (favoredAction === "↑" ? 100 - curValue : curValue) : 100)
               * (scale_by_ev ? getFavoredActionMagnitude(label) : 1)
               * (getFavoredAction(label) === "↑" ? 1 : -1)
               * (scale_by_visit_prob ? infoSets[label].p : 1)

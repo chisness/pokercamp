@@ -26,19 +26,17 @@ pip3 install eval7
 7/18 Note: The game engine is under development and you might see changes, especially over the first couple of weeks of the AIPCS24. 
 
 ### Engine
-The engine is in `engine.py`. You can use `python 3 engine.py` to test two agents playing against each other. 
+The engine is in `engine.py`. You can use `python3 engine.py` to test two agents playing against each other. 
 
-The following code will run `n_hands` between agent `p1` and agent `p2` and output the result to the specified `output_dir`. 
+To run a `100` hand match with two bots that are named `p1` and `p2` and run the logic from `players/random/` folder and output results to the `p1p2test` folder, do this: 
+
+```python
+python3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test -n 100
+```
 
 The generic usage is: 
 ```python
 python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_hands}"
-```
-
-For example, to run a 100 hand match with two random bots that are named `p1` and `p2` with files in the `players/random/` folder and outputted to the `p1p2test` folder, do this: 
-
-```python
-python3 engine.py -p1 'p1' players/random/ -p2 'p2' players/random/ -o p1p2test -n 100
 ```
 
 The output files are: 
@@ -52,7 +50,7 @@ The output files are:
   - Other log files for each player 
 
 ### Config
-The `config.py` file contains various parameters to control the game engine. 
+The `config.py` file contains various parameters to control the game engine. You should not need to modify this in normal use.
 
 ## Build a Bot 
 The `player.py` file is where you write your poker bot. 
@@ -73,7 +71,8 @@ There are three preconfigured bots that you can see to get a sense of how they w
 
 3. `from-weights`: This is how the Kuhn Challenge works. Each infoset is assigned a specific weight and the bot always plays according to those strategy probabilities. 
 
-Other files include: 
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Other files include that you should not need to modify
 
 1. `actions.py`: The actions a player can take
 
@@ -82,6 +81,7 @@ Other files include:
 3. `runner.py`: The infrastructure for interacting with the engine
 
 4. `states.py`: Encapsulates game and round state information for the player
+:::
 
 ### Using `player.py` to Build a Bot 
 
@@ -91,7 +91,9 @@ Other files include:
 
 2. `handle_round_over()`: Gets called when a new round (i.e. hand) ends
 
-3. `get_action()`: The main function to implement, which is called any time the engine needs an action from your bot. 
+3. `get_action()`: The main function to implement, which is called any time the engine needs an action from your bot.
+
+You should write these functions so that `get_action()` returns the actions that you want in the situations it faces.
 
 #### The `get_action()` function
 
@@ -115,26 +117,45 @@ game state GameState(bankroll=0, game_clock=29.991, round_num=1)
 
 This includes : 
 
-1. `turn`: Which player is acting
+1. `turn`: The number of actions that have taken place this game. (`turn % 2` gives the player who will act next.)
 
-2. `street`: Current betting round
+2. `street`: Current betting round (in Kuhn Poker, this will always be 0).
 
-3. `pips`: How much each player has contributed to the pot on the current hand 
+3. `pips`: How many chips each player has contributed to the pot on the current hand.
 
-4. `stacks`: 
+4. `stacks`: How many chips each player has left (not contributed to the pot).
 
-5. `hands`: List of known hands to you
+5. `hands`: List of known hands to you, with `None` for unknown hands.
 
-6. `deck`: 
+6. `deck`: This won't be known to you, so it will probably always be `None`.
 
-7. `action_history`: History of actions
+7. `action_history`: History of actions, a list of `UpAction()` or `DownAction()`. (The type of this will definitely change as we work on it.)
 
-8. `previous_state`: The previous state of the hand
+8. `previous_state`: The previous state of the hand, as a `RoundState`.
 
 Here's an example `RoundState`: 
 
 ```python
-RoundState(turn=1, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[DownAction()], previous_state=RoundState(turn=0, street=0, pips=[1, 1], stacks=[1, 1], hands=[None, 1], deck=None, action_history=[], previous_state=None))
+RoundState(
+    turn=1,
+    street=0,
+    pips=[1, 1],
+    stacks=[1, 1],
+    hands=[None, 1],
+    deck=None,
+    action_history=[DownAction()],
+    previous_state=
+        RoundState(
+            turn=0,
+            street=0,
+            pips=[1, 1],
+            stacks=[1, 1],
+            hands=[None, 1],
+            deck=None,
+            action_history=[],
+            previous_state=None
+        )
+    )
 ```
 
 3. `active`: your player's index
@@ -180,4 +201,18 @@ match round_state.turn:
                 up_prob = self.strategy["K_"]
             case 2: # A_
                 up_prob = self.strategy["A_"]
+    case 1:
+        match my_hand, round_state.action_history[0]:
+            case 0, DownAction(): #_Q↓
+                up_prob = self.strategy["_QD"]
+...
 ```
+
+### ...and beyond?
+The `from-weights` agent gives you the tools to implement any fixed strategy that you want. If you want to do better than Nash, though, you'll have to do something that remembers what your opponent has played in previous rounds, and use it to do something differently in the future...
+
+:::{.callout-note  appearance="minimal"}
+## Beta Note
+
+We expect to add a `handle_observed_action()` function in the bot/runner framework, to make certain kinds of tracking easier. For now, you can do this by adding logging logic to the `get_action()` and/or `handle_round_over()`.
+:::
