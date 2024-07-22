@@ -5,6 +5,33 @@ format:
   html:
     math: true
 ---
+
+## Types of Games
+
+:::{.callout-note  appearance="minimal"}
+## Exercise
+Fill in the table below with games you know about. Thanks to Eliezer for getting us started. 
+:::
+
+| Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
+|------------|-----------|--------|
+| **Imperfect Info, No Player Agency/Decisions**      | ![](assets/eliezer_snakes.jpg)          |
+| **Perfect Info, Player Actions Always Perfect Info**     |  |
+| **Imperfect Info, Imperfect from Randomness**     |   |
+| **Imperfect Info, Imperfect from Randomness AND Game States**    |   |
+
+:::{.callout-tip collapse="true"  appearance="minimal"}
+## Pre-Filled Table
+
+| Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
+|------------|-----------|--------|
+| Imperfect Info, No Player Agency/Decisions      | Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine          |
+| Perfect Info, Player Actions Always Perfect Info     | Puzzles  | Tictactoe, Checkers, Chess, Arimaa, Go |
+| Imperfect Info, Imperfect from Randomness     | Blackjack   | Backgammon |
+| Imperfect Info, Imperfect from Randomness AND Game States    | Partial Info Multi-armed Bandit   | Poker, Rock Paper Scissors, Liar’s Dice, Figgie |
+
+:::
+
 ## Concept: Nash Equilibrium
 A Nash equililibrium is a set of strategies for both players such that neither player ever plays an action with regret. Under Nash equilibrium, no player can gain by unilaterally deviating from their strategy. The other paradigm for game strategies is opponent exploitation, which we will address in future sections. 
 
