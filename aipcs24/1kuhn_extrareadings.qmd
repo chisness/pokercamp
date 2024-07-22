@@ -5,7 +5,6 @@ format:
   html:
     math: true
 ---
-
 ## Types of Games
 
 :::{.callout-note  appearance="minimal"}
@@ -25,10 +24,10 @@ Fill in the table below with games you know about. Thanks to Eliezer for getting
 
 | Game/Opponent     | Fixed/Probabilistic Opponent | Adversarial Opponent | 
 |------------|-----------|--------|
-| Imperfect Info, No Player Agency/Decisions      | Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine          |
-| Perfect Info, Player Actions Always Perfect Info     | Puzzles  | Tictactoe, Checkers, Chess, Arimaa, Go |
-| Imperfect Info, Imperfect from Randomness     | Blackjack   | Backgammon |
-| Imperfect Info, Imperfect from Randomness AND Game States    | Partial Info Multi-armed Bandit   | Poker, Rock Paper Scissors, Liar’s Dice, Figgie |
+| **Imperfect Info, No Player Agency/Decisions**      | Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine          |
+| **Perfect Info, Player Actions Always Perfect Info**     | Puzzles  | Tictactoe, Checkers, Chess, Arimaa, Go |
+| **Imperfect Info, Imperfect from Randomness**     | Blackjack   | Backgammon |
+| **Imperfect Info, Imperfect from Randomness AND Game States**    | Partial Info Multi-armed Bandit   | Poker, Rock Paper Scissors, Liar’s Dice, Figgie |
 
 :::
 
