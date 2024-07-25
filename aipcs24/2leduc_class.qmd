@@ -81,7 +81,7 @@ At a node in a poker game, the player prefers actions with higher regrets by thi
 :::
 
 ### Counterfactual Regret Minimization  
-The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. 
+The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. A good resource on CFR is this [2015 paper from the University of Alberta](https://webdocs.cs.ualberta.ca/~bowling/papers/15science.pdf).
 
 The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR. 
 
