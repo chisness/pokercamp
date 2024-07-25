@@ -108,10 +108,8 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="#2: Other Games | Challenge – Poker Camp">
-<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
 <meta name="twitter:title" content="#2: Other Games | Challenge – Poker Camp">
-<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -248,8 +246,11 @@ window.Quarto = {
  <span class="menu-text">Class Materials</span>
   </li>
           <li class="sidebar-item">
- <span class="menu-text">Challenge</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/2leduc_challenge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenge</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">Challenge Review</span>
   </li>
@@ -362,15 +363,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link active" data-scroll-target="#types-of-games">Types of Games</a></li>
-  <li><a href="#simulator" id="toc-simulator" class="nav-link" data-scroll-target="#simulator">Simulator</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -394,248 +388,9 @@ window.Quarto = {
 </header>
 
 
-<section id="types-of-games" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 35%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Game/Opponent</th>
-<th>Fixed/Probabilistic Opponent</th>
-<th>Adversarial Opponent</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Imperfect Info, No Player Agency/Decisions</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Perfect Info, Player Actions Always Perfect Info</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Imperfect Info, Imperfect from Randomness</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Imperfect Info, Imperfect from Randomness AND Game States</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><img src="assets/eliezer_snakes.png" class="img-fluid"></p>
-</section>
-<section id="simulator" class="level2">
-<h2 class="anchored" data-anchor-id="simulator">Simulator</h2>
-<p>Random, reward avg, etc.</p>
-<p>Describe the exploration vs.&nbsp;exploitation dilemma. Introduce basic strategies: epsilon-greedy, UCB (Upper Confidence Bound), and Thompson Sampling.</p>
-<p>Record the results and display them in real-time (either through the program or manually on a board). Strategy Discussion:</p>
-<p>After a few rounds, pause and discuss the strategies teams are using. Introduce the different algorithms and how they would approach the problem.</p>
-<p>Algorithm Implementation:</p>
-<p>Allow teams to adopt one of the introduced algorithms for the next rounds. Compare the performance of different algorithms in terms of accumulated rewards.</p>
-<div id="bandit-container">
-<table id="bandit-table">
-<thead>
-<tr>
-<th>
-Arm
-</th>
-<th>
-Average Reward
-</th>
-<th>
-Pulls
-</th>
-<th>
-Actions
-</th>
-</tr>
-</thead>
-<tbody id="arms-container">
-</tbody>
-</table>
-<div id="stats-container">
-
-</div>
-<p><button id="reset-button">Reset</button></p>
-</div>
-<!-- <div id="debug-output"></div> -->
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  // const debug = (message) => {
-  //   document.getElementById('debug-output').innerHTML += message + '<br>';
-  // };
-
-  // debug('Script started');
-
-  const armsContainer = document.getElementById('arms-container');
-  const statsContainer = document.getElementById('stats-container');
-  const resetButton = document.getElementById('reset-button');
-
-  function gaussianRandom(mean = 0, stdev = 1) {
-    let u = 0, v = 0;
-    while(u === 0) u = Math.random();
-    while(v === 0) v = Math.random();
-    let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
-    return num * stdev + mean;
-  }
-
-  function createBandit(numArms) {
-    return {
-      arms: Array.from({length: numArms}, (_, i) => ({
-        id: i + 1,
-        q: gaussianRandom(0, 1),
-        pulls: 0,
-        totalReward: 0,
-        averageReward: 0
-      })),
-      totalPulls: 0,
-      totalReward: 0
-    };
-  }
-
-  let bandit = createBandit(10);
-
-  function pullArm(armId, times = 1) {
-    const arm = bandit.arms[armId - 1];
-    let totalReward = 0;
-    const actualPulls = Math.min(times, 1000 - bandit.totalPulls);
-    for (let i = 0; i < actualPulls; i++) {
-      const reward = gaussianRandom(arm.q, 1);
-      arm.pulls++;
-      arm.totalReward += reward;
-      totalReward += reward;
-      bandit.totalPulls++;
-      bandit.totalReward += reward;
-    }
-    arm.averageReward = arm.totalReward / arm.pulls;
-    return totalReward;
-  }
-
-  function updateStats() {
-    statsContainer.innerHTML = `
-      <p>Total Pulls: ${bandit.totalPulls}</p>
-      <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
-      <p>Average Reward per Pull: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
-    `;
-  }
-
-  function createArmRows() {
-    armsContainer.innerHTML = '';
-    bandit.arms.forEach(arm => {
-      const row = document.createElement('tr');
-      
-      const armIdCell = document.createElement('td');
-      armIdCell.textContent = `Arm ${arm.id}`;
-      
-      const avgRewardCell = document.createElement('td');
-      avgRewardCell.id = `arm-avg-${arm.id}`;
-      avgRewardCell.textContent = arm.averageReward.toFixed(2);
-      
-      const pullsCell = document.createElement('td');
-      pullsCell.id = `arm-pulls-${arm.id}`;
-      pullsCell.textContent = arm.pulls;
-      
-      const actionsCell = document.createElement('td');
-      ['1', '10', '100', 'Max'].forEach(pullAmount => {
-        const button = document.createElement('button');
-        button.textContent = pullAmount;
-        button.onclick = () => {
-          const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
-          const reward = pullArm(arm.id, pulls);
-          updateStats();
-          createArmRows();
-          // debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
-        };
-        actionsCell.appendChild(button);
-      });
-      
-      row.appendChild(armIdCell);
-      row.appendChild(avgRewardCell);
-      row.appendChild(pullsCell);
-      row.appendChild(actionsCell);
-      
-      armsContainer.appendChild(row);
-    });
-    // debug('Arm rows updated');
-  }
-
-  function resetBandit() {
-    bandit = createBandit(10);
-    updateStats();
-    createArmRows();
-    // debug('Bandit reset');
-  }
-
-  resetButton.onclick = resetBandit;
-
-  createArmRows();
-  updateStats();
-  // debug('Initial setup complete');
-});
-</script>
-<style>
-#bandit-container {
-  font-family: Arial, sans-serif;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-#bandit-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-#bandit-table th, #bandit-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#bandit-table th {
-  background-color: #f2f2f2;
-}
-
-#bandit-table button {
-  margin-right: 5px;
-}
-
-#stats-container {
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-#reset-button {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  font-size: 18px;
-}
-
-/* #debug-output {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-} */
-</style>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

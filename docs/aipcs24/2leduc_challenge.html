@@ -177,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">#2: Leduc Poker | Challenge</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item">#2: Leduc Poker</li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_challenge.html">Challenge</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -238,19 +238,22 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">#2: Leduc Poker</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
  <span class="menu-text">Class Materials</span>
   </li>
           <li class="sidebar-item">
- <span class="menu-text">Challenge</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/2leduc_challenge.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Challenge</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">Challenge Review</span>
   </li>
@@ -368,18 +371,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#leduc-poker-rules" id="toc-leduc-poker-rules" class="nav-link active" data-scroll-target="#leduc-poker-rules">Leduc Poker Rules</a></li>
-  <li><a href="#types-of-games" id="toc-types-of-games" class="nav-link" data-scroll-target="#types-of-games">Types of Games</a></li>
-  <li><a href="#simulator" id="toc-simulator" class="nav-link" data-scroll-target="#simulator">Simulator</a></li>
-  <li><a href="#solving-poker-games" id="toc-solving-poker-games" class="nav-link" data-scroll-target="#solving-poker-games">Solving Poker Games</a></li>
-  <li><a href="#cfr" id="toc-cfr" class="nav-link" data-scroll-target="#cfr">CFR</a></li>
+  <li><a href="#leduc-poker-rules" id="toc-leduc-poker-rules" class="nav-link active" data-scroll-target="#leduc-poker-rules">Leduc Poker Rules</a>
+  <ul class="collapse">
+  <li><a href="#card-abstraction" id="toc-card-abstraction" class="nav-link" data-scroll-target="#card-abstraction">Card Abstraction</a></li>
+  </ul></li>
+  <li><a href="#solver" id="toc-solver" class="nav-link" data-scroll-target="#solver">Solver</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item">#2: Leduc Poker</li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_challenge.html">Challenge</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">#2: Leduc Poker | Challenge</h1>
 </div>
@@ -401,51 +404,60 @@ window.Quarto = {
 <section id="leduc-poker-rules" class="level2">
 <h2 class="anchored" data-anchor-id="leduc-poker-rules">Leduc Poker Rules</h2>
 <p>Leduc Poker is a simple toy poker game invented at the University of Alberta.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/leducmap.png" class="img-fluid figure-img"></p>
+<figcaption>Alberta’s nearby Edmonton Airport is in the city of Leduc</figcaption>
+</figure>
+</div>
 <p>Here is the setup:</p>
 <ul>
 <li><p>6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)</p></li>
 <li><p>Leduc Poker is played with 2 players. We’ll again use <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
 <li><p>Each player antes 1 chip</p></li>
 <li><p>Deal 1 card to each player</p></li>
-<li><p>Betting round 1:</p>
+<li><p>Betting round 1 (preflop):</p>
 <ul>
 <li>There is a fixed bet size of 2 chips</li>
-<li>There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
+<li>Rule in original version that we are <em>not</em> using: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
 </ul></li>
 <li><p>Deal a face up community card</p>
 <ul>
 <li>Players make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand</li>
 </ul></li>
-<li><p>Betting round 2:</p>
+<li><p>Betting round 2 (the flop):</p>
 <ul>
 <li>There is a fixed bet size of 4 chips</li>
-<li>There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
+<li>Rule in original version that we are <em>not</em> using: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
 </ul></li>
-<li><p>Notes:</p>
-<ul>
-<li>Player 1 acts first, rotate who is Player 1 each hand</li>
-<li>Players can win/lose a maximum of 13 chips per hand</li>
-</ul></li>
-<li><p>Infosets and payoffs</p></li>
 </ul>
-<p><img src="assets/kuhn.png" class="img-fluid"> - <span class="action">↑Up</span> (putting a chip into the pot)</p>
-<ul>
-<li><span class="action">↓Down</span> (not putting a chip into the pot)</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<p>Here is a game situation in which: - Both players anted 1 each - Pot = 2 - Preflop: Bet and call preflop of 2 each - Pot = 6 - Flop: Community card K revealed. Player 1 bets 4. Player 2 to act.</p>
+<p><img src="assets/leducgame.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="action">↑Up</span> and <span class="action">↓Down</span> in traditional poker terms
+Leduc Infoset
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p><span class="action">↑Up</span> actions indicate a <abbr title="To 'bet' is to add chips to the pot that others have to match (or fold). To 'raise' is to put in a larger amount than your opponent's bet, to force them to match your higher amount (or fold). In Kuhn Poker there are no raises because each player only has 1 chip to bet with.">Bet</abbr> or <abbr title="To 'call' is to match an opponent's bet.">Call</abbr>.</p></li>
-<li><p><span class="action">↓Down</span> actions indicate a <abbr title="To 'check' is to pass, which is usually only possible when no one has made a bet in this street.">Check</abbr> or <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">Fold</abbr>.</p></li>
-</ul>
+<p>What is Player 2’s infoset?</p>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>1[2,2][4]</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -454,211 +466,198 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example game
+Leduc Ties
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Players ante and cards are dealt.</p></li>
-<li><p><span class="player p1"></span> sees a <span class="gamenode">A</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
-<li><p><span class="player p2"></span> sees a <span class="gamenode">K</span> and plays <span class="action">↑Up</span> (1 more chip into pot).</p></li>
-<li><p>Both cards are revealed in a 2-chip showdown. <span class="player p1"></span> has an <span class="gamenode">A</span> and <span class="player p2"></span> has a <span class="gamenode">K</span>.</p></li>
-<li><p><span class="player p1"></span> has the better hand and wins +2 chips (+1 from the ante, +1 from <span class="player p2"></span>’s <span class="action">↑Up</span>).</p></li>
-</ul>
+<p>How often will you and your opponent be dealt the same card?</p>
 </div>
 </div>
-<p>The betting (and the game) can go in three ways:</p>
-<ol type="1">
-<li>One player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↓Down</span>. The player who played <span class="action">↓Down</span> <abbr title="To 'fold' is to surrender when facing a bet, losing all chips you have put in so far.">folds</abbr>. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is :</li>
-</ol>
-<ul>
-<li><span class="action">↑Up</span>, <span class="action">↓Down</span>, or</li>
-<li><span class="action">↓Down</span>, <span class="action">↑Up</span>, <span class="action">↓Down</span>.</li>
-</ul>
-<ol start="2" type="1">
-<li><p>Both players play <span class="action">↓Down</span>. They go to a <abbr title="In a 'showdown', all remaining players show their cards and the best hand wins. (In Kuhn Poker, the better hand is just the higher card.)">showdown</abbr> and the winner wins the one chip that the loser anted (and their own back).</p></li>
-<li><p>A player plays <span class="action">↑Up</span>, then the other player plays <span class="action">↑Up</span>. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:</p></li>
-</ol>
-<ul>
-<li><span class="action">↑Up</span>, <span class="action">↑Up</span> or - <span class="action">↓Down</span>, <span class="action">↑Up</span> , <span class="action">↑Up</span>.</li>
-</ul>
-<p>Here is a list of all possible betting sequences:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="player p1"></span></th>
-<th><span class="player p2"></span></th>
-<th><span class="player p1"></span></th>
-<th>Winner</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="action">↑Up</span></td>
-<td><span class="action">↓Down</span></td>
-<td></td>
-<td><span class="player p1"></span> (+1)</td>
-</tr>
-<tr class="even">
-<td><span class="action">↑Up</span></td>
-<td><span class="action">↑Up</span></td>
-<td></td>
-<td>Higher Card (+2)</td>
-</tr>
-<tr class="odd">
-<td><span class="action">↓Down</span></td>
-<td><span class="action">↓Down</span></td>
-<td></td>
-<td>Higher Card (+1)</td>
-</tr>
-<tr class="even">
-<td><span class="action">↓Down</span></td>
-<td><span class="action">↑Up</span></td>
-<td><span class="action">↓Down</span></td>
-<td><span class="player p2"></span> (+1)</td>
-</tr>
-<tr class="odd">
-<td><span class="action">↓Down</span></td>
-<td><span class="action">↑Up</span></td>
-<td><span class="action">↑Up</span></td>
-<td>Higher Card (+2)</td>
-</tr>
-</tbody>
-</table>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First we find the total combinations of cards:</p>
+<p><span class="math inline">\({6\choose2} = \frac{6!}{4!*2!} = \frac{6*5}{2} = 15\)</span></p>
+<p>Then we count that there is exactly <span class="math inline">\(1\)</span> way to make Q/Q, <span class="math inline">\(1\)</span> way to make K/K, and <span class="math inline">\(1\)</span> way to make A/A. Therefore the probability of having the same hand as your opponent is <span class="math inline">\(\frac{3}{15} = 0.2\)</span>.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Partner Exercise: Get started with Kuhn Poker
+Leduc Pairs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Get cards, chips, paper, pen</p></li>
-<li><p>Play 3 hands of Kuhn Poker and get used to how the game runs</p></li>
-<li><p>Use the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)</p></li>
-<li><p>Play more hands as you think helpful</p></li>
-<li><p>Once you have what you think is a full list of the deterministic states, you can stop and review the <a href="1kuhn_reading.html">optional reading</a></p></li>
-</ul>
+<p>How often will you hit a pair on the flop given that you see it?</p>
 </div>
 </div>
-</section>
-<section id="types-of-games" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-games">Types of Games</h2>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fill in the table below with games you know about. Thanks to Eliezer for getting us started.</p>
-</div>
-</div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 35%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Game/Opponent</th>
-<th>Fixed/Probabilistic Opponent</th>
-<th>Adversarial Opponent</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Imperfect Info, No Player Agency/Decisions</strong></td>
-<td><img src="assets/eliezer_snakes.jpg" class="img-fluid"></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Perfect Info, Player Actions Always Perfect Info</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Imperfect Info, Imperfect from Randomness</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Imperfect Info, Imperfect from Randomness AND Game States</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pre-Filled Table
+Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>You have the same card as your opponent <span class="math inline">\(20\%\)</span> of the time, in which case you cannot get a pair.</p>
+<p>In the other cases, there are <span class="math inline">\(4\)</span> cards remaining in the deck and <span class="math inline">\(1\)</span> of them matches yours, so you have a <span class="math inline">\(0.25\)</span> chance in this case.</p>
+<p>$( ) = 0.2<em>0 + 0.8</em>0.25 = 0.2 $</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Leduc Basic Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find an optimal strategy for Leduc Poker (a) with a maximum of 2 bet sizes per round and (b) with no maximum number of bets per round. Let players start with 50 chips in both cases.</p>
+</div>
+</div>
+<section id="kuhn-poker-100-cards" class="level2">
+<h2 class="anchored" data-anchor-id="kuhn-poker-100-cards">Kuhn Poker 100 Cards</h2>
+<p>Kuhn Poker with 100 cards plays the same as Kuhn Poker with 3 cards, but the cards are numbered from 1 to 100 (or 0 to 99).</p>
+<p>Kuhn Poker with 3 cards has 6 infosets per player, 12 total. These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets: - P1 acting first - P2 facing an Up action - P2 facing a Down action - P1 after a Down-Up sequence</p>
+<p>:::{.callout-note appearance=“minimal”} ## Kuhn Basic Challenge</p>
+<p>Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker.</p>
+</section>
+</div>
+</div>
+<section id="card-abstraction" class="level3">
+<h3 class="anchored" data-anchor-id="card-abstraction">Card Abstraction</h3>
+<p>100 card Kuhn Poker is a good testbed for <strong>card abstraction</strong>. Card abstraction is a method for shrinking a large game to a more manageable size.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kuhn Bonus Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value. Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?</p>
+</div>
+</div>
+</section>
+</section>
+<section id="solver" class="level2">
+<h2 class="anchored" data-anchor-id="solver">Solver</h2>
+<ul>
+<li>infosets (example in solver) (P1)[0, None][Down, Up]: {Down: 1.0, Up: 0.0} (P1)[0, None][] : {Down: 0.8150489886962787, Up: 0.1849510113037213} (P1)[1, None][Down, Up]: {Down: 0.36837888738186775, Up: 0.6316211126181323} (P1)[1, None][] : {Down: 0.8131365930381713, Up: 0.18686340696182863} (P1)[2, None][Down, Up]: {Down: 0.0, Up: 1.0} (P1)[2, None][] : {Down: 0.37332197949312035, Up: 0.6266780205068797} (P2)[None, 0][Down] : {Down: 0.7737705468066861, Up: 0.22622945319331383} (P2)[None, 0][Up] : {Down: 1.0, Up: 0.0} (P2)[None, 1][Down] : {Down: 0.9714280084961201, Up: 0.028571991503879877} (P2)[None, 1][Up] : {Down: 0.35544435642226935, Up: 0.6445556435777307} (P2)[None, 2][Down] : {Down: 0.0, Up: 1.0} (P2)[None, 2][Up] : {Down: 0.0, Up: 1.0}</li>
+</ul>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 38%">
-<col style="width: 35%">
-<col style="width: 25%">
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 59%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Game/Opponent</th>
-<th>Fixed/Probabilistic Opponent</th>
-<th>Adversarial Opponent</th>
+<th>Player</th>
+<th>Cards</th>
+<th>Actions</th>
+<th>Strategy</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Imperfect Info, No Player Agency/Decisions</td>
-<td>Candy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine</td>
-<td></td>
+<td>P1</td>
+<td>[0, None]</td>
+<td>[Down, Up]</td>
+<td>{Down: 1.0, Up: 0.0}</td>
 </tr>
 <tr class="even">
-<td>Perfect Info, Player Actions Always Perfect Info</td>
-<td>Puzzles</td>
-<td>Tictactoe, Checkers, Chess, Arimaa, Go</td>
+<td>P1</td>
+<td>[0, None]</td>
+<td>[]</td>
+<td>{Down: 0.8150489886962787, Up: 0.1849510113037213}</td>
 </tr>
 <tr class="odd">
-<td>Imperfect Info, Imperfect from Randomness</td>
-<td>Blackjack</td>
-<td>Backgammon</td>
+<td>P1</td>
+<td>[1, None]</td>
+<td>[Down, Up]</td>
+<td>{Down: 0.36837888738186775, Up: 0.6316211126181323}</td>
 </tr>
 <tr class="even">
-<td>Imperfect Info, Imperfect from Randomness AND Game States</td>
-<td>Partial Info Multi-armed Bandit</td>
-<td>Poker, Rock Paper Scissors, Liar’s Dice, Figgie</td>
+<td>P1</td>
+<td>[1, None]</td>
+<td>[]</td>
+<td>{Down: 0.8131365930381713, Up: 0.18686340696182863}</td>
+</tr>
+<tr class="odd">
+<td>P1</td>
+<td>[2, None]</td>
+<td>[Down, Up]</td>
+<td>{Down: 0.0, Up: 1.0}</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>[2, None]</td>
+<td>[]</td>
+<td>{Down: 0.37332197949312035, Up: 0.6266780205068797}</td>
+</tr>
+<tr class="odd">
+<td>P2</td>
+<td>[None, 0]</td>
+<td>[Down]</td>
+<td>{Down: 0.7737705468066861, Up: 0.22622945319331383}</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>[None, 0]</td>
+<td>[Up]</td>
+<td>{Down: 1.0, Up: 0.0}</td>
+</tr>
+<tr class="odd">
+<td>P2</td>
+<td>[None, 1]</td>
+<td>[Down]</td>
+<td>{Down: 0.9714280084961201, Up: 0.028571991503879877}</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>[None, 1]</td>
+<td>[Up]</td>
+<td>{Down: 0.35544435642226935, Up: 0.6445556435777307}</td>
+</tr>
+<tr class="odd">
+<td>P2</td>
+<td>[None, 2]</td>
+<td>[Down]</td>
+<td>{Down: 0.0, Up: 1.0}</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>[None, 2]</td>
+<td>[Up]</td>
+<td>{Down: 0.0, Up: 1.0}</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<p>What about solitaire? With Blackjack? What about a lottery? Mahjong? Tennis value of states in RL</p>
-<p>Pure strategies in perfect info games vs.&nbsp;mixed in imperfect info</p>
-<p>Deterministic Nature: Because all players can see the entire game state and know all possible moves, strategies can be deterministic. Players can calculate and choose the optimal move based on this complete information. Pure Strategies: A pure strategy is a complete plan of action for every possible situation in a game. In perfect information games, players can follow a pure strategy because they know exactly what will happen as a result of each possible move.</p>
-<p>Uncertainty and Hidden Information: Because players cannot see the entire game state, they must account for uncertainty and the hidden information of their opponents. This makes the game more about probabilities and expectations rather than certainties. Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.</p>
-<p>Strategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.</p>
-<p>(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)</p>
+<p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -669,222 +668,53 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What makes poker and other games in the bottom right of the table interesting?</p>
-</div>
-</div>
-</section>
-<section id="simulator" class="level2">
-<h2 class="anchored" data-anchor-id="simulator">Simulator</h2>
-<p>Random, reward avg, etc.</p>
-<p>Describe the exploration vs.&nbsp;exploitation dilemma. Introduce basic strategies: epsilon-greedy, UCB (Upper Confidence Bound), and Thompson Sampling.</p>
-<p>Record the results and display them in real-time (either through the program or manually on a board). Strategy Discussion:</p>
-<p>After a few rounds, pause and discuss the strategies teams are using. Introduce the different algorithms and how they would approach the problem.</p>
-<p>Algorithm Implementation:</p>
-<p>Allow teams to adopt one of the introduced algorithms for the next rounds. Compare the performance of different algorithms in terms of accumulated rewards.</p>
-<div id="bandit-container">
-<table id="bandit-table">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>What is the regret for each action?</p>
+<table class="caption-top table">
 <thead>
-<tr>
-<th>
-Arm
-</th>
-<th>
-Average Reward
-</th>
-<th>
-Pulls
-</th>
-<th>
-Actions
-</th>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
 </tr>
 </thead>
-<tbody id="arms-container">
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<div id="stats-container">
-
-</div>
-<p><button id="reset-button">Reset</button></p>
-</div>
-<!-- <div id="debug-output"></div> -->
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  // const debug = (message) => {
-  //   document.getElementById('debug-output').innerHTML += message + '<br>';
-  // };
-
-  // debug('Script started');
-
-  const armsContainer = document.getElementById('arms-container');
-  const statsContainer = document.getElementById('stats-container');
-  const resetButton = document.getElementById('reset-button');
-
-  function gaussianRandom(mean = 0, stdev = 1) {
-    let u = 0, v = 0;
-    while(u === 0) u = Math.random();
-    while(v === 0) v = Math.random();
-    let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
-    return num * stdev + mean;
-  }
-
-  function createBandit(numArms) {
-    return {
-      arms: Array.from({length: numArms}, (_, i) => ({
-        id: i + 1,
-        q: gaussianRandom(0, 1),
-        pulls: 0,
-        totalReward: 0,
-        averageReward: 0
-      })),
-      totalPulls: 0,
-      totalReward: 0
-    };
-  }
-
-  let bandit = createBandit(10);
-
-  function pullArm(armId, times = 1) {
-    const arm = bandit.arms[armId - 1];
-    let totalReward = 0;
-    const actualPulls = Math.min(times, 1000 - bandit.totalPulls);
-    for (let i = 0; i < actualPulls; i++) {
-      const reward = gaussianRandom(arm.q, 1);
-      arm.pulls++;
-      arm.totalReward += reward;
-      totalReward += reward;
-      bandit.totalPulls++;
-      bandit.totalReward += reward;
-    }
-    arm.averageReward = arm.totalReward / arm.pulls;
-    return totalReward;
-  }
-
-  function updateStats() {
-    statsContainer.innerHTML = `
-      <p>Total Pulls: ${bandit.totalPulls}</p>
-      <p>Total Reward: ${bandit.totalReward.toFixed(2)}</p>
-      <p>Average Reward per Pull: ${(bandit.totalReward / bandit.totalPulls || 0).toFixed(2)}</p>
-    `;
-  }
-
-  function createArmRows() {
-    armsContainer.innerHTML = '';
-    bandit.arms.forEach(arm => {
-      const row = document.createElement('tr');
-      
-      const armIdCell = document.createElement('td');
-      armIdCell.textContent = `Arm ${arm.id}`;
-      
-      const avgRewardCell = document.createElement('td');
-      avgRewardCell.id = `arm-avg-${arm.id}`;
-      avgRewardCell.textContent = arm.averageReward.toFixed(2);
-      
-      const pullsCell = document.createElement('td');
-      pullsCell.id = `arm-pulls-${arm.id}`;
-      pullsCell.textContent = arm.pulls;
-      
-      const actionsCell = document.createElement('td');
-      ['1', '10', '100', 'Max'].forEach(pullAmount => {
-        const button = document.createElement('button');
-        button.textContent = pullAmount;
-        button.onclick = () => {
-          const pulls = pullAmount === 'Max' ? 1000 : parseInt(pullAmount);
-          const reward = pullArm(arm.id, pulls);
-          updateStats();
-          createArmRows();
-          // debug(`Pulled arm ${arm.id} ${pulls} times, total reward: ${reward.toFixed(2)}`);
-        };
-        actionsCell.appendChild(button);
-      });
-      
-      row.appendChild(armIdCell);
-      row.appendChild(avgRewardCell);
-      row.appendChild(pullsCell);
-      row.appendChild(actionsCell);
-      
-      armsContainer.appendChild(row);
-    });
-    // debug('Arm rows updated');
-  }
-
-  function resetBandit() {
-    bandit = createBandit(10);
-    updateStats();
-    createArmRows();
-    // debug('Bandit reset');
-  }
-
-  resetButton.onclick = resetBandit;
-
-  createArmRows();
-  updateStats();
-  // debug('Initial setup complete');
-});
-</script>
-<style>
-#bandit-container {
-  font-family: Arial, sans-serif;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-#bandit-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-#bandit-table th, #bandit-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#bandit-table th {
-  background-color: #f2f2f2;
-}
-
-#bandit-table button {
-  margin-right: 5px;
-}
-
-#stats-container {
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-#reset-button {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  font-size: 18px;
-}
-
-/* #debug-output {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-} */
-</style>
-</section>
+<ul>
+<li>regret (bandits)</li>
+<li>EV</li>
+<li>tree</li>
+</ul>
 <section id="solving-poker-games" class="level2">
 <h2 class="anchored" data-anchor-id="solving-poker-games">Solving Poker Games</h2>
-<ul>
-<li><p>Kuhn Normal Form</p></li>
-<li><p>Kuhn Game Tree</p></li>
-</ul>
+<p>Nash equilibrium Prebuilt solver options Infosets</p>
+<section id="gradient-descent" class="level3">
+<h3 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h3>
+<p>https://www.cs.cmu.edu/~gilpin/papers/egt.optimizationonline08.pdf https://www.columbia.edu/~ck2945/papers/foms_efg_math_prog.pdf</p>
 </section>
-<section id="cfr" class="level2">
-<h2 class="anchored" data-anchor-id="cfr">CFR</h2>
+<section id="cfr" class="level3">
+<h3 class="anchored" data-anchor-id="cfr">CFR</h3>
+<p>https://arxiv.org/pdf/1811.00164 - general algorithm - store: strategy, regret - regret matching - average strategy at end - CFR+, Linear CFR - sampling (external, sampling, chance, etc. )</p>
 <p><a href="https://docs.google.com/presentation/d/11S85i83OVb8SbPRAs9i3ygyXrv7e4SsUXxBloc04iHM/edit">Slides, what to include?</a></p>
 
 
 
+</section>
+</section>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

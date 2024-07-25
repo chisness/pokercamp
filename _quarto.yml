@@ -71,7 +71,7 @@ website:
                 # - text: "Reading 2"
                   # href: "aipcs24/3leduc_reading2.qmd"
                 - text: "Challenge"
-                  # href: "aipcs24/2leduc_challenge.qmd"
+                  href: "aipcs24/2leduc_challenge.qmd"
                 - text: "Challenge Review"
                   # href: "aipcs24/2leduc_challenge_review.qmd"
             - section: "#3: Rock Paper Scissors"
