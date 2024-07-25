@@ -583,13 +583,17 @@ Solution
 <section id="cfr-algorithm-parts" class="level4">
 <h4 class="anchored" data-anchor-id="cfr-algorithm-parts">CFR Algorithm Parts</h4>
 <ul>
-<li>general algorithm
+<li><p>Tabular storing strategies and regrets at each infoset</p></li>
+<li><p>Regrets based on action values compared to node EV, which is based on counterfactual values</p></li>
+<li><p>Regret minimization, usually regret matching, to get new strategies</p></li>
+<li><p>Average strategy converges to Nash equilibrium</p></li>
+<li><p>CFR+ variation such that regrets can’t be &lt;0</p></li>
+<li><p>Linear CFR such that regrets are weighted by their recency</p></li>
+<li><p>Sampling methods</p>
 <ul>
-<li>store: strategy, regret</li>
-<li>regret matching</li>
-<li>average strategy at end</li>
-<li>CFR+, Linear CFR</li>
-<li>sampling (external, sampling, chance, etc. )</li>
+<li><p>External: Sample chance and opponent nodes</p></li>
+<li><p>Chance: Sample chance only</p></li>
+<li><p>Outcome: Sample outcomes</p></li>
 </ul></li>
 </ul>
 

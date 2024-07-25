@@ -92,12 +92,26 @@ What is a counterfactual?
 **Counterfactual event:** If I had brought an umbrella, I wouldn’t have gotten wet
 
 #### CFR Algorithm Parts 
-- general algorithm
-  - store: strategy, regret
-  - regret matching
-  - average strategy at end
-  - CFR+, Linear CFR
-  - sampling (external, sampling, chance, etc. )
+
+- Tabular storing strategies and regrets at each infoset
+
+- Regrets based on action values compared to node EV, which is based on counterfactual values
+
+- Regret minimization, usually regret matching, to get new strategies
+
+- Average strategy converges to Nash equilibrium 
+
+- CFR+ variation such that regrets can't be <0
+
+- Linear CFR such that regrets are weighted by their recency
+
+- Sampling methods
+
+  - External: Sample chance and opponent nodes
+
+  - Chance: Sample chance only
+
+  - Outcome: Sample outcomes
 
 
 
