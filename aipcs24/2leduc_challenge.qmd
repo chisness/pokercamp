@@ -10,7 +10,7 @@ format:
 ## Leduc Poker
 Leduc Poker is a simple toy poker game invented at the University of Alberta. 
 
-[![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png)](https://maps.app.goo.gl/REZLBC6odxpFhjmQ8){width=50%}
+[![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png){width=50%}](https://maps.app.goo.gl/REZLBC6odxpFhjmQ8)
 
 Here is the setup: 
 
