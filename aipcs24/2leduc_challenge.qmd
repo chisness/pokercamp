@@ -187,7 +187,7 @@ We have built a basic solver that can be run as follows from the solvers/default
 
 To run 1000 iterations: 
 
-`python3 solver.py --iter [iterations]` 
+`python3 solver.py --iter 1000` 
 
 Upon completing a solve, each infoset the solver has seen and the final strategy for that infoset are displayed. 
 
