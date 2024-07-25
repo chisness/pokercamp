@@ -44,20 +44,39 @@ Here is a game situation in which:
 ![](assets/leducgame.png)
 
 :::{.callout-note  appearance="minimal"}
-## Leduc Infoset
+## Leduc Strategy
 
-What is Player 2's infoset? 
+What should Player 2 do here?
 :::
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-(P2)[_, K, K][Bet 2, Call 2][Bet 4]
+Raise! Player 2 has the best possible hand because they have a pair.
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Leduc Infoset
+
+What is Player 2's infoset? 
+
+What will Player 1's infoset be after Player 2 acts?
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+Player 2 infoset now: (P2)[_, K, K][Bet 2, Call 2][Bet 4]
 
 In code/shorthand, this could look like: 
 
 (P2)[None, K, K][2, 2][4]
 
 This shows the player who is acting, the cards known to them, and the previous actions.
+
+Player 1 infoset after Player 2 acts: (P1)[P1 card, _, K][Bet 2, Call 2][Bet 4, Raise to 8]
+
+In code/shorthand, this could look like: 
+
+(P1)[P1 card, None, K][2, 2][4, 8]
 :::
 
 :::{.callout-note  appearance="minimal"}
