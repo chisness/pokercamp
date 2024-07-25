@@ -10,7 +10,7 @@ format:
 ## Leduc Poker
 Leduc Poker is a simple toy poker game invented at the University of Alberta. 
 
-[![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png){width=50%}](https://maps.app.goo.gl/REZLBC6odxpFhjmQ8)
+[![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png)](https://maps.app.goo.gl/REZLBC6odxpFhjmQ8)
 
 Here is the setup: 
 
@@ -24,16 +24,20 @@ Here is the setup:
 
 - Betting round 1 (preflop): 
   - There is a fixed bet size of 2 chips
-  - Rule in original version: There is a maximum of 2 bets per round (i.e. a bet and a raise)
 
 - Deal a face up community card
   - Players make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand
 
 - Betting round 2 (the flop): 
   - There is a fixed bet size of 4 chips
-  - Rule in original version: There is a maximum of 2 bets per round (i.e. a bet and a raise)
 
-Here is a game situation in which: 
+:::{.callout-important collapse="true" appearance="minimal"}
+## Maximum bets per round rule in original version
+The original version of Leduc Poker has a rule where the maximum bets per round is 2 (i.e. a bet and a raise), but we are not using that rule. 
+:::
+
+### Sample Leduc Hand and Leduc Math
+Here is a Leduc game situation in which: 
 
 - Both players anted 1 each
   - Pot = 2
@@ -137,8 +141,6 @@ These scale linearly and so with 100 cards there are 400 infosets since each car
 
 ## Challenges
 
-### Kuhn Poker
-
 :::{.callout-tip  appearance="minimal"}
 ## Basic Challenges
 
@@ -158,6 +160,11 @@ In both cases, your agent will play in a tournament against:
 Find an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1. 
 :::
 
+:::{.callout-tip  appearance="minimal"}
+## Leduc Bonus Game Value Challenge
+Find an equilibrium strategy for Leduc Poker and compare the game value to 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1. 
+:::
+
 #### Kuhn Card Abstraction 
 
 100 card Kuhn Poker is a good testbed for **card abstraction**. Card abstraction is a method for shrinking a large game to a more manageable size. Bet abstraction is another (but since we are only using fixed bet sizes, this is currently not applicable).  
@@ -172,16 +179,21 @@ That is, buckets from cards 0-9, 10-19, ..., 90-99. This means for example that 
 Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?
 :::
 
-:::{.callout-tip  appearance="minimal"}
-## Leduc Bonus Game Value Challenge
-Find an equilibrium strategy for Leduc Poker and compare the game value to 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1. 
-:::
+## Poker Camp Solver
 
-## Solver
+We have built a basic solver that can be run as follows from the solvers/default directory: 
 
-Prebuilt solver options
+`python3 solver.py --iter [iterations]` 
 
-- infosets (example in solver)
+To run 1000 iterations: 
+
+`python3 solver.py --iter [iterations]` 
+
+Upon completing a solve, each infoset the solver has seen and the final strategy for that infoset are displayed. 
+
+For example in 3 card Kuhn Poker, we get something like this: 
+
+```
 (P1)[0, None][Down, Up]: {Down: 1.0, Up: 0.0}
 (P1)[0, None][]       : {Down: 0.8150489886962787, Up: 0.1849510113037213}
 (P1)[1, None][Down, Up]: {Down: 0.36837888738186775, Up: 0.6316211126181323}
@@ -194,8 +206,11 @@ Prebuilt solver options
 (P2)[None, 1][Up]     : {Down: 0.35544435642226935, Up: 0.6445556435777307}
 (P2)[None, 2][Down]   : {Down: 0.0, Up: 1.0}
 (P2)[None, 2][Up]     : {Down: 0.0, Up: 1.0}
+```
 
-| Player | Cards    | Actions       | Strategy                                        |
+And in a table: 
+
+| Player | Cards    | Actions       | Infoset Strategy                                        |
 |--------|----------|---------------|-------------------------------------------------|
 | P1     | [0, None] | [Down, Up]    | {Down: 1.0, Up: 0.0}                            |
 | P1     | [0, None] | []            | {Down: 0.8150489886962787, Up: 0.1849510113037213} |
@@ -210,19 +225,69 @@ Prebuilt solver options
 | P2     | [None, 2] | [Down]        | {Down: 0.0, Up: 1.0}                            |
 | P2     | [None, 2] | [Up]          | {Down: 0.0, Up: 1.0}                            |
 
+### Handout Solver Options
 
-For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. 
+`def handle_new_iteration(self, iteration_num):`
+
+- Called when iteration is about to begin.
+    
+`def handle_iteration_over(self, iteration_num):`
+
+- Called when iteration is over.
+    
+`def get_root(self, iteration_num):`
+
+- Returns the RoundState to start a new iteration at.
+
+`def determine_infoset(self, info):`
+
+- Called to ask for the canonical name of an infoset.
+        
+- You might use this to coalesce multiple gamehistories into the same infoset.
+    
+`def sample_actions(self, infoset, legal_actions):`
+
+- legal_actions is a list of types; this function should give one or more instances of each type (it might be 'or more' if you need to try different bet sizes...)
+
+`def get_sampling_policy(self, infoset):`
+
+- Called to ask for the sampling policy at this infoset.
+        
+- You can let this vary by iteration #, if you like.
+
+- Currently supported: "expand_all", "sample"
+
+`def handle_new_samples(self, infoset, sampling_policy, samples, use_ev):`
+
+- Called on each new set of samples produced for a node.
+        
+- You should use this opportunity to update your strategy probabilites (or whatever stored values they are derived from, like cumulative regrets)
+    
+`def get_training_strategy_probabilities(self, infoset, legal_actions):`
+
+- Called to ask for the current probabilities that should be used in a training iteration.
+
+    
+`def get_final_strategy_probabilities(self, infoset, legal_actions):`
+
+- Called to ask for the final probabilities to report.
+        
+- This might be different from get_training_probabilites if you wanted to average over multiple recent iterations.
 
 ## Solving Poker Games
-Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define, but means that we are finding a fixed strategy that doesn't adapt to opponents, which we think is less exciting and also less profitable in many cases. 
+Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn't adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents. 
 
 Small poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see [here](https://aipokertutorial.com/toy-poker-games/#solving-with-linear-programming) for more details). 
 
-As we prepare to solve larger games, we look at iterative algorithms.
+As we prepare to solve larger games, we start to look at iterative algorithms.
 
 The core feature of the iterative algorithms is self-play by traversing the game tree over all **infosets** and tracking the strategies and regrets at each.
 
-Regret is a measure of how much each strategy at an infoset is preferred. 
+### Regret and EV
+
+Regret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies. 
+
+For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. 
 
 :::{.callout-note  appearance="minimal"}
 ## Regret Exercise
@@ -286,19 +351,18 @@ At a node in a poker game, the player prefers actions with higher regrets by thi
 ### Counterfactual Regret Minimization  
 The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. 
 
+The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR. 
+
 What is a counterfactual? 
 
 **Actual event:** I didn’t bring an umbrella, and I got wet in the rain
 
 **Counterfactual event:** If I had brought an umbrella, I wouldn’t have gotten wet
 
-
+#### CFR Algorithm Parts 
 - general algorithm
   - store: strategy, regret
   - regret matching
   - average strategy at end
   - CFR+, Linear CFR
   - sampling (external, sampling, chance, etc. )
-
-[Slides, what to include?](https://docs.google.com/presentation/d/11S85i83OVb8SbPRAs9i3ygyXrv7e4SsUXxBloc04iHM/edit)
-
