@@ -371,11 +371,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#leduc-poker-rules" id="toc-leduc-poker-rules" class="nav-link active" data-scroll-target="#leduc-poker-rules">Leduc Poker Rules</a>
+  <li><a href="#leduc-poker-rules" id="toc-leduc-poker-rules" class="nav-link active" data-scroll-target="#leduc-poker-rules">Leduc Poker Rules</a></li>
+  <li><a href="#kuhn-poker-100-cards" id="toc-kuhn-poker-100-cards" class="nav-link" data-scroll-target="#kuhn-poker-100-cards">Kuhn Poker 100 Cards</a>
   <ul class="collapse">
   <li><a href="#card-abstraction" id="toc-card-abstraction" class="nav-link" data-scroll-target="#card-abstraction">Card Abstraction</a></li>
   </ul></li>
   <li><a href="#solver" id="toc-solver" class="nav-link" data-scroll-target="#solver">Solver</a></li>
+  <li><a href="#solving-poker-games" id="toc-solving-poker-games" class="nav-link" data-scroll-target="#solving-poker-games">Solving Poker Games</a>
+  <ul class="collapse">
+  <li><a href="#counterfactual-regret-minimization" id="toc-counterfactual-regret-minimization" class="nav-link" data-scroll-target="#counterfactual-regret-minimization">Counterfactual Regret Minimization</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -406,20 +411,20 @@ window.Quarto = {
 <p>Leduc Poker is a simple toy poker game invented at the University of Alberta.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/leducmap.png" class="img-fluid figure-img"></p>
+<p><a href="https://maps.app.goo.gl/REZLBC6odxpFhjmQ8"><img src="assets/leducmap.png" class="img-fluid figure-img" alt="Alberta’s nearby Edmonton Airport is in the city of Leduc"></a></p>
 <figcaption>Alberta’s nearby Edmonton Airport is in the city of Leduc</figcaption>
 </figure>
 </div>
 <p>Here is the setup:</p>
 <ul>
 <li><p>6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)</p></li>
-<li><p>Leduc Poker is played with 2 players. We’ll again use <span class="player p1"></span> and <span class="player p2"></span>.</p></li>
+<li><p>Leduc Poker is played with 2 players</p></li>
 <li><p>Each player antes 1 chip</p></li>
 <li><p>Deal 1 card to each player</p></li>
 <li><p>Betting round 1 (preflop):</p>
 <ul>
 <li>There is a fixed bet size of 2 chips</li>
-<li>Rule in original version that we are <em>not</em> using: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
+<li>Rule in original version: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
 </ul></li>
 <li><p>Deal a face up community card</p>
 <ul>
@@ -428,10 +433,21 @@ window.Quarto = {
 <li><p>Betting round 2 (the flop):</p>
 <ul>
 <li>There is a fixed bet size of 4 chips</li>
-<li>Rule in original version that we are <em>not</em> using: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
+<li>Rule in original version: There is a maximum of 2 bets per round (i.e.&nbsp;a bet and a raise)</li>
 </ul></li>
 </ul>
-<p>Here is a game situation in which: - Both players anted 1 each - Pot = 2 - Preflop: Bet and call preflop of 2 each - Pot = 6 - Flop: Community card K revealed. Player 1 bets 4. Player 2 to act.</p>
+<p>Here is a game situation in which:</p>
+<ul>
+<li>Both players anted 1 each
+<ul>
+<li>Pot = 2</li>
+</ul></li>
+<li>Preflop: P1 bets 2 and P2 calls
+<ul>
+<li>Pot = 6</li>
+</ul></li>
+<li>Flop: Community card K revealed. Player 1 bets 4. Player 2 to act.</li>
+</ul>
 <p><img src="assets/leducgame.png" class="img-fluid"></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -444,8 +460,10 @@ Leduc Infoset
 </div>
 <div class="callout-body-container callout-body">
 <p>What is Player 2’s infoset?</p>
+</div>
+</div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -454,9 +472,12 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1[2,2][4]</p>
+<p>(P2)[_, K, K][Bet 2, Call 2][Bet 4]</p>
+<p>In code/shorthand, this could look like:</p>
+<p>(P2)[None, K, K][2, 2][4]</p>
+<p>This shows the player who is acting, the cards known to them, and the previous actions.</p>
 </div>
 </div>
 </div>
@@ -474,7 +495,7 @@ Leduc Ties
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -483,7 +504,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First we find the total combinations of cards:</p>
 <p><span class="math inline">\({6\choose2} = \frac{6!}{4!*2!} = \frac{6*5}{2} = 15\)</span></p>
@@ -505,7 +526,7 @@ Leduc Pairs
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -514,15 +535,18 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You have the same card as your opponent <span class="math inline">\(20\%\)</span> of the time, in which case you cannot get a pair.</p>
-<p>In the other cases, there are <span class="math inline">\(4\)</span> cards remaining in the deck and <span class="math inline">\(1\)</span> of them matches yours, so you have a <span class="math inline">\(0.25\)</span> chance in this case.</p>
-<p>$( ) = 0.2<em>0 + 0.8</em>0.25 = 0.2 $</p>
+<p>There are <span class="math inline">\(5\)</span> unknown cards to you and <span class="math inline">\(1\)</span> of them matches yours for a pair, so the <span class="math inline">\(\Pr(\text{Pair} \mid \text{See Flop}) = \frac{1}{5} = 0.2\)</span></p>
+<!-- You have the same card as your opponent $20\%$ of the time, in which case you cannot get a pair. 
+
+In the other cases, there are $4$ cards remaining in the deck and $1$ of them matches yours, so you have a $0.25$ chance in this case. 
+
+$\Pr(\text{Pair} \mid \text{See Flop}) = 0.2*0 + 0.8*0.25 = 0.2$ -->
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -535,19 +559,63 @@ Leduc Basic Challenge
 <p>Find an optimal strategy for Leduc Poker (a) with a maximum of 2 bet sizes per round and (b) with no maximum number of bets per round. Let players start with 50 chips in both cases.</p>
 </div>
 </div>
+</section>
 <section id="kuhn-poker-100-cards" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker-100-cards">Kuhn Poker 100 Cards</h2>
 <p>Kuhn Poker with 100 cards plays the same as Kuhn Poker with 3 cards, but the cards are numbered from 1 to 100 (or 0 to 99).</p>
-<p>Kuhn Poker with 3 cards has 6 infosets per player, 12 total. These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets: - P1 acting first - P2 facing an Up action - P2 facing a Down action - P1 after a Down-Up sequence</p>
-<p>:::{.callout-note appearance=“minimal”} ## Kuhn Basic Challenge</p>
-<p>Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker.</p>
-</section>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+100 Card Kuhn Infosets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Kuhn Poker with 3 cards has 6 infosets per player, 12 total.</p>
+<p>How many infosets are in 100 card Kuhn Poker?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:</p>
+<ul>
+<li>P1 acting first</li>
+<li>P2 facing an Up action</li>
+<li>P2 facing a Down action</li>
+<li>P1 after a Down-Up sequence</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kuhn Basic Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1.</p>
 </div>
 </div>
 <section id="card-abstraction" class="level3">
 <h3 class="anchored" data-anchor-id="card-abstraction">Card Abstraction</h3>
-<p>100 card Kuhn Poker is a good testbed for <strong>card abstraction</strong>. Card abstraction is a method for shrinking a large game to a more manageable size.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<p>100 card Kuhn Poker is a good testbed for <strong>card abstraction</strong>. Card abstraction is a method for shrinking a large game to a more manageable size. Bet abstraction is another (but since we are only using fixed bet sizes, this is currently not applicable).</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -557,13 +625,16 @@ Kuhn Bonus Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value. Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?</p>
+<p>Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value.</p>
+<p>That is, buckets from cards 0-9, 10-19, …, 90-99. This means for example that when you get dealt a card from 0-9 you cannot distinguish between these states when acting. (When you see payoffs they are based on the actual cards.)</p>
+<p>Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?</p>
 </div>
 </div>
 </section>
 </section>
 <section id="solver" class="level2">
 <h2 class="anchored" data-anchor-id="solver">Solver</h2>
+<p>Prebuilt solver options</p>
 <ul>
 <li>infosets (example in solver) (P1)[0, None][Down, Up]: {Down: 1.0, Up: 0.0} (P1)[0, None][] : {Down: 0.8150489886962787, Up: 0.1849510113037213} (P1)[1, None][Down, Up]: {Down: 0.36837888738186775, Up: 0.6316211126181323} (P1)[1, None][] : {Down: 0.8131365930381713, Up: 0.18686340696182863} (P1)[2, None][Down, Up]: {Down: 0.0, Up: 1.0} (P1)[2, None][] : {Down: 0.37332197949312035, Up: 0.6266780205068797} (P2)[None, 0][Down] : {Down: 0.7737705468066861, Up: 0.22622945319331383} (P2)[None, 0][Up] : {Down: 1.0, Up: 0.0} (P2)[None, 1][Down] : {Down: 0.9714280084961201, Up: 0.028571991503879877} (P2)[None, 1][Up] : {Down: 0.35544435642226935, Up: 0.6445556435777307} (P2)[None, 2][Down] : {Down: 0.0, Up: 1.0} (P2)[None, 2][Up] : {Down: 0.0, Up: 1.0}</li>
 </ul>
@@ -658,13 +729,21 @@ Kuhn Bonus Challenge
 </tbody>
 </table>
 <p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action.</p>
+</section>
+<section id="solving-poker-games" class="level2">
+<h2 class="anchored" data-anchor-id="solving-poker-games">Solving Poker Games</h2>
+<p>Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define, but means that we are finding a fixed strategy that doesn’t adapt to opponents, which we think is less exciting and also less profitable in many cases.</p>
+<p>Small poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see <a href="https://aipokertutorial.com/toy-poker-games/#solving-with-linear-programming">here</a> for more details).</p>
+<p>As we prepare to solve larger games, we look at iterative algorithms.</p>
+<p>The core feature of the iterative algorithms is self-play by traversing the game tree over all <strong>infosets</strong> and tracking the strategies and regrets at each.</p>
+<p>Regret is a measure of how much each strategy at an infoset is preferred.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+Regret Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -692,29 +771,152 @@ Exercise
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>If taking a uniform strategy at this node (i.e.&nbsp;<span class="math inline">\(\frac{1}{3}\)</span> for each action), then what is the expected value of the node?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Poker Regret Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>In poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Value</th>
+<th>Poker Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>At a node in a poker game, the player prefers actions with higher regrets by this definition.</p>
+</div>
+</div>
+</div>
+<section id="counterfactual-regret-minimization" class="level3">
+<h3 class="anchored" data-anchor-id="counterfactual-regret-minimization">Counterfactual Regret Minimization</h3>
+<p>The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.</p>
+<p>What is a counterfactual?</p>
+<p><strong>Actual event:</strong> I didn’t bring an umbrella, and I got wet in the rain</p>
+<p><strong>Counterfactual event:</strong> If I had brought an umbrella, I wouldn’t have gotten wet</p>
 <ul>
-<li>regret (bandits)</li>
-<li>EV</li>
-<li>tree</li>
+<li>general algorithm
+<ul>
+<li>store: strategy, regret</li>
+<li>regret matching</li>
+<li>average strategy at end</li>
+<li>CFR+, Linear CFR</li>
+<li>sampling (external, sampling, chance, etc. )</li>
+</ul></li>
 </ul>
-<section id="solving-poker-games" class="level2">
-<h2 class="anchored" data-anchor-id="solving-poker-games">Solving Poker Games</h2>
-<p>Nash equilibrium Prebuilt solver options Infosets</p>
-<section id="gradient-descent" class="level3">
-<h3 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h3>
-<p>https://www.cs.cmu.edu/~gilpin/papers/egt.optimizationonline08.pdf https://www.columbia.edu/~ck2945/papers/foms_efg_math_prog.pdf</p>
-</section>
-<section id="cfr" class="level3">
-<h3 class="anchored" data-anchor-id="cfr">CFR</h3>
-<p>https://arxiv.org/pdf/1811.00164 - general algorithm - store: strategy, regret - regret matching - average strategy at end - CFR+, Linear CFR - sampling (external, sampling, chance, etc. )</p>
 <p><a href="https://docs.google.com/presentation/d/11S85i83OVb8SbPRAs9i3ygyXrv7e4SsUXxBloc04iHM/edit">Slides, what to include?</a></p>
 
 
 
 </section>
-</section>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->

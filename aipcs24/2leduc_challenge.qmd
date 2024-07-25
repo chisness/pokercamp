@@ -10,13 +10,13 @@ format:
 ## Leduc Poker Rules
 Leduc Poker is a simple toy poker game invented at the University of Alberta. 
 
-![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png)
+[![Alberta's nearby Edmonton Airport is in the city of Leduc](assets/leducmap.png)](https://maps.app.goo.gl/REZLBC6odxpFhjmQ8)
 
 Here is the setup: 
 
 - 6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)
 
-- Leduc Poker is played with 2 players. We'll again use <span class="player p1"></span> and <span class="player p2"></span>.
+- Leduc Poker is played with 2 players
 
 - Each player antes 1 chip
 
@@ -24,19 +24,20 @@ Here is the setup:
 
 - Betting round 1 (preflop): 
   - There is a fixed bet size of 2 chips
-  - Rule in original version that we are *not* using: There is a maximum of 2 bets per round (i.e. a bet and a raise)
+  - Rule in original version: There is a maximum of 2 bets per round (i.e. a bet and a raise)
 
 - Deal a face up community card
   - Players make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand
 
 - Betting round 2 (the flop): 
   - There is a fixed bet size of 4 chips
-  - Rule in original version that we are *not* using: There is a maximum of 2 bets per round (i.e. a bet and a raise)
+  - Rule in original version: There is a maximum of 2 bets per round (i.e. a bet and a raise)
 
 Here is a game situation in which: 
+
 - Both players anted 1 each
   - Pot = 2
-- Preflop: Bet and call preflop of 2 each
+- Preflop: P1 bets 2 and P2 calls
   - Pot = 6
 - Flop: Community card K revealed. Player 1 bets 4. Player 2 to act.
 
@@ -45,11 +46,18 @@ Here is a game situation in which:
 :::{.callout-note  appearance="minimal"}
 ## Leduc Infoset
 
-What is Player 2's infoset?
+What is Player 2's infoset? 
+:::
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-1[2,2][4]
+(P2)[_, K, K][Bet 2, Call 2][Bet 4]
+
+In code/shorthand, this could look like: 
+
+(P2)[None, K, K][2, 2][4]
+
+This shows the player who is acting, the cards known to them, and the previous actions.
 :::
 
 :::{.callout-note  appearance="minimal"}
@@ -75,14 +83,17 @@ How often will you hit a pair on the flop given that you see it?
 
 :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-You have the same card as your opponent $20\%$ of the time, in which case you cannot get a pair. 
+There are $5$ unknown cards to you and $1$ of them matches yours for a pair, so the $\Pr(\text{Pair} \mid \text{See Flop}) = \frac{1}{5} = 0.2$
+
+<!-- You have the same card as your opponent $20\%$ of the time, in which case you cannot get a pair. 
 
 In the other cases, there are $4$ cards remaining in the deck and $1$ of them matches yours, so you have a $0.25$ chance in this case. 
 
-$\Pr(\text{Pair} \mid \text{See Flop}) = 0.2*0 + 0.8*0.25 = 0.2 $
+$\Pr(\text{Pair} \mid \text{See Flop}) = 0.2*0 + 0.8*0.25 = 0.2$ -->
+
 :::
 
-:::{.callout-note  appearance="minimal"}
+:::{.callout-tip  appearance="minimal"}
 ## Leduc Basic Challenge
 
 Find an optimal strategy for Leduc Poker (a) with a maximum of 2 bet sizes per round and (b) with no maximum number of bets per round. Let players start with 50 chips in both cases.  
@@ -92,29 +103,49 @@ Find an optimal strategy for Leduc Poker (a) with a maximum of 2 bet sizes per r
 
 Kuhn Poker with 100 cards plays the same as Kuhn Poker with 3 cards, but the cards are numbered from 1 to 100 (or 0 to 99). 
 
-Kuhn Poker with 3 cards has 6 infosets per player, 12 total. These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:
+:::{.callout-note  appearance="minimal"}
+## 100 Card Kuhn Infosets
+Kuhn Poker with 3 cards has 6 infosets per player, 12 total.
+
+How many infosets are in 100 card Kuhn Poker?
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+
+These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:
+
  - P1 acting first
  - P2 facing an Up action
  - P2 facing a Down action
  - P1 after a Down-Up sequence
 
- :::{.callout-note  appearance="minimal"}
+:::
+
+:::{.callout-tip  appearance="minimal"}
 ## Kuhn Basic Challenge
 
-Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker.
+Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1. 
 :::
 
 ### Card Abstraction
 
-100 card Kuhn Poker is a good testbed for **card abstraction**. Card abstraction is a method for shrinking a large game to a more manageable size. 
+100 card Kuhn Poker is a good testbed for **card abstraction**. Card abstraction is a method for shrinking a large game to a more manageable size. Bet abstraction is another (but since we are only using fixed bet sizes, this is currently not applicable).  
 
-:::{.callout-note  appearance="minimal"}
+:::{.callout-tip appearance="minimal"}
 ## Kuhn Bonus Challenge
 
-Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value. Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?
+Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value. 
+
+That is, buckets from cards 0-9, 10-19, ..., 90-99. This means for example that when you get dealt a card from 0-9 you cannot distinguish between these states when acting. (When you see payoffs they are based on the actual cards.)
+
+Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?
 :::
 
 ## Solver
+
+Prebuilt solver options
+
 - infosets (example in solver)
 (P1)[0, None][Down, Up]: {Down: 1.0, Up: 0.0}
 (P1)[0, None][]       : {Down: 0.8150489886962787, Up: 0.1849510113037213}
@@ -147,8 +178,19 @@ Abstract 100 card Kuhn Poker into 10 uniform buckets and find the game value. Co
 
 For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. The amount of regret is the difference between the highest-EV action and the selected action. 
 
+## Solving Poker Games
+Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define, but means that we are finding a fixed strategy that doesn't adapt to opponents, which we think is less exciting and also less profitable in many cases. 
+
+Small poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see [here](https://aipokertutorial.com/toy-poker-games/#solving-with-linear-programming) for more details). 
+
+As we prepare to solve larger games, we look at iterative algorithms.
+
+The core feature of the iterative algorithms is self-play by traversing the game tree over all **infosets** and tracking the strategies and regrets at each.
+
+Regret is a measure of how much each strategy at an infoset is preferred. 
+
 :::{.callout-note  appearance="minimal"}
-## Exercise
+## Regret Exercise
 
 ![](assets/basictree.png)
 
@@ -159,23 +201,63 @@ What is the regret for each action?
 | A      |           |
 | B     |  |
 | C     |   |
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+
+| Action     | Regret |
+|------------|-----------|
+| A      |  4         |
+| B     | 2  |
+| C     | 0  |
+
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Expected Value Exercise
+![](assets/basictree.png)
+
+If taking a uniform strategy at this node (i.e. $\frac{1}{3}$ for each action), then what is the expected value of the node? 
+
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+$\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3$
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Poker Regret Exercise
+![](assets/basictree.png)
+
+In poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition. 
+
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+
+| Action     | Value | Poker Regret
+|------------|-----------|-----------|
+| A      |  1         |  -2         |
+| B     | 3  |  0         |
+| C     | 5  |  2         |
+
+At a node in a poker game, the player prefers actions with higher regrets by this definition. 
+
+:::
+
+### Counterfactual Regret Minimization  
+The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. 
+
+What is a counterfactual? 
+
+**Actual event:** I didn’t bring an umbrella, and I got wet in the rain
+
+**Counterfactual event:** If I had brought an umbrella, I wouldn’t have gotten wet
 
 
-- regret (bandits)
-- EV
-- tree 
-
-## Solving Poker Games
-Nash equilibrium 
-Prebuilt solver options
-Infosets
-
-### Gradient Descent
-https://www.cs.cmu.edu/~gilpin/papers/egt.optimizationonline08.pdf
-https://www.columbia.edu/~ck2945/papers/foms_efg_math_prog.pdf 
-
-### CFR  
-https://arxiv.org/pdf/1811.00164
 - general algorithm
   - store: strategy, regret
   - regret matching
