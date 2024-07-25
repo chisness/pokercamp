@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>#3: Leduc Poker | Reading 1 – Poker Camp</title>
+<title>#2: Leduc Poker | Class Materials – Poker Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="#3: Leduc Poker | Reading 1 – Poker Camp">
+<meta property="og:title" content="#2: Leduc Poker | Class Materials – Poker Camp">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="#3: Leduc Poker | Reading 1 – Poker Camp">
+<meta name="twitter:title" content="#2: Leduc Poker | Class Materials – Poker Camp">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -174,7 +176,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">#3: Leduc Poker | Reading 1</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">#2: Leduc Poker | Class Materials</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -243,8 +245,11 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Class Materials</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/2leduc_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Materials</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/2leduc_challenge.html" class="sidebar-item-text sidebar-link">
@@ -363,15 +368,25 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#solving-poker-games" id="toc-solving-poker-games" class="nav-link active" data-scroll-target="#solving-poker-games">Solving Poker Games</a>
+  <ul class="collapse">
+  <li><a href="#regret-and-ev" id="toc-regret-and-ev" class="nav-link" data-scroll-target="#regret-and-ev">Regret and EV</a></li>
+  <li><a href="#counterfactual-regret-minimization" id="toc-counterfactual-regret-minimization" class="nav-link" data-scroll-target="#counterfactual-regret-minimization">Counterfactual Regret Minimization</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">#3: Leduc Poker | Reading 1</h1>
+<h1 class="title">#2: Leduc Poker | Class Materials</h1>
 </div>
 
 
@@ -388,9 +403,201 @@ window.Quarto = {
 </header>
 
 
+<section id="solving-poker-games" class="level2">
+<h2 class="anchored" data-anchor-id="solving-poker-games">Solving Poker Games</h2>
+<p>Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.</p>
+<p>Small poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see <a href="https://aipokertutorial.com/toy-poker-games/#solving-with-linear-programming">here</a> for more details).</p>
+<p>As we prepare to solve larger games, we start to look at iterative algorithms.</p>
+<p>The core feature of the iterative algorithms is self-play by traversing the game tree over all <strong>infosets</strong> and tracking the strategies and regrets at each.</p>
+<section id="regret-and-ev" class="level3">
+<h3 class="anchored" data-anchor-id="regret-and-ev">Regret and EV</h3>
+<p>Regret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.</p>
+<p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Regret Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>What is the regret for each action?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>If taking a uniform strategy at this node (i.e.&nbsp;<span class="math inline">\(\frac{1}{3}\)</span> for each action), then what is the expected value of the node?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Poker Regret Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>In poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Value</th>
+<th>Poker Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>At a node in a poker game, the player prefers actions with higher regrets by this definition.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="counterfactual-regret-minimization" class="level3">
+<h3 class="anchored" data-anchor-id="counterfactual-regret-minimization">Counterfactual Regret Minimization</h3>
+<p>The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.</p>
+<p>The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.</p>
+<p>What is a counterfactual?</p>
+<p><strong>Actual event:</strong> I didn’t bring an umbrella, and I got wet in the rain</p>
+<p><strong>Counterfactual event:</strong> If I had brought an umbrella, I wouldn’t have gotten wet</p>
+<section id="cfr-algorithm-parts" class="level4">
+<h4 class="anchored" data-anchor-id="cfr-algorithm-parts">CFR Algorithm Parts</h4>
+<ul>
+<li>general algorithm
+<ul>
+<li>store: strategy, regret</li>
+<li>regret matching</li>
+<li>average strategy at end</li>
+<li>CFR+, Linear CFR</li>
+<li>sampling (external, sampling, chance, etc. )</li>
+</ul></li>
+</ul>
 
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

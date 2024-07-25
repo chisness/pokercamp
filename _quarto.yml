@@ -67,7 +67,7 @@ website:
             - section: "#2: Leduc Poker"
               contents:
                 - text: "Class Materials"
-                  # href: "aipcs24/2leduc_reading.qmd"
+                  href: "aipcs24/2leduc_class.qmd"
                 # - text: "Reading 2"
                   # href: "aipcs24/3leduc_reading2.qmd"
                 - text: "Challenge"
