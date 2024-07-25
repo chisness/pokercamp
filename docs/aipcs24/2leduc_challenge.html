@@ -371,10 +371,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#leduc-poker-rules" id="toc-leduc-poker-rules" class="nav-link active" data-scroll-target="#leduc-poker-rules">Leduc Poker Rules</a></li>
-  <li><a href="#kuhn-poker-100-cards" id="toc-kuhn-poker-100-cards" class="nav-link" data-scroll-target="#kuhn-poker-100-cards">Kuhn Poker 100 Cards</a>
+  <li><a href="#leduc-poker" id="toc-leduc-poker" class="nav-link active" data-scroll-target="#leduc-poker">Leduc Poker</a></li>
+  <li><a href="#kuhn-poker-100-cards" id="toc-kuhn-poker-100-cards" class="nav-link" data-scroll-target="#kuhn-poker-100-cards">Kuhn Poker 100 Cards</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a>
   <ul class="collapse">
-  <li><a href="#card-abstraction" id="toc-card-abstraction" class="nav-link" data-scroll-target="#card-abstraction">Card Abstraction</a></li>
+  <li><a href="#kuhn-poker" id="toc-kuhn-poker" class="nav-link" data-scroll-target="#kuhn-poker">Kuhn Poker</a></li>
   </ul></li>
   <li><a href="#solver" id="toc-solver" class="nav-link" data-scroll-target="#solver">Solver</a></li>
   <li><a href="#solving-poker-games" id="toc-solving-poker-games" class="nav-link" data-scroll-target="#solving-poker-games">Solving Poker Games</a>
@@ -406,19 +407,19 @@ window.Quarto = {
 </header>
 
 
-<section id="leduc-poker-rules" class="level2">
-<h2 class="anchored" data-anchor-id="leduc-poker-rules">Leduc Poker Rules</h2>
+<section id="leduc-poker" class="level2">
+<h2 class="anchored" data-anchor-id="leduc-poker">Leduc Poker</h2>
 <p>Leduc Poker is a simple toy poker game invented at the University of Alberta.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://maps.app.goo.gl/REZLBC6odxpFhjmQ8"><img src="assets/leducmap.png" class="img-fluid figure-img" alt="Alberta’s nearby Edmonton Airport is in the city of Leduc"></a></p>
+<p><a href="https://maps.app.goo.gl/REZLBC6odxpFhjmQ8" width="50%"><img src="assets/leducmap.png" class="img-fluid figure-img" alt="Alberta’s nearby Edmonton Airport is in the city of Leduc"></a></p>
 <figcaption>Alberta’s nearby Edmonton Airport is in the city of Leduc</figcaption>
 </figure>
 </div>
 <p>Here is the setup:</p>
 <ul>
+<li><p>2 players</p></li>
 <li><p>6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)</p></li>
-<li><p>Leduc Poker is played with 2 players</p></li>
 <li><p>Each player antes 1 chip</p></li>
 <li><p>Deal 1 card to each player</p></li>
 <li><p>Betting round 1 (preflop):</p>
@@ -506,11 +507,11 @@ Solution
 <div class="callout-body-container callout-body">
 <p>Player 2 infoset now: (P2)[_, K, K][Bet 2, Call 2][Bet 4]</p>
 <p>In code/shorthand, this could look like:</p>
-<p>(P2)[None, K, K][2, 2][4]</p>
+<p><code>(P2)[None, K, K][2, 2][4]</code></p>
 <p>This shows the player who is acting, the cards known to them, and the previous actions.</p>
 <p>Player 1 infoset after Player 2 acts: (P1)[P1 card, _, K][Bet 2, Call 2][Bet 4, Raise to 8]</p>
 <p>In code/shorthand, this could look like:</p>
-<p>(P1)[P1 card, None, K][2, 2][4, 8]</p>
+<p><code>(P1)[P1 card, None, K][2, 2][4, 8]</code></p>
 </div>
 </div>
 </div>
@@ -555,7 +556,7 @@ Leduc Pairs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How often will you hit a pair on the flop given that you see it?</p>
+<p>Suppose that you are dealt a K. How often will you hit a pair on the flop given that you see it?</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -579,19 +580,6 @@ $\Pr(\text{Pair} \mid \text{See Flop}) = 0.2*0 + 0.8*0.25 = 0.2$ -->
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Basic Challenge
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Find an optimal strategy for Leduc Poker (a) with a maximum of 2 bet sizes per round and (b) with no maximum number of bets per round. Let players start with 50 chips in both cases.</p>
-</div>
-</div>
 </section>
 <section id="kuhn-poker-100-cards" class="level2">
 <h2 class="anchored" data-anchor-id="kuhn-poker-100-cards">Kuhn Poker 100 Cards</h2>
@@ -611,7 +599,7 @@ Leduc Basic Challenge
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -620,7 +608,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:</p>
 <ul>
@@ -632,21 +620,47 @@ Solution
 </div>
 </div>
 </div>
+</section>
+<section id="challenges" class="level2">
+<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<section id="kuhn-poker" class="level3">
+<h3 class="anchored" data-anchor-id="kuhn-poker">Kuhn Poker</h3>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Kuhn Basic Challenge
+Basic Challenges
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Find an optimal strategy for 100 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1.</p>
+<ol type="1">
+<li><p>Submit an agent for 100 card Kuhn Poker. Your agent will play against:</p></li>
+<li><p>Submit an agent for Leduc Poker with a 50 chip starting stack and bet limitations capped only by the stack size (i.e.&nbsp;no limit of 2 bets per round, but no player can lose more than 50 chips per hand)</p></li>
+</ol>
+<p>In both cases, your agent will play in a tournament against:</p>
+<ul>
+<li>Other student submissions</li>
+<li>5 bots generated by our solver derived from a range of iterations (i.e.&nbsp;some will be much closer to Nash equilibrium than others)</li>
+</ul>
 </div>
 </div>
-<section id="card-abstraction" class="level3">
-<h3 class="anchored" data-anchor-id="card-abstraction">Card Abstraction</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kuhn Bonus Game Value Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the game value in 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1.</p>
+</div>
+</div>
+<section id="kuhn-card-abstraction" class="level4">
+<h4 class="anchored" data-anchor-id="kuhn-card-abstraction">Kuhn Card Abstraction</h4>
 <p>100 card Kuhn Poker is a good testbed for <strong>card abstraction</strong>. Card abstraction is a method for shrinking a large game to a more manageable size. Bet abstraction is another (but since we are only using fixed bet sizes, this is currently not applicable).</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -654,7 +668,7 @@ Kuhn Basic Challenge
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Kuhn Bonus Challenge
+Kuhn Bonus Abstraction Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -663,6 +677,20 @@ Kuhn Bonus Challenge
 <p>Compare this to your previous 100 card and 3 card Kuhn Poker values. Is there a better way to configure the 10 buckets than uniform?</p>
 </div>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Leduc Bonus Game Value Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find an equilibrium strategy for Leduc Poker and compare the game value to 100 card Kuhn Poker to 3 card Kuhn Poker. We can define game value as the expected value of the game to Player 1.</p>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="solver" class="level2">
@@ -807,7 +835,7 @@ Regret Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -816,7 +844,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -858,7 +886,7 @@ Expected Value Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -867,7 +895,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\(\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3\)</span></p>
 </div>
@@ -888,7 +916,7 @@ Poker Regret Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -897,7 +925,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
