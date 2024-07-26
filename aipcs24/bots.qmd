@@ -164,7 +164,19 @@ The return is:
 
 1. Your `action`
 
-## Sample Bots
+### Debugging your broken bot
+
+Because of the way `engine.py` captures the output of the bots it runs, you probably don't get the printed output of your broken bot failing. If you comment out the line of `stdout=subprocess.PIPE, stderr=subprocess.STDOUT,` in this function call, you can (probably?) disable this behavior:
+
+```
+proc = subprocess.Popen(
+    self.commands['run'] + [str(port)],
+    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    cwd=self.path,
+)
+```
+
+## Sample Bots (for Challenge 1 / Kuhn Poker)
 
 ### Random
 
