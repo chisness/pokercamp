@@ -185,11 +185,13 @@ As you may have seen with the Kuhn solver site, counterfactual regret minimizati
 :::
 
 :::{.callout-tip  appearance="minimal"}
-## Kuhn Bonus Game Value Challenge
+## Kuhn Game Value Bonus Challenge
 Find an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the P2 advantage in 100 card Kuhn Poker to 3 card Kuhn Poker.
+
+Extra bonus: Compare the P2 advantage in 100 card Kuhn Poker to a uniform 10-bucket abstraction, and if possible, a better 10-bucket abstraction. 
 :::
 
 :::{.callout-tip  appearance="minimal"}
-## Leduc Bonus Game Value Challenge
+## Leduc Game Value Bonus Challenge
 Find an equilibrium strategy for Leduc Poker and compare the P2 advantage to 3-Card Kuhn and 100-Card Kuhn.
 :::
