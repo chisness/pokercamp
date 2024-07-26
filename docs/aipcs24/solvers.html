@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>#2: Leduc Poker | Challenge – Poker Camp</title>
+<title>Implementing a Basic Solver – Poker Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,10 +108,10 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="#2: Leduc Poker | Challenge – Poker Camp">
+<meta property="og:title" content="Implementing a Basic Solver – Poker Camp">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="#2: Leduc Poker | Challenge – Poker Camp">
+<meta name="twitter:title" content="Implementing a Basic Solver – Poker Camp">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
@@ -177,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_class.html">#2: Leduc Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_challenge.html">Challenge</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Implementing a Basic Solver</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -238,13 +238,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">#2: Leduc Poker</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aipcs24/2leduc_class.html" class="sidebar-item-text sidebar-link">
@@ -253,7 +253,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../aipcs24/2leduc_challenge.html" class="sidebar-item-text sidebar-link active">
+  <a href="../aipcs24/2leduc_challenge.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenge</span></a>
   </div>
 </li>
@@ -342,12 +342,6 @@ window.Quarto = {
  <span class="menu-text">Building and Running Bots</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../aipcs24/solvers.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building and Running Solvers</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -380,28 +374,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#the-games" id="toc-the-games" class="nav-link" data-scroll-target="#the-games">The games</a>
-  <ul class="collapse">
-  <li><a href="#kuhn-poker-100-cards" id="toc-kuhn-poker-100-cards" class="nav-link" data-scroll-target="#kuhn-poker-100-cards">Kuhn Poker 100 Cards</a></li>
-  <li><a href="#leduc-poker" id="toc-leduc-poker" class="nav-link" data-scroll-target="#leduc-poker">Leduc Poker</a>
-  <ul class="collapse">
-  <li><a href="#sample-leduc-hand-and-leduc-math" id="toc-sample-leduc-hand-and-leduc-math" class="nav-link" data-scroll-target="#sample-leduc-hand-and-leduc-math">Sample Leduc Hand and Leduc Math</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a>
-  <ul class="collapse">
-  <li><a href="#hints" id="toc-hints" class="nav-link" data-scroll-target="#hints">Hints</a></li>
-  </ul></li>
+  <li><a href="#solver-framework" id="toc-solver-framework" class="nav-link active" data-scroll-target="#solver-framework">Solver Framework</a></li>
+  <li><a href="#the-algorithm" id="toc-the-algorithm" class="nav-link" data-scroll-target="#the-algorithm">The algorithm</a></li>
+  <li><a href="#making-changes" id="toc-making-changes" class="nav-link" data-scroll-target="#making-changes">Making changes</a></li>
+  <li><a href="#more" id="toc-more" class="nav-link" data-scroll-target="#more">More</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Challenges</li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_class.html">#2: Leduc Poker</a></li><li class="breadcrumb-item"><a href="../aipcs24/2leduc_challenge.html">Challenge</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">#2: Leduc Poker | Challenge</h1>
+<h1 class="title">Implementing a Basic Solver</h1>
 </div>
 
 
@@ -418,366 +403,50 @@ window.Quarto = {
 </header>
 
 
-<section id="summary" class="level1">
-<h1>Summary</h1>
-<p>This week, you will submit two bots, one to play 100-Card Kuhn Poker, and one to play Leduc Poker.</p>
-<p><a href="#challenges">Skip ahead to the challenge specification.</a></p>
+<section id="solver-framework" class="level2">
+<h2 class="anchored" data-anchor-id="solver-framework">Solver Framework</h2>
+<p>We’ve provided a basic game-solver with the challenges code. You can find it at <code>aipcs-challenges/solvers/default/</code> and run it with <code>python solver.py --iter N</code>.</p>
+<p>In its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).</p>
+<p>You’re also welcome to write whatever else you want; we just thought this might be helpful for getting started.</p>
 </section>
-<section id="the-games" class="level1">
-<h1>The games</h1>
-<section id="kuhn-poker-100-cards" class="level2">
-<h2 class="anchored" data-anchor-id="kuhn-poker-100-cards">Kuhn Poker 100 Cards</h2>
-<p>Kuhn Poker with 100 cards plays the same as <a href="1kuhn_rules.html">Kuhn Poker with 3 cards</a>, but the cards are numbered from 1 to 100 (or 0 to 99).</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-100-Card Kuhn Infosets
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Kuhn Poker with 3 cards has 6 infosets per player, 12 total.</p>
-<p>How many infosets are in 100-card Kuhn Poker?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>These scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:</p>
+<section id="the-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="the-algorithm">The algorithm</h2>
 <ul>
-<li>P1 acting first</li>
-<li>P2 facing an Up action</li>
-<li>P2 facing a Down action</li>
-<li>P1 after a Down-Up sequence</li>
+<li>Begin at the first turn of the game, with Chance actions determined randomly.</li>
+<li>At each infoset, we will either use the sampling policy <code>sample</code> or <code>expand_all</code> (determined by <code>get_sampling_policy()</code>) to get an estimate of the expected value of this node.
+<ul>
+<li>If <code>sample</code>, we pick an action randomly based on <code>get_training_strategy_probabilities()</code> for the current infoset, and use the value of the state that takes us to as the value of this state.</li>
+<li>If <code>expand_all</code>, then get the values of each possible successor state, and use the weighted average by <code>get_training_strategy_probabilities()</code> to get the expected value of this state.</li>
+</ul></li>
+<li>Each time we do <code>expand_all</code> (including during a recursive drill-down step), update the strategy probabiliites for this infoset based on which actions did better (in this state) than this state’s overall expected value (weighted over all actions).
+<ul>
+<li>In particular, we keep a running sum of the amount each action beat the EV by (floored at zero), and use the ratio of the sums as our <code>training_strategy_probabilities</code>.</li>
+</ul></li>
+<li>You probably want to do a different transformation of <code>training_strategy_probabilities</code> to get your final strategy, but for now we just return the same thing.</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Game states for 100-Card Kuhn infosets
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Each infoset in Kuhn Poker has two possible game states that correspond to it.</p>
-<p>How many game states correspond to each infoset in 100-card Kuhn Poker?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Each infoset corresponds to 99 possible game states, one for each card the opponent could have.</p>
-</div>
-</div>
-</div>
+<p>Some easy things to change are: - <code>get_sampling_policy()</code> to return <code>"sample"</code> at some infosets and <code>"expand_all"</code> at others. - <code>determine_infoset()</code> to coalesce different observable states into the same infoset. - <code>get_training_strategy_probabilities()</code> to have different behavior for default and updated strategy probs.</p>
 </section>
-<section id="leduc-poker" class="level2">
-<h2 class="anchored" data-anchor-id="leduc-poker">Leduc Poker</h2>
-<p>Leduc Poker is a simple toy poker game invented at the University of Alberta.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://maps.app.goo.gl/REZLBC6odxpFhjmQ8"><img src="assets/leducmap.png" class="img-fluid figure-img" alt="Alberta’s nearby Edmonton Airport is in the city of Leduc"></a></p>
-<figcaption>Alberta’s nearby Edmonton Airport is in the city of Leduc</figcaption>
-</figure>
-</div>
-<p>Here is the setup:</p>
+<section id="making-changes" class="level2">
+<h2 class="anchored" data-anchor-id="making-changes">Making changes</h2>
+<p>In general, you can change the behavior of the solver significantly by editing the functions defined in <code>solver.py</code>:</p>
 <ul>
-<li><p>2 players.</p></li>
-<li><p>6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest).</p></li>
-<li><p>Each player antes 1 chip.</p></li>
-<li><p>Deal 1 card to each player.</p></li>
-<li><p>Betting round 1 (the <em>preflop</em>):</p>
-<ul>
-<li>There is a fixed bet size of 2 chips.</li>
-<li>If the opponent has made no bet in this round, a player can <em>Check</em> (bet nothing) or <em>Raise</em> (bet one standard bet size).</li>
-<li>If the opponent has bet, then a player can <em>Fold</em> (bet nothing and lose), <em>Call</em> (add chips to match opponent’s bet), or <em>Raise</em> (call the bet <em>and</em> add one standard bet size).</li>
-<li>This round ends when one player Folds (and loses; neither cards are shown), or when one player Calls (and the game continues to the next step below). A special case is when both players Check, which proceeds the same as a Call with no added chips.</li>
-</ul></li>
-<li><p>Deal a face up community card (shown to both players).</p>
-<ul>
-<li>A <em>pair</em> (your card matches the community card) is the best hand, then an unpaired Ace, then an unpaired King, finally an unpaired Queen.</li>
-</ul></li>
-<li><p>Betting round 2 (the <em>flop</em>):</p>
-<ul>
-<li>There is a fixed bet size of 4 chips.</li>
-<li>Players can Check, Fold, Call, and Raise the same as in the first round.</li>
-<li>This round also ends when one player Folds (and loses), or one player Calls (and proceeds to <em>showdown</em> where the higher hand wins).</li>
-</ul></li>
+<li><code>handle_new_iteration()</code> - called with the iteration number when a new iteration is about to begin.</li>
+<li><code>handle_iteration_over()</code> - called with the iteration number when an iteration is over.</li>
+<li><code>get_root()</code> - called witht the iteration number to get a <code>RoundState</code> object to begin the new iteration at. (Can be used to define how states should be explored.)</li>
+<li><code>determine_infoset()</code> - called to get the canonical name of the infoset for a given visible game state. (Can be used to coalesce infosets.)</li>
+<li><code>sample_actions()</code> - relevant if action types have variable parameters (like bet sizes), called to go from a list of legal action types to a set of action-instances to investigate.</li>
+<li><code>get_sampling_policy()</code> - currently supports <code>"sample"</code> and <code>"expand_all"</code>, called with the iteration number to determine whether to use a random sample to approximate this state’s EV, or to call all possible actions and compute a weighted sum. (Can vary policy by iteration by using the iteration number.)</li>
+<li><code>handle_new_samples()</code> - called with the sampling policy, and the resulting samples, from visiting a state node. (Can be used to update probabilities based on EVs.)</li>
+<li><code>get_training_strategy_probabilities()</code> - used by both sampling policies, called to get the current strategy’s probabilities of taking each action at a given infoset.</li>
+<li><code>get_final_strategy_probabilities()</code> - relevant if you want to use a different transformation of the data to get final probabilities than the intermediate probabilities used in training steps.</li>
 </ul>
-<div class="callout callout-style-simple callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Maximum bets per round rule in original version
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The original version of Leduc Poker has a rule where the maximum bets per betting round is 2 (i.e.&nbsp;a bet and a raise), but we are not using that rule. Instead, each player has a maximum of 50 chips for each game. If a player does not have enough chips to make a full Raise, their Raise is for all their remaining chips.</p>
-</div>
-</div>
-</div>
-<section id="sample-leduc-hand-and-leduc-math" class="level3">
-<h3 class="anchored" data-anchor-id="sample-leduc-hand-and-leduc-math">Sample Leduc Hand and Leduc Math</h3>
-<p>Here is a Leduc game situation in which:</p>
-<ul>
-<li>Both players ante 1 each.
-<ul>
-<li>Pot = 2</li>
-</ul></li>
-<li>Preflop: P1 bets 2 and P2 calls.
-<ul>
-<li>Pot = 6</li>
-</ul></li>
-<li>Flop: Community card K revealed. Player 1 bets 4. Player 2 to act.</li>
-</ul>
-<p><img src="assets/leducgame.png" class="img-fluid"></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Strategy
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What should Player 2 do here?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Raise! Player 2 has the best possible hand because they have a pair.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Infoset
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What is Player 2’s infoset?</p>
-<p>What will Player 1’s infoset be after Player 2 acts?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We could write Player 2’s infoset as: (P2)[_, K, K][Bet 2, Call 2][Bet 4]</p>
-<p>Or the default solver in <code>pokercamp/aipc-challenges/challenge-2-leduc</code> will write it at: <code>(P2){'community': [2]}[None, 2][Raise, Call, Raise]</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Ties
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>How often will you and your opponent be dealt the same card?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First we find the total combinations of cards:</p>
-<p><span class="math inline">\({6\choose2} = \frac{6!}{4!*2!} = \frac{6*5}{2} = 15\)</span></p>
-<p>Then we count that there is exactly <span class="math inline">\(1\)</span> way to make Q/Q, <span class="math inline">\(1\)</span> way to make K/K, and <span class="math inline">\(1\)</span> way to make A/A. Therefore the probability of having the same hand as your opponent is <span class="math inline">\(\frac{3}{15} = 0.2\)</span>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Pairs
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Suppose that you are dealt a K. How often will you hit a pair on the flop given that you see it?</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>There are <span class="math inline">\(5\)</span> unknown cards to you and <span class="math inline">\(1\)</span> of them matches yours for a pair, so the <span class="math inline">\(\Pr(\text{Pair} \mid \text{See Flop}) = \frac{1}{5} = 0.2\)</span></p>
-<!-- You have the same card as your opponent $20\%$ of the time, in which case you cannot get a pair. 
-
-In the other cases, there are $4$ cards remaining in the deck and $1$ of them matches yours, so you have a $0.25$ chance in this case. 
-
-$\Pr(\text{Pair} \mid \text{See Flop}) = 0.2*0 + 0.8*0.25 = 0.2$ -->
-</div>
-</div>
-</div>
 </section>
-</section>
-</section>
-<section id="challenges" class="level1">
-<h1>Challenges</h1>
-<ol type="1">
-<li><p>Submit an agent for 100 card Kuhn Poker.</p></li>
-<li><p>Submit an agent for Leduc Poker with a 50 chip starting stack per game.</p></li>
-</ol>
-<p>In both cases, your agent will play 1000 hands as P1 and 1000 hands as P2 against each of:</p>
-<ul>
-<li>Other student submissions.</li>
-<li>5 bots generated by our solver run for a range of iterations (this probably means that some will be much closer to Nash equilibrium than others).</li>
-</ul>
-<section id="hints" class="level2">
-<h2 class="anchored" data-anchor-id="hints">Hints</h2>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Card abstractions in 100-Card Kuhn
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>It might be more efficient to solve 100-Card Kuhn Poker if you shrink the number of cards to a more manageable size by bucketing a group of nearby numbers together for strategy purposes. For example, you could treat cards 1-10 as the same, 11-20, and so on. Or is there a better way to bucket than uniformly?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sampling Policy in Leduc
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The set of possible action histories in Leduc Poker with 50-chip stacks is relatively large, and you don’t really care about most of it. Consider whether you can do something more efficient than always expanding every node.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Averaging intermediate strategy probabilities
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>As you may have seen with the Kuhn solver site, counterfactual regret minimization tends to cycle around the equilibrium instead of descending into it. If you use some kind of average over recent strategy probs as your final probabilities, you may get much closer to Nash than just using the final values.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Kuhn Bonus Game Value Challenge
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Find an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the P2 advantage in 100 card Kuhn Poker to 3 card Kuhn Poker.</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Leduc Bonus Game Value Challenge
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Find an equilibrium strategy for Leduc Poker and compare the P2 advantage to 3-Card Kuhn and 100-Card Kuhn.</p>
-</div>
-</div>
+<section id="more" class="level2">
+<h2 class="anchored" data-anchor-id="more">More</h2>
+<p>If you have positive or negative feedback about the solver, feel free to share it in the <code>#aipcs24-technical-feedback</code> channel of the discord.</p>
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

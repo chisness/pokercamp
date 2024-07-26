@@ -1,0 +1,46 @@
+---
+title: "Implementing a Basic Solver"
+sidebar: aipcs24
+format:
+  html:
+    code-overflow: wrap
+    css: styles.css
+    math: true
+---
+## Solver Framework
+We've provided a basic game-solver with the challenges code. You can find it at `aipcs-challenges/solvers/default/` and run it with `python solver.py --iter N`.
+
+In its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).
+
+You're also welcome to write whatever else you want; we just thought this might be helpful for getting started.
+
+## The algorithm
+- Begin at the first turn of the game, with Chance actions determined randomly.
+- At each infoset, we will either use the sampling policy `sample` or `expand_all` (determined by `get_sampling_policy()`) to get an estimate of the expected value of this node.
+  - If `sample`, we pick an action randomly based on `get_training_strategy_probabilities()` for the current infoset, and use the value of the state that takes us to as the value of this state.
+  - If `expand_all`, then get the values of each possible successor state, and use the weighted average by `get_training_strategy_probabilities()` to get the expected value of this state.
+- Each time we do `expand_all` (including during a recursive drill-down step), update the strategy probabiliites for this infoset based on which actions did better (in this state) than this state's overall expected value (weighted over all actions).
+  - In particular, we keep a running sum of the amount each action beat the EV by (floored at zero), and use the ratio of the sums as our `training_strategy_probabilities`.
+- You probably want to do a different transformation of `training_strategy_probabilities` to get your final strategy, but for now we just return the same thing.
+
+Some easy things to change are:
+- `get_sampling_policy()` to return `"sample"` at some infosets and `"expand_all"` at others.
+- `determine_infoset()` to coalesce different observable states into the same infoset.
+- `get_training_strategy_probabilities()` to have different behavior for default and updated strategy probs.
+
+## Making changes
+In general, you can change the behavior of the solver significantly by editing the functions defined in `solver.py`:
+
+- `handle_new_iteration()` - called with the iteration number when a new iteration is about to begin.
+- `handle_iteration_over()` - called with the iteration number when an iteration is over.
+- `get_root()` - called witht the iteration number to get a `RoundState` object to begin the new iteration at. (Can be used to define how states should be explored.)
+- `determine_infoset()` - called to get the canonical name of the infoset for a given visible game state. (Can be used to coalesce infosets.)
+- `sample_actions()` - relevant if action types have variable parameters (like bet sizes), called to go from a list of legal action types to a set of action-instances to investigate.
+- `get_sampling_policy()` - currently supports `"sample"` and `"expand_all"`, called with the iteration number to determine whether to use a random sample to approximate this state's EV, or to call all possible actions and compute a weighted sum. (Can vary policy by iteration by using the iteration number.)
+- `handle_new_samples()` - called with the sampling policy, and the resulting samples, from visiting a state node. (Can be used to update probabilities based on EVs.)
+- `get_training_strategy_probabilities()` - used by both sampling policies, called to get the current strategy's probabilities of taking each action at a given infoset.
+- `get_final_strategy_probabilities()` - relevant if you want to use a different transformation of the data to get final probabilities than the intermediate probabilities used in training steps.
+
+## More
+
+If you have positive or negative feedback about the solver, feel free to share it in the `#aipcs24-technical-feedback` channel of the discord.
