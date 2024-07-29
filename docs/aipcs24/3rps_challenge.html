@@ -424,24 +424,21 @@ window.Quarto = {
   <li><a href="#game-theory" id="toc-game-theory" class="nav-link" data-scroll-target="#game-theory">Game Theory</a></li>
   <li><a href="#types-of-opponent-adaptation" id="toc-types-of-opponent-adaptation" class="nav-link" data-scroll-target="#types-of-opponent-adaptation">Types of Opponent Adaptation</a></li>
   </ul></li>
-  <li><a href="#counterfactual-regret-minimization" id="toc-counterfactual-regret-minimization" class="nav-link" data-scroll-target="#counterfactual-regret-minimization">Counterfactual Regret Minimization</a></li>
-  <li><a href="#cfr-algorithm-parts" id="toc-cfr-algorithm-parts" class="nav-link" data-scroll-target="#cfr-algorithm-parts">CFR Algorithm Parts</a>
+  <li><a href="#counterfactual-regret-minimization" id="toc-counterfactual-regret-minimization" class="nav-link" data-scroll-target="#counterfactual-regret-minimization">Counterfactual Regret Minimization</a>
   <ul class="collapse">
   <li><a href="#regret-and-strategies" id="toc-regret-and-strategies" class="nav-link" data-scroll-target="#regret-and-strategies">Regret and Strategies</a></li>
-  </ul></li>
-  <li><a href="#regret-matching" id="toc-regret-matching" class="nav-link" data-scroll-target="#regret-matching">Regret Matching</a>
-  <ul class="collapse">
+  <li><a href="#regret-matching" id="toc-regret-matching" class="nav-link" data-scroll-target="#regret-matching">Regret Matching</a></li>
   <li><a href="#rps-regret-matching-experiment" id="toc-rps-regret-matching-experiment" class="nav-link" data-scroll-target="#rps-regret-matching-experiment">RPS Regret Matching Experiment</a></li>
-  </ul></li>
-  <li><a href="#iterating-through-the-tree" id="toc-iterating-through-the-tree" class="nav-link" data-scroll-target="#iterating-through-the-tree">Iterating through the Tree</a>
-  <ul class="collapse">
+  <li><a href="#iterating-through-the-tree" id="toc-iterating-through-the-tree" class="nav-link" data-scroll-target="#iterating-through-the-tree">Iterating through the Tree</a></li>
   <li><a href="#alternatives-to-original-algorithm" id="toc-alternatives-to-original-algorithm" class="nav-link" data-scroll-target="#alternatives-to-original-algorithm">Alternatives to Original Algorithm</a></li>
   </ul></li>
   <li><a href="#data-talk-paper-scissors" id="toc-data-talk-paper-scissors" class="nav-link" data-scroll-target="#data-talk-paper-scissors">Data: Talk Paper Scissors</a></li>
   <li><a href="#more-exercises" id="toc-more-exercises" class="nav-link" data-scroll-target="#more-exercises">More Exercises</a></li>
-  <li><a href="#rps-academic-research" id="toc-rps-academic-research" class="nav-link" data-scroll-target="#rps-academic-research">RPS Academic Research</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The Challenge</a>
+  <ul class="collapse">
   <li><a href="#rps-bot-ideas" id="toc-rps-bot-ideas" class="nav-link" data-scroll-target="#rps-bot-ideas">RPS Bot Ideas</a></li>
-  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The Challenge</a></li>
+  </ul></li>
+  <li><a href="#rps-academic-research" id="toc-rps-academic-research" class="nav-link" data-scroll-target="#rps-academic-research">RPS Academic Research</a></li>
   </ul>
 </nav>
     </div>
@@ -604,9 +601,6 @@ Solution
 <p>What is a counterfactual?</p>
 <p><strong>Actual event:</strong> I didn’t bring an umbrella, and I got wet in the rain</p>
 <p><strong>Counterfactual event:</strong> If I had brought an umbrella, I wouldn’t have gotten wet</p>
-</section>
-<section id="cfr-algorithm-parts" class="level2">
-<h2 class="anchored" data-anchor-id="cfr-algorithm-parts">CFR Algorithm Parts</h2>
 <section id="regret-and-strategies" class="level3">
 <h3 class="anchored" data-anchor-id="regret-and-strategies">Regret and Strategies</h3>
 <p>A strategy at an infoset is a probability distribution over each possible action.</p>
@@ -775,9 +769,8 @@ Solution
 <p>In a game like Rock Paper Scissors, there is effectively only one infoset, so only one table for <code>strategy</code> over each action (Rock, Paper, Scissors) and one table for <code>regret</code> over each action (Rock, Paper, Scissors).</p>
 <p>Regrets are linked to strategies through a policy called <em>regret matching</em>.</p>
 </section>
-</section>
-<section id="regret-matching" class="level2">
-<h2 class="anchored" data-anchor-id="regret-matching">Regret Matching</h2>
+<section id="regret-matching" class="level3">
+<h3 class="anchored" data-anchor-id="regret-matching">Regret Matching</h3>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -856,6 +849,7 @@ RPS Regret Details
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.strategy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>After using regret matching, we can minimize expected regret by using the <em>average</em> strategy at the end, which is the strategy that converges to equilibrium.</p>
 <p>If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of <span class="math inline">\(1/3\)</span> for each action using the average strategy.</p>
+</section>
 <section id="rps-regret-matching-experiment" class="level3">
 <h3 class="anchored" data-anchor-id="rps-regret-matching-experiment">RPS Regret Matching Experiment</h3>
 <p>Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary).</p>
@@ -863,9 +857,8 @@ RPS Regret Details
 <p>We see that if there is a fixed player, regret matching converges to the best strategy.</p>
 <p>But what if your opponent is not using a fixed strategy? We’ll talk about that soon.</p>
 </section>
-</section>
-<section id="iterating-through-the-tree" class="level2">
-<h2 class="anchored" data-anchor-id="iterating-through-the-tree">Iterating through the Tree</h2>
+<section id="iterating-through-the-tree" class="level3">
+<h3 class="anchored" data-anchor-id="iterating-through-the-tree">Iterating through the Tree</h3>
 <p>The core feature of the iterative algorithms is self-play by traversing the game tree over all <strong>infosets</strong> and tracking the strategies and regrets at each.</p>
 <p>From above, we know how to find the strategy and regret in the simple Rock Paper Scissors environment.</p>
 <p>In poker:</p>
@@ -878,7 +871,7 @@ RPS Regret Details
 <li><p>Cumulative (counterfactual) regrets are the sum of the individual regrets:</p></li>
 <li><p><span class="math inline">\(R^T(I,a) = \sum_{t=1}^T r^t(I,a)\)</span></p></li>
 </ul>
-<p>counterfactual values</p>
+</section>
 <section id="alternatives-to-original-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="alternatives-to-original-algorithm">Alternatives to Original Algorithm</h3>
 <ul>
@@ -1008,12 +1001,38 @@ Skewed rock Payoff
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What is the equilibrium strategy if the payoff for Rock over Paper is 2 (others stay the same)?</p>
+<p>What is the equilibrium strategy if the payoff for Rock over Scissors is 2 (others stay the same)?</p>
 </div>
 </div>
 <!-- :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 ::: -->
+</section>
+<section id="the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<p>Rock Paper Scissors was <a href="https://openreview.net/pdf?id=gQnJ7ODIAx">proposed in 2023 to be a “benchmark for multiagent learning”</a> in a paper written primarily by DeepMind.</p>
+<p>The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent’s returns. Yet it’s important for agents to be able to maximize returns <em>and</em> be robust to adversaries.</p>
+<p>Why is RPS a good benchmark?</p>
+<ol type="1">
+<li><p>It’s a repeated game with sequential decisions</p></li>
+<li><p>Performance is measured against a population of varied skills</p></li>
+</ol>
+<p>This week’s challenge is a Rock Paper Scissors tournament</p>
+<section id="rps-bot-ideas" class="level3">
+<h3 class="anchored" data-anchor-id="rps-bot-ideas">RPS Bot Ideas</h3>
+<ol type="1">
+<li><p>Look at opponent action 2 moves ago and randomize between that action and the action that beats it</p></li>
+<li><p>Look at opponent action 2 moves ago and randomize between the other 2 actions</p></li>
+<li><p><a href="https://web.archive.org/web/20160819141717id_/http://www.ofb.net/~egnor/iocaine.html">Iocaine Powder</a>:</p></li>
+<li><p>Use online CFR</p></li>
+<li><p>Beat last move</p></li>
+<li><p>Beat last 10 moves</p></li>
+<li><p>If win, do the same thing again. If lose, randomize.</p></li>
+<li><p>Look at my own history and what opponent will estimate that I’m playing. Beat the thing they will play to beat me.</p></li>
+<li><p>Use percentages that are fixed/slowly moving</p></li>
+<li><p>Track opponent with +1</p></li>
+</ol>
+</section>
 </section>
 <section id="rps-academic-research" class="level2">
 <h2 class="anchored" data-anchor-id="rps-academic-research">RPS Academic Research</h2>
@@ -1031,32 +1050,6 @@ Skewed rock Payoff
 <li><p>Advice on parametrizing opponent strategies</p></li>
 <li><p>Online CFR Minimization won’t cut it here – why?</p></li>
 </ol>
-</section>
-<section id="rps-bot-ideas" class="level2">
-<h2 class="anchored" data-anchor-id="rps-bot-ideas">RPS Bot Ideas</h2>
-<ol type="1">
-<li><p>Look at opponent action 2 moves ago and randomize between that action and the action that beats it</p></li>
-<li><p>Look at opponent action 2 moves ago and randomize between the other 2 actions</p></li>
-<li><p><a href="https://web.archive.org/web/20160819141717id_/http://www.ofb.net/~egnor/iocaine.html">Iocaine Powder</a>:</p></li>
-<li><p>Use online CFR</p></li>
-<li><p>Beat last move</p></li>
-<li><p>Beat last 10 moves</p></li>
-<li><p>If win, do the same thing again. If lose, randomize.</p></li>
-<li><p>Look at my own history and what opponent will estimate that I’m playing. Beat the thing they will play to beat me.</p></li>
-<li><p>Use percentages that are fixed/slowly moving</p></li>
-<li><p>Track opponent with +1</p></li>
-</ol>
-</section>
-<section id="the-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
-<p>Rock Paper Scissors was <a href="https://openreview.net/pdf?id=gQnJ7ODIAx">proposed in 2023 to be a “benchmark for multiagent learning”</a> in a paper written primarily by DeepMind.</p>
-<p>The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent’s returns. Yet it’s important for agents to be able to maximize returns <em>and</em> be robust to adversaries.</p>
-<p>Why is RPS a good benchmark?</p>
-<ol type="1">
-<li><p>It’s a repeated game with sequential decisions</p></li>
-<li><p>Performance is measured against a population of varied skills</p></li>
-</ol>
-<p>This week’s challenge is a Rock Paper Scissors tournament</p>
 
 
 

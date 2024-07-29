@@ -126,8 +126,6 @@ What is a counterfactual?
 
 **Counterfactual event:** If I had brought an umbrella, I wouldn’t have gotten wet
 
-## CFR Algorithm Parts
-
 ### Regret and Strategies
 A strategy at an infoset is a probability distribution over each possible action. 
 
@@ -200,8 +198,7 @@ In a game like Rock Paper Scissors, there is effectively only one infoset, so on
 
 Regrets are linked to strategies through a policy called *regret matching*. 
 
-## Regret Matching
-
+### Regret Matching
 
 :::{.callout-tip collapse="true" appearance="minimal"}
 ## RPS Regret Details
@@ -307,7 +304,7 @@ We see that if there is a fixed player, regret matching converges to the best st
 
 But what if your opponent is not using a fixed strategy? We'll talk about that soon. 
 
-## Iterating through the Tree
+### Iterating through the Tree
 The core feature of the iterative algorithms is self-play by traversing the game tree over all **infosets** and tracking the strategies and regrets at each.
 
 From above, we know how to find the strategy and regret in the simple Rock Paper Scissors environment. 
@@ -324,10 +321,6 @@ In poker:
 
 - Cumulative (counterfactual) regrets are the sum of the individual regrets: 
 - $R^T(I,a) = \sum_{t=1}^T r^t(I,a)$
-
-
-
-counterfactual values 
 
 ### Alternatives to Original Algorithm 
 
@@ -410,33 +403,28 @@ What is the optimal play if your opponent can't play Rock?
 
 :::{.callout-note  appearance="minimal"}
 ## Skewed rock Payoff
-What is the equilibrium strategy if the payoff for Rock over Paper is 2 (others stay the same)? 
+What is the equilibrium strategy if the payoff for Rock over Scissors is 2 (others stay the same)? 
 :::
 
 <!-- :::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
 ::: -->
 
-## RPS Academic Research
+## The Challenge
 
-1. [*Nonparametric Strategy Test*, Sam Ganzfried](https://arxiv.org/abs/2312.10695)
+Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a paper written primarily by DeepMind. 
 
-This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so. 
+The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent's returns. Yet it's important for agents to be able to maximize returns *and* be robust to adversaries. 
 
-2. 
+Why is RPS a good benchmark?
 
-Humans are predictably irrational
+1. It's a repeated game with sequential decisions
 
-What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.
+2. Performance is measured against a population of varied skills
 
-1. Basics of non-Nash responses
+This week's challenge is a Rock Paper Scissors tournament 
 
-1. Advice on parametrizing opponent strategies
-
-2. Online CFR Minimization won’t cut it here – why?
-
-
-## RPS Bot Ideas
+### RPS Bot Ideas
 
 1. Look at opponent action 2 moves ago and randomize between that action and the action that beats it 
 
@@ -458,16 +446,20 @@ What he discovered was that the student’s decisions during the game tended tow
 
 10. Track opponent with +1
 
-## The Challenge
+## RPS Academic Research
 
-Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a paper written primarily by DeepMind. 
+1. [*Nonparametric Strategy Test*, Sam Ganzfried](https://arxiv.org/abs/2312.10695)
 
-The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent's returns. Yet it's important for agents to be able to maximize returns *and* be robust to adversaries. 
+This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so. 
 
-Why is RPS a good benchmark?
+2. 
 
-1. It's a repeated game with sequential decisions
+Humans are predictably irrational
 
-2. Performance is measured against a population of varied skills
+What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.
 
-This week's challenge is a Rock Paper Scissors tournament 
+1. Basics of non-Nash responses
+
+1. Advice on parametrizing opponent strategies
+
+2. Online CFR Minimization won’t cut it here – why?
