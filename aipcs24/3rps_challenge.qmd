@@ -242,10 +242,46 @@ To generalize:
 After each play, we accumulate regrets for each of the 3 actions. 
 :::
 
-
 Then going forward, we play the strategy using regret matching, which means playing a strategy that normalizes over the *positive* accumulated regrets, i.e. playing in proportion to the positive regrets.
 
-Definitions: 
+Example from [Marc Lanctot's CFR Tutorial](https://www.ma.imperial.ac.uk/~dturaev/neller-lanctot.pdf): 
+
+- Game 1: Choose Rock and opponent chooses Paper
+ - Lose 1
+ - Rock: Regret 0
+ - Paper: Regret 1
+ - Scissors: Regret 2
+
+- Next Action: Proportional
+$$
+\begin{pmatrix} 
+\text{Rock} & 0/3 = 0 \\ 
+\text{Paper} & 1/3 = 0.333 \\ 
+\text{Scissors} & 2/3 = 0.667
+\end{pmatrix}
+$$
+
+- Game 2: Choose Scissors (With probability $2/3$) and opponent chooses Rock
+ - Lose 1 
+ - Rock: Regret 1
+ - Paper: Regret 2
+ - Scissors: Regret 0
+
+- Cumulative regrets: 
+ - Rock: 1
+ - Paper: 3
+ - Scissors: 2
+
+- Next Action: Proportional
+$$
+\begin{pmatrix} 
+\text{Rock} & 1/6 = 0167 \\ 
+\text{Paper} & 3/6 = 0.500 \\ 
+\text{Scissors} & 2/6 = 0.333
+\end{pmatrix}
+$$
+
+Regret matching definitions: 
 
 - $a$ is actions
 - $\sigma$ is strategy
@@ -295,6 +331,11 @@ After using regret matching, we can minimize expected regret by using the *avera
 If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of $1/3$ for each action using the average strategy. 
 
 ### RPS Regret Matching Experiment
+Here we show that regret matching converges only using the average strategy over 10,000 iterations: 
+
+![](assets/rps_avg.png)
+
+The bottom shows both players converging to $1/3$, while the top shows Player 1 volatile current strategies. 
 
 Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary). 
 
@@ -311,7 +352,7 @@ From above, we know how to find the strategy and regret in the simple Rock Paper
 
 In poker: 
 
-- Strategies are determined the same as above, through regret matching from the previous `regret` values at the specific information set
+- Strategies are determined the same as above, through regret matching from the previous `regret` values at the specific information set for each action 
 
 - Counterfactual values are effectively the value of an information set. They are weighted by 
  - $v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)$
@@ -324,7 +365,7 @@ In poker:
 
 ### Alternatives to Original Algorithm 
 
-- CFR+ variation such that regrets can't be <0
+- CFR+ variation such that regrets can't be $\leq 0$
 
 - Linear CFR such that regrets are weighted by their recency
 
@@ -384,31 +425,84 @@ One option is to play the equilibrium strategy until you get a significant sampl
 :::
 
 :::{.callout-note  appearance="minimal"}
-## Maximize Against Adapting Rock Opponent
-What if the opponent is adapting to you, but 10% of the time they are forced to play Rock?
-:::
-
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
-## Solution
-::: -->
-
-:::{.callout-note  appearance="minimal"}
 ## Strategy Against No-Rock Opponent
 What is the optimal play if your opponent can't play Rock? 
 :::
 
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
+:::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-::: -->
+| Player 1/2 | Paper   | Scissors |
+|--------|---------|----------|
+| Rock   | (-1, 1) | (1, -1)  |
+| Paper  | (0, 0)  | (-1, 1)  |
+|Scissors| (1, -1) | (0, 0)   |
+
+We can see that Player 1 playing Paper is dominated by Scissors, so Player 1 should never play Paper.
+
+| Player 1/2 | Paper   | Scissors |
+|--------|---------|----------|
+| Rock   | (-1, 1) | (1, -1)  |
+|Scissors| (1, -1) | (0, 0)   |
+
+In the reduced game, we see that if Player 2 plays Paper with probability $p$ and Scissors with probability $s$, then: 
+
+$\mathbb{E}(\text{P1 R}) = -1*p + 1*s = -p + s$
+$\mathbb{E}(\text{P1 S}) = 1*p + 0*s = p$
+
+Setting these equal, $-p + s = p \Rightarrow s = 2p$.
+
+We also know that $s + p = 1$.
+
+Therefore $s = 1 - p$ and $1 - p = 2p \Rightarrow 1 = 3p \Rightarrow p = 1/3$.
+
+Therefore, $s = 1 - 1/3 = 2/3$. 
+
+For Player 2, we have $s = 2/3$ and $p = 1/3$. 
+
+For Player 1, we can solve similarly:
+
+$\mathbb{E}(\text{P2 P}) = 1*r - 1*s = r - s$
+$\mathbb{E}(\text{P2 S}) = -1*r + 0*s = -r$
+
+$r - s = -r \Rightarrow 2r = s$
+
+We also know that $r + s = 1$.
+
+Therefore $s = 1 - r$ and $1 - r = 2r \Rightarrow 1 = 3r \Rightarrow r = 1/3$.
+
+Therefore, $s = 1 - 1/3 = 2/3$. 
+
+For Player 2, we have $s = 2/3$ and $p = 1/3$. 
+
+Inserting these probabilities, we have:
+
+| Player 1/2 | Paper (1/3)   | Scissors (2/3)|
+|--------|---------|----------|
+| Rock (1/3)  | (-1, 1) (1/9) | (1, -1) (2/9)  |
+|Scissors (2/3)| (1, -1) (2/9) | (0, 0) (4/9)  |
+
+Therefore Player 1 has payoffs of: $1/9 * -1 + 2/9 * 1 + 2/9 * 1 + 4/9 * 0 = 3/9 = 1/3$. Therefore the player that can still play Rock has an advantage of $1/3$ at equilibrium. 
+:::
 
 :::{.callout-note  appearance="minimal"}
-## Skewed rock Payoff
+## Maximize Against Adapting Rock Opponent
+What if the opponent is adapting to you, but 10% of the time they are forced to play Rock?
+:::
+
+:::{.callout-warning collapse="true" appearance="minimal"}
+## Solution
+Soon
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Skewed Rock Payoff
 What is the equilibrium strategy if the payoff for Rock over Scissors is 2 (others stay the same)? 
 :::
 
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
+:::{.callout-warning collapse="true" appearance="minimal"}
 ## Solution
-::: -->
+Soon
+:::
 
 ## The Challenge
 
@@ -422,7 +516,7 @@ Why is RPS a good benchmark?
 
 2. Performance is measured against a population of varied skills
 
-This week's challenge is a Rock Paper Scissors tournament 
+This week's challenge is a Rock Paper Scissors tournament.  
 
 ### RPS Bot Ideas
 
@@ -446,14 +540,16 @@ This week's challenge is a Rock Paper Scissors tournament
 
 10. Track opponent with +1
 
+11. More soon...
+
 ## RPS Academic Research
 
 1. [*Nonparametric Strategy Test*, Sam Ganzfried](https://arxiv.org/abs/2312.10695)
 
 This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so. 
 
-2. 
-
+More soon...
+<!-- 
 Humans are predictably irrational
 
 What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.
@@ -462,4 +558,4 @@ What he discovered was that the student’s decisions during the game tended tow
 
 1. Advice on parametrizing opponent strategies
 
-2. Online CFR Minimization won’t cut it here – why?
+2. Online CFR Minimization won’t cut it here – why? -->

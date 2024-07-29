@@ -810,7 +810,38 @@ RPS Regret Details
 </div>
 </div>
 <p>Then going forward, we play the strategy using regret matching, which means playing a strategy that normalizes over the <em>positive</em> accumulated regrets, i.e.&nbsp;playing in proportion to the positive regrets.</p>
-<p>Definitions:</p>
+<p>Example from <a href="https://www.ma.imperial.ac.uk/~dturaev/neller-lanctot.pdf">Marc Lanctot’s CFR Tutorial</a>:</p>
+<ul>
+<li><p>Game 1: Choose Rock and opponent chooses Paper</p></li>
+<li><p>Lose 1</p></li>
+<li><p>Rock: Regret 0</p></li>
+<li><p>Paper: Regret 1</p></li>
+<li><p>Scissors: Regret 2</p></li>
+<li><p>Next Action: Proportional <span class="math display">\[
+\begin{pmatrix}
+\text{Rock} &amp; 0/3 = 0 \\
+\text{Paper} &amp; 1/3 = 0.333 \\
+\text{Scissors} &amp; 2/3 = 0.667
+\end{pmatrix}
+\]</span></p></li>
+<li><p>Game 2: Choose Scissors (With probability <span class="math inline">\(2/3\)</span>) and opponent chooses Rock</p></li>
+<li><p>Lose 1</p></li>
+<li><p>Rock: Regret 1</p></li>
+<li><p>Paper: Regret 2</p></li>
+<li><p>Scissors: Regret 0</p></li>
+<li><p>Cumulative regrets:</p></li>
+<li><p>Rock: 1</p></li>
+<li><p>Paper: 3</p></li>
+<li><p>Scissors: 2</p></li>
+<li><p>Next Action: Proportional <span class="math display">\[
+\begin{pmatrix}
+\text{Rock} &amp; 1/6 = 0167 \\
+\text{Paper} &amp; 3/6 = 0.500 \\
+\text{Scissors} &amp; 2/6 = 0.333
+\end{pmatrix}
+\]</span></p></li>
+</ul>
+<p>Regret matching definitions:</p>
 <ul>
 <li><span class="math inline">\(a\)</span> is actions</li>
 <li><span class="math inline">\(\sigma\)</span> is strategy</li>
@@ -852,6 +883,9 @@ RPS Regret Details
 </section>
 <section id="rps-regret-matching-experiment" class="level3">
 <h3 class="anchored" data-anchor-id="rps-regret-matching-experiment">RPS Regret Matching Experiment</h3>
+<p>Here we show that regret matching converges only using the average strategy over 10,000 iterations:</p>
+<p><img src="assets/rps_avg.png" class="img-fluid"></p>
+<p>The bottom shows both players converging to <span class="math inline">\(1/3\)</span>, while the top shows Player 1 volatile current strategies.</p>
 <p>Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary).</p>
 <p><img src="assets/rps_rm.png" class="img-fluid"></p>
 <p>We see that if there is a fixed player, regret matching converges to the best strategy.</p>
@@ -863,7 +897,7 @@ RPS Regret Details
 <p>From above, we know how to find the strategy and regret in the simple Rock Paper Scissors environment.</p>
 <p>In poker:</p>
 <ul>
-<li><p>Strategies are determined the same as above, through regret matching from the previous <code>regret</code> values at the specific information set</p></li>
+<li><p>Strategies are determined the same as above, through regret matching from the previous <code>regret</code> values at the specific information set for each action</p></li>
 <li><p>Counterfactual values are effectively the value of an information set. They are weighted by</p></li>
 <li><p><span class="math inline">\(v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)\)</span></p></li>
 <li><p>Instantaneous regrets are based on action values compared to infoset EV. Each action EV then adds to its <code>regret</code> counter:</p></li>
@@ -875,7 +909,7 @@ RPS Regret Details
 <section id="alternatives-to-original-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="alternatives-to-original-algorithm">Alternatives to Original Algorithm</h3>
 <ul>
-<li><p>CFR+ variation such that regrets can’t be &lt;0</p></li>
+<li><p>CFR+ variation such that regrets can’t be <span class="math inline">\(\leq 0\)</span></p></li>
 <li><p>Linear CFR such that regrets are weighted by their recency</p></li>
 <li><p>Sampling</p>
 <ul>
@@ -965,22 +999,6 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Maximize Against Adapting Rock Opponent
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What if the opponent is adapting to you, but 10% of the time they are forced to play Rock?</p>
-</div>
-</div>
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
-## Solution
-::: -->
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
 Strategy Against No-Rock Opponent
 </div>
 </div>
@@ -988,25 +1006,164 @@ Strategy Against No-Rock Opponent
 <p>What is the optimal play if your opponent can’t play Rock?</p>
 </div>
 </div>
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
-## Solution
-::: -->
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Player 1/2</th>
+<th>Paper</th>
+<th>Scissors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rock</td>
+<td>(-1, 1)</td>
+<td>(1, -1)</td>
+</tr>
+<tr class="even">
+<td>Paper</td>
+<td>(0, 0)</td>
+<td>(-1, 1)</td>
+</tr>
+<tr class="odd">
+<td>Scissors</td>
+<td>(1, -1)</td>
+<td>(0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that Player 1 playing Paper is dominated by Scissors, so Player 1 should never play Paper.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Player 1/2</th>
+<th>Paper</th>
+<th>Scissors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rock</td>
+<td>(-1, 1)</td>
+<td>(1, -1)</td>
+</tr>
+<tr class="even">
+<td>Scissors</td>
+<td>(1, -1)</td>
+<td>(0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p>In the reduced game, we see that if Player 2 plays Paper with probability <span class="math inline">\(p\)</span> and Scissors with probability <span class="math inline">\(s\)</span>, then:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{P1 R}) = -1*p + 1*s = -p + s\)</span> <span class="math inline">\(\mathbb{E}(\text{P1 S}) = 1*p + 0*s = p\)</span></p>
+<p>Setting these equal, <span class="math inline">\(-p + s = p \Rightarrow s = 2p\)</span>.</p>
+<p>We also know that <span class="math inline">\(s + p = 1\)</span>.</p>
+<p>Therefore <span class="math inline">\(s = 1 - p\)</span> and <span class="math inline">\(1 - p = 2p \Rightarrow 1 = 3p \Rightarrow p = 1/3\)</span>.</p>
+<p>Therefore, <span class="math inline">\(s = 1 - 1/3 = 2/3\)</span>.</p>
+<p>For Player 2, we have <span class="math inline">\(s = 2/3\)</span> and <span class="math inline">\(p = 1/3\)</span>.</p>
+<p>For Player 1, we can solve similarly:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{P2 P}) = 1*r - 1*s = r - s\)</span> <span class="math inline">\(\mathbb{E}(\text{P2 S}) = -1*r + 0*s = -r\)</span></p>
+<p><span class="math inline">\(r - s = -r \Rightarrow 2r = s\)</span></p>
+<p>We also know that <span class="math inline">\(r + s = 1\)</span>.</p>
+<p>Therefore <span class="math inline">\(s = 1 - r\)</span> and <span class="math inline">\(1 - r = 2r \Rightarrow 1 = 3r \Rightarrow r = 1/3\)</span>.</p>
+<p>Therefore, <span class="math inline">\(s = 1 - 1/3 = 2/3\)</span>.</p>
+<p>For Player 2, we have <span class="math inline">\(s = 2/3\)</span> and <span class="math inline">\(p = 1/3\)</span>.</p>
+<p>Inserting these probabilities, we have:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Player 1/2</th>
+<th>Paper (1/3)</th>
+<th>Scissors (2/3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rock (1/3)</td>
+<td>(-1, 1) (1/9)</td>
+<td>(1, -1) (2/9)</td>
+</tr>
+<tr class="even">
+<td>Scissors (2/3)</td>
+<td>(1, -1) (2/9)</td>
+<td>(0, 0) (4/9)</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore Player 1 has payoffs of: <span class="math inline">\(1/9 * -1 + 2/9 * 1 + 2/9 * 1 + 4/9 * 0 = 3/9 = 1/3\)</span>. Therefore the player that can still play Rock has an advantage of <span class="math inline">\(1/3\)</span> at equilibrium.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Skewed rock Payoff
+Maximize Against Adapting Rock Opponent
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What if the opponent is adapting to you, but 10% of the time they are forced to play Rock?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Soon</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Skewed Rock Payoff
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>What is the equilibrium strategy if the payoff for Rock over Scissors is 2 (others stay the same)?</p>
 </div>
 </div>
-<!-- :::{.callout-warning collapse="true" appearance="minimal"}
-## Solution
-::: -->
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Soon</p>
+</div>
+</div>
+</div>
 </section>
 <section id="the-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
@@ -1017,7 +1174,7 @@ Skewed rock Payoff
 <li><p>It’s a repeated game with sequential decisions</p></li>
 <li><p>Performance is measured against a population of varied skills</p></li>
 </ol>
-<p>This week’s challenge is a Rock Paper Scissors tournament</p>
+<p>This week’s challenge is a Rock Paper Scissors tournament.</p>
 <section id="rps-bot-ideas" class="level3">
 <h3 class="anchored" data-anchor-id="rps-bot-ideas">RPS Bot Ideas</h3>
 <ol type="1">
@@ -1031,6 +1188,7 @@ Skewed rock Payoff
 <li><p>Look at my own history and what opponent will estimate that I’m playing. Beat the thing they will play to beat me.</p></li>
 <li><p>Use percentages that are fixed/slowly moving</p></li>
 <li><p>Track opponent with +1</p></li>
+<li><p>More soon…</p></li>
 </ol>
 </section>
 </section>
@@ -1040,16 +1198,16 @@ Skewed rock Payoff
 <li><a href="https://arxiv.org/abs/2312.10695"><em>Nonparametric Strategy Test</em>, Sam Ganzfried</a></li>
 </ol>
 <p>This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so.</p>
-<ol start="2" type="1">
-<li></li>
-</ol>
-<p>Humans are predictably irrational</p>
-<p>What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.</p>
-<ol type="1">
-<li><p>Basics of non-Nash responses</p></li>
-<li><p>Advice on parametrizing opponent strategies</p></li>
-<li><p>Online CFR Minimization won’t cut it here – why?</p></li>
-</ol>
+<p>More soon… <!-- 
+Humans are predictably irrational
+
+What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.
+
+1. Basics of non-Nash responses
+
+1. Advice on parametrizing opponent strategies
+
+2. Online CFR Minimization won’t cut it here – why? --></p>
 
 
 
