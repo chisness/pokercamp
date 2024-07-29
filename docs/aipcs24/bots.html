@@ -292,6 +292,12 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../aipcs24/2leduc_leaderboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leaderboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
  <span class="menu-text">Challenge Review</span>
   </li>
       </ul>
@@ -423,8 +429,9 @@ window.Quarto = {
   <li><a href="#build-a-bot" id="toc-build-a-bot" class="nav-link" data-scroll-target="#build-a-bot">Build a Bot</a>
   <ul class="collapse">
   <li><a href="#using-player.py-to-build-a-bot" id="toc-using-player.py-to-build-a-bot" class="nav-link" data-scroll-target="#using-player.py-to-build-a-bot">Using <code>player.py</code> to Build a Bot</a></li>
+  <li><a href="#debugging-your-broken-bot" id="toc-debugging-your-broken-bot" class="nav-link" data-scroll-target="#debugging-your-broken-bot">Debugging your broken bot</a></li>
   </ul></li>
-  <li><a href="#sample-bots" id="toc-sample-bots" class="nav-link" data-scroll-target="#sample-bots">Sample Bots</a>
+  <li><a href="#sample-bots-for-challenge-1-kuhn-poker" id="toc-sample-bots-for-challenge-1-kuhn-poker" class="nav-link" data-scroll-target="#sample-bots-for-challenge-1-kuhn-poker">Sample Bots (for Challenge 1 / Kuhn Poker)</a>
   <ul class="collapse">
   <li><a href="#random" id="toc-random" class="nav-link" data-scroll-target="#random">Random</a></li>
   <li><a href="#linear-agent" id="toc-linear-agent" class="nav-link" data-scroll-target="#linear-agent">Linear Agent</a></li>
@@ -610,42 +617,51 @@ Other files include that you should not need to modify
 </ol>
 </section>
 </section>
+<section id="debugging-your-broken-bot" class="level3">
+<h3 class="anchored" data-anchor-id="debugging-your-broken-bot">Debugging your broken bot</h3>
+<p>Because of the way <code>engine.py</code> captures the output of the bots it runs, you probably don’t get the printed output of your broken bot failing. If you comment out the line of <code>stdout=subprocess.PIPE, stderr=subprocess.STDOUT,</code> in this function call, you can (probably?) disable this behavior:</p>
+<pre><code>proc = subprocess.Popen(
+    self.commands['run'] + [str(port)],
+    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    cwd=self.path,
+)</code></pre>
 </section>
-<section id="sample-bots" class="level2">
-<h2 class="anchored" data-anchor-id="sample-bots">Sample Bots</h2>
+</section>
+<section id="sample-bots-for-challenge-1-kuhn-poker" class="level2">
+<h2 class="anchored" data-anchor-id="sample-bots-for-challenge-1-kuhn-poker">Sample Bots (for Challenge 1 / Kuhn Poker)</h2>
 <section id="random" class="level3">
 <h3 class="anchored" data-anchor-id="random">Random</h3>
 <p>The most simple <code>random</code> agent doesn’t care about the <code>GameState</code> or <code>RoundState</code> and implements the simple action:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> random.choice([UpAction(), DownAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> random.choice([UpAction(), DownAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="linear-agent" class="level3">
 <h3 class="anchored" data-anchor-id="linear-agent">Linear Agent</h3>
 <p>The <code>linear</code> agent also doesn’t use <code>GameState</code> or <code>RoundState</code>, but does change its actions depending on its own hand. It uses this code to match <code>my_hand</code> to the appropriate linear case.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> my_hand:</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DownAction()</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.choice([UpAction(), DownAction()])</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span>:</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> UpAction()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> my_hand:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DownAction()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random.choice([UpAction(), DownAction()])</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span>:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> UpAction()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="weights-probabilities-agent" class="level3">
 <h3 class="anchored" data-anchor-id="weights-probabilities-agent">Weights (Probabilities) Agent</h3>
 <p>The <code>from-weights</code> agent does need to use the <code>round_state</code> to first see whose turn it is to act (<code>round_state.turn</code>) and then to match the hand to the appropriate infoset using <code>match my_hand</code>. From there, the strategy can be defined according to the strategy probabilities (weights) for that infoset.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> round_state.turn:</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand:</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>: <span class="co"># Q_</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"Q_"</span>]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">1</span>: <span class="co"># K_</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"K_"</span>]</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">2</span>: <span class="co"># A_</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"A_"</span>]</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand, round_state.action_history[<span class="dv">0</span>]:</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>, DownAction(): <span class="co">#_Q↓</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"_QD"</span>]</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">match</span> round_state.turn:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">0</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>: <span class="co"># Q_</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"Q_"</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">1</span>: <span class="co"># K_</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"K_"</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">2</span>: <span class="co"># A_</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"A_"</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span>:</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">match</span> my_hand, round_state.action_history[<span class="dv">0</span>]:</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> <span class="dv">0</span>, DownAction(): <span class="co">#_Q↓</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                up_prob <span class="op">=</span> <span class="va">self</span>.strategy[<span class="st">"_QD"</span>]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="and-beyond" class="level3">
 <h3 class="anchored" data-anchor-id="and-beyond">…and beyond?</h3>
