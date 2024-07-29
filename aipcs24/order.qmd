@@ -1,0 +1,28 @@
+---
+title: "Order in the AIPC"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
+## Ideas for Order
+
+1. Intro/Kuhn Poker
+
+2. Rock Paper Scissors/Kuhn Poker vs. Fixed Opponent
+
+3. Rock Paper Scissors/Kuhn Poker Equilibrium
+
+4. Rock Paper Scissors Tournament (vs. equilibrium/adaptive/fixed opponents)
+
+5. 100-Card Kuhn Poker Tournament (vs. equilibrium/adaptive/fixed opponents)
+
+6. Leduc Poker (or slightly more complicated)
+
+7. Texas Tac Toe
+
+8. Allin/Fold 10BB NLHE
+
+9. Rock Poker Scissors
+
+10. Rock Poker Scissors

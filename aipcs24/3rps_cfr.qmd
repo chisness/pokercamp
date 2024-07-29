@@ -1,0 +1,137 @@
+---
+title: "#3 Rock Paper Scissors: CFR"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
+## Counterfactual Regret Minimization
+As we think about solving larger games, we start to look at iterative algorithms.
+
+The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. CFR is an iterative algorithm developed in 2007 at the University of Alberta that converges to Nash equilibrium in two player zero-sum games. 
+
+The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR. 
+
+What is a counterfactual? 
+
+**Actual event:** I didn’t bring an umbrella, and I got wet in the rain
+
+**Counterfactual event:** If I had brought an umbrella, I wouldn’t have gotten wet
+
+## CFR Algorithm Parts
+
+### Regret and Strategies
+A strategy at an infoset is a probability distribution over each possible action. 
+
+Regret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies. 
+
+For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset. 
+
+:::{.callout-note  appearance="minimal"}
+## Regret Exercise
+
+![](assets/basictree.png)
+
+What is the regret for each action? 
+
+| Action     | Regret |
+|------------|-----------|
+| A      |           |
+| B     |  |
+| C     |   |
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+
+| Action     | Regret |
+|------------|-----------|
+| A      |  4         |
+| B     | 2  |
+| C     | 0  |
+
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Expected Value Exercise
+![](assets/basictree.png)
+
+If taking a uniform strategy at this node (i.e. $\frac{1}{3}$ for each action), then what is the expected value of the node? 
+
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+$\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3$
+:::
+
+:::{.callout-note  appearance="minimal"}
+## Poker Regret Exercise
+![](assets/basictree.png)
+
+In poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition. 
+
+:::
+
+:::{.callout-warning collapse="true"  appearance="minimal"}
+## Solution
+
+| Action     | Value | Poker Regret
+|------------|-----------|-----------|
+| A      |  1         |  -2         |
+| B     | 3  |  0         |
+| C     | 5  |  2         |
+
+At a node in a poker game, the player prefers actions with higher regrets by this definition. 
+
+:::
+
+Each infoset maintains a `strategy` and `regret` tabular counter for each action. These accumulate the sum of all strategies and the sum of all regrets. 
+
+In a game like Rock Paper Scissors, there is effectively only one infoset, so only one table for `strategy` over each action (Rock, Paper, Scissors) and one table for `regret` over each action (Rock, Paper, Scissors). 
+
+Regrets are linked to strategies through a policy called *regret matching*. 
+
+- Regret matching
+
+- 
+
+- Average strategy at end 
+
+### Iterating through the Tree
+The core feature of the iterative algorithms is self-play by traversing the game tree over all **infosets** and tracking the strategies and regrets at each.
+
+counterfactual values 
+
+### Alternatives to Original Algorithm 
+
+- CFR+ 
+
+- Linear CFR
+
+- Sampling
+ - External 
+ - Chance
+ - Outcome
+  
+
+
+- Tabular storing strategies and regrets at each infoset
+
+- Regrets based on action values compared to node EV, which is based on counterfactual values
+
+- Regret minimization, usually regret matching, to get new strategies
+
+- Average strategy converges to Nash equilibrium 
+
+- CFR+ variation such that regrets can't be <0
+
+- Linear CFR such that regrets are weighted by their recency
+
+- Sampling methods
+
+  - External: Sample chance and opponent nodes
+
+  - Chance: Sample chance only
+
+  - Outcome: Sample outcomes
