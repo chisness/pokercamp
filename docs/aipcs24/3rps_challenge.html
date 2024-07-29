@@ -430,7 +430,7 @@ window.Quarto = {
   <li><a href="#regret-matching" id="toc-regret-matching" class="nav-link" data-scroll-target="#regret-matching">Regret Matching</a></li>
   <li><a href="#rps-regret-matching-experiment" id="toc-rps-regret-matching-experiment" class="nav-link" data-scroll-target="#rps-regret-matching-experiment">RPS Regret Matching Experiment</a></li>
   <li><a href="#iterating-through-the-tree" id="toc-iterating-through-the-tree" class="nav-link" data-scroll-target="#iterating-through-the-tree">Iterating through the Tree</a></li>
-  <li><a href="#alternatives-to-original-algorithm" id="toc-alternatives-to-original-algorithm" class="nav-link" data-scroll-target="#alternatives-to-original-algorithm">Alternatives to Original Algorithm</a></li>
+  <li><a href="#alternativesupdates-to-original-algorithm" id="toc-alternativesupdates-to-original-algorithm" class="nav-link" data-scroll-target="#alternativesupdates-to-original-algorithm">Alternatives/Updates to Original Algorithm</a></li>
   </ul></li>
   <li><a href="#data-talk-paper-scissors" id="toc-data-talk-paper-scissors" class="nav-link" data-scroll-target="#data-talk-paper-scissors">Data: Talk Paper Scissors</a></li>
   <li><a href="#more-exercises" id="toc-more-exercises" class="nav-link" data-scroll-target="#more-exercises">More Exercises</a></li>
@@ -597,8 +597,8 @@ Solution
 <h2 class="anchored" data-anchor-id="counterfactual-regret-minimization">Counterfactual Regret Minimization</h2>
 <p>As we think about solving larger games, we start to look at iterative algorithms.</p>
 <p>The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. CFR is an iterative algorithm developed in 2007 at the University of Alberta that converges to Nash equilibrium in two player zero-sum games.</p>
-<p>The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.</p>
-<p>What is a counterfactual?</p>
+<p>(Note: The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.)</p>
+<p>What is a counterfactual? Here’s an example:</p>
 <p><strong>Actual event:</strong> I didn’t bring an umbrella, and I got wet in the rain</p>
 <p><strong>Counterfactual event:</strong> If I had brought an umbrella, I wouldn’t have gotten wet</p>
 <section id="regret-and-strategies" class="level3">
@@ -809,14 +809,16 @@ RPS Regret Details
 </div>
 </div>
 </div>
-<p>Then going forward, we play the strategy using regret matching, which means playing a strategy that normalizes over the <em>positive</em> accumulated regrets, i.e.&nbsp;playing in proportion to the positive regrets.</p>
+<p>We decide our strategy probability distribution using regret matching, which means playing a strategy that normalizes over the <em>positive</em> accumulated regrets, i.e.&nbsp;playing in proportion to the positive regrets.</p>
 <p>Example from <a href="https://www.ma.imperial.ac.uk/~dturaev/neller-lanctot.pdf">Marc Lanctot’s CFR Tutorial</a>:</p>
 <ul>
-<li><p>Game 1: Choose Rock and opponent chooses Paper</p></li>
-<li><p>Lose 1</p></li>
-<li><p>Rock: Regret 0</p></li>
-<li><p>Paper: Regret 1</p></li>
-<li><p>Scissors: Regret 2</p></li>
+<li><p>Game 1: Choose Rock and opponent chooses Paper</p>
+<ul>
+<li>Lose 1</li>
+<li>Rock: Regret 0</li>
+<li>Paper: Regret 1</li>
+<li>Scissors: Regret 2</li>
+</ul></li>
 <li><p>Next Action: Proportional <span class="math display">\[
 \begin{pmatrix}
 \text{Rock} &amp; 0/3 = 0 \\
@@ -824,15 +826,19 @@ RPS Regret Details
 \text{Scissors} &amp; 2/3 = 0.667
 \end{pmatrix}
 \]</span></p></li>
-<li><p>Game 2: Choose Scissors (With probability <span class="math inline">\(2/3\)</span>) and opponent chooses Rock</p></li>
-<li><p>Lose 1</p></li>
-<li><p>Rock: Regret 1</p></li>
-<li><p>Paper: Regret 2</p></li>
-<li><p>Scissors: Regret 0</p></li>
-<li><p>Cumulative regrets:</p></li>
-<li><p>Rock: 1</p></li>
-<li><p>Paper: 3</p></li>
-<li><p>Scissors: 2</p></li>
+<li><p>Game 2: Choose Scissors (With probability <span class="math inline">\(2/3\)</span>) and opponent chooses Rock</p>
+<ul>
+<li>Lose 1</li>
+<li>Rock: Regret 1</li>
+<li>Paper: Regret 2</li>
+<li>Scissors: Regret 0</li>
+</ul></li>
+<li><p>Cumulative regrets:</p>
+<ul>
+<li>Rock: 1</li>
+<li>Paper: 3</li>
+<li>Scissors: 2</li>
+</ul></li>
 <li><p>Next Action: Proportional <span class="math display">\[
 \begin{pmatrix}
 \text{Rock} &amp; 1/6 = 0167 \\
@@ -856,8 +862,8 @@ RPS Regret Details
 \end{cases}
 \]</span></p>
 <p>This is showing that we take the cumulative regret for an action divided by the cumulative regrets for all actions (normalizing) and then play that strategy for this action on the next iteration.</p>
-<p>If cumulative regrets for an action are <span class="math inline">\(&lt;0\)</span> then we use <span class="math inline">\(0\)</span>.</p>
 <p>If all cumulative regrets are <span class="math inline">\(\leq 0\)</span> then we use the uniform distribution.</p>
+<p>If cumulative regrets are positive, but are are <span class="math inline">\(&lt;0\)</span> for a specific action, then we use <span class="math inline">\(0\)</span> for that action.</p>
 <p>In code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_strategy(<span class="va">self</span>):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#First find the normalizing sum</span></span>
@@ -878,14 +884,14 @@ RPS Regret Details
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.strategy_sum[a] <span class="op">+=</span> <span class="va">self</span>.strategy[a]</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.strategy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After using regret matching, we can minimize expected regret by using the <em>average</em> strategy at the end, which is the strategy that converges to equilibrium.</p>
-<p>If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of <span class="math inline">\(1/3\)</span> for each action using the average strategy.</p>
+<p>After using regret matching and after many iterations, we can minimize expected regret by using the <em>average</em> strategy at the end, which is the strategy that converges to equilibrium.</p>
+<p>If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of <span class="math inline">\(1/3\)</span> for each action using the average strategy in Rock Paper Scissors.</p>
 </section>
 <section id="rps-regret-matching-experiment" class="level3">
 <h3 class="anchored" data-anchor-id="rps-regret-matching-experiment">RPS Regret Matching Experiment</h3>
 <p>Here we show that regret matching converges only using the average strategy over 10,000 iterations:</p>
 <p><img src="assets/rps_avg.png" class="img-fluid"></p>
-<p>The bottom shows both players converging to <span class="math inline">\(1/3\)</span>, while the top shows Player 1 volatile current strategies.</p>
+<p>The bottom shows both players converging to <span class="math inline">\(1/3\)</span>, while the top shows Player 1’s volatile current strategies.</p>
 <p>Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary).</p>
 <p><img src="assets/rps_rm.png" class="img-fluid"></p>
 <p>We see that if there is a fixed player, regret matching converges to the best strategy.</p>
@@ -898,24 +904,48 @@ RPS Regret Details
 <p>In poker:</p>
 <ul>
 <li><p>Strategies are determined the same as above, through regret matching from the previous <code>regret</code> values at the specific information set for each action</p></li>
-<li><p>Counterfactual values are effectively the value of an information set. They are weighted by</p></li>
-<li><p><span class="math inline">\(v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)\)</span></p></li>
-<li><p>Instantaneous regrets are based on action values compared to infoset EV. Each action EV then adds to its <code>regret</code> counter:</p></li>
-<li><p><span class="math inline">\(r^t(I,a) = v^{\sigma^t}(I,a) - v^{\sigma^t}(I)\)</span></p></li>
-<li><p>Cumulative (counterfactual) regrets are the sum of the individual regrets:</p></li>
-<li><p><span class="math inline">\(R^T(I,a) = \sum_{t=1}^T r^t(I,a)\)</span></p></li>
+<li><p>CFR definitions:</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is actions</li>
+<li><span class="math inline">\(I\)</span> is infoset</li>
+<li><span class="math inline">\(\sigma\)</span> is strategy</li>
+<li><span class="math inline">\(t\)</span> is time</li>
+<li><span class="math inline">\(i\)</span> is player</li>
+<li><span class="math inline">\(R\)</span> is cumulative regret</li>
+<li><span class="math inline">\(z\)</span> is a terminal node</li>
+<li><span class="math inline">\(u\)</span> is utility (payoffs)</li>
+<li><span class="math inline">\(p\)</span> is the current player who plays at this node</li>
+<li><span class="math inline">\(-p\)</span> is the the opponent player and chance</li>
+<li><span class="math inline">\(v\)</span> is counterfactual value</li>
+</ul></li>
+<li><p>Counterfactual values are effectively the value of an information set. They are weighted by the probability of opponent and chance playing to this node (in other words, the probability of playing to this node if this player tried to do so).</p>
+<ul>
+<li><span class="math inline">\(v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)\)</span></li>
+<li><span class="math inline">\(\sum_{z\in Z_I}\)</span> is summing over all terminal histories reachable from this node</li>
+<li><span class="math inline">\(\pi^{\sigma}_{-p}(z[I])\)</span> is the probability of opponents and chance reaching this node</li>
+<li><span class="math inline">\(\pi^{\sigma}(z[I] \rightarrow z)\)</span> is the probability of playing from this node to terminal history <span class="math inline">\(z\)</span>, i.e.&nbsp;the weight component of the expected value</li>
+<li><span class="math inline">\(u_p(z)\)</span> is the utility at terminal history <span class="math inline">\(z\)</span>, i.e.&nbsp;the value component of the expected value</li>
+</ul></li>
+<li><p>Instantaneous regrets are based on action values compared to infoset EV. Each action EV then adds to its <code>regret</code> counter:</p>
+<ul>
+<li><span class="math inline">\(r^t(I,a) = v^{\sigma^t}(I,a) - v^{\sigma^t}(I)\)</span></li>
+</ul></li>
+<li><p>Cumulative (counterfactual) regrets are the sum of the individual regrets:</p>
+<ul>
+<li><span class="math inline">\(R^T(I,a) = \sum_{t=1}^T r^t(I,a)\)</span></li>
+</ul></li>
 </ul>
 </section>
-<section id="alternatives-to-original-algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="alternatives-to-original-algorithm">Alternatives to Original Algorithm</h3>
+<section id="alternativesupdates-to-original-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="alternativesupdates-to-original-algorithm">Alternatives/Updates to Original Algorithm</h3>
 <ul>
 <li><p>CFR+ variation such that regrets can’t be <span class="math inline">\(\leq 0\)</span></p></li>
 <li><p>Linear CFR such that regrets are weighted by their recency</p></li>
 <li><p>Sampling</p>
 <ul>
-<li><p>External: Sample chance and opponent nodes</p></li>
-<li><p>Chance: Sample chance only</p></li>
-<li><p>Outcome: Sample outcomes</p></li>
+<li>External: Sample chance and opponent nodes</li>
+<li>Chance: Sample chance only</li>
+<li>Outcome: Sample outcomes</li>
 </ul></li>
 </ul>
 </section>

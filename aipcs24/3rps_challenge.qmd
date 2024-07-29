@@ -118,9 +118,9 @@ As we think about solving larger games, we start to look at iterative algorithms
 
 The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. CFR is an iterative algorithm developed in 2007 at the University of Alberta that converges to Nash equilibrium in two player zero-sum games. 
 
-The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR. 
+(Note: The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.)
 
-What is a counterfactual? 
+What is a counterfactual? Here's an example: 
 
 **Actual event:** I didn’t bring an umbrella, and I got wet in the rain
 
@@ -242,15 +242,15 @@ To generalize:
 After each play, we accumulate regrets for each of the 3 actions. 
 :::
 
-Then going forward, we play the strategy using regret matching, which means playing a strategy that normalizes over the *positive* accumulated regrets, i.e. playing in proportion to the positive regrets.
+We decide our strategy probability distribution using regret matching, which means playing a strategy that normalizes over the *positive* accumulated regrets, i.e. playing in proportion to the positive regrets.
 
 Example from [Marc Lanctot's CFR Tutorial](https://www.ma.imperial.ac.uk/~dturaev/neller-lanctot.pdf): 
 
 - Game 1: Choose Rock and opponent chooses Paper
- - Lose 1
- - Rock: Regret 0
- - Paper: Regret 1
- - Scissors: Regret 2
+	- Lose 1
+	- Rock: Regret 0
+ 	- Paper: Regret 1
+	- Scissors: Regret 2
 
 - Next Action: Proportional
 $$
@@ -262,15 +262,15 @@ $$
 $$
 
 - Game 2: Choose Scissors (With probability $2/3$) and opponent chooses Rock
- - Lose 1 
- - Rock: Regret 1
- - Paper: Regret 2
- - Scissors: Regret 0
+	- Lose 1 
+	- Rock: Regret 1
+	- Paper: Regret 2
+	- Scissors: Regret 0
 
 - Cumulative regrets: 
- - Rock: 1
- - Paper: 3
- - Scissors: 2
+	- Rock: 1
+	- Paper: 3
+	- Scissors: 2
 
 - Next Action: Proportional
 $$
@@ -298,9 +298,9 @@ $$
 
 This is showing that we take the cumulative regret for an action divided by the cumulative regrets for all actions (normalizing) and then play that strategy for this action on the next iteration. 
 
-If cumulative regrets for an action are $<0$ then we use $0$. 
-
 If all cumulative regrets are $\leq 0$ then we use the uniform distribution.  
+
+If cumulative regrets are positive, but are are $<0$ for a specific action, then we use $0$ for that action. 
 
 In code: 
 
@@ -326,16 +326,16 @@ In code:
 		return self.strategy
 ```
 
-After using regret matching, we can minimize expected regret by using the *average* strategy at the end, which is the strategy that converges to equilibrium. 
+After using regret matching and after many iterations, we can minimize expected regret by using the *average* strategy at the end, which is the strategy that converges to equilibrium. 
 
-If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of $1/3$ for each action using the average strategy. 
+If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of $1/3$ for each action using the average strategy in Rock Paper Scissors. 
 
 ### RPS Regret Matching Experiment
 Here we show that regret matching converges only using the average strategy over 10,000 iterations: 
 
 ![](assets/rps_avg.png)
 
-The bottom shows both players converging to $1/3$, while the top shows Player 1 volatile current strategies. 
+The bottom shows both players converging to $1/3$, while the top shows Player 1's volatile current strategies. 
 
 Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary). 
 
@@ -354,27 +354,44 @@ In poker:
 
 - Strategies are determined the same as above, through regret matching from the previous `regret` values at the specific information set for each action 
 
-- Counterfactual values are effectively the value of an information set. They are weighted by 
- - $v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)$
+- CFR definitions:  
+
+	- $a$ is actions
+	- $I$ is infoset
+	- $\sigma$ is strategy
+	- $t$ is time
+	- $i$ is player
+	- $R$ is cumulative regret
+	- $z$ is a terminal node
+	- $u$ is utility (payoffs)
+	- $p$ is the current player who plays at this node
+	- $-p$ is the the opponent player and chance
+	- $v$ is counterfactual value
+
+- Counterfactual values are effectively the value of an information set. They are weighted by the probability of opponent and chance playing to this node (in other words, the probability of playing to this node if this player tried to do so). 
+	- $v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)$
+	- $\sum_{z\in Z_I}$ is summing over all terminal histories reachable from this node
+	- $\pi^{\sigma}_{-p}(z[I])$ is the probability of opponents and chance reaching this node
+	- $\pi^{\sigma}(z[I] \rightarrow z)$ is the probability of playing from this node to terminal history $z$, i.e. the weight component of the expected value 
+	- $u_p(z)$ is the utility at terminal history $z$, i.e. the value component of the expected value
 
 - Instantaneous regrets are based on action values compared to infoset EV. Each action EV then adds to its `regret` counter: 
- - $r^t(I,a) = v^{\sigma^t}(I,a) - v^{\sigma^t}(I)$
+	- $r^t(I,a) = v^{\sigma^t}(I,a) - v^{\sigma^t}(I)$
 
 - Cumulative (counterfactual) regrets are the sum of the individual regrets: 
-- $R^T(I,a) = \sum_{t=1}^T r^t(I,a)$
+	- $R^T(I,a) = \sum_{t=1}^T r^t(I,a)$
 
-### Alternatives to Original Algorithm 
+### Alternatives/Updates to Original Algorithm 
 
 - CFR+ variation such that regrets can't be $\leq 0$
 
 - Linear CFR such that regrets are weighted by their recency
 
 - Sampling
-  - External: Sample chance and opponent nodes
 
-  - Chance: Sample chance only
-
-  - Outcome: Sample outcomes
+	- External: Sample chance and opponent nodes
+	- Chance: Sample chance only
+	- Outcome: Sample outcomes
 
 ## Data: Talk Paper Scissors
 [eieio games](https://eieio.games/nonsense/game-13-talk-paper-scissors/) made a Rock Paper Scissors over voice game in which players call a phone number and get matched up with another player for a 3 game RPS match. 
