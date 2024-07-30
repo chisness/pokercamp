@@ -79,7 +79,7 @@ website:
             - section: "#3: Rock Paper Scissors"
               contents:
                 - text: "Class Materials"
-                  # href: "aipcs24/3rps_reading1.qmd"
+                  href: "aipcs24/3rps_reading.qmd"
                 # - text: "Reading 2"
                   # href: "aipcs24/3rps_reading2.qmd"
                 - text: "Challenge"
