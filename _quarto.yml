@@ -83,7 +83,7 @@ website:
                 # - text: "Reading 2"
                   # href: "aipcs24/3rps_reading2.qmd"
                 - text: "Challenge"
-                  # href: "aipcs24/3rps_challenge.qmd"
+                  href: "aipcs24/3rps_challenge.qmd"
                 - text: "Challenge Review"
                   # href: "aipcs24/3rps_challenge_review.qmd"
             - section: "#4: Texas Tac Toe"
