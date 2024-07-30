@@ -393,9 +393,9 @@ window.Quarto = {
   <ul>
   <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge">The Challenge</a>
   <ul class="collapse">
-  <li><a href="#rps-bot-ideas" id="toc-rps-bot-ideas" class="nav-link" data-scroll-target="#rps-bot-ideas">RPS Bot Ideas</a></li>
+  <li><a href="#pre-challenge-exercises" id="toc-pre-challenge-exercises" class="nav-link" data-scroll-target="#pre-challenge-exercises">Pre-Challenge Exercises</a></li>
   </ul></li>
-  <li><a href="#rps-academic-research" id="toc-rps-academic-research" class="nav-link" data-scroll-target="#rps-academic-research">RPS Academic Research</a></li>
+  <li><a href="#rock-paper-scissors" id="toc-rock-paper-scissors" class="nav-link" data-scroll-target="#rock-paper-scissors">Rock Paper Scissors</a></li>
   </ul>
 </nav>
     </div>
@@ -423,6 +423,33 @@ window.Quarto = {
 
 <section id="the-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<p>This week’s challenge game will be <strong>Paper, Scissors, Maybe Rock (PSMR)</strong>.</p>
+<p>Each player is assigned a probability (<span class="math inline">\(X0\)</span> or <span class="math inline">\(X1\)</span>), which is shown to them but hidden from their opponent. This will be constant for the 1,000 rounds of a match.</p>
+<p>For each round, each player is dealt a card. With probability <span class="math inline">\(X_i\)</span>, player <span class="math inline">\(i\)</span> receives a <span class="math inline">\(3\)</span>, otherwise they receive a <span class="math inline">\(2\)</span>. Cards are never revealed to a player’s opponent.</p>
+<p>If you’re dealt a <span class="math inline">\(3\)</span>, you can play Rock, Paper, or Scissors. If you’re dealt a <span class="math inline">\(2\)</span>, you can only play Paper or Scissors.</p>
+<p>Rock beats Scissors beat Paper beat Rock, and the winner of a round wins 1 chip from the loser.</p>
+<p>You will ultimately play something like 20 matches (of 1k rounds each) against each opponent. We’ll balance matches between pairs of players and across players.</p>
+<p>The field will include at least:</p>
+<ul>
+<li>a bot that tries to play <span class="math inline">\(1/3\)</span> - <span class="math inline">\(1/3\)</span> - <span class="math inline">\(1/3\)</span> or as close as it can</li>
+<li>a bot that plays what would be Nash for it if the opponent were unconstrained</li>
+<li>a bot that is my best attempt to do a reasonable thing, limited by the amount of time we actually decide to spend on it</li>
+</ul>
+<p>We aren’t intending to say much more about how the <span class="math inline">\(X_0\)</span>, <span class="math inline">\(X_1\)</span> probabilities will be generated, and no your bot should not be communicating with itself between matchups or phoning home to you. (It should be storing info for itself round-to-round within a matchup, however.)</p>
+<p>In the current handout version of <code>challenge-3-psmr</code> in <code>aipc-challenges</code>, you can configure the <span class="math inline">\(X0\)</span>, <span class="math inline">\(X1\)</span> by editing <code>duplicates.txt</code>.</p>
+<p>The game doesn’t tell these to players yet, though, so at some point we’d like to push a version that does.</p>
+<section id="pre-challenge-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="pre-challenge-exercises">Pre-Challenge Exercises</h3>
+<p>As pre-challenge exercises, you may want to get a CFR solver running and able to solve:</p>
+<ul>
+<li><p>Regular unconstrained RPS</p></li>
+<li><p>PSMR with ( <span class="math inline">\(X0\)</span>, <span class="math inline">\(X1\)</span> ) = ( <span class="math inline">\(1\)</span>, <span class="math inline">\(0\)</span> )</p></li>
+</ul>
+<p>The connection of these to the bot-writing portion of the challenge is up to you.</p>
+</section>
+</section>
+<section id="rock-paper-scissors" class="level2">
+<h2 class="anchored" data-anchor-id="rock-paper-scissors">Rock Paper Scissors</h2>
 <p>Rock Paper Scissors was <a href="https://openreview.net/pdf?id=gQnJ7ODIAx">proposed in 2023 to be a “benchmark for multiagent learning”</a> in a paper written primarily by DeepMind.</p>
 <p>The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent’s returns. Yet it’s important for agents to be able to maximize returns <em>and</em> be robust to adversaries.</p>
 <p>Why is RPS a good benchmark?</p>
@@ -430,31 +457,39 @@ window.Quarto = {
 <li><p>It’s a repeated game with sequential decisions</p></li>
 <li><p>Performance is measured against a population of varied skills</p></li>
 </ol>
-<p>This week’s challenge is a Rock Paper Scissors tournament.</p>
-<section id="rps-bot-ideas" class="level3">
-<h3 class="anchored" data-anchor-id="rps-bot-ideas">RPS Bot Ideas</h3>
-<ol type="1">
-<li><p>Look at opponent action 2 moves ago and randomize between that action and the action that beats it</p></li>
-<li><p>Look at opponent action 2 moves ago and randomize between the other 2 actions</p></li>
-<li><p><a href="https://web.archive.org/web/20160819141717id_/http://www.ofb.net/~egnor/iocaine.html">Iocaine Powder</a></p></li>
-<li><p>Use online CFR</p></li>
-<li><p>Beat last move</p></li>
-<li><p>Beat last 10 moves</p></li>
-<li><p>If win, do the same thing again. If lose, randomize.</p></li>
-<li><p>Look at my own history and what opponent will estimate that I’m playing. Beat the thing they will play to beat me.</p></li>
-<li><p>Use percentages that are fixed/slowly moving</p></li>
-<li><p>Track opponent with +1</p></li>
-<li><p>More soon…</p></li>
-</ol>
-</section>
-</section>
-<section id="rps-academic-research" class="level2">
-<h2 class="anchored" data-anchor-id="rps-academic-research">RPS Academic Research</h2>
-<ol type="1">
-<li><a href="https://arxiv.org/abs/2312.10695"><em>Nonparametric Strategy Test</em>, Sam Ganzfried</a></li>
-</ol>
-<p>This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so.</p>
-<p>More soon… <!-- 
+<!-- 
+### RPS Bot Ideas
+
+1. Look at opponent action 2 moves ago and randomize between that action and the action that beats it 
+
+2. Look at opponent action 2 moves ago and randomize between the other 2 actions
+
+3. [Iocaine Powder](https://web.archive.org/web/20160819141717id_/http://www.ofb.net/~egnor/iocaine.html) 
+
+4. Use online CFR
+
+5. Beat last move
+
+6. Beat last 10 moves
+
+7. If win, do the same thing again. If lose, randomize. 
+
+8. Look at my own history and what opponent will estimate that I'm playing. Beat the thing they will play to beat me. 
+
+9. Use percentages that are fixed/slowly moving
+
+10. Track opponent with +1
+
+11. More soon...
+
+## RPS Academic Research
+
+1. [*Nonparametric Strategy Test*, Sam Ganzfried](https://arxiv.org/abs/2312.10695)
+
+This paper takes Rock Paper Scissors sample data from 500 human players who each played 50 games. It does an experiment to see if (a) they are playing the uniform 1/3 1/3 1/3 strategy and (b) that the actions chosen are independent between games. The paper finds that 61% of players are doing so. 
+
+More soon... -->
+<!-- 
 Humans are predictably irrational
 
 What he discovered was that the student’s decisions during the game tended towards the Nash Equilibrium, which would be picking rock 1/3 of the time, scissors 1/3 of the time, and paper 1/3 of the time. However, despite the Nash Equilibrium, he noticed a pattern with how the games were played. Winners tended to stick with their same strategy, and losers would move on to another strategy. This would repeat for every time a player lost, which he calls “persistent cyclic flows”.
@@ -463,7 +498,7 @@ What he discovered was that the student’s decisions during the game tended tow
 
 1. Advice on parametrizing opponent strategies
 
-2. Online CFR Minimization won’t cut it here – why? --></p>
+2. Online CFR Minimization won’t cut it here – why? -->
 
 
 
