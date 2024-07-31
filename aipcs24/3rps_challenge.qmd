@@ -24,7 +24,7 @@ The field will include at least:
 - a bot that plays what would be Nash for it if the opponent were unconstrained
 - a bot that is my best attempt to do a reasonable thing, limited by the amount of time we actually decide to spend on it
 
-We aren't intending to say much more about how the $X_0$, $X_1$ probabilities will be generated, and no your bot should not be communicating with itself between matchups or phoning home to you. (It should be storing info for itself round-to-round within a matchup, however.)
+We aren't intending to say much more about how the $X0$, $X1$ probabilities will be generated, and no your bot should not be communicating with itself between matchups or phoning home to you. (It should be storing info for itself round-to-round within a matchup, however.)
 
 In the current handout version of `challenge-3-psmr` in `aipc-challenges`, you can configure the $X0$, $X1$ by editing `duplicates.txt`. 
 
