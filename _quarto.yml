@@ -17,8 +17,8 @@ website:
     background: primary
     left: 
       # - sidebar:signup
-      - text: "Signup: AI Poker Camp Summer 2024"
-        href: /signup
+      # - text: "Signup: AI Poker Camp Summer 2024"
+      #   href: /signup
       - sidebar:campinfo
       # - text: "AI Poker Camp Info"
       #   href: /aicamp

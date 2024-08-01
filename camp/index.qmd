@@ -5,10 +5,10 @@ format:
   html:
     math: true
 ---
-Coming soon: 
+Think about probability and decision making through interactive games and puzzles! 
 
-- Aug/Sep TBD: Beta in NYC or virtual
+- Sep 10-Oct 15: Weekly Tuesday meetings in NYC
 
-- Sep 23-Nov 25: Full course virtual
+<!-- - Sep 23-Nov 25: Full course virtual -->
 
 ![](../assets/pcicon.png){width=50%}

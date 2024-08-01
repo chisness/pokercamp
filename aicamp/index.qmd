@@ -6,12 +6,10 @@ format:
 ---
 Build reinforcement learning AI agents to play games! 
 
-Coming soon: 
-
 - Jul 15-Aug 15: Beta in SF
 
-- Sep TBD: Beta v2 in NYC
+- Sep: Maybe 1-day workshop IRL in NYC
 
-- Sep 24-Nov 26: Full course virtual
+- Sep 24-Nov 26: Weekly Monday virtual meetings
 
 ![](../assets/pcicon.png){width=50%}
