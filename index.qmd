@@ -3,24 +3,26 @@ format: html
 ---
 **Poker Camp** is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker. 
 
-In progress camps: 
+## In Progress Camps
 
-- Jul 15-Aug 15: *Beta* AI Poker Camp in SF
- - 10 sessions meeting on Mondays and Thursdays
+1. Jul 15-Aug 15: *Beta* AI Poker Camp in SF
+    - 10 sessions meeting on Mondays and Thursdays
 
-Upcoming camps (signups coming soon): 
+## Upcoming Camps
+*Signups coming soon* 
 
-- Sep TBD: *Maybe* AI Poker Camp in NYC
- - 1-day workshop
+1. Sep TBD: *Maybe* AI Poker Camp in NYC
+    - 1-day workshop
 
-- Sep 10-Oct 15: Poker Camp in NYC
- - 6 sessions meeting every Tuesday
 
-- Sep 23-Nov 25: AI Poker Camp Virtual
- - 10 sessions meeting every Monday
+2. Sep 10-Oct 15: Poker Camp in NYC
+    - 6 sessions meeting every Tuesday
 
-- Oct TBD: *Maybe* Poker Camp in Tel Aviv
- - 1-day workshop
+3. Sep 23-Nov 25: AI Poker Camp Virtual
+    - 10 sessions meeting every Monday
+
+4. Oct TBD: *Maybe* Poker Camp in Tel Aviv
+    - 1-day workshop
 
 <!-- Our first camp will take place from Jul 15 to Aug 15 in person in San Francisco.
 
@@ -39,7 +41,7 @@ Upcoming camps (signups coming soon):
 <!-- - After signing up, we'll be in touch with all details! including payment options. -->
 
  <!-- **[Click here for more info](/signup)**
-::: --> -->
+::: -->
 
 ![](./assets/pc.png)
 

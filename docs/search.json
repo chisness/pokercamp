@@ -11,7 +11,21 @@
     "href": "index.html",
     "title": "Poker Camp",
     "section": "",
-    "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker.\nIn progress camps:\n\nJul 15-Aug 15: Beta AI Poker Camp in SF\n10 sessions meeting on Mondays and Thursdays\n\nUpcoming camps (signups coming soon):\n\nSep TBD: Maybe AI Poker Camp in NYC\n1-day workshop\nSep 10-Oct 15: Poker Camp in NYC\n6 sessions meeting every Tuesday\nSep 23-Nov 25: AI Poker Camp Virtual\n10 sessions meeting every Monday\nOct TBD: Maybe Poker Camp in Tel Aviv\n1-day workshop\n\n\n\n –&gt;\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
+    "text": "Poker Camp is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker."
+  },
+  {
+    "objectID": "index.html#in-progress-camps",
+    "href": "index.html#in-progress-camps",
+    "title": "Poker Camp",
+    "section": "In Progress Camps",
+    "text": "In Progress Camps\n\nJul 15-Aug 15: Beta AI Poker Camp in SF\n\n10 sessions meeting on Mondays and Thursdays"
+  },
+  {
+    "objectID": "index.html#upcoming-camps",
+    "href": "index.html#upcoming-camps",
+    "title": "Poker Camp",
+    "section": "Upcoming Camps",
+    "text": "Upcoming Camps\nSignups coming soon\n\nSep TBD: Maybe AI Poker Camp in NYC\n\n1-day workshop\n\nSep 10-Oct 15: Poker Camp in NYC\n\n6 sessions meeting every Tuesday\n\nSep 23-Nov 25: AI Poker Camp Virtual\n\n10 sessions meeting every Monday\n\nOct TBD: Maybe Poker Camp in Tel Aviv\n\n1-day workshop\n\n\n\n\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
     "objectID": "aipcs24/3rps_challenge.html",
@@ -820,18 +834,11 @@
     "text": "Poker Camp is a project by Ross Rheingans-Yoo and Max Chiswick."
   },
   {
-    "objectID": "about.html#mission",
-    "href": "about.html#mission",
-    "title": "About",
-    "section": "Mission",
-    "text": "Mission\nTeaching practical decision-making and rationality through poker and other games, blending real-world skills with theoretical insights"
-  },
-  {
     "objectID": "about.html#max-bio",
     "href": "about.html#max-bio",
     "title": "About",
     "section": "Max bio",
-    "text": "Max bio\n\nFormer online poker pro on PokerStars, playing over 10m hands including 990k in 1 month (record for most ever played in a month above microstakes)\nAI poker work:\n\nMSc with thesis on AI poker at Technion Israel Institute of Technology with Nahum Shimkin\nAI Poker Tutorial website (needs updating!)\nTwo poker research papers with Sam Ganzfried\n\nSubstack"
+    "text": "Max bio\n\nFormer online poker pro on PokerStars. Played over 10m hands including 990k in 1 month (record for most ever played in a month above microstakes).\nAI poker work:\n\nMSc with thesis on AI poker at Technion Israel Institute of Technology with Nahum Shimkin\nAI Poker Tutorial website (needs updating!)\nTwo poker research papers with Sam Ganzfried\n\nBlog"
   },
   {
     "objectID": "about.html#ross-bio",
