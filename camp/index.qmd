@@ -9,6 +9,8 @@ Think about probability and decision making through interactive games
 
 - Sep 10-Oct 15: 6 weekly Tuesday meetings in NYC
 
+- Oct: *Maybe* 1-day workshop in Tel Aviv
+
 <!-- - Sep 23-Nov 25: Full course virtual -->
 
 ![](../assets/pcicon.png){width=50%}

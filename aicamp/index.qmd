@@ -8,7 +8,7 @@ Build reinforcement learning AI agents to play games
 
 - Jul 15-Aug 15: Beta in SF
 
-- Sep: **Maybe** 1-day workshop in NYC
+- Sep: *Maybe* 1-day workshop in NYC
 
 - Sep 23-Nov 25: 10 weekly Monday virtual meetings
 
