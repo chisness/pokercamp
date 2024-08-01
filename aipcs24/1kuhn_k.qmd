@@ -195,3 +195,21 @@ Suppose that the pot is 100 and you have 100 in chips against one opponent who a
 
 
 <!-- real poker situation where you go allin and don't give opponent chance to bluff, but make it easier on yourself -->
+
+
+This saddle-point visualization is actually really good for me. I feel like I more-intuitively understand that:
+changing q changes the slope of the line in the k axis, and also the setting that's flat optimizes minimax
+when we pick q so that the line is flat in the k axis, P1 still gets to pick among k values that cause P2 to face a different slope 
+If P1 plays a positive p(⬇️|A_), then that gives P2 an incentive to push q down, which is like adding another gradient along the q axis
+...I forget where I was going with this, but it feels helpful
+Ross Rheingans-Yoo — 07/16/2024 11:44 AM
+Potential improvements: 
+above the q slider, write "when k is [current value], z = [formula in q]"
+above the k slider, write "when q is [current value], z = [formula in k]"
+on the 3d plot, draw a red dot at the current q, k and a red line along the line that varies k from there, and along the line that varies q from there
+have an option to switch to a 2d plot with: (subplot 1) z,k where q is represented by color/hue, draw 11 lines for every 0.1 increment of q with opacity 30%, then the line for the current q with opacity 100%; (subplot 2) z,q where k is represented by color
+I think it might be better to swap the axes of the 3d plot because q happens logically before k, but I'm not sure and the shape might look worse
+I'm not sure about the q,k axes direction -- is it better if 0,0 is the point closest to us? (this might make the shape look bad because we look at it edge-on)
+can we get a 3d graphing library that lets you click and drag to rotate?
+I went down my own k-hole to figure out that z=(3q-1)(3k-2)/6+1/3, which I think should be presented somewhere?
+I think the 3d graph (and the 2d graphs) should do more to make clear where -0.5 is, since that's the case we're comparing it to.

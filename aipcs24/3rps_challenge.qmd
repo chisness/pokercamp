@@ -5,43 +5,10 @@ format:
   html:
     math: true
 ---
-## The Challenge
-This week's challenge game will be **Paper, Scissors, Maybe Rock (PSMR)**.
+## Challenge A: Rock Paper Scissors (RPS)
+Usual RPS rules apply with Rock > Scissors > Paper > Rock with $+1$ payouts for a win, $-1$ payouts for a loss, and $0$ for a tie. 
 
-Each player is assigned a probability ($X0$ or $X1$), which is shown to them but hidden from their opponent. This will be constant for the 1,000 rounds of a match.
-
-For each round, each player is dealt a card. With probability $X_i$, player $i$ receives a $3$, otherwise they receive a $2$. Cards are never revealed to a player's opponent.
-
-If you're dealt a $3$, you can play Rock, Paper, or Scissors. If you're dealt a $2$, you can only play Paper or Scissors.
-
-Rock beats Scissors beat Paper beat Rock, and the winner of a round wins 1 chip from the loser.
-
-You will ultimately play something like 20 matches (of 1k rounds each) against each opponent. We'll balance matches between pairs of players and across players.
-
-The field will include at least: 
-
-- a bot that tries to play $1/3$ - $1/3$ - $1/3$ or as close as it can
-- a bot that plays what would be Nash for it if the opponent were unconstrained
-- a bot that is my best attempt to do a reasonable thing, limited by the amount of time we actually decide to spend on it
-
-We aren't intending to say much more about how the $X0$, $X1$ probabilities will be generated, and no your bot should not be communicating with itself between matchups or phoning home to you. (It should be storing info for itself round-to-round within a matchup, however.)
-
-In the current handout version of `challenge-3-psmr` in `aipc-challenges`, you can configure the $X0$, $X1$ by editing `duplicates.txt`. 
-
-The game doesn't tell these to players yet, though, so at some point we'd like to push a version that does.
-
-### Pre-Challenge Exercises
-As pre-challenge exercises, you may want to get a CFR solver running and able to solve:
-
-- Regular unconstrained RPS
-
-- PSMR with ( $X0$, $X1$ ) = ( $1$, $0$ )
-
-The connection of these to the bot-writing portion of the challenge is up to you.
-
-## Rock Paper Scissors
-
-Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a paper written primarily by DeepMind. 
+Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a DeepMind paper. 
 
 The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent's returns. Yet it's important for agents to be able to maximize returns *and* be robust to adversaries. 
 
@@ -50,6 +17,53 @@ Why is RPS a good benchmark?
 1. It's a repeated game with sequential decisions
 
 2. Performance is measured against a population of varied skills
+
+### The Competition
+You will enter a Rock Paper Scissors bot and the field will be 1/2 student bot submissions and 1/2 our bots that will include: 
+
+- Fixed-percentage bots
+- Not-very-sophisticated bots that act based only on the most recent observation
+- A single more advanced bot
+
+You will play each other bot once for a 1,000 game match. 
+
+## Challenge B: Paper, Scissors, Maybe Rock (PSMR)
+The gameplay works the same as RPS with the following additional rule. 
+
+Each matchup is assigned a probability: 
+
+- $X$ is the probability that $P1$ is not allowed to play Rock
+- $Y$ is the probability that $P2$ is not allowed to play Scissors
+
+You will not be told your own or your opponent's percentage. 
+
+### The Competition
+You will play one 1,000 game match in duplicate against each opponent. 
+
+| Scenario | Your Role | Probability | Opponent's Role | Probability |
+|----------|-----------|-------------|-----------------|-------------|
+| Duplicate 1 | $P1$ | $X$ | $P2$ | $Y$ |
+| Duplicate 2 | $P2$ | $Y$ | $P1$ | $X$ |
+
+You will submit a PSMR bot and the field will include at least: 
+
+- a bot that tries to play $1/3$ - $1/3$ - $1/3$ or as close as it can
+- a bot that plays what would be Nash for it if the opponent were unconstrained
+- a bot that is our best attempt to do a reasonable thing, limited by the amount of time we actually decide to spend on it
+
+We aren't intending to say much more about how the $X$ and $Y$ probabilities will be generated, and no your bot should not be communicating with itself between matchups/duplicate matches or phoning home to you. (It should be storing info for itself game-to-game within a matchup, however.)
+
+In the current handout version of `challenge-3-psmr` in `aipc-challenges`, you can practice by configuring the $X$ and $Y$ variables by editing `duplicates.txt`. 
+
+<!-- ### Pre-Challenge Exercises
+As pre-challenge exercises, you may want to get a CFR solver running and able to solve:
+
+- Regular unconstrained RPS
+
+- PSMR with ( $X0$, $X1$ ) = ( $1$, $0$ )
+
+The connection of these to the bot-writing portion of the challenge is up to you. -->
+
 
 <!-- 
 ### RPS Bot Ideas

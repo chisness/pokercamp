@@ -5,6 +5,14 @@ format:
   html:
     math: true
 ---
+Want to highlight different classes of games and elements of solving them that will be valuable later in imperfect info games, things like: 
+Keeping table of values
+Regret
+Node values
+What a policy/strategy is
+Monte Carlo methods
+
+
 ## Types of Games
 This course is primarily about poker and poker-adjacent games, but let's take a step back and look at different classes of games and where poker fits.  
 
