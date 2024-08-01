@@ -8,11 +8,11 @@ format:
 ## Challenge A: Rock Paper Scissors (RPS)
 Usual RPS rules apply with Rock > Scissors > Paper > Rock with $+1$ payouts for a win, $-1$ payouts for a loss, and $0$ for a tie. 
 
-Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a DeepMind paper. 
+Repeated Rock Paper Scissors was [proposed in 2023 to be a "benchmark for multiagent learning"](https://openreview.net/pdf?id=gQnJ7ODIAx) in a DeepMind paper. 
 
 The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent's returns. Yet it's important for agents to be able to maximize returns *and* be robust to adversaries. 
 
-Why is RPS a good benchmark?
+Why is repeated RPS a good benchmark?
 
 1. It's a repeated game with sequential decisions
 
@@ -23,14 +23,14 @@ You will enter a Rock Paper Scissors bot and the field will be 1/2 student bot s
 
 - Fixed-percentage bots
 - Not-very-sophisticated bots that act based only on the most recent observation
-- A single more advanced bot
+- Some number of more advanced bots 
 
-You will play each other bot once for a 1,000 game match. 
+You will play each other bot once for a 2,000 game match (once as P1 and once as P2 even though these don't matter in this game). 
 
 ## Challenge B: Paper, Scissors, Maybe Rock (PSMR)
 The gameplay works the same as RPS with the following additional rule. 
 
-Each matchup is assigned a probability: 
+Each matchup begins by the server generating two probabilities: 
 
 - $X$ is the probability that $P1$ is not allowed to play Rock
 - $Y$ is the probability that $P2$ is not allowed to play Scissors
@@ -38,12 +38,14 @@ Each matchup is assigned a probability:
 You will not be told your own or your opponent's percentage. 
 
 ### The Competition
-You will play one 1,000 game match in duplicate against each opponent. 
+You will play multiple 1,000 game duplicate matches against each opponent (i.e., 2000 total games per match). 
+
+<!-- Each duplicate match 
 
 | Scenario | Your Role | Probability | Opponent's Role | Probability |
 |----------|-----------|-------------|-----------------|-------------|
 | Duplicate 1 | $P1$ | $X$ | $P2$ | $Y$ |
-| Duplicate 2 | $P2$ | $Y$ | $P1$ | $X$ |
+| Duplicate 2 | $P2$ | $Y$ | $P1$ | $X$ | -->
 
 You will submit a PSMR bot and the field will include at least: 
 
@@ -53,7 +55,7 @@ You will submit a PSMR bot and the field will include at least:
 
 We aren't intending to say much more about how the $X$ and $Y$ probabilities will be generated, and no your bot should not be communicating with itself between matchups/duplicate matches or phoning home to you. (It should be storing info for itself game-to-game within a matchup, however.)
 
-In the current handout version of `challenge-3-psmr` in `aipc-challenges`, you can practice by configuring the $X$ and $Y$ variables by editing `duplicates.txt`. 
+In the current handout version of `challenge-3-psmr` in `aipc-challenges`, you can practice by passing `--duplicate <(scripts/psmr_deals.sh PROB_X PROB_Y)` to `engine.py`. The script `psmr_deals.sh` will generate output that forces a particular sequence of deals, based on the two probabilities. If you want a replicable experiment, you can put a finite number of deals into a file with `psmr_deals PROB_X PROB_Y | head -n NUM_LINE > deals.txt` and pass `--duplicate deals.txt` instead.
 
 <!-- ### Pre-Challenge Exercises
 As pre-challenge exercises, you may want to get a CFR solver running and able to solve:

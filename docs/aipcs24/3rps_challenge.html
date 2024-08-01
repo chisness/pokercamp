@@ -427,9 +427,9 @@ window.Quarto = {
 <section id="challenge-a-rock-paper-scissors-rps" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-a-rock-paper-scissors-rps">Challenge A: Rock Paper Scissors (RPS)</h2>
 <p>Usual RPS rules apply with Rock &gt; Scissors &gt; Paper &gt; Rock with <span class="math inline">\(+1\)</span> payouts for a win, <span class="math inline">\(-1\)</span> payouts for a loss, and <span class="math inline">\(0\)</span> for a tie.</p>
-<p>Rock Paper Scissors was <a href="https://openreview.net/pdf?id=gQnJ7ODIAx">proposed in 2023 to be a “benchmark for multiagent learning”</a> in a DeepMind paper.</p>
+<p>Repeated Rock Paper Scissors was <a href="https://openreview.net/pdf?id=gQnJ7ODIAx">proposed in 2023 to be a “benchmark for multiagent learning”</a> in a DeepMind paper.</p>
 <p>The paper explains that agents are often measured by (a) average return or (b) robustness against a nemesis agent that tries to minimize the agent’s returns. Yet it’s important for agents to be able to maximize returns <em>and</em> be robust to adversaries.</p>
-<p>Why is RPS a good benchmark?</p>
+<p>Why is repeated RPS a good benchmark?</p>
 <ol type="1">
 <li><p>It’s a repeated game with sequential decisions</p></li>
 <li><p>Performance is measured against a population of varied skills</p></li>
@@ -440,15 +440,15 @@ window.Quarto = {
 <ul>
 <li>Fixed-percentage bots</li>
 <li>Not-very-sophisticated bots that act based only on the most recent observation</li>
-<li>A single more advanced bot</li>
+<li>Some number of more advanced bots</li>
 </ul>
-<p>You will play each other bot once for a 1,000 game match.</p>
+<p>You will play each other bot once for a 2,000 game match (once as P1 and once as P2 even though these don’t matter in this game).</p>
 </section>
 </section>
 <section id="challenge-b-paper-scissors-maybe-rock-psmr" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-b-paper-scissors-maybe-rock-psmr">Challenge B: Paper, Scissors, Maybe Rock (PSMR)</h2>
 <p>The gameplay works the same as RPS with the following additional rule.</p>
-<p>Each matchup is assigned a probability:</p>
+<p>Each matchup begins by the server generating two probabilities:</p>
 <ul>
 <li><span class="math inline">\(X\)</span> is the probability that <span class="math inline">\(P1\)</span> is not allowed to play Rock</li>
 <li><span class="math inline">\(Y\)</span> is the probability that <span class="math inline">\(P2\)</span> is not allowed to play Scissors</li>
@@ -456,34 +456,13 @@ window.Quarto = {
 <p>You will not be told your own or your opponent’s percentage.</p>
 <section id="the-competition-1" class="level3">
 <h3 class="anchored" data-anchor-id="the-competition-1">The Competition</h3>
-<p>You will play one 1,000 game match in duplicate against each opponent.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Scenario</th>
-<th>Your Role</th>
-<th>Probability</th>
-<th>Opponent’s Role</th>
-<th>Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Duplicate 1</td>
-<td><span class="math inline">\(P1\)</span></td>
-<td><span class="math inline">\(X\)</span></td>
-<td><span class="math inline">\(P2\)</span></td>
-<td><span class="math inline">\(Y\)</span></td>
-</tr>
-<tr class="even">
-<td>Duplicate 2</td>
-<td><span class="math inline">\(P2\)</span></td>
-<td><span class="math inline">\(Y\)</span></td>
-<td><span class="math inline">\(P1\)</span></td>
-<td><span class="math inline">\(X\)</span></td>
-</tr>
-</tbody>
-</table>
+<p>You will play multiple 1,000 game duplicate matches against each opponent (i.e., 2000 total games per match).</p>
+<!-- Each duplicate match 
+
+| Scenario | Your Role | Probability | Opponent's Role | Probability |
+|----------|-----------|-------------|-----------------|-------------|
+| Duplicate 1 | $P1$ | $X$ | $P2$ | $Y$ |
+| Duplicate 2 | $P2$ | $Y$ | $P1$ | $X$ | -->
 <p>You will submit a PSMR bot and the field will include at least:</p>
 <ul>
 <li>a bot that tries to play <span class="math inline">\(1/3\)</span> - <span class="math inline">\(1/3\)</span> - <span class="math inline">\(1/3\)</span> or as close as it can</li>
@@ -491,7 +470,7 @@ window.Quarto = {
 <li>a bot that is our best attempt to do a reasonable thing, limited by the amount of time we actually decide to spend on it</li>
 </ul>
 <p>We aren’t intending to say much more about how the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> probabilities will be generated, and no your bot should not be communicating with itself between matchups/duplicate matches or phoning home to you. (It should be storing info for itself game-to-game within a matchup, however.)</p>
-<p>In the current handout version of <code>challenge-3-psmr</code> in <code>aipc-challenges</code>, you can practice by configuring the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> variables by editing <code>duplicates.txt</code>.</p>
+<p>In the current handout version of <code>challenge-3-psmr</code> in <code>aipc-challenges</code>, you can practice by passing <code>--duplicate &lt;(scripts/psmr_deals.sh PROB_X PROB_Y)</code> to <code>engine.py</code>. The script <code>psmr_deals.sh</code> will generate output that forces a particular sequence of deals, based on the two probabilities. If you want a replicable experiment, you can put a finite number of deals into a file with <code>psmr_deals PROB_X PROB_Y | head -n NUM_LINE &gt; deals.txt</code> and pass <code>--duplicate deals.txt</code> instead.</p>
 <!-- ### Pre-Challenge Exercises
 As pre-challenge exercises, you may want to get a CFR solver running and able to solve:
 
