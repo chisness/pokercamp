@@ -4,12 +4,12 @@ format:
   html:
     math: true
 ---
-Build reinforcement learning AI agents to play games! 
+Build reinforcement learning AI agents to play games
 
 - Jul 15-Aug 15: Beta in SF
 
-- Sep: Maybe 1-day workshop IRL in NYC
+- Sep: **Maybe** 1-day workshop in NYC
 
-- Sep 24-Nov 26: Weekly Monday virtual meetings
+- Sep 23-Nov 25: 10 weekly Monday virtual meetings
 
 ![](../assets/pcicon.png){width=50%}
