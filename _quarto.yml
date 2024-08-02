@@ -84,9 +84,11 @@ website:
                   # href: "aipcs24/3rps_reading2.qmd"
                 - text: "Challenge"
                   href: "aipcs24/3rps_challenge.qmd"
+                - text: "Leaderboard"
+                  href: "aipcs24/3rps_leaderboard.qmd"
                 - text: "Challenge Review"
                   # href: "aipcs24/3rps_challenge_review.qmd"
-            - section: "#4: Texas Tac Toe"
+            - section: "#4: Coming soon..."
               contents:
                 - text: "Class Materials"
                   # href: "aipcs24/4ttt_reading.qmd"
@@ -96,7 +98,7 @@ website:
                   # href: "aipcs24/4ttt_challenge.qmd"
                 - text: "Challenge Review"
                   # href: "aipcs24/4ttt_challenge_review.qmd"
-            - section: "#5: Rock Poker Scissors"
+            - section: "#5: Coming soon..."
               contents:
                 - text: "Class Materials"
                   # href: "aipcs24/5rps_reading.qmd"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>#5: Texas Tac Toe | Challenge Review – Poker Camp</title>
+<title>Ultimate Guide to CFR – Poker Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,9 +141,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="#5: Texas Tac Toe | Challenge Review – Poker Camp">
+<meta property="og:title" content="Ultimate Guide to CFR – Poker Camp">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="#5: Texas Tac Toe | Challenge Review – Poker Camp">
+<meta name="twitter:title" content="Ultimate Guide to CFR – Poker Camp">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
@@ -170,7 +206,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">#5: Texas Tac Toe | Challenge Review</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Ultimate Guide to CFR</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -283,12 +319,6 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../aipcs24/3rps_leaderboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Leaderboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
  <span class="menu-text">Challenge Review</span>
   </li>
       </ul>
@@ -296,7 +326,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">#4: Coming soon…</span></a>
+ <span class="menu-text">#4: Texas Tac Toe</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -316,7 +346,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">#5: Coming soon…</span></a>
+ <span class="menu-text">#5: Rock Poker Scissors</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -386,15 +416,28 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ultimate-guide-to-cfr" id="toc-ultimate-guide-to-cfr" class="nav-link active" data-scroll-target="#ultimate-guide-to-cfr">Ultimate Guide to CFR</a>
+  <ul class="collapse">
+  <li><a href="#regret-and-strategies" id="toc-regret-and-strategies" class="nav-link" data-scroll-target="#regret-and-strategies">Regret and Strategies</a></li>
+  <li><a href="#regret-matching" id="toc-regret-matching" class="nav-link" data-scroll-target="#regret-matching">Regret Matching</a></li>
+  <li><a href="#rps-regret-matching-experiment" id="toc-rps-regret-matching-experiment" class="nav-link" data-scroll-target="#rps-regret-matching-experiment">RPS Regret Matching Experiment</a></li>
+  <li><a href="#iterating-through-the-tree" id="toc-iterating-through-the-tree" class="nav-link" data-scroll-target="#iterating-through-the-tree">Iterating through the Tree</a></li>
+  <li><a href="#alternativesupdates-to-original-algorithm" id="toc-alternativesupdates-to-original-algorithm" class="nav-link" data-scroll-target="#alternativesupdates-to-original-algorithm">Alternatives/Updates to Original Algorithm</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">#5: Texas Tac Toe | Challenge Review</h1>
+<h1 class="title">Ultimate Guide to CFR</h1>
 </div>
 
 
@@ -411,9 +454,366 @@ window.Quarto = {
 </header>
 
 
+<section id="ultimate-guide-to-cfr" class="level1">
+<h1>Ultimate Guide to CFR</h1>
+<p>As we think about solving larger games, we start to look at iterative algorithms.</p>
+<p>The most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. CFR is an iterative algorithm developed in 2007 at the University of Alberta that converges to Nash equilibrium in two player zero-sum games.</p>
+<p>(Note: The handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.)</p>
+<p>What is a counterfactual? Here’s an example:</p>
+<p><strong>Actual event:</strong> I didn’t bring an umbrella, and I got wet in the rain</p>
+<p><strong>Counterfactual event:</strong> If I had brought an umbrella, I wouldn’t have gotten wet</p>
+<section id="regret-and-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="regret-and-strategies">Regret and Strategies</h3>
+<p>A strategy at an infoset is a probability distribution over each possible action.</p>
+<p>Regret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.</p>
+<p>For a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Regret Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>What is the regret for each action?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Value Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>If taking a uniform strategy at this node (i.e.&nbsp;<span class="math inline">\(\frac{1}{3}\)</span> for each action), then what is the expected value of the node?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mathbb{E} = \frac{1}{3}*1 + \frac{1}{3}*3+\frac{1}{3}*5 = 0.33+1+1.67 = 3\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Poker Regret Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="assets/basictree.png" class="img-fluid"></p>
+<p>In poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Value</th>
+<th>Poker Regret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>At a node in a poker game, the player prefers actions with higher regrets by this definition.</p>
+</div>
+</div>
+</div>
+<p>Each infoset maintains a <code>strategy</code> and <code>regret</code> tabular counter for each action. These accumulate the sum of all strategies and the sum of all regrets.</p>
+<p>In a game like Rock Paper Scissors, there is effectively only one infoset, so only one table for <code>strategy</code> over each action (Rock, Paper, Scissors) and one table for <code>regret</code> over each action (Rock, Paper, Scissors).</p>
+<p>Regrets are linked to strategies through a policy called <em>regret matching</em>.</p>
+</section>
+<section id="regret-matching" class="level3">
+<h3 class="anchored" data-anchor-id="regret-matching">Regret Matching</h3>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+RPS Regret Details
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In general, we define regret as:</p>
+<p><span class="math inline">\(\text{Regret} = u(\text{Alternative Strategy}) − u(\text{Current Strategy})\)</span></p>
+<p>We prefer alternative actions with high regret and wish to minimize our overall regret.</p>
+<p>We play Rock and opponent plays Paper <span class="math inline">\(\implies \text{u(rock,paper)} = -1\)</span></p>
+<p><span class="math inline">\(\text{Regret(scissors)} = \text{u(scissors,paper)} - \text{u(rock,paper)} = 1-(-1) = 2\)</span></p>
+<p><span class="math inline">\(\text{Regret(paper)} = \text{u(paper,paper)} - \text{u(rock,paper)} = 0-(-1) = 1\)</span></p>
+<p><span class="math inline">\(\text{Regret(rock)} = \text{u(rock,paper)} - \text{u(rock,paper)} = -1-(-1) = 0\)</span></p>
+<p>We play Scissors and opponent plays Paper <span class="math inline">\(\implies \text{u(scissors,paper)} = 1\)</span></p>
+<p><span class="math inline">\(\text{Regret(scissors)} = \text{u(scissors,paper)} - \text{u(scissors,paper)} = 1-1 = 0\)</span></p>
+<p><span class="math inline">\(\text{Regret(paper)} = \text{u(paper,paper)} - \text{u(scissors,paper)} = 0-1 = -1\)</span></p>
+<p><span class="math inline">\(\text{Regret(rock)} = \text{u(rock,paper)} - \text{u(scissors,paper)} = -1-1 = -2\)</span></p>
+<p>We play Paper and opponent plays Paper <span class="math inline">\(\implies \text{u(paper,paper)} = 0\)</span></p>
+<p><span class="math inline">\(\text{Regret(scissors)} = \text{u(scissors,paper)} - \text{u(paper,paper)} = 1-0 = 1\)</span></p>
+<p><span class="math inline">\(\text{Regret(paper)} = \text{u(paper,paper)} - \text{u(paper,paper)} = 0-0 = 0\)</span>$</p>
+<p><span class="math inline">\(\text{Regret(rock)} = \text{u(rock,paper)} - \text{u(paper,paper)} = -1-0 = -1\)</span></p>
+<p>To generalize:</p>
+<ul>
+<li>The action played always gets a regret of 0 since the “alternative” is really just that same action</li>
+<li>When we play a tying action, the alternative losing action gets a regret of -1 and the alternative winning action gets a regret of +1</li>
+<li>When we play a winning action, the alternative tying action gets a regret of -1 and the alternative losing action gets a regret of -2</li>
+<li>When we play a losing action, the alternative winning action gets a regret of +2 and the alternative tying action gets a regret of +1</li>
+</ul>
+<p>After each play, we accumulate regrets for each of the 3 actions.</p>
+</div>
+</div>
+</div>
+<p>We decide our strategy probability distribution using regret matching, which means playing a strategy that normalizes over the <em>positive</em> accumulated regrets, i.e.&nbsp;playing in proportion to the positive regrets.</p>
+<p>Example from <a href="https://www.ma.imperial.ac.uk/~dturaev/neller-lanctot.pdf">Marc Lanctot’s CFR Tutorial</a>:</p>
+<ul>
+<li><p>Game 1: Choose Rock and opponent chooses Paper</p>
+<ul>
+<li>Lose 1</li>
+<li>Rock: Regret 0</li>
+<li>Paper: Regret 1</li>
+<li>Scissors: Regret 2</li>
+</ul></li>
+<li><p>Next Action: Proportional <span class="math display">\[
+\begin{pmatrix}
+\text{Rock} &amp; 0/3 = 0 \\
+\text{Paper} &amp; 1/3 = 0.333 \\
+\text{Scissors} &amp; 2/3 = 0.667
+\end{pmatrix}
+\]</span></p></li>
+<li><p>Game 2: Choose Scissors (With probability <span class="math inline">\(2/3\)</span>) and opponent chooses Rock</p>
+<ul>
+<li>Lose 1</li>
+<li>Rock: Regret 1</li>
+<li>Paper: Regret 2</li>
+<li>Scissors: Regret 0</li>
+</ul></li>
+<li><p>Cumulative regrets:</p>
+<ul>
+<li>Rock: 1</li>
+<li>Paper: 3</li>
+<li>Scissors: 2</li>
+</ul></li>
+<li><p>Next Action: Proportional <span class="math display">\[
+\begin{pmatrix}
+\text{Rock} &amp; 1/6 = 0167 \\
+\text{Paper} &amp; 3/6 = 0.500 \\
+\text{Scissors} &amp; 2/6 = 0.333
+\end{pmatrix}
+\]</span></p></li>
+</ul>
+<p>Regret matching definitions:</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is actions</li>
+<li><span class="math inline">\(\sigma\)</span> is strategy</li>
+<li><span class="math inline">\(t\)</span> is time</li>
+<li><span class="math inline">\(i\)</span> is player</li>
+<li><span class="math inline">\(R\)</span> is cumulative regret</li>
+</ul>
+<p><span class="math display">\[
+\sigma_i^t(a) = \begin{cases}
+\frac{\max(R_i^t(a), 0)}{\sum_{a' \in A} \max(R_i^t(a'), 0)} &amp; \text{if } \sum_{a' \in A} \max(R_i^t(a'), 0) &gt; 0 \\
+\frac{1}{|A|} &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p>This is showing that we take the cumulative regret for an action divided by the cumulative regrets for all actions (normalizing) and then play that strategy for this action on the next iteration.</p>
+<p>If all cumulative regrets are <span class="math inline">\(\leq 0\)</span> then we use the uniform distribution.</p>
+<p>If cumulative regrets are positive, but are are <span class="math inline">\(&lt;0\)</span> for a specific action, then we use <span class="math inline">\(0\)</span> for that action.</p>
+<p>In code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_strategy(<span class="va">self</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#First find the normalizing sum</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        normalizing_sum <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(NUM_ACTIONS):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>.regret_sum[a] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.strategy[a] <span class="op">=</span> <span class="va">self</span>.regret_sum[a]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.strategy[a] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            normalizing_sum <span class="op">+=</span> <span class="va">self</span>.strategy[a]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Then normalize each action</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(NUM_ACTIONS):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> normalizing_sum <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.strategy[a] <span class="op">/=</span> normalizing_sum</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.strategy[a] <span class="op">=</span> <span class="fl">1.0</span><span class="op">/</span>NUM_ACTIONS</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.strategy_sum[a] <span class="op">+=</span> <span class="va">self</span>.strategy[a]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.strategy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After using regret matching and after many iterations, we can minimize expected regret by using the <em>average</em> strategy at the end, which is the strategy that converges to equilibrium.</p>
+<p>If two players were training against each other using regret matching, they would converge to the Nash Equilibrium of <span class="math inline">\(1/3\)</span> for each action using the average strategy in Rock Paper Scissors.</p>
+</section>
+<section id="rps-regret-matching-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="rps-regret-matching-experiment">RPS Regret Matching Experiment</h3>
+<p>Here we show that regret matching converges only using the average strategy over 10,000 iterations:</p>
+<p><img src="assets/rps_avg.png" class="img-fluid"></p>
+<p>The bottom shows both players converging to <span class="math inline">\(1/3\)</span>, while the top shows Player 1’s volatile current strategies that are cycling around.</p>
+<p>Suppose that your opponent Player 2 is playing 40% Rock, 30% Paper, and 30% Scissors. Here is a regret matching 10,000 game experiment. It shows that it takes around 1,600 games before Player 1 plays only Paper (this will vary).</p>
+<p><img src="assets/rps_rm.png" class="img-fluid"></p>
+<p>We see that if there is a fixed player, regret matching converges to the best strategy.</p>
+<p>But what if your opponent is not using a fixed strategy? We’ll talk about that soon.</p>
+</section>
+<section id="iterating-through-the-tree" class="level3">
+<h3 class="anchored" data-anchor-id="iterating-through-the-tree">Iterating through the Tree</h3>
+<p>The core feature of the iterative algorithms is self-play by traversing the game tree over all <strong>infosets</strong> and tracking the strategies and regrets at each.</p>
+<p>From above, we know how to find the strategy and regret in the simple Rock Paper Scissors environment.</p>
+<p>In poker:</p>
+<ul>
+<li><p>Strategies are determined the same as above, through regret matching from the previous <code>regret</code> values at the specific information set for each action</p></li>
+<li><p>CFR definitions:</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is actions</li>
+<li><span class="math inline">\(I\)</span> is infoset</li>
+<li><span class="math inline">\(\sigma\)</span> is strategy</li>
+<li><span class="math inline">\(t\)</span> is time</li>
+<li><span class="math inline">\(i\)</span> is player</li>
+<li><span class="math inline">\(R\)</span> is cumulative regret</li>
+<li><span class="math inline">\(z\)</span> is a terminal node</li>
+<li><span class="math inline">\(u\)</span> is utility (payoffs)</li>
+<li><span class="math inline">\(p\)</span> is the current player who plays at this node</li>
+<li><span class="math inline">\(-p\)</span> is the the opponent player and chance</li>
+<li><span class="math inline">\(v\)</span> is counterfactual value</li>
+</ul></li>
+<li><p>Counterfactual values are effectively the value of an information set. They are weighted by the probability of opponent and chance playing to this node (in other words, the probability of playing to this node if this player tried to do so).</p>
+<ul>
+<li><p>Counterfactual value: <span class="math inline">\(v^\sigma (I) = \sum_{z\in Z_I} \pi^{\sigma}_{-p}(z[I])\pi^{\sigma}(z[I] \rightarrow z)u_p(z)\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{z\in Z_I}\)</span> is summing over all terminal histories reachable from this node</p></li>
+<li><p><span class="math inline">\(\pi^{\sigma}_{-p}(z[I])\)</span> is the probability of opponents and chance reaching this node</p></li>
+<li><p><span class="math inline">\(\pi^{\sigma}(z[I] \rightarrow z)\)</span> is the probability of playing from this node to terminal history <span class="math inline">\(z\)</span>, i.e.&nbsp;the weight component of the expected value</p></li>
+<li><p><span class="math inline">\(u_p(z)\)</span> is the utility at terminal history <span class="math inline">\(z\)</span>, i.e.&nbsp;the value component of the expected value</p></li>
+</ul></li>
+<li><p>Instantaneous regrets are based on action values compared to infoset EV. Each action EV then adds to its <code>regret</code> counter:</p>
+<ul>
+<li><span class="math inline">\(r^t(I,a) = v^{\sigma^t}(I,a) - v^{\sigma^t}(I)\)</span></li>
+</ul></li>
+<li><p>Cumulative (counterfactual) regrets are the sum of the individual regrets:</p>
+<ul>
+<li><span class="math inline">\(R^T(I,a) = \sum_{t=1}^T r^t(I,a)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="alternativesupdates-to-original-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="alternativesupdates-to-original-algorithm">Alternatives/Updates to Original Algorithm</h3>
+<ul>
+<li><p>CFR+ variation such that regrets can’t be <span class="math inline">\(\leq 0\)</span></p></li>
+<li><p>Linear CFR such that regrets are weighted by their recency</p></li>
+<li><p>Sampling</p>
+<ul>
+<li>External: Sample chance and opponent nodes</li>
+<li>Chance: Sample chance only</li>
+<li>Outcome: Sample outcomes</li>
+</ul></li>
+</ul>
 
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

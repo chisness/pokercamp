@@ -1,5 +1,5 @@
 ---
-title: "#2: Leduc Poker | Challenge Leaderboard"
+title: "#3: Rock Paper Scissors | Challenge Leaderboard"
 sidebar: aipcs24
 format:
   html:
@@ -42,7 +42,7 @@ format:
     }
 </style>
 
-## RPS, biased opponents
+## RPS, various opponents
 
 <div id="leaderboard-1"></div>
 
