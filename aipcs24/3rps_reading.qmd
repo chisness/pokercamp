@@ -503,6 +503,9 @@ Therefore Player 1 has payoffs of: $1/9 * -1 + 2/9 * 1 + 2/9 * 1 + 4/9 * 0 = 3/9
 
 :::{.callout-note  appearance="minimal"}
 ## Maximize Against Adapting Rock Opponent
+1. Suppose that your opponent is forced to play Rock exactly 
+
+Suppose that your opponent gets a card with probability $X$ such that $X\%$ of the time they are forced to play Rock
 What if the opponent is adapting to you, but 10% of the time they are forced to play Rock?
 :::
 

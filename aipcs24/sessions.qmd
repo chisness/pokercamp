@@ -8,8 +8,8 @@ format:
 
 This is the schedule for AI Poker Camp Summer 2024. We plan to spend Mondays reviewing previous challenges and thinking about new challenges/adjacent problems and Thursdays working on the challenges, which will be due every Sunday. 
 
-
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTWk7TKUq4SUs6-XlTL15y05-2NCdjLRZxJjJjrPdnRRwxkX-ezqaLcAbKR6SWLUR7P92Y_8bO4Gxvj/pubhtml?gid=1776423397&amp;single=true&amp;widget=true&amp;headers=false" width="800" height="600"></iframe>
+<!-- 
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTWk7TKUq4SUs6-XlTL15y05-2NCdjLRZxJjJjrPdnRRwxkX-ezqaLcAbKR6SWLUR7P92Y_8bO4Gxvj/pubhtml?gid=1776423397&amp;single=true&amp;widget=true&amp;headers=false" width="800" height="600"></iframe> -->
 
 The calendar below includes all dates, locations, and times. You can add the whole thing to your own calendar with the button in the bottom right. 
 
