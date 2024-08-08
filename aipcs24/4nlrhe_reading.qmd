@@ -1,0 +1,78 @@
+---
+title: "#5: No Limit Royal Hold'em | Reading"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
+## No Limit Royal Hold'em
+This game is the same as regular No Limit Texas Hold'em, except it uses a deck size of 20 cards instead of 52 and antes instead of blinds. The deck consists of all cards Ten and higher (T, J, Q, K, A) and all suits. 
+
+The variation we will use has each player starting with 20 chips and each antes 1. We will have 2 betting rounds: preflop and the flop. 
+
+Bet sizes that are legal are:
+
+1. Min: $\min(1, \text{previous bet or raise size})$
+
+2. Max: $\text{current stack size}$
+
+### Odds of Hands
+Hand ranks are based on the probability of each type of hand occurring. Note that since we are making 5-card hands, we always use the 5-card probabilities. In Texas Hold'em, with 7 cards, you are more likely to have a pair (43.8%) than high-card (17.4%), but we use the 5-card probabilities of pair (42.2%) and high-card (50.1%) when determining hand ranks. 
+
+For Royal Hold'em, the total number of deals is: ${20 \choose 5} = \frac{20!}{15!*5!} = \frac{20*19*18*17*16}{5*4*3*2*1} = 15504$
+
+Now we compute the frequency of every hand ranking and divide by the total number of deals to get the probability. Note that there is only one kind of flush, which is the Royal Flush from Ten to Ace. Also that it is not possible to have only high-card. 
+
+| Hand | Frequency Calculation | Frequency | Probability | Cumulative Probability |
+|------|-------------------|-----------|-------------|------------------------|
+| Royal Flush | ${4 \choose 1}$ | $4$ | $0.000258$ | $0.000258$ |
+| Four of a Kind | ${5 \choose 1}{4 \choose 4}{4 \choose 1}{4 \choose 1}$ | $80$ | $0.00516$ | $0.005418$ |
+| Full House | ${5 \choose 1}{4 \choose 3}{4 \choose 1}{4 \choose 2}$ | $480$ | $0.03096$ | $0.036378$ |
+| Straight (excluding Royal Flushes) | ${4 \choose 1}^5 - {4 \choose 1}$ | $1020$ | $0.065789$ | $0.102167$ |
+| Three of a Kind | ${5 \choose 1}{4 \choose 3}{4 \choose 2}{4 \choose 1}^2$ | $1920$ | $0.123839$ | $0.226006$ |
+| Two Pair | ${5 \choose 2}{4 \choose 2}^2{3 \choose 1}{4 \choose 1}$ | $4320$ | $0.278638$ | $0.504644$ |
+| One Pair | ${5 \choose 1}{4 \choose 2}{4 \choose 3}{4 \choose 1}^3$ | $7680$ | $0.495356$ | $1$ |
+
+The rankings work out to be the same as in regular Texas Hold'em, except that there are no high-card hands and no regular flush hands. 
+
+## Game Sizes
+*Sourced from Michael Johanson's 2013 paper [Measuring the Size of Large No-Limit Poker Games](https://poker.cs.ualberta.ca/publications/2013-techreport-nl-size.pdf)*
+
+> The size of a game is a simple heuristic that can be used to describe its complexity and compare it to other games, and a game’s size can be measured in several ways.
+
+> The most commonly used measurement is to count the number
+of game states in a game: the number of possible sequences of actions by the players or by chance, as viewed by a third party that observes all of the players’ actions. 
+
+> In the poker setting, this would include all of the ways that the players private and public cards can be dealt and all of the possible betting sequences.
+
+> This number allows us to compare a game against other games such as chess or backgammon, which have $10^{47}$ and $10^{20}$ distinct game states respectively (not including transpositions).
+
+Royal No Limit Hold'em was suggested as a testbed game since it is small enough to be tractable on consumer-grade computers and resembles regular No Limit Texas Hold'em. The relatively small size means that unabstracted equilibrium and best-response computations would be tractable and therefore abstractions could be evaluated to motivate research that translates to larger domains. 
+
+## Abstraction in Poker
+Abstraction refers to shrinking the game in some way to make it more tractable to solve. 
+
+The main ways to do this in poker are through card bucketing and bet size limiting. 
+
+### Card Abstraction
+Bucketing cards
+
+### Bet Abstraction
+Limited number of bet sizes, which is useful in no limit games where players can bet any amount up to their stack size. 
+
+## Deep CFR
+A more modern way to make a large game tractable is through deep learning. 
+
+## Evaluating Agents
+There are four main ways to evaluate poker agents: 
+
+1. Play against humans
+https://en.wikipedia.org/wiki/Libratus
+https://en.wikipedia.org/wiki/Pluribus_(poker_bot) 
+
+2. Play against other agents
+ACPC AAAI conference
+
+3. Play against a Nash equilibrium agent
+
+4. Play against a best response agent  

@@ -88,10 +88,10 @@ website:
                   href: "aipcs24/3rps_leaderboard.qmd"
                 - text: "Challenge Review"
                   # href: "aipcs24/3rps_challenge_review.qmd"
-            - section: "#4: Coming soon..."
+            - section: "#4: Royal Hold'em"
               contents:
                 - text: "Class Materials"
-                  # href: "aipcs24/4ttt_reading.qmd"
+                  href: "aipcs24/4nlrhe_reading.qmd"
                 # - text: "Reading 2"
                   # href: "aipcs24/4ttt_reading2.qmd"
                 - text: "Challenge"
