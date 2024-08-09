@@ -621,8 +621,8 @@ Solution
 <p>The agent has to <em>translate</em> the bet to understand how to respond.</p>
 <p>In 2013, Ganzfried and Sandholm <a href="https://www.cs.cmu.edu/~sandholm/reverse%20mapping.ijcai13.pdf">proposed a mapping</a> as follows:</p>
 <p><span class="math inline">\(f_{A,B}(x) = \frac{(B-x)(1+A)}{(B-A)(1+x)}\)</span></p>
-<p>The result is the probability that we map the action to <span class="math inline">\(A\)</span> and <span class="math inline">\(1-f_{A,B}(x)\)</span> is the probability that we map the action to <span class="math inline">\(B\)</span>.</p>
 <p>Where <span class="math inline">\(x\)</span> is the opponent bet and it is an element of <span class="math inline">\([A, B]\)</span>, where <span class="math inline">\(A\)</span> is the largest betting size in the abstraction that is <span class="math inline">\(\leq x\)</span> and <span class="math inline">\(B\)</span> is the smallest betting size in the abstraction that is <span class="math inline">\(\geq x\)</span>, assuming <span class="math inline">\(0 \leq A \leq B\)</span>.</p>
+<p>The result is the probability that we map the action to <span class="math inline">\(A\)</span> and <span class="math inline">\((1-f_{A,B}(x))\)</span> is the probability that we map the action to <span class="math inline">\(B\)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

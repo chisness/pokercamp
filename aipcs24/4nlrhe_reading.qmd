@@ -121,9 +121,9 @@ In 2013, Ganzfried and Sandholm [proposed a mapping](https://www.cs.cmu.edu/~san
 
 $f_{A,B}(x) = \frac{(B-x)(1+A)}{(B-A)(1+x)}$
 
-The result is the probability that we map the action to $A$ and $1-f_{A,B}(x)$ is the probability that we map the action to $B$. 
-
 Where $x$ is the opponent bet and it is an element of $[A, B]$, where $A$ is the largest betting size in the abstraction that is $\leq x$ and $B$ is the smallest betting size in the abstraction that is $\geq x$, assuming $0 \leq A \leq B$. 
+
+The result is the probability that we map the action to $A$ and $(1-f_{A,B}(x))$ is the probability that we map the action to $B$. 
 
 :::{.callout-note  appearance="minimal"}
 ## Action Translation
