@@ -406,8 +406,6 @@ window.Quarto = {
   <li><a href="#card-abstraction" id="toc-card-abstraction" class="nav-link" data-scroll-target="#card-abstraction">Card Abstraction</a></li>
   <li><a href="#bet-abstraction" id="toc-bet-abstraction" class="nav-link" data-scroll-target="#bet-abstraction">Bet Abstraction</a></li>
   </ul></li>
-  <li><a href="#deep-cfr" id="toc-deep-cfr" class="nav-link" data-scroll-target="#deep-cfr">Deep CFR</a></li>
-  <li><a href="#evaluating-agents" id="toc-evaluating-agents" class="nav-link" data-scroll-target="#evaluating-agents">Evaluating Agents</a></li>
   </ul>
 </nav>
     </div>
@@ -529,42 +527,143 @@ window.Quarto = {
 <p>The most commonly used measurement is to count the number of game states in a game: the number of possible sequences of actions by the players or by chance, as viewed by a third party that observes all of the players’ actions.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>In the poker setting, this would include all of the ways that the players private and public cards can be dealt and all of the possible betting sequences.</p>
+<p>In the poker setting, this would include all of the ways that the players’ private and public cards can be dealt and all of the possible betting sequences.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>This number allows us to compare a game against other games such as chess or backgammon, which have <span class="math inline">\(10^{47}\)</span> and <span class="math inline">\(10^{20}\)</span> distinct game states respectively (not including transpositions).</p>
+</blockquote>
+<p>The card frequencies are the same for limit and no limit variations of Hold’em. These can be calculated separately from the betting sequences.</p>
+<p>Limit Hold’em game sizes are easier to measure because there is a fixed maximum size of bets (usually 4 per round) that have no dependence on previous rounds/actions. The infosets and infoset-actions are the most relevant size values since each infoset and action has two tabular values, one for accumulated regret and one for accumulating average strategy. The game size for Limit Hold’em is <span class="math inline">\(3.589 \times 10^{13}\)</span> infoset-actions.</p>
+<p>However No Limit Hold’em game sizes are more complex and depend on three factors:</p>
+<ul>
+<li>Amount of money remaining</li>
+<li>Size of the bet facing</li>
+<li>If a check is legal</li>
+</ul>
+<blockquote class="blockquote">
+<p>Within one betting round, any two decision points that are identical in these three factors will have the same legal actions and the same betting subtrees for the remainder of the game, regardless of other aspects of their history.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Second,each of these factors only increases or decreases during a round. A player’s stack size only decreases as they make bets or call an opponent’s bets. The bet being faced is zero at the start of a round (or if the opponent has checked), and can only remain the same or increase during a round.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Finally, a check is only allowed as the first action of a round.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>These observations mean that we do not have to walk the entire game in order to count the decision points. Instead of considering each betting history independently, we will instead consider the relatively small number of possible configurations of round, stack-size, bet-faced, and check-allowed, and do so one round at a time, starting from the start of the game.</p>
 </blockquote>
 <p>Royal No Limit Hold’em was suggested as a testbed game since it is small enough to be tractable on consumer-grade computers and resembles regular No Limit Texas Hold’em. The relatively small size means that unabstracted equilibrium and best-response computations would be tractable and therefore abstractions could be evaluated to motivate research that translates to larger domains.</p>
 </section>
 <section id="abstraction-in-poker" class="level2">
 <h2 class="anchored" data-anchor-id="abstraction-in-poker">Abstraction in Poker</h2>
 <p>Abstraction refers to shrinking the game in some way to make it more tractable to solve.</p>
-<p>The main ways to do this in poker are through card bucketing and bet size limiting.</p>
+<p>The main ways to do this in poker are through card bucketing and bet size restrictions.</p>
 <section id="card-abstraction" class="level3">
 <h3 class="anchored" data-anchor-id="card-abstraction">Card Abstraction</h3>
-<p>Bucketing cards</p>
+<p>Card abstraction entails putting sets of cards into buckets. For example, in 100 card Kuhn Poker, we could have a bucket of cards for every 10 card ranks. This means that cards 1-10, 11-20, …, 91-100 are all in a separate bucket. A bucket would be represented by an infoset and so you would play any hand within a bucket the same way – only if there is a showdown is the true hand and outcome revealed.</p>
+<p>There are more complex ways to bucket by hand strength in Texas Hold’em. The simplest bucketing method is preflop lossless abstraction such that hands can be reduced from <span class="math inline">\({52 \choose 2} = 1326\)</span> to <span class="math inline">\(169\)</span> starting hands.</p>
+<p>Of the <span class="math inline">\(169\)</span>, there are:</p>
+<ul>
+<li><span class="math inline">\(13\)</span> pairs, one for each rank</li>
+<li><span class="math inline">\(78\)</span> suited hands</li>
+<li><span class="math inline">\(78\)</span> offsuit hands</li>
+</ul>
+<p>The suited and offsuit hands are <span class="math inline">\(78\)</span> each because there are <span class="math inline">\(13*12 = 156\)</span> total <em>types</em> of unpaired hands. The only thing that matters when playing them preflop is whether they are <em>suited</em> or <em>offsuit</em>. We split this into <span class="math inline">\(78\)</span> suited and <span class="math inline">\(78\)</span> offsuit hands.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hand Combinations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many unabstracted hand combinations of each of these would there have been in the <span class="math inline">\(1326\)</span> starting hands?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(13 * {4 \choose 2} = 13*6 = 78\)</span> pairs</li>
+<li><span class="math inline">\(78 * {4 \choose 1} = 4 = 312\)</span> suited hands</li>
+<li><span class="math inline">\(78 * (4*3) = 936\)</span> suited hands</li>
+</ul>
+<p><span class="math inline">\(78 + 312 + 936 = 1326\)</span> total hands</p>
+</div>
+</div>
+</div>
 </section>
 <section id="bet-abstraction" class="level3">
 <h3 class="anchored" data-anchor-id="bet-abstraction">Bet Abstraction</h3>
-<p>Limited number of bet sizes, which is useful in no limit games where players can bet any amount up to their stack size.</p>
-</section>
-</section>
-<section id="deep-cfr" class="level2">
-<h2 class="anchored" data-anchor-id="deep-cfr">Deep CFR</h2>
-<p>A more modern way to make a large game tractable is through deep learning.</p>
-</section>
-<section id="evaluating-agents" class="level2">
-<h2 class="anchored" data-anchor-id="evaluating-agents">Evaluating Agents</h2>
-<p>There are four main ways to evaluate poker agents:</p>
-<ol type="1">
-<li><p>Play against humans https://en.wikipedia.org/wiki/Libratus https://en.wikipedia.org/wiki/Pluribus_(poker_bot)</p></li>
-<li><p>Play against other agents ACPC AAAI conference</p></li>
-<li><p>Play against a Nash equilibrium agent</p></li>
-<li><p>Play against a best response agent</p></li>
-</ol>
+<p>Bet abstraction requires allowing only a limited number of bet sizes when solving the game. A limited number of bet sizes is important to reduce game size since in no limit games, players can generally bet any amount up to their stack size.</p>
+<p>The abstracted actions could include things like:</p>
+<ul>
+<li>Minimum bet</li>
+<li><span class="math inline">\(25\%\)</span> pot</li>
+<li><span class="math inline">\(50\%\)</span> pot</li>
+<li><span class="math inline">\(75\%\)</span> pot</li>
+<li><span class="math inline">\(100\%\)</span> pot</li>
+<li><span class="math inline">\(200\%\)</span> pot</li>
+<li>Allin</li>
+</ul>
+<p>This works for training, but then a problem arises when playing when the opponent makes a bet that does not match the abstracted bet sizes that were learned during training.</p>
+<p>The agent has to <em>translate</em> the bet to understand how to respond.</p>
+<p>In 2013, Ganzfried and Sandholm <a href="https://www.cs.cmu.edu/~sandholm/reverse%20mapping.ijcai13.pdf">proposed a mapping</a> as follows:</p>
+<p><span class="math inline">\(f_{A,B}(x) = \frac{(B-x)(1+A)}{(B-A)(1+x)}\)</span></p>
+<p>The result is the probability that we map the action to <span class="math inline">\(A\)</span> and <span class="math inline">\(1-f_{A,B}(x)\)</span> is the probability that we map the action to <span class="math inline">\(B\)</span>.</p>
+<p>Where <span class="math inline">\(x\)</span> is the opponent bet and it is an element of <span class="math inline">\([A, B]\)</span>, where <span class="math inline">\(A\)</span> is the largest betting size in the abstraction that is <span class="math inline">\(\leq x\)</span> and <span class="math inline">\(B\)</span> is the smallest betting size in the abstraction that is <span class="math inline">\(\geq x\)</span>, assuming <span class="math inline">\(0 \leq A \leq B\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Translation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that the pot size is <span class="math inline">\(100\)</span> with a minimum bet of <span class="math inline">\(2\)</span> and that our abstraction has {minimum bet, half pot bet, full pot bet, allin}. How would we translate a bet of <span class="math inline">\(33\)</span>?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{align}
+f_{A,B}(x) &amp;= \frac{(B-x)(1+A)}{(B-A)(1+x)} \\
+&amp;= \frac{(50-33)(1+2)}{(50-2)(1+33)} \\
+&amp;= \frac{(17)(3)}{(48)(34)} \\
+&amp;= .031
+\end{align}
+\]</span></p>
+<p>We would translate this to minimum bet about <span class="math inline">\(3\%\)</span> of the time and to half pot bet about <span class="math inline">\(97\%\)</span> of the time.</p>
+</div>
+</div>
+</div>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

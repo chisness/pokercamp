@@ -447,44 +447,171 @@
     ]
   },
   {
-    "objectID": "aipcs24/2leduc_reading.html",
-    "href": "aipcs24/2leduc_reading.html",
-    "title": "#2: Leduc Poker | Class Materials",
+    "objectID": "aipcs24/2leduc_challenge.html",
+    "href": "aipcs24/2leduc_challenge.html",
+    "title": "#2: Leduc Poker | Challenge",
     "section": "",
-    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\ngeneral algorithm\n\nstore: strategy, regret\nregret matching\naverage strategy at end\nCFR+, Linear CFR\nsampling (external, sampling, chance, etc. )"
-  },
-  {
-    "objectID": "aipcs24/2leduc_reading.html#solving-poker-games",
-    "href": "aipcs24/2leduc_reading.html#solving-poker-games",
-    "title": "#2: Leduc Poker | Class Materials",
-    "section": "",
-    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\ngeneral algorithm\n\nstore: strategy, regret\nregret matching\naverage strategy at end\nCFR+, Linear CFR\nsampling (external, sampling, chance, etc. )"
-  },
-  {
-    "objectID": "aipcs24/2leduc_class.html",
-    "href": "aipcs24/2leduc_class.html",
-    "title": "#2: Leduc Poker | Class Materials",
-    "section": "",
-    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. A good resource on CFR is this 2015 paper from the University of Alberta.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\nTabular storing strategies and regrets at each infoset\nRegrets based on action values compared to node EV, which is based on counterfactual values\nRegret minimization, usually regret matching, to get new strategies\nAverage strategy converges to Nash equilibrium\nCFR+ variation such that regrets can’t be &lt;0\nLinear CFR such that regrets are weighted by their recency\nSampling methods\n\nExternal: Sample chance and opponent nodes\nChance: Sample chance only\nOutcome: Sample outcomes",
+    "text": "This week, you will submit two bots, one to play 100-Card Kuhn Poker, and one to play Leduc Poker.\nSkip ahead to the challenge specification.",
     "crumbs": [
       "About",
       "Challenges",
       "#2: Leduc Poker",
-      "Class Materials"
+      "Challenge"
     ]
   },
   {
-    "objectID": "aipcs24/2leduc_class.html#solving-poker-games",
-    "href": "aipcs24/2leduc_class.html#solving-poker-games",
-    "title": "#2: Leduc Poker | Class Materials",
-    "section": "",
-    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. A good resource on CFR is this 2015 paper from the University of Alberta.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\nTabular storing strategies and regrets at each infoset\nRegrets based on action values compared to node EV, which is based on counterfactual values\nRegret minimization, usually regret matching, to get new strategies\nAverage strategy converges to Nash equilibrium\nCFR+ variation such that regrets can’t be &lt;0\nLinear CFR such that regrets are weighted by their recency\nSampling methods\n\nExternal: Sample chance and opponent nodes\nChance: Sample chance only\nOutcome: Sample outcomes",
+    "objectID": "aipcs24/2leduc_challenge.html#kuhn-poker-100-cards",
+    "href": "aipcs24/2leduc_challenge.html#kuhn-poker-100-cards",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Kuhn Poker 100 Cards",
+    "text": "Kuhn Poker 100 Cards\nKuhn Poker with 100 cards plays the same as Kuhn Poker with 3 cards, but the cards are numbered from 1 to 100 (or 0 to 99).\n\n\n\n\n\n\n100-Card Kuhn Infosets\n\n\n\nKuhn Poker with 3 cards has 6 infosets per player, 12 total.\nHow many infosets are in 100-card Kuhn Poker?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThese scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:\n\nP1 acting first\nP2 facing an Up action\nP2 facing a Down action\nP1 after a Down-Up sequence\n\n\n\n\n\n\n\n\n\n\nGame states for 100-Card Kuhn infosets\n\n\n\nEach infoset in Kuhn Poker has two possible game states that correspond to it.\nHow many game states correspond to each infoset in 100-card Kuhn Poker?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach infoset corresponds to 99 possible game states, one for each card the opponent could have.",
     "crumbs": [
       "About",
       "Challenges",
       "#2: Leduc Poker",
-      "Class Materials"
+      "Challenge"
     ]
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge.html#leduc-poker",
+    "href": "aipcs24/2leduc_challenge.html#leduc-poker",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Leduc Poker",
+    "text": "Leduc Poker\nLeduc Poker is a simple toy poker game invented at the University of Alberta.\n\n\n\nAlberta’s nearby Edmonton Airport is in the city of Leduc\n\n\nHere is the setup:\n\n2 players.\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest).\nEach player antes 1 chip.\nDeal 1 card to each player.\nBetting round 1 (the preflop):\n\nThere is a fixed bet size of 2 chips.\nIf the opponent has made no bet in this round, a player can Check (bet nothing) or Raise (bet one standard bet size).\nIf the opponent has bet, then a player can Fold (bet nothing and lose), Call (add chips to match opponent’s bet), or Raise (call the bet and add one standard bet size).\nThis round ends when one player Folds (and loses; neither cards are shown), or when one player Calls (and the game continues to the next step below). A special case is when both players Check, which proceeds the same as a Call with no added chips.\n\nDeal a face up community card (shown to both players).\n\nA pair (your card matches the community card) is the best hand, then an unpaired Ace, then an unpaired King, finally an unpaired Queen.\n\nBetting round 2 (the flop):\n\nThere is a fixed bet size of 4 chips.\nPlayers can Check, Fold, Call, and Raise the same as in the first round.\nThis round also ends when one player Folds (and loses), or one player Calls (and proceeds to showdown where the higher hand wins).\n\n\n\n\n\n\n\n\nMaximum bets per round rule in original version\n\n\n\n\n\nThe original version of Leduc Poker has a rule where the maximum bets per betting round is 2 (i.e. a bet and a raise), but we are not using that rule. Instead, each player has a maximum of 50 chips for each game. If a player does not have enough chips to make a full Raise, their Raise is for all their remaining chips.\n\n\n\n\nSample Leduc Hand and Leduc Math\nHere is a Leduc game situation in which:\n\nBoth players ante 1 each.\n\nPot = 2\n\nPreflop: P1 bets 2 and P2 calls.\n\nPot = 6\n\nFlop: Community card K revealed. Player 1 bets 4. Player 2 to act.\n\n\n\n\n\n\n\n\nLeduc Strategy\n\n\n\nWhat should Player 2 do here?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nRaise! Player 2 has the best possible hand because they have a pair.\n\n\n\n\n\n\n\n\n\nLeduc Infoset\n\n\n\nWhat is Player 2’s infoset?\nWhat will Player 1’s infoset be after Player 2 acts?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe could write Player 2’s infoset as: (P2)[_, K, K][Bet 2, Call 2][Bet 4]\nOr the default solver in pokercamp/aipc-challenges/challenge-2-leduc will write it at: (P2){'community': [2]}[None, 2][Raise, Call, Raise].\n\n\n\n\n\n\n\n\n\nLeduc Ties\n\n\n\nHow often will you and your opponent be dealt the same card?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst we find the total combinations of cards:\n\\({6\\choose2} = \\frac{6!}{4!*2!} = \\frac{6*5}{2} = 15\\)\nThen we count that there is exactly \\(1\\) way to make Q/Q, \\(1\\) way to make K/K, and \\(1\\) way to make A/A. Therefore the probability of having the same hand as your opponent is \\(\\frac{3}{15} = 0.2\\).\n\n\n\n\n\n\n\n\n\nLeduc Pairs\n\n\n\nSuppose that you are dealt a K. How often will you hit a pair on the flop given that you see it?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThere are \\(5\\) unknown cards to you and \\(1\\) of them matches yours for a pair, so the \\(\\Pr(\\text{Pair} \\mid \\text{See Flop}) = \\frac{1}{5} = 0.2\\)",
+    "crumbs": [
+      "About",
+      "Challenges",
+      "#2: Leduc Poker",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge.html#hints",
+    "href": "aipcs24/2leduc_challenge.html#hints",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Hints",
+    "text": "Hints\n\n\n\n\n\n\nCard abstractions in 100-Card Kuhn\n\n\n\n\n\nIt might be more efficient to solve 100-Card Kuhn Poker if you shrink the number of cards to a more manageable size by bucketing a group of nearby numbers together for strategy purposes. For example, you could treat cards 1-10 as the same, 11-20, and so on. Or is there a better way to bucket than uniformly?\n\n\n\n\n\n\n\n\n\nSampling Policy in Leduc\n\n\n\n\n\nThe set of possible action histories in Leduc Poker with 50-chip stacks is relatively large, and you don’t really care about most of it. Consider whether you can do something more efficient than always expanding every node.\n\n\n\n\n\n\n\n\n\nAveraging intermediate strategy probabilities\n\n\n\n\n\nAs you may have seen with the Kuhn solver site, counterfactual regret minimization tends to cycle around the equilibrium instead of descending into it. If you use some kind of average over recent strategy probs as your final probabilities, you may get much closer to Nash than just using the final values.\n\n\n\n\n\n\n\n\n\nKuhn Game Value Bonus Challenge\n\n\n\nFind an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the P2 advantage in 100 card Kuhn Poker to 3 card Kuhn Poker.\nExtra bonus: Compare the P2 advantage in 100 card Kuhn Poker to a uniform 10-bucket abstraction, and if possible, a better 10-bucket abstraction.\n\n\n\n\n\n\n\n\nLeduc Game Value Bonus Challenge\n\n\n\nFind an equilibrium strategy for Leduc Poker and compare the P2 advantage to 3-Card Kuhn and 100-Card Kuhn.",
+    "crumbs": [
+      "About",
+      "Challenges",
+      "#2: Leduc Poker",
+      "Challenge"
+    ]
+  },
+  {
+    "objectID": "aipcs24/3rps_leaderboard.html#paper---maybe-scissors---maybe-rock",
+    "href": "aipcs24/3rps_leaderboard.html#paper---maybe-scissors---maybe-rock",
+    "title": "#3: Rock Paper Scissors | Challenge Leaderboard",
+    "section": "Paper - Maybe Scissors - Maybe Rock",
+    "text": "Paper - Maybe Scissors - Maybe Rock",
+    "crumbs": [
+      "About",
+      "Challenges",
+      "#3: Rock Paper Scissors",
+      "Leaderboard"
+    ]
+  },
+  {
+    "objectID": "aipcs24/solvers.html",
+    "href": "aipcs24/solvers.html",
+    "title": "Implementing a Basic Solver",
+    "section": "",
+    "text": "We’ve provided a basic game-solver with the challenges code. You can find it at aipcs-challenges/solvers/default/ and run it with python solver.py --iter N.\nIn its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).\nYou’re also welcome to write whatever else you want; we just thought this might be helpful for getting started.",
+    "crumbs": [
+      "About",
+      "Configuration",
+      "Building and Running Solvers"
+    ]
+  },
+  {
+    "objectID": "aipcs24/solvers.html#solver-framework",
+    "href": "aipcs24/solvers.html#solver-framework",
+    "title": "Implementing a Basic Solver",
+    "section": "",
+    "text": "We’ve provided a basic game-solver with the challenges code. You can find it at aipcs-challenges/solvers/default/ and run it with python solver.py --iter N.\nIn its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).\nYou’re also welcome to write whatever else you want; we just thought this might be helpful for getting started.",
+    "crumbs": [
+      "About",
+      "Configuration",
+      "Building and Running Solvers"
+    ]
+  },
+  {
+    "objectID": "aipcs24/solvers.html#the-algorithm",
+    "href": "aipcs24/solvers.html#the-algorithm",
+    "title": "Implementing a Basic Solver",
+    "section": "The algorithm",
+    "text": "The algorithm\n\nBegin at the first turn of the game, with Chance actions determined randomly.\nAt each infoset, we will either use the sampling policy sample or expand_all (determined by get_sampling_policy()) to get an estimate of the expected value of this node.\n\nIf sample, we pick an action randomly based on get_training_strategy_probabilities() for the current infoset, and use the value of the state that takes us to as the value of this state.\nIf expand_all, then get the values of each possible successor state, and use the weighted average by get_training_strategy_probabilities() to get the expected value of this state.\n\nEach time we do expand_all (including during a recursive drill-down step), update the strategy probabiliites for this infoset based on which actions did better (in this state) than this state’s overall expected value (weighted over all actions).\n\nIn particular, we keep a running sum of the amount each action beat the EV by (floored at zero), and use the ratio of the sums as our training_strategy_probabilities.\n\nYou probably want to do a different transformation of training_strategy_probabilities to get your final strategy, but for now we just return the same thing.\n\nSome easy things to change are: - get_sampling_policy() to return \"sample\" at some infosets and \"expand_all\" at others. - determine_infoset() to coalesce different observable states into the same infoset. - get_training_strategy_probabilities() to have different behavior for default and updated strategy probs.",
+    "crumbs": [
+      "About",
+      "Configuration",
+      "Building and Running Solvers"
+    ]
+  },
+  {
+    "objectID": "aipcs24/solvers.html#making-changes",
+    "href": "aipcs24/solvers.html#making-changes",
+    "title": "Implementing a Basic Solver",
+    "section": "Making changes",
+    "text": "Making changes\nIn general, you can change the behavior of the solver significantly by editing the functions defined in solver.py:\n\nhandle_new_iteration() - called with the iteration number when a new iteration is about to begin.\nhandle_iteration_over() - called with the iteration number when an iteration is over.\nget_root() - called witht the iteration number to get a RoundState object to begin the new iteration at. (Can be used to define how states should be explored.)\ndetermine_infoset() - called to get the canonical name of the infoset for a given visible game state. (Can be used to coalesce infosets.)\nsample_actions() - relevant if action types have variable parameters (like bet sizes), called to go from a list of legal action types to a set of action-instances to investigate.\nget_sampling_policy() - currently supports \"sample\" and \"expand_all\", called with the iteration number to determine whether to use a random sample to approximate this state’s EV, or to call all possible actions and compute a weighted sum. (Can vary policy by iteration by using the iteration number.)\nhandle_new_samples() - called with the sampling policy, and the resulting samples, from visiting a state node. (Can be used to update probabilities based on EVs.)\nget_training_strategy_probabilities() - used by both sampling policies, called to get the current strategy’s probabilities of taking each action at a given infoset.\nget_final_strategy_probabilities() - relevant if you want to use a different transformation of the data to get final probabilities than the intermediate probabilities used in training steps.",
+    "crumbs": [
+      "About",
+      "Configuration",
+      "Building and Running Solvers"
+    ]
+  },
+  {
+    "objectID": "aipcs24/solvers.html#more",
+    "href": "aipcs24/solvers.html#more",
+    "title": "Implementing a Basic Solver",
+    "section": "More",
+    "text": "More\nIf you have positive or negative feedback about the solver, feel free to share it in the #aipcs24-technical-feedback channel of the discord.",
+    "crumbs": [
+      "About",
+      "Configuration",
+      "Building and Running Solvers"
+    ]
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html",
+    "href": "aipcs24/2leduc_challenge copy.html",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "",
+    "text": "Leduc Poker is a simple toy poker game invented at the University of Alberta.\nHere is the setup:\n\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)\nLeduc Poker is played with 2 players. We’ll again use  and .\nEach player antes 1 chip\nDeal 1 card to each player\nBetting round 1:\n\nThere is a fixed bet size of 2 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nDeal a face up community card\n\nPlayers make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand\n\nBetting round 2:\n\nThere is a fixed bet size of 4 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nNotes:\n\nPlayer 1 acts first, rotate who is Player 1 each hand\nPlayers can win/lose a maximum of 13 chips per hand\n\nInfosets and payoffs\n\n - ↑Up (putting a chip into the pot)\n\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can go in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is :\n\n\n↑Up, ↓Down, or\n↓Down, ↑Up, ↓Down.\n\n\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:\n\n\n↑Up, ↑Up or - ↓Down, ↑Up , ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading"
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html#leduc-poker-rules",
+    "href": "aipcs24/2leduc_challenge copy.html#leduc-poker-rules",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "",
+    "text": "Leduc Poker is a simple toy poker game invented at the University of Alberta.\nHere is the setup:\n\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)\nLeduc Poker is played with 2 players. We’ll again use  and .\nEach player antes 1 chip\nDeal 1 card to each player\nBetting round 1:\n\nThere is a fixed bet size of 2 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nDeal a face up community card\n\nPlayers make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand\n\nBetting round 2:\n\nThere is a fixed bet size of 4 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nNotes:\n\nPlayer 1 acts first, rotate who is Player 1 each hand\nPlayers can win/lose a maximum of 13 chips per hand\n\nInfosets and payoffs\n\n - ↑Up (putting a chip into the pot)\n\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can go in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is :\n\n\n↑Up, ↓Down, or\n↓Down, ↑Up, ↓Down.\n\n\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:\n\n\n↑Up, ↑Up or - ↓Down, ↑Up , ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading"
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html#types-of-games",
+    "href": "aipcs24/2leduc_challenge copy.html#types-of-games",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Types of Games",
+    "text": "Types of Games\n\n\n\n\n\n\nExercise\n\n\n\nFill in the table below with games you know about. Thanks to Eliezer for getting us started.\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong? Tennis value of states in RL\nPure strategies in perfect info games vs. mixed in imperfect info\nDeterministic Nature: Because all players can see the entire game state and know all possible moves, strategies can be deterministic. Players can calculate and choose the optimal move based on this complete information. Pure Strategies: A pure strategy is a complete plan of action for every possible situation in a game. In perfect information games, players can follow a pure strategy because they know exactly what will happen as a result of each possible move.\nUncertainty and Hidden Information: Because players cannot see the entire game state, they must account for uncertainty and the hidden information of their opponents. This makes the game more about probabilities and expectations rather than certainties. Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.\nStrategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)\n\n\n\n\n\n\nExercise\n\n\n\nWhat makes poker and other games in the bottom right of the table interesting?"
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html#simulator",
+    "href": "aipcs24/2leduc_challenge copy.html#simulator",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Simulator",
+    "text": "Simulator\nRandom, reward avg, etc.\nDescribe the exploration vs. exploitation dilemma. Introduce basic strategies: epsilon-greedy, UCB (Upper Confidence Bound), and Thompson Sampling.\nRecord the results and display them in real-time (either through the program or manually on a board). Strategy Discussion:\nAfter a few rounds, pause and discuss the strategies teams are using. Introduce the different algorithms and how they would approach the problem.\nAlgorithm Implementation:\nAllow teams to adopt one of the introduced algorithms for the next rounds. Compare the performance of different algorithms in terms of accumulated rewards.\n\n\n\n\n\nArm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset"
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html#solving-poker-games",
+    "href": "aipcs24/2leduc_challenge copy.html#solving-poker-games",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "Solving Poker Games",
+    "text": "Solving Poker Games\n\nKuhn Normal Form\nKuhn Game Tree"
+  },
+  {
+    "objectID": "aipcs24/2leduc_challenge copy.html#cfr",
+    "href": "aipcs24/2leduc_challenge copy.html#cfr",
+    "title": "#2: Leduc Poker | Challenge",
+    "section": "CFR",
+    "text": "CFR\nSlides, what to include?"
   },
   {
     "objectID": "signup/index.html",
@@ -550,171 +677,58 @@
     "text": "Something else?\nGet in touch!"
   },
   {
-    "objectID": "aipcs24/2leduc_challenge copy.html",
-    "href": "aipcs24/2leduc_challenge copy.html",
-    "title": "#2: Leduc Poker | Challenge",
+    "objectID": "aipcs24/2leduc_class.html",
+    "href": "aipcs24/2leduc_class.html",
+    "title": "#2: Leduc Poker | Class Materials",
     "section": "",
-    "text": "Leduc Poker is a simple toy poker game invented at the University of Alberta.\nHere is the setup:\n\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)\nLeduc Poker is played with 2 players. We’ll again use  and .\nEach player antes 1 chip\nDeal 1 card to each player\nBetting round 1:\n\nThere is a fixed bet size of 2 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nDeal a face up community card\n\nPlayers make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand\n\nBetting round 2:\n\nThere is a fixed bet size of 4 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nNotes:\n\nPlayer 1 acts first, rotate who is Player 1 each hand\nPlayers can win/lose a maximum of 13 chips per hand\n\nInfosets and payoffs\n\n - ↑Up (putting a chip into the pot)\n\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can go in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is :\n\n\n↑Up, ↓Down, or\n↓Down, ↑Up, ↓Down.\n\n\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:\n\n\n↑Up, ↑Up or - ↓Down, ↑Up , ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading"
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge copy.html#leduc-poker-rules",
-    "href": "aipcs24/2leduc_challenge copy.html#leduc-poker-rules",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "",
-    "text": "Leduc Poker is a simple toy poker game invented at the University of Alberta.\nHere is the setup:\n\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest)\nLeduc Poker is played with 2 players. We’ll again use  and .\nEach player antes 1 chip\nDeal 1 card to each player\nBetting round 1:\n\nThere is a fixed bet size of 2 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nDeal a face up community card\n\nPlayers make the best 2 card hand combining their card and the community card, meaning a pair is the best possible hand\n\nBetting round 2:\n\nThere is a fixed bet size of 4 chips\nThere is a maximum of 2 bets per round (i.e. a bet and a raise)\n\nNotes:\n\nPlayer 1 acts first, rotate who is Player 1 each hand\nPlayers can win/lose a maximum of 13 chips per hand\n\nInfosets and payoffs\n\n - ↑Up (putting a chip into the pot)\n\n↓Down (not putting a chip into the pot)\n\n\n\n\n\n\n\n↑Up and ↓Down in traditional poker terms\n\n\n\n\n↑Up actions indicate a Bet or Call.\n↓Down actions indicate a Check or Fold.\n\n\n\n\n\n\n\n\n\nExample game\n\n\n\n\nPlayers ante and cards are dealt.\n sees a A and plays ↑Up (1 more chip into pot).\n sees a K and plays ↑Up (1 more chip into pot).\nBoth cards are revealed in a 2-chip showdown.  has an A and  has a K.\n has the better hand and wins +2 chips (+1 from the ante, +1 from ’s ↑Up).\n\n\n\nThe betting (and the game) can go in three ways:\n\nOne player plays ↑Up, then the other player plays ↓Down. The player who played ↓Down folds. The winner wins the loser’s ante (and gets their own chip back). The players’ cards are not revealed. Note that this happens if the action is :\n\n\n↑Up, ↓Down, or\n↓Down, ↑Up, ↓Down.\n\n\nBoth players play ↓Down. They go to a showdown and the winner wins the one chip that the loser anted (and their own back).\nA player plays ↑Up, then the other player plays ↑Up. They go to a showdown and the winner wins the two chips the loser has put in the pot (and gets their own chips back). Note that the game will proceed to a 2-chip showdown if the action is:\n\n\n↑Up, ↑Up or - ↓Down, ↑Up , ↑Up.\n\nHere is a list of all possible betting sequences:\n\n\n\n\n\n\n\n\n\n\n\n\nWinner\n\n\n\n\n↑Up\n↓Down\n\n (+1)\n\n\n↑Up\n↑Up\n\nHigher Card (+2)\n\n\n↓Down\n↓Down\n\nHigher Card (+1)\n\n\n↓Down\n↑Up\n↓Down\n (+1)\n\n\n↓Down\n↑Up\n↑Up\nHigher Card (+2)\n\n\n\n\n\n\n\n\n\nPartner Exercise: Get started with Kuhn Poker\n\n\n\n\nGet cards, chips, paper, pen\nPlay 3 hands of Kuhn Poker and get used to how the game runs\nUse the pen and paper to start writing down all deterministic situations in the game (situations where there is clearly a correct move that you should take 100% of the time)\nPlay more hands as you think helpful\nOnce you have what you think is a full list of the deterministic states, you can stop and review the optional reading"
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge copy.html#types-of-games",
-    "href": "aipcs24/2leduc_challenge copy.html#types-of-games",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Types of Games",
-    "text": "Types of Games\n\n\n\n\n\n\nExercise\n\n\n\nFill in the table below with games you know about. Thanks to Eliezer for getting us started.\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie\n\n\n\n\n\n\nWhat about solitaire? With Blackjack? What about a lottery? Mahjong? Tennis value of states in RL\nPure strategies in perfect info games vs. mixed in imperfect info\nDeterministic Nature: Because all players can see the entire game state and know all possible moves, strategies can be deterministic. Players can calculate and choose the optimal move based on this complete information. Pure Strategies: A pure strategy is a complete plan of action for every possible situation in a game. In perfect information games, players can follow a pure strategy because they know exactly what will happen as a result of each possible move.\nUncertainty and Hidden Information: Because players cannot see the entire game state, they must account for uncertainty and the hidden information of their opponents. This makes the game more about probabilities and expectations rather than certainties. Mixed Strategies: A mixed strategy involves randomizing over possible moves to prevent opponents from exploiting predictable patterns. By using mixed strategies, players can become less predictable and make it more difficult for opponents to formulate a counter-strategy.\nStrategic Randomization: In games like poker, where bluffing and deception play significant roles, mixed strategies are essential. For example, a player might choose to bluff (make a bet with a weak hand) with a certain probability to keep opponents guessing and to avoid being exploited by always playing in a predictable manner.\n(Ross note: The difference between “Chance” and “Imperfect Info” is that in Chance, the unknown [thing] doesn’t affect anything about the world until it becomes known, and then it’s not unknown any more. In Imperfect Info, the information has some effect on the world at time T1, then you need to make a decision at time T2, then the information will matter at some later point T3.)\n\n\n\n\n\n\nExercise\n\n\n\nWhat makes poker and other games in the bottom right of the table interesting?"
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge copy.html#simulator",
-    "href": "aipcs24/2leduc_challenge copy.html#simulator",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Simulator",
-    "text": "Simulator\nRandom, reward avg, etc.\nDescribe the exploration vs. exploitation dilemma. Introduce basic strategies: epsilon-greedy, UCB (Upper Confidence Bound), and Thompson Sampling.\nRecord the results and display them in real-time (either through the program or manually on a board). Strategy Discussion:\nAfter a few rounds, pause and discuss the strategies teams are using. Introduce the different algorithms and how they would approach the problem.\nAlgorithm Implementation:\nAllow teams to adopt one of the introduced algorithms for the next rounds. Compare the performance of different algorithms in terms of accumulated rewards.\n\n\n\n\n\nArm\n\n\nAverage Reward\n\n\nPulls\n\n\nActions\n\n\n\n\n\n\n\n\n\nReset"
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge copy.html#solving-poker-games",
-    "href": "aipcs24/2leduc_challenge copy.html#solving-poker-games",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Solving Poker Games",
-    "text": "Solving Poker Games\n\nKuhn Normal Form\nKuhn Game Tree"
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge copy.html#cfr",
-    "href": "aipcs24/2leduc_challenge copy.html#cfr",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "CFR",
-    "text": "CFR\nSlides, what to include?"
-  },
-  {
-    "objectID": "aipcs24/solvers.html",
-    "href": "aipcs24/solvers.html",
-    "title": "Implementing a Basic Solver",
-    "section": "",
-    "text": "We’ve provided a basic game-solver with the challenges code. You can find it at aipcs-challenges/solvers/default/ and run it with python solver.py --iter N.\nIn its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).\nYou’re also welcome to write whatever else you want; we just thought this might be helpful for getting started.",
-    "crumbs": [
-      "About",
-      "Configuration",
-      "Building and Running Solvers"
-    ]
-  },
-  {
-    "objectID": "aipcs24/solvers.html#solver-framework",
-    "href": "aipcs24/solvers.html#solver-framework",
-    "title": "Implementing a Basic Solver",
-    "section": "",
-    "text": "We’ve provided a basic game-solver with the challenges code. You can find it at aipcs-challenges/solvers/default/ and run it with python solver.py --iter N.\nIn its base form, it will perform a simple version of the Counterfactual Regret Minimization Algorithm, computing expected values of each action and updating action probabilities towards the actions with higher EV (much like the Kuhn automatic-solver page).\nYou’re also welcome to write whatever else you want; we just thought this might be helpful for getting started.",
-    "crumbs": [
-      "About",
-      "Configuration",
-      "Building and Running Solvers"
-    ]
-  },
-  {
-    "objectID": "aipcs24/solvers.html#the-algorithm",
-    "href": "aipcs24/solvers.html#the-algorithm",
-    "title": "Implementing a Basic Solver",
-    "section": "The algorithm",
-    "text": "The algorithm\n\nBegin at the first turn of the game, with Chance actions determined randomly.\nAt each infoset, we will either use the sampling policy sample or expand_all (determined by get_sampling_policy()) to get an estimate of the expected value of this node.\n\nIf sample, we pick an action randomly based on get_training_strategy_probabilities() for the current infoset, and use the value of the state that takes us to as the value of this state.\nIf expand_all, then get the values of each possible successor state, and use the weighted average by get_training_strategy_probabilities() to get the expected value of this state.\n\nEach time we do expand_all (including during a recursive drill-down step), update the strategy probabiliites for this infoset based on which actions did better (in this state) than this state’s overall expected value (weighted over all actions).\n\nIn particular, we keep a running sum of the amount each action beat the EV by (floored at zero), and use the ratio of the sums as our training_strategy_probabilities.\n\nYou probably want to do a different transformation of training_strategy_probabilities to get your final strategy, but for now we just return the same thing.\n\nSome easy things to change are: - get_sampling_policy() to return \"sample\" at some infosets and \"expand_all\" at others. - determine_infoset() to coalesce different observable states into the same infoset. - get_training_strategy_probabilities() to have different behavior for default and updated strategy probs.",
-    "crumbs": [
-      "About",
-      "Configuration",
-      "Building and Running Solvers"
-    ]
-  },
-  {
-    "objectID": "aipcs24/solvers.html#making-changes",
-    "href": "aipcs24/solvers.html#making-changes",
-    "title": "Implementing a Basic Solver",
-    "section": "Making changes",
-    "text": "Making changes\nIn general, you can change the behavior of the solver significantly by editing the functions defined in solver.py:\n\nhandle_new_iteration() - called with the iteration number when a new iteration is about to begin.\nhandle_iteration_over() - called with the iteration number when an iteration is over.\nget_root() - called witht the iteration number to get a RoundState object to begin the new iteration at. (Can be used to define how states should be explored.)\ndetermine_infoset() - called to get the canonical name of the infoset for a given visible game state. (Can be used to coalesce infosets.)\nsample_actions() - relevant if action types have variable parameters (like bet sizes), called to go from a list of legal action types to a set of action-instances to investigate.\nget_sampling_policy() - currently supports \"sample\" and \"expand_all\", called with the iteration number to determine whether to use a random sample to approximate this state’s EV, or to call all possible actions and compute a weighted sum. (Can vary policy by iteration by using the iteration number.)\nhandle_new_samples() - called with the sampling policy, and the resulting samples, from visiting a state node. (Can be used to update probabilities based on EVs.)\nget_training_strategy_probabilities() - used by both sampling policies, called to get the current strategy’s probabilities of taking each action at a given infoset.\nget_final_strategy_probabilities() - relevant if you want to use a different transformation of the data to get final probabilities than the intermediate probabilities used in training steps.",
-    "crumbs": [
-      "About",
-      "Configuration",
-      "Building and Running Solvers"
-    ]
-  },
-  {
-    "objectID": "aipcs24/solvers.html#more",
-    "href": "aipcs24/solvers.html#more",
-    "title": "Implementing a Basic Solver",
-    "section": "More",
-    "text": "More\nIf you have positive or negative feedback about the solver, feel free to share it in the #aipcs24-technical-feedback channel of the discord.",
-    "crumbs": [
-      "About",
-      "Configuration",
-      "Building and Running Solvers"
-    ]
-  },
-  {
-    "objectID": "aipcs24/3rps_leaderboard.html#paper---maybe-scissors---maybe-rock",
-    "href": "aipcs24/3rps_leaderboard.html#paper---maybe-scissors---maybe-rock",
-    "title": "#3: Rock Paper Scissors | Challenge Leaderboard",
-    "section": "Paper - Maybe Scissors - Maybe Rock",
-    "text": "Paper - Maybe Scissors - Maybe Rock",
-    "crumbs": [
-      "About",
-      "Challenges",
-      "#3: Rock Paper Scissors",
-      "Leaderboard"
-    ]
-  },
-  {
-    "objectID": "aipcs24/2leduc_challenge.html",
-    "href": "aipcs24/2leduc_challenge.html",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "",
-    "text": "This week, you will submit two bots, one to play 100-Card Kuhn Poker, and one to play Leduc Poker.\nSkip ahead to the challenge specification.",
+    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. A good resource on CFR is this 2015 paper from the University of Alberta.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\nTabular storing strategies and regrets at each infoset\nRegrets based on action values compared to node EV, which is based on counterfactual values\nRegret minimization, usually regret matching, to get new strategies\nAverage strategy converges to Nash equilibrium\nCFR+ variation such that regrets can’t be &lt;0\nLinear CFR such that regrets are weighted by their recency\nSampling methods\n\nExternal: Sample chance and opponent nodes\nChance: Sample chance only\nOutcome: Sample outcomes",
     "crumbs": [
       "About",
       "Challenges",
       "#2: Leduc Poker",
-      "Challenge"
+      "Class Materials"
     ]
   },
   {
-    "objectID": "aipcs24/2leduc_challenge.html#kuhn-poker-100-cards",
-    "href": "aipcs24/2leduc_challenge.html#kuhn-poker-100-cards",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Kuhn Poker 100 Cards",
-    "text": "Kuhn Poker 100 Cards\nKuhn Poker with 100 cards plays the same as Kuhn Poker with 3 cards, but the cards are numbered from 1 to 100 (or 0 to 99).\n\n\n\n\n\n\n100-Card Kuhn Infosets\n\n\n\nKuhn Poker with 3 cards has 6 infosets per player, 12 total.\nHow many infosets are in 100-card Kuhn Poker?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThese scale linearly and so with 100 cards there are 400 infosets since each card has 4 infosets:\n\nP1 acting first\nP2 facing an Up action\nP2 facing a Down action\nP1 after a Down-Up sequence\n\n\n\n\n\n\n\n\n\n\nGame states for 100-Card Kuhn infosets\n\n\n\nEach infoset in Kuhn Poker has two possible game states that correspond to it.\nHow many game states correspond to each infoset in 100-card Kuhn Poker?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach infoset corresponds to 99 possible game states, one for each card the opponent could have.",
+    "objectID": "aipcs24/2leduc_class.html#solving-poker-games",
+    "href": "aipcs24/2leduc_class.html#solving-poker-games",
+    "title": "#2: Leduc Poker | Class Materials",
+    "section": "",
+    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm. A good resource on CFR is this 2015 paper from the University of Alberta.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\nTabular storing strategies and regrets at each infoset\nRegrets based on action values compared to node EV, which is based on counterfactual values\nRegret minimization, usually regret matching, to get new strategies\nAverage strategy converges to Nash equilibrium\nCFR+ variation such that regrets can’t be &lt;0\nLinear CFR such that regrets are weighted by their recency\nSampling methods\n\nExternal: Sample chance and opponent nodes\nChance: Sample chance only\nOutcome: Sample outcomes",
     "crumbs": [
       "About",
       "Challenges",
       "#2: Leduc Poker",
-      "Challenge"
+      "Class Materials"
     ]
   },
   {
-    "objectID": "aipcs24/2leduc_challenge.html#leduc-poker",
-    "href": "aipcs24/2leduc_challenge.html#leduc-poker",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Leduc Poker",
-    "text": "Leduc Poker\nLeduc Poker is a simple toy poker game invented at the University of Alberta.\n\n\n\nAlberta’s nearby Edmonton Airport is in the city of Leduc\n\n\nHere is the setup:\n\n2 players.\n6 card deck: 2 Queens, 2 Kings, 2 Aces (in ascending order, so Ace is highest).\nEach player antes 1 chip.\nDeal 1 card to each player.\nBetting round 1 (the preflop):\n\nThere is a fixed bet size of 2 chips.\nIf the opponent has made no bet in this round, a player can Check (bet nothing) or Raise (bet one standard bet size).\nIf the opponent has bet, then a player can Fold (bet nothing and lose), Call (add chips to match opponent’s bet), or Raise (call the bet and add one standard bet size).\nThis round ends when one player Folds (and loses; neither cards are shown), or when one player Calls (and the game continues to the next step below). A special case is when both players Check, which proceeds the same as a Call with no added chips.\n\nDeal a face up community card (shown to both players).\n\nA pair (your card matches the community card) is the best hand, then an unpaired Ace, then an unpaired King, finally an unpaired Queen.\n\nBetting round 2 (the flop):\n\nThere is a fixed bet size of 4 chips.\nPlayers can Check, Fold, Call, and Raise the same as in the first round.\nThis round also ends when one player Folds (and loses), or one player Calls (and proceeds to showdown where the higher hand wins).\n\n\n\n\n\n\n\n\nMaximum bets per round rule in original version\n\n\n\n\n\nThe original version of Leduc Poker has a rule where the maximum bets per betting round is 2 (i.e. a bet and a raise), but we are not using that rule. Instead, each player has a maximum of 50 chips for each game. If a player does not have enough chips to make a full Raise, their Raise is for all their remaining chips.\n\n\n\n\nSample Leduc Hand and Leduc Math\nHere is a Leduc game situation in which:\n\nBoth players ante 1 each.\n\nPot = 2\n\nPreflop: P1 bets 2 and P2 calls.\n\nPot = 6\n\nFlop: Community card K revealed. Player 1 bets 4. Player 2 to act.\n\n\n\n\n\n\n\n\nLeduc Strategy\n\n\n\nWhat should Player 2 do here?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nRaise! Player 2 has the best possible hand because they have a pair.\n\n\n\n\n\n\n\n\n\nLeduc Infoset\n\n\n\nWhat is Player 2’s infoset?\nWhat will Player 1’s infoset be after Player 2 acts?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe could write Player 2’s infoset as: (P2)[_, K, K][Bet 2, Call 2][Bet 4]\nOr the default solver in pokercamp/aipc-challenges/challenge-2-leduc will write it at: (P2){'community': [2]}[None, 2][Raise, Call, Raise].\n\n\n\n\n\n\n\n\n\nLeduc Ties\n\n\n\nHow often will you and your opponent be dealt the same card?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst we find the total combinations of cards:\n\\({6\\choose2} = \\frac{6!}{4!*2!} = \\frac{6*5}{2} = 15\\)\nThen we count that there is exactly \\(1\\) way to make Q/Q, \\(1\\) way to make K/K, and \\(1\\) way to make A/A. Therefore the probability of having the same hand as your opponent is \\(\\frac{3}{15} = 0.2\\).\n\n\n\n\n\n\n\n\n\nLeduc Pairs\n\n\n\nSuppose that you are dealt a K. How often will you hit a pair on the flop given that you see it?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThere are \\(5\\) unknown cards to you and \\(1\\) of them matches yours for a pair, so the \\(\\Pr(\\text{Pair} \\mid \\text{See Flop}) = \\frac{1}{5} = 0.2\\)",
-    "crumbs": [
-      "About",
-      "Challenges",
-      "#2: Leduc Poker",
-      "Challenge"
-    ]
+    "objectID": "aipcs24/2leduc_reading.html",
+    "href": "aipcs24/2leduc_reading.html",
+    "title": "#2: Leduc Poker | Class Materials",
+    "section": "",
+    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\ngeneral algorithm\n\nstore: strategy, regret\nregret matching\naverage strategy at end\nCFR+, Linear CFR\nsampling (external, sampling, chance, etc. )"
   },
   {
-    "objectID": "aipcs24/2leduc_challenge.html#hints",
-    "href": "aipcs24/2leduc_challenge.html#hints",
-    "title": "#2: Leduc Poker | Challenge",
-    "section": "Hints",
-    "text": "Hints\n\n\n\n\n\n\nCard abstractions in 100-Card Kuhn\n\n\n\n\n\nIt might be more efficient to solve 100-Card Kuhn Poker if you shrink the number of cards to a more manageable size by bucketing a group of nearby numbers together for strategy purposes. For example, you could treat cards 1-10 as the same, 11-20, and so on. Or is there a better way to bucket than uniformly?\n\n\n\n\n\n\n\n\n\nSampling Policy in Leduc\n\n\n\n\n\nThe set of possible action histories in Leduc Poker with 50-chip stacks is relatively large, and you don’t really care about most of it. Consider whether you can do something more efficient than always expanding every node.\n\n\n\n\n\n\n\n\n\nAveraging intermediate strategy probabilities\n\n\n\n\n\nAs you may have seen with the Kuhn solver site, counterfactual regret minimization tends to cycle around the equilibrium instead of descending into it. If you use some kind of average over recent strategy probs as your final probabilities, you may get much closer to Nash than just using the final values.\n\n\n\n\n\n\n\n\n\nKuhn Game Value Bonus Challenge\n\n\n\nFind an equilibrium strategy for 100 card and 3 card Kuhn Poker and compare the P2 advantage in 100 card Kuhn Poker to 3 card Kuhn Poker.\nExtra bonus: Compare the P2 advantage in 100 card Kuhn Poker to a uniform 10-bucket abstraction, and if possible, a better 10-bucket abstraction.\n\n\n\n\n\n\n\n\nLeduc Game Value Bonus Challenge\n\n\n\nFind an equilibrium strategy for Leduc Poker and compare the P2 advantage to 3-Card Kuhn and 100-Card Kuhn.",
-    "crumbs": [
-      "About",
-      "Challenges",
-      "#2: Leduc Poker",
-      "Challenge"
-    ]
+    "objectID": "aipcs24/2leduc_reading.html#solving-poker-games",
+    "href": "aipcs24/2leduc_reading.html#solving-poker-games",
+    "title": "#2: Leduc Poker | Class Materials",
+    "section": "",
+    "text": "Typically solving a 2-player poker game is defined as finding a Nash equilibrium strategy for both players. This is straightforward to define and has been the target of much poker research, but means finding a fixed strategy that doesn’t adapt to opponents and might not be the most profitable strategy in a field of a variety of opponents.\nSmall poker games can be solved through linear programming given a matrix of strategies at each information set and a matrix of payoffs (see here for more details).\nAs we prepare to solve larger games, we start to look at iterative algorithms.\nThe core feature of the iterative algorithms is self-play by traversing the game tree over all infosets and tracking the strategies and regrets at each.\n\n\nRegret is a measure of how much each strategy at an infoset is preferred and is used as a way to update strategies.\nFor a given P1 strategy and P2 strategy, a player has regret when they take an action at an infoset that was not the highest-EV action at that infoset.\n\n\n\n\n\n\nRegret Exercise\n\n\n\n\nWhat is the regret for each action?\n\n\n\nAction\nRegret\n\n\n\n\nA\n\n\n\nB\n\n\n\nC\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nRegret\n\n\n\n\nA\n4\n\n\nB\n2\n\n\nC\n0\n\n\n\n\n\n\n\n\n\n\n\n\nExpected Value Exercise\n\n\n\n\nIf taking a uniform strategy at this node (i.e. \\(\\frac{1}{3}\\) for each action), then what is the expected value of the node?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\mathbb{E} = \\frac{1}{3}*1 + \\frac{1}{3}*3+\\frac{1}{3}*5 = 0.33+1+1.67 = 3\\)\n\n\n\n\n\n\n\n\n\nPoker Regret Exercise\n\n\n\n\nIn poker games, the regret for each action is defined as the value for that action minus the expected value of the node. Give the regret values for each action under this definition.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\nAction\nValue\nPoker Regret\n\n\n\n\nA\n1\n-2\n\n\nB\n3\n0\n\n\nC\n5\n2\n\n\n\nAt a node in a poker game, the player prefers actions with higher regrets by this definition.\n\n\n\n\n\n\nThe most popular method for iteratively solving poker games is the Counterfactual Regret Minimization (CFR) algorithm.\nThe handout solver does not exactly use CFR. You can make updates to the solver however you would like, including modifying it to become CFR.\nWhat is a counterfactual?\nActual event: I didn’t bring an umbrella, and I got wet in the rain\nCounterfactual event: If I had brought an umbrella, I wouldn’t have gotten wet\n\n\n\ngeneral algorithm\n\nstore: strategy, regret\nregret matching\naverage strategy at end\nCFR+, Linear CFR\nsampling (external, sampling, chance, etc. )"
+  },
+  {
+    "objectID": "aipcs24/5nlhe_reading.html#deep-cfr",
+    "href": "aipcs24/5nlhe_reading.html#deep-cfr",
+    "title": "#5: No Limit Hold’em | Reading",
+    "section": "Deep CFR",
+    "text": "Deep CFR\nA more modern way to make a large game tractable is through deep learning."
+  },
+  {
+    "objectID": "aipcs24/5nlhe_reading.html#evaluating-agents",
+    "href": "aipcs24/5nlhe_reading.html#evaluating-agents",
+    "title": "#5: No Limit Hold’em | Reading",
+    "section": "Evaluating Agents",
+    "text": "Evaluating Agents\nThere are four main ways to evaluate poker agents:\n\nPlay against humans https://en.wikipedia.org/wiki/Libratus https://en.wikipedia.org/wiki/Pluribus_(poker_bot)\nPlay against other agents ACPC AAAI conference\nPlay against a Nash equilibrium agent\nPlay against a best response agent"
   },
   {
     "objectID": "aipcs24/1kuhn_challenge2.html",
@@ -879,7 +893,7 @@
     "href": "aipcs24/4nlrhe_reading.html#game-sizes",
     "title": "#5: No Limit Royal Hold’em | Reading",
     "section": "Game Sizes",
-    "text": "Game Sizes\nSourced from Michael Johanson’s 2013 paper Measuring the Size of Large No-Limit Poker Games\n\nThe size of a game is a simple heuristic that can be used to describe its complexity and compare it to other games, and a game’s size can be measured in several ways.\n\n\nThe most commonly used measurement is to count the number of game states in a game: the number of possible sequences of actions by the players or by chance, as viewed by a third party that observes all of the players’ actions.\n\n\nIn the poker setting, this would include all of the ways that the players private and public cards can be dealt and all of the possible betting sequences.\n\n\nThis number allows us to compare a game against other games such as chess or backgammon, which have \\(10^{47}\\) and \\(10^{20}\\) distinct game states respectively (not including transpositions).\n\nRoyal No Limit Hold’em was suggested as a testbed game since it is small enough to be tractable on consumer-grade computers and resembles regular No Limit Texas Hold’em. The relatively small size means that unabstracted equilibrium and best-response computations would be tractable and therefore abstractions could be evaluated to motivate research that translates to larger domains.",
+    "text": "Game Sizes\nSourced from Michael Johanson’s 2013 paper Measuring the Size of Large No-Limit Poker Games\n\nThe size of a game is a simple heuristic that can be used to describe its complexity and compare it to other games, and a game’s size can be measured in several ways.\n\n\nThe most commonly used measurement is to count the number of game states in a game: the number of possible sequences of actions by the players or by chance, as viewed by a third party that observes all of the players’ actions.\n\n\nIn the poker setting, this would include all of the ways that the players’ private and public cards can be dealt and all of the possible betting sequences.\n\n\nThis number allows us to compare a game against other games such as chess or backgammon, which have \\(10^{47}\\) and \\(10^{20}\\) distinct game states respectively (not including transpositions).\n\nThe card frequencies are the same for limit and no limit variations of Hold’em. These can be calculated separately from the betting sequences.\nLimit Hold’em game sizes are easier to measure because there is a fixed maximum size of bets (usually 4 per round) that have no dependence on previous rounds/actions. The infosets and infoset-actions are the most relevant size values since each infoset and action has two tabular values, one for accumulated regret and one for accumulating average strategy. The game size for Limit Hold’em is \\(3.589 \\times 10^{13}\\) infoset-actions.\nHowever No Limit Hold’em game sizes are more complex and depend on three factors:\n\nAmount of money remaining\nSize of the bet facing\nIf a check is legal\n\n\nWithin one betting round, any two decision points that are identical in these three factors will have the same legal actions and the same betting subtrees for the remainder of the game, regardless of other aspects of their history.\n\n\nSecond,each of these factors only increases or decreases during a round. A player’s stack size only decreases as they make bets or call an opponent’s bets. The bet being faced is zero at the start of a round (or if the opponent has checked), and can only remain the same or increase during a round.\n\n\nFinally, a check is only allowed as the first action of a round.\n\n\nThese observations mean that we do not have to walk the entire game in order to count the decision points. Instead of considering each betting history independently, we will instead consider the relatively small number of possible configurations of round, stack-size, bet-faced, and check-allowed, and do so one round at a time, starting from the start of the game.\n\nRoyal No Limit Hold’em was suggested as a testbed game since it is small enough to be tractable on consumer-grade computers and resembles regular No Limit Texas Hold’em. The relatively small size means that unabstracted equilibrium and best-response computations would be tractable and therefore abstractions could be evaluated to motivate research that translates to larger domains.",
     "crumbs": [
       "About",
       "Challenges",
@@ -892,33 +906,7 @@
     "href": "aipcs24/4nlrhe_reading.html#abstraction-in-poker",
     "title": "#5: No Limit Royal Hold’em | Reading",
     "section": "Abstraction in Poker",
-    "text": "Abstraction in Poker\nAbstraction refers to shrinking the game in some way to make it more tractable to solve.\nThe main ways to do this in poker are through card bucketing and bet size limiting.\n\nCard Abstraction\nBucketing cards\n\n\nBet Abstraction\nLimited number of bet sizes, which is useful in no limit games where players can bet any amount up to their stack size.",
-    "crumbs": [
-      "About",
-      "Challenges",
-      "#4: Royal Hold'em",
-      "Class Materials"
-    ]
-  },
-  {
-    "objectID": "aipcs24/4nlrhe_reading.html#deep-cfr",
-    "href": "aipcs24/4nlrhe_reading.html#deep-cfr",
-    "title": "#5: No Limit Royal Hold’em | Reading",
-    "section": "Deep CFR",
-    "text": "Deep CFR\nA more modern way to make a large game tractable is through deep learning.",
-    "crumbs": [
-      "About",
-      "Challenges",
-      "#4: Royal Hold'em",
-      "Class Materials"
-    ]
-  },
-  {
-    "objectID": "aipcs24/4nlrhe_reading.html#evaluating-agents",
-    "href": "aipcs24/4nlrhe_reading.html#evaluating-agents",
-    "title": "#5: No Limit Royal Hold’em | Reading",
-    "section": "Evaluating Agents",
-    "text": "Evaluating Agents\nThere are four main ways to evaluate poker agents:\n\nPlay against humans https://en.wikipedia.org/wiki/Libratus https://en.wikipedia.org/wiki/Pluribus_(poker_bot)\nPlay against other agents ACPC AAAI conference\nPlay against a Nash equilibrium agent\nPlay against a best response agent",
+    "text": "Abstraction in Poker\nAbstraction refers to shrinking the game in some way to make it more tractable to solve.\nThe main ways to do this in poker are through card bucketing and bet size restrictions.\n\nCard Abstraction\nCard abstraction entails putting sets of cards into buckets. For example, in 100 card Kuhn Poker, we could have a bucket of cards for every 10 card ranks. This means that cards 1-10, 11-20, …, 91-100 are all in a separate bucket. A bucket would be represented by an infoset and so you would play any hand within a bucket the same way – only if there is a showdown is the true hand and outcome revealed.\nThere are more complex ways to bucket by hand strength in Texas Hold’em. The simplest bucketing method is preflop lossless abstraction such that hands can be reduced from \\({52 \\choose 2} = 1326\\) to \\(169\\) starting hands.\nOf the \\(169\\), there are:\n\n\\(13\\) pairs, one for each rank\n\\(78\\) suited hands\n\\(78\\) offsuit hands\n\nThe suited and offsuit hands are \\(78\\) each because there are \\(13*12 = 156\\) total types of unpaired hands. The only thing that matters when playing them preflop is whether they are suited or offsuit. We split this into \\(78\\) suited and \\(78\\) offsuit hands.\n\n\n\n\n\n\nHand Combinations\n\n\n\nHow many unabstracted hand combinations of each of these would there have been in the \\(1326\\) starting hands?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\\(13 * {4 \\choose 2} = 13*6 = 78\\) pairs\n\\(78 * {4 \\choose 1} = 4 = 312\\) suited hands\n\\(78 * (4*3) = 936\\) suited hands\n\n\\(78 + 312 + 936 = 1326\\) total hands\n\n\n\n\n\nBet Abstraction\nBet abstraction requires allowing only a limited number of bet sizes when solving the game. A limited number of bet sizes is important to reduce game size since in no limit games, players can generally bet any amount up to their stack size.\nThe abstracted actions could include things like:\n\nMinimum bet\n\\(25\\%\\) pot\n\\(50\\%\\) pot\n\\(75\\%\\) pot\n\\(100\\%\\) pot\n\\(200\\%\\) pot\nAllin\n\nThis works for training, but then a problem arises when playing when the opponent makes a bet that does not match the abstracted bet sizes that were learned during training.\nThe agent has to translate the bet to understand how to respond.\nIn 2013, Ganzfried and Sandholm proposed a mapping as follows:\n\\(f_{A,B}(x) = \\frac{(B-x)(1+A)}{(B-A)(1+x)}\\)\nThe result is the probability that we map the action to \\(A\\) and \\(1-f_{A,B}(x)\\) is the probability that we map the action to \\(B\\).\nWhere \\(x\\) is the opponent bet and it is an element of \\([A, B]\\), where \\(A\\) is the largest betting size in the abstraction that is \\(\\leq x\\) and \\(B\\) is the smallest betting size in the abstraction that is \\(\\geq x\\), assuming \\(0 \\leq A \\leq B\\).\n\n\n\n\n\n\nAction Translation\n\n\n\nSuppose that the pot size is \\(100\\) with a minimum bet of \\(2\\) and that our abstraction has {minimum bet, half pot bet, full pot bet, allin}. How would we translate a bet of \\(33\\)?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\[\n\\begin{align}\nf_{A,B}(x) &= \\frac{(B-x)(1+A)}{(B-A)(1+x)} \\\\\n&= \\frac{(50-33)(1+2)}{(50-2)(1+33)} \\\\\n&= \\frac{(17)(3)}{(48)(34)} \\\\\n&= .031\n\\end{align}\n\\]\nWe would translate this to minimum bet about \\(3\\%\\) of the time and to half pot bet about \\(97\\%\\) of the time.",
     "crumbs": [
       "About",
       "Challenges",
