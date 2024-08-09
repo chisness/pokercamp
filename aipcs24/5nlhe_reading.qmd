@@ -1,0 +1,26 @@
+---
+title: "#5: No Limit Hold'em | Reading"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+---
+## No Limit  Hold'em
+
+
+## Deep CFR
+A more modern way to make a large game tractable is through deep learning. 
+
+## Evaluating Agents
+There are four main ways to evaluate poker agents: 
+
+1. Play against humans
+https://en.wikipedia.org/wiki/Libratus
+https://en.wikipedia.org/wiki/Pluribus_(poker_bot) 
+
+2. Play against other agents
+ACPC AAAI conference
+
+3. Play against a Nash equilibrium agent
+
+4. Play against a best response agent  

@@ -95,7 +95,7 @@ How many unabstracted hand combinations of each of these would there have been i
 
 - $13 * {4 \choose 2} = 13*6 = 78$ pairs 
 - $78 * {4 \choose 1} = 4 = 312$ suited hands
-- $78 * (4*3) = 936$ suited hands
+- $78 * (4*3) = 936$ offsuit hands
 
 $78 + 312 + 936 = 1326$ total hands
 :::
