@@ -1,0 +1,105 @@
+---
+title: "#4: Holdem | Challenge Leaderboard (5 ranks - 2 streets)"
+sidebar: aipcs24
+format:
+  html:
+    math: true
+    css: styles.css
+
+---
+<style>
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .group {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .group-header {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+## Stack=$20 (10BB)
+
+<div id="leaderboard-5-2-20"></div>
+
+<script>
+  function fetchLeaderboard(board_id) {
+    fetch(`https://pokercamp-staff-dev1.rossry.net:1443/challenge-4-holdem/leaderboard-${board_id}`)
+      .then(response => response.json())
+      .then(data => {
+        const leaderboardDiv = document.getElementById(`leaderboard-${board_id}`);
+        leaderboardDiv.innerHTML = '';
+
+        data.forEach(group => {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'group';
+
+          // const groupHeader = document.createElement('div');
+          // groupHeader.className = 'group-header';
+          // groupHeader.innerHTML =
+            (group.to_place == group.from_place) ?
+            `Place ${group.from_place} (Score: ${group.from_score.toFixed(1)})`
+            : `Places ${group.from_place}-${group.to_place} (Scores: ${group.to_score.toFixed(1)} to ${group.from_score.toFixed(1)})`;
+          // groupDiv.appendChild(groupHeader);
+
+          const table = document.createElement('table');
+          table.innerHTML = `
+              <tr>
+                  <th>Place</th>
+                  <th>Name</th>
+                  <th>Score per 100 hands</th>
+              </tr>
+          `;
+
+          group.players.sort((a, b) => b.mean - a.mean);
+
+          group.players.forEach((player, index) => {
+              const row = table.insertRow();
+              row.className = player.name.toLowerCase();
+              row.innerHTML = `
+                  <td>${group.to_place==group.from_place ? "" : "Tie-"}${group.from_place}</td>
+                  <td>${player.name}</td>
+                  <td>${player.mean>0?"+":""}${player.mean.toFixed(1)} (&pm;${player.stderr.toFixed(2)})</td>
+              `;
+          });
+
+          groupDiv.appendChild(table);
+          leaderboardDiv.appendChild(groupDiv);
+        });
+        
+        document.querySelectorAll("." + localStorage.getItem('userNameDisplay')).forEach(element => {
+          element.style.backgroundColor = "#FFFFBB";
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching leaderboard:', error);
+        document.getElementById('leaderboard').innerHTML = 'Error loading leaderboard data.';
+      });
+  }
+
+  fetchLeaderboard("5-2-20");
+</script>
