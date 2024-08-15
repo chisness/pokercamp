@@ -4,7 +4,6 @@ format: html
 **Poker Camp** is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker. 
 
 ## In Progress Camps
-
 None currently
 
 ## Upcoming Camps/Events

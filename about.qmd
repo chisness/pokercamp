@@ -14,13 +14,13 @@ Teaching practical decision-making and rationality through poker, combining theo
 
 ## Max bio 
 
-- Former online poker pro on PokerStars. Played over 10m hands including 990k in 1 month (record for most ever played in a month above microstakes).
+- Former online poker pro on PokerStars. Played over 10m hands, including <abbr title="Record for most ever played in a month above microstakes">990k in Dec, 2009</abbr>.
 
 - AI poker work: 
 
   - MSc with thesis on AI poker at Technion Israel Institute of Technology with [Nahum Shimkin](https://webee.technion.ac.il/shimkin/index.html)
 
-  - [AI Poker Tutorial website](https://aipokertutorial.com) (needs updating!)
+  - [AI Poker Tutorial v1 website](https://aipokertutorial.com) (needs updating!)
 
   - [Two poker research papers](https://arxiv.org/search/cs?searchtype=author&query=Chiswick,+M) with [Sam Ganzfried](http://www.ganzfriedresearch.com/)
 
