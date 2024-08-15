@@ -5,24 +5,34 @@ format: html
 
 ## In Progress Camps
 
-1. Jul 15-Aug 15: *Beta* AI Poker Camp in SF
-    - 10 sessions meeting on Mondays and Thursdays
+None currently
 
-## Upcoming Camps
+## Upcoming Camps/Events
 *Signups coming soon* 
 
-1. Sep TBD: *Maybe* AI Poker Camp in NYC
+1. Sep 8: [Rock Paper Scissors Hackathon](https://rps.bot/) in NYC
+    - 11am-5pm in Williamsburg, Brooklyn
+
+2. Sep 9-Oct 14: Poker Camp in NYC
+    - 6 sessions meeting every Monday
+    - 5:30-7pm in Chinatown
+
+3. Oct TBD: *Maybe* Poker Camp in Tel Aviv
     - 1-day workshop
 
+4. Jan 6-31, 2025: *Maybe* AI Poker Camp Intensive in TBD Location
+    - Structure TBD
 
-2. Sep 10-Oct 15: Poker Camp in NYC
-    - 6 sessions meeting every Tuesday
+5. Feb 3-Apr 11, 2025: AI Poker Camp Virtual
+    - 10 sessions meeting once/week
 
-3. Sep 23-Nov 25: AI Poker Camp Virtual
-    - 10 sessions meeting every Monday
+6. Feb 3-Apr 11, 2025: Poker Camp Virtual
+    - 10 sessions meeting once/week
 
-4. Oct TBD: *Maybe* Poker Camp in Tel Aviv
-    - 1-day workshop
+## Completed Camps
+
+1. Jul 15-Aug 15: *Beta* AI Poker Camp in SF
+    - 10 sessions meeting on Mondays and Thursdays
 
 <!-- Our first camp will take place from Jul 15 to Aug 15 in person in San Francisco.
 

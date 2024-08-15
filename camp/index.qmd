@@ -7,9 +7,11 @@ format:
 ---
 Think about probability and decision making through interactive games
 
-- Sep 10-Oct 15: 6 weekly Tuesday meetings in NYC
+- Sep 9-Oct 14: 6 weekly Tuesday sessions in NYC
 
 - Oct: *Maybe* 1-day workshop in Tel Aviv
+
+- Feb 3-Apr 11, 2025: 10 sessions meeting once/week
 
 <!-- - Sep 23-Nov 25: Full course virtual -->
 
