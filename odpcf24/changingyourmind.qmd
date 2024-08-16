@@ -1,0 +1,7 @@
+---
+title: "ODPC #4: Changing Your Mind"
+sidebar: odpcf24
+format:
+  html:
+    math: true
+---

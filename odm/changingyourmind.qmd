@@ -1,7 +1,0 @@
----
-title: "ODM #4: Changing Your Mind"
-sidebar: odm
-format:
-  html:
-    math: true
----

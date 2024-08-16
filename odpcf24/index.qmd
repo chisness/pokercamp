@@ -1,6 +1,6 @@
 ---
 title: "Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life"
-sidebar: odm
+sidebar: odpcf24
 format:
   html:
     math: true

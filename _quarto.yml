@@ -42,22 +42,22 @@ website:
       style: "docked"
       background: light
       contents:
-        - text: "ODM Fall 2024"
-          href: "/odm"
+        - text: "ODPC Fall 2024"
+          href: "/odpcf24"
         - section: "Sessions"
           contents: 
             - text: "#1: Thinking in Bets"
-              href: "odm/thinkinginbets.qmd"
+              href: "odpcf24/thinkinginbets.qmd"
             - text: "#2: Expected Value"
-              href: "odm/expectedvalue.qmd"
+              href: "odpcf24/expectedvalue.qmd"
             - text: "#3: Game Theory"
-              href: "odm/gametheory.qmd"
+              href: "odpcf24/gametheory.qmd"
             - text: "#4: Changing Your Mind"
-              href: "odm/changingyourmind.qmd"
+              href: "odpcf24/changingyourmind.qmd"
             - text: "#5: Risk and Luck"
-              href: "odm/riskandluck.qmd"
+              href: "odpcf24/riskandluck.qmd"
             - text: "#6: Predicting the Future"
-              href: "odm/predictingthefuture.qmd"
+              href: "odpcf24/predictingthefuture.qmd"
     - id: aipcs24
       style: "docked"
       background: light

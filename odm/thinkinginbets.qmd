@@ -1,7 +1,0 @@
----
-title: "ODM #1: Thinking in Bets"
-sidebar: odm
-format:
-  html:
-    math: true
----
