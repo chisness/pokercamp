@@ -5,3 +5,4 @@ format:
   html:
     math: true
 ---
+Changing Your Mind

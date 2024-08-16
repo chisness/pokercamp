@@ -7,6 +7,42 @@
     "text": "Build reinforcement learning AI agents to play games\n\nJul 15-Aug 15: Beta in SF\nJan 6-31, 2025: Intensive, structure TBD\nFeb 3-Apr 11, 2025: 10 sessions meeting once/week"
   },
   {
+    "objectID": "odpcf24/riskandluck.html",
+    "href": "odpcf24/riskandluck.html",
+    "title": "ODPC #5: Risk and Luck",
+    "section": "",
+    "text": "Risk and Luck",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#5: Risk and Luck"
+    ]
+  },
+  {
+    "objectID": "odpcf24/gametheory.html",
+    "href": "odpcf24/gametheory.html",
+    "title": "ODPC #3: Game Theory",
+    "section": "",
+    "text": "Game Theory",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#3: Game Theory"
+    ]
+  },
+  {
+    "objectID": "odpcf24/predictingthefuture.html",
+    "href": "odpcf24/predictingthefuture.html",
+    "title": "ODPC #6: Predicting the Future",
+    "section": "",
+    "text": "Predicting the Future",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#6: Predicting the Future"
+    ]
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -990,10 +1026,46 @@
     "text": "Completed Camps\n\nJul 15-Aug 15: Beta AI Poker Camp in SF\n\n10 sessions meeting on Mondays and Thursdays\n\n\n\n\n\n\n\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
+    "objectID": "odpcf24/expectedvalue.html",
+    "href": "odpcf24/expectedvalue.html",
+    "title": "ODPC #2: Expected Value",
+    "section": "",
+    "text": "Expected Value",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#2: Expected Value"
+    ]
+  },
+  {
+    "objectID": "odpcf24/thinkinginbets.html",
+    "href": "odpcf24/thinkinginbets.html",
+    "title": "ODPC #1: Thinking in Bets",
+    "section": "",
+    "text": "Thinking in Bets",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#1: Thinking in Bets"
+    ]
+  },
+  {
     "objectID": "odpcf24/index.html",
     "href": "odpcf24/index.html",
     "title": "Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life",
     "section": "",
     "text": "Welcome to Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life"
+  },
+  {
+    "objectID": "odpcf24/changingyourmind.html",
+    "href": "odpcf24/changingyourmind.html",
+    "title": "ODPC #4: Changing Your Mind",
+    "section": "",
+    "text": "Changing Your Mind",
+    "crumbs": [
+      "About",
+      "Sessions",
+      "#4: Changing Your Mind"
+    ]
   }
 ]

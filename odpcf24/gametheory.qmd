@@ -1,7 +1,8 @@
 ---
-title: "ODM #3: Game Theory"
-sidebar: odm
+title: "ODPC #3: Game Theory"
+sidebar: odpcf24
 format:
   html:
     math: true
 ---
+Game Theory
