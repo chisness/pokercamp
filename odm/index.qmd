@@ -1,0 +1,9 @@
+---
+title: "Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life"
+sidebar: odm
+format:
+  html:
+    math: true
+---
+
+Welcome to **Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life**

@@ -1,0 +1,7 @@
+---
+title: "ODM #5: Risk and Luck"
+sidebar: odm
+format:
+  html:
+    math: true
+---

@@ -1,0 +1,7 @@
+---
+title: "ODM #2: Expected Value"
+sidebar: odm
+format:
+  html:
+    math: true
+---

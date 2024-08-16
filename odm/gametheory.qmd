@@ -1,0 +1,7 @@
+---
+title: "ODM #3: Game Theory"
+sidebar: odm
+format:
+  html:
+    math: true
+---

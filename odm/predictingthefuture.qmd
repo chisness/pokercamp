@@ -1,0 +1,7 @@
+---
+title: "ODM #6: Predicting the Future"
+sidebar: odm
+format:
+  html:
+    math: true
+---
