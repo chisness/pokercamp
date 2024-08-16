@@ -148,7 +148,7 @@ website:
       background: light
       collapse-level: 2
       contents: 
-        - text: "Poker and Applied Rationality Camp"
+        - text: "Optimal Decision Poker Camp"
           href: /camp
         - text: "AI Poker Camp"
           href: /aicamp

@@ -1,5 +1,5 @@
 ---
-title: "Poker and Applied Rationality Camp"
+title: "Optimal Decision Poker Camp"
 # sidebar: id-camp
 format:
   html:
@@ -7,7 +7,8 @@ format:
 ---
 Think about probability and decision making through interactive games
 
-- Sep 9-Oct 14: 6 weekly Tuesday sessions in NYC
+- Sep 9-Oct 14: 6 weekly Monday sessions in NYC
+  - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
 
 - Oct: *Maybe* 1-day workshop in Tel Aviv
 
