@@ -38,7 +38,7 @@ website:
       - icon: github
         href: https://github.com/chisness/pokercamp
   sidebar: 
-    - id: odm
+    - id: odpcf24
       style: "docked"
       background: light
       contents:
