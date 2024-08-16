@@ -1,6 +1,6 @@
 ---
-title: "ODM #2: Expected Value"
-sidebar: odm
+title: "ODPC #2: Expected Value"
+sidebar: odpcf24
 format:
   html:
     math: true
