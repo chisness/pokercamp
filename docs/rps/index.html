@@ -184,7 +184,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a>
   <ul class="collapse">
-  <li><a href="#game-theory" id="toc-game-theory" class="nav-link" data-scroll-target="#game-theory">Game Theory</a></li>
+  <li><a href="#rock-paper-scissors-game-theory" id="toc-rock-paper-scissors-game-theory" class="nav-link" data-scroll-target="#rock-paper-scissors-game-theory">Rock Paper Scissors Game Theory</a></li>
   <li><a href="#adapting-to-opponents" id="toc-adapting-to-opponents" class="nav-link" data-scroll-target="#adapting-to-opponents">Adapting to Opponents</a></li>
   </ul></li>
   </ul>
@@ -213,6 +213,8 @@ window.Quarto = {
 
 
 <p><strong>R</strong>ock <strong>P</strong>aper <strong>S</strong>cissors Hackathon by <a href="https://poker.camp">Poker Camp</a></p>
+<p><strong>Sign up! (link soon)</strong></p>
+<p><img src="m.png" class="img-fluid"></p>
 <section id="event-details" class="level2">
 <h2 class="anchored" data-anchor-id="event-details">Event Details</h2>
 <p><strong>What:</strong> ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We’ll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.</p>
@@ -228,10 +230,29 @@ window.Quarto = {
 </section>
 <section id="how-it-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
-<p>Rock defeats scissors, scissors defeats paper, and paper defeats rock. You get 1 point for winning, -1 point for losing, and 0 points for ties.</p>
-<p>Starter code, 1000 game matches, see history</p>
-<p>Prizes</p>
-<p>Submissions how many submissions? get result from <em>last</em> competition</p>
+<p><strong>Competition structure</strong>: - Rock defeats scissors, scissors defeats paper, and paper defeats rock - You get 1 point for a win, -1 for a loss, and 0 for ties - Each round, you’ll play 1000 game matches against each hackathon participant and each of our bots</p>
+<p><strong>How do I write my own bot?</strong>:</p>
+<ul>
+<li>We’ll give you starter code in Python</li>
+<li>Starter code will show how to make a bot that plays any fixed percentage</li>
+<li>Starter code will show how to make a bot that plays some strategy according to the history of actions</li>
+</ul>
+<p><strong>How do I submit?</strong>:</p>
+<ul>
+<li>For each competition, you can submit up to the end of that round</li>
+<li>Each submission <em>during</em> the round will receive a <em>test result</em> based on how that bot would have done in the <em>previous</em> round
+<ul>
+<li>Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated hackathon bots and newly inserted bots of our own</li>
+</ul></li>
+<li>At the end of each round, we’ll run the tournament and show the results ~5 minutes later</li>
+</ul>
+<p><strong>What’s the point of this?</strong>:</p>
+<ul>
+<li>Fun</li>
+<li>Thinking about strategy in a repeated game against a variety of opponents</li>
+</ul>
+<p><strong>Are there prizes?</strong></p>
+<p>TBD</p>
 <section id="schedule" class="level3">
 <h3 class="anchored" data-anchor-id="schedule">Schedule</h3>
 <p><strong>10:30am:</strong> Doors open</p>
@@ -247,7 +268,7 @@ window.Quarto = {
 <p><strong>3:30pm:</strong> Competition 7 results, begin Competition 8</p>
 <p><strong>4:00pm:</strong> Final results</p>
 <ul>
-<li>Prizes</li>
+<li>Prizes?</li>
 <li>Bot explanations</li>
 </ul>
 <p><strong>4:30pm:</strong> Hangout</p>
@@ -257,9 +278,8 @@ window.Quarto = {
 <section id="strategy" class="level2">
 <h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
 <p>Each round you’ll be facing off against a selection of our bots and other hackathon participants.</p>
-<section id="game-theory" class="level3">
-<h3 class="anchored" data-anchor-id="game-theory">Game Theory</h3>
-<p><img src="m.png" class="img-fluid"></p>
+<section id="rock-paper-scissors-game-theory" class="level3">
+<h3 class="anchored" data-anchor-id="rock-paper-scissors-game-theory">Rock Paper Scissors Game Theory</h3>
 <p>RPS is a zero-sum game and the payouts are symmetrical as follows:</p>
 <table class="caption-top table">
 <thead>
@@ -308,25 +328,41 @@ Nash Equilibrium Strategy for RPS
 <p><span class="math inline">\(\mathbb{E}(\text{R}) = -1*p + 1*s\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(\text{P}) = 1*r - 1*s\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(\text{S}) = -1*r + 1*p\)</span></p>
-<p>Since no action dominates, we know that the EV of every strategic action should be equal.</p>
+<p>Since no action dominates, we know that the EV of every strategic action should be equal (since if a certain strategy was best, we’d want to always play that strategy).</p>
+<p>To solve for <span class="math inline">\(r\)</span>, <span class="math inline">\(p\)</span>, and <span class="math inline">\(s\)</span>, we can start by setting these EVs equal:</p>
 <p><span class="math inline">\(\mathbb{E}(\text{R}) = \mathbb{E}(\text{P})\)</span></p>
 <p><span class="math inline">\(-1*p + 1*s = 1*r - 1*s\)</span></p>
 <p><span class="math inline">\(2*s = p + r\)</span></p>
+<p>Then setting these equal:</p>
 <p><span class="math inline">\(\mathbb{E}(\text{R}) = \mathbb{E}(\text{S})\)</span></p>
 <p><span class="math inline">\(-1*p + 1*s = -1*r + 1*p\)</span></p>
 <p><span class="math inline">\(s + r = 2*p\)</span></p>
+<p>And finally setting these equal:</p>
 <p><span class="math inline">\(\mathbb{E}(\text{P}) = \mathbb{E}(\text{S})\)</span></p>
 <p><span class="math inline">\(1*r - 1*s = -1*r + 1*p\)</span></p>
 <p><span class="math inline">\(2*r = s + p\)</span></p>
-<p>Solving the equations:</p>
+<p>Now we have these equations:</p>
+<p><span class="math display">\[
+\begin{cases}
+2s = p + r \\
+s + r = 2p \\
+2r = s + p
+\end{cases}
+\]</span></p>
+<p>We can rewrite the 1st:</p>
 <p><span class="math inline">\(r = 2*s - p\)</span></p>
+<p>And combine with the 2nd:</p>
 <p><span class="math inline">\(s + (2*s - p) = 2*p\)</span></p>
 <p><span class="math inline">\(3*s = 3*p\)</span></p>
+<p>Resulting in:</p>
 <p><span class="math inline">\(s = p\)</span></p>
+<p>Now we can go back to the 2nd equation:</p>
 <p><span class="math inline">\(s + r = 2*p\)</span></p>
+<p>And insert <span class="math inline">\(s\)</span> = <span class="math inline">\(p\)</span>:</p>
 <p><span class="math inline">\(s + r = 2*s\)</span></p>
+<p>And arrive at:</p>
 <p><span class="math inline">\(r = s\)</span></p>
-<p>We know that all are equal:</p>
+<p>We now see that all are equal:</p>
 <p><span class="math inline">\(s = p = r\)</span></p>
 <p>We also know that they must all sum to <span class="math inline">\(1\)</span>:</p>
 <p><span class="math inline">\(r + p + s = 1\)</span></p>
@@ -334,21 +370,32 @@ Nash Equilibrium Strategy for RPS
 <p><span class="math inline">\(3*r = 1\)</span></p>
 <p><span class="math inline">\(r = 1/3\)</span></p>
 <p>So all actions are taken with probability <span class="math inline">\(1/3\)</span>:</p>
-<p><span class="math inline">\(r = p = s = 1/3\)</span></p>
+<p><span class="math inline">\(r = p = s = 1/3 \quad \blacksquare\)</span></p>
 </div>
 </div>
 </div>
-<p>Playing this strategy means that whatever your opponent does, you will breakeven! You can see this interactively below:</p>
+<p>Playing this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock.</p>
+<p>$() = r<em>0 + p</em>1 + s*-1 $</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{Equilibrium vs. Rock}) &amp;= r*0 + p*1 + s*-1 \\
+&amp;= 1/3*0 + 1/3*1 + 1/3*-1 \\
+&amp;= 0
+\end{split}
+\end{equation}
+\]</span></p>
+<p>You can see this interactively below:</p>
 <iframe src="rps_strategy.html" width="100%" height="600" style="border:none;">
 </iframe>
 </section>
 <section id="adapting-to-opponents" class="level3">
 <h3 class="anchored" data-anchor-id="adapting-to-opponents">Adapting to Opponents</h3>
-<p>The goal of this challenge is to focus on tracking opponent distributions and how to respond to them.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
-<p>Play more like Lisa</p>
-<p>How would you maximize in RPS knowing the opponent plays a fixed non-Nash strategy that you know? You can try this by playing with the above interactive with the 40% Rock option.</p>
+<p><em>Play more like Lisa</em></p>
+<p>Suppose that your opponent always plays Rock. What’s the best counter-strategy? To always play Paper!</p>
+<p>Instead of breaking even with the equilibrium strategy, you’d now be gaining <span class="math inline">\(1\)</span> every game by always winning.</p>
 
 
 

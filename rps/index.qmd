@@ -6,6 +6,10 @@ format:
 ---
 **R**ock **P**aper **S**cissors Hackathon by [Poker Camp](https://poker.camp)
 
+**Sign up! (link soon)**
+
+![](m.png)
+
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
 
@@ -23,15 +27,33 @@ Each round you'll get a score vs. our bots, vs. other participants, and overall.
 based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
 
 ## How it Works
-Rock defeats scissors, scissors defeats paper, and paper defeats rock. You get 1 point for winning, -1 point for losing, and 0 points for ties.
 
-Starter code, 1000 game matches, see history
+**Competition structure**: 
+- Rock defeats scissors, scissors defeats paper, and paper defeats rock
+- You get 1 point for a win, -1 for a loss, and 0 for ties
+- Each round, you'll play 1000 game matches against each hackathon participant and each of our bots
 
-Prizes
+**How do I write my own bot?**: 
 
-Submissions
-how many submissions? 
-get result from *last* competition 
+- We'll give you starter code in Python 
+- Starter code will show how to make a bot that plays any fixed percentage
+- Starter code will show how to make a bot that plays some strategy according to the history of actions
+
+**How do I submit?**: 
+
+- For each competition, you can submit up to the end of that round
+- Each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round
+    - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated hackathon bots and newly inserted bots of our own 
+- At the end of each round, we'll run the tournament and show the results ~5 minutes later
+
+**What's the point of this?**: 
+
+- Fun
+- Thinking about strategy in a repeated game against a variety of opponents
+
+**Are there prizes?**
+
+TBD
 
 ### Schedule
 
@@ -59,7 +81,7 @@ get result from *last* competition
 
 **4:00pm:** Final results
 
-- Prizes
+- Prizes?
 - Bot explanations
 
 **4:30pm:** Hangout
@@ -69,10 +91,7 @@ get result from *last* competition
 ## Strategy
 Each round you'll be facing off against a selection of our bots and other hackathon participants. 
 
-
-
-### Game Theory
-![](m.png)
+### Rock Paper Scissors Game Theory
 
 RPS is a zero-sum game and the payouts are symmetrical as follows: 
 
@@ -94,7 +113,9 @@ $\mathbb{E}(\text{P}) = 1*r - 1*s$
 
 $\mathbb{E}(\text{S}) = -1*r + 1*p$
 
-Since no action dominates, we know that the EV of every strategic action should be equal. 
+Since no action dominates, we know that the EV of every strategic action should be equal  (since if a certain strategy was best, we'd want to always play that strategy). 
+
+To solve for $r$, $p$, and $s$, we can start by setting these EVs equal: 
 
 $\mathbb{E}(\text{R}) = \mathbb{E}(\text{P})$
 
@@ -102,11 +123,15 @@ $-1*p + 1*s = 1*r - 1*s$
 
 $2*s = p + r$
 
+Then setting these equal: 
+
 $\mathbb{E}(\text{R}) = \mathbb{E}(\text{S})$
 
 $-1*p + 1*s = -1*r + 1*p$
 
 $s + r = 2*p$
+
+And finally setting these equal: 
 
 $\mathbb{E}(\text{P}) = \mathbb{E}(\text{S})$
 
@@ -114,24 +139,43 @@ $1*r - 1*s = -1*r + 1*p$
 
 $2*r = s + p$
 
-Solving the equations: 
+Now we have these equations:  
+
+$$
+\begin{cases}
+2s = p + r \\
+s + r = 2p \\
+2r = s + p
+\end{cases}
+$$
+
+We can rewrite the 1st: 
 
 $r = 2*s - p$
+
+And combine with the 2nd: 
 
 $s + (2*s - p) = 2*p$
 
 $3*s = 3*p$
 
+Resulting in: 
+
 $s = p$
 
+Now we can go back to the 2nd equation: 
 
 $s + r = 2*p$
 
+And insert $s$ = $p$: 
+
 $s + r = 2*s$
+
+And arrive at: 
 
 $r = s$
 
-We know that all are equal: 
+We now see that all are equal: 
 
 $s = p = r$
 
@@ -147,18 +191,33 @@ $r = 1/3$
 
 So all actions are taken with probability $1/3$: 
 
-$r = p = s = 1/3$
+$r = p = s = 1/3 \quad \blacksquare$
 :::
 
-Playing this strategy means that whatever your opponent does, you will breakeven! You can see this interactively below: 
+Playing this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock. 
+
+$\mathbb{E}(\text{Equilibrium vs. Rock}) = r*0 + p*1 + s*-1 $
+
+$$
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{Equilibrium vs. Rock}) &= r*0 + p*1 + s*-1 \\
+&= 1/3*0 + 1/3*1 + 1/3*-1 \\
+&= 0
+\end{split}
+\end{equation}
+$$
+
+You can see this interactively below: 
 
 <iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe>
 
 ### Adapting to Opponents
-The goal of this challenge is to focus on tracking opponent distributions and how to respond to them.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Play more like Lisa
+*Play more like Lisa*
 
-How would you maximize in RPS knowing the opponent plays a fixed non-Nash strategy that you know? You can try this by playing with the above interactive with the 40% Rock option. 
+Suppose that your opponent always plays Rock. What's the best counter-strategy? To always play Paper! 
+
+Instead of breaking even with the equilibrium strategy, you'd now be gaining $1$ every game by always winning. 
