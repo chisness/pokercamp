@@ -29,17 +29,18 @@ based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
 ## How it Works
 
 **Competition structure**: 
+
 - Rock defeats scissors, scissors defeats paper, and paper defeats rock
 - You get 1 point for a win, -1 for a loss, and 0 for ties
 - Each round, you'll play 1000 game matches against each hackathon participant and each of our bots
 
-**How do I write my own bot?**: 
+**How do I write my own bot?**
 
 - We'll give you starter code in Python 
 - Starter code will show how to make a bot that plays any fixed percentage
 - Starter code will show how to make a bot that plays some strategy according to the history of actions
 
-**How do I submit?**: 
+**How do I submit?**
 
 - For each competition, you can submit up to the end of that round
 - Each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round
@@ -79,10 +80,7 @@ TBD
 
 **3:30pm:** Competition 7 results, begin Competition 8
 
-**4:00pm:** Final results
-
-- Prizes?
-- Bot explanations
+**4:00pm:** Final results and bot explanations
 
 **4:30pm:** Hangout
 
@@ -196,8 +194,6 @@ $r = p = s = 1/3 \quad \blacksquare$
 
 Playing this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock. 
 
-$\mathbb{E}(\text{Equilibrium vs. Rock}) = r*0 + p*1 + s*-1 $
-
 $$
 \begin{equation}
 \begin{split}
@@ -210,7 +206,7 @@ $$
 
 You can see this interactively below: 
 
-<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe>
+<iframe src="rps_strategy.html" width="100%" style="border:none;"></iframe>
 
 ### Adapting to Opponents
 

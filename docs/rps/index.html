@@ -230,14 +230,19 @@ window.Quarto = {
 </section>
 <section id="how-it-works" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
-<p><strong>Competition structure</strong>: - Rock defeats scissors, scissors defeats paper, and paper defeats rock - You get 1 point for a win, -1 for a loss, and 0 for ties - Each round, you’ll play 1000 game matches against each hackathon participant and each of our bots</p>
-<p><strong>How do I write my own bot?</strong>:</p>
+<p><strong>Competition structure</strong>:</p>
+<ul>
+<li>Rock defeats scissors, scissors defeats paper, and paper defeats rock</li>
+<li>You get 1 point for a win, -1 for a loss, and 0 for ties</li>
+<li>Each round, you’ll play 1000 game matches against each hackathon participant and each of our bots</li>
+</ul>
+<p><strong>How do I write my own bot?</strong></p>
 <ul>
 <li>We’ll give you starter code in Python</li>
 <li>Starter code will show how to make a bot that plays any fixed percentage</li>
 <li>Starter code will show how to make a bot that plays some strategy according to the history of actions</li>
 </ul>
-<p><strong>How do I submit?</strong>:</p>
+<p><strong>How do I submit?</strong></p>
 <ul>
 <li>For each competition, you can submit up to the end of that round</li>
 <li>Each submission <em>during</em> the round will receive a <em>test result</em> based on how that bot would have done in the <em>previous</em> round
@@ -266,11 +271,7 @@ window.Quarto = {
 <p><strong>2:30pm:</strong> Competition 5 results, begin Competition 6</p>
 <p><strong>3:00pm:</strong> Competition 6 results, begin Competition 7</p>
 <p><strong>3:30pm:</strong> Competition 7 results, begin Competition 8</p>
-<p><strong>4:00pm:</strong> Final results</p>
-<ul>
-<li>Prizes?</li>
-<li>Bot explanations</li>
-</ul>
+<p><strong>4:00pm:</strong> Final results and bot explanations</p>
 <p><strong>4:30pm:</strong> Hangout</p>
 <p><strong>5:00pm:</strong> End</p>
 </section>
@@ -375,7 +376,6 @@ s + r = 2p \\
 </div>
 </div>
 <p>Playing this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock.</p>
-<p>$() = r<em>0 + p</em>1 + s*-1 $</p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
@@ -386,7 +386,7 @@ s + r = 2p \\
 \end{equation}
 \]</span></p>
 <p>You can see this interactively below:</p>
-<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;">
+<iframe src="rps_strategy.html" width="100%" style="border:none;">
 </iframe>
 </section>
 <section id="adapting-to-opponents" class="level3">
