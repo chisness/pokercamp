@@ -24,19 +24,19 @@
 <body>
     <div id="rps-game">
         <h2>Rock Paper Scissors Strategy Analyzer</h2>
-        
+
         <div id="player1">
             <h3>Player 1 (Fixed Strategy)</h3>
             <div class="radio-container">
-                <input type="radio" id="strategy1" name="opponentStrategy" value="40-30-30" checked>
-                <label for="strategy1">40% Rock, 30% Paper, 30% Scissors</label>
+                <input type="radio" id="strategy1" name="opponentStrategy" value="1/3-1/3-1/3" checked>
+                <label for="strategy1">33.33% Rock, 33.33% Paper, 33.33% Scissors</label>
             </div>
             <div class="radio-container">
-                <input type="radio" id="strategy2" name="opponentStrategy" value="1/3-1/3-1/3">
-                <label for="strategy2">33.33% Rock, 33.33% Paper, 33.33% Scissors</label>
+                <input type="radio" id="strategy2" name="opponentStrategy" value="40-30-30">
+                <label for="strategy2">40% Rock, 30% Paper, 30% Scissors</label>
             </div>
         </div>
-        
+
         <div id="player2">
             <h3>Player 2 (Adjustable Strategy)</h3>
             <div class="slider-container">
@@ -52,7 +52,7 @@
                 <input type="range" id="scissors" min="0" max="100" value="34">
             </div>
         </div>
-        
+
         <div id="results">
             <h3>Results</h3>
             <p>Expected Value: <span id="expectedValue">0</span></p>
@@ -73,19 +73,19 @@
             let rock = parseInt(rockSlider.value);
             let paper = parseInt(paperSlider.value);
             let scissors = parseInt(scissorsSlider.value);
-            
+
             let total = rock + paper + scissors;
 
             if (total !== 100) {
                 let otherSliders = [rockSlider, paperSlider, scissorsSlider].filter(slider => slider !== changedSlider);
-                
+
                 if (changedSlider.value === "100") {
                     otherSliders[0].value = 0;
                     otherSliders[1].value = 0;
                 } else {
                     let remainingTotal = 100 - changedSlider.value;
                     let otherTotal = parseInt(otherSliders[0].value) + parseInt(otherSliders[1].value);
-                    
+
                     if (otherTotal > 0) {
                         let ratio = otherSliders[0].value / otherTotal;
                         otherSliders[0].value = Math.round(remainingTotal * ratio);
@@ -104,7 +104,7 @@
             rockValue.textContent = rock;
             paperValue.textContent = paper;
             scissorsValue.textContent = scissors;
-            
+
             updateExpectedValue();
         }
 
@@ -122,12 +122,12 @@
             } else {
                 player1 = { rock: 1/3, paper: 1/3, scissors: 1/3 };
             }
-            
+
             let ev = 0;
             ev += player1.rock * player2.scissors - player1.rock * player2.paper;
             ev += player1.paper * player2.rock - player1.paper * player2.scissors;
             ev += player1.scissors * player2.paper - player1.scissors * player2.rock;
-            
+
             expectedValueSpan.textContent = ev.toFixed(4);
         }
 
