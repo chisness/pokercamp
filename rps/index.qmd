@@ -7,8 +7,9 @@ format:
 **R**ock **P**aper **S**cissors Hackathon by [Poker Camp](https://poker.camp)
 
 **Sign up! (link soon)**
+$20 entry fee to cover lunch and snacks
 
-![](m.png)
+![](math.jpeg)
 
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
@@ -17,14 +18,14 @@ Each round you'll get a score vs. our bots, vs. other participants, and overall.
 
 **When:** Sunday Sep 8, 2024 11am-5pm (can arrive starting at 10:30am)
 
-**Where:** [Fractal Tech Hub](https://fractalbootcamp.com/office): [111 Conselyea St, Brooklyn NY](https://maps.app.goo.gl/fuZpTaLtaxy9W4v98)
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.25343208826!2d-73.9467208!3d40.715226900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259574c8d3d9f%3A0x50a89962ece47d61!2s111%20Conselyea%20St%2C%20Brooklyn%2C%20NY%2011211!5e0!3m2!1sen!2sus!4v1723515244564!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
 **Why:**
 
 > In sequential decision-making, agent evaluation has largely been  restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning
 based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
+
+**Where:** [Fractal Tech Hub](https://fractalbootcamp.com/office): [111 Conselyea St, Brooklyn NY](https://maps.app.goo.gl/fuZpTaLtaxy9W4v98)
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.25343208826!2d-73.9467208!3d40.715226900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259574c8d3d9f%3A0x50a89962ece47d61!2s111%20Conselyea%20St%2C%20Brooklyn%2C%20NY%2011211!5e0!3m2!1sen!2sus!4v1723515244564!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 ## How it Works
 
@@ -55,7 +56,7 @@ based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
 
 **Are there prizes?**
 
-TBD
+There will be small on-theme prizes 
 
 ### Schedule
 
@@ -89,6 +90,8 @@ TBD
 
 ## Strategy
 Each round you'll be facing off against a selection of our bots and other hackathon participants. 
+
+![](m.png)
 
 ### Game Theory Equilibrium
 
@@ -218,3 +221,5 @@ You can see this interactively below:
 Suppose that your opponent always plays Rock. What's the best counter-strategy? To always play Paper! 
 
 Instead of breaking even with the equilibrium strategy, you'd now be gaining $1$ every game by always winning. 
+
+The goal of the hackathon is to figure out how to adapt to your opponents! You can try playing a few games against the bot on [this site](https://essentially.net/rsp/), which as of writing has won/tied/lost 45%/27%/28%.
