@@ -10,6 +10,8 @@ format:
 
 $20 entry fee to cover lunch and snacks
 
+[Sign up on Luma!](https://lu.ma/rps-hackathon)
+
 [![](rps_banner.png){width=50%}](https://lu.ma/rps-hackathon)
 
 ## Event Details
@@ -28,6 +30,8 @@ From DeepMind in 2023:
 **Where:** [Fractal Tech Hub](https://fractalbootcamp.com/office): [111 Conselyea St, Brooklyn NY](https://maps.app.goo.gl/fuZpTaLtaxy9W4v98)
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.25343208826!2d-73.9467208!3d40.715226900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259574c8d3d9f%3A0x50a89962ece47d61!2s111%20Conselyea%20St%2C%20Brooklyn%2C%20NY%2011211!5e0!3m2!1sen!2sus!4v1723515244564!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+**[Sign up on Luma!](https://lu.ma/rps-hackathon)**
 
 ## How it Works
 
