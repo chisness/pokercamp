@@ -7,9 +7,10 @@ format:
 **R**ock **P**aper **S**cissors Hackathon by [Poker Camp](https://poker.camp)
 
 **[Sign up!](https://lu.ma/rps-hackathon)**
+
 $20 entry fee to cover lunch and snacks
 
-[![](rps_banner.png)](https://lu.ma/rps-hackathon)
+[![](rps_banner.png){width=50%}](https://lu.ma/rps-hackathon)
 
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
