@@ -6,13 +6,17 @@ format:
 ---
 **R**ock **P**aper **S**cissors Hackathon by [Poker Camp](https://poker.camp)
 
-**[Sign up!](https://lu.ma/rps-hackathon)**
+## [Sign up now!](https://lu.ma/rps-hackathon) 
+
+[![](rps_banner.png){width=50%}](https://lu.ma/rps-hackathon)
 
 $20 entry fee to cover lunch and snacks
 
-[Sign up on Luma!](https://lu.ma/rps-hackathon)
+**[🪨 Click here to sign up on Luma! ✊](https://lu.ma/rps-hackathon)**
 
-[![](rps_banner.png){width=50%}](https://lu.ma/rps-hackathon)
+**[📄 Click here to sign up on Luma! ✋](https://lu.ma/rps-hackathon)**
+
+**[✂️ Click here to sign up on Luma! ✌️](https://lu.ma/rps-hackathon)**
 
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
@@ -27,11 +31,11 @@ From DeepMind in 2023:
 
 > In sequential decision-making, agent evaluation has largely been  restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.  
 
+**How:** [Click here to sign up on Luma!](https://lu.ma/rps-hackathon) ($20 entry fee to cover lunch and snacks)
+
 **Where:** [Fractal Tech Hub](https://fractalbootcamp.com/office): [111 Conselyea St, Brooklyn NY](https://maps.app.goo.gl/fuZpTaLtaxy9W4v98)
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.25343208826!2d-73.9467208!3d40.715226900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259574c8d3d9f%3A0x50a89962ece47d61!2s111%20Conselyea%20St%2C%20Brooklyn%2C%20NY%2011211!5e0!3m2!1sen!2sus!4v1723515244564!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-**[Sign up on Luma!](https://lu.ma/rps-hackathon)**
 
 ## How it Works
 
@@ -71,6 +75,10 @@ Each round will vary. Sometimes we'll give away the bots, sometimes we'll give n
 **What if I have to leave early or arrive late?**
 
 No problem, you can join for however much you'd like
+
+**Can I pay in cash or with Venmo/Zelle?**
+
+Yes, [email us](mailto:max@poker.camp)
 
 **Other questions?**
 
