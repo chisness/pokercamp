@@ -6,10 +6,10 @@ format:
 ---
 **R**ock **P**aper **S**cissors Hackathon by [Poker Camp](https://poker.camp)
 
-**Sign up! (link soon)**
+**[Sign up!](https://lu.ma/rps-hackathon)**
 $20 entry fee to cover lunch and snacks
 
-![](math.jpeg)
+[![](rps_banner.png)](https://lu.ma/rps-hackathon)
 
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
@@ -20,8 +20,8 @@ Each round you'll get a score vs. our bots, vs. other participants, and overall.
 
 **Why:**
 
-> In sequential decision-making, agent evaluation has largely been  restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning
-based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
+From DeepMind in 2023: 
+> In sequential decision-making, agent evaluation has largely been  restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.  
 
 **Where:** [Fractal Tech Hub](https://fractalbootcamp.com/office): [111 Conselyea St, Brooklyn NY](https://maps.app.goo.gl/fuZpTaLtaxy9W4v98)
 
@@ -29,7 +29,7 @@ based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
 
 ## How it Works
 
-**Competition structure**: 
+**Competition structure:** 
 
 - Rock defeats scissors, scissors defeats paper, and paper defeats rock
 - You get 1 point for a win, -1 for a loss, and 0 for ties
@@ -57,6 +57,14 @@ based on repeated play of the simple game Rock, Paper, Scissors.(DeepMind 2023)
 **Are there prizes?**
 
 There will be small on-theme prizes 
+
+**What if I have to leave early or arrive late?**
+
+No problem, you can join for however much you'd like
+
+**Other questions?**
+
+[Get in touch](mailto:max@poker.camp)
 
 ### Schedule
 

@@ -8,7 +8,7 @@ css: styles.css
 
 ### Sep 8: [Rock Paper Scissors Hackathon](https://rps.bot/) in NYC
 
-- 11am-4pm in Williamsburg, Brooklyn
+- 11am-5pm in Williamsburg, Brooklyn
 - [🎟️ SIGN UP!](https://lu.ma/rps-hackathon){.signup-button}
 
 ### Sep 9-Oct 14: [Optimal Decision Poker Camp](https://gtodecisions.com) in NYC
