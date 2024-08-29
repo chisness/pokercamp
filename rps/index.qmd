@@ -234,9 +234,10 @@ $$
 \end{equation}
 $$
 
+<!-- 
 You can see this interactively below: 
 
-<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe>
+<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe> -->
 
 ### Adapting to Opponents
 
