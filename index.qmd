@@ -8,15 +8,17 @@ css: styles.css
 
 ### Sep 8: [Rock Paper Scissors Hackathon](https://rps.bot/) in NYC
 
-- 11am-5pm in Williamsburg, Brooklyn
-- [🎟️ SIGN UP!](https://lu.ma/8xz3q5oe){.signup-button}
+- 11am-4pm in Williamsburg, Brooklyn
+- [🎟️ SIGN UP!](https://lu.ma/rps-hackathon){.signup-button}
 
-### Sep 9-Oct 14: Optimal Decision Poker Camp in NYC
+### Sep 9-Oct 14: [Optimal Decision Poker Camp](https://gtodecisions.com) in NYC
 
 - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
 - 6 sessions meeting every Monday
 - 6-8pm in Chinatown
-- [🎟️ SIGN UP!](https://buy.stripe.com/9AQbJf0Eb1bzaLm7ss){.signup-button}
+- [🎟️ SIGN UP!](https://gtodecisions.com/){.signup-button}
+
+*Note that the programming and related materials/workshops are for educational purposes and will not use any real money.*
 
 ## In Progress Camps
 None currently
@@ -36,8 +38,24 @@ None currently
 
 ## Completed Camps
 
-1. Jul 15-Aug 15: *Beta* AI Poker Camp in SF
-    - 10 sessions meeting on Mondays and Thursdays
+1. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
+    - 10 sessions meeting on Mondays and Thursday
+    - Thanks to [The Commons](https://www.thesfcommons.com/) and [1907 GG](https://discord.com/invite/mQzawpEPQB) for hosting! 
+
+:::: {.columns}
+
+::: {.column width="48%"}
+![](assets/beta.jpg)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+![](assets/beta2.jpg)
+:::
+
+::::
 
 <!-- Our first camp will take place from Jul 15 to Aug 15 in person in San Francisco.
 
@@ -58,8 +76,5 @@ None currently
  <!-- **[Click here for more info](/signup)**
 ::: -->
 
-![](./assets/pc.png)
-
 <!-- [![](./assets/pc.png)](./signup) -->
 
-Note that the programming and related materials/workshops are for educational purposes and will not use any real money. 

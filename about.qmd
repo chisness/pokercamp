@@ -4,7 +4,7 @@ format:
   html:
     math: true
 ---
-Poker Camp is a project by [Ross Rheingans-Yoo](mailto:ross@poker.camp) and [Max Chiswick](mailto:max@poker.camp).
+Poker Camp is run by [Ross Rheingans-Yoo](mailto:ross@poker.camp) and [Max Chiswick](mailto:max@poker.camp)
 
 ![Manifest 2024 Final Table](./assets/mr_crop.png)
 
@@ -41,3 +41,5 @@ Teaching practical decision-making and rationality through poker, combining theo
 - We are in the process of becoming a 501(c)(3) nonprofit. If you are interested in contributing monetarily, please see our .org site: [https://pokercamp.org](https://pokercamp.org). 
 
 - If you are interested in contributing to materials or working with us, [be in touch](mailto:max@poker.camp)
+
+![](./assets/pc.png)
