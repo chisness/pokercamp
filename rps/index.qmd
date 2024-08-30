@@ -12,11 +12,7 @@ format:
 
 $20 entry fee to cover lunch and snacks
 
-**[🪨 Click here to sign up on Luma! ✊](https://lu.ma/rps-hackathon)**
-
-**[📄 Click here to sign up on Luma! ✋](https://lu.ma/rps-hackathon)**
-
-**[✂️ Click here to sign up on Luma! ✌️](https://lu.ma/rps-hackathon)**
+**[🪨📄✂️ Click here to sign up on Luma! ✊✋✌️](https://lu.ma/rps-hackathon)**
 
 ## Event Details
 **What:** ​8 rounds of Rock Paper Scissors bot competitions. All entrants play 1000 games against each other in each round. We'll have our own bots that start on easy mode, and smarter ones will be added as the rounds go on.
