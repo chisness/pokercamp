@@ -7,7 +7,7 @@ format:
 ---
 Think about probability and decision making through interactive games
 
-- Sep 9-Oct 14: 6 weekly Monday sessions in NYC
+- Sep 23-Oct 14: 4 weekly Monday sessions in NYC
   - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
 
 - Oct: *Maybe* 1-day workshop in Tel Aviv
