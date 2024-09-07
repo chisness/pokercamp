@@ -1,6 +1,7 @@
 ---
 title: "RPS Hackathon @ Fractal: Bot Submission"
 sidebar: rps-hackathon-fractal
+bread-crumbs: false
 format:
   html:
     math: true

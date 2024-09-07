@@ -1,8 +1,9 @@
 ---
 title: "RPS Hackathon @ Fractal: Homepage"
 sidebar: rps-hackathon-fractal
+bread-crumbs: false
 format:
   html:
     math: true
 ---
-Homepage page
+Welcome to the Rock Paper Scissors Hackathon @ Fractal Tech in NYC. 

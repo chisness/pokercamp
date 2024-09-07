@@ -85,9 +85,9 @@
   {
     "objectID": "rps-hackathon-fractal/instructions.html",
     "href": "rps-hackathon-fractal/instructions.html",
-    "title": "RPS Hackathon @ Fractal: Instructions",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
     "section": "",
-    "text": "Instructions page",
+    "text": "Instructions page\nrules/instructions how scoring works",
     "crumbs": [
       "About",
       "Getting Started",
@@ -1089,7 +1089,7 @@
     "href": "rps-hackathon-fractal/botguide.html",
     "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
     "section": "",
-    "text": "Bot guide page",
+    "text": "Bot guide page\nhow to, hints and ideas",
     "crumbs": [
       "About",
       "Getting Started",
@@ -1101,7 +1101,7 @@
     "href": "rps-hackathon-fractal/index.html",
     "title": "RPS Hackathon @ Fractal: Homepage",
     "section": "",
-    "text": "Homepage page"
+    "text": "Welcome to the Rock Paper Scissors Hackathon @ Fractal Tech in NYC."
   },
   {
     "objectID": "rps-hackathon-fractal/botsubmit.html",

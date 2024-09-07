@@ -1,8 +1,11 @@
 ---
 title: "RPS Hackathon @ Fractal: Guide to Building a Bot"
 sidebar: rps-hackathon-fractal
+bread-crumbs: false
 format:
   html:
     math: true
 ---
 Bot guide page
+
+how to, hints and ideas 

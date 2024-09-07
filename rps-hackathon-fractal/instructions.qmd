@@ -1,8 +1,12 @@
 ---
-title: "RPS Hackathon @ Fractal: Instructions"
+title: "RPS Hackathon @ Fractal: Hackathon Instructions"
 sidebar: rps-hackathon-fractal
+bread-crumbs: false
 format:
   html:
     math: true
 ---
 Instructions page
+
+rules/instructions 
+how scoring works
