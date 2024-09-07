@@ -29,8 +29,9 @@ After each round, you'll see the names of the bot(s) that were in the previous r
 
 ### Submissions
 - For each competition, you can submit up to the end of that round
-- Each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round
-    - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots
+- Each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round (during the first round this won't be possible)
+  - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots
+- The final submission before the end of the round will be entered into that round's competition
 - At the end of each round, we'll run the tournament and show the results
 
 ### Scoring
@@ -87,3 +88,7 @@ Look for patterns. If participant bots are only trying to exploit environment bo
 
 ## Why? 
 Fun! And thinking about strategy in a repeated game against a variety of opponents. 
+
+From DeepMind in 2023:
+
+> In sequential decision-making, agent evaluation has largely been restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.
