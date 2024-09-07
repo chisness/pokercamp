@@ -1,0 +1,8 @@
+---
+title: "RPS Hackathon @ Fractal: Homepage"
+sidebar: rps-hackathon-fractal
+format:
+  html:
+    math: true
+---
+Homepage page
