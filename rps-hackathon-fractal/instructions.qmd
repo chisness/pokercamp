@@ -42,7 +42,7 @@ At the end of each round, you'll get the following information:
   - This includes the names of the environment bots, which often will be hints about how they play
 
 ### Prizes
-There will be small on-theme prizes for the winners of each round
+There will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score. 
 
 ## Strategy
 Your mission is to play well against the environment bots without getting counterplayed by other participant bots. 
