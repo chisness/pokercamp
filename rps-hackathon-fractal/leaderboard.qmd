@@ -1,0 +1,8 @@
+---
+title: "RPS Hackathon @ Fractal: Leaderboard"
+sidebar: rps-hackathon-fractal
+format:
+  html:
+    math: true
+---
+Leaderboard page

@@ -71,6 +71,30 @@
     "text": "Contribute\n\nWe are in the process of becoming a 501(c)(3) nonprofit. If you are interested in contributing monetarily, please see our .org site: https://pokercamp.org.\nIf you are interested in contributing to materials or working with us, be in touch"
   },
   {
+    "objectID": "rps-hackathon-fractal/leaderboard.html",
+    "href": "rps-hackathon-fractal/leaderboard.html",
+    "title": "RPS Hackathon @ Fractal: Leaderboard",
+    "section": "",
+    "text": "Leaderboard page",
+    "crumbs": [
+      "About",
+      "Hackathon",
+      "Leaderboard"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botguide.html",
+    "href": "rps-hackathon-fractal/botguide.html",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "",
+    "text": "Bot guide page",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
     "objectID": "camp/index.html",
     "href": "camp/index.html",
     "title": "Optimal Decision Poker Camp",
@@ -1059,6 +1083,30 @@
     "title": "Poker Camp",
     "section": "Completed Camps",
     "text": "Completed Camps\n\nJul 15-Aug 15, 2024: Beta AI Poker Camp in SF\n\n10 sessions meeting on Mondays and Thursday\nThanks to The Commons and 1907 GG for hosting!"
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html",
+    "href": "rps-hackathon-fractal/instructions.html",
+    "title": "RPS Hackathon @ Fractal: Instructions",
+    "section": "",
+    "text": "Instructions page",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botsubmit.html",
+    "href": "rps-hackathon-fractal/botsubmit.html",
+    "title": "RPS Hackathon @ Fractal: Bot Submission",
+    "section": "",
+    "text": "Bot submit page",
+    "crumbs": [
+      "About",
+      "Hackathon",
+      "Bot Submission"
+    ]
   },
   {
     "objectID": "odpcf24/expectedvalue.html",
