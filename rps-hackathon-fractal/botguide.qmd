@@ -20,7 +20,7 @@ The histories of the entire match are stored in these arrays:
 
 - `self.my_history[]` 
 - `self.opponent_history[]`
-- `self.results_history = []`
+- `self.results_history[]`
 
 The functions in the code are: 
 
