@@ -6,19 +6,88 @@ format:
   html:
     math: true
 ---
-Bot guide page
+## Starter Code
+We provide Python starter code so that you can mainly think about the problem solving and worry less about the code details. 
 
-how to, hints and ideas 
+We provide bots that can play the following basic strategies: 
 
-- We'll give you starter code in Python 
-- Starter code will show how to make a bot that plays any fixed percentage
-- Starter code will show how to make a bot that plays some strategy according to the history of actions
+1. **Random:** You are guaranteed to breakeven in expectation if you play randomly
+2. **Percentage:** You can choose a fixed percentage (e.g. 50% rock, 25% paper, 25% scissors)
+3. **Win vs. Last Action:** Play the action that beats the opponent's last move
+4. **Win vs. History:** Play the action that beats the opponent's most frequent move over the entire history
+
+The histories of the entire match are stored in these arrays: 
+
+- `self.my_history[]` 
+- `self.opponent_history[]`
+- `self.results_history = []`
+
+The functions in the code are: 
+
+- `def __init__(self)`: Initializes the history arrays
+- `handle_new_round(self, game_state, round_state, active)`: This is run for every new game
+- `def handle_round_over(self, game_state, terminal_state, active)`: This is run at the end of every game
+- `def get_action(self, game_state, round_state, active)`: This is the main function where you run your strategy
+
+```python
+# active (same at newround, getaction, and roundover): Returns 0 or 1
+# You are assigned 0 or 1 for each round 
+
+# round_state (same at newround and getaction): RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None)
+# terminal_state: TerminalState(deltas=[1, -1], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper, Rock], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None))))
+# game_state (same at newround, getaction): GameState(bankroll=10, game_clock=29.988, round_num=1)
+# game_state (at end): GameState(bankroll=11, game_clock=29.988, round_num=1)
+```
 
 
+## Writing Your Own Bot
+
+### Starter Code Modification
+We give starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played *two* games ago. 
+
+Let's try this: 
+
+- If we're winning or tying, then we beat the action from 2 games ago 80% of the time and play randomly 20% of the time
+- If we're losing, then we always play randomly 
 
 
+### Exploiting a Weak Bot
+Here's an idea for a strategy. You check to see if anyone is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot. 
 
-### Game Theory Equilibrium
+We can define an `all_rocks` variable that is `True` if the opponent so far has only played Rock and `False` otherwise like this: 
+
+```python
+all_rocks = True 
+for item in self.opponent_history:
+  if item != "RockAction()":
+      all_rocks = False
+```
+
+Then we can execute our strategy: 
+
+```python
+if all_rocks = True:
+  return PaperAction()
+else:
+  return random.choice(RockAction, PaperAction, ScissorsAction)()
+```
+
+### Exploiting a Weak Bart
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+(Yes, bad joke)
+
+## Problem Solving and Strategy
+
+The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)! 
+
+A few possible strategies are: 
+
+- Single out specific bots that are exploitable and write code to identify and exploit them
+- Attempt to predict the next move of each bot using a general algorithm
+- Use random play as a backup plan (see below for a full explanation of why this always breaks even and is the Nash equilibrium strategy)
+
+## Game Theory Equilibrium
 
 RPS is a zero-sum game and the payouts are symmetrical as follows: 
 
@@ -132,22 +201,3 @@ $$
 \end{split}
 \end{equation}
 $$
-
-<!-- 
-You can see this interactively below: 
-
-<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe> -->
-
-### Adapting to Opponents
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-*Play more like Lisa*
-
-Suppose that your opponent always plays Rock. What's the best counter-strategy? To always play Paper! 
-
-Instead of breaking even with the equilibrium strategy, you'd now be gaining $1$ every game by always winning. 
-
-The goal of the hackathon is to figure out how to adapt to your opponents (other participants and our bots)! 
-
-You can try playing a few games against the bot on [this site](https://essentially.net/rsp/), which as of writing has won/tied/lost 45%/27%/28%. 

@@ -30,8 +30,8 @@ After each round, you'll see the names of the bot(s) that were in the previous r
 ### Submissions
 - For each competition, you can submit up to the end of that round
 - Each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round
-    - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated hackathon bots and newly inserted bots of our own 
-- At the end of each round, we'll run the tournament and show the results ~5 minutes later
+    - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots
+- At the end of each round, we'll run the tournament and show the results
 
 ### Scoring
 At the end of each round, you'll get the following information: 
@@ -47,9 +47,7 @@ There will be small on-theme prizes for the winners of each round
 Your mission is to play well against the environment bots without getting counterplayed by other participant bots. 
 
 ### Strategy vs. Environment Bots
-The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. 
-
-Combine this with the sometimes-revealed bot names, and you'll be able to develop a strong strategy about these bots for future rounds. 
+The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. Combine this with the sometimes-revealed bot names, and you'll be able to develop a strong strategy against these bots for future rounds. 
 
 ### Strategy vs. Participant Bots
 Look for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves. 
