@@ -247,8 +247,30 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link active" data-scroll-target="#how-it-works">How it Works</a>
+  <ul class="collapse">
+  <li><a href="#rock-paper-scissors" id="toc-rock-paper-scissors" class="nav-link" data-scroll-target="#rock-paper-scissors">Rock Paper Scissors</a></li>
+  <li><a href="#competition-rounds" id="toc-competition-rounds" class="nav-link" data-scroll-target="#competition-rounds">Competition Rounds</a></li>
+  <li><a href="#environment-bots" id="toc-environment-bots" class="nav-link" data-scroll-target="#environment-bots">Environment Bots</a></li>
+  <li><a href="#submissions" id="toc-submissions" class="nav-link" data-scroll-target="#submissions">Submissions</a></li>
+  <li><a href="#scoring" id="toc-scoring" class="nav-link" data-scroll-target="#scoring">Scoring</a></li>
+  <li><a href="#prizes" id="toc-prizes" class="nav-link" data-scroll-target="#prizes">Prizes</a></li>
+  </ul></li>
+  <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a>
+  <ul class="collapse">
+  <li><a href="#strategy-vs.-environment-bots" id="toc-strategy-vs.-environment-bots" class="nav-link" data-scroll-target="#strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</a></li>
+  <li><a href="#strategy-vs.-participant-bots" id="toc-strategy-vs.-participant-bots" class="nav-link" data-scroll-target="#strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</a></li>
+  </ul></li>
+  <li><a href="#writing-bots" id="toc-writing-bots" class="nav-link" data-scroll-target="#writing-bots">Writing Bots</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -272,11 +294,97 @@ window.Quarto = {
 </header>
 
 
-<p>Instructions page</p>
-<p>rules/instructions how scoring works</p>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
+<section id="rock-paper-scissors" class="level3">
+<h3 class="anchored" data-anchor-id="rock-paper-scissors">Rock Paper Scissors</h3>
+<ul>
+<li>Rock defeats scissors, scissors defeats paper, and paper defeats rock</li>
+<li>You get 1 point for a win, -1 for a loss, and 0 for ties</li>
+</ul>
+</section>
+<section id="competition-rounds" class="level3">
+<h3 class="anchored" data-anchor-id="competition-rounds">Competition Rounds</h3>
+<p>There will be 8 rounds of RPS competitions. Each will have:</p>
+<ul>
+<li>1 bot entered by each participant</li>
+<li>Between 1 and 4 environment bots (bots that we make)</li>
+</ul>
+<p>You’ll play 1000 games against each other bot.</p>
+</section>
+<section id="environment-bots" class="level3">
+<h3 class="anchored" data-anchor-id="environment-bots">Environment Bots</h3>
+<p>Each environment bot that enters during a round will stay for all future rounds.</p>
+<p>After each round, you’ll see the names of the bot(s) that were in the previous round. Sometimes these will be hints about what the bot(s) were doing.</p>
+</section>
+<section id="submissions" class="level3">
+<h3 class="anchored" data-anchor-id="submissions">Submissions</h3>
+<ul>
+<li>For each competition, you can submit up to the end of that round</li>
+<li>Each submission <em>during</em> the round will receive a <em>test result</em> based on how that bot would have done in the <em>previous</em> round
+<ul>
+<li>Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated hackathon bots and newly inserted bots of our own</li>
+</ul></li>
+<li>At the end of each round, we’ll run the tournament and show the results ~5 minutes later</li>
+</ul>
+</section>
+<section id="scoring" class="level3">
+<h3 class="anchored" data-anchor-id="scoring">Scoring</h3>
+<p>At the end of each round, you’ll get the following information:</p>
+<ul>
+<li>Matrix score report with results against every other bot</li>
+<li>Game histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)
+<ul>
+<li>This includes the names of the environment bots, which often will be hints about how they play</li>
+</ul></li>
+</ul>
+</section>
+<section id="prizes" class="level3">
+<h3 class="anchored" data-anchor-id="prizes">Prizes</h3>
+<p>There will be small on-theme prizes for the winners of each round</p>
+</section>
+</section>
+<section id="strategy" class="level2">
+<h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
+<p>Your mission is to play well against the environment bots without getting counterplayed by other participant bots.</p>
+<section id="strategy-vs.-environment-bots" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</h3>
+<p>The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play.</p>
+<p>Combine this with the sometimes-revealed bot names, and you’ll be able to develop a strong strategy about these bots for future rounds.</p>
+</section>
+<section id="strategy-vs.-participant-bots" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</h3>
+<p>Look for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves.</p>
+</section>
+</section>
+<section id="writing-bots" class="level2">
+<h2 class="anchored" data-anchor-id="writing-bots">Writing Bots</h2>
+<p><a href="../rps-hackathon-fractal/botguide.html">Click here</a> for our guide on getting started writing RPS bots.</p>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p><strong>10:30am:</strong> Doors open</p>
+<p><strong>11:00am:</strong> Arrival and setup</p>
+<p><strong>11:30am:</strong> Begin Competition 1</p>
+<p><strong>12:00pm:</strong> Competition 1 results, begin Competition 2</p>
+<p><strong>12:30pm:</strong> Competition 2 results, pizza lunch break</p>
+<p><strong>1:00pm:</strong> Begin Competition 3</p>
+<p><strong>1:30pm:</strong> Competition 3 results, begin Competition 4</p>
+<p><strong>2:00pm:</strong> Competition 4 results, begin Competition 5</p>
+<p><strong>2:30pm:</strong> Competition 5 results, begin Competition 6</p>
+<p><strong>3:00pm:</strong> Competition 6 results, begin Competition 7</p>
+<p><strong>3:30pm:</strong> Competition 7 results, begin Competition 8</p>
+<p><strong>4:00pm:</strong> Final results and bot explanations</p>
+<p><strong>4:30pm:</strong> Hangout</p>
+<p><strong>5:00pm:</strong> End</p>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why?</h2>
+<p>Fun! And thinking about strategy in a repeated game against a variety of opponents.</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

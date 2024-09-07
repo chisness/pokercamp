@@ -6,4 +6,10 @@ format:
   html:
     math: true
 ---
-Welcome to the Rock Paper Scissors Hackathon @ Fractal Tech in NYC. 
+![](math.jpeg)
+
+Welcome to the Rock Paper Scissors Hackathon @ Fractal Tech in NYC taking place on Sunday Sep 8, 2024. 
+
+Proceed to the [Instructions](instructions.qmd) to get started! 
+
+

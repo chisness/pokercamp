@@ -247,8 +247,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#game-theory-equilibrium" id="toc-game-theory-equilibrium" class="nav-link active" data-scroll-target="#game-theory-equilibrium">Game Theory Equilibrium</a></li>
+  <li><a href="#adapting-to-opponents" id="toc-adapting-to-opponents" class="nav-link" data-scroll-target="#adapting-to-opponents">Adapting to Opponents</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -274,9 +281,135 @@ window.Quarto = {
 
 <p>Bot guide page</p>
 <p>how to, hints and ideas</p>
+<ul>
+<li>We’ll give you starter code in Python</li>
+<li>Starter code will show how to make a bot that plays any fixed percentage</li>
+<li>Starter code will show how to make a bot that plays some strategy according to the history of actions</li>
+</ul>
+<section id="game-theory-equilibrium" class="level3">
+<h3 class="anchored" data-anchor-id="game-theory-equilibrium">Game Theory Equilibrium</h3>
+<p>RPS is a zero-sum game and the payouts are symmetrical as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Player 1/2</th>
+<th>Rock</th>
+<th>Paper</th>
+<th>Scissors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rock</td>
+<td>(0, 0)</td>
+<td>(-1, 1)</td>
+<td>(1, -1)</td>
+</tr>
+<tr class="even">
+<td>Paper</td>
+<td>(1, -1)</td>
+<td>(0, 0)</td>
+<td>(-1, 1)</td>
+</tr>
+<tr class="odd">
+<td>Scissors</td>
+<td>(-1, 1)</td>
+<td>(1, -1)</td>
+<td>(0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p>The Nash Equilibrium strategy is to play each action <span class="math inline">\(r = p = s = 1/3\)</span> of the time.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nash Equilibrium Strategy for RPS
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If Player 1 plays Rock with probability <span class="math inline">\(r\)</span>, Paper with probability <span class="math inline">\(p\)</span>, and Scissors with probability <span class="math inline">\(s\)</span>, we have the following expected value equations for Player 2:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{R}) = -1p + 1s\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{P}) = 1r - 1s\)</span></p>
+<p><span class="math inline">\(\mathbb{E}(\text{S}) = -1r + 1p\)</span></p>
+<p>Since no action dominates, we know that the EV of every strategic action should be equal (since if a certain strategy was best, we’d want to always play that strategy).</p>
+<p>To solve for <span class="math inline">\(r\)</span>, <span class="math inline">\(p\)</span>, and <span class="math inline">\(s\)</span>, we can start by setting these EVs equal:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{R}) = \mathbb{E}(\text{P})\)</span></p>
+<p><span class="math inline">\(-1p + 1s = 1r - 1s\)</span></p>
+<p><span class="math inline">\(2s = p + r\)</span></p>
+<p>Then setting these equal:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{R}) = \mathbb{E}(\text{S})\)</span></p>
+<p><span class="math inline">\(-1p + 1s = -1r + 1p\)</span></p>
+<p><span class="math inline">\(s + r = 2p\)</span></p>
+<p>And finally setting these equal:</p>
+<p><span class="math inline">\(\mathbb{E}(\text{P}) = \mathbb{E}(\text{S})\)</span></p>
+<p><span class="math inline">\(1r - 1s = -1r + 1p\)</span></p>
+<p><span class="math inline">\(2r = s + p\)</span></p>
+<p>Now we have these equations:</p>
+<p><span class="math display">\[
+\begin{cases}
+2s = p + r \\
+s + r = 2p \\
+2r = s + p
+\end{cases}
+\]</span></p>
+<p>We can rewrite the 1st:</p>
+<p><span class="math inline">\(r = 2s - p\)</span></p>
+<p>And combine with the 2nd:</p>
+<p><span class="math inline">\(s + (2s - p) = 2p\)</span></p>
+<p><span class="math inline">\(3s = 3p\)</span></p>
+<p>Resulting in:</p>
+<p><span class="math inline">\(s = p\)</span></p>
+<p>Now we can go back to the 2nd equation:</p>
+<p><span class="math inline">\(s + r = 2p\)</span></p>
+<p>And insert <span class="math inline">\(s\)</span> = <span class="math inline">\(p\)</span>:</p>
+<p><span class="math inline">\(s + r = 2s\)</span></p>
+<p>And arrive at:</p>
+<p><span class="math inline">\(r = s\)</span></p>
+<p>We now see that all are equal:</p>
+<p><span class="math inline">\(s = p = r\)</span></p>
+<p>We also know that they must all sum to <span class="math inline">\(1\)</span>:</p>
+<p><span class="math inline">\(r + p + s = 1\)</span></p>
+<p>Since they’re all equal and sum to <span class="math inline">\(1\)</span>, we can substitute <span class="math inline">\(p\)</span> and <span class="math inline">\(s\)</span> with <span class="math inline">\(r\)</span>:</p>
+<p><span class="math inline">\(3r = 1\)</span></p>
+<p><span class="math inline">\(r = 1/3\)</span></p>
+<p>So all actions are taken with probability <span class="math inline">\(1/3\)</span>:</p>
+<p><span class="math inline">\(r = p = s = 1/3 \quad \blacksquare\)</span></p>
+</div>
+</div>
+</div>
+<p>Playing this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock.</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{split}
+\mathbb{E}(\text{Equilibrium vs. Rock}) &amp;= r*0 + p*1 + s*-1 \\
+&amp;= 1/3*0 + 1/3*1 + 1/3*-1 \\
+&amp;= 0
+\end{split}
+\end{equation}
+\]</span></p>
+<!-- 
+You can see this interactively below: 
+
+<iframe src="rps_strategy.html" width="100%" height="600" style="border:none;"></iframe> -->
+</section>
+<section id="adapting-to-opponents" class="level3">
+<h3 class="anchored" data-anchor-id="adapting-to-opponents">Adapting to Opponents</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p><em>Play more like Lisa</em></p>
+<p>Suppose that your opponent always plays Rock. What’s the best counter-strategy? To always play Paper!</p>
+<p>Instead of breaking even with the equilibrium strategy, you’d now be gaining <span class="math inline">\(1\)</span> every game by always winning.</p>
+<p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and our bots)!</p>
+<p>You can try playing a few games against the bot on <a href="https://essentially.net/rsp/">this site</a>, which as of writing has won/tied/lost 45%/27%/28%.</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
