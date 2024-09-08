@@ -234,13 +234,3 @@ To get started, click the [Login](https://poker.camp/login/) button to the left 
 
 - Code text boxes directly on the webpage
 - File upload a single `player.py` Python file 
-
-### Submission Results
-Upon submission, you will be shown a matrix of results against every other bot. You'll also be able to see the first 100 and last 100 games against each bot. 
-
-### During Round Submissions
-Starting in the 2nd round, any submission during the round will show you a test result against all bots from the *previous* round.
-
-### End of Round Submissions
-Your last submission during each round will be the one that is entered into that round's competition.
-
