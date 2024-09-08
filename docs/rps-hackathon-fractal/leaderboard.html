@@ -305,7 +305,17 @@ window.Quarto = {
     .ebot {
         display: none;
     }
+    .tournament-info {
+        margin-bottom: 20px;
+        font-style: italic;
+    }
 </style>
+<h1>
+Leaderboard Matrix Table
+</h1>
+<div id="tournament-info">
+
+</div>
 <div id="table-container">
 
 </div>
@@ -343,8 +353,24 @@ window.Quarto = {
         return /^[A-Z]/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
     }
 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString();
+    }
+
+    function createTournamentInfo(data) {
+        const { tournament_id, start_time, end_time } = data;
+        return `
+            <div class="tournament-info">
+                Tournament ID: ${tournament_id} | 
+                Started: ${formatDate(start_time)} | 
+                Ended: ${formatDate(end_time)}
+            </div>
+        `;
+    }
+
     function createMatrixTable(data) {
-        const players = data.flatMap(cluster => cluster.players);
+        const players = data.groups.flatMap(group => group.players);
         const nonEBots = players.filter(player => !isEBot(player.name));
         const eBots = players.filter(player => isEBot(player.name));
         const sortedPlayers = [...nonEBots, ...eBots];
@@ -359,13 +385,7 @@ window.Quarto = {
         });
         tableHTML += '</tr>';
 
-        let currentCluster = 0;
         sortedPlayers.forEach((player, index) => {
-            if (index > 0 && data[currentCluster].to_place < index + 1) {
-                tableHTML += '<tr class="half-row-gap"><td colspan="' + (playerNames.length + 4) + '"></td></tr>';
-                currentCluster++;
-            }
-
             const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
             const ebotClass = isEBot(player.name) ? 'ebot' : '';
             tableHTML += `<tr class="${playerClass} ${ebotClass}">`;
@@ -392,6 +412,9 @@ window.Quarto = {
     async function initTable() {
         const data = await fetchLeaderboardData();
         if (data) {
+            const tournamentInfoContainer = document.getElementById('tournament-info');
+            tournamentInfoContainer.innerHTML = createTournamentInfo(data);
+
             const tableContainer = document.getElementById('table-container');
             tableContainer.innerHTML = createMatrixTable(data);
         }
