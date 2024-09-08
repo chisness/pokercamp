@@ -297,6 +297,8 @@ window.Quarto = {
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   </ul></li>
+  <li><a href="#problem-solving-and-strategy" id="toc-problem-solving-and-strategy" class="nav-link" data-scroll-target="#problem-solving-and-strategy">Problem Solving and Strategy</a></li>
+  <li><a href="#llms" id="toc-llms" class="nav-link" data-scroll-target="#llms">LLMs</a></li>
   <li><a href="#writing-your-own-bot" id="toc-writing-your-own-bot" class="nav-link" data-scroll-target="#writing-your-own-bot">Writing Your Own Bot</a>
   <ul class="collapse">
   <li><a href="#win-vs.-last-action" id="toc-win-vs.-last-action" class="nav-link" data-scroll-target="#win-vs.-last-action">Win vs.&nbsp;Last Action</a></li>
@@ -306,8 +308,6 @@ window.Quarto = {
   <li><a href="#exploiting-a-weak-bot" id="toc-exploiting-a-weak-bot" class="nav-link" data-scroll-target="#exploiting-a-weak-bot">Exploiting a Weak Bot</a></li>
   <li><a href="#exploiting-a-weak-bart" id="toc-exploiting-a-weak-bart" class="nav-link" data-scroll-target="#exploiting-a-weak-bart">Exploiting a Weak Bart</a></li>
   </ul></li>
-  <li><a href="#problem-solving-and-strategy" id="toc-problem-solving-and-strategy" class="nav-link" data-scroll-target="#problem-solving-and-strategy">Problem Solving and Strategy</a></li>
-  <li><a href="#llms" id="toc-llms" class="nav-link" data-scroll-target="#llms">LLMs</a></li>
   <li><a href="#game-theory-equilibrium" id="toc-game-theory-equilibrium" class="nav-link" data-scroll-target="#game-theory-equilibrium">Game Theory Equilibrium</a></li>
   <li><a href="#submitting-bots" id="toc-submitting-bots" class="nav-link" data-scroll-target="#submitting-bots">Submitting Bots</a></li>
   <li><a href="#game-engine" id="toc-game-engine" class="nav-link" data-scroll-target="#game-engine">Game Engine</a></li>
@@ -373,6 +373,23 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
+</section>
+<section id="problem-solving-and-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="problem-solving-and-strategy">Problem Solving and Strategy</h2>
+<p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)!</p>
+<p>A few possible strategies are:</p>
+<ul>
+<li>Single out specific bots that are exploitable and write code to identify and exploit them
+<ul>
+<li>Build an ensemble of exploits targeting many opponents</li>
+</ul></li>
+<li>Attempt to predict the next move of each bot using a general algorithm</li>
+<li>Use random play as a backup plan (see <a href="#game-theory-equilibrium">below</a> for a full explanation of why this Nash equilibrium strategy always breaks even)</li>
+</ul>
+</section>
+<section id="llms" class="level2">
+<h2 class="anchored" data-anchor-id="llms">LLMs</h2>
+<p>We welcome you to use LLMs like <a href="https://claude.ai">Claude</a> or <a href="https://chatgpt.com">ChatGPT</a>. You can provide the starter code/code samples and get their help with implementing better strategies.</p>
 </section>
 <section id="writing-your-own-bot" class="level2">
 <h2 class="anchored" data-anchor-id="writing-your-own-bot">Writing Your Own Bot</h2>
@@ -496,25 +513,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bart">Exploiting a Weak Bart</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
-<p>(Bad joke)</p>
 </section>
-</section>
-<section id="problem-solving-and-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="problem-solving-and-strategy">Problem Solving and Strategy</h2>
-<p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)!</p>
-<p>A few possible strategies are:</p>
-<ul>
-<li>Single out specific bots that are exploitable and write code to identify and exploit them
-<ul>
-<li>Build an ensemble of exploits targeting many opponents</li>
-</ul></li>
-<li>Attempt to predict the next move of each bot using a general algorithm</li>
-<li>Use random play as a backup plan (see <a href="#game-theory-equilibrium">below</a> for a full explanation of why this Nash equilibrium strategy always breaks even)</li>
-</ul>
-</section>
-<section id="llms" class="level2">
-<h2 class="anchored" data-anchor-id="llms">LLMs</h2>
-<p>We welcome and suggest that you use LLMs like <a href="https://claude.ai">Claude</a> or <a href="https://chatgpt.com">ChatGPT</a>. You can provide the starter code/code samples and get their help with implementing better strategies.</p>
 </section>
 <section id="game-theory-equilibrium" class="level2">
 <h2 class="anchored" data-anchor-id="game-theory-equilibrium">Game Theory Equilibrium</h2>

@@ -35,6 +35,19 @@ And the history of your actions and your opponent actions are stored in the foll
   - This is the main function where you run your strategy and return an action
   - You can return `RockAction()`, `PaperAction()`, or `ScissorsAction()`
 
+## Problem Solving and Strategy
+The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)! 
+
+A few possible strategies are: 
+
+- Single out specific bots that are exploitable and write code to identify and exploit them
+  - Build an ensemble of exploits targeting many opponents
+- Attempt to predict the next move of each bot using a general algorithm
+- Use random play as a backup plan (see [below](#game-theory-equilibrium) for a full explanation of why this Nash equilibrium strategy always breaks even)
+
+## LLMs
+We welcome you to use LLMs like [Claude](https://claude.ai) or [ChatGPT](https://chatgpt.com). You can provide the starter code/code samples and get their help with implementing better strategies. 
+
 ## Writing Your Own Bot
 Your bot will be facing off against a variety of participant bots and environment bots. Here we illustrate some examples of how to write more complex bots. The main function to modify is `get_action`, which is the one that returns the move for each game. 
 
@@ -171,22 +184,6 @@ def get_action(self, *, match_clock):
 
 ### Exploiting a Weak Bart
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-(Bad joke)
-
-## Problem Solving and Strategy
-
-The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)! 
-
-A few possible strategies are: 
-
-- Single out specific bots that are exploitable and write code to identify and exploit them
-  - Build an ensemble of exploits targeting many opponents
-- Attempt to predict the next move of each bot using a general algorithm
-- Use random play as a backup plan (see [below](#game-theory-equilibrium) for a full explanation of why this Nash equilibrium strategy always breaks even)
-
-## LLMs
-We welcome and suggest that you use LLMs like [Claude](https://claude.ai) or [ChatGPT](https://chatgpt.com). You can provide the starter code/code samples and get their help with implementing better strategies. 
 
 ## Game Theory Equilibrium
 
