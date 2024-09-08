@@ -201,13 +201,19 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rps-hackathon-fractal/botsubmit.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bot Submission</span></a>
+ <span class="menu-text">Submit Your Bot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rps-hackathon-fractal/leaderboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Leaderboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-hackathon-fractal/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testing</span></a>
   </div>
 </li>
       </ul>
@@ -493,26 +499,42 @@ Upload File
 <span id="uploadStatus"></span>
 </form>
 <hr>
-The file you upload should be a python file that begins:
+The file you upload should be a python file that looks something like this:
 <div class="interactive-python-container">
-<pre>from skeleton.actions import RockAction, PaperAction, ScissorsAction
+<pre># Simple example bot, written in Python.
+
+from skeleton.actions import RockAction, PaperAction, ScissorsAction
 from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot</pre>
-</div>
-and eventually calls <code>run_bot()</code> on an instance of a bot of a class that extends <code>Bot</code>, together with <code>parse_args()</code>, like so:
-<div class="interactive-python-container">
-<pre>class Player(Bot):
+from skeleton.runner import parse_args, run_bot
+
+import random
+
+class Player(Bot):
+    # A bot for playing Rock-Paper-Scissors.
+
     def __init__(self):
-        ...
-    
+        # Called when a new matchup starts. Called exactly once.
+        
+        self.my_profit = 0
+        self.history = []
+
     def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-        ...
-    
+        # Called after a round. Called NUM_ROUNDS times.
+        
+        self.history.append((my_action, their_action))
+        self.my_profit += my_payoff
+
     def get_action(self, *, match_clock):
-        ...
+        # Where the magic happens. Called when the engine needs an action from
+        # your bot. Called NUM_ROUNDS times.
+        #
+        # Returns a RockAction(), PaperAction(), or ScissorsAction().
+        
+        return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 
 if __name__ == '__main__':
-    run_bot(Player(), parse_args())</pre>
+    run_bot(Player(), parse_args())
+</pre>
 </div>
 </div>
 <div id="Link Repo" class="tabcontent">
@@ -542,7 +564,14 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
 </script>
 <script>
     // Autosave functionality
+    var enable_autosave = false;
+    
     function autoSave() {
+        if (!enable_autosave) {
+          return;
+        }
+        
+        console.log('autosave');
         const editableFields = document.querySelectorAll('.interactive-python-container .editable');
         const saveData = {};
     
@@ -555,7 +584,9 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
     
     // Load saved data
     function loadSavedData() {
+        console.log('load');
         const savedData = localStorage.getItem('autosaveData');
+        console.log(savedData);
         if (savedData) {
             const parsedData = JSON.parse(savedData);
             Object.keys(parsedData).forEach((key) => {
@@ -566,12 +597,14 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
                 }
             });
         }
+        
+        enable_autosave = true;
     }
+        
+    setInterval(autoSave, 3000); // 3 seconds
     
     // Load saved data when the page loads
     window.addEventListener('load', loadSavedData);
-    
-    setInterval(autoSave, 3000); // 3 seconds
     
     function adjustTextareaHeight(textarea) {
         textarea.style.height = '1.5em';

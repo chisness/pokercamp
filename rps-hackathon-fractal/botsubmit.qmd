@@ -222,24 +222,41 @@ if __name__ == '__main__':
 
 ---
 
-The file you upload should be a python file that begins:
-<div class="interactive-python-container"><pre>from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot</pre></div>
+The file you upload should be a python file that looks something like this:
+<div class="interactive-python-container"><pre># Simple example bot, written in Python.
 
-and eventually calls `run_bot()` on an instance of a bot of a class that extends `Bot`, together with `parse_args()`, like so:
-<div class="interactive-python-container"><pre>class Player(Bot):
+from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+
+import random
+
+class Player(Bot):
+    # A bot for playing Rock-Paper-Scissors.
+
     def __init__(self):
-        ...
-    
+        # Called when a new matchup starts. Called exactly once.
+        
+        self.my_profit = 0
+        self.history = []
+
     def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-        ...
-    
+        # Called after a round. Called NUM_ROUNDS times.
+        
+        self.history.append((my_action, their_action))
+        self.my_profit += my_payoff
+
     def get_action(self, *, match_clock):
-        ...
+        # Where the magic happens. Called when the engine needs an action from
+        # your bot. Called NUM_ROUNDS times.
+        #
+        # Returns a RockAction(), PaperAction(), or ScissorsAction().
+        
+        return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 
 if __name__ == '__main__':
-    run_bot(Player(), parse_args())</pre></div>
+    run_bot(Player(), parse_args())
+</pre></div>
 </div>
 
 <div id="Link Repo" class="tabcontent">
@@ -270,7 +287,14 @@ if __name__ == '__main__':
 
 <script>
     // Autosave functionality
+    var enable_autosave = false;
+    
     function autoSave() {
+        if (!enable_autosave) {
+          return;
+        }
+        
+        console.log('autosave');
         const editableFields = document.querySelectorAll('.interactive-python-container .editable');
         const saveData = {};
     
@@ -283,7 +307,9 @@ if __name__ == '__main__':
     
     // Load saved data
     function loadSavedData() {
+        console.log('load');
         const savedData = localStorage.getItem('autosaveData');
+        console.log(savedData);
         if (savedData) {
             const parsedData = JSON.parse(savedData);
             Object.keys(parsedData).forEach((key) => {
@@ -294,12 +320,14 @@ if __name__ == '__main__':
                 }
             });
         }
+        
+        enable_autosave = true;
     }
+        
+    setInterval(autoSave, 3000); // 3 seconds
     
     // Load saved data when the page loads
     window.addEventListener('load', loadSavedData);
-    
-    setInterval(autoSave, 3000); // 3 seconds
     
     function adjustTextareaHeight(textarea) {
         textarea.style.height = '1.5em';
