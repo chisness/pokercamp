@@ -10,12 +10,13 @@ format:
 ## How it Works
 
 ### Rock Paper Scissors
+![Image by [Enzoklop](https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Rock-paper-scissors.svg) under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)](rps.png){width=50%}
 
 - Rock defeats scissors, scissors defeats paper, and paper defeats rock
 - You get 1 point for a win, -1 for a loss, and 0 for ties
 
 ### Competition Rounds
-There will be 8 rounds of RPS competitions. Each will have: 
+There will be ~~8~~ 7 rounds of RPS competitions. Each will have: 
 
 - 1 bot entered by each participant
 - Between 1 and 4 environment bots (bots that we make)
@@ -25,7 +26,7 @@ You'll play 1000 games against each other bot.
 ### Environment Bots
 Each environment bot that enters during a round will stay for all future rounds. 
 
-After each round, you'll see the names of the bot(s) that were in the previous round. Sometimes these will be hints about what the bot(s) were doing. 
+After each round, you'll see the names of the bot(s) that were in the previous round. Often these will be hints about what the bot(s) were doing. 
 
 ### Submissions
 - For each competition, you can submit up to the end of that round
@@ -66,23 +67,21 @@ Look for patterns. If participant bots are only trying to exploit environment bo
 
 **12:00pm:** Competition 1 results, begin Competition 2
 
-**12:30pm:** Competition 2 results, pizza lunch break
+**12:30pm:** Competition 2 results, begin Competition 3
 
-**1:00pm:** Begin Competition 3
+- Pizza lunch 
 
-**1:30pm:** Competition 3 results, begin Competition 4
+**1:00pm:** Competition 3 results, begin competition 4
 
-**2:00pm:** Competition 4 results, begin Competition 5
+**1:30pm:** Competition 4 results, begin Competition 5
 
-**2:30pm:** Competition 5 results, begin Competition 6
+**2:00pm:** Competition 5 results, begin Competition 6
 
-**3:00pm:** Competition 6 results, begin Competition 7
+**2:30pm:** Competition 7 results, begin Competition 7
 
-**3:30pm:** Competition 7 results, begin Competition 8
+**3:00pm:** Competition 7/final results and bot explanations
 
-**4:00pm:** Final results and bot explanations
-
-**4:30pm:** Hangout
+- Hangout
 
 **5:00pm:** End
 
