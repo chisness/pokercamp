@@ -234,3 +234,34 @@ To get started, click the [Login](https://poker.camp/login/) button to the left 
 
 - Code text boxes directly on the webpage
 - File upload a single `player.py` Python file 
+
+## Game Engine
+
+If you would like to clone the repository with the game engine, you can find it at [https://github.com/pokercamp/rps-engine](https://github.com/pokercamp/rps-engine). 
+
+In `players/default`, the `player.py` file is where you write your bot. We don't recommend changing any other files. 
+
+The engine is in `engine.py`. You can use `engine.py` to run two bots against each other. You can use this to test your bot against itself or other bots that you create. 
+
+The following code will run `n_games` between `p1_name` and `p2_name` and output the result to the specified `output_dir`. 
+
+The generic usage is: 
+```python
+python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_games}"
+```
+
+For example, to run a 1000 game match with two bots that are named `p1` and `p2` with files in the `players/default/` folder and outputted to the `p1p2test` folder, do this: 
+
+```python
+python3 engine.py -p1 'p1' players/default/ -p2 'p2' players/default/ -o p1p2test -n 1000
+```
+
+The output files are in the folder `p1p2test`: 
+
+1. `scores.p1.p2.txt` contains the raw scores of each player
+
+2. The `p1.p2` folder contains: 
+
+  - `gamelog.txt`: A log of all hands played
+
+  - Other log files for each player 

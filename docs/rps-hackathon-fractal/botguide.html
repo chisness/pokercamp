@@ -307,6 +307,7 @@ window.Quarto = {
   <li><a href="#llms" id="toc-llms" class="nav-link" data-scroll-target="#llms">LLMs</a></li>
   <li><a href="#game-theory-equilibrium" id="toc-game-theory-equilibrium" class="nav-link" data-scroll-target="#game-theory-equilibrium">Game Theory Equilibrium</a></li>
   <li><a href="#submitting-bots" id="toc-submitting-bots" class="nav-link" data-scroll-target="#submitting-bots">Submitting Bots</a></li>
+  <li><a href="#game-engine" id="toc-game-engine" class="nav-link" data-scroll-target="#game-engine">Game Engine</a></li>
   </ul>
 </nav>
     </div>
@@ -562,6 +563,26 @@ s + r = 2p \\
 <ul>
 <li>Code text boxes directly on the webpage</li>
 <li>File upload a single <code>player.py</code> Python file</li>
+</ul>
+</section>
+<section id="game-engine" class="level2">
+<h2 class="anchored" data-anchor-id="game-engine">Game Engine</h2>
+<p>If you would like to clone the repository with the game engine, you can find it at <a href="https://github.com/pokercamp/rps-engine">https://github.com/pokercamp/rps-engine</a>.</p>
+<p>In <code>players/default</code>, the <code>player.py</code> file is where you write your bot. We don’t recommend changing any other files.</p>
+<p>The engine is in <code>engine.py</code>. You can use <code>engine.py</code> to run two bots against each other. You can use this to test your bot against itself or other bots that you create.</p>
+<p>The following code will run <code>n_games</code> between <code>p1_name</code> and <code>p2_name</code> and output the result to the specified <code>output_dir</code>.</p>
+<p>The generic usage is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 {p1_name} {p1_file_path} <span class="op">-</span>p2 {p2_name} {p2_file_path} <span class="op">-</span>o {output_dir} <span class="op">-</span>n {n_games}<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, to run a 1000 game match with two bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/default/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output files are in the folder <code>p1p2test</code>:</p>
+<ol type="1">
+<li><p><code>scores.p1.p2.txt</code> contains the raw scores of each player</p></li>
+<li><p>The <code>p1.p2</code> folder contains:</p></li>
+</ol>
+<ul>
+<li><p><code>gamelog.txt</code>: A log of all hands played</p></li>
+<li><p>Other log files for each player</p></li>
 </ul>
 
 

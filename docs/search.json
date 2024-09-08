@@ -1159,6 +1159,18 @@
     ]
   },
   {
+    "objectID": "rps-hackathon-fractal/botguide.html#game-engine",
+    "href": "rps-hackathon-fractal/botguide.html#game-engine",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "Game Engine",
+    "text": "Game Engine\nIf you would like to clone the repository with the game engine, you can find it at https://github.com/pokercamp/rps-engine.\nIn players/default, the player.py file is where you write your bot. We don’t recommend changing any other files.\nThe engine is in engine.py. You can use engine.py to run two bots against each other. You can use this to test your bot against itself or other bots that you create.\nThe following code will run n_games between p1_name and p2_name and output the result to the specified output_dir.\nThe generic usage is:\npython3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_games}\"\nFor example, to run a 1000 game match with two bots that are named p1 and p2 with files in the players/default/ folder and outputted to the p1p2test folder, do this:\npython3 engine.py -p1 'p1' players/default/ -p2 'p2' players/default/ -o p1p2test -n 1000\nThe output files are in the folder p1p2test:\n\nscores.p1.p2.txt contains the raw scores of each player\nThe p1.p2 folder contains:\n\n\ngamelog.txt: A log of all hands played\nOther log files for each player",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
     "objectID": "rps-hackathon-fractal/instructions.html",
     "href": "rps-hackathon-fractal/instructions.html",
     "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
