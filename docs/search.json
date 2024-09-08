@@ -555,7 +555,55 @@
     "href": "rps-hackathon-fractal/botguide.html",
     "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
     "section": "",
-    "text": "Bot guide page",
+    "text": "We provide Python starter code so that you can mainly think about the problem solving and worry less about the code details.\nWe provide bots that can play the following basic strategies:\n\nRandom: You are guaranteed to breakeven in expectation if you play randomly\nPercentage: You can choose a fixed percentage (e.g. 50% rock, 25% paper, 25% scissors)\nWin vs. Last Action: Play the action that beats the opponent’s last move\nWin vs. History: Play the action that beats the opponent’s most frequent move over the entire history\n\nThe histories of the entire match are stored in these arrays:\n\nself.my_history[]\nself.opponent_history[]\nself.results_history[]\n\nThe functions in the code are:\n\ndef __init__(self): Initializes the history arrays\nhandle_new_round(self, game_state, round_state, active): This is run for every new game\ndef handle_round_over(self, game_state, terminal_state, active): This is run at the end of every game\ndef get_action(self, game_state, round_state, active): This is the main function where you run your strategy\n\n# active (same at newround, getaction, and roundover): Returns 0 or 1\n# You are assigned 0 or 1 for each round \n\n# round_state (same at newround and getaction): RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None)\n# terminal_state: TerminalState(deltas=[1, -1], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper, Rock], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None))))\n# game_state (same at newround, getaction): GameState(bankroll=10, game_clock=29.988, round_num=1)\n# game_state (at end): GameState(bankroll=11, game_clock=29.988, round_num=1)",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botguide.html#starter-code",
+    "href": "rps-hackathon-fractal/botguide.html#starter-code",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "",
+    "text": "We provide Python starter code so that you can mainly think about the problem solving and worry less about the code details.\nWe provide bots that can play the following basic strategies:\n\nRandom: You are guaranteed to breakeven in expectation if you play randomly\nPercentage: You can choose a fixed percentage (e.g. 50% rock, 25% paper, 25% scissors)\nWin vs. Last Action: Play the action that beats the opponent’s last move\nWin vs. History: Play the action that beats the opponent’s most frequent move over the entire history\n\nThe histories of the entire match are stored in these arrays:\n\nself.my_history[]\nself.opponent_history[]\nself.results_history[]\n\nThe functions in the code are:\n\ndef __init__(self): Initializes the history arrays\nhandle_new_round(self, game_state, round_state, active): This is run for every new game\ndef handle_round_over(self, game_state, terminal_state, active): This is run at the end of every game\ndef get_action(self, game_state, round_state, active): This is the main function where you run your strategy\n\n# active (same at newround, getaction, and roundover): Returns 0 or 1\n# You are assigned 0 or 1 for each round \n\n# round_state (same at newround and getaction): RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None)\n# terminal_state: TerminalState(deltas=[1, -1], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper, Rock], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None))))\n# game_state (same at newround, getaction): GameState(bankroll=10, game_clock=29.988, round_num=1)\n# game_state (at end): GameState(bankroll=11, game_clock=29.988, round_num=1)",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botguide.html#writing-your-own-bot",
+    "href": "rps-hackathon-fractal/botguide.html#writing-your-own-bot",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "Writing Your Own Bot",
+    "text": "Writing Your Own Bot\n\nStarter Code Modification\nWe give starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played two games ago.\nLet’s try this:\n\nIf we’re winning or tying, then we beat the action from 2 games ago 80% of the time and play randomly 20% of the time\nIf we’re losing, then we always play randomly\n\n\n\nExploiting a Weak Bot\nHere’s an idea for a strategy. You check to see if anyone is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot.\nWe can define an all_rocks variable that is True if the opponent so far has only played Rock and False otherwise like this:\nall_rocks = True \nfor item in self.opponent_history:\n  if item != \"RockAction()\":\n      all_rocks = False\nThen we can execute our strategy:\nif all_rocks = True:\n  return PaperAction()\nelse:\n  return random.choice(RockAction, PaperAction, ScissorsAction)()\n\n\nExploiting a Weak Bart\n\n\n(Yes, bad joke)",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botguide.html#problem-solving-and-strategy",
+    "href": "rps-hackathon-fractal/botguide.html#problem-solving-and-strategy",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "Problem Solving and Strategy",
+    "text": "Problem Solving and Strategy\nThe goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)!\nA few possible strategies are:\n\nSingle out specific bots that are exploitable and write code to identify and exploit them\nAttempt to predict the next move of each bot using a general algorithm\nUse random play as a backup plan (see below for a full explanation of why this always breaks even and is the Nash equilibrium strategy)",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Guide to Building a Bot"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/botguide.html#game-theory-equilibrium",
+    "href": "rps-hackathon-fractal/botguide.html#game-theory-equilibrium",
+    "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
+    "section": "Game Theory Equilibrium",
+    "text": "Game Theory Equilibrium\nRPS is a zero-sum game and the payouts are symmetrical as follows:\n\n\n\nPlayer 1/2\nRock\nPaper\nScissors\n\n\n\n\nRock\n(0, 0)\n(-1, 1)\n(1, -1)\n\n\nPaper\n(1, -1)\n(0, 0)\n(-1, 1)\n\n\nScissors\n(-1, 1)\n(1, -1)\n(0, 0)\n\n\n\nThe Nash Equilibrium strategy is to play each action \\(r = p = s = 1/3\\) of the time.\n\n\n\n\n\n\nNash Equilibrium Strategy for RPS\n\n\n\n\n\nIf Player 1 plays Rock with probability \\(r\\), Paper with probability \\(p\\), and Scissors with probability \\(s\\), we have the following expected value equations for Player 2:\n\\(\\mathbb{E}(\\text{R}) = -1p + 1s\\)\n\\(\\mathbb{E}(\\text{P}) = 1r - 1s\\)\n\\(\\mathbb{E}(\\text{S}) = -1r + 1p\\)\nSince no action dominates, we know that the EV of every strategic action should be equal (since if a certain strategy was best, we’d want to always play that strategy).\nTo solve for \\(r\\), \\(p\\), and \\(s\\), we can start by setting these EVs equal:\n\\(\\mathbb{E}(\\text{R}) = \\mathbb{E}(\\text{P})\\)\n\\(-1p + 1s = 1r - 1s\\)\n\\(2s = p + r\\)\nThen setting these equal:\n\\(\\mathbb{E}(\\text{R}) = \\mathbb{E}(\\text{S})\\)\n\\(-1p + 1s = -1r + 1p\\)\n\\(s + r = 2p\\)\nAnd finally setting these equal:\n\\(\\mathbb{E}(\\text{P}) = \\mathbb{E}(\\text{S})\\)\n\\(1r - 1s = -1r + 1p\\)\n\\(2r = s + p\\)\nNow we have these equations:\n\\[\n\\begin{cases}\n2s = p + r \\\\\ns + r = 2p \\\\\n2r = s + p\n\\end{cases}\n\\]\nWe can rewrite the 1st:\n\\(r = 2s - p\\)\nAnd combine with the 2nd:\n\\(s + (2s - p) = 2p\\)\n\\(3s = 3p\\)\nResulting in:\n\\(s = p\\)\nNow we can go back to the 2nd equation:\n\\(s + r = 2p\\)\nAnd insert \\(s\\) = \\(p\\):\n\\(s + r = 2s\\)\nAnd arrive at:\n\\(r = s\\)\nWe now see that all are equal:\n\\(s = p = r\\)\nWe also know that they must all sum to \\(1\\):\n\\(r + p + s = 1\\)\nSince they’re all equal and sum to \\(1\\), we can substitute \\(p\\) and \\(s\\) with \\(r\\):\n\\(3r = 1\\)\n\\(r = 1/3\\)\nSo all actions are taken with probability \\(1/3\\):\n\\(r = p = s = 1/3 \\quad \\blacksquare\\)\n\n\n\nPlaying this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock.\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Equilibrium vs. Rock}) &= r*0 + p*1 + s*-1 \\\\\n&= 1/3*0 + 1/3*1 + 1/3*-1 \\\\\n&= 0\n\\end{split}\n\\end{equation}\n\\]",
     "crumbs": [
       "About",
       "Getting Started",
@@ -758,14 +806,74 @@
     "href": "rps-hackathon-fractal/index.html",
     "title": "RPS Hackathon @ Fractal: Homepage",
     "section": "",
-    "text": "Homepage page"
+    "text": "Welcome to the Rock Paper Scissors Hackathon @ Fractal Tech in NYC taking place on Sunday Sep 8, 2024.\nProceed to the Instructions to get started!"
   },
   {
     "objectID": "rps-hackathon-fractal/instructions.html",
     "href": "rps-hackathon-fractal/instructions.html",
-    "title": "RPS Hackathon @ Fractal: Instructions",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
     "section": "",
-    "text": "Instructions page",
+    "text": "Rock defeats scissors, scissors defeats paper, and paper defeats rock\nYou get 1 point for a win, -1 for a loss, and 0 for ties\n\n\n\n\nThere will be 8 rounds of RPS competitions. Each will have:\n\n1 bot entered by each participant\nBetween 1 and 4 environment bots (bots that we make)\n\nYou’ll play 1000 games against each other bot.\n\n\n\nEach environment bot that enters during a round will stay for all future rounds.\nAfter each round, you’ll see the names of the bot(s) that were in the previous round. Sometimes these will be hints about what the bot(s) were doing.\n\n\n\n\nFor each competition, you can submit up to the end of that round\nEach submission during the round will receive a test result based on how that bot would have done in the previous round (during the first round this won’t be possible)\n\nDoing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots\n\nThe final submission before the end of the round will be entered into that round’s competition\nAt the end of each round, we’ll run the tournament and show the results\n\n\n\n\nAt the end of each round, you’ll get the following information:\n\nMatrix score report with results against every other bot\nGame histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)\n\nThis includes the names of the environment bots, which often will be hints about how they play\n\n\n\n\n\nThere will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html#how-it-works",
+    "href": "rps-hackathon-fractal/instructions.html#how-it-works",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
+    "section": "",
+    "text": "Rock defeats scissors, scissors defeats paper, and paper defeats rock\nYou get 1 point for a win, -1 for a loss, and 0 for ties\n\n\n\n\nThere will be 8 rounds of RPS competitions. Each will have:\n\n1 bot entered by each participant\nBetween 1 and 4 environment bots (bots that we make)\n\nYou’ll play 1000 games against each other bot.\n\n\n\nEach environment bot that enters during a round will stay for all future rounds.\nAfter each round, you’ll see the names of the bot(s) that were in the previous round. Sometimes these will be hints about what the bot(s) were doing.\n\n\n\n\nFor each competition, you can submit up to the end of that round\nEach submission during the round will receive a test result based on how that bot would have done in the previous round (during the first round this won’t be possible)\n\nDoing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots\n\nThe final submission before the end of the round will be entered into that round’s competition\nAt the end of each round, we’ll run the tournament and show the results\n\n\n\n\nAt the end of each round, you’ll get the following information:\n\nMatrix score report with results against every other bot\nGame histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)\n\nThis includes the names of the environment bots, which often will be hints about how they play\n\n\n\n\n\nThere will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html#strategy",
+    "href": "rps-hackathon-fractal/instructions.html#strategy",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
+    "section": "Strategy",
+    "text": "Strategy\nYour mission is to play well against the environment bots without getting counterplayed by other participant bots.\n\nStrategy vs. Environment Bots\nThe 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. Combine this with the sometimes-revealed bot names, and you’ll be able to develop a strong strategy against these bots for future rounds.\n\n\nStrategy vs. Participant Bots\nLook for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves.",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html#writing-bots",
+    "href": "rps-hackathon-fractal/instructions.html#writing-bots",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
+    "section": "Writing Bots",
+    "text": "Writing Bots\nClick here for our guide on getting started writing RPS bots.",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html#schedule",
+    "href": "rps-hackathon-fractal/instructions.html#schedule",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
+    "section": "Schedule",
+    "text": "Schedule\n10:30am: Doors open\n11:00am: Arrival and setup\n11:30am: Begin Competition 1\n12:00pm: Competition 1 results, begin Competition 2\n12:30pm: Competition 2 results, pizza lunch break\n1:00pm: Begin Competition 3\n1:30pm: Competition 3 results, begin Competition 4\n2:00pm: Competition 4 results, begin Competition 5\n2:30pm: Competition 5 results, begin Competition 6\n3:00pm: Competition 6 results, begin Competition 7\n3:30pm: Competition 7 results, begin Competition 8\n4:00pm: Final results and bot explanations\n4:30pm: Hangout\n5:00pm: End",
+    "crumbs": [
+      "About",
+      "Getting Started",
+      "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/instructions.html#why",
+    "href": "rps-hackathon-fractal/instructions.html#why",
+    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
+    "section": "Why?",
+    "text": "Why?\nFun! And thinking about strategy in a repeated game against a variety of opponents.\nFrom DeepMind in 2023:\n\nIn sequential decision-making, agent evaluation has largely been restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.",
     "crumbs": [
       "About",
       "Getting Started",
@@ -775,9 +883,9 @@
   {
     "objectID": "rps-hackathon-fractal/botsubmit.html",
     "href": "rps-hackathon-fractal/botsubmit.html",
-    "title": "RPS Hackathon @ Fractal: Bot Submission",
+    "title": "RPS Hackathon @ Fractal: Submit",
     "section": "",
-    "text": "Bot submit page",
+    "text": "Edit Code\n\n\nUpload File\n\n\nLink Repo\n\n\n\n\nSubmit\n\n\n\n\n\nfrom skeleton.actions import RockAction, PaperAction, ScissorsAction\nfrom skeleton.bot import Bot\nfrom skeleton.runner import parse_args, run_bot\n\n\n\n\nimport random\n\n\n\nclass Player(Bot):\n\n\n\n    \n\n\n\n\n    def __init__(self):\n\n\n        \n# Called when a new matchup starts. Called exactly once.\n\nself.my_profit = 0\nself.history = []\n\n\n\n    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):\n\n\n        \n# Called after a round. Called NUM_ROUNDS times.\n\nself.history.append((my_action, their_action))\nself.my_profit += my_payoff\n\n\n\n    def get_action(self, *, match_clock):\n\n\n        \n# Where the magic happens.\n# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.\n#\n# Should return a RockAction(), PaperAction(), or ScissorsAction().\n\nreturn random.choice([RockAction(), PaperAction(), ScissorsAction()])\n\n\n\nif __name__ == '__main__':\n    run_bot(Player(), parse_args())\n\n\n\n\n\n\n\n\n\n\n\nUpload File\n\n\n\n\nThe file you upload should be a python file that begins:\n\nfrom skeleton.actions import RockAction, PaperAction, ScissorsAction\nfrom skeleton.bot import Bot\nfrom skeleton.runner import parse_args, run_bot\n\nand eventually calls run_bot() on an instance of a bot of a class that extends Bot, together with parse_args(), like so:\n\nclass Player(Bot):\n    def __init__(self):\n        ...\n    \n    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):\n        ...\n    \n    def get_action(self, *, match_clock):\n        ...\n\nif __name__ == '__main__':\n    run_bot(Player(), parse_args())\n\n\n\n\nComing soon! Ask if you’d like to use this to upload multiple files or something else that doesn’t fit into a player.py file.",
     "crumbs": [
       "About",
       "Hackathon",
