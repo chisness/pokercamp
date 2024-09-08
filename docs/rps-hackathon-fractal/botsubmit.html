@@ -541,9 +541,42 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
     document.getElementById("defaultOpen").click();
 </script>
 <script>
+    // Autosave functionality
+    function autoSave() {
+        const editableFields = document.querySelectorAll('.interactive-python-container .editable');
+        const saveData = {};
+    
+        editableFields.forEach((field) => {
+            saveData[field.id] = field.value;
+        });
+    
+        localStorage.setItem('autosaveData', JSON.stringify(saveData));
+    }
+    
+    // Load saved data
+    function loadSavedData() {
+        const savedData = localStorage.getItem('autosaveData');
+        if (savedData) {
+            const parsedData = JSON.parse(savedData);
+            Object.keys(parsedData).forEach((key) => {
+                const field = document.getElementById(key);
+                if (field) {
+                    field.value = parsedData[key];
+                    adjustTextareaHeight(field);
+                }
+            });
+        }
+    }
+    
+    // Load saved data when the page loads
+    window.addEventListener('load', loadSavedData);
+    
+    setInterval(autoSave, 3000); // 3 seconds
+    
     function adjustTextareaHeight(textarea) {
         textarea.style.height = '1.5em';
         textarea.style.height = (textarea.scrollHeight) + 'px';
+        autoSave();
     }
 
     document.querySelectorAll('.editable').forEach(textarea => {
@@ -558,6 +591,7 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
     Prism.highlightAll();
 
     function submitCode() {
+        autoSave();
         const editableFields = document.querySelectorAll('.interactive-python-container .editable');
         const username = localStorage.getItem('github_username') || 'unknown';
         const token = localStorage.getItem('github_oauth_token') || 'unknown';
