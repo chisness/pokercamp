@@ -286,7 +286,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#starter-code" id="toc-starter-code" class="nav-link active" data-scroll-target="#starter-code">Starter Code</a></li>
+  <li><a href="#starter-code" id="toc-starter-code" class="nav-link active" data-scroll-target="#starter-code">Starter Code</a>
+  <ul class="collapse">
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  </ul></li>
   <li><a href="#writing-your-own-bot" id="toc-writing-your-own-bot" class="nav-link" data-scroll-target="#writing-your-own-bot">Writing Your Own Bot</a>
   <ul class="collapse">
   <li><a href="#starter-code-modification" id="toc-starter-code-modification" class="nav-link" data-scroll-target="#starter-code-modification">Starter Code Modification</a></li>
@@ -294,6 +298,7 @@ window.Quarto = {
   <li><a href="#exploiting-a-weak-bart" id="toc-exploiting-a-weak-bart" class="nav-link" data-scroll-target="#exploiting-a-weak-bart">Exploiting a Weak Bart</a></li>
   </ul></li>
   <li><a href="#problem-solving-and-strategy" id="toc-problem-solving-and-strategy" class="nav-link" data-scroll-target="#problem-solving-and-strategy">Problem Solving and Strategy</a></li>
+  <li><a href="#llms" id="toc-llms" class="nav-link" data-scroll-target="#llms">LLMs</a></li>
   <li><a href="#game-theory-equilibrium" id="toc-game-theory-equilibrium" class="nav-link" data-scroll-target="#game-theory-equilibrium">Game Theory Equilibrium</a></li>
   </ul>
 </nav>
@@ -323,12 +328,14 @@ window.Quarto = {
 <section id="starter-code" class="level2">
 <h2 class="anchored" data-anchor-id="starter-code">Starter Code</h2>
 <p>We provide Python starter code so that you can mainly think about problem solving and worry less about the code details.</p>
-<p>We provide bots that can play the following basic strategies:</p>
+<p>We provide code that can play the following basic strategies. By default the Random strategy is playing, which <a href="#game-theory-equilibrium">guarantees a breakeven result</a>. You can comment out one strategy and uncomment another to use a different one.</p>
 <ol type="1">
 <li><strong>Random:</strong> You are guaranteed to breakeven in expectation if you play randomly</li>
 <li><strong>Win vs.&nbsp;Last Action:</strong> Play the action that beats the opponent’s last move</li>
 <li><strong>Win vs.&nbsp;History:</strong> Play the action that beats the opponent’s most frequent move over the entire history</li>
 </ol>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">Variables</h3>
 <p>The profit so far in the match is stored in:</p>
 <ul>
 <li><code>self.my_profit</code></li>
@@ -337,7 +344,9 @@ window.Quarto = {
 <ul>
 <li><code>self.history[]</code></li>
 </ul>
-<p>The functions in the code are:</p>
+</section>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
 <ul>
 <li><code>def __init__(self)</code>:
 <ul>
@@ -351,39 +360,69 @@ window.Quarto = {
 <li>It updates the payoff with <code>my_payoff</code></li>
 <li><code>match_clock</code> can be used to see how much of your 30 second total time is remaining (this can generally be ignored).</li>
 </ul></li>
-<li><code>def get_action(self, *, match_clock)</code>: This is the main function where you run your strategy and return an action, which is either <code>RockAction()</code>, <code>PaperAction()</code>, or <code>ScissorsAction()</code>.</li>
+<li><code>def get_action(self, *, match_clock)</code>:
+<ul>
+<li>This is the main function where you run your strategy and return an action</li>
+<li>You can return <code>RockAction()</code>, <code>PaperAction()</code>, or <code>ScissorsAction()</code>.</li>
+</ul></li>
 </ul>
+</section>
 </section>
 <section id="writing-your-own-bot" class="level2">
 <h2 class="anchored" data-anchor-id="writing-your-own-bot">Writing Your Own Bot</h2>
+<p>As we show at the <a href="#game-theory-equilibrium">bottom of the page</a>, playing a random strategy guarantees that you will break even in expectation. Since there are many suboptimal environment bots, this won’t be a sufficient strategy, but could be valuable to consider in some situations.</p>
 <section id="starter-code-modification" class="level3">
 <h3 class="anchored" data-anchor-id="starter-code-modification">Starter Code Modification</h3>
-<p>We provide starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played <em>two</em> games ago.</p>
-<p>Let’s try this:</p>
+<p>One of the pieces of starter code that we provide is “Win vs.&nbsp;Last Action”. Suppose that you have a theory that you should actually play to beat the action that they played <em>two</em> games ago.</p>
+<p>You could try something like this:</p>
 <ul>
-<li>If we’re winning or tying, then we beat the action from 2 games ago 80% of the time and play randomly 20% of the time</li>
+<li>If we’re winning or tying, then we play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time</li>
 <li>If we’re losing, then we always play randomly</li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If we're losing, play randomly</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">self</span>.my_profit <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># If we're winning or tying, and we have at least 2 rounds of history</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.history) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 80% chance to play based on opponent's action from 2 rounds ago</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.8</span>:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        two_rounds_ago <span class="op">=</span> <span class="va">self</span>.history[<span class="op">-</span><span class="dv">2</span>][<span class="dv">1</span>]  <span class="co"># Opponent's action from 2 rounds ago</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(two_rounds_ago, RockAction):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> PaperAction()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">isinstance</span>(two_rounds_ago, PaperAction):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> ScissorsAction()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># ScissorsAction</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> RockAction()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># In all other cases (including first 2 rounds), play randomly</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exploiting-a-weak-bot" class="level3">
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bot">Exploiting a Weak Bot</h3>
-<p>Here’s an idea for a strategy. You check to see if anyone is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot.</p>
-<p>We can define an <code>all_rocks</code> variable that is <code>True</code> if the opponent so far has only played Rock and <code>False</code> otherwise like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>all_rocks <span class="op">=</span> <span class="va">True</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> <span class="va">self</span>.opponent_history:</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> item <span class="op">!=</span> <span class="st">"RockAction()"</span>:</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      all_rocks <span class="op">=</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then we can execute our strategy:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> all_rocks <span class="op">=</span> <span class="va">True</span>:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> PaperAction()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> random.choice(RockAction, PaperAction, ScissorsAction)()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In practice in this hackathon, a lot of value will come from exploiting weak bots or other opponents.</p>
+<p>For example, you could check to see if any bot is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot.</p>
+<p>Here’s how we can execute this strategy:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the opponent has played at least once</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">self</span>.history:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all of the opponent's moves</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    opponent_moves <span class="op">=</span> [move[<span class="dv">1</span>] <span class="cf">for</span> move <span class="kw">in</span> <span class="va">self</span>.history]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count how many times the opponent played Rock</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    rock_count <span class="op">=</span> <span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> move <span class="kw">in</span> opponent_moves <span class="cf">if</span> <span class="bu">isinstance</span>(move, RockAction))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If opponent has only played Rock, we play Paper</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> rock_count <span class="op">==</span> <span class="bu">len</span>(opponent_moves):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> PaperAction()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># If it's the first move or opponent hasn't only played Rock, play randomly</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exploiting-a-weak-bart" class="level3">
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bart">Exploiting a Weak Bart</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
-<p>(Yes, bad joke)</p>
+<p>(Bad joke)</p>
 </section>
 </section>
 <section id="problem-solving-and-strategy" class="level2">
@@ -391,10 +430,17 @@ window.Quarto = {
 <p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)!</p>
 <p>A few possible strategies are:</p>
 <ul>
-<li>Single out specific bots that are exploitable and write code to identify and exploit them</li>
+<li>Single out specific bots that are exploitable and write code to identify and exploit them
+<ul>
+<li>Build an ensemble of exploits targeting many opponents</li>
+</ul></li>
 <li>Attempt to predict the next move of each bot using a general algorithm</li>
-<li>Use random play as a backup plan (see below for a full explanation of why this always breaks even and is the Nash equilibrium strategy)</li>
+<li>Use random play as a backup plan (see below for a full explanation of why this Nash equilibrium strategy always breaks even)</li>
 </ul>
+</section>
+<section id="llms" class="level2">
+<h2 class="anchored" data-anchor-id="llms">LLMs</h2>
+<p>We welcome and suggest that you use LLMs like <a href="https://claude.ai">Claude</a> or <a href="https://chatgpt.com">ChatGPT</a>. You can provide the starter code and get their help with implementing better strategies.</p>
 </section>
 <section id="game-theory-equilibrium" class="level2">
 <h2 class="anchored" data-anchor-id="game-theory-equilibrium">Game Theory Equilibrium</h2>
