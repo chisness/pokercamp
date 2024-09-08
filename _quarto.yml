@@ -54,10 +54,12 @@ website:
           contents: 
             - text: "Login with GitHub"
               href: "login/index.qmd"
-            - text: "Bot Submission"
+            - text: "Submit Your Bot"
               href: "rps-hackathon-fractal/botsubmit.qmd"
             - text: "Leaderboard"
               href: "rps-hackathon-fractal/leaderboard.qmd"
+            - text: "Testing"
+              href: "rps-hackathon-fractal/testing.qmd"
     - id: odpcf24
       style: "docked"
       background: light

@@ -5,5 +5,129 @@ bread-crumbs: false
 format:
   html:
     math: true
+    header-includes:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 ---
-Leaderboard page
+
+<style>
+    table {
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .half-row-gap {
+        height: 10px;
+        background-color: #f9f9f9;
+    }
+    .half-column-gap {
+        width: 10px;
+        background-color: #f9f9f9;
+    }
+    .score-cell {
+        color: black;
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
+    .ebot {
+        display: none;
+    }
+</style>
+
+<div id="table-container"></div>
+
+<script>
+    const NON_EBOT_EXCEPTIONS = ['Di10n'];
+
+    async function fetchLeaderboardData() {
+        try {
+            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240908');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return null;
+        }
+    }
+
+    function getColorForValue(value) {
+        const normalizedValue = (value + 100) / 200; // Normalize to 0-1
+        if (normalizedValue < 0.5) {
+            // Red to White
+            const intensity = Math.round(255 * (normalizedValue * 2));
+            return `rgb(255, ${intensity}, ${intensity})`;
+        } else {
+            // White to Green
+            const intensity = Math.round(255 * ((1 - normalizedValue) * 2));
+            return `rgb(${intensity}, 255, ${intensity})`;
+        }
+    }
+
+    function formatNumber(value) {
+        return value > 0 ? `+${value.toFixed(2)}` : value.toFixed(2);
+    }
+
+    function isEBot(name) {
+        return /^[A-Z]/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
+    }
+
+    function createMatrixTable(data) {
+        const players = data.flatMap(cluster => cluster.players);
+        const nonEBots = players.filter(player => !isEBot(player.name));
+        const eBots = players.filter(player => isEBot(player.name));
+        const sortedPlayers = [...nonEBots, ...eBots];
+        const playerNames = sortedPlayers.map(player => player.name);
+
+        let tableHTML = '<table><tr><th>Player</th><th>Score</th><th class="half-column-gap"></th>';
+        playerNames.forEach((name, index) => {
+            if (index === nonEBots.length) {
+                tableHTML += '<th class="half-column-gap"></th>';
+            }
+            tableHTML += `<th>${name}</th>`;
+        });
+        tableHTML += '</tr>';
+
+        let currentCluster = 0;
+        sortedPlayers.forEach((player, index) => {
+            if (index > 0 && data[currentCluster].to_place < index + 1) {
+                tableHTML += '<tr class="half-row-gap"><td colspan="' + (playerNames.length + 4) + '"></td></tr>';
+                currentCluster++;
+            }
+
+            const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
+            const ebotClass = isEBot(player.name) ? 'ebot' : '';
+            tableHTML += `<tr class="${playerClass} ${ebotClass}">`;
+            tableHTML += `<td>${player.name}</td><td>${formatNumber(player.mean)}</td><td class="half-column-gap"></td>`;
+            playerNames.forEach((opponentName, opponentIndex) => {
+                if (opponentIndex === nonEBots.length) {
+                    tableHTML += '<td class="half-column-gap"></td>';
+                }
+                const matchupValue = player.matchups[opponentName];
+                if (matchupValue !== undefined) {
+                    const backgroundColor = getColorForValue(matchupValue);
+                    tableHTML += `<td class="score-cell" style="background-color: ${backgroundColor}">${formatNumber(matchupValue)}</td>`;
+                } else {
+                    tableHTML += '<td>-</td>';
+                }
+            });
+            tableHTML += '</tr>';
+        });
+
+        tableHTML += '</table>';
+        return tableHTML;
+    }
+
+    async function initTable() {
+        const data = await fetchLeaderboardData();
+        if (data) {
+            const tableContainer = document.getElementById('table-container');
+            tableContainer.innerHTML = createMatrixTable(data);
+        }
+    }
+
+    initTable();
+</script>
