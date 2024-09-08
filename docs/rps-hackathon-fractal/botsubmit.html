@@ -542,7 +542,14 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
 </script>
 <script>
     // Autosave functionality
+    var enable_autosave = false;
+    
     function autoSave() {
+        if (!enable_autosave) {
+          return;
+        }
+        
+        console.log('autosave');
         const editableFields = document.querySelectorAll('.interactive-python-container .editable');
         const saveData = {};
     
@@ -555,7 +562,9 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
     
     // Load saved data
     function loadSavedData() {
+        console.log('load');
         const savedData = localStorage.getItem('autosaveData');
+        console.log(savedData);
         if (savedData) {
             const parsedData = JSON.parse(savedData);
             Object.keys(parsedData).forEach((key) => {
@@ -566,12 +575,14 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
                 }
             });
         }
+        
+        enable_autosave = true;
     }
+        
+    setInterval(autoSave, 3000); // 3 seconds
     
     // Load saved data when the page loads
     window.addEventListener('load', loadSavedData);
-    
-    setInterval(autoSave, 3000); // 3 seconds
     
     function adjustTextareaHeight(textarea) {
         textarea.style.height = '1.5em';
