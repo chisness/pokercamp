@@ -358,7 +358,7 @@ window.Quarto = {
 <li>This is run at the end of every game</li>
 <li>It updates the history with <code>my_action</code> and <code>their_action</code></li>
 <li>It updates the payoff with <code>my_payoff</code></li>
-<li><code>match_clock</code> can be used to see how much of your 30 second total time is remaining (this can generally be ignored).</li>
+<li><code>match_clock</code> can be used to see how much of your 30 second total time is remaining (this can generally be ignored)</li>
 </ul></li>
 <li><code>def get_action(self, *, match_clock)</code>:
 <ul>
@@ -376,14 +376,14 @@ window.Quarto = {
 <p>One of the pieces of starter code that we provide is “Win vs.&nbsp;Last Action”. Suppose that you have a theory that you should actually play to beat the action that they played <em>two</em> games ago.</p>
 <p>You could try something like this:</p>
 <ul>
-<li>If we’re winning or tying, then we play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time</li>
-<li>If we’re losing, then we always play randomly</li>
+<li>If you’re winning or tying, then play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time so that you aren’t too predictable</li>
+<li>If you’re losing (i.e.&nbsp;maybe this strategy is not working well), then always play randomly</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If we're losing, play randomly</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If losing, play randomly</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">self</span>.my_profit <span class="op">&lt;</span> <span class="dv">0</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># If we're winning or tying, and we have at least 2 rounds of history</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># If winning or tying, and there is at least 2 rounds of history</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.history) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 80% chance to play based on opponent's action from 2 rounds ago</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.8</span>:</span>
@@ -402,7 +402,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bot">Exploiting a Weak Bot</h3>
 <p>In practice in this hackathon, a lot of value will come from exploiting weak bots or other opponents.</p>
 <p>For example, you could check to see if any bot is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot.</p>
-<p>Here’s how we can execute this strategy:</p>
+<p>Here’s how to execute this strategy:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the opponent has played at least once</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">self</span>.history:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all of the opponent's moves</span></span>

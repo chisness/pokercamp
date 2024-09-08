@@ -34,7 +34,7 @@ And the history of your actions and your opponent actions are stored in the foll
   - This is run at the end of every game
   - It updates the history with `my_action` and `their_action` 
   - It updates the payoff with `my_payoff`
-  - `match_clock` can be used to see how much of your 30 second total time is remaining (this can generally be ignored). 
+  - `match_clock` can be used to see how much of your 30 second total time is remaining (this can generally be ignored) 
 - `def get_action(self, *, match_clock)`: 
   - This is the main function where you run your strategy and return an action
   - You can return `RockAction()`, `PaperAction()`, or `ScissorsAction()`. 
@@ -47,15 +47,15 @@ One of the pieces of starter code that we provide is "Win vs. Last Action". Supp
 
 You could try something like this: 
 
-- If we're winning or tying, then we play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time
-- If we're losing, then we always play randomly
+- If you're winning or tying, then play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time so that you aren't too predictable
+- If you're losing (i.e. maybe this strategy is not working well), then always play randomly
 
 ```python
-# If we're losing, play randomly
+# If losing, play randomly
 if self.my_profit < 0:
     return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 
-# If we're winning or tying, and we have at least 2 rounds of history
+# If winning or tying, and there is at least 2 rounds of history
 if len(self.history) >= 2:
     # 80% chance to play based on opponent's action from 2 rounds ago
     if random.random() < 0.8:
@@ -71,13 +71,12 @@ if len(self.history) >= 2:
 return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 ```
 
-
 ### Exploiting a Weak Bot
 In practice in this hackathon, a lot of value will come from exploiting weak bots or other opponents. 
 
 For example, you could check to see if any bot is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot. 
 
-Here's how we can execute this strategy: 
+Here's how to execute this strategy: 
 
 ```python
 # Check if the opponent has played at least once
