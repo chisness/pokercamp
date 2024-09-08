@@ -47,7 +47,7 @@ format:
 <div id="table-container"></div>
 
 <script>
-    const NON_EBOT_EXCEPTIONS = ['Di10n', 'Elijer'];
+    const NON_EBOT_EXCEPTIONS = ['Di10n', 'Elijer', 'Crazytieguy'];
 
     async function fetchLeaderboardData() {
         try {
