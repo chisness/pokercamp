@@ -43,12 +43,11 @@ format:
     }
 </style>
 
-<h1>Leaderboard Matrix Table</h1>
 <div id="tournament-info"></div>
 <div id="table-container"></div>
 
 <script>
-    const NON_EBOT_EXCEPTIONS = ['Di10n'];
+    const NON_EBOT_EXCEPTIONS = ['Di10n', 'Elijer'];
 
     async function fetchLeaderboardData() {
         try {
