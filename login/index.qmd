@@ -1,0 +1,11 @@
+---
+title: "Login with GitHub"
+sidebar: login
+format:
+  html:
+    math: false
+    css: styles.css
+    header-includes: |
+      <meta http-equiv="refresh" content="0; url=https://github.com/login/oauth/authorize?client_id=Ov23limGz5F8hOMEoCkJ&redirect_uri=https://staff-dev1.poker.camp:9443/login/oauth-github">
+---
+If you are not redirected automatically, <a href="https://github.com/login/oauth/authorize?client_id=Ov23limGz5F8hOMEoCkJ&redirect_uri=https://staff-dev1.poker.camp:9443/login/oauth-github">click here</a>.

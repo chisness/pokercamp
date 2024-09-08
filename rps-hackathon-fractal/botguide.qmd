@@ -7,75 +7,97 @@ format:
     math: true
 ---
 ## Starter Code
-We provide Python starter code so that you can mainly think about the problem solving and worry less about the code details. 
+We provide Python starter code so that you can mainly think about problem solving and worry less about the code details. 
 
-We provide bots that can play the following basic strategies: 
+We provide code that can play the following basic strategies. By default the Random strategy is playing, which [guarantees a breakeven result](#game-theory-equilibrium). You can comment out one strategy and uncomment another to use a different one. 
 
 1. **Random:** You are guaranteed to breakeven in expectation if you play randomly
-2. **Percentage:** You can choose a fixed percentage (e.g. 50% rock, 25% paper, 25% scissors)
-3. **Win vs. Last Action:** Play the action that beats the opponent's last move
-4. **Win vs. History:** Play the action that beats the opponent's most frequent move over the entire history
+2. **Win vs. Last Action:** Play the action that beats the opponent's last move
+3. **Win vs. History:** Play the action that beats the opponent's most frequent move over the entire history
 
-The histories of the entire match are stored in these arrays: 
+The profit so far in the match is stored in: 
 
-- `self.my_history[]` 
-- `self.opponent_history[]`
-- `self.results_history[]`
+- `self.my_profit`
 
-The functions in the code are: 
+And the history of your actions and your opponent actions are stored in the following array, where each history is a tuple of `(my_action, their_action)`.  
 
-- `def __init__(self)`: Initializes the history arrays
-- `handle_new_round(self, game_state, round_state, active)`: This is run for every new game
-- `def handle_round_over(self, game_state, terminal_state, active)`: This is run at the end of every game
-- `def get_action(self, game_state, round_state, active)`: This is the main function where you run your strategy
+- `self.history[]`
 
-```python
-# active (same at newround, getaction, and roundover): Returns 0 or 1
-# You are assigned 0 or 1 for each round 
+### Code Functions
 
-# round_state (same at newround and getaction): RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None)
-# terminal_state: TerminalState(deltas=[1, -1], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper, Rock], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None))))
-# game_state (same at newround, getaction): GameState(bankroll=10, game_clock=29.988, round_num=1)
-# game_state (at end): GameState(bankroll=11, game_clock=29.988, round_num=1)
-```
-
+- `def __init__(self)`: 
+  - Initializes profit `self.my_profit`
+  - Initializes the history array `self.history[]`
+- `handle_results(self, *, my_action, their_action, my_payoff, match_clock)`: 
+  - This is run at the end of every game
+  - It updates the history with `my_action` and `their_action` 
+  - It updates the payoff with `my_payoff`
+  - `match_clock` can be used to see how much of your 30 second total time is remaining (this can generally be ignored). 
+- `def get_action(self, *, match_clock)`: 
+  - This is the main function where you run your strategy and return an action
+  - You can return `RockAction()`, `PaperAction()`, or `ScissorsAction()`. 
 
 ## Writing Your Own Bot
+As we show at the [bottom of the page](#game-theory-equilibrium), playing a random strategy guarantees that you will break even in expectation. Since there are many suboptimal environment bots, this won't be a sufficient strategy, but could be valuable to consider in some situations. 
 
 ### Starter Code Modification
-We give starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played *two* games ago. 
+One of the pieces of starter code that we provide is "Win vs. Last Action". Suppose that you have a theory that you should actually play to beat the action that they played *two* games ago. 
 
-Let's try this: 
+You could try something like this: 
 
-- If we're winning or tying, then we beat the action from 2 games ago 80% of the time and play randomly 20% of the time
-- If we're losing, then we always play randomly 
+- If we're winning or tying, then we play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time
+- If we're losing, then we always play randomly
+
+```python
+# If we're losing, play randomly
+if self.my_profit < 0:
+    return random.choice([RockAction(), PaperAction(), ScissorsAction()])
+
+# If we're winning or tying, and we have at least 2 rounds of history
+if len(self.history) >= 2:
+    # 80% chance to play based on opponent's action from 2 rounds ago
+    if random.random() < 0.8:
+        two_rounds_ago = self.history[-2][1]  # Opponent's action from 2 rounds ago
+        if isinstance(two_rounds_ago, RockAction):
+            return PaperAction()
+        elif isinstance(two_rounds_ago, PaperAction):
+            return ScissorsAction()
+        else:  # ScissorsAction
+            return RockAction()
+
+# In all other cases (including first 2 rounds), play randomly
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])
+```
 
 
 ### Exploiting a Weak Bot
-Here's an idea for a strategy. You check to see if anyone is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot. 
+In practice in this hackathon, a lot of value will come from exploiting weak bots or other opponents. 
 
-We can define an `all_rocks` variable that is `True` if the opponent so far has only played Rock and `False` otherwise like this: 
+For example, you could check to see if any bot is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot. 
 
-```python
-all_rocks = True 
-for item in self.opponent_history:
-  if item != "RockAction()":
-      all_rocks = False
-```
-
-Then we can execute our strategy: 
+Here's how we can execute this strategy: 
 
 ```python
-if all_rocks = True:
-  return PaperAction()
-else:
-  return random.choice(RockAction, PaperAction, ScissorsAction)()
+# Check if the opponent has played at least once
+if self.history:
+    # Get all of the opponent's moves
+    opponent_moves = [move[1] for move in self.history]
+    
+    # Count how many times the opponent played Rock
+    rock_count = sum(1 for move in opponent_moves if isinstance(move, RockAction))
+    
+    # If opponent has only played Rock, we play Paper
+    if rock_count == len(opponent_moves):
+        return PaperAction()
+
+# If it's the first move or opponent hasn't only played Rock, play randomly
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 ```
 
 ### Exploiting a Weak Bart
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b0SoKWLkmLU?si=0AQ3_NgHOe4tc4OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-(Yes, bad joke)
+(Bad joke)
 
 ## Problem Solving and Strategy
 
@@ -84,8 +106,12 @@ The goal of the hackathon is to figure out how to adapt to your opponents (other
 A few possible strategies are: 
 
 - Single out specific bots that are exploitable and write code to identify and exploit them
+  - Build an ensemble of exploits targeting many opponents
 - Attempt to predict the next move of each bot using a general algorithm
-- Use random play as a backup plan (see below for a full explanation of why this always breaks even and is the Nash equilibrium strategy)
+- Use random play as a backup plan (see below for a full explanation of why this Nash equilibrium strategy always breaks even)
+
+## LLMs
+We welcome and suggest that you use LLMs like [Claude](https://claude.ai) or [ChatGPT](https://chatgpt.com). You can provide the starter code and get their help with implementing better strategies. 
 
 ## Game Theory Equilibrium
 

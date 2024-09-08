@@ -258,7 +258,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../login/index.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../login/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Login with GitHub</span></a>
   </div>
 </li>
@@ -322,40 +322,43 @@ window.Quarto = {
 
 <section id="starter-code" class="level2">
 <h2 class="anchored" data-anchor-id="starter-code">Starter Code</h2>
-<p>We provide Python starter code so that you can mainly think about the problem solving and worry less about the code details.</p>
+<p>We provide Python starter code so that you can mainly think about problem solving and worry less about the code details.</p>
 <p>We provide bots that can play the following basic strategies:</p>
 <ol type="1">
 <li><strong>Random:</strong> You are guaranteed to breakeven in expectation if you play randomly</li>
-<li><strong>Percentage:</strong> You can choose a fixed percentage (e.g.&nbsp;50% rock, 25% paper, 25% scissors)</li>
 <li><strong>Win vs.&nbsp;Last Action:</strong> Play the action that beats the opponent’s last move</li>
 <li><strong>Win vs.&nbsp;History:</strong> Play the action that beats the opponent’s most frequent move over the entire history</li>
 </ol>
-<p>The histories of the entire match are stored in these arrays:</p>
+<p>The profit so far in the match is stored in:</p>
 <ul>
-<li><code>self.my_history[]</code></li>
-<li><code>self.opponent_history[]</code></li>
-<li><code>self.results_history[]</code></li>
+<li><code>self.my_profit</code></li>
+</ul>
+<p>And the history of your actions and your opponent actions are stored in the following array, where each history is a tuple of <code>(my_action, their_action)</code>.</p>
+<ul>
+<li><code>self.history[]</code></li>
 </ul>
 <p>The functions in the code are:</p>
 <ul>
-<li><code>def __init__(self)</code>: Initializes the history arrays</li>
-<li><code>handle_new_round(self, game_state, round_state, active)</code>: This is run for every new game</li>
-<li><code>def handle_round_over(self, game_state, terminal_state, active)</code>: This is run at the end of every game</li>
-<li><code>def get_action(self, game_state, round_state, active)</code>: This is the main function where you run your strategy</li>
+<li><code>def __init__(self)</code>:
+<ul>
+<li>Initializes profit <code>self.my_profit</code></li>
+<li>Initializes the history array <code>self.history[]</code></li>
+</ul></li>
+<li><code>handle_results(self, *, my_action, their_action, my_payoff, match_clock)</code>:
+<ul>
+<li>This is run at the end of every game</li>
+<li>It updates the history with <code>my_action</code> and <code>their_action</code></li>
+<li>It updates the payoff with <code>my_payoff</code></li>
+<li><code>match_clock</code> can be used to see how much of your 30 second total time is remaining (this can generally be ignored).</li>
+</ul></li>
+<li><code>def get_action(self, *, match_clock)</code>: This is the main function where you run your strategy and return an action, which is either <code>RockAction()</code>, <code>PaperAction()</code>, or <code>ScissorsAction()</code>.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># active (same at newround, getaction, and roundover): Returns 0 or 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You are assigned 0 or 1 for each round </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># round_state (same at newround and getaction): RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># terminal_state: TerminalState(deltas=[1, -1], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper, Rock], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[Paper], previous_state=RoundState(turn_number=0, street=0, pips=[1, 1], stacks=[0, 0], hands=[3, None], deck=None, action_history=[], previous_state=None))))</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># game_state (same at newround, getaction): GameState(bankroll=10, game_clock=29.988, round_num=1)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># game_state (at end): GameState(bankroll=11, game_clock=29.988, round_num=1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="writing-your-own-bot" class="level2">
 <h2 class="anchored" data-anchor-id="writing-your-own-bot">Writing Your Own Bot</h2>
 <section id="starter-code-modification" class="level3">
 <h3 class="anchored" data-anchor-id="starter-code-modification">Starter Code Modification</h3>
-<p>We give starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played <em>two</em> games ago.</p>
+<p>We provide starter code for beating the last opponent action. Suppose that you have a theory that actually the play that opponents tend to repeat the action that they played <em>two</em> games ago.</p>
 <p>Let’s try this:</p>
 <ul>
 <li>If we’re winning or tying, then we beat the action from 2 games ago 80% of the time and play randomly 20% of the time</li>
@@ -366,15 +369,15 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bot">Exploiting a Weak Bot</h3>
 <p>Here’s an idea for a strategy. You check to see if anyone is always playing Rock. If so, you always play Paper. If not, you play randomly. Then you will breakeven against everyone, but crush the Rock-only bot.</p>
 <p>We can define an <code>all_rocks</code> variable that is <code>True</code> if the opponent so far has only played Rock and <code>False</code> otherwise like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>all_rocks <span class="op">=</span> <span class="va">True</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> <span class="va">self</span>.opponent_history:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> item <span class="op">!=</span> <span class="st">"RockAction()"</span>:</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      all_rocks <span class="op">=</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>all_rocks <span class="op">=</span> <span class="va">True</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> <span class="va">self</span>.opponent_history:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> item <span class="op">!=</span> <span class="st">"RockAction()"</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      all_rocks <span class="op">=</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then we can execute our strategy:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> all_rocks <span class="op">=</span> <span class="va">True</span>:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> PaperAction()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> random.choice(RockAction, PaperAction, ScissorsAction)()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> all_rocks <span class="op">=</span> <span class="va">True</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> PaperAction()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> random.choice(RockAction, PaperAction, ScissorsAction)()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exploiting-a-weak-bart" class="level3">
 <h3 class="anchored" data-anchor-id="exploiting-a-weak-bart">Exploiting a Weak Bart</h3>

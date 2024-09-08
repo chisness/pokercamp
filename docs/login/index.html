@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RPS Hackathon @ Fractal: Hackathon Instructions – Poker Camp</title>
+<title>Login with GitHub – Poker Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,41 +76,14 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </script>
+<meta http-equiv="refresh" content="0; url=https://github.com/login/oauth/authorize?client_id=Ov23limGz5F8hOMEoCkJ&amp;redirect_uri=https://staff-dev1.poker.camp:9443/login/oauth-github">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="RPS Hackathon @ Fractal: Hackathon Instructions – Poker Camp">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Login with GitHub – Poker Camp">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="RPS Hackathon @ Fractal: Hackathon Instructions – Poker Camp">
+<meta name="twitter:title" content="Login with GitHub – Poker Camp">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
@@ -172,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">RPS Hackathon @ Fractal: Hackathon Instructions</h1>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../login/index.html">Hackathon</a></li><li class="breadcrumb-item"><a href="../login/index.html">Login with GitHub</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -201,7 +174,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rps-hackathon-fractal/instructions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../rps-hackathon-fractal/instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hackathon Instructions</span></a>
   </div>
 </li>
@@ -224,7 +197,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../login/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../login/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Login with GitHub</span></a>
   </div>
 </li>
@@ -247,37 +220,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link active" data-scroll-target="#how-it-works">How it Works</a>
-  <ul class="collapse">
-  <li><a href="#rock-paper-scissors" id="toc-rock-paper-scissors" class="nav-link" data-scroll-target="#rock-paper-scissors">Rock Paper Scissors</a></li>
-  <li><a href="#competition-rounds" id="toc-competition-rounds" class="nav-link" data-scroll-target="#competition-rounds">Competition Rounds</a></li>
-  <li><a href="#environment-bots" id="toc-environment-bots" class="nav-link" data-scroll-target="#environment-bots">Environment Bots</a></li>
-  <li><a href="#submissions" id="toc-submissions" class="nav-link" data-scroll-target="#submissions">Submissions</a></li>
-  <li><a href="#scoring" id="toc-scoring" class="nav-link" data-scroll-target="#scoring">Scoring</a></li>
-  <li><a href="#prizes" id="toc-prizes" class="nav-link" data-scroll-target="#prizes">Prizes</a></li>
-  </ul></li>
-  <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a>
-  <ul class="collapse">
-  <li><a href="#strategy-vs.-environment-bots" id="toc-strategy-vs.-environment-bots" class="nav-link" data-scroll-target="#strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</a></li>
-  <li><a href="#strategy-vs.-participant-bots" id="toc-strategy-vs.-participant-bots" class="nav-link" data-scroll-target="#strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</a></li>
-  </ul></li>
-  <li><a href="#writing-bots" id="toc-writing-bots" class="nav-link" data-scroll-target="#writing-bots">Writing Bots</a></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../login/index.html">Hackathon</a></li><li class="breadcrumb-item"><a href="../login/index.html">Login with GitHub</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">RPS Hackathon @ Fractal: Hackathon Instructions</h1>
+<h1 class="title">Login with GitHub</h1>
 </div>
 
 
@@ -294,110 +245,9 @@ window.Quarto = {
 </header>
 
 
-<section id="how-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
-<section id="rock-paper-scissors" class="level3">
-<h3 class="anchored" data-anchor-id="rock-paper-scissors">Rock Paper Scissors</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="rps.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Image by <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Rock-paper-scissors.svg">Enzoklop</a> under <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
-</figure>
-</div>
-<ul>
-<li>Rock defeats scissors, scissors defeats paper, and paper defeats rock</li>
-<li>You get 1 point for a win, -1 for a loss, and 0 for ties</li>
-</ul>
-</section>
-<section id="competition-rounds" class="level3">
-<h3 class="anchored" data-anchor-id="competition-rounds">Competition Rounds</h3>
-<p>There will be 8 rounds of RPS competitions. Each will have:</p>
-<ul>
-<li>1 bot entered by each participant</li>
-<li>Between 1 and 4 environment bots (bots that we make)</li>
-</ul>
-<p>You’ll play 1000 games against each other bot.</p>
-</section>
-<section id="environment-bots" class="level3">
-<h3 class="anchored" data-anchor-id="environment-bots">Environment Bots</h3>
-<p>Each environment bot that enters during a round will stay for all future rounds.</p>
-<p>After each round, you’ll see the names of the bot(s) that were in the previous round. Sometimes these will be hints about what the bot(s) were doing.</p>
-</section>
-<section id="submissions" class="level3">
-<h3 class="anchored" data-anchor-id="submissions">Submissions</h3>
-<ul>
-<li>For each competition, you can submit up to the end of that round</li>
-<li>Each submission <em>during</em> the round will receive a <em>test result</em> based on how that bot would have done in the <em>previous</em> round (during the first round this won’t be possible)
-<ul>
-<li>Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots</li>
-</ul></li>
-<li>The final submission before the end of the round will be entered into that round’s competition</li>
-<li>At the end of each round, we’ll run the tournament and show the results</li>
-</ul>
-</section>
-<section id="scoring" class="level3">
-<h3 class="anchored" data-anchor-id="scoring">Scoring</h3>
-<p>At the end of each round, you’ll get the following information:</p>
-<ul>
-<li>Matrix score report with results against every other bot</li>
-<li>Game histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)
-<ul>
-<li>This includes the names of the environment bots, which often will be hints about how they play</li>
-</ul></li>
-</ul>
-</section>
-<section id="prizes" class="level3">
-<h3 class="anchored" data-anchor-id="prizes">Prizes</h3>
-<p>There will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.</p>
-</section>
-</section>
-<section id="strategy" class="level2">
-<h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
-<p>Your mission is to play well against the environment bots without getting counterplayed by other participant bots.</p>
-<section id="strategy-vs.-environment-bots" class="level3">
-<h3 class="anchored" data-anchor-id="strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</h3>
-<p>The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. Combine this with the sometimes-revealed bot names, and you’ll be able to develop a strong strategy against these bots for future rounds.</p>
-</section>
-<section id="strategy-vs.-participant-bots" class="level3">
-<h3 class="anchored" data-anchor-id="strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</h3>
-<p>Look for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves.</p>
-</section>
-</section>
-<section id="writing-bots" class="level2">
-<h2 class="anchored" data-anchor-id="writing-bots">Writing Bots</h2>
-<p><a href="../rps-hackathon-fractal/botguide.html">Click here</a> for our guide on getting started writing RPS bots.</p>
-</section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p><strong>10:30am:</strong> Doors open</p>
-<p><strong>11:00am:</strong> Arrival and setup</p>
-<p><strong>11:30am:</strong> Begin Competition 1</p>
-<p><strong>12:00pm:</strong> Competition 1 results, begin Competition 2</p>
-<p><strong>12:30pm:</strong> Competition 2 results, begin Competition 3</p>
-<ul>
-<li>Pizza lunch</li>
-</ul>
-<p><strong>1:00pm:</strong> Competition 3 results, begin competition 4</p>
-<p><strong>1:30pm:</strong> Competition 4 results, begin Competition 5</p>
-<p><strong>2:00pm:</strong> Competition 5 results, begin Competition 6</p>
-<p><strong>2:30pm:</strong> Competition 7 results, begin Competition 7</p>
-<p><strong>3:00pm:</strong> Competition 7/final results and bot explanations</p>
-<ul>
-<li>Hangout</li>
-</ul>
-<p><strong>5:00pm:</strong> End</p>
-</section>
-<section id="why" class="level2">
-<h2 class="anchored" data-anchor-id="why">Why?</h2>
-<p>Fun! And thinking about strategy in a repeated game against a variety of opponents.</p>
-<p>From DeepMind in 2023:</p>
-<blockquote class="blockquote">
-<p>In sequential decision-making, agent evaluation has largely been restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g.&nbsp;beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.</p>
-</blockquote>
+<p>If you are not redirected automatically, <a href="https://github.com/login/oauth/authorize?client_id=Ov23limGz5F8hOMEoCkJ&amp;redirect_uri=https://staff-dev1.poker.camp:9443/login/oauth-github">click here</a>.</p>
 
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
