@@ -21,7 +21,7 @@ There will be ~~8~~ 7 rounds of RPS competitions. Each will have:
 - 1 bot entered by each participant
 - Between 1 and 4 environment bots (bots that we make)
 
-You'll play 1000 games against each other bot. 
+You'll play 1000 games against each other bot twice. 
 
 ### Environment Bots
 Each environment bot that enters during a round will stay for all future rounds. 
@@ -39,8 +39,11 @@ After each round, you'll see the names of the bot(s) that were in the previous r
 At the end of each round, you'll get the following information: 
 
 - Matrix score report with results against every other bot
+  - Your score is reported as profit per 100 games
 - Game histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)
   - This includes the names of the environment bots, which often will be hints about how they play
+
+Your cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e. round 2 1.2x, round 3 1.44x, etc.). 
 
 ### Prizes
 There will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score. 
