@@ -75,13 +75,13 @@
   {
     "objectID": "rps-hackathon-fractal/testing.html",
     "href": "rps-hackathon-fractal/testing.html",
-    "title": "RPS Hackathon @ Fractal: Testing",
+    "title": "RPS Hackathon @ Fractal: Test Results",
     "section": "",
-    "text": "Coming soon.",
+    "text": "Latest submission versus all latest submissions\n\n\n\n\n\n\n\n\nLatest submission versus last round submissions",
     "crumbs": [
       "About",
       "Hackathon",
-      "Testing"
+      "Test Results"
     ]
   },
   {
@@ -504,79 +504,9 @@
     "text": "How it Works\nCompetition structure:\n\nRock defeats scissors, scissors defeats paper, and paper defeats rock\nYou get 1 point for a win, -1 for a loss, and 0 for ties\nEach round, you’ll play 1000 game matches against each hackathon participant and each of our bots\nWe’ll put in 1-3 bots during each round and they’ll stay in for all rounds going forward\n\nHow do I write my own bot?\n\nWe’ll give you starter code in Python\nStarter code will show how to make a bot that plays any fixed percentage\nStarter code will show how to make a bot that plays some strategy according to the history of actions\n\nHow do I submit?\n\nFor each competition, you can submit up to the end of that round\nEach submission during the round will receive a test result based on how that bot would have done in the previous round\n\nDoing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated hackathon bots and newly inserted bots of our own\n\nAt the end of each round, we’ll run the tournament and show the results ~5 minutes later\n\nWhat’s the point of this?:\n\nFun\nThinking about strategy in a repeated game against a variety of opponents\n\nAre there prizes?\nThere will be small on-theme prizes\nWill you tell us about the bots that you’re putting in?\nEach round will vary. Sometimes we’ll give away the bots, sometimes we’ll give no info, and sometimes there will be a hint.\nWhat if I have to leave early or arrive late?\nNo problem, you can join for however much you’d like\nCan I participate if I’m not in NYC?\nSorry, but we’re doing this as an in-person event only. We hope to run virtual events in the future.\n\nCan I pay in cash or with Venmo/Zelle?\nYes, email us\nOther questions?\nGet in touch\n\nSchedule\n10:30am: Doors open\n11:00am: Arrival and setup\n11:30am: Begin Competition 1\n12:00pm: Competition 1 results, begin Competition 2\n12:30pm: Competition 2 results, pizza lunch break\n1:00pm: Begin Competition 3\n1:30pm: Competition 3 results, begin Competition 4\n2:00pm: Competition 4 results, begin Competition 5\n2:30pm: Competition 5 results, begin Competition 6\n3:00pm: Competition 6 results, begin Competition 7\n3:30pm: Competition 7 results, begin Competition 8\n4:00pm: Final results and bot explanations\n4:30pm: Hangout\n5:00pm: End"
   },
   {
-<<<<<<< HEAD
     "objectID": "rps/index.html#strategy",
     "href": "rps/index.html#strategy",
     "title": "Rock Paper Scissors Hackathon",
-=======
-    "objectID": "aipcs24/1kuhn_k.html",
-    "href": "aipcs24/1kuhn_k.html",
-    "title": "#1: Kuhn Poker | WTK",
-    "section": "",
-    "text": "During the first AI Poker Camp session on Monday 7/15/24, we asked participants to list the deterministic situations in the Kuhn Poker game. In other words, points of the game where it is strictly best to play a certain action.\nWe started with the full game tree:\n\nWe came up with a list of 5 of these:\n\n\n\n\n\n\n\n\n#\nScenario\nAction\n\n\n\n\n1\n_Q↑: Q as Player 2 facing a bet\nShould always play ↓ fold\n\n\n2\n_A↑: A as Player 2 facing a bet\nShould always play ↑ call\n\n\n3\n_A↓: A as Player 2 facing a check\nShould always play ↑ bet\n\n\n4\nQ_↓↑: Q as Player 1 checking and then facing a bet\nShould always play ↓ fold\n\n\n5\nA_↓↑: A as Player 2 checking and then facing a bet\nShould always play ↑ bet\n\n\n\nThe game tree is then reduced to:\n\nThere are 2 others that we knew were slightly different, but we still believed that they belonged in this category:\n\n\n\n\n\n\n\n\n#\nScenario\nAction\n\n\n\n\n6\nK_↓: K as Player 2 facing a check\n\n\n\n7\nK_: K as Player 1 acting first\n\n\n\n\nMy assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at K_ it is not always clearly best to play ↓!\nBetting with a K knowing that your opponent will always play perfectly (fold with Q and call with A) does not seem intuitively very profitable, but this exercise is asking for deterministic situations where it is definitely best to play one action.\nGoing forward on this page, we are assuming that players play their mandatory +EV decisions correctly (i.e., numbers 1-5 above)."
-  },
-  {
-    "objectID": "aipcs24/1kuhn_k.html#what-the-k",
-    "href": "aipcs24/1kuhn_k.html#what-the-k",
-    "title": "#1: Kuhn Poker | WTK",
-    "section": "",
-    "text": "During the first AI Poker Camp session on Monday 7/15/24, we asked participants to list the deterministic situations in the Kuhn Poker game. In other words, points of the game where it is strictly best to play a certain action.\nWe started with the full game tree:\n\nWe came up with a list of 5 of these:\n\n\n\n\n\n\n\n\n#\nScenario\nAction\n\n\n\n\n1\n_Q↑: Q as Player 2 facing a bet\nShould always play ↓ fold\n\n\n2\n_A↑: A as Player 2 facing a bet\nShould always play ↑ call\n\n\n3\n_A↓: A as Player 2 facing a check\nShould always play ↑ bet\n\n\n4\nQ_↓↑: Q as Player 1 checking and then facing a bet\nShould always play ↓ fold\n\n\n5\nA_↓↑: A as Player 2 checking and then facing a bet\nShould always play ↑ bet\n\n\n\nThe game tree is then reduced to:\n\nThere are 2 others that we knew were slightly different, but we still believed that they belonged in this category:\n\n\n\n\n\n\n\n\n#\nScenario\nAction\n\n\n\n\n6\nK_↓: K as Player 2 facing a check\n\n\n\n7\nK_: K as Player 1 acting first\n\n\n\n\nMy assumption was that 6 and 7 were trickier because they relied on the opponent playing under the conditions of 1-5 above. Things turned around and I became the confused one when a couple of participants pointed out that at K_ it is not always clearly best to play ↓!\nBetting with a K knowing that your opponent will always play perfectly (fold with Q and call with A) does not seem intuitively very profitable, but this exercise is asking for deterministic situations where it is definitely best to play one action.\nGoing forward on this page, we are assuming that players play their mandatory +EV decisions correctly (i.e., numbers 1-5 above)."
-  },
-  {
-    "objectID": "aipcs24/1kuhn_k.html#k",
-    "href": "aipcs24/1kuhn_k.html#k",
-    "title": "#1: Kuhn Poker | WTK",
-    "section": "_K↓",
-    "text": "_K↓\n\nWe are looking at TPOT (this part of the tree) when  has a K and is facing a ↓ (check):\n\nIf playing ↑, we have: \\[\n\\mathbb{E} = -2*\\Pr(\\text{P1 A Plays \\downarrow}) + 1*\\Pr(\\text{P1 Q Plays \\downarrow})\n\\]\nPlaying ↓ has: \\[\n\\mathbb{E} = -1*\\Pr(\\text{P1 A Plays \\downarrow}) + 1*\\Pr(\\text{P1 Q Plays \\downarrow})\n\\]\nTherefore in this case ↓ is strictly best and we can include this case on our list of deterministic situations.\nThe updated tree:"
-  },
-  {
-    "objectID": "aipcs24/1kuhn_k.html#k_",
-    "href": "aipcs24/1kuhn_k.html#k_",
-    "title": "#1: Kuhn Poker | WTK",
-    "section": "K_",
-    "text": "K_\nWe are now looking at TPOT (this part of the tree) and can end up on one of these 7 nodes:\n\nAt infoset K_, when the K opening action plays ↑, we end up in 2 possible nodes and have known EV:\n\\[\n\\begin{align}\n\\mathbb{E} &= -2*\\Pr(\\text{P2 has A}) + 1*\\Pr(\\text{P2 has Q}) \\\\\n&= -2*0.5 + 1*0.5 \\\\\n&= -0.5\n\\end{align}\n\\]\nNow things get interesting.\nWhen the K opening action plays ↓, we can compute the EV:\n\nAssume that  plays ↑ at K↓↑ with probability \\(k\\).\nAssume that  plays ↑ at _Q↓ with probability \\(q\\).\n\nThere are 3 cases of what can happen now after  plays ↓ at K_ and we can end up in 5 possible nodes:\n\n has A and plays ↑.\n\n\\[\n\\begin{align}\n\\mathbb{E} &= -2*\\Pr(\\text{P1 Calls K}) - 1*\\Pr(\\text{P1 Folds K}) \\\\\n&= -2*k - 1*(1-k) \\\\\n&= -k - 1\n\\end{align}\n\\]\n\n has Q and plays ↓.\n\n\\[\n\\mathbb{E} = 1\n\\]\n\n has Q and plays ↑.\n\n\\[\n\\begin{align}\n\\mathbb{E} &= 2*\\Pr(\\text{P1 Calls K}) - 1*\\Pr(\\text{P1 Folds K}) \\\\\n&= 2*k - 1*(1-k) \\\\\n&= 3*k - 1\n\\end{align}\n\\]\nPutting these together, we have:\n\\[\n\\begin{align}\n\\mathbb{E} &= [-k - 1]*\\Pr(\\text{P2 has A}) + [1]*\\Pr(\\text{P2 has Q and Checks}) + [3*k - 1]*\\Pr(\\text{P2 Has Q and Bets}) \\\\\n&= [-k - 1]*0.5 + [1]*0.5*(1-q) + [3*k - 1]*0.5*(q) \\\\\n&= -0.5*k - 0.5 + 0.5 - 0.5*q + 1.5*k*q - 0.5*q \\\\\n&= -0.5*k - q + 1.5*k*q\n\\end{align}\n\\]\n\nimport {Plot} from '@observablehq/plot'\n\n// Create sliders for k and q, constrained between 0 and 1\nviewof k = Inputs.range([0, 1], {step: 0.01, label: \"k\"})\nviewof q = Inputs.range([0, 1], {step: 0.01, label: \"q\"})\n\n// Calculate z based on the function\nz = -0.5 * k - q + 1.5 * k * q\n\n// Display the current value of z\nmd`The current value of z is: ${z.toFixed(4)}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction createPlot(k, q) {\n  const points = [];\n  for (let x = 0; x &lt;= 1; x += 0.02) {\n    for (let y = 0; y &lt;= 1; y += 0.02) {\n      points.push({x, y, z: -0.5 * x - y + 1.5 * x * y});\n    }\n  }\n\n  return Plot.plot({\n    width: 600,\n    height: 400,\n    x: {label: \"k\", domain: [0, 1]},\n    y: {label: \"q\", domain: [0, 1]},\n    color: {\n      type: \"linear\",\n      domain: [-1, 1],\n      scheme: \"RdBu\"\n    },\n    marks: [\n      Plot.contour(points, {x: \"x\", y: \"y\", z: \"z\", stroke: \"currentColor\", interval: 0.05}),\n      Plot.image(points, {x: \"x\", y: \"y\", z: \"z\", interpolate: \"nearest\"}),\n      Plot.dot([{x: k, y: q}], {x: \"x\", y: \"y\", stroke: \"red\", fill: \"red\"})\n    ]\n  })\n}\n\ncreatePlot(k, q)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMathematical Conclusions\nWe can set \\(-0.5 = -0.5*k - q + 1.5*k*q\\) to compare the EV of betting to checking.\nWe see that if you have check and then call with at least \\(k \\geq 0.5\\) then you do at least as good as betting. You do strictly better if \\(0.5 &lt; k &lt; 1\\).\n\n\nThis saddle-point visualization is actually really good for me. I feel like I more-intuitively understand that: changing q changes the slope of the line in the k axis, and also the setting that’s flat optimizes minimax when we pick q so that the line is flat in the k axis, P1 still gets to pick among k values that cause P2 to face a different slope If P1 plays a positive p(⬇️|A_), then that gives P2 an incentive to push q down, which is like adding another gradient along the q axis …I forget where I was going with this, but it feels helpful Ross Rheingans-Yoo — 07/16/2024 11:44 AM Potential improvements: above the q slider, write “when k is [current value], z = [formula in q]” above the k slider, write “when q is [current value], z = [formula in k]” on the 3d plot, draw a red dot at the current q, k and a red line along the line that varies k from there, and along the line that varies q from there have an option to switch to a 2d plot with: (subplot 1) z,k where q is represented by color/hue, draw 11 lines for every 0.1 increment of q with opacity 30%, then the line for the current q with opacity 100%; (subplot 2) z,q where k is represented by color I think it might be better to swap the axes of the 3d plot because q happens logically before k, but I’m not sure and the shape might look worse I’m not sure about the q,k axes direction – is it better if 0,0 is the point closest to us? (this might make the shape look bad because we look at it edge-on) can we get a 3d graphing library that lets you click and drag to rotate? I went down my own k-hole to figure out that z=(3q-1)(3k-2)/6+1/3, which I think should be presented somewhere? I think the 3d graph (and the 2d graphs) should do more to make clear where -0.5 is, since that’s the case we’re comparing it to."
-  },
-  {
-    "objectID": "rps-hackathon-fractal/botsubmit.html",
-    "href": "rps-hackathon-fractal/botsubmit.html",
-    "title": "RPS Hackathon @ Fractal: Submit",
-    "section": "",
-    "text": "Edit Code\n\n\nUpload File\n\n\nLink Repo\n\n\n\n\nSubmit\n\n\n\n\n\nfrom skeleton.actions import RockAction, PaperAction, ScissorsAction\nfrom skeleton.bot import Bot\nfrom skeleton.runner import parse_args, run_bot\n\n\n\n\nimport random\n\n\n\nclass Player(Bot):\n\n\n\n    \n\n\n\n\n    def __init__(self):\n\n\n        \n# Called when a new matchup starts. Called exactly once.\n\nself.my_profit = 0\nself.history = []\n\n\n\n    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):\n\n\n        \n# Called after a round. Called NUM_ROUNDS times.\n\nself.history.append((my_action, their_action))\nself.my_profit += my_payoff\n\n\n\n    def get_action(self, *, match_clock):\n\n\n        \n# Where the magic happens.\n# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.\n#\n# Should return a RockAction(), PaperAction(), or ScissorsAction().\n\nreturn random.choice([RockAction(), PaperAction(), ScissorsAction()])\n\n\n\nif __name__ == '__main__':\n    run_bot(Player(), parse_args())\n\n\n\n\n\n\n\n\n\n\n\nUpload File\n\n\n\n\nThe file you upload should be a python file that looks something like this:\n\n# Simple example bot, written in Python.\n\nfrom skeleton.actions import RockAction, PaperAction, ScissorsAction\nfrom skeleton.bot import Bot\nfrom skeleton.runner import parse_args, run_bot\n\nimport random\n\nclass Player(Bot):\n    # A bot for playing Rock-Paper-Scissors.\n\n    def __init__(self):\n        # Called when a new matchup starts. Called exactly once.\n        \n        self.my_profit = 0\n        self.history = []\n\n    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):\n        # Called after a round. Called NUM_ROUNDS times.\n        \n        self.history.append((my_action, their_action))\n        self.my_profit += my_payoff\n\n    def get_action(self, *, match_clock):\n        # Where the magic happens. Called when the engine needs an action from\n        # your bot. Called NUM_ROUNDS times.\n        #\n        # Returns a RockAction(), PaperAction(), or ScissorsAction().\n        \n        return random.choice([RockAction(), PaperAction(), ScissorsAction()])\n\nif __name__ == '__main__':\n    run_bot(Player(), parse_args())\n\n\n\n\n\nComing soon! Ask if you’d like to use this to upload multiple files or something else that doesn’t fit into a player.py file.",
-    "crumbs": [
-      "About",
-      "Hackathon",
-      "Submit Your Bot"
-    ]
-  },
-  {
-    "objectID": "rps-hackathon-fractal/instructions.html",
-    "href": "rps-hackathon-fractal/instructions.html",
-    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
-    "section": "",
-    "text": "Image by Enzoklop under CC BY-SA 3.0\n\n\n\nRock defeats scissors, scissors defeats paper, and paper defeats rock\nYou get +1 point for a win, -1 for a loss, and 0 for ties\n\n\n\n\nThere will be 8 7 rounds of RPS competitions. Each will have:\n\n1 bot entered by each participant\nBetween 1 and 4 environment bots (bots that we make)\n\nYou’ll play 1000 games against each other bot twice.\n\n\n\nEach environment bot that enters during a round will stay for all future rounds.\nAfter each round, you’ll see the names of the bot(s) that were in the previous round. Often these will be hints about what the bot(s) are doing.\n\n\n\n\nFor each competition, you can submit up to the end of that round\nStarting in the 2nd round, each submission during the round will receive a test result based on how that bot would have done in the previous round\n\nDoing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots\n\nThe final submission before the end of the round will be entered into that round’s competition\nAt the end of each round, we’ll run the tournament and show the results\n\n\n\n\nAt the end of each round, you’ll get the following information:\n\nMatrix score report with results against every other bot\n\nYour score is reported as profit per 100 games\n\nGame histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)\n\nThis includes the names of the environment bots, which often will be hints about how they play\n\n\nYour cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e. round 2 1.2x, round 3 1.44x, etc.).\n\n\n\nThere will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.",
-    "crumbs": [
-      "About",
-      "Getting Started",
-      "Hackathon Instructions"
-    ]
-  },
-  {
-    "objectID": "rps-hackathon-fractal/instructions.html#how-it-works",
-    "href": "rps-hackathon-fractal/instructions.html#how-it-works",
-    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
-    "section": "",
-    "text": "Image by Enzoklop under CC BY-SA 3.0\n\n\n\nRock defeats scissors, scissors defeats paper, and paper defeats rock\nYou get +1 point for a win, -1 for a loss, and 0 for ties\n\n\n\n\nThere will be 8 7 rounds of RPS competitions. Each will have:\n\n1 bot entered by each participant\nBetween 1 and 4 environment bots (bots that we make)\n\nYou’ll play 1000 games against each other bot twice.\n\n\n\nEach environment bot that enters during a round will stay for all future rounds.\nAfter each round, you’ll see the names of the bot(s) that were in the previous round. Often these will be hints about what the bot(s) are doing.\n\n\n\n\nFor each competition, you can submit up to the end of that round\nStarting in the 2nd round, each submission during the round will receive a test result based on how that bot would have done in the previous round\n\nDoing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots\n\nThe final submission before the end of the round will be entered into that round’s competition\nAt the end of each round, we’ll run the tournament and show the results\n\n\n\n\nAt the end of each round, you’ll get the following information:\n\nMatrix score report with results against every other bot\n\nYour score is reported as profit per 100 games\n\nGame histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)\n\nThis includes the names of the environment bots, which often will be hints about how they play\n\n\nYour cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e. round 2 1.2x, round 3 1.44x, etc.).\n\n\n\nThere will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.",
-    "crumbs": [
-      "About",
-      "Getting Started",
-      "Hackathon Instructions"
-    ]
-  },
-  {
-    "objectID": "rps-hackathon-fractal/instructions.html#strategy",
-    "href": "rps-hackathon-fractal/instructions.html#strategy",
-    "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
->>>>>>> 7361e67722323f8f4535cc153de9a78fb8cce13d
     "section": "Strategy",
     "text": "Strategy\nEach round you’ll be facing off against a selection of our bots and other hackathon participants.\n\n\n\nGame Theory Equilibrium\nRPS is a zero-sum game and the payouts are symmetrical as follows:\n\n\n\nPlayer 1/2\nRock\nPaper\nScissors\n\n\n\n\nRock\n(0, 0)\n(-1, 1)\n(1, -1)\n\n\nPaper\n(1, -1)\n(0, 0)\n(-1, 1)\n\n\nScissors\n(-1, 1)\n(1, -1)\n(0, 0)\n\n\n\nThe Nash Equilibrium strategy is to play each action \\(r = p = s = 1/3\\) of the time.\n\n\n\n\n\n\nNash Equilibrium Strategy for RPS\n\n\n\n\n\nIf Player 1 plays Rock with probability \\(r\\), Paper with probability \\(p\\), and Scissors with probability \\(s\\), we have the following expected value equations for Player 2:\n\\(\\mathbb{E}(\\text{R}) = -1p + 1s\\)\n\\(\\mathbb{E}(\\text{P}) = 1r - 1s\\)\n\\(\\mathbb{E}(\\text{S}) = -1r + 1p\\)\nSince no action dominates, we know that the EV of every strategic action should be equal (since if a certain strategy was best, we’d want to always play that strategy).\nTo solve for \\(r\\), \\(p\\), and \\(s\\), we can start by setting these EVs equal:\n\\(\\mathbb{E}(\\text{R}) = \\mathbb{E}(\\text{P})\\)\n\\(-1p + 1s = 1r - 1s\\)\n\\(2s = p + r\\)\nThen setting these equal:\n\\(\\mathbb{E}(\\text{R}) = \\mathbb{E}(\\text{S})\\)\n\\(-1p + 1s = -1r + 1p\\)\n\\(s + r = 2p\\)\nAnd finally setting these equal:\n\\(\\mathbb{E}(\\text{P}) = \\mathbb{E}(\\text{S})\\)\n\\(1r - 1s = -1r + 1p\\)\n\\(2r = s + p\\)\nNow we have these equations:\n\\[\n\\begin{cases}\n2s = p + r \\\\\ns + r = 2p \\\\\n2r = s + p\n\\end{cases}\n\\]\nWe can rewrite the 1st:\n\\(r = 2s - p\\)\nAnd combine with the 2nd:\n\\(s + (2s - p) = 2p\\)\n\\(3s = 3p\\)\nResulting in:\n\\(s = p\\)\nNow we can go back to the 2nd equation:\n\\(s + r = 2p\\)\nAnd insert \\(s\\) = \\(p\\):\n\\(s + r = 2s\\)\nAnd arrive at:\n\\(r = s\\)\nWe now see that all are equal:\n\\(s = p = r\\)\nWe also know that they must all sum to \\(1\\):\n\\(r + p + s = 1\\)\nSince they’re all equal and sum to \\(1\\), we can substitute \\(p\\) and \\(s\\) with \\(r\\):\n\\(3r = 1\\)\n\\(r = 1/3\\)\nSo all actions are taken with probability \\(1/3\\):\n\\(r = p = s = 1/3 \\quad \\blacksquare\\)\n\n\n\nPlaying this strategy means that whatever your opponent does, you will breakeven! For example, think about an opponent that always plays Rock.\n\\[\n\\begin{equation}\n\\begin{split}\n\\mathbb{E}(\\text{Equilibrium vs. Rock}) &= r*0 + p*1 + s*-1 \\\\\n&= 1/3*0 + 1/3*1 + 1/3*-1 \\\\\n&= 0\n\\end{split}\n\\end{equation}\n\\]\n\n\n\nAdapting to Opponents\n\n\nPlay more like Lisa\nSuppose that your opponent always plays Rock. What’s the best counter-strategy? To always play Paper!\nInstead of breaking even with the equilibrium strategy, you’d now be gaining \\(1\\) every game by always winning.\nThe goal of the hackathon is to figure out how to adapt to your opponents (other participants and our bots)!\nYou can try playing a few games against the bot on this site, which as of writing has won/tied/lost 45%/27%/28%."
   },
@@ -1145,18 +1075,6 @@
     "text": "Think about probability and decision making through interactive games\n\nSep 23-Oct 14: 4 weekly Monday sessions in NYC\n\nBehind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life\n\nOct: Maybe 1-day workshop in Tel Aviv\nFeb 3-Apr 11, 2025: 10 sessions meeting once/week"
   },
   {
-    "objectID": "rps-hackathon-fractal/leaderboard.html",
-    "href": "rps-hackathon-fractal/leaderboard.html",
-    "title": "RPS Hackathon @ Fractal: Leaderboard",
-    "section": "",
-    "text": "Last testing round\n\n\n\n\n\n\n\n\nLast scoring round\n\n\nLoading…\n\n\n\n\n\nAll scoring rounds\n\n\nLoading…",
-    "crumbs": [
-      "About",
-      "Hackathon",
-      "Leaderboard"
-    ]
-  },
-  {
     "objectID": "rps-hackathon-fractal/botguide.html",
     "href": "rps-hackathon-fractal/botguide.html",
     "title": "RPS Hackathon @ Fractal: Guide to Building a Bot",
@@ -1253,7 +1171,6 @@
     ]
   },
   {
-<<<<<<< HEAD
     "objectID": "rps-hackathon-fractal/instructions.html",
     "href": "rps-hackathon-fractal/instructions.html",
     "title": "RPS Hackathon @ Fractal: Hackathon Instructions",
@@ -1264,25 +1181,6 @@
       "Getting Started",
       "Hackathon Instructions"
     ]
-=======
-    "objectID": "rps-hackathon-fractal/testing.html",
-    "href": "rps-hackathon-fractal/testing.html",
-    "title": "RPS Hackathon @ Fractal: Test Results",
-    "section": "",
-    "text": "Latest submission versus all latest submissions\n\n\n\n\n\n\n\n\nLatest submission versus last round submissions",
-    "crumbs": [
-      "About",
-      "Hackathon",
-      "Test Results"
-    ]
-  },
-  {
-    "objectID": "aipcs24/1kuhn_extrareadings.html",
-    "href": "aipcs24/1kuhn_extrareadings.html",
-    "title": "#1: Kuhn Poker | Extra Readings",
-    "section": "",
-    "text": "Exercise\n\n\n\nFill in the table below with games you know about. Thanks to Eliezer for getting us started.\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\n\n\n\n\nPerfect Info, Player Actions Always Perfect Info\n\n\n\n\nImperfect Info, Imperfect from Randomness\n\n\n\n\nImperfect Info, Imperfect from Randomness AND Game States\n\n\n\n\n\n\n\n\n\n\n\nPre-Filled Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame/Opponent\nFixed/Probabilistic Opponent\nAdversarial Opponent\n\n\n\n\nImperfect Info, No Player Agency/Decisions\nCandy Land, War, Dreidel, Bingo, Chutes and Ladders, Slot machine\n\n\n\nPerfect Info, Player Actions Always Perfect Info\nPuzzles\nTictactoe, Checkers, Chess, Arimaa, Go\n\n\nImperfect Info, Imperfect from Randomness\nBlackjack\nBackgammon\n\n\nImperfect Info, Imperfect from Randomness AND Game States\nPartial Info Multi-armed Bandit\nPoker, Rock Paper Scissors, Liar’s Dice, Figgie"
->>>>>>> 7361e67722323f8f4535cc153de9a78fb8cce13d
   },
   {
     "objectID": "rps-hackathon-fractal/instructions.html#how-it-works",
@@ -1342,6 +1240,18 @@
       "About",
       "Getting Started",
       "Hackathon Instructions"
+    ]
+  },
+  {
+    "objectID": "rps-hackathon-fractal/leaderboard.html",
+    "href": "rps-hackathon-fractal/leaderboard.html",
+    "title": "RPS Hackathon @ Fractal: Leaderboard",
+    "section": "",
+    "text": "Last testing round\n\n\n\n\n\n\n\n\nLast scoring round\n\n\nLoading…\n\n\n\n\n\nAll scoring rounds\n\n\nLoading…",
+    "crumbs": [
+      "About",
+      "Hackathon",
+      "Leaderboard"
     ]
   },
   {
