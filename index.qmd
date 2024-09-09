@@ -36,18 +36,9 @@ None currently
 1. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
     - One day event at [Fractal Tech](https://fractalbootcamp.com/office)
 
-:::: {.columns}
-
-::: {.column width="48%"}
+::: {layout="[[1,1]]"}
 ![](assets/rpsfractal1.jpg)
-:::
 
-::: {.column width="4%"}
-:::
-
-::::
-
-::: {.column width="48%"}
 ![](assets/rpsfractal2.jpg)
 :::
 
@@ -55,21 +46,11 @@ None currently
     - 10 sessions meeting on Mondays and Thursday
     - Thanks to [The Commons](https://www.thesfcommons.com/) and [1907 GG](https://discord.com/invite/mQzawpEPQB) for hosting! 
 
-:::: {.columns}
-
-::: {.column width="48%"}
+::: {layout="[[1,1]]"}
 ![](assets/beta.jpg)
-:::
 
-::: {.column width="4%"}
-:::
-
-::: {.column width="48%"}
 ![](assets/beta2.jpg)
 :::
-
-
-::::
 
 <!-- Our first camp will take place from Jul 15 to Aug 15 in person in San Francisco.
 
