@@ -6,11 +6,6 @@ css: styles.css
 
 ## Sign up Now! 
 
-### Sep 8: [Rock Paper Scissors Hackathon](https://rps.bot/) in NYC
-
-- 11am-5pm in Williamsburg, Brooklyn
-- [🎟️ SIGN UP!](https://lu.ma/rps-hackathon){.signup-button}
-
 ### Sep 23-Oct 14: [Optimal Decision Poker Camp](https://gtodecisions.com) in NYC
 
 - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
@@ -36,9 +31,27 @@ None currently
 4. Feb 3-Apr 11, 2025: Optimal Decision Poker Camp Virtual
     - 10 sessions meeting once/week
 
-## Completed Camps
+## Completed Camps/Events
 
-1. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
+1. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
+    - One day event at [Fractal Tech](https://fractalbootcamp.com/office)
+
+:::: {.columns}
+
+::: {.column width="48%"}
+![](assets/rpsfractal1.jpg)
+:::
+
+::: {.column width="4%"}
+:::
+
+::::
+
+::: {.column width="48%"}
+![](assets/rpsfractal2.jpg)
+:::
+
+2. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
     - 10 sessions meeting on Mondays and Thursday
     - Thanks to [The Commons](https://www.thesfcommons.com/) and [1907 GG](https://discord.com/invite/mQzawpEPQB) for hosting! 
 
