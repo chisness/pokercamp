@@ -170,9 +170,9 @@ website:
       background: light
       collapse-level: 2
       contents: 
-        - text: "Optimal Decision Poker Camp"
+        - text: "Poker and Applied Rationality Camp (PAR)"
           href: /camp
-        - text: "AI Poker Camp"
+        - text: "AI Poker Camp (AIPC)"
           href: /aicamp
     # - id: signup
     #   title: "Signup"
@@ -190,6 +190,7 @@ website:
 format:
   html:
     theme: cerulean
+    bread-crumbs: false
     math: true 
     toc: true
     toc-expand: true

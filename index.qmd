@@ -6,12 +6,12 @@ css: styles.css
 
 ## Sign up Now! 
 
-### Sep 23-Oct 14: [Optimal Decision Poker Camp](https://gtodecisions.com) in NYC
+### Sep 23-Oct 14: [Optimal Decision Making in Gambling and Life](https://gtodecisions.com) in NYC
 
 - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
 - 4 sessions meeting every Monday
 - 6-8pm in Chinatown
-- [🎟️ SIGN UP!](https://gtodecisions.com/){.signup-button}
+[🎟️ SIGN UP!](https://gtodecisions.com/){.signup-button}
 
 *Note that the programming and related materials/workshops are for educational purposes and will not use any real money.*
 
@@ -19,7 +19,7 @@ css: styles.css
 None currently
 
 ## Upcoming Camps/Events 
-1. Oct TBD: *Maybe* Optimal Decision Poker Camp in Tel Aviv
+1. Oct TBD: *Maybe* Poker Camp in Tel Aviv
     - 1-day workshop
 
 2. Jan 6-31, 2025: *Maybe* AI Poker Camp Intensive in TBD Location
@@ -28,7 +28,7 @@ None currently
 3. Feb 3-Apr 11, 2025: AI Poker Camp Virtual
     - 10 sessions meeting once/week
 
-4. Feb 3-Apr 11, 2025: Optimal Decision Poker Camp Virtual
+4. Feb 3-Apr 11, 2025: Poker and Applied Rationality Camp Virtual
     - 10 sessions meeting once/week
 
 ## Completed Camps/Events
