@@ -11,6 +11,7 @@ css: styles.css
 - Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
 - 4 sessions meeting every Monday
 - 6-8pm in Chinatown
+
 [🎟️ SIGN UP!](https://gtodecisions.com/){.signup-button}
 
 *Note that the programming and related materials/workshops are for educational purposes and will not use any real money.*
