@@ -1,0 +1,366 @@
+---
+title: "RPS Hackathon @ Recurse: Leaderboard"
+sidebar: rps-hackathon-recurse
+bread-crumbs: false
+format:
+  html:
+    math: true
+    header-includes:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+---
+
+<style>
+    table {
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .half-row-gap {
+        height: 10px;
+        background-color: #f9f9f9;
+    }
+    .half-column-gap {
+        width: 10px;
+        background-color: #f9f9f9;
+    }
+    .score-cell {
+        color: black;
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
+    .ebot {
+        display: none;
+    }
+    .last-scoring-round-info {
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    
+    .collapsible-section {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+    }
+
+    .collapsible-title {
+        background-color: #f1f1f1;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .collapsible-content {
+        padding: 10px;
+        min-width: fit-content; /* Ensure content expands to fit the table */
+    }
+
+    .toggle-btn, .control-btn {
+        background-color: #999999; /* Neutral medium grey */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .toggle-btn:hover, .control-btn:hover {
+        background-color: #666666; /* Slightly darker on hover */
+    }
+
+    #all-scoring-rounds {
+        overflow-x: auto; /* Allow horizontal scrolling for the entire container if needed */
+    }
+
+    #expand-all, #collapse-all {
+        margin-bottom: 10px;
+    }
+</style>
+
+<h2>Last testing round</h2>
+
+<div id="testing-info"></div>
+<div id="testing-container"></div>
+
+<h2>Last scoring round</h2>
+
+<div id="last-scoring-round-info">Loading...</div>
+<div id="last-scoring-round-table-container"></div>
+
+<h2>All scoring rounds</h2>
+
+<div id="all-scoring-rounds">Loading...</div>
+
+<script>
+    const NON_EBOT_EXCEPTIONS = ['Di10n', 'Elijer', 'Crazytieguy'];
+
+    async function fetchLeaderboardTestingData() {
+        try {
+            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240917/latest');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return null;
+        }
+    }
+
+    async function fetchLeaderboardScoringData() {
+        try {
+            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240917/scoring');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return null;
+        }
+    }
+
+    function getColorForValue(value) {
+        const normalizedValue = (value + 100) / 200; // Normalize to 0-1
+        if (normalizedValue < 0.5) {
+            // Red to White
+            const intensity = Math.round(255 * (normalizedValue * 2));
+            return `rgb(255, ${intensity}, ${intensity})`;
+        } else {
+            // White to Green
+            const intensity = Math.round(255 * ((1 - normalizedValue) * 2));
+            return `rgb(${intensity}, 255, ${intensity})`;
+        }
+    }
+
+    function formatNumber(value) {
+        return value > 0 ? `+${value.toFixed(2)}` : value.toFixed(2);
+    }
+
+    function isEBot(name) {
+        return /^[A-Z]/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString();
+    }
+
+    function createTournamentInfo(data) {
+        const { tournament_id, start_time, end_time, scoring_weight, groups } = data;
+        const username = localStorage.getItem('github_username');
+        let userScore = 'N/A';
+    
+        // Find the user's score
+        for (let group of groups) {
+            const player = group.players.find(p => p.name === username);
+            if (player) {
+                userScore = player.mean.toFixed(2);
+                break;
+            }
+        }
+    
+        // Function to format date, dropping the date if it's today
+        function formatDateMaybe(dateString) {
+            const date = new Date(dateString);
+            const today = new Date();
+            if (date.toDateString() === today.toDateString()) {
+                return date.toLocaleTimeString();
+            } else {
+                return formatDate(dateString);
+            }
+        }
+    
+        return `
+            <strong>You: ${userScore}${scoring_weight !== undefined ? ` × weight ${scoring_weight.toFixed(2)}` : ''}</strong> | 
+            Tournament #${tournament_id} | 
+            Started: ${formatDateMaybe(start_time)} | 
+            Ended: ${formatDateMaybe(end_time)}
+        `;
+    }
+
+    function calculateTotalScores(allRoundsData) {
+        const totalScores = {};
+        allRoundsData.forEach(roundData => {
+            const weight = roundData.scoring_weight;
+            roundData.groups.forEach(group => {
+                group.players.forEach(player => {
+                    if (!totalScores[player.name]) {
+                        totalScores[player.name] = 0;
+                    }
+                    totalScores[player.name] += player.mean * weight;
+                });
+            });
+        });
+        return totalScores;
+    }
+
+    function createMatrixTable(data, isLatestRound = false, allRoundsData = null) {
+        const players = data.groups.flatMap(group => group.players);
+        let nonEBots = players.filter(player => !isEBot(player.name));
+        let eBots = players.filter(player => isEBot(player.name));
+    
+        // Calculate sum of scores against non-eBots for each eBot
+        eBots.forEach(eBot => {
+            eBot.sumAgainstNonEBots = nonEBots.reduce((sum, nonEBot) => {
+                return sum + (eBot.matchups[nonEBot.name] || 0);
+            }, 0);
+        });
+    
+        if (isLatestRound && allRoundsData) {
+            // Calculate total scores
+            const totalScores = calculateTotalScores(allRoundsData);
+            players.forEach(player => {
+                player.totalScore = totalScores[player.name] || 0;
+            });
+            // Sort non-eBots by total score descending for the latest round
+            nonEBots.sort((a, b) => b.totalScore - a.totalScore);
+        } else {
+            // Sort non-eBots by round score descending for previous rounds
+            nonEBots.sort((a, b) => b.mean - a.mean);
+        }
+    
+        // Sort eBots by sum of scores against non-eBots ascending
+        eBots.sort((a, b) => a.sumAgainstNonEBots - b.sumAgainstNonEBots);
+    
+        const sortedPlayers = [...nonEBots, ...eBots];
+        const playerNames = sortedPlayers.map(player => player.name);
+    
+        let tableHTML = '<table><tr><th>Player</th>';
+        if (isLatestRound) {
+            tableHTML += '<th>Total Score</th>';
+        }
+        tableHTML += '<th>Round Score</th><th class="half-column-gap"></th>';
+        playerNames.forEach((name, index) => {
+            if (index === nonEBots.length) {
+                tableHTML += '<th class="half-column-gap"></th>';
+            }
+            tableHTML += `<th>${name}</th>`;
+        });
+        tableHTML += '</tr>';
+    
+        sortedPlayers.forEach((player, index) => {
+            const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
+            const ebotClass = isEBot(player.name) ? 'ebot' : '';
+            tableHTML += `<tr class="${playerClass} ${ebotClass}">`;
+            tableHTML += `<td>${player.name}</td>`;
+            if (isLatestRound) {
+                tableHTML += `<td>${formatNumber(player.totalScore)}</td>`;
+            }
+            tableHTML += `<td>${formatNumber(player.mean)}</td>`;
+            tableHTML += '<td class="half-column-gap"></td>';
+            playerNames.forEach((opponentName, opponentIndex) => {
+                if (opponentIndex === nonEBots.length) {
+                    tableHTML += '<td class="half-column-gap"></td>';
+                }
+                const matchupValue = player.matchups[opponentName];
+                if (matchupValue !== undefined) {
+                    const backgroundColor = getColorForValue(matchupValue);
+                    tableHTML += `<td class="score-cell" style="background-color: ${backgroundColor}">${formatNumber(matchupValue)}</td>`;
+                } else {
+                    tableHTML += '<td>-</td>';
+                }
+            });
+            tableHTML += '</tr>';
+        });
+    
+        tableHTML += '</table>';
+        return tableHTML;
+    }
+    
+    async function initTestingTables() {
+        const data = await fetchLeaderboardTestingData();
+        const last_testing_round_data = data;
+        if (last_testing_round_data) {
+            const testingInfoContainer = document.getElementById('testing-info');
+            testingInfoContainer.innerHTML = createTournamentInfo(last_testing_round_data);
+            const testingTableContainer = document.getElementById('testing-container');
+            testingTableContainer.innerHTML = createMatrixTable(last_testing_round_data, false);
+        }
+    }
+
+    async function initTables() {
+        const data = await fetchLeaderboardScoringData();
+        const allRoundsData = data["scoring_rounds"];
+        const last_round_data = allRoundsData[0];
+        if (last_round_data) {
+            const tournamentInfoContainer = document.getElementById('last-scoring-round-info');
+            tournamentInfoContainer.innerHTML = createTournamentInfo(last_round_data);
+            const tableContainer = document.getElementById('last-scoring-round-table-container');
+            tableContainer.innerHTML = createMatrixTable(last_round_data, true, allRoundsData);
+        }
+        
+        const allScoringRoundsContainer = document.getElementById('all-scoring-rounds');
+        allScoringRoundsContainer.innerHTML = "";
+        
+        // Add "Expand All" and "Collapse All" buttons
+        const controlButtons = document.createElement('div');
+        controlButtons.innerHTML = `
+            <button id="expand-all" class="control-btn">Expand All</button>
+            <button id="collapse-all" class="control-btn">Collapse All</button>
+        `;
+        allScoringRoundsContainer.appendChild(controlButtons);
+    
+        const collapsibleSections = [];
+        
+        allRoundsData.reduce((index, this_round_data) => {
+            if (this_round_data) {
+                const collapsibleSection = document.createElement('div');
+                collapsibleSection.className = 'collapsible-section';
+                
+                const titleBar = document.createElement('div');
+                titleBar.className = 'collapsible-title';
+                titleBar.innerHTML = `
+                    <button class="toggle-btn">Expand</button>
+                    <span>${createTournamentInfo(this_round_data)}</span>
+                `;
+                
+                const content = document.createElement('div');
+                content.className = 'collapsible-content';
+                content.style.display = 'none';
+                content.innerHTML = createMatrixTable(this_round_data, index === 0, allRoundsData);
+                
+                collapsibleSection.appendChild(titleBar);
+                collapsibleSection.appendChild(content);
+                
+                allScoringRoundsContainer.appendChild(collapsibleSection);
+                
+                const toggleBtn = titleBar.querySelector('.toggle-btn');
+                toggleBtn.addEventListener('click', () => {
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                    toggleBtn.textContent = content.style.display === 'none' ? 'Expand' : 'Collapse';
+                });
+    
+                collapsibleSections.push({ content, toggleBtn });
+    
+                return index + 1;
+            }
+            return index;
+        }, 1);
+    
+        // Add functionality to "Expand All" and "Collapse All" buttons
+        document.getElementById('expand-all').addEventListener('click', () => {
+            collapsibleSections.forEach(section => {
+                section.content.style.display = 'block';
+                section.toggleBtn.textContent = 'Collapse';
+            });
+        });
+    
+        document.getElementById('collapse-all').addEventListener('click', () => {
+            collapsibleSections.forEach(section => {
+                section.content.style.display = 'none';
+                section.toggleBtn.textContent = 'Expand';
+            });
+        });
+    }
+
+    initTestingTables();
+    initTables();
+</script>

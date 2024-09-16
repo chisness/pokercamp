@@ -1,0 +1,15 @@
+---
+title: "RPS Hackathon @ Recurse: Homepage"
+sidebar: rps-hackathon-recurse
+bread-crumbs: false
+format:
+  html:
+    math: true
+---
+![](math.jpeg)
+
+Welcome to the Rock Paper Scissors Hackathon @ Recurse Center in NYC taking place on Sunday Sep 8, 2024. 
+
+Proceed to the [Instructions](instructions.qmd) to get started! 
+
+
