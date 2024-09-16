@@ -4,7 +4,9 @@ css: styles.css
 ---
 **Poker Camp** is a program to learn about probability, game theory, AI, and decision making under uncertainty through the lens of poker. 
 
-![](assets/kuhntree.png)
+<div style="text-align: center;">
+  <img src="assets/kuhntree.png" alt="Kuhn tree" style="width: 75%;">
+</div>
 
 ## Sign up Now! 
 
