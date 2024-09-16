@@ -24,7 +24,7 @@ Teaching practical decision-making and rationality through poker, combining theo
 
   - [Two poker research papers](https://arxiv.org/search/cs?searchtype=author&query=Chiswick,+M) with [Sam Ganzfried](http://www.ganzfriedresearch.com/)
 
-- [Blog](https://chisness.substack.com)
+- [Expected Value blog](https://expectedvalue.org)
 
 ## Ross bio 
 
