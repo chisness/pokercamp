@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RPS Hackathon @ Fractal: Submit – Poker Camp</title>
+<title>RPS Hackathon @ Recurse: Hackathon Instructions – Poker Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,17 +76,47 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </script>
-<script src="../login/auth.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="RPS Hackathon @ Fractal: Submit – Poker Camp">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="RPS Hackathon @ Recurse: Hackathon Instructions – Poker Camp">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Poker Camp">
-<meta name="twitter:title" content="RPS Hackathon @ Fractal: Submit – Poker Camp">
+<meta name="twitter:title" content="RPS Hackathon @ Recurse: Hackathon Instructions – Poker Camp">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@pokercamporg">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,20 +167,123 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">RPS Hackathon @ Recurse: Hackathon Instructions</h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RPS Hackathon @ Recurse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse/instructions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hackathon Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse/botguide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guide to Building a Bot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hackathon</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../login/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login with GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse/botsubmit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Submit Your Bot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse/leaderboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Leaderboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rps-recurse/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test Results</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link active" data-scroll-target="#how-it-works">How it Works</a>
+  <ul class="collapse">
+  <li><a href="#rock-paper-scissors" id="toc-rock-paper-scissors" class="nav-link" data-scroll-target="#rock-paper-scissors">Rock Paper Scissors</a></li>
+  <li><a href="#competition-rounds" id="toc-competition-rounds" class="nav-link" data-scroll-target="#competition-rounds">Competition Rounds</a></li>
+  <li><a href="#environment-bots" id="toc-environment-bots" class="nav-link" data-scroll-target="#environment-bots">Environment Bots</a></li>
+  <li><a href="#submissions" id="toc-submissions" class="nav-link" data-scroll-target="#submissions">Submissions</a></li>
+  <li><a href="#scoring" id="toc-scoring" class="nav-link" data-scroll-target="#scoring">Scoring</a></li>
+  <li><a href="#prizes" id="toc-prizes" class="nav-link" data-scroll-target="#prizes">Prizes</a></li>
+  </ul></li>
+  <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a>
+  <ul class="collapse">
+  <li><a href="#strategy-vs.-environment-bots" id="toc-strategy-vs.-environment-bots" class="nav-link" data-scroll-target="#strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</a></li>
+  <li><a href="#strategy-vs.-participant-bots" id="toc-strategy-vs.-participant-bots" class="nav-link" data-scroll-target="#strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</a></li>
+  </ul></li>
+  <li><a href="#writing-bots" id="toc-writing-bots" class="nav-link" data-scroll-target="#writing-bots">Writing Bots</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">RPS Hackathon @ Fractal: Submit</h1>
+<h1 class="title d-none d-lg-block">RPS Hackathon @ Recurse: Hackathon Instructions</h1>
 </div>
 
 
@@ -167,458 +300,114 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </header>
 
 
-<style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    #user-bar {
-        position: absolute;
-        top: 70px;
-        right: 10px;
-        display: inline-flex;
-        align-items: center;
-        background-color: #f1f1f1;
-        padding: 5px 5px;
-        border-radius: 20px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    #user-bar img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-    #user-bar span {
-        margin-right: 10px;
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        background-color: #f9f9f9;
-        min-width: 120px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
-        border-radius: 4px;
-    }
-    .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    .dropdown-content a:hover { background-color: #f1f1f1; border-radius: 4px; }
-    
-    button.submit {
-        padding: 8px 16px;
-        margin-bottom: 10px;
-        font-size: 14px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .tab {
-        overflow: hidden;
-        background-color: #f0f0f0;
-        display: flex;
-    }
-    .tab button {
-        background-color: #e0e0e0;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        flex-grow: 1;
-        border-radius: 10px 10px 0 0;
-        margin-right: 2px;
-        border: 1px solid #ccc;
-        border-bottom: none;
-    }
-    .tab button:last-child {
-        margin-right: 0;
-    }
-    .tab button:hover {
-        background-color: #ddd;
-    }
-    .tab button.active {
-        background-color: #fff;
-    }
-    .tabcontent {
-        display: none;
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-top: none;
-        border-radius: 0 0 10px 10px;
-    }
-    
-    .interactive-python-container * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-size: 1em;
-    }
-    .interactive-python-container {
-        font-family: Arial, sans-serif;
-        max-width: 800px;
-        padding: 10px;
-        background-color: #f0f0f0;
-        border-radius: 5px;
-    }
-    .interactive-python-container h1 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
-    }
-    .code-scroll-container {
-        overflow-x: auto;
-        background-color: #f0f0f0;
-        border-radius: 5px;
-    }
-    .code-container {
-        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 14px;
-        line-height: 1.5;
-        white-space: nowrap;
-        min-width: 100%;
-    }
-    .code-line {
-        display: flex;
-        align-items: flex-start;
-    }
-    .editable {
-        flex-grow: 1;
-        font-family: inherit;
-        font-size: inherit;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 1px 5px;
-        margin: 1px 0;
-        resize: none;
-        overflow: hidden;
-        line-height: inherit;
-        height: 1.5em;
-    }
-    .interactive-python-container button:hover {
-        background-color: #45a049;
-    }
-    pre {
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: transparent !important;
-        display: inline;
-    }
-    code {
-        white-space: pre !important;
-    }
-    .hljs {
-        background: transparent;
-        padding: 0;
-    }
-</style>
-<div id="user-bar">
-
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
+<section id="rock-paper-scissors" class="level3">
+<h3 class="anchored" data-anchor-id="rock-paper-scissors">Rock Paper Scissors</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="rps.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Image by <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Rock-paper-scissors.svg">Enzoklop</a> under <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
+</figure>
 </div>
-<div class="tab">
-<button class="tablinks" onclick="openTab(event, 'Edit Code')" id="defaultOpen">
-Edit Code
-</button>
-<button class="tablinks" onclick="openTab(event, 'Upload File')">
-Upload File
-</button>
-<button class="tablinks" onclick="openTab(event, 'Link Repo')">
-Link Repo
-</button>
-</div>
-<div id="Edit Code" class="tabcontent">
-<button class="submit" onclick="submitCode()">
-Submit
-</button>
-<div class="interactive-python-container">
-<div class="code-scroll-container">
-<div class="code-container">
-<div class="code-line">
-<pre><code class="language-python">from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
-
-</code></pre>
-</div>
-<div class="code-line">
-<textarea class="editable" id="imports" indent="0">import random</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-class Player(Bot):
-</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">    </code></pre>
-<textarea class="editable" id="classlevel" indent="4">
-</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def __init__(self):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="init" indent="8"># Called when a new matchup starts. Called exactly once.
-
-self.my_profit = 0
-self.history = []</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="handle_results" indent="8"># Called after a round. Called NUM_ROUNDS times.
-
-self.history.append((my_action, their_action))
-self.my_profit += my_payoff</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def get_action(self, *, match_clock):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="get_action" indent="8"># Where the magic happens.
-# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
-#
-# Should return a RockAction(), PaperAction(), or ScissorsAction().
-
-return random.choice([RockAction(), PaperAction(), ScissorsAction()])</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="Upload File" class="tabcontent">
-<form id="uploadForm" enctype="multipart/form-data">
-<div style="margin-bottom:5px">
-<input type="file" id="file" name="file" accept=".py" required="">
-</div>
-<button type="submit" class="submit">
-Upload File
-</button>
-<span id="uploadStatus"></span>
-</form>
-<hr>
-The file you upload should be a python file that looks something like this:
-<div class="interactive-python-container">
-<pre># Simple example bot, written in Python.
-
-from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
-
-import random
-
-class Player(Bot):
-    # A bot for playing Rock-Paper-Scissors.
-
-    def __init__(self):
-        # Called when a new matchup starts. Called exactly once.
-        
-        self.my_profit = 0
-        self.history = []
-
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-        # Called after a round. Called NUM_ROUNDS times.
-        
-        self.history.append((my_action, their_action))
-        self.my_profit += my_payoff
-
-    def get_action(self, *, match_clock):
-        # Where the magic happens. Called when the engine needs an action from
-        # your bot. Called NUM_ROUNDS times.
-        #
-        # Returns a RockAction(), PaperAction(), or ScissorsAction().
-        
-        return random.choice([RockAction(), PaperAction(), ScissorsAction()])
-
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())
-</pre>
-</div>
-</div>
-<div id="Link Repo" class="tabcontent">
-<p>
-Coming soon! Ask if you’d like to use this to upload multiple files or something else that doesn’t fit into a <code>player.py</code> file.
-</p>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
-<script>
-    // Autosave functionality
-    var enable_autosave = false;
-    
-    function autoSave() {
-        if (!enable_autosave) {
-          return;
-        }
-        
-        console.log('autosave');
-        const editableFields = document.querySelectorAll('.interactive-python-container .editable');
-        const saveData = {};
-    
-        editableFields.forEach((field) => {
-            saveData[field.id] = field.value;
-        });
-    
-        localStorage.setItem('autosaveData', JSON.stringify(saveData));
-    }
-    
-    // Load saved data
-    function loadSavedData() {
-        console.log('load');
-        const savedData = localStorage.getItem('autosaveData');
-        console.log(savedData);
-        if (savedData) {
-            const parsedData = JSON.parse(savedData);
-            Object.keys(parsedData).forEach((key) => {
-                const field = document.getElementById(key);
-                if (field) {
-                    field.value = parsedData[key];
-                    adjustTextareaHeight(field);
-                }
-            });
-        }
-        
-        enable_autosave = true;
-    }
-        
-    setInterval(autoSave, 3000); // 3 seconds
-    
-    // Load saved data when the page loads
-    window.addEventListener('load', loadSavedData);
-    
-    function adjustTextareaHeight(textarea) {
-        textarea.style.height = '1.5em';
-        textarea.style.height = (textarea.scrollHeight) + 'px';
-        autoSave();
-    }
-
-    document.querySelectorAll('.editable').forEach(textarea => {
-        adjustTextareaHeight(textarea);
-        ['input', 'keyup'].forEach(event => {
-            textarea.addEventListener(event, function() {
-                adjustTextareaHeight(this);
-            });
-        });
-    });
-
-    Prism.highlightAll();
-
-    function submitCode() {
-        autoSave();
-        const editableFields = document.querySelectorAll('.interactive-python-container .editable');
-        const username = localStorage.getItem('github_username') || 'unknown';
-        const token = localStorage.getItem('github_oauth_token') || 'unknown';
-        
-        const data = {
-            'username': username,
-            'token': token,
-            'snippets': {}
-        };
-        
-        editableFields.forEach((field) => {
-            data['snippets'][field.id] = {
-                'contents': field.value,
-                'indent': parseInt(field.getAttribute('indent'))
-            };
-        });
-    
-        fetch('https://staff-dev1.poker.camp:8443/submit-rps-hackathon-20240908', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-            alert('Code submitted successfully!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Error submitting code. Please try again.');
-        });
-    }
-</script>
-<script>
-document.getElementById('uploadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData();
-    const fileField = document.querySelector('input[type="file"]');
-    const username = localStorage.getItem('github_username') || 'unknown';
-    const token = localStorage.getItem('github_oauth_token') || 'unknown';
-    
-    formData.append('file', fileField.files[0]);
-    formData.append('username', username);
-    formData.append('token', token);
-
-    fetch('https://staff-dev1.poker.camp:8443/upload-rps-hackathon-20240908', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(result => {
-        document.getElementById('uploadStatus').textContent = 'Success: ' + result.message;
-        console.log('Success:', result);
-    })
-    .catch(error => {
-        document.getElementById('uploadStatus').textContent = 'Error: ' + error.message;
-        console.error('Error:', error);
-    });
-});
-</script>
+<ul>
+<li>Rock defeats scissors, scissors defeats paper, and paper defeats rock</li>
+<li>You get +1 point for a win, -1 for a loss, and 0 for ties</li>
+</ul>
+</section>
+<section id="competition-rounds" class="level3">
+<h3 class="anchored" data-anchor-id="competition-rounds">Competition Rounds</h3>
+<p>There will be <del>8</del> 7 rounds of RPS competitions. Each will have:</p>
+<ul>
+<li>1 bot entered by each participant</li>
+<li>Between 1 and 4 environment bots (bots that we make)</li>
+</ul>
+<p>You’ll play 1000 games against each other bot twice.</p>
+</section>
+<section id="environment-bots" class="level3">
+<h3 class="anchored" data-anchor-id="environment-bots">Environment Bots</h3>
+<p>Each environment bot that enters during a round will stay for all future rounds.</p>
+<p>After each round, you’ll see the names of the bot(s) that were in the previous round. Often these will be hints about what the bot(s) are doing.</p>
+</section>
+<section id="submissions" class="level3">
+<h3 class="anchored" data-anchor-id="submissions">Submissions</h3>
+<ul>
+<li>For each competition, you can submit up to the end of that round</li>
+<li>Starting in the 2nd round, each submission <em>during</em> the round will receive a <em>test result</em> based on how that bot would have done in the <em>previous</em> round
+<ul>
+<li>Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots</li>
+</ul></li>
+<li>The final submission before the end of the round will be entered into that round’s competition</li>
+<li>At the end of each round, we’ll run the tournament and show the results</li>
+</ul>
+</section>
+<section id="scoring" class="level3">
+<h3 class="anchored" data-anchor-id="scoring">Scoring</h3>
+<p>At the end of each round, you’ll get the following information:</p>
+<ul>
+<li>Matrix score report with results against every other bot
+<ul>
+<li>Your score is reported as profit per 100 games</li>
+</ul></li>
+<li>Game histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)
+<ul>
+<li>This includes the names of the environment bots, which often will be hints about how they play</li>
+</ul></li>
+</ul>
+<p>Your cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e.&nbsp;round 2 1.2x, round 3 1.44x, etc.).</p>
+</section>
+<section id="prizes" class="level3">
+<h3 class="anchored" data-anchor-id="prizes">Prizes</h3>
+<p>There will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score.</p>
+</section>
+</section>
+<section id="strategy" class="level2">
+<h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
+<p>Your mission is to play well against the environment bots without getting counterplayed by other participant bots.</p>
+<section id="strategy-vs.-environment-bots" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-vs.-environment-bots">Strategy vs.&nbsp;Environment Bots</h3>
+<p>The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. Combine this with the sometimes-revealed bot names, and you’ll be able to develop a strong strategy against these bots for future rounds.</p>
+</section>
+<section id="strategy-vs.-participant-bots" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-vs.-participant-bots">Strategy vs.&nbsp;Participant Bots</h3>
+<p>Look for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves.</p>
+</section>
+</section>
+<section id="writing-bots" class="level2">
+<h2 class="anchored" data-anchor-id="writing-bots">Writing Bots</h2>
+<p><a href="../rps-recurse/botguide.html">Click here</a> for our guide on getting started writing RPS bots.</p>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p><strong>10:30am:</strong> Doors open</p>
+<p><strong>11:00am:</strong> Arrival and setup</p>
+<p><strong>11:30am:</strong> Begin Competition 1</p>
+<p><strong>12:00pm:</strong> Competition 1 results, begin Competition 2</p>
+<p><strong>12:30pm:</strong> Competition 2 results, begin Competition 3</p>
+<ul>
+<li>Pizza lunch</li>
+</ul>
+<p><strong>1:00pm:</strong> Competition 3 results, begin competition 4</p>
+<p><strong>1:30pm:</strong> Competition 4 results, begin Competition 5</p>
+<p><strong>2:00pm:</strong> Competition 5 results, begin Competition 6</p>
+<p><strong>2:30pm:</strong> Competition 7 results, begin Competition 7</p>
+<p><strong>3:00pm:</strong> Competition 7/final results and bot explanations</p>
+<ul>
+<li>Hangout</li>
+</ul>
+<p><strong>5:00pm:</strong> End</p>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why?</h2>
+<p>Fun! And thinking about strategy in a repeated game against a variety of opponents.</p>
+<p>From DeepMind in 2023:</p>
+<blockquote class="blockquote">
+<p>In sequential decision-making, agent evaluation has largely been restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g.&nbsp;beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.</p>
+</blockquote>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

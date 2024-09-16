@@ -1,0 +1,96 @@
+---
+title: "RPS Hackathon @ Recurse: Hackathon Instructions"
+sidebar: rps-hackathon-recurse
+bread-crumbs: false
+format:
+  html:
+    math: true
+---
+
+## How it Works
+
+### Rock Paper Scissors
+![Image by [Enzoklop](https://en.wikipedia.org/wiki/Rock_paper_scissors#/media/File:Rock-paper-scissors.svg) under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)](rps.png){width=50%}
+
+- Rock defeats scissors, scissors defeats paper, and paper defeats rock
+- You get +1 point for a win, -1 for a loss, and 0 for ties
+
+### Competition Rounds
+There will be ~~8~~ 7 rounds of RPS competitions. Each will have: 
+
+- 1 bot entered by each participant
+- Between 1 and 4 environment bots (bots that we make)
+
+You'll play 1000 games against each other bot twice. 
+
+### Environment Bots
+Each environment bot that enters during a round will stay for all future rounds. 
+
+After each round, you'll see the names of the bot(s) that were in the previous round. Often these will be hints about what the bot(s) are doing. 
+
+### Submissions
+- For each competition, you can submit up to the end of that round
+- Starting in the 2nd round, each submission *during* the round will receive a *test result* based on how that bot would have done in the *previous* round 
+  - Doing better in the previous round is a sign of progress, but may not actually result in a better score in the current round, which will have updated participant bots and new environment bots
+- The final submission before the end of the round will be entered into that round's competition
+- At the end of each round, we'll run the tournament and show the results
+
+### Scoring
+At the end of each round, you'll get the following information: 
+
+- Matrix score report with results against every other bot
+  - Your score is reported as profit per 100 games
+- Game histories for the first and last 100 games against each other bot (200 game histories total out of the 1000 played)
+  - This includes the names of the environment bots, which often will be hints about how they play
+
+Your cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e. round 2 1.2x, round 3 1.44x, etc.). 
+
+### Prizes
+There will be small on-theme prizes for the winners of each round and a larger on-theme prize for the winner overall. Winners are determined by highest score. 
+
+## Strategy
+Your mission is to play well against the environment bots without getting counterplayed by other participant bots. 
+
+### Strategy vs. Environment Bots
+The 200 games that are shown against the environment bots will generally be very useful, because they will reveal patterns in the bot play. Combine this with the sometimes-revealed bot names, and you'll be able to develop a strong strategy against these bots for future rounds. 
+
+### Strategy vs. Participant Bots
+Look for patterns. If participant bots are only trying to exploit environment bots, then they might be exploitable themselves. 
+
+## Writing Bots
+[Click here](botguide.qmd) for our guide on getting started writing RPS bots.
+
+## Schedule
+
+**10:30am:** Doors open
+
+**11:00am:** Arrival and setup
+
+**11:30am:** Begin Competition 1
+
+**12:00pm:** Competition 1 results, begin Competition 2
+
+**12:30pm:** Competition 2 results, begin Competition 3
+
+- Pizza lunch 
+
+**1:00pm:** Competition 3 results, begin competition 4
+
+**1:30pm:** Competition 4 results, begin Competition 5
+
+**2:00pm:** Competition 5 results, begin Competition 6
+
+**2:30pm:** Competition 7 results, begin Competition 7
+
+**3:00pm:** Competition 7/final results and bot explanations
+
+- Hangout
+
+**5:00pm:** End
+
+## Why? 
+Fun! And thinking about strategy in a repeated game against a variety of opponents. 
+
+From DeepMind in 2023:
+
+> In sequential decision-making, agent evaluation has largely been restricted to few interactions against experts, with the aim to reach some desired level of performance (e.g. beating a human professional player). We propose a benchmark for multiagent learning based on repeated play of the simple game Rock, Paper, Scissors.
