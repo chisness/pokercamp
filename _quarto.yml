@@ -38,6 +38,28 @@ website:
       - icon: github
         href: https://github.com/chisness/pokercamp
   sidebar: 
+    - id: rps-hackathon-recurse
+      style: "docked"
+      background: light
+      contents:
+        - text: "RPS Hackathon @ RC"
+          href: "/rps-recurse"
+        - section: "Getting Started"
+          contents: 
+            - text: "Hackathon Instructions"
+              href: "rps-recurse/instructions.qmd"
+            - text: "Guide to Building a Bot"
+              href: "rps-recurse/botguide.qmd"
+        - section: "Hackathon"
+          contents: 
+            - text: "Login with GitHub"
+              href: "login/index.qmd"
+            - text: "Submit Your Bot"
+              href: "rps-recurse/botsubmit.qmd"
+            - text: "Leaderboard"
+              href: "rps-recurse/leaderboard.qmd"
+            - text: "Test Results"
+              href: "rps-recurse/testing.qmd"
     - id: rps-hackathon-fractal
       style: "docked"
       background: light
