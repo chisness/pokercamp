@@ -111,6 +111,10 @@ format:
     }
     .CodeMirror {
         height: auto;
+        min-height: 3em;
+    }
+    .CodeMirror-scroll {
+        min-height: 3em;
     }
     .fixed-text .CodeMirror {
         background-color: #f0f0f0;
@@ -144,9 +148,7 @@ format:
 <div style="margin-bottom:5px"><input type="file" id="file" name="file" accept=".py" required></div>
 <button type="submit" class="submit">Upload File</button><span id="uploadStatus"></span>
 </form>
-
-### Example File Format
-
+--- 
 The file you upload should be a Python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd#game-engine).
 
 ```python
