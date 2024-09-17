@@ -617,34 +617,21 @@ function submitCode() {
     const username = localStorage.getItem('github_username') || 'unknown';
     const token = localStorage.getItem('github_oauth_token') || 'unknown';
     
-    // Combine the fixed text and editable parts
-    const fullCode = `${fixedCode[0]}
-
-${initialCode[0]}
-
-${fixedCode[1]}
-${initialCode[1]}
-${fixedCode[2]}
-${initialCode[2]}
-
-${fixedCode[3]}
-${initialCode[3]}
-
-${fixedCode[4]}
-${initialCode[4]}
-
-${fixedCode[5]}`;
-
     const data = {
         'username': username,
         'token': token,
-        'snippets': {
-            'full_code': {
-                'contents': fullCode,
-                'indent': 0
-            }
-        }
+        'snippets': {}
     };
+    
+    // Map the editors to their respective snippet keys
+    const snippetKeys = ['imports', 'classlevel', 'init', 'handle_results', 'get_action'];
+    
+    editors.forEach((editor, index) => {
+        data['snippets'][snippetKeys[index]] = {
+            'contents': editor.getValue(),
+            'indent': initialCode[index][0]
+        };
+    });
 
     fetch('https://staff-dev1.poker.camp:8443/submit-rps-hackathon-20240917', {
         method: 'POST',
