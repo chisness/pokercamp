@@ -202,7 +202,7 @@ format:
     initializeEditors();
   });
 </script>
-
+<!-- 
 <div id="Edit Code" class="tabcontent">
   <button class="submit" onclick="submitCode()">Submit</button>
   <div class="interactive-python-container">
@@ -242,11 +242,11 @@ if __name__ == '__main__':
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
-<!-- <div id="Edit Code" class="tabcontent">
+<div id="Edit Code" class="tabcontent">
 <button class="submit" onclick="submitCode()">Submit</button>
 <div class="interactive-python-container">
 <div class="code-scroll-container">
@@ -286,7 +286,7 @@ if __name__ == '__main__':
 </div>
 </div>
 </div>
-</div> -->
+</div>
 
 <div id="Upload File" class="tabcontent">
 <form id="uploadForm" enctype="multipart/form-data">
