@@ -206,7 +206,8 @@ if __name__ == '__main__':
 ---
 
 The file you upload should be a python file that looks something like this:
-<div class="interactive-python-container"><pre># Simple example bot, written in Python.
+```python
+# Simple example bot, written in Python.
 
 from skeleton.actions import RockAction, PaperAction, ScissorsAction
 from skeleton.bot import Bot
@@ -239,7 +240,7 @@ class Player(Bot):
 
 if __name__ == '__main__':
     run_bot(Player(), parse_args())
-</pre></div>
+```
 </div>
 
 <div id="Link Repo" class="tabcontent">
