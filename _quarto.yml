@@ -58,7 +58,7 @@ website:
               href: "rps-recurse/botsubmit.qmd"
             - text: "Leaderboard"
               href: "rps-recurse/leaderboard.qmd"
-            - text: "Test Results"
+            - text: "Tests and Logs"
               href: "rps-recurse/testing.qmd"
     - id: rps-hackathon-fractal
       style: "docked"

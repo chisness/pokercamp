@@ -1,5 +1,5 @@
 ---
-title: "RPS Hackathon @ Recurse: Test Results"
+title: "RPS Hackathon @ Recurse: Tests and Logs"
 sidebar: rps-hackathon-recurse
 bread-crumbs: false
 format:
