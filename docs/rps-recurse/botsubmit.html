@@ -76,7 +76,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </script>
-<script src="../login/auth.js"></script>
+<script src="../login/auth.js"></script> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
 
 
 <meta property="og:title" content="RPS Hackathon @ Recurse: Submit – Poker Camp">
@@ -223,8 +223,15 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#called-when-the-engine-needs-an-action-from-your-bot-num_rounds-times-in-total." id="toc-called-when-the-engine-needs-an-action-from-your-bot-num_rounds-times-in-total." class="nav-link active" data-scroll-target="#called-when-the-engine-needs-an-action-from-your-bot-num_rounds-times-in-total.">Called when the engine needs an action from your bot, NUM_ROUNDS times in total.</a></li>
+  <li><a href="#should-return-a-rockaction-paperaction-or-scissorsaction." id="toc-should-return-a-rockaction-paperaction-or-scissorsaction." class="nav-link" data-scroll-target="#should-return-a-rockaction-paperaction-or-scissorsaction.">Should return a RockAction(), PaperAction(), or ScissorsAction().</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -417,77 +424,119 @@ Upload File
 Link Repo
 </button>
 </div>
+<script>
+  // Function to initialize CodeMirror editors for each editable textarea
+  function initializeEditors() {
+    const editors = [
+      { id: 'imports', mode: 'python' },
+      { id: 'classlevel', mode: 'python' },
+      { id: 'init', mode: 'python' },
+      { id: 'handle_results', mode: 'python' },
+      { id: 'get_action', mode: 'python' }
+    ];
+
+    editors.forEach(editor => {
+      CodeMirror.fromTextArea(document.getElementById(editor.id), {
+        lineNumbers: true,
+        mode: editor.mode,
+        theme: "default",
+        indentUnit: 4,
+        tabMode: "indent"
+      });
+    });
+  }
+
+  // Call this function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEditors();
+  });
+</script>
 <div id="Edit Code" class="tabcontent">
-<button class="submit" onclick="submitCode()">
-Submit
-</button>
+<button class="submit" onclick="submitCode()">Submit</button>
+<div class="interactive-python-container">
+<pre><code>&lt;div class="code-scroll-container"&gt;
+  &lt;div class="code-container"&gt;
+    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;from skeleton.actions import RockAction, PaperAction, ScissorsAction</code></pre>
+from skeleton.bot import Bot from skeleton.runner import parse_args, run_bot
+
+</div>
+<pre><code>    &lt;div class="code-line"&gt;&lt;textarea class="editable" id="imports"&gt;import random&lt;/textarea&gt;&lt;/div&gt;
+
+    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;</code></pre>
+class Player(Bot): 
+
+</div>
+<pre><code>    &lt;div class="code-line"&gt;&lt;textarea class="editable" id="classlevel"&gt;&lt;/textarea&gt;&lt;/div&gt;
+
+    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;    def __init__(self):&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class="code-line"&gt;&lt;textarea class="editable" id="init"&gt;# Called when a new matchup starts. Called exactly once.</code></pre>
+self.my_profit = 0 self.history = []
+
+</main></div>
+<pre><code>    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class="code-line"&gt;&lt;textarea class="editable" id="handle_results"&gt;# Called after a round. Called NUM_ROUNDS times.</code></pre>
+self.history.append((my_action, their_action)) self.my_profit += my_payoff
+
+
+<pre><code>    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;    def get_action(self, *, match_clock):&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class="code-line"&gt;&lt;textarea class="editable" id="get_action"&gt;# Where the magic happens.</code></pre>
+<section id="called-when-the-engine-needs-an-action-from-your-bot-num_rounds-times-in-total." class="level1">
+<h1>Called when the engine needs an action from your bot, NUM_ROUNDS times in total.</h1>
+</section>
+<section id="should-return-a-rockaction-paperaction-or-scissorsaction." class="level1">
+<h1>Should return a RockAction(), PaperAction(), or ScissorsAction().</h1>
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])
+
+
+<pre><code>    &lt;div class="code-line"&gt;&lt;pre&gt;&lt;code class="language-python"&gt;</code></pre>
+if <strong>name</strong> == ‘<strong>main</strong>’: run_bot(Player(), parse_args())
+
+
+<pre><code>  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<!-- <div id="Edit Code" class="tabcontent">
+<button class="submit" onclick="submitCode()">Submit</button>
 <div class="interactive-python-container">
 <div class="code-scroll-container">
 <div class="code-container">
-<div class="code-line">
-<pre><code class="language-python">from skeleton.actions import RockAction, PaperAction, ScissorsAction
+<div class="code-line"><pre><code class="language-python">from skeleton.actions import RockAction, PaperAction, ScissorsAction
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
 
-</code></pre>
-</div>
-<div class="code-line">
-<textarea class="editable" id="imports" indent="0">import random</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
+</code></pre></div><div class="code-line"><textarea class="editable" id="imports" indent=0>
+import random</textarea></div><div class="code-line"><pre><code class="language-python">
 class Player(Bot):
-</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">    </code></pre>
-<textarea class="editable" id="classlevel" indent="4">
-</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def __init__(self):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="init" indent="8"># Called when a new matchup starts. Called exactly once.
+</code></pre></div><div class="code-line"><pre><code class="language-python">    </code></pre><textarea class="editable" id="classlevel" indent=4>
+
+</textarea></div><div class="code-line"><pre><code class="language-python">
+    def __init__(self):</code></pre></div>
+<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="init" indent=8># Called when a new matchup starts. Called exactly once.
 
 self.my_profit = 0
-self.history = []</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="handle_results" indent="8"># Called after a round. Called NUM_ROUNDS times.
+self.history = []</textarea></div>
+<div class="code-line"><pre><code class="language-python">
+    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):</code></pre></div>
+<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="handle_results" indent=8># Called after a round. Called NUM_ROUNDS times.
 
 self.history.append((my_action, their_action))
-self.my_profit += my_payoff</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
-    def get_action(self, *, match_clock):</code></pre>
-</div>
-<div class="code-line">
-<pre><code class="language-python">        </code></pre>
-<textarea class="editable" id="get_action" indent="8"># Where the magic happens.
+self.my_profit += my_payoff</textarea></div>
+<div class="code-line"><pre><code class="language-python">
+    def get_action(self, *, match_clock):</code></pre></div>
+<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="get_action" indent=8># Where the magic happens.
 # Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
 #
 # Should return a RockAction(), PaperAction(), or ScissorsAction().
 
-return random.choice([RockAction(), PaperAction(), ScissorsAction()])</textarea>
-</div>
-<div class="code-line">
-<pre><code class="language-python">
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])</textarea></div>
+<div class="code-line"><pre><code class="language-python">
 if __name__ == '__main__':
-    run_bot(Player(), parse_args())</code></pre>
+    run_bot(Player(), parse_args())</code></pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div> -->
 <div id="Upload File" class="tabcontent">
 <form id="uploadForm" enctype="multipart/form-data">
 <div style="margin-bottom:5px">
@@ -700,8 +749,9 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
 </script>
 
 
+</section>
 
-</main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1122,7 +1172,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</div> <!-- /content -->
+ <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">

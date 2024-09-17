@@ -7,6 +7,9 @@ format:
     math: false
     header-includes:
       <script src="/login/auth.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
 ---
 <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
@@ -172,7 +175,78 @@ format:
 <button class="tablinks" onclick="openTab(event, 'Link Repo')">Link Repo</button>
 </div>
 
+<script>
+  // Function to initialize CodeMirror editors for each editable textarea
+  function initializeEditors() {
+    const editors = [
+      { id: 'imports', mode: 'python' },
+      { id: 'classlevel', mode: 'python' },
+      { id: 'init', mode: 'python' },
+      { id: 'handle_results', mode: 'python' },
+      { id: 'get_action', mode: 'python' }
+    ];
+
+    editors.forEach(editor => {
+      CodeMirror.fromTextArea(document.getElementById(editor.id), {
+        lineNumbers: true,
+        mode: editor.mode,
+        theme: "default",
+        indentUnit: 4,
+        tabMode: "indent"
+      });
+    });
+  }
+
+  // Call this function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEditors();
+  });
+</script>
+
 <div id="Edit Code" class="tabcontent">
+  <button class="submit" onclick="submitCode()">Submit</button>
+  <div class="interactive-python-container">
+    <div class="code-scroll-container">
+      <div class="code-container">
+        <div class="code-line"><pre><code class="language-python">from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot</code></pre></div>
+
+        <div class="code-line"><textarea class="editable" id="imports">import random</textarea></div>
+
+        <div class="code-line"><pre><code class="language-python">
+class Player(Bot):
+</code></pre></div>
+
+        <div class="code-line"><textarea class="editable" id="classlevel"></textarea></div>
+
+        <div class="code-line"><pre><code class="language-python">    def __init__(self):</code></pre></div>
+        <div class="code-line"><textarea class="editable" id="init"># Called when a new matchup starts. Called exactly once.
+self.my_profit = 0
+self.history = []</textarea></div>
+
+        <div class="code-line"><pre><code class="language-python">    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):</code></pre></div>
+        <div class="code-line"><textarea class="editable" id="handle_results"># Called after a round. Called NUM_ROUNDS times.
+self.history.append((my_action, their_action))
+self.my_profit += my_payoff</textarea></div>
+
+        <div class="code-line"><pre><code class="language-python">    def get_action(self, *, match_clock):</code></pre></div>
+        <div class="code-line"><textarea class="editable" id="get_action"># Where the magic happens.
+# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
+# Should return a RockAction(), PaperAction(), or ScissorsAction().
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])</textarea></div>
+
+        <div class="code-line"><pre><code class="language-python">
+if __name__ == '__main__':
+    run_bot(Player(), parse_args())</code></pre></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div id="Edit Code" class="tabcontent">
 <button class="submit" onclick="submitCode()">Submit</button>
 <div class="interactive-python-container">
 <div class="code-scroll-container">
@@ -212,7 +286,7 @@ if __name__ == '__main__':
 </div>
 </div>
 </div>
-</div>
+</div> -->
 
 <div id="Upload File" class="tabcontent">
 <form id="uploadForm" enctype="multipart/form-data">
