@@ -103,43 +103,14 @@ format:
         border-radius: 0 0 10px 10px;
     }
     
-    .interactive-python-container {
-        font-family: Arial, sans-serif;
-        max-width: 100% !important;
-        padding: 10px;
-        background-color: #f0f0f0;
-        border-radius: 5px;
-    }
-    .code-scroll-container {
-        max-width: 100% !important;
-        background-color: #f0f0f0;
-        border-radius: 5px;
-    }
-    .code-container {
-        max-width: 100% !important;
-        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-    .code-line {
+    #code-editor {
         width: 100%;
-        display: flex;
-        align-items: flex-start;
-    }
-    .CodeMirror {
-        width: 100%;
+        height: 500px;
         border: 1px solid #ccc;
         font-size: 14px;
-        height: auto;
     }
-    pre {
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: transparent !important;
-        display: inline;
-    }
-    code {
-        white-space: pre !important;
+    .CodeMirror {
+        height: 100%;
     }
 </style>
 
@@ -153,48 +124,7 @@ format:
 
 <div id="Edit Code" class="tabcontent">
 <button class="submit" onclick="submitCode()">Submit</button>
-<div class="interactive-python-container">
-<div class="code-scroll-container">
-<div class="code-container">
-<div class="code-line"><pre><code class="language-python">from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
-
-</code></pre></div>
-<div class="code-line"><textarea class="editable" id="imports" indent=0>
-import random</textarea></div>
-<div class="code-line"><pre><code class="language-python">
-class Player(Bot):
-</code></pre></div>
-<div class="code-line"><pre><code class="language-python">    </code></pre><textarea class="editable" id="classlevel" indent=4>
-
-</textarea></div>
-<div class="code-line"><pre><code class="language-python">
-    def __init__(self):</code></pre></div>
-<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="init" indent=8># Called when a new matchup starts. Called exactly once.
-
-self.my_profit = 0
-self.history = []</textarea></div>
-<div class="code-line"><pre><code class="language-python">
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):</code></pre></div>
-<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="handle_results" indent=8># Called after a round. Called NUM_ROUNDS times.
-
-self.history.append((my_action, their_action))
-self.my_profit += my_payoff</textarea></div>
-<div class="code-line"><pre><code class="language-python">
-    def get_action(self, *, match_clock):</code></pre></div>
-<div class="code-line"><pre><code class="language-python">        </code></pre><textarea class="editable" id="get_action" indent=8># Where the magic happens.
-# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
-#
-# Should return a RockAction(), PaperAction(), or ScissorsAction().
-
-return random.choice([RockAction(), PaperAction(), ScissorsAction()])</textarea></div>
-<div class="code-line"><pre><code class="language-python">
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())</code></pre></div>
-</div>
-</div>
-</div>
+<div id="code-editor"></div>
 </div>
 
 <div id="Upload File" class="tabcontent">
@@ -248,154 +178,134 @@ if __name__ == '__main__':
 </div>
 
 <script>
-  // Function to initialize CodeMirror editors for each editable textarea
-  function initializeEditors() {
-    const editors = [
-      { id: 'imports', mode: 'python', height: '50px' },
-      { id: 'classlevel', mode: 'python', height: '50px' },
-      { id: 'init', mode: 'python', height: '100px' },
-      { id: 'handle_results', mode: 'python', height: '100px' },
-      { id: 'get_action', mode: 'python', height: '150px' }
-    ];
+let editor;
 
-    editors.forEach(editor => {
-      const cm = CodeMirror.fromTextArea(document.getElementById(editor.id), {
-        lineNumbers: true,
-        mode: editor.mode,
+const initialCode = `from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+
+import random
+
+class Player(Bot):
+    def __init__(self):
+        # Called when a new matchup starts. Called exactly once.
+        self.my_profit = 0
+        self.history = []
+
+    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
+        # Called after a round. Called NUM_ROUNDS times.
+        self.history.append((my_action, their_action))
+        self.my_profit += my_payoff
+
+    def get_action(self, *, match_clock):
+        # Where the magic happens.
+        # Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
+        #
+        # Should return a RockAction(), PaperAction(), or ScissorsAction().
+        return random.choice([RockAction(), PaperAction(), ScissorsAction()])
+
+if __name__ == '__main__':
+    run_bot(Player(), parse_args())
+`;
+
+function initializeEditor() {
+    editor = CodeMirror(document.getElementById("code-editor"), {
+        value: initialCode,
+        mode: "python",
         theme: "default",
+        lineNumbers: true,
         indentUnit: 4,
         tabSize: 4,
         indentWithTabs: false,
         lineWrapping: true,
         viewportMargin: Infinity
-      });
-      
-      cm.setSize(null, editor.height);
-      
-      // Store CodeMirror instance in the textarea's data attribute
-      document.getElementById(editor.id).CodeMirror = cm;
     });
-  }
+}
 
-  // Autosave functionality
-  var enable_autosave = false;
-  
-  function autoSave() {
+// Autosave functionality
+let enable_autosave = false;
+
+function autoSave() {
     if (!enable_autosave) {
-      return;
+        return;
     }
     
     console.log('autosave');
-    const editableFields = document.querySelectorAll('.interactive-python-container .editable');
-    const saveData = {};
+    localStorage.setItem('autoSavedCode', editor.getValue());
+}
 
-    editableFields.forEach((field) => {
-      if (field.CodeMirror) {
-        saveData[field.id] = field.CodeMirror.getValue();
-      } else {
-        saveData[field.id] = field.value;
-      }
-    });
-
-    localStorage.setItem('autosaveData', JSON.stringify(saveData));
-  }
-  
-  // Load saved data
-  function loadSavedData() {
+function loadSavedCode() {
     console.log('load');
-    const savedData = localStorage.getItem('autosaveData');
-    console.log(savedData);
-    if (savedData) {
-      const parsedData = JSON.parse(savedData);
-      Object.keys(parsedData).forEach((key) => {
-        const field = document.getElementById(key);
-        if (field && field.CodeMirror) {
-          field.CodeMirror.setValue(parsedData[key]);
-        } else if (field) {
-          field.value = parsedData[key];
-        }
-      });
+    const savedCode = localStorage.getItem('autoSavedCode');
+    if (savedCode && editor) {
+        editor.setValue(savedCode);
     }
     
     enable_autosave = true;
-  }
-      
-  setInterval(autoSave, 3000); // 3 seconds
-  
-  // Load saved data when the page loads
-  window.addEventListener('load', function() {
-    initializeEditors();
-    loadSavedData();
-  });
+}
 
-  function openTab(evt, tabName) {
+setInterval(autoSave, 3000); // 3 seconds
+
+window.addEventListener('load', function() {
+    initializeEditor();
+    loadSavedCode();
+});
+
+function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+        tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-  }
+}
 
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click();
 
-  function submitCode() {
+function submitCode() {
     autoSave();
-    const editableFields = document.querySelectorAll('.interactive-python-container .editable');
     const username = localStorage.getItem('github_username') || 'unknown';
     const token = localStorage.getItem('github_oauth_token') || 'unknown';
     
     const data = {
-      'username': username,
-      'token': token,
-      'snippets': {}
+        'username': username,
+        'token': token,
+        'snippets': {
+            'full_code': {
+                'contents': editor.getValue(),
+                'indent': 0
+            }
+        }
     };
-    
-    editableFields.forEach((field) => {
-      if (field.CodeMirror) {
-        data['snippets'][field.id] = {
-          'contents': field.CodeMirror.getValue(),
-          'indent': parseInt(field.getAttribute('indent'))
-        };
-      } else {
-        data['snippets'][field.id] = {
-          'contents': field.value,
-          'indent': parseInt(field.getAttribute('indent'))
-        };
-      }
-    });
 
     fetch('https://staff-dev1.poker.camp:8443/submit-rps-hackathon-20240917', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
     })
     .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
     })
     .then(data => {
-      console.log('Success:', data);
-      alert('Code submitted successfully!');
+        console.log('Success:', data);
+        alert('Code submitted successfully!');
     })
     .catch((error) => {
-      console.error('Error:', error);
-      alert('Error submitting code. Please try again.');
+        console.error('Error:', error);
+        alert('Error submitting code. Please try again.');
     });
-  }
-</script>
+}
 
-<script>
 document.getElementById('uploadForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -408,7 +318,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
     formData.append('username', username);
     formData.append('token', token);
 
-    fetch('https://staff-dev1.poker.camp:8443/upload-rps-hackathon-20240908', {
+    fetch('https://staff-dev1.poker.camp:8443/upload-rps-hackathon-20240917', {
         method: 'POST',
         body: formData
     })
