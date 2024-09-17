@@ -284,11 +284,26 @@ window.Quarto = {
     }
     th, td {
         border: 1px solid #ddd;
-        padding: 8px;
+        padding: 2px;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     th {
-        background-color: #f2f2f2;
+        background-color: #f9f9f9;
+        height: 13em;
+        white-space: nowrap;
+        padding: 8px;
+        vertical-align: bottom;
+    }
+    th > div {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        height: 100%;
+        width: 100%;
+        text-align: left;
+        padding: 0 3px;
     }
     .half-row-gap {
         height: 10px;
@@ -519,7 +534,7 @@ Loading…
             if (index === nonEBots.length) {
                 tableHTML += '<th class="half-column-gap"></th>';
             }
-            tableHTML += `<th>${name}</th>`;
+            tableHTML += `<th><div>${name}</div></th>`;
         });
         tableHTML += '</tr>';
         
