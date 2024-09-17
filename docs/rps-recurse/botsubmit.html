@@ -391,8 +391,9 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
         margin: 10px 0;
         width: 100%;
     }
+
     .indented-editor {
-        padding-left: 20px;
+        margin-left: 20px;
     }
 </style>
 <div id="user-bar">
@@ -473,18 +474,18 @@ let editors = [];
 
 const initialCode = [
     `import random`,
-    `    # You can add class-level attributes here if needed`,
-    `        # Called when a new matchup starts. Called exactly once.
-        self.my_profit = 0
-        self.history = []`,
-    `        # Called after a round. Called NUM_ROUNDS times.
-        self.history.append((my_action, their_action))
-        self.my_profit += my_payoff`,
-    `        # Where the magic happens.
-        # Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
-        #
-        # Should return a RockAction(), PaperAction(), or ScissorsAction().
-        return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
+    `# You can add class-level attributes here if needed`,
+    `# Called when a new matchup starts. Called exactly once.
+self.my_profit = 0
+self.history = []`,
+    `# Called after a round. Called NUM_ROUNDS times.
+self.history.append((my_action, their_action))
+self.my_profit += my_payoff`,
+    `# Where the magic happens.
+# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
+#
+# Should return a RockAction(), PaperAction(), or ScissorsAction().
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
 ];
 
 const fixedCode = [
@@ -492,14 +493,14 @@ const fixedCode = [
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot`,
     `class Player(Bot):`,
-    `    def __init__(self):`,
-    `    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`,
-    `    def get_action(self, *, match_clock):`,
+    `def __init__(self):`,
+    `def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`,
+    `def get_action(self, *, match_clock):`,
     `if __name__ == '__main__':
     run_bot(Player(), parse_args())`
 ];
 
-const indentedSections = [false, true, true, true, true, false];
+const indentedSections = [false, false, true, true, true, false];
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
