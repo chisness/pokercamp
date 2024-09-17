@@ -291,8 +291,8 @@ window.Quarto = {
         text-overflow: ellipsis;
     }
     th {
-        background-color: #f9f9f9;
-        height: 13em;
+        background-color: #f1f1f1;
+        height: 13.7em;
         white-space: nowrap;
         padding: 8px;
         vertical-align: bottom;
@@ -320,9 +320,10 @@ window.Quarto = {
     .ebot {
         display: none;
     }
-    .last-scoring-round-info {
+    #last-scoring-round-info {
         margin-bottom: 20px;
         font-style: italic;
+        width: 58em;
     }
     
     .collapsible-section {
@@ -366,6 +367,7 @@ window.Quarto = {
 
     #all-scoring-rounds {
         overflow-x: auto; /* Allow horizontal scrolling for the entire container if needed */
+        width: 58em;
     }
 
     #expand-all, #collapse-all {
@@ -373,16 +375,7 @@ window.Quarto = {
     }
 </style>
 <h2 class="anchored">
-Last testing round
-</h2>
-<div id="testing-info">
-
-</div>
-<div id="testing-container">
-
-</div>
-<h2 class="anchored">
-Last scoring round
+Latest scoring round
 </h2>
 <div id="last-scoring-round-info">
 Loading…
@@ -390,6 +383,10 @@ Loading…
 <div id="last-scoring-round-table-container">
 
 </div>
+<h2 class="anchored">
+Next round
+</h2>
+<p><em><span id="next-round-name"></span></em></p>
 <h2 class="anchored">
 All scoring rounds
 </h2>
@@ -444,9 +441,20 @@ Loading…
         const date = new Date(dateString);
         return date.toLocaleString();
     }
+    
+    // Function to format date, dropping the date if it's today
+    function formatDateMaybe(dateString) {
+        const date = new Date(dateString);
+        const today = new Date();
+        if (date.toDateString() === today.toDateString()) {
+            return date.toLocaleTimeString();
+        } else {
+            return formatDate(dateString);
+        }
+    }
 
     function createTournamentInfo(data) {
-        const { tournament_id, start_time, end_time, scoring_weight, groups } = data;
+        const { tournament_id, start_time, end_time, scoring_weight, groups, round_name } = data;
         const username = localStorage.getItem('github_username');
         let userScore = 'N/A';
     
@@ -459,20 +467,9 @@ Loading…
             }
         }
     
-        // Function to format date, dropping the date if it's today
-        function formatDateMaybe(dateString) {
-            const date = new Date(dateString);
-            const today = new Date();
-            if (date.toDateString() === today.toDateString()) {
-                return date.toLocaleTimeString();
-            } else {
-                return formatDate(dateString);
-            }
-        }
-    
         return `
             <strong>You: ${userScore}${scoring_weight !== undefined ? ` × weight ${scoring_weight.toFixed(2)}` : ''}</strong> | 
-            Tournament #${tournament_id} | 
+            Tournament #${tournament_id} (<em>${round_name}</em>) | 
             Started: ${formatDateMaybe(start_time)} | 
             Ended: ${formatDateMaybe(end_time)}
         `;
@@ -543,7 +540,7 @@ Loading…
         sortedPlayers.forEach((player, index) => {
             const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
             const ebotClass = isEBot(player.name) ? 'ebot' : '';
-            const isUserRow = player.name === username;
+            const isUserRow = (player.name === username) || (player.name === username + '[UPDATE]');
             const userRowClass = isUserRow ? 'user-row' : '';
             const userRowStyle = isUserRow ? 'style="font-weight: bold; border: 2px solid #000;"' : '';
             
@@ -572,18 +569,6 @@ Loading…
         tableHTML += '</table>';
         return tableHTML;
     }
-    
-    async function initTestingTables() {
-        const data = await fetchLeaderboardTestingData();
-        const last_testing_round_data = data;
-        if (last_testing_round_data) {
-            const testingInfoContainer = document.getElementById('testing-info');
-            testingInfoContainer.innerHTML = createTournamentInfo(last_testing_round_data);
-            const testingTableContainer = document.getElementById('testing-container');
-            testingTableContainer.innerHTML = createMatrixTable(last_testing_round_data, false);
-        }
-    }
-
     async function initTables() {
         const data = await fetchLeaderboardScoringData();
         const allRoundsData = data["scoring_rounds"];
@@ -657,9 +642,14 @@ Loading…
                 section.toggleBtn.textContent = 'Expand';
             });
         });
+        
+        if (data["next_round_name"] === null) {
+            document.getElementById('next-round-name').innerHTML = `(no more rounds)`;
+        } else {
+            document.getElementById('next-round-name').innerHTML = `"${data["next_round_name"]}" at ${formatDateMaybe(data["next_round_time"])}`;
+        }
     }
 
-    initTestingTables();
     initTables();
 </script>
 

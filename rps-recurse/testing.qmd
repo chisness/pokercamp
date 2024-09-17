@@ -11,17 +11,78 @@ format:
 ---
 
 <style>
+    #user-bar {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        display: inline-flex;
+        align-items: center;
+        background-color: #f1f1f1;
+        padding: 5px 5px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    #user-bar img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    #user-bar span {
+        margin-right: 10px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 120px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 4px;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover { background-color: #f1f1f1; border-radius: 4px; }
+    
+    
     table {
         border-collapse: collapse;
         margin-top: 20px;
     }
     th, td {
         border: 1px solid #ddd;
-        padding: 8px;
+        padding: 2px;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     th {
-        background-color: #f2f2f2;
+        background-color: #f1f1f1;
+        white-space: nowrap;
+        padding: 8px;
+        vertical-align: bottom;
+    }
+    #testing-container th {
+        height: 13.7em;
+    }
+    th > div {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        height: 100%;
+        width: 100%;
+        text-align: left;
+        padding: 0 3px;
     }
     .half-row-gap {
         height: 10px;
@@ -38,28 +99,80 @@ format:
     .ebot {
         display: none;
     }
-    .tournament-info {
+    #testing-info {
         margin-bottom: 20px;
         font-style: italic;
+        width: 58em;
+    }
+    
+    /* Styles for history tables */
+    #match-logs table {
+        border-collapse: collapse;
+        font-size: 12px;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    #match-logs th, #match-logs td {
+        border: 1px solid #ddd;
+        padding: 2px;
+        text-align: center;
+        width: 2.4em;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    #match-logs th:first-child,
+    #match-logs td:first-child {
+        width: 100px;
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    /* Styles for collapsibles */
+    details {
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        padding: 0.5em 0.5em 0;
+        margin-bottom: 1em;
+    }
+
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+        cursor: pointer;
+    }
+
+    details[open] {
+        padding: 0.5em;
+    }
+
+    details[open] summary {
+        border-bottom: 1px solid #aaa;
+        margin-bottom: 0.5em;
     }
 </style>
 
-<h2>Latest submission versus all latest submissions</h2>
+<div id="user-bar"></div>
 
-<div id="tournament-info"></div>
-<div id="table-container"></div>
+<h2>Latest submission versus last scoring round</h2>
 
-<h2>Latest submission versus last round submissions</h2>
-
-<div id="testing-info"></div>
+<div id="testing-info">Loading...</div>
 <div id="testing-container"></div>
+
+<h2>Next round</h2>
+<em><span id="next-round-name">Loading...</span></em>
+
+<h2>Match logs</h2>
+<div id="match-logs"><em>Loading...</em></div>
 
 <script>
     const NON_EBOT_EXCEPTIONS = ['Di10n', 'Elijer', 'Crazytieguy'];
 
-    async function fetchLeaderboardTestingData() {
+    async function fetchLastLeaderboardScoringData() {
         try {
-            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240917/latest');
+            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240917/scoring/last');
             return response.data;
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -90,6 +203,29 @@ format:
         }
     }
 
+    async function fetchHistories() {
+        try {
+            const token = localStorage.getItem('github_oauth_token');
+            const username = localStorage.getItem('github_username');
+            
+            if (!token || !username) {
+                console.error('Token or username not found');
+                return null;
+            }
+
+            const response = await axios.post('https://staff-dev1.poker.camp:8443/histories-rps-hackathon-20240917/', {
+                token: token,
+                username: username
+            });
+            
+            console.log('Histories API Response:', response.data);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching testing data:', error);
+            return null;
+        }
+    }
+
     function getColorForValue(value) {
         const normalizedValue = (value + 100) / 200; // Normalize to 0-1
         if (normalizedValue < 0.5) {
@@ -108,46 +244,107 @@ format:
     }
 
     function isEBot(name) {
-        return /^[A-Z]/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
+        return /^\d-/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
     }
 
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleString();
     }
+    
+    // Function to format date, dropping the date if it's today
+    function formatDateMaybe(dateString) {
+        const date = new Date(dateString);
+        const today = new Date();
+        if (date.toDateString() === today.toDateString()) {
+            return date.toLocaleTimeString();
+        } else {
+            return formatDate(dateString);
+        }
+    }
 
     function createTournamentInfo(data) {
-        const { tournament_id, start_time, end_time } = data;
+        const { tournament_id, start_time, end_time, scoring_weight, groups, round_name } = data;
+        const username = localStorage.getItem('github_username');
+        let userScore = 'N/A';
+    
+        // Find the user's score
+        for (let group of groups) {
+            const player = group.players.find(p => p.name === username);
+            if (player) {
+                userScore = player.mean.toFixed(2);
+                break;
+            }
+        }
+    
         return `
-            <div class="tournament-info">
-                Tournament ID: ${tournament_id} | 
-                Started: ${formatDate(start_time)} | 
-                Ended: ${formatDate(end_time)}
-            </div>
+            <strong>You: ${userScore}${scoring_weight !== undefined ? ` × weight ${scoring_weight.toFixed(2)}` : ''}</strong> | 
+            Tournament #${tournament_id} (<em>${round_name}</em>) | 
+            Started: ${formatDateMaybe(start_time)} | 
+            Ended: ${formatDateMaybe(end_time)}
         `;
     }
 
-    function createMatrixTable(data) {
+    function createMatrixTable(data, isLatestRound = false, allRoundsData = null) {
         const players = data.groups.flatMap(group => group.players);
-        const nonEBots = players.filter(player => !isEBot(player.name));
-        const eBots = players.filter(player => isEBot(player.name));
+        let nonEBots = players.filter(player => !isEBot(player.name));
+        let eBots = players.filter(player => isEBot(player.name));
+    
+        // Calculate sum of scores against non-eBots for each eBot
+        eBots.forEach(eBot => {
+            eBot.sumAgainstNonEBots = nonEBots.reduce((sum, nonEBot) => {
+                return sum + (eBot.matchups[nonEBot.name] || 0);
+            }, 0);
+        });
+    
+        if (isLatestRound && allRoundsData) {
+            // Calculate total scores
+            const totalScores = calculateTotalScores(allRoundsData);
+            players.forEach(player => {
+                player.totalScore = totalScores[player.name] || 0;
+            });
+            // Sort non-eBots by total score descending for the latest round
+            nonEBots.sort((a, b) => b.totalScore - a.totalScore);
+        } else {
+            // Sort non-eBots by round score descending for previous rounds
+            nonEBots.sort((a, b) => b.mean - a.mean);
+        }
+    
+        // Sort eBots by sum of scores against non-eBots ascending
+        eBots.sort((a, b) => a.sumAgainstNonEBots - b.sumAgainstNonEBots);
+    
         const sortedPlayers = [...nonEBots, ...eBots];
         const playerNames = sortedPlayers.map(player => player.name);
-
-        let tableHTML = '<table><tr><th>Player</th><th>Score</th><th class="half-column-gap"></th>';
+    
+        let tableHTML = '<table><tr><th>Player</th>';
+        if (isLatestRound) {
+            tableHTML += '<th>Total Score</th>';
+        }
+        tableHTML += '<th>Round Score</th><th class="half-column-gap"></th>';
         playerNames.forEach((name, index) => {
             if (index === nonEBots.length) {
                 tableHTML += '<th class="half-column-gap"></th>';
             }
-            tableHTML += `<th>${name}</th>`;
+            tableHTML += `<th><div>${name}</div></th>`;
         });
         tableHTML += '</tr>';
-
+        
+        const username = localStorage.getItem('github_username');
+        
         sortedPlayers.forEach((player, index) => {
             const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
             const ebotClass = isEBot(player.name) ? 'ebot' : '';
-            tableHTML += `<tr class="${playerClass} ${ebotClass}">`;
-            tableHTML += `<td>${player.name}</td><td>${formatNumber(player.mean)}</td><td class="half-column-gap"></td>`;
+            const isUserRow = (player.name === username) || (player.name === username + '[UPDATE]');
+            const userRowClass = isUserRow ? 'user-row' : '';
+            const userRowStyle = isUserRow ? 'style="font-weight: bold; border: 2px solid #000;"' : '';
+            
+            tableHTML += `<tr class="${playerClass} ${ebotClass} ${userRowClass}" ${userRowStyle}>`;
+            tableHTML += `<td>${player.name}</td>`;
+            if (isLatestRound) {
+                tableHTML += `<td>${formatNumber(player.totalScore)}</td>`;
+            }
+            tableHTML += `<td>${formatNumber(player.mean)}</td>`;
+            tableHTML += '<td class="half-column-gap"></td>';
             playerNames.forEach((opponentName, opponentIndex) => {
                 if (opponentIndex === nonEBots.length) {
                     tableHTML += '<td class="half-column-gap"></td>';
@@ -162,47 +359,143 @@ format:
             });
             tableHTML += '</tr>';
         });
-
+    
         tableHTML += '</table>';
         return tableHTML;
     }
 
     async function initTable() {
-        const data = await fetchLeaderboardTestingData();
-        if (data) {
-            const tournamentInfoContainer = document.getElementById('tournament-info');
-            tournamentInfoContainer.innerHTML = createTournamentInfo(data);
-
-            const tableContainer = document.getElementById('table-container');
-            tableContainer.innerHTML = createMatrixTable(data);
-        }
-
-        const testingData = await fetchTestingData();
-        if (testingData) {
-            const testingInfoContainer = document.getElementById('testing-info');
-            testingInfoContainer.innerHTML = `
-                <div class="tournament-info">
-                    Started: ${formatDate(testingData.start_time)} | 
-                    Ended: ${formatDate(testingData.end_time)} |
-                    Mean Score: ${formatNumber(testingData.mean_score)}
-                </div>
-            `;
-
-            const testingContainer = document.getElementById('testing-container');
-            let testingTableHTML = '<table><tr><th>Opponent</th><th>Score</th></tr>';
-            for (const [opponent, score] of Object.entries(testingData.matchups)) {
-                const backgroundColor = getColorForValue(score);
-                testingTableHTML += `
-                    <tr>
-                        <td>${opponent}</td>
-                        <td class="score-cell" style="background-color: ${backgroundColor}">${formatNumber(score)}</td>
-                    </tr>
+        const last_leaderboard_scoring_data = await fetchLastLeaderboardScoringData();
+        const testing_data = await fetchTestingData();
+        console.log(last_leaderboard_scoring_data);
+        console.log(testing_data);
+        if (last_leaderboard_scoring_data) {
+            if (testing_data) {
+                const testingInfoContainer = document.getElementById('testing-info');
+                testingInfoContainer.innerHTML = `
+                    <div class="tournament-info">
+                        <strong>You: ${formatNumber(testing_data.mean)}</strong> | Started: ${formatDateMaybe(testing_data.start_time)} | 
+                        Ended: ${formatDateMaybe(testing_data.end_time)}
+                    </div>
                 `;
+                
+                last_leaderboard_scoring_data['latest_round']['groups'].push({'players':[testing_data]})
+    
+                const testingContainer = document.getElementById('testing-container');
+                
+                testingContainer.innerHTML = createMatrixTable(last_leaderboard_scoring_data['latest_round'], false);
+                /*
+                let testingTableHTML = '<table><tr><th>Opponent</th><th>Score</th></tr>';
+                for (const [opponent, score] of Object.entries(testing_data.matchups)) {
+                    const backgroundColor = getColorForValue(score);
+                    testingTableHTML += `
+                        <tr>
+                            <td>${opponent}</td>
+                            <td class="score-cell" style="background-color: ${backgroundColor}">${formatNumber(score)}</td>
+                        </tr>
+                    `;
+                }
+                testingTableHTML += '</table>';
+                testingContainer.innerHTML = testingTableHTML;
+                */
             }
-            testingTableHTML += '</table>';
-            testingContainer.innerHTML = testingTableHTML;
+        }
+        
+        if (last_leaderboard_scoring_data["next_round_name"] === null) {
+            document.getElementById('next-round-name').innerHTML = `(no more rounds)`;
+        } else {
+            document.getElementById('next-round-name').innerHTML = `"${last_leaderboard_scoring_data["next_round_name"]}" at ${formatDateMaybe(last_leaderboard_scoring_data["next_round_time"])}`;
+        }
+    }
+    
+    async function initHistories() {
+        const histories = await fetchHistories();
+        if (!histories || !histories.round_histories) {
+            console.error('No history data available');
+            return;
+        }
+    
+        const username = localStorage.getItem('github_username');
+        const matchLogsContainer = document.getElementById('match-logs');
+        matchLogsContainer.innerHTML = ''; // Clear any existing content
+    
+        // Sort rounds by date (assuming the keys are date strings)
+        const sortedRounds = Object.keys(histories.round_histories).sort().reverse();
+    
+        sortedRounds.forEach(roundDate => {
+            const roundData = histories.round_histories[roundDate];
+            const collapsible = document.createElement('details');
+            const summary = document.createElement('summary');
+            summary.textContent = `Round ${roundDate}`;
+            collapsible.appendChild(summary);
+    
+            const content = document.createElement('div');
+            
+            // Add tournament info
+            const tournamentInfo = roundData.tournament_info;
+            const infoP = document.createElement('p');
+            infoP.innerHTML = `Start: ${formatDate(tournamentInfo.start_time)}<br>End: ${formatDate(tournamentInfo.end_time)}`;
+            content.appendChild(infoP);
+    
+            // Create tables for each matchup
+            Object.keys(roundData.matchups).forEach(opponent => {
+                const matchup = roundData.matchups[opponent];
+                const table = document.createElement('table');
+                table.style.marginBottom = '20px';
+                
+                // Create table header
+                const headerRow = table.insertRow();
+                const playerHeader = document.createElement('th');
+                playerHeader.textContent = 'Player';
+                headerRow.appendChild(playerHeader);
+                for (let i = 0; i < 200; i++) {
+                    const th = document.createElement('th');
+                    th.textContent = i + 1;
+                    headerRow.appendChild(th);
+                }
+    
+                // Create rows for username and opponent
+                const userRow = table.insertRow();
+                const opponentRow = table.insertRow();
+    
+                // Add player names in the first column
+                const userNameCell = userRow.insertCell();
+                userNameCell.textContent = username;
+                userNameCell.style.fontWeight = 'bold';
+                
+                const opponentNameCell = opponentRow.insertCell();
+                opponentNameCell.textContent = opponent;
+                opponentNameCell.style.fontWeight = 'bold';
+    
+                matchup.forEach((round, index) => {
+                    const userCell = userRow.insertCell();
+                    const opponentCell = opponentRow.insertCell();
+    
+                    userCell.textContent = round[0];
+                    opponentCell.textContent = round[1];
+    
+                    // Color coding
+                    userCell.style.backgroundColor = getColorForAction(round[0]);
+                    opponentCell.style.backgroundColor = getColorForAction(round[1]);
+                });
+                content.appendChild(table);
+            });
+    
+            collapsible.appendChild(content);
+            matchLogsContainer.appendChild(collapsible);
+        });
+    }
+    
+    function getColorForAction(action) {
+        switch (action) {
+            case 'R': return '#FFB3BA'; // Light Red for Rock
+            case 'P': return '#BAFFC9'; // Light Green for Paper
+            case 'S': return '#BAE1FF'; // Light Blue for Scissors
+            default: return '#FFFFFF'; // White for unknown
         }
     }
 
     initTable();
+    
+    initHistories();
 </script>

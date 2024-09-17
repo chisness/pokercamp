@@ -909,7 +909,7 @@
     "href": "rps-recurse/leaderboard.html",
     "title": "RPS Hackathon @ Recurse: Leaderboard",
     "section": "",
-    "text": "Last testing round\n\n\n\n\n\n\n\n\nLast scoring round\n\n\nLoading…\n\n\n\n\n\nAll scoring rounds\n\n\nLoading…",
+    "text": "Latest scoring round\n\n\nLoading…\n\n\n\n\n\nNext round\n\n\n\nAll scoring rounds\n\n\nLoading…",
     "crumbs": [
       "About",
       "Hackathon",
@@ -1017,7 +1017,7 @@
     "href": "rps-recurse/testing.html",
     "title": "RPS Hackathon @ Recurse: Test Results",
     "section": "",
-    "text": "Latest submission versus all latest submissions\n\n\n\n\n\n\n\n\nLatest submission versus last round submissions",
+    "text": "Latest submission versus last scoring round\n\n\nLoading…\n\n\n\n\n\nNext round\n\nLoading…\n\nMatch logs\n\n\nLoading…",
     "crumbs": [
       "About",
       "Hackathon",

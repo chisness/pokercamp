@@ -124,16 +124,7 @@ format:
     .editor, .fixed-text {
         width: 100%;
     }
-<<<<<<< HEAD
-=======
 
-    .indented-editor {
-        margin-left: 20px;
-    }
-    .double-indented-editor {
-        margin-left: 40px;
-    }
->>>>>>> df53597d11b6609c1b8f45f580f515461e446e88
 </style>
 
 <div id="user-bar"></div>
