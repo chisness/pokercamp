@@ -275,7 +275,7 @@ format:
             if (isLatestRound) {
                 tableHTML += `<td>${formatNumber(player.totalScore)}</td>`;
             }
-            tableHTML += `<td>${formatNumber(player.mean)}</td>`;
+            tableHTML += `<td>${formatNumber(player.mean)} × ${data.scoring_weight}</td>`;
             tableHTML += '<td class="half-column-gap"></td>';
             playerNames.forEach((opponentName, opponentIndex) => {
                 if (opponentIndex === nonEBots.length) {
