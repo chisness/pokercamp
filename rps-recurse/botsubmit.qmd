@@ -272,11 +272,23 @@ function createEditor(parent, index) {
         tabSize: 4,
         indentWithTabs: false,
         lineWrapping: true,
-        viewportMargin: Infinity
+        viewportMargin: Infinity,
+        extraKeys: {
+            "Enter": function(cm) {
+                cm.replaceSelection("\n");
+                cm.refresh();
+            }
+        }
     });
 
     // Add change listener to each editor
-    editors[index].on('change', autoSave);
+    editors[index].on('change', function(cm) {
+        autoSave();
+        cm.refresh();
+    });
+
+    // Ensure the editor is properly sized
+    setTimeout(() => editors[index].refresh(), 1);
 }
 
 function setupAutosave() {
@@ -293,14 +305,22 @@ function autoSave() {
     localStorage.setItem('autoSavedCode', JSON.stringify(savedCode));
 }
 
+function refreshAllEditors() {
+    editors.forEach(editor => {
+        editor.refresh();
+    });
+}
+
 function loadSavedCode() {
     console.log('load');
     const savedCode = JSON.parse(localStorage.getItem('autoSavedCode'));
     if (savedCode && editors.length === savedCode.length) {
         editors.forEach((editor, index) => {
             editor.setValue(savedCode[index]);
+            editor.refresh();  // Refresh each editor after setting value
         });
     }
+    refreshAllEditors();  // Refresh all editors after loading
 }
 
 function openTab(evt, tabName) {
@@ -397,5 +417,6 @@ window.addEventListener('load', function() {
     initializeEditor();
     loadSavedCode();
     document.getElementById("defaultOpen").click();
+    setTimeout(refreshAllEditors, 100);  // Refresh editors after a short delay
 });
 </script>
