@@ -125,6 +125,9 @@ format:
     .indented-editor {
         margin-left: 20px;
     }
+    .double-indented-editor {
+        margin-left: 40px;
+    }
 </style>
 
 <div id="user-bar"></div>
@@ -222,7 +225,8 @@ from skeleton.runner import parse_args, run_bot`,
     run_bot(Player(), parse_args())`
 ];
 
-const indentedSections = [false, false, true, true, true, false];
+const indentedSections = [false, true, true, true, true, false];
+const doubleIndentedSections = [false, false, true, true, true, false];
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
@@ -230,19 +234,21 @@ function initializeEditor() {
 
     for (let i = 0; i < fixedCode.length; i++) {
         // Add fixed text
-        addFixedText(codeEditor, fixedCode[i], indentedSections[i]);
+        addFixedText(codeEditor, fixedCode[i], indentedSections[i], doubleIndentedSections[i]);
 
         // Create editable box (if it's not the last fixed text)
         if (i < initialCode.length) {
-            createEditor(codeEditor, i, indentedSections[i]);
+            createEditor(codeEditor, i, indentedSections[i], doubleIndentedSections[i]);
         }
     }
 }
 
-function addFixedText(parent, text, isIndented) {
+function addFixedText(parent, text, isIndented, isDoubleIndented) {
     const fixedTextDiv = document.createElement('div');
     fixedTextDiv.className = 'fixed-text';
-    if (isIndented) {
+    if (isDoubleIndented) {
+        fixedTextDiv.classList.add('double-indented-editor');
+    } else if (isIndented) {
         fixedTextDiv.classList.add('indented-editor');
     }
     parent.appendChild(fixedTextDiv);
@@ -259,10 +265,12 @@ function addFixedText(parent, text, isIndented) {
     });
 }
 
-function createEditor(parent, index, isIndented) {
+function createEditor(parent, index, isIndented, isDoubleIndented) {
     const editorDiv = document.createElement('div');
     editorDiv.className = 'editor';
-    if (isIndented) {
+    if (isDoubleIndented) {
+        editorDiv.classList.add('double-indented-editor');
+    } else if (isIndented) {
         editorDiv.classList.add('indented-editor');
     }
     parent.appendChild(editorDiv);
