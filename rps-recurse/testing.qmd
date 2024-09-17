@@ -124,7 +124,6 @@ format:
 
     #match-logs th:first-child,
     #match-logs td:first-child {
-        width: 220px;
         text-align: left;
         padding-left: 5px;
     }
@@ -286,6 +285,10 @@ format:
     }
 
     function createMatrixTable(data, isLatestRound = false, allRoundsData = null) {
+        if (data === null) {
+            return `<em>(no rounds scored yet)</em>`
+        }
+        
         const players = data.groups.flatMap(group => group.players);
         let nonEBots = players.filter(player => !isEBot(player.name));
         let eBots = players.filter(player => isEBot(player.name));
@@ -418,6 +421,10 @@ format:
         const username = localStorage.getItem('github_username');
         const matchLogsContainer = document.getElementById('match-logs');
         matchLogsContainer.innerHTML = ''; // Clear any existing content
+        
+        if (histories.round_histories.length === 0 ) {
+            matchLogsContainer.innerHTML = `<em>(no rounds scored yet)</em>`;
+        }
     
         // Sort rounds by date (assuming the keys are date strings)
         const sortedRounds = Object.keys(histories.round_histories).sort().reverse();
@@ -426,7 +433,7 @@ format:
             const roundData = histories.round_histories[roundDate];
             const collapsible = document.createElement('details');
             const summary = document.createElement('summary');
-            summary.textContent = `Round ${roundDate}`;
+            summary.textContent = `Tournament #${roundData['tournament_info']['tournament_id']} | Started: ${formatDateMaybe(roundData['tournament_info']['start_time'])} | Ended: ${formatDateMaybe(roundData['tournament_info']['end_time'])}`;
             collapsible.appendChild(summary);
     
             const content = document.createElement('div');

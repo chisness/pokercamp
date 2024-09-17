@@ -44,7 +44,7 @@ At the end of each round, you'll get the following information:
   - Your score is reported as profit per 100 games
 - Game histories for each match
 
-Your cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.2x (i.e. round 2 1.2x, round 3 1.44x, etc.). 
+Your cumulative score is the sum of all of the round scores, where the first round is worth 1x and each future round increases by 1.3x (_i.e._, round 2 is 1.3x, round 3 is 1.69x, etc.). 
 
 ### Prizes
 There will be a small on-theme prize for the overall winner. 
