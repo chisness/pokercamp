@@ -214,56 +214,58 @@ function initializeEditor() {
     codeEditor.innerHTML = ''; // Clear existing content
 
     // Add fixed text at the top
-    addFixedText(codeEditor, `from skeleton.actions import RockAction, PaperAction, ScissorsAction
+    addFixedText(codeEditor, `\`\`\`python
+from skeleton.actions import RockAction, PaperAction, ScissorsAction
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
-`);
+\`\`\``);
 
     // Create the first editable box
     createEditor(codeEditor, 0);
 
     // Add fixed text for class definition
-    addFixedText(codeEditor, `
+    addFixedText(codeEditor, `\`\`\`python
 class Player(Bot):
-`);
+\`\`\``);
 
     // Create the second editable box (empty)
     createEditor(codeEditor, 1);
 
     // Add fixed text for __init__ method
-    addFixedText(codeEditor, `    def __init__(self):
-`);
+    addFixedText(codeEditor, `\`\`\`python
+    def __init__(self):
+\`\`\``);
 
     // Create the third editable box
     createEditor(codeEditor, 2);
 
     // Add fixed text for handle_results method
-    addFixedText(codeEditor, `
+    addFixedText(codeEditor, `\`\`\`python
     def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-`);
+\`\`\``);
 
     // Create the fourth editable box
     createEditor(codeEditor, 3);
 
     // Add fixed text for get_action method
-    addFixedText(codeEditor, `
+    addFixedText(codeEditor, `\`\`\`python
     def get_action(self, *, match_clock):
-`);
+\`\`\``);
 
     // Create the fifth editable box
     createEditor(codeEditor, 4);
 
     // Add fixed text at the bottom
-    addFixedText(codeEditor, `
+    addFixedText(codeEditor, `\`\`\`python
 if __name__ == '__main__':
     run_bot(Player(), parse_args())
-`);
+\`\`\``);
 }
 
 function addFixedText(parent, text) {
     const fixedText = document.createElement('pre');
     fixedText.className = 'fixed-text';
-    fixedText.textContent = text;
+    fixedText.innerHTML = text;
     parent.appendChild(fixedText);
 }
 
@@ -344,18 +346,14 @@ from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
 
 ${editors[0].getValue()}
-
 class Player(Bot):
 ${editors[1].getValue()}
     def __init__(self):
 ${editors[2].getValue()}
-
     def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
 ${editors[3].getValue()}
-
     def get_action(self, *, match_clock):
 ${editors[4].getValue()}
-
 if __name__ == '__main__':
     run_bot(Player(), parse_args())`;
 
