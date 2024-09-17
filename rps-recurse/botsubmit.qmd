@@ -194,6 +194,7 @@ if __name__ == '__main__':
 
 <script>
 let editors = [];
+let fixedEditors = [];
 let enable_autosave = false;
 
 const initialCode = [
@@ -245,7 +246,7 @@ function addFixedText(parent, index) {
     fixedTextDiv.setAttribute('style', `padding-left: ${fixedCode[index][0]}em`);
     parent.appendChild(fixedTextDiv);
 
-    CodeMirror(fixedTextDiv, {
+    fixedEditors[index] = CodeMirror(fixedTextDiv, {
         value: fixedCode[index][1],
         mode: "python",
         theme: "default",
@@ -311,6 +312,11 @@ function refreshAllEditors() {
     });
 }
 
+function refreshAllCodeMirrors() {
+    editors.forEach(editor => editor.refresh());
+    fixedEditors.forEach(editor => editor.refresh());
+}
+
 function loadSavedCode() {
     console.log('load');
     const savedCode = JSON.parse(localStorage.getItem('autoSavedCode'));
@@ -335,6 +341,7 @@ function openTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+    setTimeout(refreshAllCodeMirrors, 10); // Add this line
 }
 
 function submitCode() {
@@ -417,6 +424,7 @@ window.addEventListener('load', function() {
     initializeEditor();
     loadSavedCode();
     document.getElementById("defaultOpen").click();
-    setTimeout(refreshAllEditors, 100);  // Refresh editors after a short delay
+    // Add a delay before refreshing to ensure DOM is fully rendered
+    setTimeout(refreshAllCodeMirrors, 100);
 });
 </script>
