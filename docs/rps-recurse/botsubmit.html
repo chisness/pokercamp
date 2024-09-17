@@ -382,17 +382,17 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
     .CodeMirror {
         height: auto;
     }
-    .fixed-text {
+    .fixed-text .CodeMirror {
         background-color: #f0f0f0;
-        padding: 10px;
-        margin: 5px 0;
         border-radius: 5px;
-        white-space: pre-wrap;
-        font-family: monospace;
+        padding: 5px;
     }
-    .editor {
+    .editor, .fixed-text {
         margin: 10px 0;
-        border: 1px solid #ccc;
+        width: 100%;
+    }
+    .indented-editor {
+        padding-left: 20px;
     }
 </style>
 <div id="user-bar">
@@ -474,17 +474,17 @@ let editors = [];
 const initialCode = [
     `import random`,
     ``,
-    `        # Called when a new matchup starts. Called exactly once.
-        self.my_profit = 0
-        self.history = []`,
-    `        # Called after a round. Called NUM_ROUNDS times.
-        self.history.append((my_action, their_action))
-        self.my_profit += my_payoff`,
-    `        # Where the magic happens.
-        # Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
-        #
-        # Should return a RockAction(), PaperAction(), or ScissorsAction().
-        return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
+    `# Called when a new matchup starts. Called exactly once.
+self.my_profit = 0
+self.history = []`,
+    `# Called after a round. Called NUM_ROUNDS times.
+self.history.append((my_action, their_action))
+self.my_profit += my_payoff`,
+    `# Where the magic happens.
+# Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
+#
+# Should return a RockAction(), PaperAction(), or ScissorsAction().
+return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
 ];
 
 const fixedCode = [
@@ -492,12 +492,14 @@ const fixedCode = [
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot`,
     `class Player(Bot):`,
-    `    def __init__(self):`,
-    `    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`,
-    `    def get_action(self, *, match_clock):`,
+    `def __init__(self):`,
+    `def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`,
+    `def get_action(self, *, match_clock):`,
     `if __name__ == '__main__':
     run_bot(Player(), parse_args())`
 ];
+
+const indentedSections = [false, false, true, true, true, false];
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
@@ -505,18 +507,21 @@ function initializeEditor() {
 
     for (let i = 0; i < fixedCode.length; i++) {
         // Add fixed text
-        addFixedText(codeEditor, fixedCode[i]);
+        addFixedText(codeEditor, fixedCode[i], indentedSections[i]);
 
         // Create editable box (if it's not the last fixed text)
         if (i < initialCode.length) {
-            createEditor(codeEditor, i);
+            createEditor(codeEditor, i, indentedSections[i]);
         }
     }
 }
 
-function addFixedText(parent, text) {
+function addFixedText(parent, text, isIndented) {
     const fixedTextDiv = document.createElement('div');
     fixedTextDiv.className = 'fixed-text';
+    if (isIndented) {
+        fixedTextDiv.classList.add('indented-editor');
+    }
     parent.appendChild(fixedTextDiv);
 
     CodeMirror(fixedTextDiv, {
@@ -526,12 +531,17 @@ function addFixedText(parent, text) {
         readOnly: true,
         lineNumbers: false,
         lineWrapping: true,
+        indentUnit: 4,
+        tabSize: 4,
     });
 }
 
-function createEditor(parent, index) {
+function createEditor(parent, index, isIndented) {
     const editorDiv = document.createElement('div');
     editorDiv.className = 'editor';
+    if (isIndented) {
+        editorDiv.classList.add('indented-editor');
+    }
     parent.appendChild(editorDiv);
 
     editors[index] = CodeMirror(editorDiv, {
@@ -601,21 +611,22 @@ function submitCode() {
     const token = localStorage.getItem('github_oauth_token') || 'unknown';
     
     // Combine the fixed text and editable parts
-    const fullCode = `from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
+    const fullCode = `${fixedCode[0]}
 
-${editors[0].getValue()}
-class Player(Bot):
-${editors[1].getValue()}
-    def __init__(self):
-${editors[2].getValue()}
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-${editors[3].getValue()}
-    def get_action(self, *, match_clock):
-${editors[4].getValue()}
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())`;
+${initialCode[0]}
+
+${fixedCode[1]}
+${initialCode[1]}
+${fixedCode[2]}
+${initialCode[2]}
+
+${fixedCode[3]}
+${initialCode[3]}
+
+${fixedCode[4]}
+${initialCode[4]}
+
+${fixedCode[5]}`;
 
     const data = {
         'username': username,
