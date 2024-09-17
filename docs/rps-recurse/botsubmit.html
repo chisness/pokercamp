@@ -376,12 +376,23 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
     
     #code-editor {
         width: 100%;
-        height: 700px;
         border: 1px solid #ccc;
         font-size: 14px;
     }
     .CodeMirror {
-        height: 100%;
+        height: auto;
+    }
+    .fixed-text {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        font-family: monospace;
+    }
+    .editor {
+        margin: 10px 0;
+        border: 1px solid #ccc;
     }
 </style>
 <div id="user-bar">
@@ -458,38 +469,89 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
 </p>
 </div>
 <script>
-let editor;
+let editors = [];
 
-const initialCode = `from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
-
-import random
-
-class Player(Bot):
-    def __init__(self):
-        # Called when a new matchup starts. Called exactly once.
+const initialCode = [
+    `import random`,
+    ``,
+    `        # Called when a new matchup starts. Called exactly once.
         self.my_profit = 0
-        self.history = []
-
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-        # Called after a round. Called NUM_ROUNDS times.
+        self.history = []`,
+    `        # Called after a round. Called NUM_ROUNDS times.
         self.history.append((my_action, their_action))
-        self.my_profit += my_payoff
-
-    def get_action(self, *, match_clock):
-        # Where the magic happens.
+        self.my_profit += my_payoff`,
+    `        # Where the magic happens.
         # Called when the engine needs an action from your bot, NUM_ROUNDS times in total.
         #
         # Should return a RockAction(), PaperAction(), or ScissorsAction().
-        return random.choice([RockAction(), PaperAction(), ScissorsAction()])
-
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())`;
+        return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
+];
 
 function initializeEditor() {
-    editor = CodeMirror(document.getElementById("code-editor"), {
-        value: initialCode,
+    const codeEditor = document.getElementById("code-editor");
+    codeEditor.innerHTML = ''; // Clear existing content
+
+    // Add fixed text at the top
+    addFixedText(codeEditor, `from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+`);
+
+    // Create the first editable box
+    createEditor(codeEditor, 0);
+
+    // Add fixed text for class definition
+    addFixedText(codeEditor, `
+class Player(Bot):
+`);
+
+    // Create the second editable box (empty)
+    createEditor(codeEditor, 1);
+
+    // Add fixed text for __init__ method
+    addFixedText(codeEditor, `    def __init__(self):
+`);
+
+    // Create the third editable box
+    createEditor(codeEditor, 2);
+
+    // Add fixed text for handle_results method
+    addFixedText(codeEditor, `
+    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
+`);
+
+    // Create the fourth editable box
+    createEditor(codeEditor, 3);
+
+    // Add fixed text for get_action method
+    addFixedText(codeEditor, `
+    def get_action(self, *, match_clock):
+`);
+
+    // Create the fifth editable box
+    createEditor(codeEditor, 4);
+
+    // Add fixed text at the bottom
+    addFixedText(codeEditor, `
+if __name__ == '__main__':
+    run_bot(Player(), parse_args())
+`);
+}
+
+function addFixedText(parent, text) {
+    const fixedText = document.createElement('pre');
+    fixedText.className = 'fixed-text';
+    fixedText.textContent = text;
+    parent.appendChild(fixedText);
+}
+
+function createEditor(parent, index) {
+    const editorDiv = document.createElement('div');
+    editorDiv.className = 'editor';
+    parent.appendChild(editorDiv);
+
+    editors[index] = CodeMirror(editorDiv, {
+        value: initialCode[index],
         mode: "python",
         theme: "default",
         lineNumbers: true,
@@ -510,14 +572,17 @@ function autoSave() {
     }
     
     console.log('autosave');
-    localStorage.setItem('autoSavedCode', editor.getValue());
+    const savedCode = editors.map(editor => editor.getValue());
+    localStorage.setItem('autoSavedCode', JSON.stringify(savedCode));
 }
 
 function loadSavedCode() {
     console.log('load');
-    const savedCode = localStorage.getItem('autoSavedCode');
-    if (savedCode && editor) {
-        editor.setValue(savedCode);
+    const savedCode = JSON.parse(localStorage.getItem('autoSavedCode'));
+    if (savedCode && editors.length === savedCode.length) {
+        editors.forEach((editor, index) => {
+            editor.setValue(savedCode[index]);
+        });
     }
     
     enable_autosave = true;
@@ -551,12 +616,33 @@ function submitCode() {
     const username = localStorage.getItem('github_username') || 'unknown';
     const token = localStorage.getItem('github_oauth_token') || 'unknown';
     
+    // Combine the fixed text and editable parts
+    const fullCode = `from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+
+${editors[0].getValue()}
+
+class Player(Bot):
+${editors[1].getValue()}
+    def __init__(self):
+${editors[2].getValue()}
+
+    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
+${editors[3].getValue()}
+
+    def get_action(self, *, match_clock):
+${editors[4].getValue()}
+
+if __name__ == '__main__':
+    run_bot(Player(), parse_args())`;
+
     const data = {
         'username': username,
         'token': token,
         'snippets': {
             'full_code': {
-                'contents': editor.getValue(),
+                'contents': fullCode,
                 'indent': 0
             }
         }
