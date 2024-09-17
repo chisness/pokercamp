@@ -111,7 +111,6 @@ format:
     }
     .CodeMirror {
         height: auto;
-        min-height: 3em;
     }
     .CodeMirror-scroll {
         min-height: 3em;
