@@ -510,28 +510,6 @@ Match logs
         }
     }
 
-    function createTournamentInfo(data) {
-        const { tournament_id, start_time, end_time, scoring_weight, groups, round_name } = data;
-        const username = localStorage.getItem('github_username');
-        let userScore = 'N/A';
-    
-        // Find the user's score
-        for (let group of groups) {
-            const player = group.players.find(p => p.name === username);
-            if (player) {
-                userScore = player.mean.toFixed(2);
-                break;
-            }
-        }
-    
-        return `
-            <strong>You: ${userScore}${scoring_weight !== undefined ? ` × weight ${scoring_weight.toFixed(2)}` : ''}</strong> | 
-            Tournament #${tournament_id} (<em>${round_name}</em>) | 
-            Started: ${formatDateMaybe(start_time)} | 
-            Ended: ${formatDateMaybe(end_time)}
-        `;
-    }
-
     function createMatrixTable(data, isLatestRound = false, allRoundsData = null) {
         if (data === null) {
             return `<em>(no rounds scored yet)</em>`
@@ -625,7 +603,7 @@ Match logs
                 const testingInfoContainer = document.getElementById('testing-info');
                 testingInfoContainer.innerHTML = `
                     <div class="tournament-info">
-                        <strong>You: ${formatNumber(testing_data.mean)}</strong> | Started: ${formatDateMaybe(testing_data.start_time)} | 
+                        <strong>You: ${formatNumber(testing_data.mean)} (testing)</strong> | Replaying Tournament #${testing_data.tournament_id.split('+')[0]}${testing_data['round_name'] ? '  <em>(' + testing_data['round_name'] + ')</em>' : ''} | Started: ${formatDateMaybe(testing_data.start_time)} | 
                         Ended: ${formatDateMaybe(testing_data.end_time)}
                     </div>
                 `;
@@ -688,12 +666,9 @@ Match logs
             
             // Add tournament info
             const tournamentInfo = roundData.tournament_info;
-            const infoP = document.createElement('p');
-            infoP.innerHTML = `Start: ${formatDate(tournamentInfo.start_time)}<br>End: ${formatDate(tournamentInfo.end_time)}`;
-            content.appendChild(infoP);
-    
+            
             // Create tables for each matchup
-            Object.keys(roundData.matchups).forEach(opponent => {
+            Object.keys(roundData.matchups).sort((a, b) => a.localeCompare(b)).forEach(opponent => {
                 const matchup = roundData.matchups[opponent];
                 const table = document.createElement('table');
                 table.style.marginBottom = '20px';
