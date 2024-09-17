@@ -489,8 +489,8 @@ format:
     function getColorForAction(action) {
         switch (action) {
             case 'R': return '#FFB3BA'; // Light Red for Rock
-            case 'P': return '#BAFFC9'; // Light Green for Paper
-            case 'S': return '#BAE1FF'; // Light Blue for Scissors
+            case 'P': return '#BAE1FF'; // Light Blue for Paper
+            case 'S': return '#BAFFC9'; // Light Green for Scissors
             default: return '#FFFFFF'; // White for unknown
         }
     }
