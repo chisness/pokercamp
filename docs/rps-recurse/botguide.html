@@ -150,7 +150,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -201,91 +201,10 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">RPS Hackathon @ Recurse: Guide to Building a Bot</h1>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RPS Hackathon @ Recurse</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse/instructions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hackathon Instructions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse/botguide.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Guide to Building a Bot</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Hackathon</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../login/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Login with GitHub</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse/botsubmit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Submit Your Bot</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse/leaderboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Leaderboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rps-recurse/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Results</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
@@ -303,7 +222,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#win-vs.-last-action" id="toc-win-vs.-last-action" class="nav-link" data-scroll-target="#win-vs.-last-action">Win vs.&nbsp;Last Action</a></li>
   <li><a href="#win-vs.-opponent-playing-win-vs.-last-action" id="toc-win-vs.-opponent-playing-win-vs.-last-action" class="nav-link" data-scroll-target="#win-vs.-opponent-playing-win-vs.-last-action">Win vs.&nbsp;Opponent Playing “Win vs.&nbsp;Last Action”</a></li>
-  <li><a href="#win-vs.-full-opponent-most-frequent" id="toc-win-vs.-full-opponent-most-frequent" class="nav-link" data-scroll-target="#win-vs.-full-opponent-most-frequent">Win vs.&nbsp;Full Opponent Most Frequent</a></li>
+  <li><a href="#win-vs.-full-opponent-history-most-frequent" id="toc-win-vs.-full-opponent-history-most-frequent" class="nav-link" data-scroll-target="#win-vs.-full-opponent-history-most-frequent">Win vs.&nbsp;Full Opponent History Most Frequent</a></li>
   <li><a href="#sometimes-playing-randomly" id="toc-sometimes-playing-randomly" class="nav-link" data-scroll-target="#sometimes-playing-randomly">Sometimes Playing Randomly</a></li>
   <li><a href="#exploiting-a-weak-bot" id="toc-exploiting-a-weak-bot" class="nav-link" data-scroll-target="#exploiting-a-weak-bot">Exploiting a Weak Bot</a></li>
   <li><a href="#exploiting-a-weak-bart" id="toc-exploiting-a-weak-bart" class="nav-link" data-scroll-target="#exploiting-a-weak-bart">Exploiting a Weak Bart</a></li>
@@ -319,7 +238,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">RPS Hackathon @ Recurse: Guide to Building a Bot</h1>
+<h1 class="title">RPS Hackathon @ Recurse: Guide to Building a Bot</h1>
 </div>
 
 
@@ -339,7 +258,7 @@ window.Quarto = {
 <section id="starter-code" class="level2">
 <h2 class="anchored" data-anchor-id="starter-code">Starter Code</h2>
 <p>We provide Python starter code that you can submit directly on the Submission page or that you can download and submit through file upload.</p>
-<p>We provide code that by default plays randomly. The random strategy <a href="#game-theory-equilibrium">guarantees a breakeven result</a>, which won’t be good enough to win because it won’t take advantage of the suboptimal environment bots.</p>
+<p>We provide code that by default plays randomly. The random strategy <a href="#game-theory-equilibrium">guarantees a breakeven result</a>, which won’t be good enough to win because it won’t take advantage of the suboptimal house bots!</p>
 <section id="variables" class="level3">
 <h3 class="anchored" data-anchor-id="variables">Variables</h3>
 <p>The profit so far in the match is stored in:</p>
@@ -376,7 +295,7 @@ window.Quarto = {
 </section>
 <section id="problem-solving-and-strategy" class="level2">
 <h2 class="anchored" data-anchor-id="problem-solving-and-strategy">Problem Solving and Strategy</h2>
-<p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)!</p>
+<p>The goal of the hackathon is to figure out how to adapt to your opponents (other participants and house bots)!</p>
 <p>A few possible strategies are:</p>
 <ul>
 <li>Single out specific bots that are exploitable and write code to identify and exploit them
@@ -393,7 +312,7 @@ window.Quarto = {
 </section>
 <section id="writing-your-own-bot" class="level2">
 <h2 class="anchored" data-anchor-id="writing-your-own-bot">Writing Your Own Bot</h2>
-<p>Your bot will be facing off against a variety of participant bots and environment bots. Here we illustrate some examples of how to write more complex bots. The main function to modify is <code>get_action</code>, which is the one that returns the move for each game.</p>
+<p>Your bot will be facing off against a variety of participant bots and house bots. Here we illustrate some examples of how to write more complex bots. The main function to modify is <code>get_action</code>, which is the one that returns the move for each game.</p>
 <section id="win-vs.-last-action" class="level3">
 <h3 class="anchored" data-anchor-id="win-vs.-last-action">Win vs.&nbsp;Last Action</h3>
 <p>This bot plays to beat the opponent’s last action.</p>
@@ -427,8 +346,8 @@ window.Quarto = {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>: <span class="co"># 1st game play randomly </span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="win-vs.-full-opponent-most-frequent" class="level3">
-<h3 class="anchored" data-anchor-id="win-vs.-full-opponent-most-frequent">Win vs.&nbsp;Full Opponent Most Frequent</h3>
+<section id="win-vs.-full-opponent-history-most-frequent" class="level3">
+<h3 class="anchored" data-anchor-id="win-vs.-full-opponent-history-most-frequent">Win vs.&nbsp;Full Opponent History Most Frequent</h3>
 <p>Instead of just looking at the last action, this bot plays to beat the most frequent opponent action over the entire history.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_action(<span class="va">self</span>, <span class="op">*</span>, match_clock):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">self</span>.history: <span class="co"># After the 1st game</span></span>
@@ -465,7 +384,7 @@ window.Quarto = {
 <p>One of the bots above is <a href="#win-vs.-last-action">Win vs.&nbsp;Last Action</a>. Suppose that you have a theory that you should actually play to beat the action that they played <em>two</em> games ago.</p>
 <p>You could try something like this:</p>
 <ul>
-<li>If you’re winning or tying, then play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time so that you aren’t too predictable</li>
+<li>If you’re winning or tying, then play to beat the action from two games ago 80% of the time and play randomly 20% of the time so that you aren’t too predictable</li>
 <li>If you’re losing (i.e.&nbsp;maybe this strategy is not working well), then always play randomly</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_action(<span class="va">self</span>, <span class="op">*</span>, match_clock):</span>
@@ -474,7 +393,7 @@ window.Quarto = {
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">self</span>.my_profit <span class="op">&lt;</span> <span class="dv">0</span>:</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> random.choice([RockAction(), PaperAction(), ScissorsAction()])</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If winning or tying, and there is at least 2 rounds of history</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If winning or tying, and there are at least 2 rounds of history</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.history) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 80% chance to play based on opponent's action from 2 rounds ago</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.8</span>:</span>
@@ -638,8 +557,8 @@ s + r = 2p \\
 <p>The following code will run <code>n_games</code> between <code>p1_name</code> and <code>p2_name</code> and output the result to the specified <code>output_dir</code>.</p>
 <p>The generic usage is:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 {p1_name} {p1_file_path} <span class="op">-</span>p2 {p2_name} {p2_file_path} <span class="op">-</span>o {output_dir} <span class="op">-</span>n {n_games}<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example, to run a 1000 game match with two bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/default/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, to run a 200 game match with two bots that are named <code>p1</code> and <code>p2</code> with files in the <code>players/default/</code> folder and outputted to the <code>p1p2test</code> folder, do this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>python3 engine.py <span class="op">-</span>p1 <span class="st">'p1'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>p2 <span class="st">'p2'</span> players<span class="op">/</span>default<span class="op">/</span> <span class="op">-</span>o p1p2test <span class="op">-</span>n <span class="dv">200</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The output files are in the folder <code>p1p2test</code>:</p>
 <ol type="1">
 <li><p><code>scores.p1.p2.txt</code> contains the raw scores of each player</p></li>
