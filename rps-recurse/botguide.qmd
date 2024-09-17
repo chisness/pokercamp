@@ -9,7 +9,7 @@ format:
 ## Starter Code
 We provide Python starter code that you can submit directly on the Submission page or that you can download and submit through file upload. 
 
-We provide code that by default plays randomly. The random strategy [guarantees a breakeven result](#game-theory-equilibrium), which won't be good enough to win because it won't take advantage of the suboptimal environment bots. 
+We provide code that by default plays randomly. The random strategy [guarantees a breakeven result](#game-theory-equilibrium), which won't be good enough to win because it won't take advantage of the suboptimal house bots! 
 
 ### Variables
 
@@ -36,7 +36,7 @@ And the history of your actions and your opponent actions are stored in the foll
   - You can return `RockAction()`, `PaperAction()`, or `ScissorsAction()`
 
 ## Problem Solving and Strategy
-The goal of the hackathon is to figure out how to adapt to your opponents (other participants and environment bots)! 
+The goal of the hackathon is to figure out how to adapt to your opponents (other participants and house bots)! 
 
 A few possible strategies are: 
 
@@ -49,7 +49,7 @@ A few possible strategies are:
 We welcome you to use LLMs like [Claude](https://claude.ai) or [ChatGPT](https://chatgpt.com). You can provide the starter code/code samples and get their help with implementing better strategies. 
 
 ## Writing Your Own Bot
-Your bot will be facing off against a variety of participant bots and environment bots. Here we illustrate some examples of how to write more complex bots. The main function to modify is `get_action`, which is the one that returns the move for each game. 
+Your bot will be facing off against a variety of participant bots and house bots. Here we illustrate some examples of how to write more complex bots. The main function to modify is `get_action`, which is the one that returns the move for each game. 
 
 ### Win vs. Last Action
 This bot plays to beat the opponent's last action. 
@@ -91,7 +91,7 @@ def get_action(self, *, match_clock):
       return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 ```
 
-### Win vs. Full Opponent Most Frequent
+### Win vs. Full Opponent History Most Frequent
 Instead of just looking at the last action, this bot plays to beat the most frequent opponent action over the entire history. 
 
 ```python
@@ -132,7 +132,7 @@ One of the bots above is [Win vs. Last Action](#win-vs.-last-action). Suppose th
 
 You could try something like this: 
 
-- If you're winning or tying, then play to beat the action from 2 games ago 80% of the time and play randomly 20% of the time so that you aren't too predictable
+- If you're winning or tying, then play to beat the action from two games ago 80% of the time and play randomly 20% of the time so that you aren't too predictable
 - If you're losing (i.e. maybe this strategy is not working well), then always play randomly
 
 ```python
@@ -142,7 +142,7 @@ def get_action(self, *, match_clock):
   if self.my_profit < 0:
       return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 
-  # If winning or tying, and there is at least 2 rounds of history
+  # If winning or tying, and there are at least 2 rounds of history
   if len(self.history) >= 2:
       # 80% chance to play based on opponent's action from 2 rounds ago
       if random.random() < 0.8:
@@ -321,10 +321,10 @@ The generic usage is:
 python3 engine.py -p1 {p1_name} {p1_file_path} -p2 {p2_name} {p2_file_path} -o {output_dir} -n {n_games}"
 ```
 
-For example, to run a 1000 game match with two bots that are named `p1` and `p2` with files in the `players/default/` folder and outputted to the `p1p2test` folder, do this: 
+For example, to run a 200 game match with two bots that are named `p1` and `p2` with files in the `players/default/` folder and outputted to the `p1p2test` folder, do this: 
 
 ```python
-python3 engine.py -p1 'p1' players/default/ -p2 'p2' players/default/ -o p1p2test -n 1000
+python3 engine.py -p1 'p1' players/default/ -p2 'p2' players/default/ -o p1p2test -n 200
 ```
 
 The output files are in the folder `p1p2test`: 
