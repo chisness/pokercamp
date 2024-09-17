@@ -113,7 +113,6 @@ format:
         height: auto;
     }
     .CodeMirror-scroll {
-        min-height: 3em;
     }
     .fixed-text .CodeMirror {
         background-color: #f0f0f0;
