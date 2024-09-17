@@ -652,7 +652,7 @@ Match logs
         if (last_leaderboard_scoring_data["next_round_name"] === null) {
             document.getElementById('next-round-name').innerHTML = `(no more rounds)`;
         } else {
-            document.getElementById('next-round-name').innerHTML = `"${last_leaderboard_scoring_data["next_round_name"]}" at ${formatDateMaybe(last_leaderboard_scoring_data["next_round_time"])}`;
+            document.getElementById('next-round-name').innerHTML = `"${last_leaderboard_scoring_data["next_round_name"]}" scored at ${formatDateMaybe(last_leaderboard_scoring_data["next_round_time"])}`;
         }
     }
     
