@@ -61,7 +61,7 @@ function fetchUserInfo(token) {
 
 function logout() {
             localStorage.removeItem('github_oauth_token');
-            window.location.href = '/rps-hackathon-fractal';
+            window.location.href = '/rps-recurse';
         }
 
 // Run the auth check when the page loads

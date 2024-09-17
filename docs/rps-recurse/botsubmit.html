@@ -110,7 +110,10 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </script>
-<script src="../login/auth.js"></script> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+<script src="../login/auth.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
 
 
 <meta property="og:title" content="RPS Hackathon @ Recurse: Submit – Poker Camp">
@@ -164,10 +167,10 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://forms.gle/xx1tZNbwpYBLASmQ8" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mailbox2-flag"></i></a>
+    <a href="https://pokercamp.substack.com/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mailbox2-flag"></i></a>
     <a href="https://discord.gg/KZQK2xN8Da" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-discord"></i></a>
     <a href="https://x.com/pokercamporg" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://github.com/chisness/pokercamp" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pokercamp" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -247,7 +250,7 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rps-recurse/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Results</span></a>
+ <span class="menu-text">Tests and Logs</span></a>
   </div>
 </li>
       </ul>
@@ -382,6 +385,8 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
     .CodeMirror {
         height: auto;
     }
+    .CodeMirror-scroll {
+    }
     .fixed-text .CodeMirror {
         background-color: #f0f0f0;
         border-radius: 5px;
@@ -394,7 +399,6 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
     .editor, .fixed-text {
         width: 100%;
     }
-
 </style>
 <div id="user-bar">
 
@@ -429,7 +433,7 @@ Upload File
 <span id="uploadStatus"></span>
 </form>
 <hr>
-<p>The file you upload should be a python file that looks something like this. You can download this file in the <a href="https://github.com/pokercamp/rps-engine">rps-engine repo</a> at <code>players/default/player.py</code> and for more info on testing see: <a href="../rps-recurse/botguide.html#game-engine">Game Engine</a>.</p>
+<p>The file you upload should be a Python file that looks something like this. You can download this file in the <a href="https://github.com/pokercamp/rps-engine">rps-engine repo</a> at <code>players/default/player.py</code> and for more info on testing see: <a href="../rps-recurse/botguide.html#game-engine">Game Engine</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple example bot, written in Python.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skeleton.actions <span class="im">import</span> RockAction, PaperAction, ScissorsAction</span>
@@ -471,6 +475,8 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
 </div>
 <script>
 let editors = [];
+let fixedEditors = [];
+let enable_autosave = false;
 
 const initialCode = [
     [0,`import random`],
@@ -497,23 +503,22 @@ from skeleton.runner import parse_args, run_bot`],
     [4, `def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`],
     [4, `def get_action(self, *, match_clock):`],
     [0, `if __name__ == '__main__':
-run_bot(Player(), parse_args())`]
+    run_bot(Player(), parse_args())`]
 ];
-
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
     codeEditor.innerHTML = ''; // Clear existing content
 
     for (let i = 0; i < fixedCode.length; i++) {
-        // Add fixed text
         addFixedText(codeEditor, i);
-
-        // Create editable box (if it's not the last fixed text)
         if (i < initialCode.length) {
             createEditor(codeEditor, i);
         }
     }
+
+    // Set up autosave after editors are created
+    setupAutosave();
 }
 
 function addFixedText(parent, index) {
@@ -522,7 +527,7 @@ function addFixedText(parent, index) {
     fixedTextDiv.setAttribute('style', `padding-left: ${fixedCode[index][0]}em`);
     parent.appendChild(fixedTextDiv);
 
-    CodeMirror(fixedTextDiv, {
+    fixedEditors[index] = CodeMirror(fixedTextDiv, {
         value: fixedCode[index][1],
         mode: "python",
         theme: "default",
@@ -540,8 +545,6 @@ function createEditor(parent, index) {
     editorDiv.setAttribute('style', `padding-left: ${initialCode[index][0]+0.5}em`);
     parent.appendChild(editorDiv);
 
-    console.log(initialCode[index][1]);
-
     editors[index] = CodeMirror(editorDiv, {
         value: initialCode[index][1],
         mode: "python",
@@ -551,12 +554,28 @@ function createEditor(parent, index) {
         tabSize: 4,
         indentWithTabs: false,
         lineWrapping: true,
-        viewportMargin: Infinity
+        viewportMargin: Infinity,
+        extraKeys: {
+            "Enter": function(cm) {
+                cm.replaceSelection("\n");
+                cm.refresh();
+            }
+        }
     });
+
+    // Add change listener to each editor
+    editors[index].on('change', function(cm) {
+        autoSave();
+        cm.refresh();
+    });
+
+    // Ensure the editor is properly sized
+    setTimeout(() => editors[index].refresh(), 1);
 }
 
-// Autosave functionality
-let enable_autosave = false;
+function setupAutosave() {
+    enable_autosave = true;
+}
 
 function autoSave() {
     if (!enable_autosave) {
@@ -568,24 +587,28 @@ function autoSave() {
     localStorage.setItem('autoSavedCode', JSON.stringify(savedCode));
 }
 
+function refreshAllEditors() {
+    editors.forEach(editor => {
+        editor.refresh();
+    });
+}
+
+function refreshAllCodeMirrors() {
+    editors.forEach(editor => editor.refresh());
+    fixedEditors.forEach(editor => editor.refresh());
+}
+
 function loadSavedCode() {
     console.log('load');
     const savedCode = JSON.parse(localStorage.getItem('autoSavedCode'));
     if (savedCode && editors.length === savedCode.length) {
         editors.forEach((editor, index) => {
             editor.setValue(savedCode[index]);
+            editor.refresh();  // Refresh each editor after setting value
         });
     }
-    
-    enable_autosave = true;
+    refreshAllEditors();  // Refresh all editors after loading
 }
-
-setInterval(autoSave, 3000); // 3 seconds
-
-window.addEventListener('load', function() {
-    initializeEditor();
-    loadSavedCode();
-});
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -599,9 +622,8 @@ function openTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+    setTimeout(refreshAllCodeMirrors, 10); // Add this line
 }
-
-document.getElementById("defaultOpen").click();
 
 function submitCode() {
     autoSave();
@@ -677,6 +699,14 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
         document.getElementById('uploadStatus').textContent = 'Error: ' + error.message;
         console.error('Error:', error);
     });
+});
+
+window.addEventListener('load', function() {
+    initializeEditor();
+    loadSavedCode();
+    document.getElementById("defaultOpen").click();
+    // Add a delay before refreshing to ensure DOM is fully rendered
+    setTimeout(refreshAllCodeMirrors, 100);
 });
 </script>
 

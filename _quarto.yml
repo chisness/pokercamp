@@ -30,13 +30,13 @@ website:
 
     tools: 
       - icon: mailbox2-flag
-        href: https://forms.gle/xx1tZNbwpYBLASmQ8
+        href: https://pokercamp.substack.com/
       - icon: discord
         href: https://discord.gg/KZQK2xN8Da
       - icon: twitter
         href: https://x.com/pokercamporg
       - icon: github
-        href: https://github.com/chisness/pokercamp
+        href: https://github.com/pokercamp
   sidebar: 
     - id: rps-hackathon-recurse
       style: "docked"
@@ -58,7 +58,7 @@ website:
               href: "rps-recurse/botsubmit.qmd"
             - text: "Leaderboard"
               href: "rps-recurse/leaderboard.qmd"
-            - text: "Test Results"
+            - text: "Tests and Logs"
               href: "rps-recurse/testing.qmd"
     - id: rps-hackathon-fractal
       style: "docked"
