@@ -147,7 +147,7 @@ format:
 
 ---
 
-The file you upload should be a python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd/#game-engine).
+The file you upload should be a python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd#game-engine).
 
 ```python
 # Simple example bot, written in Python.
@@ -209,64 +209,46 @@ const initialCode = [
         return random.choice([RockAction(), PaperAction(), ScissorsAction()])`
 ];
 
+const fixedCode = [
+    `from skeleton.actions import RockAction, PaperAction, ScissorsAction
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot`,
+    `class Player(Bot):`,
+    `    def __init__(self):`,
+    `    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`,
+    `    def get_action(self, *, match_clock):`,
+    `if __name__ == '__main__':
+    run_bot(Player(), parse_args())`
+];
+
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
     codeEditor.innerHTML = ''; // Clear existing content
 
-    // Add fixed text at the top
-    addFixedText(codeEditor, `\`\`\`python
-from skeleton.actions import RockAction, PaperAction, ScissorsAction
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
-\`\`\``);
+    for (let i = 0; i < fixedCode.length; i++) {
+        // Add fixed text
+        addFixedText(codeEditor, fixedCode[i]);
 
-    // Create the first editable box
-    createEditor(codeEditor, 0);
-
-    // Add fixed text for class definition
-    addFixedText(codeEditor, `\`\`\`python
-class Player(Bot):
-\`\`\``);
-
-    // Create the second editable box (empty)
-    createEditor(codeEditor, 1);
-
-    // Add fixed text for __init__ method
-    addFixedText(codeEditor, `\`\`\`python
-    def __init__(self):
-\`\`\``);
-
-    // Create the third editable box
-    createEditor(codeEditor, 2);
-
-    // Add fixed text for handle_results method
-    addFixedText(codeEditor, `\`\`\`python
-    def handle_results(self, *, my_action, their_action, my_payoff, match_clock):
-\`\`\``);
-
-    // Create the fourth editable box
-    createEditor(codeEditor, 3);
-
-    // Add fixed text for get_action method
-    addFixedText(codeEditor, `\`\`\`python
-    def get_action(self, *, match_clock):
-\`\`\``);
-
-    // Create the fifth editable box
-    createEditor(codeEditor, 4);
-
-    // Add fixed text at the bottom
-    addFixedText(codeEditor, `\`\`\`python
-if __name__ == '__main__':
-    run_bot(Player(), parse_args())
-\`\`\``);
+        // Create editable box (if it's not the last fixed text)
+        if (i < initialCode.length) {
+            createEditor(codeEditor, i);
+        }
+    }
 }
 
 function addFixedText(parent, text) {
-    const fixedText = document.createElement('pre');
-    fixedText.className = 'fixed-text';
-    fixedText.innerHTML = text;
-    parent.appendChild(fixedText);
+    const fixedTextDiv = document.createElement('div');
+    fixedTextDiv.className = 'fixed-text';
+    parent.appendChild(fixedTextDiv);
+
+    CodeMirror(fixedTextDiv, {
+        value: text,
+        mode: "python",
+        theme: "default",
+        readOnly: true,
+        lineNumbers: false,
+        lineWrapping: true,
+    });
 }
 
 function createEditor(parent, index) {
