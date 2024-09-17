@@ -135,9 +135,7 @@ format:
 
 ---
 
-The file you upload should be a python file that looks something like this. 
-
-You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd/#game-engine).
+The file you upload should be a python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd/#game-engine).
 
 ```python
 # Simple example bot, written in Python.
