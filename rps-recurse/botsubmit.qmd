@@ -6,10 +6,10 @@ format:
   html:
     math: false
     header-includes:
-      <script src="/login/auth.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+      - <script src="/login/auth.js"></script>
+      - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+      - <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+      - <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
 ---
 
 <style>
@@ -124,7 +124,6 @@ format:
     .editor, .fixed-text {
         width: 100%;
     }
-
 </style>
 
 <div id="user-bar"></div>
@@ -146,9 +145,9 @@ format:
 <button type="submit" class="submit">Upload File</button><span id="uploadStatus"></span>
 </form>
 
----
+### Example File Format
 
-The file you upload should be a python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd#game-engine).
+The file you upload should be a Python file that looks something like this. You can download this file in the [rps-engine repo](https://github.com/pokercamp/rps-engine) at `players/default/player.py` and for more info on testing see: [Game Engine](botguide.qmd#game-engine).
 
 ```python
 # Simple example bot, written in Python.
@@ -193,6 +192,7 @@ if __name__ == '__main__':
 
 <script>
 let editors = [];
+let enable_autosave = false;
 
 const initialCode = [
     [0,`import random`],
@@ -219,23 +219,22 @@ from skeleton.runner import parse_args, run_bot`],
     [4, `def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`],
     [4, `def get_action(self, *, match_clock):`],
     [0, `if __name__ == '__main__':
-run_bot(Player(), parse_args())`]
+    run_bot(Player(), parse_args())`]
 ];
-
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
     codeEditor.innerHTML = ''; // Clear existing content
 
     for (let i = 0; i < fixedCode.length; i++) {
-        // Add fixed text
         addFixedText(codeEditor, i);
-
-        // Create editable box (if it's not the last fixed text)
         if (i < initialCode.length) {
             createEditor(codeEditor, i);
         }
     }
+
+    // Set up autosave after editors are created
+    setupAutosave();
 }
 
 function addFixedText(parent, index) {
@@ -262,8 +261,6 @@ function createEditor(parent, index) {
     editorDiv.setAttribute('style', `padding-left: ${initialCode[index][0]+0.5}em`);
     parent.appendChild(editorDiv);
 
-    console.log(initialCode[index][1]);
-
     editors[index] = CodeMirror(editorDiv, {
         value: initialCode[index][1],
         mode: "python",
@@ -275,10 +272,14 @@ function createEditor(parent, index) {
         lineWrapping: true,
         viewportMargin: Infinity
     });
+
+    // Add change listener to each editor
+    editors[index].on('change', autoSave);
 }
 
-// Autosave functionality
-let enable_autosave = false;
+function setupAutosave() {
+    enable_autosave = true;
+}
 
 function autoSave() {
     if (!enable_autosave) {
@@ -298,16 +299,7 @@ function loadSavedCode() {
             editor.setValue(savedCode[index]);
         });
     }
-    
-    enable_autosave = true;
 }
-
-setInterval(autoSave, 3000); // 3 seconds
-
-window.addEventListener('load', function() {
-    initializeEditor();
-    loadSavedCode();
-});
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -322,8 +314,6 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-document.getElementById("defaultOpen").click();
 
 function submitCode() {
     autoSave();
@@ -399,5 +389,11 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
         document.getElementById('uploadStatus').textContent = 'Error: ' + error.message;
         console.error('Error:', error);
     });
+});
+
+window.addEventListener('load', function() {
+    initializeEditor();
+    loadSavedCode();
+    document.getElementById("defaultOpen").click();
 });
 </script>

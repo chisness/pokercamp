@@ -110,7 +110,10 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
 </script>
-<script src="../login/auth.js"></script> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+<script src="../login/auth.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
 
 
 <meta property="og:title" content="RPS Hackathon @ Recurse: Submit – Poker Camp">
@@ -394,7 +397,6 @@ gtag('config', 'G-1R1JQVQ05N', { 'anonymize_ip': true});
     .editor, .fixed-text {
         width: 100%;
     }
-
 </style>
 <div id="user-bar">
 
@@ -428,8 +430,9 @@ Upload File
 </button>
 <span id="uploadStatus"></span>
 </form>
-<hr>
-<p>The file you upload should be a python file that looks something like this. You can download this file in the <a href="https://github.com/pokercamp/rps-engine">rps-engine repo</a> at <code>players/default/player.py</code> and for more info on testing see: <a href="../rps-recurse/botguide.html#game-engine">Game Engine</a>.</p>
+<section id="example-file-format" class="level3">
+<h3 class="anchored" data-anchor-id="example-file-format">Example File Format</h3>
+<p>The file you upload should be a Python file that looks something like this. You can download this file in the <a href="https://github.com/pokercamp/rps-engine">rps-engine repo</a> at <code>players/default/player.py</code> and for more info on testing see: <a href="../rps-recurse/botguide.html#game-engine">Game Engine</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple example bot, written in Python.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skeleton.actions <span class="im">import</span> RockAction, PaperAction, ScissorsAction</span>
@@ -463,6 +466,7 @@ Upload File
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    run_bot(Player(), parse_args())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </div>
 <div id="Link Repo" class="tabcontent">
 <p>
@@ -471,6 +475,7 @@ Coming soon! Ask if you’d like to use this to upload multiple files or somethi
 </div>
 <script>
 let editors = [];
+let enable_autosave = false;
 
 const initialCode = [
     [0,`import random`],
@@ -497,23 +502,22 @@ from skeleton.runner import parse_args, run_bot`],
     [4, `def handle_results(self, *, my_action, their_action, my_payoff, match_clock):`],
     [4, `def get_action(self, *, match_clock):`],
     [0, `if __name__ == '__main__':
-run_bot(Player(), parse_args())`]
+    run_bot(Player(), parse_args())`]
 ];
-
 
 function initializeEditor() {
     const codeEditor = document.getElementById("code-editor");
     codeEditor.innerHTML = ''; // Clear existing content
 
     for (let i = 0; i < fixedCode.length; i++) {
-        // Add fixed text
         addFixedText(codeEditor, i);
-
-        // Create editable box (if it's not the last fixed text)
         if (i < initialCode.length) {
             createEditor(codeEditor, i);
         }
     }
+
+    // Set up autosave after editors are created
+    setupAutosave();
 }
 
 function addFixedText(parent, index) {
@@ -540,8 +544,6 @@ function createEditor(parent, index) {
     editorDiv.setAttribute('style', `padding-left: ${initialCode[index][0]+0.5}em`);
     parent.appendChild(editorDiv);
 
-    console.log(initialCode[index][1]);
-
     editors[index] = CodeMirror(editorDiv, {
         value: initialCode[index][1],
         mode: "python",
@@ -553,10 +555,14 @@ function createEditor(parent, index) {
         lineWrapping: true,
         viewportMargin: Infinity
     });
+
+    // Add change listener to each editor
+    editors[index].on('change', autoSave);
 }
 
-// Autosave functionality
-let enable_autosave = false;
+function setupAutosave() {
+    enable_autosave = true;
+}
 
 function autoSave() {
     if (!enable_autosave) {
@@ -576,16 +582,7 @@ function loadSavedCode() {
             editor.setValue(savedCode[index]);
         });
     }
-    
-    enable_autosave = true;
 }
-
-setInterval(autoSave, 3000); // 3 seconds
-
-window.addEventListener('load', function() {
-    initializeEditor();
-    loadSavedCode();
-});
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -600,8 +597,6 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-document.getElementById("defaultOpen").click();
 
 function submitCode() {
     autoSave();
@@ -677,6 +672,12 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
         document.getElementById('uploadStatus').textContent = 'Error: ' + error.message;
         console.error('Error:', error);
     });
+});
+
+window.addEventListener('load', function() {
+    initializeEditor();
+    loadSavedCode();
+    document.getElementById("defaultOpen").click();
 });
 </script>
 
