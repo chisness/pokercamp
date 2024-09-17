@@ -422,7 +422,7 @@ Loading…
     }
 
     function isEBot(name) {
-        return /^[A-Z]/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
+        return /^\d-/.test(name) && !NON_EBOT_EXCEPTIONS.includes(name);
     }
 
     function formatDate(dateString) {
@@ -522,11 +522,17 @@ Loading…
             tableHTML += `<th>${name}</th>`;
         });
         tableHTML += '</tr>';
-    
+        
+        const username = localStorage.getItem('github_username');
+        
         sortedPlayers.forEach((player, index) => {
             const playerClass = player.name.replace(/[^a-zA-Z0-9]/g, '_');
             const ebotClass = isEBot(player.name) ? 'ebot' : '';
-            tableHTML += `<tr class="${playerClass} ${ebotClass}">`;
+            const isUserRow = player.name === username;
+            const userRowClass = isUserRow ? 'user-row' : '';
+            const userRowStyle = isUserRow ? 'style="font-weight: bold; border: 2px solid #000;"' : '';
+            
+            tableHTML += `<tr class="${playerClass} ${ebotClass} ${userRowClass}" ${userRowStyle}>`;
             tableHTML += `<td>${player.name}</td>`;
             if (isLatestRound) {
                 tableHTML += `<td>${formatNumber(player.totalScore)}</td>`;
