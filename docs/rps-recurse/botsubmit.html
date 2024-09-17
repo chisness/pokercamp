@@ -485,8 +485,7 @@ class Player(Bot):
         return random.choice([RockAction(), PaperAction(), ScissorsAction()])
 
 if __name__ == '__main__':
-    run_bot(Player(), parse_args())
-`;
+    run_bot(Player(), parse_args())`;
 
 function initializeEditor() {
     editor = CodeMirror(document.getElementById("code-editor"), {
