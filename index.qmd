@@ -9,19 +9,16 @@ css: styles.css
 </div>
 
 ## Sign up Now! 
-
-### Sep 23-Oct 14: [Optimal Decision Making in Gambling and Life](https://gtodecisions.com) in NYC
-
-- Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
-- 4 sessions meeting every Monday
-- 6-8pm in Chinatown
-
-[🎟️ SIGN UP!](https://gtodecisions.com/){.signup-button}
+Soon! 
 
 *Note that the programming and related materials/workshops are for educational purposes and will not use any real money.*
 
 ## In Progress Camps
-None currently
+
+### Sep 23-Oct 14: [Optimal Decision Making in Gambling and Life](https://gtodecisions.com) in NYC
+- Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
+- 4 sessions meeting every Monday
+- 6-8pm in Chinatown
 
 ## Upcoming Camps/Events 
 1. Oct TBD: *Maybe* Poker Camp in Tel Aviv
