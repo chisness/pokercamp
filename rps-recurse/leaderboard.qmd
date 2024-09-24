@@ -52,7 +52,8 @@ format:
     .ebot {
         display: none;
     }
-    #last-scoring-round-info {
+    #last-scoring-round-info,
+    #last-freeplay-round-info {
         margin-bottom: 20px;
         font-style: italic;
         width: 58em;
@@ -106,6 +107,11 @@ format:
         margin-bottom: 10px;
     }
 </style>
+
+<h2>Latest freeplay round</h2>
+
+<div id="last-freeplay-round-info">Loading...</div>
+<div id="last-freeplay-round-table-container"></div>
 
 <h2>Latest scoring round</h2>
 
@@ -275,7 +281,7 @@ format:
             if (isLatestRound) {
                 tableHTML += `<td>${formatNumber(player.totalScore)}</td>`;
             }
-            tableHTML += `<td>${formatNumber(player.mean)}</td>`;
+            tableHTML += `<td>${formatNumber(player.mean)}${data.scoring_weight === undefined ? "" : " × " + data.scoring_weight}</td>`;
             tableHTML += '<td class="half-column-gap"></td>';
             playerNames.forEach((opponentName, opponentIndex) => {
                 if (opponentIndex === nonEBots.length) {
@@ -296,6 +302,14 @@ format:
         return tableHTML;
     }
     async function initTables() {
+        const freeplay_data = await fetchLeaderboardTestingData();
+        if (freeplay_data) {
+            const tournamentInfoContainer = document.getElementById('last-freeplay-round-info');
+            tournamentInfoContainer.innerHTML = createTournamentInfo(freeplay_data);
+            const tableContainer = document.getElementById('last-freeplay-round-table-container');
+            tableContainer.innerHTML = createMatrixTable(freeplay_data, false);
+        }
+        
         const data = await fetchLeaderboardScoringData();
         const allRoundsData = data["scoring_rounds"];
         const last_round_data = allRoundsData[0];
@@ -372,7 +386,7 @@ format:
         if (data["next_round_name"] === null) {
             document.getElementById('next-round-name').innerHTML = `(no more rounds)`;
         } else {
-            document.getElementById('next-round-name').innerHTML = `"${data["next_round_name"]}" at ${formatDateMaybe(data["next_round_time"])}`;
+            document.getElementById('next-round-name').innerHTML = `"${data["next_round_name"]}" scored at ${formatDateMaybe(data["next_round_time"])}`;
         }
     }
 

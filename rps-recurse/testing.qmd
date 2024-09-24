@@ -124,7 +124,7 @@ format:
 
     #match-logs th:first-child,
     #match-logs td:first-child {
-        width: 220px;
+        width: 14em;
         text-align: left;
         padding-left: 5px;
     }
@@ -138,7 +138,6 @@ format:
     }
 
     summary {
-        font-weight: bold;
         margin: -0.5em -0.5em 0;
         padding: 0.5em;
         cursor: pointer;
@@ -263,29 +262,11 @@ format:
         }
     }
 
-    function createTournamentInfo(data) {
-        const { tournament_id, start_time, end_time, scoring_weight, groups, round_name } = data;
-        const username = localStorage.getItem('github_username');
-        let userScore = 'N/A';
-    
-        // Find the user's score
-        for (let group of groups) {
-            const player = group.players.find(p => p.name === username);
-            if (player) {
-                userScore = player.mean.toFixed(2);
-                break;
-            }
-        }
-    
-        return `
-            <strong>You: ${userScore}${scoring_weight !== undefined ? ` × weight ${scoring_weight.toFixed(2)}` : ''}</strong> | 
-            Tournament #${tournament_id} (<em>${round_name}</em>) | 
-            Started: ${formatDateMaybe(start_time)} | 
-            Ended: ${formatDateMaybe(end_time)}
-        `;
-    }
-
     function createMatrixTable(data, isLatestRound = false, allRoundsData = null) {
+        if (data === null) {
+            return `<em>(no rounds scored yet)</em>`
+        }
+        
         const players = data.groups.flatMap(group => group.players);
         let nonEBots = players.filter(player => !isEBot(player.name));
         let eBots = players.filter(player => isEBot(player.name));
@@ -374,7 +355,7 @@ format:
                 const testingInfoContainer = document.getElementById('testing-info');
                 testingInfoContainer.innerHTML = `
                     <div class="tournament-info">
-                        <strong>You: ${formatNumber(testing_data.mean)}</strong> | Started: ${formatDateMaybe(testing_data.start_time)} | 
+                        <strong>You: ${formatNumber(testing_data.mean)} (testing)</strong> | Replaying Tournament #${testing_data.tournament_id.split('+')[0]}${testing_data['round_name'] ? '  <em>(' + testing_data['round_name'] + ')</em>' : ''} | Started: ${formatDateMaybe(testing_data.start_time)} | 
                         Ended: ${formatDateMaybe(testing_data.end_time)}
                     </div>
                 `;
@@ -404,7 +385,7 @@ format:
         if (last_leaderboard_scoring_data["next_round_name"] === null) {
             document.getElementById('next-round-name').innerHTML = `(no more rounds)`;
         } else {
-            document.getElementById('next-round-name').innerHTML = `"${last_leaderboard_scoring_data["next_round_name"]}" at ${formatDateMaybe(last_leaderboard_scoring_data["next_round_time"])}`;
+            document.getElementById('next-round-name').innerHTML = `"${last_leaderboard_scoring_data["next_round_name"]}" scored at ${formatDateMaybe(last_leaderboard_scoring_data["next_round_time"])}`;
         }
     }
     
@@ -418,6 +399,10 @@ format:
         const username = localStorage.getItem('github_username');
         const matchLogsContainer = document.getElementById('match-logs');
         matchLogsContainer.innerHTML = ''; // Clear any existing content
+        
+        if (histories.round_histories.length === 0 ) {
+            matchLogsContainer.innerHTML = `<em>(no rounds scored yet)</em>`;
+        }
     
         // Sort rounds by date (assuming the keys are date strings)
         const sortedRounds = Object.keys(histories.round_histories).sort().reverse();
@@ -426,19 +411,16 @@ format:
             const roundData = histories.round_histories[roundDate];
             const collapsible = document.createElement('details');
             const summary = document.createElement('summary');
-            summary.textContent = `Round ${roundDate}`;
+            summary.innerHTML = `Tournament #${roundData['tournament_info']['tournament_id']}${roundData['tournament_info']['round_name'] ? '  <em>(' + roundData['tournament_info']['round_name'] + ')</em>' : ''} | Started: ${formatDateMaybe(roundData['tournament_info']['start_time'])} | Ended: ${formatDateMaybe(roundData['tournament_info']['end_time'])}`;
             collapsible.appendChild(summary);
     
             const content = document.createElement('div');
             
             // Add tournament info
             const tournamentInfo = roundData.tournament_info;
-            const infoP = document.createElement('p');
-            infoP.innerHTML = `Start: ${formatDate(tournamentInfo.start_time)}<br>End: ${formatDate(tournamentInfo.end_time)}`;
-            content.appendChild(infoP);
-    
+            
             // Create tables for each matchup
-            Object.keys(roundData.matchups).forEach(opponent => {
+            Object.keys(roundData.matchups).sort((a, b) => a.localeCompare(b)).forEach(opponent => {
                 const matchup = roundData.matchups[opponent];
                 const table = document.createElement('table');
                 table.style.marginBottom = '20px';
