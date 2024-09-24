@@ -35,7 +35,10 @@ Soon!
 
 ## Completed Camps/Events
 
-1. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
+1. Sep 17, 2024: Rock Paper Scissors Hackathon in NYC
+    - One day event at [Recurse Center](https://recurse.com)
+
+2. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
     - One day event at [Fractal Tech](https://fractalbootcamp.com/office)
 
 ::: {layout="[[1,1]]"}
@@ -44,7 +47,7 @@ Soon!
 ![](assets/rpsfractal2.jpg)
 :::
 
-2. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
+3. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
     - 10 sessions meeting on Mondays and Thursday
     - Thanks to [The Commons](https://www.thesfcommons.com/) and [1907 GG](https://discord.com/invite/mQzawpEPQB) for hosting! 
 
