@@ -276,28 +276,28 @@
     "href": "index.html#sign-up-now",
     "title": "Poker Camp",
     "section": "Sign up Now!",
-    "text": "Sign up Now!\nSoon!\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
+    "text": "Sign up Now!\nSoon\nNote that the programming and related materials/workshops are for educational purposes and will not use any real money."
   },
   {
     "objectID": "index.html#in-progress-camps",
     "href": "index.html#in-progress-camps",
     "title": "Poker Camp",
     "section": "In Progress Camps",
-    "text": "In Progress Camps\n\nSep 23-Oct 14: Optimal Decision Making in Gambling and Life in NYC\n\nBehind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life\n4 sessions meeting every Monday\n6-8pm in Chinatown"
+    "text": "In Progress Camps\nNone atm!"
   },
   {
     "objectID": "index.html#upcoming-campsevents",
     "href": "index.html#upcoming-campsevents",
     "title": "Poker Camp",
     "section": "Upcoming Camps/Events",
-    "text": "Upcoming Camps/Events\n\nOct TBD: Maybe Poker Camp in Tel Aviv\n\n1-day workshop\n\nJan 6-31, 2025: Maybe AI Poker Camp Intensive in TBD Location\n\nStructure TBD\n\nFeb 3-Apr 11, 2025: AI Poker Camp Virtual\n\n10 sessions meeting once/week\n\nFeb 3-Apr 11, 2025: Poker and Applied Rationality Camp Virtual\n\n10 sessions meeting once/week"
+    "text": "Upcoming Camps/Events\nWe’ve been working on teaching in a more scalable way. We still want to run these, but we aren’t sure about when they’re going to happen.\n\nDec TBD: Maybe Poker Camp in Tel Aviv\n\n1-day workshop\n\nJan 6-31, 2025: Maybe AI Poker Camp Intensive in TBD Location\n\nStructure TBD\n\nFeb 3-Apr 11, 2025: Maybe AI Poker Camp Virtual\n\n10 sessions meeting once/week\n\nFeb 3-Apr 11, 2025: Maybe Poker and Applied Rationality Camp Virtual\n\n10 sessions meeting once/week"
   },
   {
     "objectID": "index.html#completed-campsevents",
     "href": "index.html#completed-campsevents",
     "title": "Poker Camp",
     "section": "Completed Camps/Events",
-    "text": "Completed Camps/Events\n\nSep 17, 2024: Rock Paper Scissors Hackathon in NYC\n\nOne day event at Recurse Center\n\nSep 8, 2024: Rock Paper Scissors Hackathon in NYC\n\nOne day event at Fractal Tech\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 15-Aug 15, 2024: Beta AI Poker Camp in SF\n\n10 sessions meeting on Mondays and Thursday\nThanks to The Commons and 1907 GG for hosting!"
+    "text": "Completed Camps/Events\n\nSep 23-Oct 14, 2024: Optimal Decision Making in Gambling and Life in NYC\n\nFour sessions meeting on Mondays\nThanks to Fractal NYC for hosting\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2024: Rock Paper Scissors Hackathon in NYC\n\nOne day event at Recurse Center\n\nSep 8, 2024: Rock Paper Scissors Hackathon in NYC\n\nOne day event at Fractal Tech\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJul 15-Aug 15, 2024: Beta AI Poker Camp in SF\n\n10 sessions meeting on Mondays and Thursday\nThanks to The Commons and 1907 GG for hosting!"
   },
   {
     "objectID": "aipcs24/3rps_challenge.html",
@@ -951,7 +951,7 @@
     "href": "aipcs24/3rps_reading.html#data-talk-paper-scissors",
     "title": "#3 Rock Paper Scissors: Reading 1",
     "section": "Data: Talk Paper Scissors",
-    "text": "Data: Talk Paper Scissors\neieio games made a Rock Paper Scissors over voice game in which players call a phone number and get matched up with another player for a 3 game RPS match.\nThey published their 40,000 round data on X:\n Overall: R 37.2%, P 35.4%, S 27.4%\n Round 1: R 39.7%, P 37.6%, S 22.7%\n Round 2: R 34.0%, 33.4%, 32.6%\n Round 3: R 37.2%, 34.7%, 28.1%\n\n\n\n\n\n\nExpected Value Against TPS Player\n\n\n\nWhat is the best strategy per round against the average TPS player? What is your expected value per round and overall?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe best strategy is to always play Paper.\n\\(\\mathbb{E}(\\text{Round 1}) = 0.397*1 + 0.376*0 + 0.227*-1 = 0.17\\)\n\\(\\mathbb{E}(\\text{Round 2}) = 0.34*1 + 0.334*0 + 0.326*-1 = 0.014\\)\n\\(\\mathbb{E}(\\text{Round 3}) = 0.372*1 + 0.347*0 + 0.281*-1 = 0.091\\)\n\\(\\mathbb{E}(\\text{Round 4}) = 0.17 + 0.014 + 0.091 = 0.275\\)",
+    "text": "Data: Talk Paper Scissors\neieio games made a Rock Paper Scissors over voice game in which players call a phone number and get matched up with another player for a 3 game RPS match.\nThey published their 40,000 round data on X:\n Overall: R 37.2%, P 35.4%, S 27.4%\n Round 1: R 39.7%, P 37.6%, S 22.7%\n Round 2: R 34.0%, 33.4%, 32.6%\n Round 3: R 37.2%, 34.7%, 28.1%\n\n\n\n\n\n\nExpected Value Against TPS Player\n\n\n\nWhat is the best strategy per round against the average TPS player? What is your expected value per round and overall?\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe best strategy is to always play Paper.\n\\(\\mathbb{E}(\\text{Round 1}) = 0.397*1 + 0.376*0 + 0.227*-1 = 0.17\\)\n\\(\\mathbb{E}(\\text{Round 2}) = 0.34*1 + 0.334*0 + 0.326*-1 = 0.014\\)\n\\(\\mathbb{E}(\\text{Round 3}) = 0.372*1 + 0.347*0 + 0.281*-1 = 0.091\\)\n\\(\\mathbb{E}(\\text{Overall}) = 0.17 + 0.014 + 0.091 = 0.275\\)",
     "crumbs": [
       "About",
       "Challenges",

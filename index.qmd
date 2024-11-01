@@ -9,36 +9,46 @@ css: styles.css
 </div>
 
 ## Sign up Now! 
-Soon! 
+Soon
 
 *Note that the programming and related materials/workshops are for educational purposes and will not use any real money.*
 
 ## In Progress Camps
+None atm!
 
-### Sep 23-Oct 14: [Optimal Decision Making in Gambling and Life](https://gtodecisions.com) in NYC
-- Behind the Cards and Beyond the Bets: Optimal Decision Making in Gambling and Life
-- 4 sessions meeting every Monday
-- 6-8pm in Chinatown
+## Upcoming Camps/Events
+**We've been working on teaching in a more scalable way. We still want to run these, but we aren't sure about when they're going to happen.**
 
-## Upcoming Camps/Events 
-1. Oct TBD: *Maybe* Poker Camp in Tel Aviv
+1. Dec TBD: *Maybe* Poker Camp in Tel Aviv
     - 1-day workshop
 
 2. Jan 6-31, 2025: *Maybe* AI Poker Camp Intensive in TBD Location
     - Structure TBD
 
-3. Feb 3-Apr 11, 2025: AI Poker Camp Virtual
+3. Feb 3-Apr 11, 2025: *Maybe* AI Poker Camp Virtual
     - 10 sessions meeting once/week
 
-4. Feb 3-Apr 11, 2025: Poker and Applied Rationality Camp Virtual
+4. Feb 3-Apr 11, 2025: *Maybe* Poker and Applied Rationality Camp Virtual
     - 10 sessions meeting once/week
 
 ## Completed Camps/Events
 
-1. Sep 17, 2024: Rock Paper Scissors Hackathon in NYC
+1. Sep 23-Oct 14, 2024: [Optimal Decision Making in Gambling and Life](https://gtodecisions.com) in NYC
+    - Four sessions meeting on Mondays
+    - Thanks to [Fractal NYC](https://fractalnyc.com/582bfe1365f84df68cbe55d68af3e604) for hosting
+
+![](assets/odmfractal1.jpg)
+
+::: {layout="[[1,1]]"}
+![](assets/odmfractal3.jpg)
+
+![](assets/odmfractal2.jpg)
+:::
+
+2. Sep 17, 2024: Rock Paper Scissors Hackathon in NYC
     - One day event at [Recurse Center](https://recurse.com)
 
-2. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
+3. Sep 8, 2024: Rock Paper Scissors Hackathon in NYC
     - One day event at [Fractal Tech](https://fractalbootcamp.com/office)
 
 ::: {layout="[[1,1]]"}
@@ -47,7 +57,7 @@ Soon!
 ![](assets/rpsfractal2.jpg)
 :::
 
-3. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
+4. Jul 15-Aug 15, 2024: *Beta* AI Poker Camp in SF
     - 10 sessions meeting on Mondays and Thursday
     - Thanks to [The Commons](https://www.thesfcommons.com/) and [1907 GG](https://discord.com/invite/mQzawpEPQB) for hosting! 
 
