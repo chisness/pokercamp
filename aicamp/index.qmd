@@ -6,10 +6,6 @@ format:
 ---
 Build reinforcement learning AI agents to play games
 
-- Jul 15-Aug 15: Beta in SF
-
-- Jan 6-31, 2025: Intensive, structure TBD
-
-- Feb 3-Apr 11, 2025: 10 sessions meeting once/week
+- Sessions TBD
 
 ![](../assets/pcicon.png){width=50%}
