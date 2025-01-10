@@ -365,7 +365,7 @@ if __name__ == '__main__':
             };
         });
     
-        fetch('https://staff-dev1.poker.camp:8443/submit-rps-hackathon-20240908', {
+        fetch('https://staff-dev1.poker.camp:8442/submit-rps-hackathon-20240908', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -402,7 +402,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
     formData.append('username', username);
     formData.append('token', token);
 
-    fetch('https://staff-dev1.poker.camp:8443/upload-rps-hackathon-20240908', {
+    fetch('https://staff-dev1.poker.camp:8442/upload-rps-hackathon-20240908', {
         method: 'POST',
         body: formData
     })

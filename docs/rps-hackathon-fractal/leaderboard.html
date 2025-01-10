@@ -386,7 +386,7 @@ Loading…
 
     async function fetchLeaderboardTestingData() {
         try {
-            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240908/latest');
+            const response = await axios.get('https://staff-dev1.poker.camp:8442/leaderboard-rps-hackathon-20240908/latest');
             return response.data;
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -396,7 +396,7 @@ Loading…
 
     async function fetchLeaderboardScoringData() {
         try {
-            const response = await axios.get('https://staff-dev1.poker.camp:8443/leaderboard-rps-hackathon-20240908/scoring');
+            const response = await axios.get('https://staff-dev1.poker.camp:8442/leaderboard-rps-hackathon-20240908/scoring');
             return response.data;
         } catch (error) {
             console.error('Error fetching data:', error);
